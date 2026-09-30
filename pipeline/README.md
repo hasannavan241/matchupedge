@@ -1,0 +1,54 @@
+# Matchup Edge refresh pipeline
+
+Rebuilds the Matchup Edge site from public data.
+
+1. `python3 refresh.py fetch [--odds-key KEY]`
+   Downloads nflverse schedules, lines and team stats, hoopR NBA schedules and box scores, and for the Premier
+   League xgabora's match file (football-data.co.uk results, shots and odds) and openfootball's fixture list, all
+   from GitHub. Rebuilds team ratings and factors, and writes `plan.json` and `browser.js`. The Odds API key goes
+   only into `browser.js`, never into `plan.json` or the site. (`python3 refresh.py script --odds-key KEY` rewrites
+   `browser.js` from an existing `plan.json`.) If the Premier League step fails, the NFL and NBA still refresh.
+2. Run `browser.js` in a browser tab on any `https://site.api.espn.com/...` page (the Claude desktop browser:
+   `javascript_tool` with the file's text). It returns one JSON string: DraftKings lines and opening lines via ESPN,
+   National Weather Service kickoff forecasts for outdoor NFL games, ESPN NBA injuries, ESPN Premier League kickoff
+   times, results and shots on target, and ten books' prices from The Odds API when a key was passed. Credits: about
+   3 per league per run from the free plan's 500 a month; Premier League prices are asked for only when a match starts
+   within 96 hours. Save the returned object as `browser_result.json`.
+   On a server with open internet (the website's GitHub Actions workflow), `python3 refresh.py live` runs the same
+   script with Node 18+ instead and writes `browser_result.json`; its temporary copy of the script is deleted afterwards.
+3. `python3 refresh.py build` checks each section of the result against its own checksum, merges the sections that
+   pass, and writes `site.html`. A section that fails is left out and named in the output ("partial"); without a
+   valid `browser_result.json` the site builds from nflverse lines alone.
+4. `python3 refresh.py summary` prints the page's header and every positive-value pick (NFL, NBA, Premier League).
+5. For the standalone website: `build` also reads `ME_NEWS` (the morning research as `{meta, docs}`) and `ME_PICKS`
+   (the model record); `python3 refresh.py record` updates the record from the built page, and
+   `python3 refresh.py web` writes `web/index.html`, the page with a complete document head.
+
+Premier League model (`epl_core.py` plus the page's goal model): each match's expected goals are fitted to the
+market (the middle value across books of the no-vig home, draw and away chances, and each book's total, with a
+Dixon-Coles adjustment for low-scoring draws). Tested on 5,300 matches (2012-2026) against Bet365's prices from a
+day or two before kickoff, recent seasons weighted most, three factors held up in every window and move that fair
+line: about 9% of a shots-on-target rating's gap to the market's goal difference (10% of its gap on the total),
+-0.011 goals per point of last-5 form difference (fade hot form), and +0.18 goals for a team playing its second
+league match within 3 days. Elo, a goals-based rating and newly promoted teams showed nothing. Betting the
+factors walk-forward made +2.5% per bet at the best price over ten seasons, all from 2019-20 and 2020-21 (empty
+stadiums); the other eight seasons lost 2.6%, so the picks are leans.
+
+Our call picks the winner of every game from the market (fair line from every book) and a team view (power ratings plus
+every factor at full strength plus researched news), mixed per league at the weight that picked the most winners in
+walk-forward testing: NFL 85% market (66.7% of winners over 2006-2025 vs 66.5% for the betting favorite), NBA 90% (68.5%,
+level with the favorite), Premier League the market alone once lines post. The NFL team view is mapped onto the market's
+scale first (its margins run ~10% narrow and its totals ~40% wide). Best bets come from the tested model (market plus
+the factors that held up); our call's own bets can be shown but lost about 8% per bet over 2020-21 to 2025-26 at
+historical closing prices (6,696 bets; tested model -2.6% on the same games), so the page marks them untested.
+News lives in the page's database, collection `scout`, one document per game (`nfl_<game id>`, `nba_<game id>`,
+`epl_<date>_<home>_<away>` with non-alphanumerics removed), written each morning by a separate cloud scheduled task that
+researches injuries, returns, trades and signings, coaching changes, drama and motivation, with an impact in points
+(goals for soccer) per team and sources. The page also keeps its own record in collection `picks`: each upcoming game's
+call and both models' best bets, saved when the owner opens the page, graded from results. The refresh's `summary`
+reports the tested model's best bets.
+
+Files: `nfl_core.py` (NFL ratings, factors, pricing; the tested backtest code), `nba_core.py` (NBA ratings and
+factors), `epl_core.py` (Premier League history, fixtures, form and the shots-on-target rating), `refresh.py`,
+`site_template.html`. Needs Python 3 with pandas, numpy, scipy and pyarrow.
+Model evidence: NFL and NBA backtest reports linked from the site.

@@ -1,0 +1,15 @@
+# everything the refresh downloads or builds; only the pipeline code and data/ are kept
+pipeline/games.csv
+pipeline/nba_games.csv
+pipeline/nba_poss.csv
+pipeline/hoopr/
+pipeline/stw/
+pipeline/epl/
+pipeline/plan.json
+pipeline/browser.js
+pipeline/live.mjs
+pipeline/browser_result.json
+pipeline/site.html
+pipeline/web/
+__pycache__/
+out/

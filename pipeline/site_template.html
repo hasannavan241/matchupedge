@@ -1,0 +1,1606 @@
+<title>Matchup Edge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a market-anchored betting board. Header with data freshness, one controls bar, then per league an at-a-glance
+   board (who wins, best bet, value) above one compact card or row per game; every explanation opens in place. */
+:root{
+  --bg:#eef2ef; --surface:#ffffff; --surface-2:#f5f8f6; --ink:#13201b; --ink-2:#3b4943; --muted:#56655e; --line:#d9e1dc;
+  --accent:#0f6b4f; --accent-soft:#e0efe8; --accent-ink:#ffffff; --track:#e3e9e5;
+  --over:#c2410c; --over-soft:#fbe9df; --under:#2750c4; --under-soft:#e4eafb;
+  --pos:#0f7a4f; --pos-soft:#dcf0e5; --neg:#b3372a; --neg-soft:#f8e4e0; --warn:#8a5d00; --warn-soft:#f5ebd3;
+  --shadow:0 10px 28px rgba(19,32,27,.14);
+  --f-display:"Saira Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:10px;
+  --away:#2a78d6; --home:#eb6834;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1210; --surface:#131c18; --surface-2:#101814; --ink:#e3ebe7; --ink-2:#c3cec8; --muted:#93a39b; --line:#24332c;
+  --accent:#4fc79a; --accent-soft:#16302a; --accent-ink:#0c1210; --track:#1f2b26;
+  --over:#ff8a4c; --over-soft:#3a2016; --under:#8aa6ff; --under-soft:#1b2544;
+  --pos:#4fd197; --pos-soft:#12301f; --neg:#ff806d; --neg-soft:#35191a; --warn:#e2b44a; --warn-soft:#33290f;
+  --shadow:0 10px 28px rgba(0,0,0,.5); --away:#3987e5; --home:#d95926; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1210; --surface:#131c18; --surface-2:#101814; --ink:#e3ebe7; --ink-2:#c3cec8; --muted:#93a39b; --line:#24332c;
+  --accent:#4fc79a; --accent-soft:#16302a; --accent-ink:#0c1210; --track:#1f2b26;
+  --over:#ff8a4c; --over-soft:#3a2016; --under:#8aa6ff; --under-soft:#1b2544;
+  --pos:#4fd197; --pos-soft:#12301f; --neg:#ff806d; --neg-soft:#35191a; --warn:#e2b44a; --warn-soft:#33290f;
+  --shadow:0 10px 28px rgba(0,0,0,.5); --away:#3987e5; --home:#d95926; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:14px}
+@media (min-width:720px){.wrap{padding-inline:24px}}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent);font-weight:600}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)} .pos{color:var(--pos)} .neg{color:var(--neg)}
+.k{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+[hidden]{display:none!important}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;min-width:0}
+.card h2,.bhead h2{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.03em;text-transform:uppercase;margin:0 0 6px;text-wrap:balance}
+.two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.spacer{flex:1}
+.lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+select{border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:6px 8px}
+.btn{border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:13px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.sm{padding:3px 9px;font-size:12px}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 18px}
+.brand{min-width:0}
+.brand h1{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,9.5vw,46px);line-height:.9;text-transform:uppercase;letter-spacing:.01em;margin:0}
+.brand h1 span{color:var(--accent)}
+.brand p{margin:8px 0 0;color:var(--ink-2);max-width:62ch}
+.status{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+@media (max-width:760px){.status{flex-direction:row;flex-wrap:wrap;align-items:center}}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;max-width:100%;background:var(--accent-soft);color:var(--accent)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.badge.warn{background:var(--warn-soft);color:var(--warn)} .badge.dim{background:var(--track);color:var(--muted)}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs button{border:0;background:transparent;padding:10px 16px 8px;margin-bottom:-2px;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--f-display);font-size:20px;font-weight:600;letter-spacing:.03em;color:var(--muted);white-space:nowrap}
+.tabs button small{font-family:var(--f-body);font-size:12px;font-weight:500;letter-spacing:0;margin-left:6px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+@media (max-width:520px){.tabs{gap:0}.tabs button{padding:8px 10px 6px;font-size:18px}.tabs button small{display:block;margin-left:0;font-size:11px}}
+
+/* controls: pick style, market weight, odds format, books */
+.controls{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;padding:5px 13px;border-radius:999px;cursor:pointer;font-weight:600;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.sbnote{flex-basis:100%;margin:0;font-size:12.5px;color:var(--muted);max-width:110ch}
+.bookmenu>summary{list-style:none;cursor:pointer;border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:6px 10px;font-weight:600;font-size:13px;white-space:nowrap}
+.bookmenu>summary::-webkit-details-marker{display:none}
+.bookmenu>summary::after{content:" \25BE";color:var(--muted)}
+.bookmenu[open]>summary{border-color:var(--accent)}
+.bookmenu>summary .bsum{font-weight:500;color:var(--muted)}
+.bmbody{position:absolute;left:-1px;right:-1px;top:calc(100% + 6px);z-index:20;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:5px 12px;cursor:pointer;font-weight:600;font-size:13px}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip small{font-weight:500;font-size:11px;margin-left:5px;opacity:.85}
+.bmfoot{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;font-size:12px;color:var(--muted)}
+.bmfoot span{flex:1 1 280px}
+
+/* at-a-glance boards */
+.board{padding:14px 16px 10px}
+.bhead .lede{margin:0 0 8px;color:var(--ink-2);font-size:13px;max-width:88ch}
+.brws{display:flex;flex-direction:column}
+.brw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1.4fr) 92px;gap:3px 14px;align-items:center;padding:8px 8px;margin:0 -8px;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:400;border-radius:6px}
+a.brw:hover{background:var(--surface-2)}
+.brw.hdr{border-top:0;padding-block:0 6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.brw small{display:block;color:var(--muted);font-size:12px}
+.brw .bg b{font-weight:700}
+.brw b.cl{font-family:var(--f-display);font-size:18px;font-weight:700;letter-spacing:.02em;line-height:1.15}
+.brw .bp{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+.brw .bv{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.brw.hdr .bv,.brw.hdr span:last-child{text-align:right}
+@media (max-width:640px){
+  .brw b.cl{font-size:16px}
+  .brw{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;grid-template-areas:"g g v" "c p p";row-gap:6px}
+  .brw .bg{grid-area:g}.brw .bc{grid-area:c}.brw .bp{grid-area:p}.brw .bv{grid-area:v}.brw.hdr{display:none}
+  .brw:nth-child(2){border-top:0}}
+.bfoot{margin:8px 0 2px;font-size:12px;color:var(--muted);max-width:100ch}
+
+/* list controls */
+.listbar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.sortl{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+details.weights{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+details.weights summary{cursor:pointer;padding:12px 14px;font-weight:600}
+details.weights summary span{font-weight:400;color:var(--muted);font-size:13px;margin-left:8px}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px 24px;padding:4px 14px 12px}
+.w{display:flex;flex-direction:column;gap:4px;min-width:0}
+.w label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:600;font-size:13px}
+.w label output{font-family:var(--f-mono);color:var(--accent)}
+.w .wh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.w small{color:var(--muted);font-size:12px}
+.w input{width:100%;accent-color:var(--accent)}
+.wfoot{padding:0 14px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+
+/* shared marks */
+.pill{display:inline-flex;flex-wrap:wrap;column-gap:8px;row-gap:0;align-items:baseline;padding:4px 9px;border-radius:6px;font-weight:700;max-width:100%}
+.pill .num{white-space:nowrap}
+.pill.over{background:var(--over-soft);color:var(--over)} .pill.under{background:var(--under-soft);color:var(--under)}
+.pill.team{background:var(--accent-soft);color:var(--accent)}
+.pill.dim{background:var(--track);color:var(--ink-2)}
+.pill .num{font-size:13px}
+.ev{font-family:var(--f-mono);font-weight:600;font-size:12px;padding:2px 7px;border-radius:5px;white-space:nowrap}
+.ev.good{background:var(--pos-soft);color:var(--pos)} .ev.flat{background:var(--track);color:var(--muted)} .ev.neg{background:var(--neg-soft);color:var(--neg)}
+.v{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.v i{font-style:normal}
+.v-held{background:var(--pos-soft);color:var(--pos)} .v-weak{background:var(--warn-soft);color:var(--warn)}
+.v-flip,.v-lost{background:var(--neg-soft);color:var(--neg)} .v-none,.v-priced{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--track);color:var(--ink-2)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.ut{color:var(--warn);font-weight:700}
+.tagrow{display:flex;flex-wrap:wrap;gap:5px 6px;min-width:0}
+.logb{border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:5px;padding:0 7px;margin-left:2px;font-size:11.5px;line-height:18px;font-weight:600;cursor:pointer;vertical-align:1px}
+.logb:hover{background:var(--accent-soft)}
+
+/* NFL game cards */
+.list{display:flex;flex-direction:column;gap:12px}
+.game{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;scroll-margin-top:12px}
+.game.hasbet,.lrow.hasbet{border-color:var(--accent)}
+.gbody{padding:14px 16px 12px;display:flex;flex-direction:column;gap:10px}
+.ghead{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.1fr);gap:12px 18px;align-items:start}
+.match{display:flex;flex-direction:column;gap:5px;min-width:0}
+.teams{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1;letter-spacing:.02em}
+.teams i{font-style:normal;color:var(--muted);font-weight:500;font-size:20px;margin:0 6px}
+.match small{color:var(--muted);font-size:12px}
+.callcell{border-left:4px solid var(--accent);padding:1px 0 1px 12px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.callcell b.cl{font-family:var(--f-display);font-size:24px;font-weight:700;letter-spacing:.02em;line-height:1.1}
+.callcell small,.bb small{color:var(--muted);font-size:12px}
+.bb{display:flex;flex-direction:column;gap:4px;align-items:flex-start;min-width:0}
+.reason{margin:0;font-size:13.5px;color:var(--ink-2);max-width:104ch}
+@media (max-width:860px){.ghead{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.ghead .match{grid-column:1 / -1}}
+@media (max-width:560px){.callcell b.cl{font-size:20px}.teams{font-size:27px}}
+@media (max-width:360px){.ghead{grid-template-columns:minmax(0,1fr)}}
+/* the three markets side by side; on a phone each market stacks into label and value, market and ours, best price */
+.mkts{display:flex;flex-direction:column;max-width:900px;font-size:13px}
+.mrow{display:grid;grid-template-columns:96px minmax(0,1.35fr) minmax(0,.8fr) minmax(0,1.3fr) 70px;gap:2px 12px;align-items:start;padding:6px 8px;border-bottom:1px solid var(--line)}
+.mrow:last-child{border-bottom:0}
+.mrow.mh{padding-block:0 4px;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.mrow .ml{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:1px}
+.mrow .ml em{display:block;font-style:normal;font-size:10px;color:var(--accent);letter-spacing:.06em}
+.mrow b{font-weight:600}
+.mrow small{display:block;font-size:11px;color:var(--muted)}
+.mrow i{display:none;font-style:normal;font-size:11px;color:var(--muted)}
+.mrow .mv{text-align:right}
+.mrow.best{background:var(--accent-soft);border-radius:6px;box-shadow:inset 3px 0 0 var(--accent)}
+@media (max-width:560px){
+  .mrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;grid-template-areas:"l l v" "m o o" "b b b";row-gap:3px;padding:8px}
+  .mrow.mh{display:none}
+  .mrow .ml{grid-area:l}.mrow .mm{grid-area:m}.mrow .mo{grid-area:o}.mrow .mb{grid-area:b}.mrow .mv{grid-area:v}
+  .mrow .ml em{display:inline;margin-left:8px}
+  .mrow i{display:inline}
+  .mrow .mm small{display:none}
+  .mrow .mb small{display:inline;margin-left:6px}}
+/* disclosures under a game: why, and more */
+.discs{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;border-top:1px dashed var(--line);padding-top:8px;min-width:0}
+.discs>details{min-width:0;max-width:100%}
+.discs>details[open]{flex-basis:100%}
+.discs>details>summary,.more{list-style:none;cursor:pointer;font-weight:600;font-size:13px;color:var(--accent)}
+.discs>details>summary::-webkit-details-marker{display:none}
+.discs>details>summary::before,.more::before{content:"\25B8";display:inline-block;width:1.1em}
+.discs>details[open]>summary::before,.more[aria-expanded="true"]::before{content:"\25BE"}
+.more{border:0;background:none;padding:0;text-align:left}
+.whyb{padding:4px 0 2px;font-size:13px;color:var(--ink-2);max-width:96ch}
+.whyb p{margin:6px 0}
+.whyb p.k{margin-top:12px}
+.whyb ul{margin:4px 0 8px;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.whyb li.off{color:var(--muted)}
+.whyb .v{margin:0 3px;vertical-align:1px}
+.whyb .nt{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);min-width:6.2em}
+.whyb p.wlead{font-size:14px;color:var(--ink);max-width:92ch;margin-top:8px}
+.whyb p.fine{font-size:12px;margin:4px 0 8px}
+details.srcs{margin:6px 0}
+details.srcs summary{cursor:pointer;font-size:12px;font-weight:600;color:var(--accent)}
+details.bk .scroll{margin-top:6px}
+details.bk p{margin:6px 0 0;font-size:12px}
+/* the three views and the tug of war */
+.views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0 6px;max-width:780px}
+.views.one{grid-template-columns:minmax(0,260px)}
+.views>div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:1px;min-width:0;background:var(--surface)}
+.views small{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.views b{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+.views span{font-size:12px;color:var(--muted)}
+.views .ours{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+@media (max-width:560px){.views{grid-template-columns:minmax(0,1fr)}}
+.tug{max-width:780px;margin:2px 0 4px}
+.trow{display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr) minmax(0,15%);gap:8px;align-items:center;padding:3px 4px;font-size:12.5px;border-radius:4px}
+.trow .tl{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow .tl a{font-weight:600;text-decoration:none}
+.trow .tb{position:relative;height:14px;background:linear-gradient(var(--muted),var(--muted)) center/1px 100% no-repeat}
+.trow .tb i{position:absolute;top:2px;bottom:2px}
+.trow .tb i.hm{background:var(--home);border-radius:0 4px 4px 0}
+.trow .tb i.aw{background:var(--away);border-radius:4px 0 0 4px}
+.trow .tv{font-size:12px;color:var(--ink-2);text-align:right;white-space:nowrap}
+.trow:not(.tax):hover{background:var(--surface-2)}
+.trow.tsum{border-top:1px solid var(--line);margin-top:4px;padding-top:7px;font-weight:700}
+.trow.tsum .tl,.trow.tsum .tv{color:var(--ink)}
+.trow.tax .tb{display:flex;justify-content:space-between;align-items:center;height:auto;background:none;font-size:11px;font-weight:600;color:var(--muted)}
+.sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 4px;vertical-align:-1px}
+.sw.hm{background:var(--home)} .sw.aw{background:var(--away)}
+@media (max-width:520px){
+  .trow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"l l" "b v";row-gap:2px;column-gap:10px;padding:4px 2px}
+  .trow .tl{grid-area:l;white-space:normal}.trow .tb{grid-area:b}.trow .tv{grid-area:v;min-width:5.5em}
+  .trow.tax{grid-template-areas:"b v"}.trow.tax>span:first-child{display:none}}
+/* NFL detail: prices, weather, factors, team stats */
+.detail{border-top:1px solid var(--line);background:var(--surface-2);padding:16px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:22px}
+@media (max-width:900px){.detail{grid-template-columns:minmax(0,1fr)}}
+.detail section{min-width:0}
+.detail .wide{grid-column:1 / -1}
+.detail h3{font-family:var(--f-display);font-weight:600;font-size:18px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 8px}
+.detail h3:not(:first-child){margin-top:16px}
+.detail p{margin:0 0 8px;font-size:13px;color:var(--ink-2)}
+.stack{display:flex;flex-direction:column;gap:18px;min-width:0}
+.wx{display:flex;flex-direction:column;gap:6px;min-width:0}
+.wx .ins{display:flex;gap:8px;flex-wrap:wrap}
+.wx label{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.wx input{width:64px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:5px 7px;font-family:var(--f-mono)}
+.wx .note{font-size:12.5px;color:var(--ink-2)}
+.wx small{font-size:12px}
+.scroll{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:6px 8px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+th:first-child,td:first-child{text-align:left}
+td.tw{white-space:normal}
+td small{display:block;font-size:11px;color:var(--muted)}
+td.hit{font-weight:700;color:var(--accent)}
+tr.off td{opacity:.5}
+
+/* NBA and Premier League rows */
+.day{display:flex;flex-direction:column;gap:8px}
+.day h3{font-family:var(--f-display);font-weight:600;font-size:18px;letter-spacing:.05em;text-transform:uppercase;margin:6px 0 0}
+.lrow{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.05fr) minmax(0,1.15fr) minmax(0,.95fr) minmax(0,1.2fr);gap:10px 16px;align-items:start;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);scroll-margin-top:12px}
+.lrow .full{grid-column:1 / -1}
+.lrow .lt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.lrow .t{font-family:var(--f-display);font-weight:700;font-size:21px;letter-spacing:.02em;line-height:1.1}
+.lrow .t i{font-style:normal;color:var(--muted);font-weight:500;font-size:15px}
+.lrow small{display:block;color:var(--muted);font-size:12px}
+.lrow .callcell b.cl{font-size:20px}
+.lrow b.mk{font-family:var(--f-mono);font-weight:600}
+.lrow .reason{font-size:13px}
+@media (max-width:980px){.lrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.lrow .lt{grid-column:1 / -1}}
+/* NBA games without lines: one line each, opening in place */
+.crows{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.chead{margin:0;padding:8px 14px 6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);border-bottom:1px solid var(--line)}
+.crow{border-top:1px solid var(--line);scroll-margin-top:12px}
+.chead+.crow{border-top:0}
+.crow>summary{list-style:none;cursor:pointer}
+.crow>summary::-webkit-details-marker{display:none}
+.crow>summary:hover{background:var(--surface-2)}
+.cgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr) minmax(0,2fr) 60px;gap:3px 14px;align-items:center;padding:8px 14px}
+.cgrid small{display:block;color:var(--muted);font-size:12px}
+.cgrid .ci small{color:var(--ink-2)}
+.cgrid b.cl{font-family:var(--f-display);font-size:17px;font-weight:700;letter-spacing:.02em;line-height:1.15}
+.cw{font-weight:600;font-size:13px;color:var(--accent);white-space:nowrap;text-align:right}
+.cw::before{content:"\25B8";display:inline-block;width:1.1em;text-align:left}
+details.crow[open] .cw::before{content:"\25BE"}
+.cbody{padding:2px 14px 12px;border-top:1px dashed var(--line);max-width:none}
+.cbody>*{max-width:96ch}
+.cbody p.reason{margin:8px 0 4px}
+@media (max-width:640px){.cgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"g c" "i w"}.cg{grid-area:g}.cc{grid-area:c}.ci{grid-area:i}.cw{grid-area:w;align-self:end}}
+.tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:1px 0 3px}
+.tri span{display:flex;flex-direction:column;min-width:0;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tri b{font-family:var(--f-mono);font-size:14px;color:var(--ink)}
+.fm{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em}
+.nw{white-space:nowrap}
+.fm .r-w{color:var(--pos)} .fm .r-l{color:var(--neg)} .fm .r-d{color:var(--muted)}
+
+/* jump highlight */
+@keyframes flash{from{box-shadow:0 0 0 4px var(--accent)}to{box-shadow:0 0 0 4px transparent}}
+.flash{animation:flash 1.6s ease-out}
+@media (prefers-reduced-motion:reduce){.flash{animation:none}}
+
+/* my bets */
+.brow{display:flex;flex-wrap:wrap;gap:10px 14px;margin:4px 0 8px}
+.brow label,.logf label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.brow input,.brow select,.logf input,.logf select{font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:7px 9px;min-width:0}
+.brow input{width:120px}
+.dollar{display:inline-flex;align-items:center;gap:4px;font-size:14px;color:var(--muted);text-transform:none;letter-spacing:0}
+.dollar::before{content:"$"}
+.dollar input{width:100%}
+.logf{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:10px;align-items:end}
+.logf .wide{min-width:0}
+.logf .lgo{grid-column:1 / -1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.logf{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.logf .wide{grid-column:1 / -1}}
+.card p.note{margin:0 0 10px;color:var(--muted);font-size:13px;max-width:90ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.stat{border:1px solid var(--line);border-radius:8px;padding:9px 11px;min-width:0}
+.stat b{display:block;font-family:var(--f-display);font-weight:700;font-size:24px;line-height:1.1}
+.stat small{display:block;color:var(--muted);font-size:12px}
+.brow2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) minmax(0,1.6fr) auto minmax(0,.9fr) auto;gap:6px 12px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:13px}
+.brow2:first-child{border-top:0}
+.brow2 small{display:block;color:var(--muted);font-size:12px}
+@media (max-width:760px){.brow2{grid-template-columns:minmax(0,1fr) auto}.brow2 .bx{grid-column:1 / -1}}
+.res{font-family:var(--f-mono);font-weight:600;font-size:12px;padding:2px 7px;border-radius:5px;white-space:nowrap;text-align:center}
+.res.W,.res.HW{background:var(--pos-soft);color:var(--pos)} .res.L,.res.HL{background:var(--neg-soft);color:var(--neg)} .res.P,.res.open{background:var(--track);color:var(--muted)}
+
+/* how it works */
+details.how{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+details.how summary{cursor:pointer;font-weight:600}
+details.how dl{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:10px 18px;margin:12px 0 0;max-width:980px}
+details.how dt{font-weight:600} details.how dd{margin:0;color:var(--ink-2);max-width:92ch}
+details.how dd p{margin:0 0 6px}
+@media (max-width:560px){details.how dl{grid-template-columns:minmax(0,1fr)}details.how dd{margin-bottom:6px}}
+.foot{margin:0;font-size:12px;color:var(--muted);text-align:center;text-wrap:balance}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>Matchup <span>Edge</span></h1>
+      <p>Who wins, and where the value is, for this week’s NFL, NBA and Premier League games. Our call picks the winners; the best bets come from the model that held up in testing.</p>
+    </div>
+    <div class="status">
+      <span class="badge" id="asof">Lines</span>
+      <span class="badge dim" id="newsb">News research not loaded</span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="League">
+    <button role="tab" id="tab-nfl" aria-controls="nfl" data-tab="nfl">NFL<small id="nflwk"></small></button>
+    <button role="tab" id="tab-nba" aria-controls="nba" data-tab="nba">NBA<small id="nbawk"></small></button>
+    <button role="tab" id="tab-epl" aria-controls="epl" data-tab="epl">EPL<small id="eplwk"></small></button>
+    <button role="tab" id="tab-bets" aria-controls="bets" data-tab="bets">My bets<small id="betswk"></small></button>
+  </nav>
+
+  <div class="controls" id="stylebar">
+    <span class="lbl" id="betslbl">Best bets from</span>
+    <div class="seg" role="group" aria-labelledby="betslbl"><button data-bets="tested">Tested model</button><button data-bets="ours">Our call (untested)</button></div>
+    <span class="spacer"></span>
+    <select id="fmt" aria-label="Odds format"><option value="us">American odds</option><option value="dec">Decimal odds</option></select>
+    <details class="bookmenu" id="bookmenu">
+      <summary>Books <span class="bsum"></span></summary>
+      <div class="bmbody">
+        <div class="chips bookchips"></div>
+        <div class="bmfoot"><button class="btn" data-books="licensed">Licensed books only</button><button class="btn" data-books="all">Every book</button><span>Best prices and bets come only from the books you pick; the fair line still uses every book. Offshore books and Pinnacle aren’t licensed in any US state, so they start switched off.</span></div>
+      </div>
+    </details>
+    <p class="sbnote" id="sbnote"></p>
+  </div>
+
+  <section id="nfl" role="tabpanel" aria-labelledby="tab-nfl" class="list">
+    <div class="card board" id="plays"></div>
+    <div class="listbar">
+      <div class="seg" role="group" aria-label="Show"><button data-filter="all">All games</button><button data-filter="bets">Positive value</button></div>
+      <span class="spacer"></span>
+      <label class="sortl"><span class="lbl">Sort</span> <select id="sort"><option value="time">Kickoff</option><option value="value">Best value</option></select></label>
+    </div>
+    <details class="weights" id="wpanel">
+      <summary>Tested model settings<span>How much each factor may move the market line for the best bets. Defaults follow the backtests.</span></summary>
+      <div class="wgrid" id="wgrid"></div>
+      <div class="wfoot"><button class="btn" id="wreset">Reset to tested defaults</button><span>Raising a factor that failed in testing adds risk, not edge.</span></div>
+    </details>
+    <div class="list" id="games"></div>
+  </section>
+
+  <section id="nba" role="tabpanel" aria-labelledby="tab-nba" class="list" hidden>
+    <div class="card board" id="nbaplays"></div>
+    <div class="list" id="nbalist"></div>
+  </section>
+
+  <section id="epl" role="tabpanel" aria-labelledby="tab-epl" class="list" hidden>
+    <div class="card board" id="eplplays"></div>
+    <div class="list" id="epllist"></div>
+  </section>
+
+  <section id="bets" role="tabpanel" aria-labelledby="tab-bets" class="list" hidden>
+    <div class="card muted" id="betsoff" hidden>Bet tracking needs you signed in to claude.ai with this page open there. Stakes still use the bankroll below on this device.</div>
+    <div class="two">
+      <div class="card">
+        <h2>Your record</h2>
+        <div class="stats" id="stats"><p class="muted">No graded bets yet. Log a bet from any pick, or with the form below.</p></div>
+      </div>
+      <aside class="card">
+        <h2>Bankroll</h2>
+        <div class="brow">
+          <label>Bankroll <span class="dollar"><input id="bk" type="number" min="0" step="10" inputmode="decimal" placeholder="0"></span></label>
+          <label>Kelly share <select id="kf"><option value="0.125">⅛</option><option value="0.25">¼</option><option value="0.5">½</option></select></label>
+          <label>Max bet <select id="kc"><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.03">3%</option><option value="0.05">5%</option></select></label>
+        </div>
+        <p class="muted">Each positive-value pick gets this share of the Kelly bet for its value, never more than the max share of your bankroll. Picks with no edge get no stake.</p>
+      </aside>
+    </div>
+    <div class="card" id="logcard">
+      <h2>Log a bet</h2>
+      <form id="logf" class="logf" autocomplete="off">
+        <label class="wide">Game <select id="lg-game" required></select></label>
+        <label>Bet <select id="lg-bet" required></select></label>
+        <label>Line <input id="lg-line" type="number" step="0.5" inputmode="decimal"></label>
+        <label>Odds <input id="lg-price" type="number" step="1" inputmode="numeric" required placeholder="-110"></label>
+        <label>Book <select id="lg-book"></select></label>
+        <label>Stake <span class="dollar"><input id="lg-stake" type="number" min="0" step="1" inputmode="decimal" required></span></label>
+        <div class="lgo"><button class="btn primary" type="submit" id="lg-save">Save bet</button><span id="lg-msg" class="muted" role="status"></span></div>
+      </form>
+    </div>
+    <div class="card"><h2>Bets</h2><div id="betlist"><p class="muted">Nothing logged yet.</p></div></div>
+    <div class="card" id="reccard">
+      <h2>Model record</h2>
+      <p class="note">Each time you open this page it saves every upcoming game’s call and both styles’ best bets; the last save before kickoff counts. Graded games show here, with the market favorite as the yardstick. Bets count 1 unit each.</p>
+      <div id="modelrec"><p class="muted">No graded games yet.</p></div>
+    </div>
+  </section>
+
+  <details class="how">
+    <summary>How it works</summary>
+    <dl>
+      <dt>Our call</dt><dd>Every game gets a call on who wins, mixed from two views. The <b>betting market</b>: every book’s price with its cut removed, and the middle value across books, so one stale book can’t move it. Our <b>team view</b>: power ratings from this season and last, every factor at full strength, and news researched each morning (injuries and returns, trades and signings, coaching changes, drama, motivation), each scored in points or goals for a team, with sources. Each league uses the mix that picked the most winners in testing, with ratings and factors built only from earlier games: NFL 85% market and 15% team view (66.7% of winners over 20 seasons, against 66.5% for the betting favorite; 67.3% against 66.7% over the last six), NBA 90% and 10% (68.5% over 18 seasons, level with the favorite), and in the Premier League the market alone once lines post (no mix did better over 14 seasons; before lines post, the call is the team view). The researched news can’t be backtested; the model record under My bets tracks it from here.</dd>
+      <dt>Best bets</dt><dd>Best bets come from the <b>tested model</b>: the market plus only the factors that held up when tested on years of games, each at the share the closing line missed. NFL: wind and cold 50%, a backup quarterback 45% (spread and moneyline), Denver altitude 10%. NBA: altitude 50%, players out 20%, long trips 15%, back-to-backs 15%. Premier League: about 9% of a shots-on-target rating’s gap on goal difference (10% on the total), −0.011 goals per point of last-5 form difference, and +0.18 goals for a team playing its second league match in 3 days. Pace, head to head, rest, referees, Elo and power ratings count 0%. NFL weights can be changed under Tested model settings. You can switch the best bets to our call’s own pricing, but those are marked untested: see What testing found.</dd>
+      <dt>Best bet and value</dt><dd>Every price at your books is valued against our call (or the tested fair line): value = chance to win × profit − chance to lose. NFL margins use a 13.5-point curve with extra weight on key numbers like 3 and 7; the NBA plain curves (12 points for spreads, 18 for totals); soccer a goal model fitted to each match’s home, draw and away prices and totals, where quarter lines count as two half bets. Whole-number lines can push. <b>Strong</b> is +5% or more, <b>Lean</b> +2% to +5%, <b>Thin</b> 0 to +2%. <b>No edge</b> means even the best price is below fair value after the book’s cut: the least-bad way to bet that game, not a bet with an advantage.</dd>
+      <dt>Stakes</dt><dd>With a bankroll set under My bets, each positive-value pick gets a share of the Kelly bet for its value (¼ by default), capped at a share of the bankroll (2% by default). Full Kelly on claimed edges wiped out the bankroll in testing. Without a bankroll, positive-value picks show 1 unit.</dd>
+      <dt>Tracking</dt><dd>Log a bet from any pick or with the form under My bets; it grades itself from the final score, with its closing-line value: its value against the fair closing line (NFL closes from nflverse; NBA and Premier League from DraftKings via ESPN). Beating the close over many bets is the quickest sign an edge is real. Bets save privately to your account. The model record keeps our calls and both styles’ best bets the same way.</dd>
+      <dt>What testing found</dt><dd>
+        <p><b>Our call’s own bets, last six seasons</b> (2020-21 to 2025-26, 1 unit per bet at historical closing prices, news not included): 6,696 bets lost 532.6 units, −8.0% per bet. NFL −13.3% on 1,026 bets, NBA −6.9% on 3,624, Premier League −7.2% on 2,046 (−3.5% at the best price across books). Every league lost in every season. The tested model on the same games: −2.6% on 2,688 bets (NFL +1.5%, NBA −2.3%, Premier League −4.0%). Picking winners and beating prices are different jobs: the market already prices who is likely to win.</p>
+        <p><b>NFL, 5,246 games.</b> Projecting scores from scratch lost 7.9% per bet against closing lines since 2016. Only wind held up: unders in 15+ mph wind went 240–194, +7.6% per bet. <a href="https://claude.ai/artifact/MMbMJ8yAy92ik3oYEhWg9Z" target="_blank" rel="noopener">NFL backtest</a></p>
+        <p><b>NBA, 22,810 games.</b> Full projections lost 5.3% per bet at the close. When a rotation player was newly ruled out, the spread moved toward his opponent 71% of the time, about 1.4 points; opening lines miss about 60% of that, so being early is the edge. Totals 6+ points off the opener moved our way 60% of the time but only broke even after the juice. <a href="https://claude.ai/artifact/LzKchZxkYoPTy8uXkW1KgN" target="_blank" rel="noopener">NBA backtest</a></p>
+        <p><b>Premier League, 5,300 matches (2012–2026).</b> Three small signals held up in every window, but betting them made +2.5% per bet at the best price only because of the two empty-stadium seasons; the other eight lost 2.6%. Treat them as leans.</p></dd>
+      <dt>Data</dt><dd>Lines and opening lines from DraftKings via ESPN; FanDuel, BetMGM and the other books from The Odds API, leaving out any quote more than 12 hours old. Kickoff forecasts from the National Weather Service. NFL schedules, quarterbacks and results from nflverse; NBA schedules and box scores from hoopR, injuries from ESPN. Premier League fixtures from openfootball, results and shots on target from football-data.co.uk (via xgabora’s match file) and ESPN; The Odds API adds Pinnacle for soccer and is asked only in the four days before kickoff. <span id="asof2"></span></dd>
+    </dl>
+  </details>
+  <p class="foot">For entertainment and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>
+</div>
+
+<script>
+(function(){
+const DATA=[[DATA]];
+const NFL=DATA.nfl,NBA=DATA.nba,EPL=DATA.epl,LIVE=DATA.live||{},GS=DATA.gs||{m:.119,t:-.054},SD=13.5,NSD={m:12,t:18};
+const OFF=new Set(['Bovada','BetOnline.ag','LowVig.ag','MyBookie.ag','BetUS','BetAnything','Pinnacle']);
+/* every book on the page: DraftKings first, then licensed books, then offshore */
+const ALLB=(()=>{const s=new Set();[...(NFL?NFL.games:[]),...(NBA?NBA.games:[]),...(EPL?EPL.games:[])].forEach(g=>{if(g.mkt&&g.mkt.src!=='nflverse')s.add(g.mkt.src);(g.books||[]).forEach(b=>s.add(b.t))});
+  return[...s].sort((a,b)=>(OFF.has(a)-OFF.has(b))||(a==='DraftKings'?-1:b==='DraftKings'?1:a.localeCompare(b)))})();
+const FACT=[
+  /* def = weight on the margin; tr = the total's weight as a share of it (backtest betas per market) */
+  /* Weights = the share of each factor the closing line missed, weighted toward recent seasons (2006 to week 3 of 2026) and shrunk toward zero */
+  {k:'weather',label:'Wind & cold',s:'wind and cold',eff:'Totals',v:'held',def:50,tr:1,note:'Closing totals missed about 80% of game-time wind and cold, in every window tested. 50% allows for forecast error.',rec:'Unders in 15+ mph wind went 240–194 in testing, +7.6% per bet.'},
+  {k:'injuries',label:'Backup QB starting',s:'the backup QB',eff:'Spread, moneyline',v:'weak',def:45,tr:0,note:'Closing spreads missed about half of it, more in the last three seasons. Totals went the other way lately, so they don’t count.',rec:'In testing, betting against backup QBs at the closing line only broke even, so treat this as a lean.'},
+  {k:'rest',label:'Rest & travel',s:'rest',eff:'Spread, moneyline, total',v:'flip',def:0,tr:1,note:'Looked good before 2016, then reversed.'},
+  {k:'h2h',label:'Head to head',s:'head to head',eff:'Spread, moneyline, total',v:'none',def:0,tr:1,note:'No reliable effect on spreads in recent seasons; totals went the wrong way.'},
+  {k:'pace',label:'Pace',s:'pace',eff:'Totals',v:'none',def:0,tr:1,note:'Closing totals already price it, in every window tested. Measured against this season’s league average.'},
+  {k:'officials',label:'Referee crew',s:'the referee crew',eff:'Totals',v:'flip',def:0,tr:1,note:'Went the wrong way in recent seasons. Crews are announced later in the week.'},
+  {k:'altitude',label:'Denver altitude',s:'altitude',eff:'Spread, moneyline, total',v:'weak',def:10,tr:1,note:'Positive in recent seasons, but only about 165 games.'},
+  {k:'ratings',label:'Power ratings',s:'power ratings',eff:'Spread, moneyline, total',v:'lost',def:0,tr:1,note:'Lost 7.9% per bet against closing lines since 2016, and went the wrong way in recent seasons.'}
+];
+const VLAB={held:['✓','Held up'],weak:['~','Weak'],flip:['↺','Flipped'],none:['–','No signal'],lost:['✗','Lost money'],priced:['=','Priced in']};
+/* NBA factors and the weight each gets in the pick, from how much the closing line missed it in testing (22,810 games) */
+const NFACT=[
+  {k:'altitude',label:'Altitude (Denver, Utah)',s:'altitude',v:'held',w:.5,wt:.5,rec:'Closing spreads missed it in every window tested, though the sample is small.'},
+  {k:'travel',label:'Long trip',s:'travel',v:'weak',w:.15,wt:.15,rec:'Leaned the right way in every window tested, but small.'},
+  {k:'rest',label:'Back-to-backs',s:'a back-to-back',v:'weak',w:.15,wt:0,rec:'Mostly priced by the close; a little is left on the spread.'},
+  {k:'inj',label:'Players out',s:'players out',v:'weak',w:.2,wt:0,rec:'Closing spreads missed about 20% of absences in the last three seasons; totals price them.'},
+  {k:'pace',label:'Pace',s:'pace',v:'none',w:0,wt:0},
+  {k:'h2h',label:'Earlier meetings',s:'earlier meetings',v:'lost',w:0,wt:0},
+  {k:'hfa',label:'Home court',s:'home court',v:'priced',w:0,wt:0}
+];
+const NAMES={ARI:'Cardinals',ATL:'Falcons',BAL:'Ravens',BUF:'Bills',CAR:'Panthers',CHI:'Bears',CIN:'Bengals',CLE:'Browns',DAL:'Cowboys',DEN:'Broncos',DET:'Lions',GB:'Packers',HOU:'Texans',IND:'Colts',JAX:'Jaguars',KC:'Chiefs',LA:'Rams',LAC:'Chargers',LV:'Raiders',MIA:'Dolphins',MIN:'Vikings',NE:'Patriots',NO:'Saints',NYG:'Giants',NYJ:'Jets',PHI:'Eagles',PIT:'Steelers',SEA:'Seahawks',SF:'49ers',TB:'Buccaneers',TEN:'Titans',WAS:'Commanders'};
+
+/* ---------- per-viewer storage ---------- */
+const store={get(k,d){try{const v=localStorage.getItem('me4.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('me4.'+k,JSON.stringify(v))}catch(e){}}};
+const DEFW=()=>Object.fromEntries(FACT.map(f=>[f.k,f.def]));
+/* the viewer's books: licensed US books unless they choose otherwise */
+const DEFB=()=>{const d=ALLB.filter(t=>!OFF.has(t));return d.length?d:ALLB.slice()};
+const S={tab:store.get('tab','nfl'),bets:store.get('bets','tested')==='ours'?'ours':'tested',filter:'all',sort:'time',fmt:store.get('fmt','us'),W:Object.assign(DEFW(),store.get('w2',{})),wx:store.get('wx',{}),open:new Set(),books:DEFB()};
+{const b=store.get('books',null);if(Array.isArray(b)){const k=b.filter(t=>ALLB.includes(t));if(k.length)S.books=k}}
+
+/* ---------- math ---------- */
+function erf(x){const s=Math.sign(x);x=Math.abs(x);const t=1/(1+.3275911*x);return s*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x))}
+const Phi=z=>.5*(1+erf(z/Math.SQRT2));
+function invPhi(p){
+  const a=[-39.69683028665376,220.9460984245205,-275.9285104469687,138.357751867269,-30.66479806614716,2.506628277459239],
+        b=[-54.47609879822406,161.5858368580409,-155.6989798598866,66.80131188771972,-13.28068155288572],
+        c=[-.007784894002430293,-.3223964580411365,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783],
+        d=[.007784695709041462,.3224671290700398,2.445134137142996,3.754408661907416];
+  if(p<.02425){const q=Math.sqrt(-2*Math.log(p));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1)}
+  if(p>1-.02425){const q=Math.sqrt(-2*Math.log(1-p));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1)}
+  const q=p-.5,r=q*q;return(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
+}
+const impl=a=>a<0?-a/(-a+100):100/(a+100);
+const dec=a=>a>0?1+a/100:1+100/-a;
+const nv=(a,b)=>{const x=impl(a),y=impl(b);return x/(x+y)};
+
+/* ---------- formatting ---------- */
+const $=s=>document.querySelector(s);
+const MINUS='−';
+const sg=(x,d=1)=>(x>=0?'+':MINUS)+Math.abs(x).toFixed(d);
+const pc=(x,d=0)=>(x*100).toFixed(d)+'%';
+const odds=a=>a==null?'–':S.fmt==='dec'?dec(a).toFixed(2):(a>0?'+'+a:MINUS+Math.abs(a));
+const ln=l=>Number.isInteger(l)?String(l):l.toFixed(1);
+const lnq=l=>Math.abs(Math.round(l*4)%2)===1?l.toFixed(2):ln(l);  /* quarter lines (soccer) keep two decimals */
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function favLine(g,m,d){const v=Math.abs(m);if(v<0.05)return 'Pick’em';const s=d==null?ln(v):v.toFixed(d);return (m>0?g.home:g.away)+' '+MINUS+s}
+const whenCT=iso=>{try{return new Date(iso).toLocaleString('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+' CT'}catch(e){return ''}};
+
+/* ---------- NFL model ---------- */
+const outdoor=g=>g.roof==='outdoors'||g.roof==='open';
+function wxIn(g){const o=S.wx[g.id];if(o&&(o.w!=null&&o.w!==''||o.t!=null&&o.t!==''))return{w:parseFloat(o.w),t:parseFloat(o.t),you:true};
+  if(g.fc)return{w:g.fc.wind,t:g.fc.temp,you:false};return{w:NaN,t:NaN,you:false}}
+function weatherEffect(g){
+  if(!outdoor(g))return null;
+  const i=wxIn(g);if(!isFinite(i.w)&&!isFinite(i.t))return 0;
+  return -Math.max(0,(isFinite(i.w)?i.w:0)-10)*.3-Math.max(0,40-(isFinite(i.t)?i.t:60))*.06;
+}
+const srcName=m=>m.src==='nflverse'?'Consensus':m.src;
+
+/* ---------- every book: fair price and value ---------- */
+const med=a=>{const s=a.slice().sort((x,y)=>x-y),n=s.length;return n?(n%2?s[(n-1)/2]:(s[n/2-1]+s[n/2])/2):null};
+const useBook=t=>t!=='Consensus'&&S.books.includes(t);
+const rowsOf=g=>{const m=g.mkt;return[{...m,t:srcName(m)},...(g.books||[]).filter(b=>b.t!==m.src)]};
+const SIDES=[['spH','spread','home'],['spA','spread','away'],['mlH','ml','home'],['mlA','ml','away'],['ov','total','over'],['un','total','under']];
+/* Outcome curves. NFL margins use the backtest's bell curve with extra weight on key numbers (3, 7, 10...), so +3 and +3.5
+   are priced apart properly; totals and the NBA use plain bell curves. Whole-number lines can push. Each returns the
+   chance the line is beaten (w), pushes (p) or loses (l) when the expected result is mu. */
+const KS=Array.from({length:141},(_,i)=>i-70),KEYW={0:.12,1:1.05,3:2.4,4:1.15,6:1.3,7:1.8,8:1.05,10:1.3,14:1.25,17:1.1,21:1.1},KMUL=KS.map(k=>KEYW[Math.abs(k)]||1);
+const keyCurve=sd=>(mu,L)=>{let s=0,w=0,p=0;for(let i=0;i<KS.length;i++){const k=KS[i],v=Math.exp(-.5*((k-mu)/sd)**2)*KMUL[i];s+=v;if(k>L+1e-9)w+=v;else if(k>L-1e-9)p+=v}return{w:w/s,p:p/s,l:Math.max(0,1-(w+p)/s)}};
+const bell=sd=>(mu,L)=>{if(Number.isInteger(L)){const w=1-Phi((L+.5-mu)/sd),l=Phi((L-.5-mu)/sd);return{w,p:Math.max(0,1-w-l),l}}const w=1-Phi((L-mu)/sd);return{w,p:0,l:1-w}};
+const CURVES={nfl:{m:keyCurve(SD),t:bell(SD),sd:SD},nba:{m:bell(NSD.m),t:bell(NSD.t),sd:NSD.m}};
+/* the expected result at which a book's no-vig price is fair */
+function solveMu(D,L,q){let lo=L-80,hi=L+80;for(let i=0;i<40;i++){const m=(lo+hi)/2,r=D(m,L);if(r.w/(r.w+r.l)<q)lo=m;else hi=m}return(lo+hi)/2}
+/* The fair line: every book's no-vig price turned into an expected margin and total; the middle value across books is the anchor,
+   so one stale book can't move it. Uses every book whatever the viewer picked. */
+function anchors(g,lg){
+  if(g._anc)return g._anc;
+  const C=CURVES[lg],mu=[],tt=[],pm=[],rows=rowsOf(g);
+  rows.forEach(r=>{
+    if(r.sp!=null&&r.spH!=null&&r.spA!=null)mu.push(solveMu(C.m,r.sp,nv(r.spH,r.spA)));
+    if(r.tot!=null&&r.ov!=null&&r.un!=null)tt.push(solveMu(C.t,r.tot,nv(r.ov,r.un)));
+    if(r.mlH!=null&&r.mlA!=null)pm.push(nv(r.mlH,r.mlA));
+  });
+  return g._anc={mu:med(mu),tot:med(tt),pML:med(pm),n:rows.filter(r=>r.t!=='Consensus').length||1};
+}
+/* dM and dT are the model's adjustments to the expected margin and total */
+function fairOf(g,lg,dM,dT){
+  const C=CURVES[lg],a=anchors(g,lg),pW=a.pML==null?null:Phi(invPhi(a.pML)+dM/C.sd);
+  const mu=a.mu==null?null:a.mu+dM,T=a.tot==null?null:a.tot+dT,flip=r=>({w:r.l,p:r.p,l:r.w});
+  return{n:a.n,pW,mu,T,q:{spH:L=>mu==null?null:C.m(mu,L),spA:L=>mu==null?null:flip(C.m(mu,L)),ov:L=>T==null?null:C.t(T,L),un:L=>T==null?null:flip(C.t(T,L)),
+    mlH:()=>pW==null?null:{w:pW,p:0,l:1-pW},mlA:()=>pW==null?null:{w:1-pW,p:0,l:pW}}};
+}
+/* value of one price: chance to win times profit, minus chance to lose (a push returns the stake) */
+function evOf(fair,r,k){
+  if(r[k]==null)return null;
+  const L=k==='spH'||k==='spA'?r.sp:k==='ov'||k==='un'?r.tot:0;if(L==null)return null;
+  const o=fair.q[k](L);return o?{p:o.w,push:o.p,l:o.l,ev:o.w*(dec(r[k])-1)-o.l}:null;
+}
+/* every price at the viewer's books (every price if none of them has this game); pe = the model doesn't move this market */
+function priced(g,fair,dM,dT){
+  const rows=rowsOf(g);let use=rows.filter(r=>useBook(r.t));if(!use.length)use=rows;
+  const out=[];
+  use.forEach(r=>SIDES.forEach(([k,mkt,side])=>{const v=evOf(fair,r,k);if(!v)return;
+    out.push({mkt,side,team:mkt==='total'?null:g[side],line:mkt==='spread'?(side==='home'?-r.sp:r.sp):mkt==='total'?r.tot:null,price:r[k],book:r.t,
+      p:v.p,push:v.push,l:v.l,ev:v.ev,pe:mkt==='total'?Math.abs(dT||0)<.05:Math.abs(dM||0)<.05})}));
+  return out.sort((a,b)=>b.ev-a.ev);
+}
+function analyze(g){
+  const m=g.mkt,W=k=>(S.W[k]||0)/100,eff={};
+  FACT.forEach(f=>{if(f.k==='ratings')return;let a=0,h=0;
+    if(f.k==='weather'){const v=weatherEffect(g);if(v){a=v/2;h=v/2}}else if(g.f[f.k]){[a,h]=g.f[f.k]}
+    eff[f.k]={m:h-a,t:a+h}});
+  const prM=g.H0-g.A0+(g.neutral?0:1.6),prT=g.A0+g.H0;
+  eff.ratings={m:prM-m.sp,t:prT-m.tot};
+  let dM=0,dT=0;FACT.forEach(f=>{dM+=W(f.k)*eff[f.k].m;dT+=W(f.k)*f.tr*eff[f.k].t});
+  const fair=fairOf(g,'nfl',dM,dT);
+  const bets=priced(g,fair,dM,dT);
+  const by={};['spread','ml','total'].forEach(k=>{by[k]=bets.find(b=>b.mkt===k)||null});
+  const best=bets[0]||null;
+  const grade=best?gradeOf(best.ev):'No line';
+  let pa=g.A0,ph=g.H0;FACT.forEach(f=>{if(f.k==='ratings')return;const e=eff[f.k];pa+=(e.t-e.m)/2;ph+=(e.t+e.m)/2});
+  pa+=g.neutral?0:-.8;ph+=g.neutral?0:.8;
+  return{eff,dM,dT,pW:fair.pW,fair,bets,by,best,grade,nb:new Set(bets.map(b=>b.book)).size,modelM:m.sp+dM,modelT:m.tot+dT,pr:{a:pa,h:ph}};
+}
+const betLabel=b=>b.mkt==='total'?(b.side==='over'?'Over ':'Under ')+lnq(b.line):b.mkt==='ml'?(b.side==='draw'?'Draw':b.team+(b.lg==='epl'?' to win':' ML')):b.team+' '+(b.line===0?(b.lg==='epl'?'draw no bet':'PK'):(b.line>0?'+':MINUS)+lnq(Math.abs(b.line)));
+const pillCls=b=>b.mkt==='total'?b.side:'team';
+/* every game gets a pick: the bet with the most value once the factors have moved the fair line; the grade says how much */
+function gradeOf(ev){return ev>=.05?'Strong':ev>=.02?'Lean':ev>0?'Thin':'No edge'}
+const evCls=ev=>ev>=.02?'good':ev>0?'flat':'neg';
+const MK={spread:'spread',ml:'moneyline',total:'total'};
+
+/* ---------- why this pick ---------- */
+/* an effect on the margin (+ = home) and the total, in words */
+const effTxt=(g,e)=>[Math.abs(e.m)>=.05?`${e.m>0?g.home:g.away} +${Math.abs(e.m).toFixed(1)}`:'',Math.abs(e.t)>=.05?`total ${sg(e.t)}`:''].filter(Boolean).join(', ');
+/* each factor: what it sees in this game, its full effect, how it tested, and what the pick counts of it */
+function reasons(g,list){
+  const size=r=>Math.abs(r.w*r.e.m)+Math.abs(r.wt*r.e.t);
+  return list.map(r=>({...r,full:effTxt(g,r.e),used:effTxt(g,{m:r.w*r.e.m,t:r.wt*r.e.t})})).filter(r=>r.full)
+    .sort((a,b)=>size(b)-size(a)||(Math.abs(b.e.m)+Math.abs(b.e.t))-(Math.abs(a.e.m)+Math.abs(a.e.t)));
+}
+const pct=v=>Math.round(v*100)+'%';
+const counted=r=>!(r.w>0||r.wt>0)?'not counted':`counted at ${r.w===r.wt||!Math.abs(r.e.t)?pct(r.w):!Math.abs(r.e.m)?pct(r.wt):`${pct(r.w)} on the margin and ${pct(r.wt)} on the total`}${r.used?': '+r.used:''}`;
+function nflFactorText(k,g){
+  const T=NFL.teams;
+  switch(k){
+    case 'weather':{if(!outdoor(g))return 'Played indoors';const i=wxIn(g);return `${i.you?'Your':'Kickoff'} forecast: ${isFinite(i.w)?i.w+' mph wind':'wind unknown'}${isFinite(i.t)?', '+i.t+'°F':''}`}
+    case 'injuries':return [0,1].filter(i=>g.backup[i]).map(i=>`${i?g.home:g.away} starts ${esc(g.qb[i]||'a backup')}, not the usual starter`).join('; ');
+    case 'rest':return `${g.away} has ${g.rest[0]} days of rest, ${g.home} ${g.rest[1]}`;
+    case 'h2h':{const n=g.h2h.length;if(!n)return 'No meetings in six years';const won=m=>m.home===g.home?m.hs>m.as:m.as>m.hs,hw=g.h2h.filter(won).length,avg=g.h2h.reduce((s,m)=>s+m.hs+m.as,0)/n;
+      if(n===1){const m=g.h2h[0];return `They last met in ${m.date.slice(0,4)}: ${m.hs===m.as?'a tie':(won(m)?g.home:g.away)+' won'}, ${m.hs+m.as} points in all`}
+      return `${g.home} won ${hw} of the last ${n} meetings, which averaged ${avg.toFixed(1)} points`}
+    case 'pace':return `${g.away} runs ${T[g.away].plays.toFixed(0)} plays a game and ${g.home} ${T[g.home].plays.toFixed(0)}; the league average this season is ${(NFL.lgPlays||63).toFixed(1)}`;
+    case 'officials':return 'This referee crew’s history';
+    case 'altitude':return 'Mile-high altitude in Denver';
+    case 'ratings':return `Power ratings, adjusted for opponents, make it ${favLine(g,g.H0-g.A0+(g.neutral?0:1.6),1)} with ${(g.A0+g.H0).toFixed(1)} points`;
+  }
+  return '';
+}
+/* the tested pick in words: which tested factors moved the fair line, and whose price is best (shown on the card) */
+function testedLead(g,x,R){
+  const b=x.best;if(!b)return '';
+  const lean=leanFor(b,x),used=pushers(b,R),move=effTxt(g,{m:x.dM,t:x.dT});
+  const why2=used.slice(0,2).map(r=>r.s).join(' and ')||'small effects',rec=used[0]&&used[0].rec?' '+used[0].rec:'';
+  return lean>=.3
+    ?`The factors that held up in testing move the fair line ${move}, mostly because of ${why2}. That makes <b>${betLabel(b)}</b> the side worth taking, and ${esc(b.book)} has the best price on it.${rec}`
+    :lean>=.05
+    ?`The tested factors lean slightly toward <b>${betLabel(b)}</b> (${move}, mostly ${why2}), and ${esc(b.book)} has the best price on that side.${rec}`
+    :lean<=-.05
+    ?`The tested factors lean slightly the other way (${move}), but ${possB(esc(b.book))} price on <b>${betLabel(b)}</b> ${b.ev>0?`is far enough off the fair line from ${x.fair.n} books to make it the best bet anyway`:`still gives up the least against the fair line from ${x.fair.n} books`}.`
+    :`No tested factor moves the ${MK[b.mkt]} in this game${move?` (they move ${move}, and no price on that side comes out ahead)`:''}, so the pick comes down to price: <b>${betLabel(b)}</b> at ${esc(b.book)} is the best deal against the fair line from ${x.fair.n} books.`;
+}
+/* the tested bet: why this side, the price math and what each factor says */
+function whyHTML(g,x,R,lg){
+  const b=x.best;if(!b)return '';
+  const dp=b.push>.004,wr=dp?b.p/(b.p+b.l):b.p;
+  const math=`At ${odds(b.price)} it needs to win ${pc(1/dec(b.price),1)}${dp?' of bets that don’t push':''}; the fair line gives it ${pc(wr,1)}${dp?` (and a ${pc(b.push,1)} chance of a push)`:''}. Value: <b class="${b.ev>0?'pos':'neg'}">${sg(b.ev*100)}%</b> per bet.`;
+  const alt=x.bets.find(o=>o.mkt!==b.mkt||o.side!==b.side);
+  const tail=b.ev>0?'':' Every price on this game is below fair value after the book’s cut; this one gives up the least.';
+  const li=R.map(r=>{const [ic,lab]=VLAB[r.v];return `<li${r.w>0||r.wt>0?'':' class="off"'}><b>${r.label}</b> <span class="v v-${r.v}"><i aria-hidden="true">${ic}</i>${lab}</span> ${r.text}. Full effect ${r.full}; ${counted(r)}.</li>`}).join('');
+  return `<details class="why" data-k="${lg}-${esc(g.id)}"><summary>Why ${betLabel(b)}</summary><div class="whyb">
+    <p>${testedLead(g,x,R)}</p><p>${math}${tail}${alt?` Next best: ${betLabel(alt)} ${odds(alt.price)} at ${esc(alt.book)} (${sg(alt.ev*100)}%).`:''}</p>
+    ${li?`<p class="k">What each factor says</p><ul>${li}</ul>`:'<p class="muted">No factor has anything to say about this game.</p>'}
+    <p class="muted fine">Weights come from how much of each factor the closing line missed over ${lg==='nfl'?'5,246 NFL':'22,810 NBA'} games${lg==='nfl'?'; change them under Tested model settings':''}.</p></div></details>`;
+}
+function nflReasons(g,x){return reasons(g,FACT.map(f=>{const w=(S.W[f.k]||0)/100;return{k:f.k,label:f.label,s:f.s,v:f.v,w,wt:w*f.tr,e:x.eff[f.k],text:nflFactorText(f.k,g),rec:f.rec}}))}
+/* how far the factors move the line toward the picked side (points), and which factors push that way */
+const sideSign=b=>b.mkt==='total'?(b.side==='over'?1:-1):(b.side==='home'?1:-1);
+const leanFor=(b,x)=>sideSign(b)*(b.mkt==='total'?x.dT:x.dM);
+const pushers=(b,R)=>R.filter(r=>sideSign(b)*(b.mkt==='total'?r.wt*r.e.t:r.w*r.e.m)>=.05);
+
+/* ---------- NFL rendering ---------- */
+function renderPlays(res){
+  const pos=res.filter(r=>r.x.best&&r.x.best.ev>0).length,n=res.length,wk=NFL.type==='REG'?'Week '+NFL.week:'Playoffs';
+  const lede=`Who wins each game by our call, and the best-value bet at your books ${OURBETS()?'by our call’s own pricing (untested)':'from the tested model'}. ${pos} of ${n} ${pos===1?'has':'have'} positive value.`;
+  $('#plays').innerHTML=boardHTML(`${wk} at a glance`,lede,res.map(({g,h,x})=>boardRow('nfl',g,h,x,'g-'+did(g.id))).join(''),
+    'Value is the edge over the best price after the book’s cut: Strong +5% or more, Lean +2 to 5%, Thin 0 to 2%, No edge below zero. Tap a game for its full reasoning.');
+}
+function moved(g,k){
+  const o=g.open,m=g.mkt;if(!o)return '';
+  if(k==='spread'&&o.sp!=null&&Math.abs(o.sp-m.sp)>=.5)return `opened ${favLine(g,o.sp)}`;
+  if(k==='total'&&o.tot!=null&&Math.abs(o.tot-m.tot)>=.5)return `opened ${ln(o.tot)}`;
+  if(k==='ml'&&o.mlH!=null&&o.mlA!=null&&m.mlH!=null&&Math.abs(nv(o.mlH,o.mlA)-nv(m.mlH,m.mlA))>=.02){const f=nv(o.mlH,o.mlA)>=.5?'home':'away',p=f==='home'?nv(o.mlH,o.mlA):1-nv(o.mlH,o.mlA);return `opened ${g[f]} ${pc(p)}`}
+  return '';
+}
+/* the three markets side by side: the market's number, ours, and the best price at your books (stacks on a phone) */
+function mktTable(g,x){
+  const m=g.mkt,ours=x.hol?'Our call':'Fair line';
+  const row=k=>{const b=x.by[k],isBest=!!b&&x.best===b,mv=moved(g,k);let lab,mk,sub,md;
+    if(k==='spread'){lab='Spread';mk=favLine(g,m.sp);sub=`${g.away} ${odds(m.spA)} · ${g.home} ${odds(m.spH)}`;md=favLine(g,x.modelM,1)}
+    else if(k==='ml'){lab='Moneyline';
+      if(m.mlH==null||m.mlA==null){mk='–';sub='not posted';md='–'}
+      else{const pm=nv(m.mlH,m.mlA),fav=pm>=.5?'home':'away',pmod=x.pW==null?null:fav==='home'?x.pW:1-x.pW;
+        mk=`${g[fav]} ${pc(fav==='home'?pm:1-pm)}`;sub=`${g.away} ${odds(m.mlA)} · ${g.home} ${odds(m.mlH)}`;md=pmod==null?'–':`${g[fav]} ${pc(pmod)}`}}
+    else{lab='Total';mk=ln(m.tot);sub=`o ${odds(m.ov)} · u ${odds(m.un)}`;md=x.modelT.toFixed(1)}
+    return `<div class="mrow${isBest?' best':''}"><span class="ml">${lab}${isBest?'<em>Best bet</em>':''}</span>
+      <span class="mm"><i>Market </i><b class="num">${mk}</b><small>${sub}${mv?' · '+mv:''}</small></span>
+      <span class="mo"><i>${ours} </i><b class="num">${md}</b></span>
+      <span class="mb">${b?`<i>Best </i><b>${betLabel(b)}</b> <span class="num">${odds(b.price)}</span><small>${esc(b.book)}</small>`:'<span class="muted">No price at your books</span>'}</span>
+      <span class="mv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span>`:''}</span></div>`};
+  return `<div class="mkts"><div class="mrow mh" aria-hidden="true"><span></span><span>Market · ${esc(srcName(m))}</span><span>${ours}</span><span>Best price at your books</span><span class="mv">Value</span></div>
+    ${['spread','ml','total'].map(row).join('')}</div>`;
+}
+function wxTag(g){
+  if(!outdoor(g))return '';const i=wxIn(g);if(!isFinite(i.w)&&!isFinite(i.t))return '';
+  const bad=(isFinite(i.w)&&i.w>=15)||(isFinite(i.t)&&i.t<=32);
+  return `<span class="tag${bad?' warn':''}" title="${i.you?'Your numbers':'National Weather Service kickoff forecast'}">${isFinite(i.w)?Math.round(i.w)+' mph wind':''}${isFinite(i.w)&&isFinite(i.t)?', ':''}${isFinite(i.t)?Math.round(i.t)+'°F':''}</span>`;
+}
+function wxNote(g){
+  const e=weatherEffect(g),i=wxIn(g);
+  const fc=g.fc?`National Weather Service kickoff forecast: ${g.fc.wind} mph wind, ${g.fc.temp}°F, ${g.fc.pop}% chance of rain.`:'No forecast yet.';
+  if(!e)return (i.you?'Your numbers: no weather effect. ':'')+fc;
+  return `${i.you?'Your numbers':'Forecast'}: ${sg(e)} points on the total at full effect; the tested model counts ${sg((S.W.weather||0)/100*e)} at ${S.W.weather}%.${i.you?' '+fc:''}`;
+}
+function wxBlock(g){
+  if(!outdoor(g))return `<p>${g.roof==='dome'?'Dome':g.roof==='closed'?'Roof closed':'Retractable roof, usually closed'}: no weather effect.</p>`;
+  const o=S.wx[g.id]||{};
+  return `<div class="wx"><div class="ins"><label>Wind <input id="w-${did(g.id)}" data-wx="${esc(g.id)}" data-f="w" type="number" min="0" max="60" inputmode="numeric" value="${o.w!=null&&o.w!==''?esc(o.w):(g.fc?g.fc.wind:'')}" placeholder="mph"></label>
+    <label>Temp <input id="t-${did(g.id)}" data-wx="${esc(g.id)}" data-f="t" type="number" min="-20" max="110" inputmode="numeric" value="${o.t!=null&&o.t!==''?esc(o.t):(g.fc?g.fc.temp:'')}" placeholder="°F"></label></div>
+    <span class="note" id="wn-${did(g.id)}">${wxNote(g)}</span><small class="muted">Type your own numbers closer to kickoff; they replace the forecast on this device.</small></div>`;
+}
+function booksTable(g,fair){
+  const rows=rowsOf(g);
+  if(rows.length<2)return `<p>Only ${esc(srcName(g.mkt))} has a price on this game right now.</p>`;
+  const best={};SIDES.forEach(([k])=>rows.forEach((r,i)=>{if(!useBook(r.t))return;const v=evOf(fair,r,k);if(v&&(!best[k]||v.ev>best[k].ev))best[k]={i,ev:v.ev}}));
+  const c=(i,k,txt)=>{const h=best[k]&&best[k].i===i;return `<td class="num${h?' hit':''}"${h?` title="${sg(best[k].ev*100)}% against the fair line"`:''}>${txt}</td>`};
+  return `<div class="scroll"><table><thead><tr><th>Book</th><th>${g.away} spread</th><th>${g.home} spread</th><th>${g.away} ML</th><th>${g.home} ML</th><th>Over</th><th>Under</th></tr></thead><tbody>${rows.map((r,i)=>`<tr${useBook(r.t)?'':' class="off"'}><td>${esc(r.t)}${OFF.has(r.t)?'<small>offshore</small>':''}</td>
+    ${c(i,'spA',r.sp==null?'–':`${r.sp===0?'PK':(r.sp>0?'+':MINUS)+ln(Math.abs(r.sp))} ${odds(r.spA)}`)}${c(i,'spH',r.sp==null?'–':`${r.sp===0?'PK':(r.sp>0?MINUS:'+')+ln(Math.abs(r.sp))} ${odds(r.spH)}`)}
+    ${c(i,'mlA',odds(r.mlA))}${c(i,'mlH',odds(r.mlH))}${c(i,'ov',r.tot==null?'–':`o${ln(r.tot)} ${odds(r.ov)}`)}${c(i,'un',r.tot==null?'–':`u${ln(r.tot)} ${odds(r.un)}`)}</tr>`).join('')}</tbody></table></div><p class="muted">Bold marks the best value on each side among your books, allowing for different lines.${rows.some(r=>r.t!=='Consensus'&&!useBook(r.t))?' Faded rows are books you turned off.':''}</p>`;
+}
+function detail(g,x){
+  const T=NFL.teams,A=T[g.away],H=T[g.home];
+  const rows=FACT.map(f=>{const e=x.eff[f.k],w=S.W[f.k]||0,val=f.k==='ratings'?`${favLine(g,g.H0-g.A0+(g.neutral?0:1.6),1)}, ${(g.A0+g.H0).toFixed(1)}`:
+      (Math.abs(e.m)<.05&&Math.abs(e.t)<.05?'None':[Math.abs(e.m)>=.05?`${sg(e.m)} to ${g.home}`:'',Math.abs(e.t)>=.05?`${sg(e.t)} total`:''].filter(Boolean).join(', '));
+    const ap=w?[Math.abs(e.m)>=.05?`${sg(e.m*w/100)} margin`:'',Math.abs(e.t*f.tr)>=.05?`${sg(e.t*w*f.tr/100)} total`:''].filter(Boolean).join(', ')||'–':'Off';
+    const [ic,lab]=VLAB[f.v];
+    return `<tr><td>${f.label}</td><td class="tw">${val}</td><td><span class="v v-${f.v}"><i aria-hidden="true">${ic}</i>${lab}</span></td><td class="num">${w}%</td><td class="num">${ap}</td></tr>`}).join('');
+  const qb=[0,1].map(i=>`${i?g.home:g.away}: ${esc(g.qb[i]||'TBD')}${g.backup[i]?' <span class="tag warn">not the usual starter</span>':''}`).join('<br>');
+  const meets=g.h2h.length?g.h2h.map(mt=>`<tr><td>${mt.date.slice(0,4)}</td><td>${mt.home===g.home?`${g.away} ${mt.as} @ ${g.home} ${mt.hs}`:`${g.home} ${mt.as} @ ${g.away} ${mt.hs}`}</td><td class="num">${mt.hs+mt.as}</td></tr>`).join('')
+      :'<tr><td colspan="3" class="muted">No meetings in the last six years</td></tr>';
+  const f1=v=>v==null?'–':v.toFixed(1);
+  const form=`<tr><td>Record</td><td class="num">${A.rec}</td><td class="num">${H.rec}</td></tr>
+    <tr><td>Points scored per game</td><td class="num">${f1(A.pf)}</td><td class="num">${f1(H.pf)}</td></tr>
+    <tr><td>Points allowed per game</td><td class="num">${f1(A.pa)}</td><td class="num">${f1(H.pa)}</td></tr>
+    <tr><td>Offense vs. average<small>adjusted for opponents</small></td><td class="num">${sg(A.off)}</td><td class="num">${sg(H.off)}</td></tr>
+    <tr><td>Defense vs. average<small>+ allows fewer points</small></td><td class="num">${sg(A.def)}</td><td class="num">${sg(H.def)}</td></tr>
+    <tr><td>Plays per game</td><td class="num">${A.plays.toFixed(1)}</td><td class="num">${H.plays.toFixed(1)}</td></tr>
+    <tr><td>Days of rest</td><td class="num">${g.rest[0]}</td><td class="num">${g.rest[1]}</td></tr>`;
+  return `<div class="detail" id="d-${did(g.id)}">
+    <section class="wide"><h3>Prices by book</h3>${booksTable(g,x.fair)}</section>
+    <section><h3>Kickoff weather</h3>${wxBlock(g)}
+      <h3>Factors</h3>
+      <div class="scroll"><table><thead><tr><th>Factor</th><th>Full effect</th><th>Tested</th><th>Weight</th><th>Applied</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <p class="muted">Our call’s team view counts every factor’s full effect${(g.backup[0]||g.backup[1])&&scoutFor('nfl',g)?' (researched news replaces the automatic backup-QB flag)':''}; the tested model, which prices the best bets, counts the weight shown. Power ratings with every factor at full strength: ${g.away} ${x.pr.a.toFixed(1)}, ${g.home} ${x.pr.h.toFixed(1)} (${favLine(g,x.pr.h-x.pr.a,1)}). Betting those projections alone lost money in testing.</p></section>
+    <div class="stack">
+      <section><h3>Quarterbacks</h3><p>${qb}</p></section>
+      <section><h3>Team form, ${NFL.season}</h3><div class="scroll"><table><thead><tr><th></th><th>${g.away}</th><th>${g.home}</th></tr></thead><tbody>${form}</tbody></table></div></section>
+      <section><h3>Recent meetings</h3><div class="scroll"><table><thead><tr><th>Season</th><th>Score</th><th>Total</th></tr></thead><tbody>${meets}</tbody></table></div></section>
+    </div>
+  </div>`;
+}
+/* one NFL game: the call (our call) and the best bet (the tested model unless our call's own bets are chosen) */
+function card({g,t,h,x}){
+  const open=S.open.has(g.id),sc=h.sc;
+  const bigMove=g.open&&g.open.sp!=null&&Math.abs(g.open.sp-g.mkt.sp)>=3;
+  const tags=[g.wk&&g.wk!==NFL.week?`Week ${g.wk}`:'',g.div?'Division game':'',g.neutral?'Neutral site':'',g.backup[0]||g.backup[1]?'Backup QB':'',g.rest[0]<=5?'Short week':'',bigMove?'Big line move':''].filter(Boolean)
+    .map(t=>`<span class="tag${t==='Big line move'||t==='Backup QB'?' warn':''}">${t}</span>`).join('')+wxTag(g);
+  const reason=esc(leadText('nfl',g,h)),nt=newsTags(sc,'nfl');
+  return `<article class="game${x.best&&x.best.ev>=.02?' hasbet':''}" id="g-${did(g.id)}" data-lg="nfl">
+    <div class="gbody">
+      <div class="ghead">
+        <div class="match"><span class="teams gt">${g.away}<i>@</i>${g.home}</span><small>${NAMES[g.away]} at ${NAMES[g.home]} · ${g.day} ${g.ct} CT · ${esc(g.venue)}</small>${tags?`<div class="tagrow">${tags}</div>`:''}</div>
+        <div class="callcell">${callCell('nfl',g,h)}</div>
+        <div class="bb">${betCell('nfl',g,x)}</div>
+      </div>
+      ${reason?`<p class="reason">${reason}</p>`:''}${nt?`<div class="tagrow">${nt}</div>`:''}
+      ${mktTable(g,x)}
+      <div class="discs">${callWhy('nfl',g,h,{bet:x.hol})}${x.hol?'':whyHTML(g,t,nflReasons(g,t),'nfl')}<button class="more" data-more="${esc(g.id)}" aria-expanded="${open}" aria-controls="d-${did(g.id)}">Prices, weather and team stats</button></div>
+    </div>
+    ${open?detail(g,x):''}
+  </article>`;
+}
+/* each NFL game: the tested model (t), our call (h), and the one the best bets come from (x) */
+const pickNFL=g=>{const t=analyze(g),h=nflHolistic(g,t);return{g,t,h,x:OURBETS()?h:t}};
+function results(){return NFL?NFL.games.map(pickNFL):[]}
+function renderList(){
+  if(!NFL||!NFL.games.length){$('#plays').innerHTML='<div class="bhead"><h2>NFL</h2><p class="lede">No NFL games on the schedule right now.</p></div>';$('#games').innerHTML='';$('#wpanel').hidden=true;return}
+  const K=openKeys($('#nfl'));let all=results();
+  if(S.sort==='value')all.sort((a,b)=>(b.x.best?b.x.best.ev:-9)-(a.x.best?a.x.best.ev:-9));
+  const res=S.filter==='bets'?all.filter(r=>r.x.best&&r.x.best.ev>0):all;
+  $('#games').innerHTML=res.length?res.map(card).join(''):'<div class="card muted">No game has a positive-value price at your books. Choose “All games” to see every pick.</div>';
+  renderPlays(all);reopen(K,$('#nfl'));
+  document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.filter===S.filter));
+  $('#wpanel').hidden=OURBETS();
+}
+function weights(){
+  $('#wgrid').innerHTML=FACT.map(f=>{const [ic,lab]=VLAB[f.v];return `<div class="w">
+    <label for="wt-${f.k}"><span class="wh">${f.label}<span class="v v-${f.v}"><i aria-hidden="true">${ic}</i>${lab}</span></span><output id="wo-${f.k}">${S.W[f.k]}%</output></label>
+    <input type="range" id="wt-${f.k}" data-w="${f.k}" min="0" max="100" step="5" value="${S.W[f.k]}">
+    <small>${f.eff}. ${f.note}</small></div>`}).join('');
+}
+
+/* ---------- NBA rendering ---------- */
+function nbaGame(g){
+  let A=g.A0,H=g.H0;Object.values(g.f).forEach(([a,h])=>{A+=a;H+=h});
+  const lost=[0,0],key=[[],[]];let tl=0;
+  (g.inj||[[],[]]).forEach((list,i)=>list.forEach(p=>{
+    const out=/^out$/i.test(p.status||'');
+    if(out&&p.gs){lost[i]+=GS.m*p.gs;tl+=GS.t*p.gs}
+    if(p.gs&&p.gs>=6)key[i].push(p);
+  }));
+  A-=lost[0];H-=lost[1];
+  return{M:H-A,T:A+H+tl,lost,tl,key};
+}
+function nbaFactorText(k,g){
+  switch(k){
+    case 'altitude':return `${g.home} plays at altitude`;
+    case 'travel':return `${g.away} crosses ${g.tz} time zones`;
+    case 'rest':return [g.b2b[0]?`${g.away} is on a back-to-back`:'',g.b2b[1]?`${g.home} is on a back-to-back`:''].filter(Boolean).join('; ')||'Third game in four nights';
+    case 'inj':return 'Out: '+[0,1].map(i=>(g.inj||[[],[]])[i].filter(p=>/^out$/i.test(p.status||'')&&p.gs).map(p=>`${esc(p.name)} (${i?g.home:g.away})`).join(', ')).filter(Boolean).join(', ');
+    case 'pace':return 'How fast both teams have played lately';
+    case 'h2h':return 'Their earlier meetings this season';
+    case 'hfa':return `${g.home} at home`;
+  }
+  return '';
+}
+/* NBA pick: the tested factors move the fair line from every book, then the bet with the most value at the viewer's books */
+function nbaAnalyze(g,e){
+  const list=NFACT.map(f=>{const [a,h]=f.k==='inj'?[0,0]:(g.f[f.k]||[0,0]);
+    return{k:f.k,label:f.label,s:f.s,v:f.v,w:f.w,wt:f.wt,rec:f.rec,e:f.k==='inj'?{m:e.lost[0]-e.lost[1],t:e.tl}:{m:h-a,t:a+h},text:nbaFactorText(f.k,g)}});
+  let dM=0,dT=0;list.forEach(r=>{dM+=r.w*r.e.m;dT+=r.wt*r.e.t});
+  const fair=fairOf(g,'nba',dM,dT),bets=priced(g,fair,dM,dT);
+  return{dM,dT,fair,bets,best:bets[0]||null,grade:bets[0]?gradeOf(bets[0].ev):'No line',R:reasons(g,list)};
+}
+/* one NBA game: match, our call, best bet, market, injuries; then the reason and the explanations */
+function nbaCard({g,e,t,h,x}){
+  const m=g.mkt,sc=h.sc,o=g.open;
+  const op=!m?[]:[o&&o.sp!=null&&Math.abs(o.sp-m.sp)>=.5?favLine(g,o.sp):'',o&&o.tot!=null&&Math.abs(o.tot-m.tot)>=.5?'total '+ln(o.tot):''].filter(Boolean);
+  const mk=m?`<span class="k">Market · ${esc(m.src)}</span><b class="mk">${favLine(g,m.sp)}</b><small>Total ${ln(m.tot)}${op.length?' · opened '+op.join(', '):''}</small>`
+    :'<span class="k">Market</span><b class="muted">Not posted</b><small>Lines usually open a day or two ahead</small>';
+  const call=callCell('nba',g,h);
+  const inj=[0,1].map(i=>{const team=i?g.home:g.away,list=e.key[i];if(!list.length)return '';
+    return `<small><b>${team}:</b> ${list.slice(0,3).map(p=>`${esc(p.name)} (${/^out$/i.test(p.status)?'out':esc((p.status||'').toLowerCase())}${p.ret&&/^out$/i.test(p.status)?' until '+fmtDate(p.ret):''})`).join(', ')}</small>`}).join('');
+  const notes=[g.b2b[0]?`${g.away} back-to-back`:'',g.b2b[1]?`${g.home} back-to-back`:'',g.alt?'Altitude':'',g.tz>=2?`${g.away} crosses ${g.tz} time zones`:'',
+    Math.max(...e.lost)>=1.5?'Key player out':''].filter(Boolean).map(n=>`<span class="tag${n==='Key player out'?' warn':''}">${n}</span>`).join('');
+  const reason=esc(leadText('nba',g,h));
+  const why=callWhy('nba',g,h,{bet:!!x&&!!x.hol})+(x&&!x.hol&&x.best?whyHTML(g,x,x.R,'nba'):'');
+  const bk=m&&x&&x.fair&&rowsOf(g).length>1?`<details class="bk" data-k="bk-nba-${esc(g.id)}"><summary>Prices at ${rowsOf(g).length} books</summary>${booksTable(g,x.fair)}</details>`:'';
+  const tg=newsTags(sc,'nba');
+  return `<article class="lrow${x&&x.best&&x.best.ev>=.02?' hasbet':''}" id="n-${did(g.id)}" data-lg="nba">
+    <div class="lt"><span class="t gt">${g.away} @ ${g.home}</span><small>${esc(nameOf('nba',g.away))} at ${esc(nameOf('nba',g.home))}${g.ct?' · '+g.ct+' CT':''}</small>${notes?`<div class="tagrow">${notes}</div>`:''}</div>
+    <div class="callcell">${call}</div>
+    <div class="bb">${betCell('nba',g,x)}</div>
+    <div>${mk}</div>
+    <div><span class="k">Injuries</span>${inj||'<small class="muted">None of note</small>'}</div>
+    ${reason?`<p class="reason full">${reason}</p>`:''}${tg?`<div class="tagrow full">${tg}</div>`:''}
+    ${why||bk?`<div class="discs full">${why}${bk}</div>`:''}
+  </article>`;
+}
+/* an NBA game with no lines yet: one line (game, call, injuries) that opens to the reasoning */
+function nbaCompact({g,e,h}){
+  const inj=[0,1].map(i=>{const list=e.key[i];return list.length?`<b>${i?g.home:g.away}:</b> ${list.slice(0,2).map(p=>`${esc(p.name)} (${/^out$/i.test(p.status)?'out':esc((p.status||'').toLowerCase())})`).join(', ')}`:''}).filter(Boolean).join(' · ');
+  const C=callOf('nba',g,h),W=callWhyParts('nba',g,h);
+  return `<details class="crow" id="n-${did(g.id)}" data-lg="nba" data-k="row-nba-${esc(g.id)}"><summary><div class="cgrid"><span class="cg"><b class="gt">${g.away} @ ${g.home}</b><small>${g.ct?g.ct+' CT':''}</small></span>
+    <span class="cc"><b class="cl">${esc(nameOf('nba',C.team))} ${pc(C.p)}</b><small>${esc(byT('nba',g,h.tM))} · team view</small></span><span class="ci"><small>${inj||'No injuries of note'}</small></span><span class="cw">Why</span></div></summary>
+    <div class="whyb cbody"><p class="reason">${esc(leadText('nba',g,h))}</p>${W.body}</div></details>`;
+}
+function renderNBA(){
+  const el=$('#nbaplays'),root=$('#nba'),K=openKeys(root);
+  if(!NBA||!NBA.games||!NBA.games.length){el.innerHTML='<div class="bhead"><h2>NBA</h2><p class="lede">No NBA games scheduled in the next few days.</p></div>';$('#nbalist').innerHTML='';return}
+  const ours=OURBETS(),day=(d,o)=>new Date(d+'T12:00:00').toLocaleDateString('en-US',o);
+  const R=NBA.games.map(g=>{const e=nbaGame(g),h=nbaHolistic(g,e),t=g.mkt?nbaAnalyze(g,e):null;return{g,e,h,t,x:g.mkt?(ours?h:t):null}});
+  const pr=R.filter(r=>r.g.mkt),pos=pr.filter(r=>r.x&&r.x.best&&r.x.best.ev>0).length,n=R.length;
+  const head=NBA.preseason?'NBA opening week':`NBA through ${day(NBA.end,{weekday:'long'})}`;
+  const lede=(NBA.preseason?`The season tips off ${day(NBA.start,{weekday:'long',month:'long',day:'numeric'})}. `:'')
+    +(pr.length?`${pr.length} of ${n} games have lines, and ${pos} ${pos===1?'has':'have'} a positive-value bet at your books.`:'No lines are posted yet.')
+    +(pr.length<n?` The other ${n-pr.length} show our team view until lines post, usually a day or two before tip-off.`:'');
+  el.innerHTML=boardHTML(head,lede,pr.map(r=>boardRow('nba',r.g,r.h,r.x,'n-'+did(r.g.id))).join(''),
+    pr.length?'Tap a game for its full reasoning. Injury news moves NBA lines fast, so check the current number before betting.':'');
+  const days={};R.forEach(r=>{(days[r.g.date]=days[r.g.date]||[]).push(r)});
+  $('#nbalist').innerHTML=Object.entries(days).map(([d,rs])=>{const p=rs.filter(r=>r.g.mkt),u=rs.filter(r=>!r.g.mkt);
+    return `<div class="day"><h3>${day(d,{weekday:'long',month:'short',day:'numeric'})}</h3>${p.map(nbaCard).join('')}
+      ${u.length?`<div class="crows"><p class="chead">${p.length?'No lines yet':'No lines yet for these games'} · our call is the team view alone</p>${u.map(nbaCompact).join('')}</div>`:''}</div>`}).join('');
+  reopen(K,root);
+}
+
+/* ---------- Premier League: a goal model fitted to every book's prices ---------- */
+/* Each match's expected goals come from the market: the middle value across books of the no-vig home, draw and away
+   chances, and each book's total. A Dixon-Coles adjustment (rho) matches the market's draw chance. The tested factors
+   then move the expected goal difference and total, and every price (three-way, handicaps including quarter lines,
+   totals) is valued from the same score grid. */
+const EW={sot:.086,sott:.10,form:-.011,cong:.18};
+const EFACT={
+  sot:{label:'Shots-on-target rating',s:'the shots-on-target rating',v:'held',rec:'The market missed about 9% of this rating’s view of goal difference in every window tested (2012–17, 2018–25, 2023–26), and about 10% of its view of the total in recent seasons.'},
+  form:{label:'Hot and cold form',s:'form',v:'held',rec:'The market overrated recent form by about 0.012 goals per point of last-5 difference, in every window tested.'},
+  cong:{label:'Second match in 3 days',s:'the short turnaround',v:'held',rec:'Teams playing a second league match within 3 days did about 0.2 goals better than the market expected, in every window tested, though only about 560 matches.'}
+};
+const ENOT=[['Elo ratings','none','no signal once the market is known'],['Goals-based rating','none','goals are noisier than shots on target; no signal'],['Newly promoted teams','none','no signal in their first six games'],['Home advantage','priced','already priced by the market']];
+const GMAX=11,GOFF=GMAX-1;
+function poisV(l){const v=new Array(GMAX);let p=Math.exp(-l);for(let k=0;k<GMAX;k++){v[k]=p;p*=l/(k+1)}return v}
+/* the score grid as distributions of goal difference (home minus away) and total goals */
+function scoreDist(lh,la,rho){
+  const a=poisV(lh),b=poisV(la),gd=new Float64Array(2*GMAX-1),tg=new Float64Array(2*GMAX-1);let s=0;
+  for(let i=0;i<GMAX;i++)for(let j=0;j<GMAX;j++){let v=a[i]*b[j];
+    if(i<2&&j<2)v*=Math.max(0,i===0&&j===0?1-lh*la*rho:i===0?1+lh*rho:j===0?1+la*rho:1-rho);
+    gd[i-j+GOFF]+=v;tg[i+j]+=v;s+=v}
+  let H=0,A=0;for(let k=0;k<gd.length;k++){gd[k]/=s;tg[k]/=s;if(k>GOFF)H+=gd[k];else if(k<GOFF)A+=gd[k]}
+  return{H,D:gd[GOFF],A,gd,tg};
+}
+/* chance a bet wins, pushes or loses when it wins on sign*x + h > 0 (x = goal difference or total goals). A quarter line
+   (x.25, x.75) is two half bets on the lines either side, so half wins and half losses count half. */
+function lineBet(arr,off,sign,h){
+  const one=h=>{let w=0,p=0,l=0;for(let k=0;k<arr.length;k++){const v=arr[k];if(!v)continue;const r=sign*(k-off)+h;if(r>1e-9)w+=v;else if(r<-1e-9)l+=v;else p+=v}return{w,p,l}};
+  if(Math.abs(Math.round(h*4)%2)!==1)return one(h);
+  const x=one(h-.25),y=one(h+.25);return{w:(x.w+y.w)/2,p:(x.p+y.p)/2,l:(x.l+y.l)/2};
+}
+const GDb=(d,sign,h)=>lineBet(d.gd,GOFF,sign,h),TGb=(d,sign,h)=>lineBet(d.tg,0,sign,h);
+const isQ=l=>l!=null&&Math.abs(Math.round(l*4)%2)===1;
+/* expected goals for each side, and rho, that reproduce the market's home/draw/away chances at a total of T goals */
+function fitGoals(pH,pD,pA,T){
+  const split=rho=>{let lo=.03,hi=.97;for(let i=0;i<28;i++){const m=(lo+hi)/2,d=scoreDist(m*T,(1-m)*T,rho);if(d.H-d.A<pH-pA)lo=m;else hi=m}return(lo+hi)/2};
+  let lo=-.3,hi=.12,s=.5,rho=0;
+  for(let i=0;i<22;i++){rho=(lo+hi)/2;s=split(rho);const d=scoreDist(s*T,(1-s)*T,rho);if(d.D>pD)lo=rho;else hi=rho}
+  return{T,lh:s*T,la:(1-s)*T,rho};
+}
+/* the expected total at which a book's over and under give up the same amount (its no-vig line) */
+function bookTotal(f,r){
+  const s=f.lh/(f.lh+f.la),dO=dec(r.ov),dU=dec(r.un);let lo=.6,hi=6.5;
+  for(let i=0;i<30;i++){const T=(lo+hi)/2,d=scoreDist(s*T,(1-s)*T,f.rho),o=TGb(d,1,-r.tot),u=TGb(d,-1,r.tot);if(o.w*(dO-1)-o.l<u.w*(dU-1)-u.l)lo=T;else hi=T}
+  return(lo+hi)/2;
+}
+const eplRows=g=>{const m=g.mkt;return[...(m?[{...m,t:m.src}]:[]),...(g.books||[]).filter(b=>!m||b.t!==m.src)]};
+function eplAnchors(g){
+  if(g._anc!==undefined)return g._anc;
+  const rows=eplRows(g),P=[];
+  rows.forEach(r=>{if(r.mlH!=null&&r.mlD!=null&&r.mlA!=null){const x=[impl(r.mlH),impl(r.mlD),impl(r.mlA)],s=x[0]+x[1]+x[2];P.push(x.map(v=>v/s))}});
+  if(!P.length)return g._anc=null;
+  let pH=med(P.map(p=>p[0])),pD=med(P.map(p=>p[1])),pA=med(P.map(p=>p[2]));const s=pH+pD+pA;pH/=s;pD/=s;pA/=s;
+  const tots=rows.filter(r=>r.tot!=null&&r.ov!=null&&r.un!=null);
+  let f=fitGoals(pH,pD,pA,2.8);
+  for(let k=0;k<2&&tots.length;k++)f=fitGoals(pH,pD,pA,med(tots.map(r=>bookTotal(f,r))));
+  return g._anc={...f,pH,pD,pA,n:rows.length,nT:tots.length};
+}
+/* dM and dT: the factors' change to the expected goal difference (+ = home) and total */
+function eplFair(g,dM,dT){
+  const a=eplAnchors(g);if(!a)return null;
+  const lh=Math.max(.05,a.lh+dM/2+dT/2),la=Math.max(.05,a.la-dM/2+dT/2),d=scoreDist(lh,la,a.rho);
+  return{a,d,lh,la,n:a.n,q:{mlH:()=>({w:d.H,p:0,l:1-d.H}),mlD:()=>({w:d.D,p:0,l:1-d.D}),mlA:()=>({w:d.A,p:0,l:1-d.A}),
+    spH:r=>GDb(d,1,-r.sp),spA:r=>GDb(d,-1,r.sp),ov:r=>TGb(d,1,-r.tot),un:r=>TGb(d,-1,r.tot)}};
+}
+const ESIDES=[['mlH','ml','home'],['mlD','ml','draw'],['mlA','ml','away'],['spH','spread','home'],['spA','spread','away'],['ov','total','over'],['un','total','under']];
+function eplEv(fair,r,k){
+  if(r[k]==null)return null;if((k==='spH'||k==='spA')&&r.sp==null)return null;if((k==='ov'||k==='un')&&r.tot==null)return null;
+  const o=fair.q[k](r);return{p:o.w,push:o.p,l:o.l,ev:o.w*(dec(r[k])-1)-o.l};
+}
+function eplPriced(g,fair){
+  const rows=eplRows(g);let use=rows.filter(r=>useBook(r.t));if(!use.length)use=rows;
+  const out=[];
+  use.forEach(r=>ESIDES.forEach(([k,mkt,side])=>{const v=eplEv(fair,r,k);if(!v)return;
+    out.push({lg:'epl',mkt,side,team:side==='draw'?'Draw':mkt==='total'?null:g[side],line:mkt==='spread'?(side==='home'?-r.sp:r.sp):mkt==='total'?r.tot:null,
+      price:r[k],book:r.t,p:v.p,push:v.push,l:v.l,ev:v.ev})}));
+  return out.sort((a,b)=>b.ev-a.ev);
+}
+function eplAnalyze(g){
+  if(g._x!==undefined&&g._xb===S.books.join())return g._x;
+  const a=eplAnchors(g);g._xb=S.books.join();if(!a)return g._x=null;
+  const mG=a.lh-a.la,mT=a.lh+a.la,R=[];
+  if(g.sot)R.push({k:'sot',e:{m:EW.sot*(g.sot.gd-mG),t:EW.sott*(g.sot.tg-mT)}});
+  if(g.form&&g.form[0]!=null&&g.form[1]!=null&&g.form[0]!==g.form[1])R.push({k:'form',e:{m:EW.form*(g.form[0]-g.form[1]),t:0}});
+  if(g.congest&&g.congest[0]!==g.congest[1])R.push({k:'cong',e:{m:EW.cong*(g.congest[0]-g.congest[1]),t:0}});
+  let dM=0,dT=0;R.forEach(r=>{dM+=r.e.m;dT+=r.e.t});
+  const fair=eplFair(g,dM,dT),base=eplFair(g,0,0),bets=eplPriced(g,fair);
+  return g._x={a,mG,mT,dM,dT,fair,base,bets,best:bets[0]||null,grade:bets[0]?gradeOf(bets[0].ev):'No line',R};
+}
+
+/* ---------- Premier League: why this pick ---------- */
+const gl=v=>Math.abs(v).toFixed(2);
+const eBy=(g,m)=>Math.abs(m)<.005?'level':`${m>0?g.home:g.away} by ${gl(m)}`;
+const eEff=(g,e)=>[Math.abs(e.m)>=.005?`${e.m>0?g.home:g.away} +${gl(e.m)} goals`:'',Math.abs(e.t)>=.005?`total ${e.t>=0?'+':MINUS}${gl(e.t)}`:''].filter(Boolean).join(', ');
+const eSign=b=>b.mkt==='total'?(b.side==='over'?1:-1):b.side==='home'?1:b.side==='away'?-1:0;
+const ord=n=>n+(n%100>=11&&n%100<=13?'th':({1:'st',2:'nd',3:'rd'}[n%10]||'th'));
+const fmHTML=s=>s?`<span class="fm">${[...s].map(c=>`<span class="r-${c.toLowerCase()}">${c}</span>`).join('')}</span>`:'';
+function eplFactorText(g,r,x){
+  const T=EPL.teams||{},h=T[g.home]||{},a=T[g.away]||{};
+  if(r.k==='sot')return `${g.home} have averaged ${h.sotF.toFixed(1)} shots on target and allowed ${h.sotA.toFixed(1)}; ${g.away} ${a.sotF.toFixed(1)} and ${a.sotA.toFixed(1)} (recent league matches count most). That rates it ${eBy(g,g.sot.gd)} goals with ${g.sot.tg.toFixed(2)} in all; the market has ${eBy(g,x.mG)} and ${x.mT.toFixed(2)}`;
+  if(r.k==='form')return `${g.home} took ${g.form[0]} of their last 15 league points (${h.last5||'–'}), ${g.away} ${g.form[1]} (${a.last5||'–'})`;
+  if(r.k==='cong')return [g.congest[0]?`${g.home} play their second league match in ${g.rest[0]} days`:'',g.congest[1]?`${g.away} play their second league match in ${g.rest[1]} days`:''].filter(Boolean).join('; ');
+  return '';
+}
+function eplLead(g,x){
+  const b=x.best,sn=eSign(b),lean=sn*(b.mkt==='total'?x.dT:x.dM),bk=esc(b.book),L=betLabel(b),n=`${x.fair.n} ${x.fair.n===1?'book':'books'}`;
+  const val=r=>sn*(b.mkt==='total'?r.e.t:r.e.m);
+  const push=x.R.filter(r=>val(r)>=.01).sort((p,q)=>val(q)-val(p)),who=push.slice(0,2).map(r=>EFACT[r.k].s).join(' and ')||'small effects',mv=eEff(g,{m:x.dM,t:x.dT});
+  if(b.side==='draw')return `No tested factor points to a draw${mv?` (together they move the fair line ${mv})`:''}, so this pick comes down to price: <b>Draw</b> at ${bk} is the best deal against the fair line from ${n}.`;
+  if(lean>=.08)return `The factors that held up in testing move the fair line ${mv}, mostly because of ${who}. That makes <b>${L}</b> the side worth taking, and ${bk} has the best price on it.${push[0]?' '+EFACT[push[0].k].rec:''}`;
+  if(lean>=.02)return `The factors lean slightly toward <b>${L}</b> (${mv}, mostly ${who}), and ${bk} has the best price on that side.`;
+  if(lean<=-.02)return `The factors lean slightly the other way (${mv}), but ${possB(bk)} price on <b>${L}</b> ${b.ev>0?'is far enough off the fair line to make it the best bet anyway':'still gives up the least against the fair line'}.`;
+  return `No tested factor moves this market much${mv?` (together they move the fair line ${mv})`:''}, so the pick comes down to price: <b>${L}</b> at ${bk} is the best deal against the fair line from ${n}.`;
+}
+function eplWhy(g,x){
+  const b=x.best;if(!b)return '';
+  const q=b.mkt!=='ml'&&isQ(b.line),dp=!q&&b.push>.004,wr=b.p/(b.p+b.l||1);
+  const math=q?`At ${odds(b.price)} it needs to win ${pc(1/dec(b.price),1)} of the money that gets settled (a quarter line refunds half the stake on some scores); the fair line gives it ${pc(wr,1)}. Value: <b class="${b.ev>0?'pos':'neg'}">${sg(b.ev*100)}%</b> per bet.`
+    :`At ${odds(b.price)} it needs to win ${pc(1/dec(b.price),1)}${dp?' of bets that don’t push':''}; the fair line gives it ${pc(dp?wr:b.p,1)}${dp?`, with a ${pc(b.push,1)} chance of a push`:''}. Value: <b class="${b.ev>0?'pos':'neg'}">${sg(b.ev*100)}%</b> per bet.`;
+  const alt=x.bets.find(o=>o.mkt!==b.mkt||o.side!==b.side),tail=b.ev>0?'':' Every price on this match is below fair value after the book’s cut; this one gives up the least.';
+  const li=x.R.map(r=>{const f=EFACT[r.k],[ic,lab]=VLAB[f.v];return `<li><b>${f.label}</b> <span class="v v-${f.v}"><i aria-hidden="true">${ic}</i>${lab}</span> ${eplFactorText(g,r,x)}. ${f.rec} Counts ${eEff(g,r.e)||'less than 0.01 goals'}.</li>`}).join('');
+  const off=ENOT.map(([lab,v,why])=>{const [ic,vl]=VLAB[v];return `<li class="off"><b>${lab}</b> <span class="v v-${v}"><i aria-hidden="true">${ic}</i>${vl}</span> Not counted: ${why}.</li>`}).join('');
+  const none=!g.sot?'<li class="off"><b>Shots-on-target rating</b> Not enough Premier League matches yet for one of these teams (it needs five).</li>':'';
+  return `<details class="why" data-k="epl-${esc(g.id)}"><summary>Why ${betLabel(b)}</summary><div class="whyb">
+    <p>${eplLead(g,x)}</p><p>${math}${tail}${alt?` Next best: ${betLabel(alt)} ${odds(alt.price)} at ${esc(alt.book)} (${sg(alt.ev*100)}%).`:''}</p>
+    <p class="k">What each factor says</p><ul>${li}${none}${off}</ul>
+    <p class="muted fine">Weights come from how much of each factor the market missed over 5,300 Premier League matches, tested against Bet365’s prices a day or two before kickoff.</p></div></details>`;
+}
+
+/* ---------- Premier League rendering ---------- */
+const triHTML=(g,v,base)=>`<span class="tri">${[['home',g.home],['draw','Draw'],['away',g.away]].map(([k,nm],i)=>{const p=v[i],d=base?p-base[i]:0;
+  return `<span title="${esc(nm)}">${esc(nm)}<b class="${Math.abs(d)>=.005?(d>0?'up':'dn'):''}">${pc(p)}</b></span>`}).join('')}</span>`;
+function eplBooksTable(g,fair){
+  const rows=eplRows(g);
+  if(rows.length<2)return `<p>Only ${esc(rows[0]?rows[0].t:'one book')} has a price on this match right now.</p>`;
+  const best={};ESIDES.forEach(([k])=>rows.forEach((r,i)=>{if(!useBook(r.t))return;const v=eplEv(fair,r,k);if(v&&(!best[k]||v.ev>best[k].ev))best[k]={i,ev:v.ev}}));
+  const c=(i,k,txt)=>{const h=best[k]&&best[k].i===i;return `<td class="num${h?' hit':''}"${h?` title="${sg(best[k].ev*100)}% against the fair line"`:''}>${txt}</td>`};
+  const hc=(l,p)=>l==null?'–':`${l===0?'0':(l>0?'+':MINUS)+lnq(Math.abs(l))} ${odds(p)}`;
+  return `<div class="scroll"><table><thead><tr><th>Book</th><th>${esc(g.home)}</th><th>Draw</th><th>${esc(g.away)}</th><th>${esc(g.home)} hcp</th><th>${esc(g.away)} hcp</th><th>Over</th><th>Under</th></tr></thead><tbody>${rows.map((r,i)=>`<tr${useBook(r.t)?'':' class="off"'}><td>${esc(r.t)}${OFF.has(r.t)?'<small>offshore</small>':''}</td>
+    ${c(i,'mlH',odds(r.mlH))}${c(i,'mlD',odds(r.mlD))}${c(i,'mlA',odds(r.mlA))}${c(i,'spH',hc(r.sp==null?null:-r.sp,r.spH))}${c(i,'spA',hc(r.sp,r.spA))}
+    ${c(i,'ov',r.tot==null?'–':`o${lnq(r.tot)} ${odds(r.ov)}`)}${c(i,'un',r.tot==null?'–':`u${lnq(r.tot)} ${odds(r.un)}`)}</tr>`).join('')}</tbody></table></div><p class="muted">Bold marks the best value on each side among your books, allowing for different lines. “hcp” is the handicap (Asian lines like −0.25 split the stake across two lines).${rows.some(r=>!useBook(r.t))?' Faded rows are books you turned off.':''}</p>`;
+}
+/* one Premier League match: match, our call, best bet, market, form; then the reason and the explanations */
+function eplCard({g,t,h:c,x}){
+  const T=EPL.teams||{},h=T[g.home]||{},a=T[g.away]||{},m=g.mkt,o=g.open,priced=!c.noMkt&&!!x,sc=c.sc;
+  const tags=[g.congest&&g.congest[0]?`${g.home}: 2nd match in ${g.rest[0]} days`:'',g.congest&&g.congest[1]?`${g.away}: 2nd match in ${g.rest[1]} days`:'',
+    g.round&&EPL.round&&g.round!==EPL.round?g.round:''].filter(Boolean).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+  let mk;
+  if(priced){const A=c.a;
+    const mv=o&&o.mlH!=null&&o.mlA!=null&&o.mlD!=null&&m&&m.mlH!=null&&m.mlD!=null&&m.mlA!=null?(()=>{const p0=impl(o.mlH)/(impl(o.mlH)+impl(o.mlD)+impl(o.mlA)),p1=impl(m.mlH)/(impl(m.mlH)+impl(m.mlD)+impl(m.mlA));return Math.abs(p1-p0)>=.03?` · ${esc(g.home)} opened ${pc(p0)}`:''})():'';
+    mk=`<span class="k">Market · ${A.n} ${A.n===1?'book':'books'}, no-vig</span>${triHTML(g,[A.pH,A.pD,A.pA])}<small>Expected goals ${A.lh.toFixed(2)}–${A.la.toFixed(2)}${m&&m.tot!=null?` · total ${lnq(m.tot)}`:''}${mv}</small>`}
+  else mk='<span class="k">Market</span><b class="muted">Not posted</b><small>DraftKings usually posts about a week ahead</small>';
+  const call=callCell('epl',g,c);
+  const tm=t=>`<span class="nw">${t.pos?ord(t.pos):''}${t.p?` · ${t.w}–${t.d}–${t.l}`:''}</span>`;
+  const form=`<span class="k">Form, last 5</span><small><b>${esc(g.home)}</b> ${fmHTML(h.last5)} ${tm(h)}</small><small><b>${esc(g.away)}</b> ${fmHTML(a.last5)} ${tm(a)}</small>`;
+  const reason=esc(leadText('epl',g,c));
+  const why=callWhy('epl',g,c,{bet:priced&&!!x.hol})+(priced&&!x.hol&&x.best?eplWhy(g,x):'');
+  const n=eplRows(g).length,bk=priced?`<details class="bk" data-k="bk-epl-${esc(g.id)}"><summary>Prices at ${n} ${n===1?'book':'books'}</summary>${eplBooksTable(g,x.fair)}</details>`:'';
+  const tg=newsTags(sc,'epl'),good=priced&&x.best&&x.best.ev>=.02;
+  return `<article class="lrow${good?' hasbet':''}" id="e-${did(g.id)}" data-lg="epl">
+    <div class="lt"><span class="t gt">${esc(g.home)}<i> v </i>${esc(g.away)}</span><small>${g.day} ${fmtDate(g.date)} · ${g.ct} CT</small>${tags?`<div class="tagrow">${tags}</div>`:''}</div>
+    <div class="callcell">${call}</div>
+    <div class="bb">${betCell('epl',g,priced?x:c)}</div>
+    <div>${mk}</div>
+    <div>${form}</div>
+    ${reason?`<p class="reason full">${reason}</p>`:''}${tg?`<div class="tagrow full">${tg}</div>`:''}
+    ${why||bk?`<div class="discs full">${why}${bk}</div>`:''}
+  </article>`;
+}
+function renderEPL(){
+  const el=$('#eplplays'),root=$('#epl'),K=openKeys(root);
+  if(!EPL||!EPL.games||!EPL.games.length){el.innerHTML='<div class="bhead"><h2>Premier League</h2><p class="lede">No Premier League matches in the fixture list right now.</p></div>';$('#epllist').innerHTML='';return}
+  const ours=OURBETS(),R=EPL.games.map(g=>{const h=eplHolistic(g),t=eplAnalyze(g);return{g,h,t,x:h.noMkt?null:(ours?h:t)}});
+  const pr=R.filter(r=>r.x),pos=pr.filter(r=>r.x.best&&r.x.best.ev>0).length,n=R.length;
+  const sm=EPL.sotMissing>0?` Shots on target are missing for ${EPL.sotMissing} of this season’s ${EPL.played} matches so far; the rating uses the rest.`:'';
+  const lede=pr.length?`${pr.length} of ${n} matches have lines, and ${pos} ${pos===1?'has':'have'} a positive-value bet at your books.${pr.length<n?` The rest show our team view until lines post.`:''}`
+    :`Lines aren’t posted yet: DraftKings usually posts Premier League lines about a week ahead, and the other books are added in the four days before kickoff. Until then our call is the team view alone: shots-on-target rating, form, turnaround and the news. Once lines post, it follows the market, which picked more winners in testing.`;
+  el.innerHTML=boardHTML(`${esc(EPL.round||'This round')} at a glance`,lede+sm,R.map(r=>boardRow('epl',r.g,r.h,r.x||r.h,'e-'+did(r.g.id))).join(''),
+    'Soccer has three results, so a call under 50% can still be the single most likely one. Tap a match for its full reasoning.');
+  const days={};R.forEach(r=>{(days[r.g.date]=days[r.g.date]||[]).push(r)});
+  $('#epllist').innerHTML=Object.entries(days).map(([d,rs])=>`<div class="day"><h3>${new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})}</h3>${rs.map(eplCard).join('')}</div>`).join('');
+  reopen(K,root);
+}
+
+/* ---------- Our call: the market, the teams and the news, together ---------- */
+/* Every game gets three views. The market: the fair line from every book. The team view: power ratings plus every factor
+   at full strength, including the ones that failed testing, plus researched news (injuries, returns, signings and trades,
+   coaching changes, drama, motivation). Our call blends the two; the market-weight slider sets the mix. Picks, the
+   reasoning and stakes follow our call unless "Tested only" is chosen. */
+let SCOUT=DATA.scout||{},SCOUT_META=DATA.scout_meta||null,VER=0;  /* news: baked in on the standalone site, live from the page's database on claude.ai */
+const NEWS_CAP={nfl:[8,10,4],nba:[8,10,4],epl:[.5,.6,.3]};  /* limits per item, per team, per item's total effect */
+const scoutId=(lg,g)=>lg==='epl'?`epl_${g.date}_${g.home}_${g.away}`.replace(/[^A-Za-z0-9_-]/g,''):`${lg}_${g.id}`;
+const clampN=(v,c)=>Math.max(-c,Math.min(c,+v||0));
+const safeUrl=u=>/^https?:\/\/[^\s"<>]+$/i.test(String(u||''))?String(u):'';
+/* researched news for a game, checked and clipped: the database is shared data, so nothing in it is trusted as markup */
+function scoutFor(lg,g){
+  const d=SCOUT[scoutId(lg,g)];if(!d||typeof d!=='object')return null;
+  const [ci,,cti]=NEWS_CAP[lg];
+  const items=(Array.isArray(d.items)?d.items:[]).slice(0,40).map(it=>{it=it||{};const team=it.team===g.home||it.team===g.away?it.team:'';
+    return{team,type:String(it.type||'other').slice(0,12),text:String(it.text||'').slice(0,220),impact:team?clampN(it.impact,ci):0,total:clampN(it.total,cti),at:Date.parse(it.at||'')||null,src:safeUrl(it.src)}}).filter(it=>it.text);
+  return{summary:String(d.summary||'').slice(0,600),items,at:Date.parse(d.at||'')||null,
+    sources:(Array.isArray(d.sources)?d.sources:[]).slice(0,12).map(s=>({t:String(s&&s.t||'').slice(0,140),u:safeUrl(s&&s.u)})).filter(s=>s.u)};
+}
+function newsSum(sc,g,lg){
+  const z={h:0,a:0,t:0};if(!sc)return z;const cap=NEWS_CAP[lg][1];
+  sc.items.forEach(it=>{if(it.team===g.home)z.h+=it.impact;else if(it.team===g.away)z.a+=it.impact;z.t+=it.total});
+  z.h=clampN(z.h,cap);z.a=clampN(z.a,cap);z.t=clampN(z.t,cap);return z;
+}
+const CALLW={nfl:.85,nba:.9,epl:1};  /* the market's share of our call in each league: the mix that picked the most winners in testing */
+const MW=lg=>CALLW[lg];
+const OURBETS=()=>S.bets==='ours';  /* best bets from our call's own pricing (untested) instead of the tested model */
+/* NFL: team view = power ratings with home field + every factor at full strength + news (which replaces the automatic backup-QB flag) */
+function nflHolistic(g,x){
+  const a=anchors(g,'nfl'),sc=scoutFor('nfl',g),n=newsSum(sc,g,'nfl'),inj=sc&&g.f.injuries?g.f.injuries:[0,0];
+  const ra=x.pr.a-inj[0],rh=x.pr.h-inj[1],tM=1.1*(rh-ra)+n.h-n.a,tT=.71*(ra+rh)+12.9+n.t;
+  const mM=a.mu==null?g.mkt.sp:a.mu,mT=a.tot==null?g.mkt.tot:a.tot,w=MW('nfl');
+  const cM=w*mM+(1-w)*tM,cT=w*mT+(1-w)*tT,dM=cM-mM,dT=cT-mT;
+  const fair=fairOf(g,'nfl',dM,dT),bets=priced(g,fair,dM,dT),by={};['spread','ml','total'].forEach(k=>{by[k]=bets.find(b=>b.mkt===k)||null});
+  const pM=fairOf(g,'nfl',0,0).pW,pT=fairOf(g,'nfl',tM-mM,tT-mT).pW,best=bets[0]||null;
+  return{...x,hol:true,lg:'nfl',sc,n,inj,dM,dT,fair,bets,by,best,grade:best?gradeOf(best.ev):'No line',pW:fair.pW,pM,pT,pC:fair.pW,
+    mM,mT,tM,tT,cM,cT,w,rat:g.H0-g.A0+(g.neutral?0:1.6),modelM:g.mkt.sp+dM,modelT:g.mkt.tot+dT,nb:new Set(bets.map(b=>b.book)).size};
+}
+/* NBA: team view = ratings + every factor + players listed out (the early number) + news */
+function nbaHolistic(g,e){
+  const sc=scoutFor('nba',g),n=newsSum(sc,g,'nba'),tM=e.M+n.h-n.a,tT=e.T+n.t,w=MW('nba');
+  if(!g.mkt)return{hol:true,lg:'nba',sc,n,tM,tT,e,noMkt:true,pT:Phi(tM/NSD.m),pC:Phi(tM/NSD.m),best:null,bets:[],grade:'No line'};
+  const a=anchors(g,'nba'),mM=a.mu==null?g.mkt.sp:a.mu,mT=a.tot==null?g.mkt.tot:a.tot;
+  const cM=w*mM+(1-w)*tM,cT=w*mT+(1-w)*tT,dM=cM-mM,dT=cT-mT,fair=fairOf(g,'nba',dM,dT),bets=priced(g,fair,dM,dT),best=bets[0]||null;
+  return{hol:true,lg:'nba',sc,n,dM,dT,fair,bets,best,grade:best?gradeOf(best.ev):'No line',pM:fairOf(g,'nba',0,0).pW,pT:fairOf(g,'nba',tM-mM,tT-mT).pW,pC:fair.pW,
+    mM,mT,tM,tT,cM,cT,w,e};
+}
+/* EPL: team view = shots-on-target rating + short-turnaround and form effects at full tested size + news (goals) */
+function eplTeamView(g,a){
+  const sc=scoutFor('epl',g),n=newsSum(sc,g,'epl');
+  const base=g.sot?{G:g.sot.gd,T:g.sot.tg}:a?{G:a.lh-a.la,T:a.lh+a.la}:{G:.3,T:2.8};
+  const cong=g.congest?.207*(g.congest[0]-g.congest[1]):0,form=g.form&&g.form[0]!=null&&g.form[1]!=null?-.012*(g.form[0]-g.form[1]):0;
+  return{sc,n,cong,form,base,G:base.G+cong+form+n.h-n.a,T:Math.max(.8,base.T+n.t)};
+}
+function eplHolistic(g){
+  const key=VER+'|'+S.books.join();if(g._h&&g._hk===key)return g._h;g._hk=key;
+  const a=eplAnchors(g),tv=eplTeamView(g,a),w=MW('epl');
+  const rho=a?a.rho:-.1,tl=(G,T)=>scoreDist(Math.max(.05,(T+G)/2),Math.max(.05,(T-G)/2),rho);
+  const td=tl(tv.G,tv.T);
+  if(!a)return g._h={hol:true,lg:'epl',...tv,tG:tv.G,tT:tv.T,noMkt:true,td,cd:td,best:null,bets:[],grade:'No line'};
+  const mG=a.lh-a.la,mT=a.lh+a.la,cG=w*mG+(1-w)*tv.G,cT=w*mT+(1-w)*tv.T,dM=cG-mG,dT=cT-mT;
+  const fair=eplFair(g,dM,dT),bets=eplPriced(g,fair),best=bets[0]||null;
+  return g._h={hol:true,lg:'epl',...tv,a,mG,mT,tG:tv.G,tT:tv.T,cG,cT,dM,dT,fair,mf:eplFair(g,0,0),bets,best,td,cd:fair.d,grade:best?gradeOf(best.ev):'No line',w};
+}
+const pSide=(g,p)=>`${pc(p>=.5?p:1-p)} ${p>=.5?g.home:g.away}`;
+/* the biggest news items for a game, as short tags */
+function newsTags(sc,lg){if(!sc)return '';
+  return sc.items.filter(it=>it.team&&Math.abs(it.impact)>=(lg==='epl'?.03:.3)).sort((p,q)=>Math.abs(q.impact)-Math.abs(p.impact)).slice(0,3)
+    .map(it=>`<span class="tag${it.impact<0?' warn':''}" title="${esc(it.text)}">${esc(it.team)} ${it.impact>0?'+':MINUS}${Math.abs(it.impact).toFixed(lg==='epl'?2:1)}: ${esc(it.text.split(/[;(,]/)[0].slice(0,48))}</span>`).join('')}
+
+/* ---------- shared display: names, margins, the reason, the explanation, the boards ---------- */
+const did=s=>String(s).replace(/[^A-Za-z0-9_-]/g,'_');  /* a game id made safe for an element id */
+const possB=s=>/s$/i.test(s)?s+'’':s+'’s';  /* DraftKings’ price, BetMGM’s price */
+const LGU={nfl:{d:1,unit:'',gap:.05,art:true,base:['ratings','home'],baseLab:'our ratings',baseWith:' with home field',name:t=>NAMES[t]||t},
+  nba:{d:1,unit:'',gap:.05,art:true,base:['ratings','hfa'],baseLab:'our ratings',baseWith:' with home court',name:t=>(NBA&&NBA.names&&NBA.names[t])||t},
+  epl:{d:2,unit:' goals',gap:.005,art:false,base:['sot'],baseLab:'the shots-on-target rating',baseWith:'',name:t=>t}};
+const LGN={nfl:'NFL',nba:'NBA',epl:'Premier League'};
+/* what testing says about our call's winner picks (walk-forward ratings and factors, historical closing lines) */
+const CALLFACT={nfl:'Over 20 NFL seasons (2006–2025) this mix, 85% market and 15% team view, picked 66.7% of winners against 66.5% for the betting favorite; over the last six seasons, 67.3% against 66.7%.',
+  nba:'Over 18 NBA seasons this mix, 90% market and 10% team view, picked 68.5% of winners, level with the betting favorite.',
+  epl:'Over 14 Premier League seasons no mix with the team view picked more winners than the market alone (55.0%), so once lines post our call follows the market.'};
+const nameOf=(lg,t)=>LGU[lg].name(t);
+const theN=(lg,t)=>(LGU[lg].art?'the ':'')+nameOf(lg,t);
+const possT=(lg,t)=>{const n=nameOf(lg,t);return (LGU[lg].art?'the ':'')+(/s$/.test(n)?n+'’':n+'’s')};
+const byT=(lg,g,m)=>{const U=LGU[lg];return Math.abs(m)<U.gap?(lg==='epl'?'level':'dead even'):`${nameOf(lg,m>0?g.home:g.away)} by ${Math.abs(m).toFixed(U.d)}${U.unit}`};
+const matchTxt=(lg,g)=>lg==='epl'?`${g.home} v ${g.away}`:`${g.away} @ ${g.home}`;
+const M3=(lg,x)=>lg==='epl'?{m:x.mG,t:x.tG,c:x.cG}:{m:x.mM,t:x.tM,c:x.cM};
+const confWord=p=>p<.55?'a coin flip':p<.62?'a lean':p<.72?'a solid favorite':p<.85?'a strong favorite':'a heavy favorite';
+const shortNews=t=>{let s=String(t).replace(/\s*\([^)]*\)/g,'').split(';')[0].replace(/\s+/g,' ').trim();
+  const m=s.match(/^(.*?[a-z0-9])\.\s+(?=[A-Z])/);if(m&&!/\b(Jr|Sr|St|Mt|vs|No|Dr|Mr)$/.test(m[1]))s=m[1];s=s.replace(/\.$/,'');
+  return s.length>52?s.slice(0,50).replace(/\s+\S*$/,'')+'…':s};
+const FPHRASE={rest:'the rest edge',h2h:'the head-to-head record',altitude:'the altitude',injuries:'a backup quarterback starting',officials:'the referee crew',travel:'the travel',pace:'the pace'};
+/* the chance and side of our call: NFL and NBA from the margin, the Premier League from the three-way grid */
+function callOf(lg,g,x){
+  if(lg==='epl'){const d=x.cd,o=[['home',d.H],['draw',d.D],['away',d.A]].sort((p,q)=>q[1]-p[1])[0];return{side:o[0],p:o[1],team:o[0]==='draw'?null:g[o[0]],d}}
+  const pC=x.noMkt?x.pT:x.pC,side=pC>=.5?'home':'away';return{side,p:pC>=.5?pC:1-pC,team:g[side]};
+}
+/* every piece of the team view, in its league's units toward the home side (+) */
+function piecesFor(lg,g,x){
+  const P=[];
+  if(lg==='nfl'){const K=1.1;
+    P.push({k:'ratings',label:'Team strength',why:`From both teams’ results this season and last, adjusted for opponents, the ratings expect ${g.home} to score ${g.H0.toFixed(1)} and ${g.away} ${g.A0.toFixed(1)}`,m:K*(g.H0-g.A0),pl:true,ph:t=>`${possT(lg,t)} stronger results this season and last`});
+    if(!g.neutral)P.push({k:'home',label:'Home field',why:'Worth about 1.6 points in this model',m:K*1.6,ph:t=>`${possT(lg,t)} home field`});
+    FACT.forEach(f=>{if(['ratings','weather','pace','officials'].includes(f.k))return;if(f.k==='injuries'&&x.sc)return;
+      const e=x.eff[f.k];if(!e||Math.abs(e.m)<.05)return;
+      P.push({k:f.k,label:f.label,why:`${nflFactorText(f.k,g)}. Tested: ${VLAB[f.v][1].toLowerCase()}`,m:K*e.m,ph:()=>FPHRASE[f.k]||f.s})});
+  }else if(lg==='nba'){
+    P.push({k:'ratings',label:'Team strength',why:'From both teams’ results, adjusted for opponents; last season carries the early weeks',m:g.H0-g.A0,pl:true,ph:t=>`${possT(lg,t)} stronger results`});
+    Object.entries(g.f||{}).forEach(([k,v])=>{const m=v[1]-v[0];if(Math.abs(m)<.05)return;const f=NFACT.find(z=>z.k===k)||{label:k,s:k,v:'none'};
+      P.push({k,label:k==='hfa'?'Home court':f.label,why:nbaFactorText(k,g),m,ph:t=>k==='hfa'?`${possT(lg,t)} home court`:(FPHRASE[k]||f.s)})});
+    const e=x.e;if(e&&Math.abs(e.lost[0]-e.lost[1])>=.05)P.push({k:'out',label:'Players listed out',why:nbaFactorText('inj',g),m:e.lost[0]-e.lost[1],pl:true,ph:t=>`${possT(lg,t===g.home?g.away:g.home)} missing players`});
+  }else{
+    P.push({k:'sot',label:g.sot?'Shots-on-target rating':x.a?'Starting point: the market':'Starting point: home edge',why:g.sot?'Both sides’ shots on target for and against, recent league matches weighted most; includes home advantage':x.a?'No rating yet for one of these teams, so the team view starts from the market':'No rating yet for one of these teams and no lines yet, so the team view starts from a typical home edge of 0.3 goals',m:x.base.G,pl:!!g.sot,ph:t=>g.sot?`${possT(lg,t)} shots-on-target numbers`:x.a?'the market':'home advantage'});
+    if(Math.abs(x.form)>=.005)P.push({k:'form',label:'Recent form, faded',why:'Testing found the market overrates teams on hot streaks, about 0.012 goals per point of last-5 difference',m:x.form,ph:t=>`${possT(lg,t===g.home?g.away:g.home)} overrated hot streak`});
+    if(Math.abs(x.cong)>=.005)P.push({k:'cong',label:'Second match in 3 days',why:'Teams on a short turnaround did about 0.2 goals better than the market expected',m:x.cong,ph:t=>`${possT(lg,t)} short-turnaround edge`});
+  }
+  const sc=x.sc,gap=LGU[lg].gap;
+  if(sc){const N=sc.items.filter(it=>it.team&&Math.abs(it.impact)>=gap).map(it=>({k:'news',label:shortNews(it.text),why:`${it.type}: ${it.text}`,m:it.team===g.home?it.impact:-it.impact,src:it.src}))
+      .sort((a,b)=>Math.abs(b.m)-Math.abs(a.m));
+    N.slice(0,5).forEach(p=>P.push(p));
+    const rest=N.slice(5).reduce((s,p)=>s+p.m,0);if(Math.abs(rest)>=gap)P.push({k:'news',label:`Other news (${N.length-5} items)`,why:'Smaller injury and roster items, all listed under the sources',m:rest})}
+  return P.sort((a,b)=>Math.abs(b.m)-Math.abs(a.m));
+}
+/* news in a sentence, grouped by team and kind: "the Bears’ quarterback news", "Arsenal’s injuries" */
+function newsGroups(lg,g,sc){
+  if(!sc)return [];const G={},gap=LGU[lg].gap;
+  sc.items.forEach(it=>{if(!it.team||Math.abs(it.impact)<gap)return;
+    const qb=lg==='nfl'&&/\bQB\b|quarterback/i.test(it.text),gk=lg==='epl'&&/goalkeeper|keeper/i.test(it.text);
+    const kind=qb?'quarterback news':gk?'goalkeeper news':it.type==='injury'||it.type==='loss'?(it.impact>0?'injury news':'injuries'):it.type==='return'?'returning players':it.type==='add'?'new additions':it.type==='coach'?'coaching situation':it.type==='drama'?'turmoil':it.type==='motivation'?'motivation':'news';
+    const k=it.team+'|'+kind;(G[k]=G[k]||{team:it.team,kind,m:0}).m+=it.team===g.home?it.impact:-it.impact});
+  return Object.values(G).map(v=>({k:'news',m:v.m,pl:/injuries|players|additions/.test(v.kind),ph:()=>`${possT(lg,v.team)} ${v.kind}`}));
+}
+/* the one-paragraph reason for our call, shown on the card: how the market and the team view relate, then what builds the team view */
+function leadText(lg,g,x){
+  const U=LGU[lg],V=M3(lg,x),wp=Math.round(MW(lg)*100),th=lg==='epl'?.02:.3,one=lg==='epl';
+  const P=piecesFor(lg,g,x),base=P.filter(p=>U.base.includes(p.k)).reduce((s,p)=>s+p.m,0);
+  const adj=[...P.filter(p=>!U.base.includes(p.k)&&p.k!=='news'),...newsGroups(lg,g,x.sc)].sort((a,b)=>Math.abs(b.m)-Math.abs(a.m));
+  const nm=p=>p.ph(p.m>0?g.home:g.away),list=a=>a.slice(0,2).map(nm).join(' and '),pl=a=>a.length>1||!!a[0].pl;
+  const bw=lg==='nfl'&&g.neutral?'':U.baseWith,bl=lg==='epl'&&!g.sot?(x.a?'the market’s starting point':'a typical home edge'):U.baseLab,even=Math.abs(base)<U.gap*6;
+  const bwF=b=>!bw?'':b<0?` even with ${possT(lg,g.home)} home ${lg==='nba'?'court':'field'}`:bw;  /* home field, said plainly when the ratings favor the visitors anyway */
+  const evenTxt=`${bl} ${one?'has the teams level':'see the teams as even'}${bw?' once home '+(lg==='nba'?'court':'field')+' is counted':''}`;
+  /* the team view, explained toward one side (ts: +1 home, -1 away) */
+  const explain=ts=>{const tS=ts>0?g.home:g.away,oS=ts>0?g.away:g.home,sb=ts*base,sm=x.noMkt?null:ts*V.m;
+    const forT=adj.filter(p=>ts*p.m>=th),agT=adj.filter(p=>ts*p.m<=-th);
+    let s=even?evenTxt
+      :sb<0?`${bl} actually ${one?'favors':'favor'} ${theN(lg,oS)} (${byT(lg,g,base)}${bwF(base)})`
+      :sm!=null&&sm>0&&sb>sm+th?`${bl} alone ${one?'makes':'make'} it ${byT(lg,g,base)}${bwF(base)}`
+      :sm!=null&&sm>0&&sb<sm-th?`${bl} ${one?'sees':'see'} a smaller gap than the market (${byT(lg,g,base)}${bwF(base)})`
+      :`${bl} ${one?'has':'make'} it ${byT(lg,g,base)}${bwF(base)}`;
+    if(forT.length)s+=even?`, and ${list(forT)} ${pl(forT)?'tip':'tips'} it to ${theN(lg,tS)}`:sb<0?`, but ${list(forT)} ${pl(forT)?'tip':'tips'} it to ${theN(lg,tS)}`:`; ${list(forT)} ${pl(forT)?'add':'adds'} to that`;
+    if(agT.length)s+=`; ${list(agT)} ${pl(agT)?'pull':'pulls'} the other way`;
+    return s};
+  /* sides follow the chances shown on the card (NFL, NBA: win chances; soccer: the goal margin), so the sentence and the call cell agree */
+  const sgn=v=>v>=0?1:-1,pS=p=>p==null?null:(p>=.5?1:-1),C=callOf(lg,g,x);
+  const tSide=one?sgn(V.t):(pS(x.pT)??sgn(V.t));
+  if(x.noMkt)return `No betting lines yet, so our call is the team view alone: ${explain(tSide)}.`;
+  const side=C.side==='home'?1:C.side==='away'?-1:sgn(V.c),cS=side>0?g.home:g.away,oS=side>0?g.away:g.home,mSide=one?sgn(V.m):(pS(x.pM)??sgn(V.m));
+  const says=(m,s)=>Math.abs(m)<U.gap||sgn(m)!==s?(one?'level':'a pick’em'):byT(lg,g,m);
+  const mBy=Math.abs(V.m)<U.gap||sgn(V.m)!==side?'as a slight favorite':`by ${Math.abs(V.m).toFixed(U.d)}${U.unit}`;
+  if(wp>=100)return `Our call follows the betting market (${says(V.m,mSide)}), which picked more ${LGN[lg]} winners in testing than any mix with our team view. The team view has it ${says(V.t,tSide)}: ${explain(tSide)}.`;
+  if(Math.abs(V.t)<U.gap){  /* the team view is even: say what cancels out */
+    const pro=adj.filter(p=>p.m>=th),con=adj.filter(p=>p.m<=-th),bs=base>=0?1:-1,opp=adj.filter(p=>bs*p.m<=-th);
+    const w=even?`${evenTxt}${pro.length&&con.length?`, and ${nm(pro[0])} and ${nm(con[0])} roughly cancel out`:''}`
+      :`${bl} ${one?'has':'make'} it ${byT(lg,g,base)}${bwF(base)}${opp.length?`, but ${list(opp)} ${pl(opp)?'bring':'brings'} it back to even`:''}`;
+    return `The betting market has ${theN(lg,cS)} ${mBy}; our team view has it ${one?'level':'dead even'}: ${w}.`}
+  if(tSide===side&&mSide===side)return `Both the betting market (${says(V.m,mSide)}) and our team view (${says(V.t,tSide)}) favor ${theN(lg,cS)}: ${explain(side)}.`;
+  if(mSide===side)return `The betting market has ${theN(lg,cS)} ${mBy}, while our team view has it ${says(V.t,tSide)}: ${explain(tSide)}. At ${100-wp}% weight the team view only trims the edge.`;
+  return `Our team view (${says(V.t,tSide)}) outweighs the market’s lean to ${theN(lg,oS)} at a ${100-wp}% weight: ${explain(side)}.`;
+}
+/* the tug-of-war chart of the team view */
+function tugHTML(lg,g,P,tot){
+  const U=LGU[lg],mx=Math.max(lg==='epl'?.3:3,...P.map(p=>Math.abs(p.m)),Math.abs(tot));
+  const bar=(m,cls)=>`<i class="${cls}" style="${m>=0?'left':'right'}:50%;width:${Math.min(50,Math.abs(m)/mx*50).toFixed(1)}%"></i>`;
+  const val=m=>Math.abs(m)<U.gap?'0':`${nameOf(lg,m>0?g.home:g.away)} +${Math.abs(m).toFixed(U.d)}`;
+  return `<div class="tug"><div class="trow tax" aria-hidden="true"><span></span><span class="tb"><span><b class="sw aw"></b>◀ ${esc(nameOf(lg,g.away))}</span><span>${esc(nameOf(lg,g.home))} ▶<b class="sw hm"></b></span></span><span></span></div>
+    ${P.map(p=>`<div class="trow" title="${esc(p.why||'')}"><span class="tl">${esc(p.label)}${p.src?` <a href="${esc(p.src)}" target="_blank" rel="noopener" aria-label="source">↗</a>`:''}</span><span class="tb">${bar(p.m,p.m>=0?'hm':'aw')}</span><span class="tv num">${esc(val(p.m))}</span></div>`).join('')}
+    <div class="trow tsum"><span class="tl">Our team view</span><span class="tb">${bar(tot,tot>=0?'hm':'aw')}</span><span class="tv num">${esc(byT(lg,g,tot))}</span></div></div>`;
+}
+/* why our call, for any league: how sure, the story, the three views, the team view piece by piece, the bet, the sources */
+function callWhyParts(lg,g,x,opt){
+  const U=LGU[lg],V=M3(lg,x),C=callOf(lg,g,x),P=piecesFor(lg,g,x),sc=x.sc,b=opt&&opt.bet?x.best:null,wp=Math.round(MW(lg)*100);
+  const cName=C.team?nameOf(lg,C.team):'A draw',lose=10-Math.round(C.p*10);
+  const sure=lg==='epl'?`${C.team?`${pc(C.p)} makes ${cName} ${confWord(C.p)} to win:`:`A draw is the single most likely result at ${pc(C.p)}:`} ${g.home} ${pc(C.d.H)}, draw ${pc(C.d.D)}, ${g.away} ${pc(C.d.A)}.`
+    :`${pc(C.p)} makes ${theN(lg,C.team)} ${confWord(C.p)}: ${lose>=1?`in games like this ${theN(lg,C.side==='home'?g.away:g.home)} win about ${lose} ${lose===1?'time':'times'} in 10.`:'an upset here would be rare.'}`;
+  const box=(lab,m,sub,cls)=>`<div${cls?` class="${cls}"`:''}><small>${lab}</small><b>${esc(byT(lg,g,m))}</b><span>${sub}</span></div>`;
+  const tri3=d=>`${esc(g.home)} ${pc(d.H)} · draw ${pc(d.D)} · ${esc(g.away)} ${pc(d.A)}`;
+  const views=x.noMkt?`<div class="views one">${box('Our team view = our call',V.t,lg==='epl'?tri3(x.td):`${pSide(g,x.pT)} · no lines yet`,'ours')}</div>`
+    :`<div class="views">${box('Betting market',V.m,lg==='epl'?tri3({H:x.a.pH,D:x.a.pD,A:x.a.pA}):`${pSide(g,x.pM)} · ${x.fair.n} ${x.fair.n===1?'book':'books'}`)}
+      ${box('Our team view',V.t,lg==='epl'?tri3(x.td):`${pSide(g,x.pT)} · ratings, factors${sc?', news':''}`)}
+      ${box(wp>=100?'Our call · follows the market':`Our call · ${wp}% market`,V.c,lg==='epl'?tri3(x.cd):`${pc(C.p)} ${esc(C.team)} to win`,'ours')}</div>`;
+  let bet='';
+  if(b){const q=b.mkt!=='ml'&&isQ(b.line),dp=!q&&b.push>.004,wr=b.p/(b.p+b.l||1),onCall=C.team&&b.mkt!=='total'&&b.side===C.side;
+    bet=`<span class="ut">Untested:</span> ${onCall?'Our call’s best-value bet backs its pick':b.mkt==='total'?'The best-value bet is on the total, not the winner':`The best-value bet is on ${b.side==='draw'?'the draw':theN(lg,g[b.side])}, not our pick`}: <b>${betLabel(b)} ${odds(b.price)}</b> at ${esc(b.book)}. It needs to win ${pc(1/dec(b.price),1)}${dp?' of bets that don’t push':q?' of the money that gets settled':''}; our call gives it ${pc(dp||q?wr:b.p,1)}, worth <b class="${b.ev>0?'pos':'neg'}">${sg(b.ev*100)}%</b> per bet${b.ev>0?'':' (every price here is below our call’s fair value after the book’s cut; this one gives up the least)'}.`;
+    const back=C.team?['ml','spread'].map(k=>x.bets.filter(o=>o.mkt===k&&o.side===C.side).sort((a,c)=>c.ev-a.ev)[0]).filter(o=>o&&!(o.mkt===b.mkt&&o.side===b.side&&o.book===b.book)):[];
+    if(back.length)bet+=` To back ${theN(lg,C.team)} directly: ${back.map(o=>`${betLabel(o)} ${odds(o.price)} at ${esc(o.book)} (${sg(o.ev*100)}%)`).join(' or ')}.`;
+    const tm=lg==='epl'?{m:x.mT,t:x.tT,c:x.cT}:{m:x.mT,t:x.tT,c:x.cT};
+    bet+=` ${lg==='epl'?'Goals':'Points'}: the market expects ${tm.m.toFixed(U.d)}, our team view ${tm.t.toFixed(U.d)}, our call ${tm.c.toFixed(U.d)}.`}
+  const f=v=>Math.abs(v).toFixed(U.d);
+  const items=sc?sc.items.slice().sort((p1,p2)=>Math.abs(p2.impact)-Math.abs(p1.impact)).map(it=>{const on=it.team&&Math.abs(it.impact)>=U.gap;
+    return `<li${on?'':' class="off"'}><span class="nt">${esc(it.type)}</span> ${esc(it.text)}${on?` <b>${esc(it.team)} ${it.impact>0?'+':MINUS}${f(it.impact)}</b>`:''}${Math.abs(it.total)>=U.gap?` <span class="muted">total ${it.total>0?'+':MINUS}${f(it.total)}</span>`:''}${it.src?` <a href="${esc(it.src)}" target="_blank" rel="noopener">source</a>`:''}</li>`}).join(''):'';
+  const title=C.team?`Why ${lg==='epl'?cName:theN(lg,C.team)} · ${pc(C.p)}`:`Why a draw · ${pc(C.p)}`;
+  const foot=`${CALLFACT[lg]} The researched news can’t be backtested; the model record under My bets tracks it from here.`;
+  return{title,body:`<p class="wlead">${esc(sure)}</p>
+    ${sc&&sc.summary?`<p class="k">The story</p><p>${esc(sc.summary)}</p>`:''}
+    ${views}
+    <p class="k">What goes into our team view</p>
+    ${tugHTML(lg,g,P,V.t)}
+    <p class="muted fine">Each bar is ${lg==='epl'?'goals':'points'} of expected margin toward that team${lg==='nfl'?'; team strength, home field and the factors are put on the market’s scale (this ratings model runs about 10% narrow)':''}. Hover a row for details.${x.noMkt?'':wp>=100?' Once lines post, our call follows the market alone; the team view is here for context.':` Our call counts the team view at ${100-wp}% and the market at ${wp}%.`}</p>
+    ${bet?`<p class="k">Our call’s own bet</p><p>${bet} In testing, bets priced this way lost about 8% per bet over six seasons.</p>`:''}
+    ${items?`<details class="srcs" data-k="src-${lg}-${esc(g.id)}"><summary>All ${sc.items.length} news items, with sources${sc.at?` · researched ${whenCT(new Date(sc.at).toISOString())}`:''}</summary><ul>${items}</ul></details>`:'<p class="muted fine">No news research for this game yet, so the team view is ratings and factors only.</p>'}
+    <p class="muted fine">${foot}</p>`};
+}
+function callWhy(lg,g,x,opt){const W=callWhyParts(lg,g,x,opt);return `<details class="why" data-k="${lg}-${esc(g.id)}"><summary>${esc(W.title)}</summary><div class="whyb">${W.body}</div></details>`}
+/* the short "our call" cell: who wins, and how sure */
+function callCell(lg,g,x){
+  if(!x)return '<span class="k">Our call</span><small class="muted">Waiting for lines</small>';
+  const C=callOf(lg,g,x),V=M3(lg,x);
+  const sub=lg==='epl'?`${esc(g.home)} ${pc(C.d.H)} · draw ${pc(C.d.D)} · ${esc(g.away)} ${pc(C.d.A)}`:`${esc(byT(lg,g,x.noMkt?V.t:V.c))}${x.noMkt?' · team view':` · market ${pc(C.side==='home'?x.pM:1-x.pM)}`}`;
+  return `<span class="k">Our call${x.noMkt?' · no lines yet':''}</span><b class="cl">${C.team?`${esc(nameOf(lg,C.team))} ${pc(C.p)}`:`Draw ${pc(C.p)}`}</b><small>${sub}</small>`;
+}
+/* the best-bet cell, the same for every league */
+function betCell(lg,g,x){
+  const b=x&&x.best;if(!b)return `<span class="k">Best bet</span><small class="muted">${x&&!x.noMkt?'No price at your books':'No lines yet'}</small>`;
+  return `<span class="k">Best bet${x.hol?' · <span class="ut">untested</span>':''} · ${x.grade}</span><span class="pill ${pillCls(b)}${b.ev>0?'':' dim'}">${betLabel(b)} <span class="num">${odds(b.price)}</span></span><small>${esc(b.book)} · <b class="${b.ev>0?'pos':'neg'} num">${sg(b.ev*100)}%</b> · ${stakeTxt(b)} ${logBtn(lg,g,b)}</small>`;
+}
+/* keep open explanations open when a league re-renders */
+const openKeys=root=>new Set([...(root||document).querySelectorAll('details[data-k][open]')].map(d=>d.dataset.k));
+const reopen=(K,root)=>{if(K.size)(root||document).querySelectorAll('details[data-k]').forEach(d=>{if(K.has(d.dataset.k))d.open=true})};
+/* the at-a-glance board at the top of each league: one row per game, linking to its card */
+function boardRow(lg,g,h,x,anchor){
+  const b=x&&x.best;
+  return `<a class="brw" href="#${anchor}" data-jump="${anchor}"><span class="bg"><b>${esc(matchTxt(lg,g))}</b><small>${g.day||''} ${g.ct||''} CT</small></span>
+    <span class="bc">${callCell(lg,g,h).replace(/<span class="k">[^<]*<\/span>/,'')}</span>
+    <span class="bp">${b?`<span class="pill ${pillCls(b)}${b.ev>0?'':' dim'}">${betLabel(b)} <span class="num">${odds(b.price)}</span></span><small>${esc(b.book)}${b.ev>0?' · '+stakeTxt(b):''}</small>`:`<small class="muted">${x&&!x.noMkt?'No price at your books':'No lines yet'}</small>`}</span>
+    <span class="bv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${x.grade}${x.hol?' · untested':''}</small>`:''}</span></a>`;
+}
+function boardHTML(head,lede,rows,foot){
+  return `<div class="bhead"><h2>${head}</h2><p class="lede">${lede}</p></div>${rows?`
+    <div class="brws"><div class="brw hdr" aria-hidden="true"><span>Game</span><span>Our call</span><span>Best bet</span><span>Value</span></div>${rows}</div>`:''}${foot?`<p class="bfoot">${foot}</p>`:''}`;
+}
+
+/* ---------- bankroll, stakes and the bet tracker ---------- */
+/* settings live in the viewer's private db document (kept on this device too, for when db isn't available) */
+let SET={bank:0,kf:.25,kc:.02};{const s=store.get('bank',null);if(s&&typeof s==='object')SET={bank:+s.bank||0,kf:+s.kf||.25,kc:+s.kc||.02}}
+let DB=null,UID=null,BETS=[],TRACK='wait',FG=[];
+const money=v=>(v<0?MINUS:'')+'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:Math.abs(v)<100?2:0});
+const fmtDate=d=>d?new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+/* stake: the chosen share of the Kelly bet for this price's value, capped at a share of the bankroll */
+function kelly(b){if(!b||!(b.ev>0)||!(SET.bank>0))return 0;const d=dec(b.price)-1,f=(d*b.p-b.l)/(d*(b.p+b.l));
+  return f>0?Math.max(1,Math.round(SET.bank*Math.min(SET.kc,SET.kf*f))):0}
+const stakeTxt=b=>b.ev>0?(SET.bank>0?`bet ${money(kelly(b))}`:'1 unit'):'no stake';
+const logBtn=(lg,g,b)=>`<button class="logb" data-log="${esc(JSON.stringify({lg,gid:String(g.id),mkt:b.mkt,side:b.side,line:b.line,price:b.price,book:b.book,stake:kelly(b)||''}))}">Log bet</button>`;
+const betPath=id=>`data/users/${UID}/profile/bets/${id}`;
+
+/* grade a logged bet from the final score, and value it against the fair closing line */
+function gradeBet(bt){
+  const list=(DATA.recent||{})[bt.lg]||[];
+  const R=list.find(r=>String(r.id)===String(bt.gid))||(bt.lg==='epl'?list.find(r=>r.home===bt.home&&r.away===bt.away&&Math.abs(new Date(r.date)-new Date(bt.date))<=3*864e5):null);
+  if(!R)return null;
+  if(bt.lg==='epl')return gradeEpl(bt,R);
+  const mg=R.hs-R.as,tt=R.hs+R.as;
+  const v=bt.mkt==='spread'?(bt.side==='home'?mg-bt.L:bt.L-mg):bt.mkt==='total'?(bt.side==='over'?tt-bt.L:bt.L-tt):(bt.side==='home'?mg:-mg);
+  const res=v>0?'W':v<0?'L':'P',profit=res==='W'?bt.stake*(dec(bt.price)-1):res==='L'?-bt.stake:0;
+  const c={...(R.cl||{}),src:'close'},k={spread:bt.side==='home'?'spH':'spA',ml:bt.side==='home'?'mlH':'mlA',total:bt.side==='over'?'ov':'un'}[bt.mkt];
+  if(c.sp!=null){if(c.spH==null)c.spH=-110;if(c.spA==null)c.spA=-110}
+  if(c.tot!=null){if(c.ov==null)c.ov=-110;if(c.un==null)c.un=-110}
+  let clv=null;
+  try{const o=evOf(fairOf({mkt:c,books:[]},bt.lg,0,0),{sp:bt.L,tot:bt.L,[k]:bt.price},k);if(o&&isFinite(o.ev))clv=Math.round(o.ev*10000)/10000}catch(e){}
+  const cl=bt.mkt==='spread'?{line:c.sp??null}:bt.mkt==='total'?{line:c.tot??null}:{price:(bt.side==='home'?c.mlH:c.mlA)??null};
+  return{res,profit:Math.round(profit*100)/100,clv,cl,fs:`${R.away} ${R.as}, ${R.home} ${R.hs}`};
+}
+/* Premier League: three-way moneylines, and quarter-line handicaps and totals that can win or lose half */
+function gradeEpl(bt,R){
+  const mg=R.hs-R.as,tt=R.hs+R.as,d=dec(bt.price)-1;let res;
+  if(bt.mkt==='ml')res=(bt.side==='home'?mg>0:bt.side==='away'?mg<0:mg===0)?'W':'L';
+  else{const val=L=>bt.mkt==='spread'?(bt.side==='home'?mg-L:L-mg):(bt.side==='over'?tt-L:L-tt),one=v=>v>1e-9?1:v<-1e-9?-1:0;
+    const s=Math.abs(Math.round(bt.L*4)%2)===1?one(val(bt.L-.25))+one(val(bt.L+.25)):2*one(val(bt.L));
+    res=s===2?'W':s===-2?'L':s===1?'HW':s===-1?'HL':'P'}
+  const profit=bt.stake*({W:d,HW:d/2,P:0,HL:-.5,L:-1}[res]);
+  const c={...(R.cl||{})},k={spread:bt.side==='home'?'spH':'spA',ml:{home:'mlH',draw:'mlD',away:'mlA'}[bt.side],total:bt.side==='over'?'ov':'un'}[bt.mkt];
+  let clv=null;
+  try{if(c.mlH!=null&&c.mlD!=null&&c.mlA!=null){const f=eplFair({mkt:{...c,src:'close'},books:[]},0,0),o=eplEv(f,{sp:bt.L,tot:bt.L,[k]:bt.price},k);if(o&&isFinite(o.ev))clv=Math.round(o.ev*10000)/10000}}catch(e){}
+  const cl=bt.mkt==='spread'?{line:c.sp??null}:bt.mkt==='total'?{line:c.tot??null}:{price:c[k]??null};
+  return{res,profit:Math.round(profit*100)/100,clv,cl,fs:`${R.home} ${R.hs}, ${R.away} ${R.as}`};
+}
+const GRADING=new Set();
+async function gradeAll(){
+  if(!DB)return;
+  for(const bt of BETS){
+    if(bt.res||GRADING.has(bt.id))continue;
+    const r=gradeBet(bt);if(!r)continue;
+    GRADING.add(bt.id);
+    try{await DB.doc(betPath(bt.id)).update({...r,graded:new Date().toISOString()})}catch(e){}
+    GRADING.delete(bt.id);
+  }
+}
+function renderStats(){
+  const G=BETS.filter(b=>b.res),n=r=>G.filter(b=>b.res===r||b.res==='H'+r).length,open=BETS.filter(b=>!b.res);
+  const staked=G.reduce((s,b)=>s+(+b.stake||0),0),pl=G.reduce((s,b)=>s+(+b.profit||0),0),C=G.filter(b=>typeof b.clv==='number');
+  const avg=C.length?C.reduce((s,b)=>s+b.clv,0)/C.length:null,risk=open.reduce((s,b)=>s+(+b.stake||0),0);
+  $('#betswk').textContent=open.length?`${open.length} open`:'';
+  if(!BETS.length){$('#stats').innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to track bets.':'No bets yet. Log a bet from any pick, or with the form below.'}</p>`;return}
+  $('#stats').innerHTML=[
+    ['Record',`${n('W')}–${n('L')}${n('P')?'–'+n('P'):''}`,G.length?`${G.length} graded`:'none graded yet'],
+    ['Profit',G.length?money(pl):'–',staked?`${sg(pl/staked*100)}% on ${money(staked)} staked`:''],
+    ['Closing-line value',avg==null?'–':sg(avg*100)+'%',C.length?`beat the close on ${C.filter(b=>b.clv>0).length} of ${C.length}`:'after games are graded'],
+    ['Open bets',String(open.length),open.length?`${money(risk)} at risk`:'']
+  ].map(([k,v,s])=>`<div class="stat"><small>${k}</small><b class="num">${v}</b><small>${s}</small></div>`).join('');
+}
+function renderBetList(){
+  const el=$('#betlist');
+  if(!BETS.length){el.innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to save bets.':'Nothing logged yet. Use “Log bet” on any pick, or the form above.'}</p>`;return}
+  el.innerHTML=BETS.map(b=>{
+    const ep=b.lg==='epl',lab=betLabel({lg:b.lg,mkt:b.mkt,side:b.side,team:b.side==='home'?b.home:b.side==='away'?b.away:'Draw',line:b.mkt==='spread'?(b.side==='home'?-b.L:b.L):b.mkt==='total'?b.L:null});
+    const res=b.res?`<span class="res ${b.res}">${{W:'Won',L:'Lost',P:'Push',HW:'Half won',HL:'Half lost'}[b.res]||esc(b.res)}</span>`:'<span class="res open">Open</span>';
+    const hl=sp=>{const l=b.side==='home'?-sp:sp;return `${esc(b.side==='home'?b.home:b.away)} ${l===0?'0':(l>0?'+':MINUS)+lnq(Math.abs(l))}`};  /* the closing handicap on the side that was bet */
+    const cl=b.cl||{},clT=b.mkt==='spread'?(cl.line!=null?`closed ${ep?hl(cl.line):favLine(b,cl.line)}`:''):b.mkt==='total'?(cl.line!=null?`closed ${lnq(cl.line)}`:''):(cl.price!=null?`closed ${odds(cl.price)}`:'');
+    return `<div class="brow2"><span>${fmtDate(b.date)}<small>${esc(String(b.lg).toUpperCase())}</small></span>
+      <span><b>${ep?`${esc(b.home)} v ${esc(b.away)}`:`${esc(b.away)} @ ${esc(b.home)}`}</b><small>${b.fs?esc(b.fs):'not graded yet'}</small></span>
+      <span class="bx"><b>${lab}</b> <span class="num">${odds(b.price)}</span><small>${esc(b.book)} · ${money(+b.stake||0)}</small></span>
+      ${res}
+      <span class="num">${b.res?money(+b.profit||0):''}<small>${typeof b.clv==='number'?`CLV ${sg(b.clv*100)}%`:''}${clT?(typeof b.clv==='number'?' · ':'')+clT:''}</small></span>
+      <button class="btn sm" data-del="${esc(b.id)}">Remove</button></div>`}).join('');
+}
+function renderBets(){renderStats();renderBetList();renderRecord()}
+
+/* the log form: upcoming games with lines, plus games finished in the last few weeks */
+function renderForm(){
+  const up=[...(NFL?NFL.games:[]).map(g=>({lg:'nfl',g,final:false})),...(NBA?NBA.games.filter(g=>g.mkt):[]).map(g=>({lg:'nba',g,final:false})),...(EPL?EPL.games:[]).map(g=>({lg:'epl',g,final:false}))];
+  const rc=['nfl','nba','epl'].flatMap(lg=>((DATA.recent||{})[lg]||[]).slice().reverse().map(r=>({lg,g:r,final:true})));
+  FG=[...up,...rc];
+  const sel=$('#lg-game'),cur=sel.value;
+  sel.innerHTML=FG.map((e,i)=>`<option value="${i}">${e.lg.toUpperCase()} · ${e.lg==='epl'?`${esc(e.g.home)} v ${esc(e.g.away)}`:`${esc(e.g.away)} @ ${esc(e.g.home)}`} · ${fmtDate(e.g.date)}${e.final?' (final)':''}</option>`).join('');
+  $('#lg-book').innerHTML=[...ALLB,'Other'].map(t=>`<option>${esc(t)}</option>`).join('');
+  if(cur&&FG[+cur])sel.value=cur;fillBetOpts();
+}
+function fillBetOpts(){const e=FG[+$('#lg-game').value];if(!e)return;const g=e.g;
+  const opts=e.lg==='epl'?[['ml','home',`${g.home} to win`],['ml','draw','Draw'],['ml','away',`${g.away} to win`],['spread','home',`${g.home} handicap`],['spread','away',`${g.away} handicap`],['total','over','Over'],['total','under','Under']]
+    :[['spread','away',`${g.away} spread`],['spread','home',`${g.home} spread`],['ml','away',`${g.away} moneyline`],['ml','home',`${g.home} moneyline`],['total','over','Over'],['total','under','Under']];
+  $('#lg-bet').innerHTML=opts.map(([m,s,t])=>`<option value="${m}|${s}">${esc(t)}</option>`).join('');$('#lg-line').step=e.lg==='epl'?'0.25':'0.5';fillLine()}
+function fillLine(){const e=FG[+$('#lg-game').value];if(!e)return;const [m,s]=$('#lg-bet').value.split('|'),c=e.final?e.g.cl:e.lg==='epl'?eplRows(e.g)[0]:e.g.mkt,li=$('#lg-line'),pr=$('#lg-price');
+  li.disabled=m==='ml';
+  if(!c){li.value='';pr.value='';return}
+  if(m==='spread'){li.value=c.sp==null?'':String(s==='home'?-c.sp:c.sp);pr.value=(s==='home'?c.spH:c.spA)??''}
+  else if(m==='total'){li.value=c.tot??'';pr.value=(s==='over'?c.ov:c.un)??''}
+  else{li.value='';pr.value=(s==='home'?c.mlH:s==='draw'?c.mlD:c.mlA)??''}}
+function prefill(o){
+  setTab('bets');
+  const i=FG.findIndex(e=>e.lg===o.lg&&String(e.g.id)===String(o.gid));if(i<0)return;
+  $('#lg-game').value=String(i);fillBetOpts();$('#lg-bet').value=o.mkt+'|'+o.side;fillLine();
+  if(o.mkt!=='ml')$('#lg-line').value=o.line;$('#lg-price').value=o.price;
+  $('#lg-book').value=ALLB.includes(o.book)?o.book:'Other';$('#lg-stake').value=o.stake||'';$('#lg-msg').textContent='';
+  $('#logcard').scrollIntoView({behavior:'smooth',block:'start'});$('#lg-stake').focus({preventScroll:true});
+}
+async function saveBet(ev){
+  ev.preventDefault();const msg=$('#lg-msg');
+  if(!DB){msg.textContent='Sign in to claude.ai to save bets.';return}
+  const e=FG[+$('#lg-game').value],[mkt,side]=$('#lg-bet').value.split('|');
+  const price=parseFloat($('#lg-price').value),stake=parseFloat($('#lg-stake').value),line=parseFloat($('#lg-line').value);
+  if(!e||!mkt||!isFinite(price)||Math.abs(price)<100||!(stake>0)||(mkt!=='ml'&&!isFinite(line))){msg.textContent='Check the line, the odds (like −110 or +150) and the stake.';return}
+  const g=e.g,L=mkt==='spread'?(side==='home'?-line:line):mkt==='total'?line:null;
+  const bet={lg:e.lg,gid:String(g.id),date:g.date,away:g.away,home:g.home,mkt,side,L,price,book:$('#lg-book').value,stake,placed:new Date().toISOString()};
+  $('#lg-save').disabled=true;
+  try{await DB.doc(`data/users/${UID}/profile`).collection('bets').add(bet);msg.textContent='Saved.';$('#lg-stake').value=''}
+  catch(err){msg.textContent=err&&err.code==='quota_exceeded'?'The tracker is full. Remove old bets to add more.':'Could not save it. Try again.'}
+  $('#lg-save').disabled=false;
+}
+async function delBet(id){if(!DB)return;try{await DB.doc(betPath(id)).delete()}catch(e){}}
+
+/* settings */
+function fillSettings(){const bk=$('#bk');if(document.activeElement!==bk)bk.value=SET.bank>0?SET.bank:'';$('#kf').value=String(SET.kf);$('#kc').value=String(SET.kc)}
+let saveT=null;
+function saveSettings(){
+  store.set('bank',SET);renderList();renderNBA();renderEPL();
+  if(!DB)return;clearTimeout(saveT);
+  saveT=setTimeout(async()=>{try{await DB.doc(`data/users/${UID}/profile`).set({bank:SET.bank,kf:SET.kf,kc:SET.kc})}catch(e){}},700);
+}
+/* the viewer's private data: settings and bets under data/users/<id>/ */
+async function startTracker(){
+  let db=null,user=null,uid=null;
+  try{if(window.claude&&window.claude.use){[db,user]=await Promise.all([window.claude.use('db'),window.claude.use('user')]);uid=user?await user.id():null}}catch(e){}
+  if(db){try{db.collection('scout').onSnapshot(q=>{const o={};q.docs.forEach(d=>{o[d.id]=d.data()});const m=o._meta||null;delete o._meta;if(Object.keys(o).length){SCOUT=o;SCOUT_META=m;renderAll()}},()=>{})}catch(e){}}
+  if(!db||!uid){localTracker();return}
+  DB=db;UID=uid;TRACK='on';
+  try{OWNER=!!(user&&await user.isOwner())}catch(e){OWNER=false}
+  try{db.collection('picks').orderBy('ko','desc').limit(1000).onSnapshot(q=>{const o={};q.docs.forEach(d=>{o[d.id]=d.data()});PICKS=o;renderRecord();clearTimeout(PKT);PKT=setTimeout(syncPicks,1500)},()=>{})}catch(e){}
+  const prof=db.doc(`data/users/${uid}/profile`);
+  prof.onSnapshot(s=>{const d=s.exists?s.data():null;if(!d)return;
+    const n={bank:+d.bank||0,kf:+d.kf||.25,kc:+d.kc||.02};
+    if(JSON.stringify(n)!==JSON.stringify(SET)){SET=n;store.set('bank',SET);fillSettings();renderList();renderNBA();renderEPL()}},()=>{});
+  prof.collection('bets').orderBy('placed','desc').limit(500).onSnapshot(q=>{BETS=q.docs.map(d=>({id:d.id,...d.data()}));renderBets();setTimeout(gradeAll,0)},
+    ()=>{TRACK='off';$('#betsoff').hidden=false;renderBets()});
+}
+
+
+/* ---------- the page's own record: our call and both styles' best bets, saved before kickoff ---------- */
+let PICKS=DATA.picks||{},OWNER=false,PKT=null,PK_BUSY=false;  /* the standalone site bakes its record in */
+const r4=v=>Math.round(v*1e4)/1e4;
+const pkBet=b=>b?{mkt:b.mkt,side:b.side,L:b.mkt==='spread'?(b.side==='home'?-b.line:b.line):b.mkt==='total'?b.line:null,price:b.price,book:b.book,ev:r4(b.ev)}:null;
+const sameBet=(p,q)=>!p&&!q||!!p&&!!q&&p.mkt===q.mkt&&p.side===q.side&&p.L===q.L&&p.price===q.price&&p.book===q.book;
+/* every upcoming game with a price: our call (at the current market weight) and the best bet in each style */
+function pickSnap(){
+  const out=[],now=Date.now(),soon=ko=>{const t=Date.parse(ko);return t>now};
+  (NFL?NFL.games:[]).forEach(g=>{if(!soon(g.ko))return;const t=analyze(g),h=nflHolistic(g,t);
+    out.push({id:scoutId('nfl',g),lg:'nfl',gid:String(g.id),date:g.date,ko:g.ko,home:g.home,away:g.away,call:{side:h.pC>=.5?'home':'away',p:r4(Math.max(h.pC,1-h.pC))},fav:h.pM>=.5?'home':'away',hb:pkBet(h.best),tb:pkBet(t.best),w:r4(h.w)})});
+  (NBA?NBA.games:[]).forEach(g=>{if(!g.mkt||!soon(g.ko||g.date+'T23:00:00Z'))return;const e=nbaGame(g),t=nbaAnalyze(g,e),h=nbaHolistic(g,e);
+    out.push({id:scoutId('nba',g),lg:'nba',gid:String(g.id),date:g.date,ko:g.ko||g.date+'T23:00:00Z',home:g.home,away:g.away,call:{side:h.pC>=.5?'home':'away',p:r4(Math.max(h.pC,1-h.pC))},fav:h.pM>=.5?'home':'away',hb:pkBet(h.best),tb:pkBet(t.best),w:r4(h.w)})});
+  (EPL?EPL.games:[]).forEach(g=>{if(!soon(g.ko))return;const t=eplAnalyze(g),h=eplHolistic(g);if(!t||h.noMkt)return;
+    const d=h.cd,o=[['home',d.H],['draw',d.D],['away',d.A]].sort((p,q)=>q[1]-p[1])[0],a=h.a,f=[['home',a.pH],['draw',a.pD],['away',a.pA]].sort((p,q)=>q[1]-p[1])[0];
+    out.push({id:scoutId('epl',g),lg:'epl',gid:String(g.id),date:g.date,ko:g.ko,home:g.home,away:g.away,call:{side:o[0],p:r4(o[1])},fav:f[0],hb:pkBet(h.best),tb:pkBet(t.best),w:r4(h.w)})});
+  return out;
+}
+/* save changed picks (the owner only), then grade finished ones from the results on the page */
+async function syncPicks(){
+  if(!DB||!OWNER||PK_BUSY)return;PK_BUSY=true;
+  try{
+    let n=0;
+    for(const p of pickSnap()){
+      const o=PICKS[p.id];
+      if(o&&(o.res||o.call&&o.call.side===p.call.side&&Math.abs((o.call.p||0)-p.call.p)<.01&&sameBet(o.hb,p.hb)&&sameBet(o.tb,p.tb)&&o.fav===p.fav))continue;
+      await DB.doc('picks/'+p.id).set({...p,at:new Date().toISOString()});if(++n>=60)break;
+    }
+    for(const id in PICKS){const o=PICKS[id];if(o.res)continue;const r=gradePick(o);if(!r)continue;await DB.doc('picks/'+id).update({res:r});if(++n>=120)break}
+  }catch(e){}
+  PK_BUSY=false;
+}
+function gradePick(o){
+  const list=(DATA.recent||{})[o.lg]||[];
+  const R=list.find(r=>String(r.id)===String(o.gid))||list.find(r=>r.home===o.home&&r.away===o.away&&Math.abs(new Date(r.date)-new Date(o.date))<=3*864e5);
+  if(!R)return null;
+  const mg=R.hs-R.as,won=s=>s==='home'?mg>0:s==='away'?mg<0:mg===0;
+  const bet=b=>{if(!b)return null;const r=gradeBet({lg:o.lg,gid:String(R.id),home:o.home,away:o.away,date:o.date,mkt:b.mkt,side:b.side,L:b.L,price:b.price,stake:1});return r?{res:r.res,profit:r.profit,clv:r.clv}:null};
+  return{call:won(o.call.side),fav:won(o.fav),hb:bet(o.hb),tb:bet(o.tb),fs:o.lg==='epl'?`${R.home} ${R.hs}, ${R.away} ${R.as}`:`${R.away} ${R.as}, ${R.home} ${R.hs}`,graded:new Date().toISOString()};
+}
+function renderRecord(){
+  const G=Object.values(PICKS).filter(p=>p.res),el=$('#modelrec');if(!el)return;
+  if(!G.length){el.innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to keep the record.':`No graded games yet. ${Object.keys(PICKS).length} upcoming ${Object.keys(PICKS).length===1?'game is':'games are'} saved.`}</p>`;return}
+  const row=(lab,L)=>{if(!L.length)return '';const k=(f)=>L.filter(f).length,u=key=>{const B=L.map(p=>p.res[key]).filter(Boolean);if(!B.length)return '–';
+      const w=B.filter(b=>b.res==='W'||b.res==='HW').length,l=B.filter(b=>b.res==='L'||b.res==='HL').length,pu=B.reduce((s,b)=>s+(+b.profit||0),0),C=B.filter(b=>typeof b.clv==='number');
+      return `${w}–${l}${B.length-w-l?'–'+(B.length-w-l):''}, <b class="${pu>=0?'pos':'neg'}">${sg(pu,2)} u</b>${C.length?` <small>CLV ${sg(C.reduce((s,b)=>s+b.clv,0)/C.length*100)}%</small>`:''}`};
+    return `<tr><td>${lab}</td><td class="num">${k(p=>p.res.call)} of ${L.length} (${pc(k(p=>p.res.call)/L.length)})</td><td class="num">${k(p=>p.res.fav)} of ${L.length} (${pc(k(p=>p.res.fav)/L.length)})</td><td class="num tw">${u('hb')}</td><td class="num tw">${u('tb')}</td></tr>`};
+  el.innerHTML=`<div class="scroll"><table><thead><tr><th></th><th>Our call right</th><th>Market favorite right</th><th>Our-call best bets</th><th>Tested best bets</th></tr></thead><tbody>${['nfl','nba','epl'].map(lg=>row(lg.toUpperCase(),G.filter(p=>p.lg===lg))).join('')}${row('All',G)}</tbody></table></div>`;
+}
+
+/* ---------- tabs, controls, events ---------- */
+function setTab(t){S.tab=t;store.set('tab',t);document.querySelectorAll('[role=tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));['nfl','nba','epl','bets'].forEach(k=>{$('#'+k).hidden=t!==k});$('#stylebar').hidden=t==='bets';$('#bookmenu').open=false}
+const calm=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}};
+/* from a board row to its game: show it even if the list is filtered, scroll to it, and flash it */
+function jump(id){
+  let el=document.getElementById(id);
+  if(!el&&S.filter!=='all'){S.filter='all';renderList();el=document.getElementById(id)}
+  if(!el)return;
+  el.scrollIntoView({behavior:calm()?'auto':'smooth',block:'start'});
+  el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+}
+/* re-render without losing the field being typed in */
+function keepFocus(f){const a=document.activeElement,id=a&&a.id;f();if(id){const n=document.getElementById(id);if(n&&n!==a)try{n.focus({preventScroll:true})}catch(e){}}}
+let rT=0;const frame=f=>{cancelAnimationFrame(rT);rT=requestAnimationFrame(f)};
+document.addEventListener('click',e=>{
+  const bm=$('#bookmenu');if(bm.open&&!e.target.closest('#bookmenu'))bm.open=false;
+  const j=e.target.closest('a[data-jump]');if(j){e.preventDefault();jump(j.dataset.jump);return}
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.tab)setTab(b.dataset.tab);
+  else if(b.dataset.filter){S.filter=b.dataset.filter;renderList()}
+  else if(b.dataset.more){const id=b.dataset.more,art=b.closest('article');if(S.open.has(id))S.open.delete(id);else S.open.add(id);
+    const d=art&&art.querySelector('.detail');if(d)d.remove();else if(art){const g=NFL.games.find(x=>x.id===id);if(g)art.insertAdjacentHTML('beforeend',detail(g,pickNFL(g).x))}
+    b.setAttribute('aria-expanded',S.open.has(id))}
+  else if(b.id==='wreset'){S.W=DEFW();store.set('w2',S.W);weights();renderList()}
+  else if(b.dataset.book){let cur=S.books.slice();const t=b.dataset.book;
+    if(cur.includes(t)){if(cur.length===1)return;cur=cur.filter(x=>x!==t)}else cur.push(t);
+    setBooks(cur)}
+  else if(b.dataset.books)setBooks(b.dataset.books==='all'?ALLB.slice():DEFB());
+  else if(b.dataset.bets){S.bets=b.dataset.bets==='ours'?'ours':'tested';store.set('bets',S.bets);renderAll()}
+  else if(b.dataset.log){try{prefill(JSON.parse(b.dataset.log))}catch(err){}}
+  else if(b.dataset.del)delBet(b.dataset.del);
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const bm=$('#bookmenu');if(bm.open){bm.open=false;bm.querySelector('summary').focus()}}});
+$('#bk').addEventListener('input',e=>{const v=parseFloat(e.target.value);SET={...SET,bank:v>0?v:0};saveSettings()});
+$('#kf').addEventListener('change',e=>{SET={...SET,kf:+e.target.value};saveSettings()});
+$('#kc').addEventListener('change',e=>{SET={...SET,kc:+e.target.value};saveSettings()});
+$('#lg-game').addEventListener('change',fillBetOpts);
+$('#lg-bet').addEventListener('change',fillLine);
+$('#logf').addEventListener('submit',saveBet);
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.dataset.w){S.W[t.dataset.w]=+t.value;store.set('w2',S.W);const o=document.getElementById('wo-'+t.dataset.w);if(o)o.textContent=t.value+'%';frame(renderList)}
+  else if(t.dataset.wx){const id=t.dataset.wx,w=S.wx[id]||(S.wx[id]={});w[t.dataset.f]=t.value;store.set('wx',S.wx);
+    const g=NFL&&NFL.games.find(x=>x.id===id),n=document.getElementById('wn-'+did(id));if(g&&n)n.textContent=wxNote(g)}
+});
+/* the weather numbers re-price the game once a field is done (Enter or leaving it), not on every keystroke */
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset&&t.dataset.wx)setTimeout(()=>keepFocus(renderList),0)});
+$('#sort').addEventListener('change',e=>{S.sort=e.target.value;renderList()});
+$('#fmt').addEventListener('change',e=>{S.fmt=e.target.value;store.set('fmt',S.fmt);renderAll();renderBets()});
+$('#fmt').value=S.fmt;
+function setBooks(v){S.books=v;store.set('books',v);renderBooks();renderAll()}
+function renderBooks(){
+  $('#bookmenu').hidden=ALLB.length<2;
+  $('.bookchips').innerHTML=ALLB.map(t=>`<button class="chip" data-book="${esc(t)}" aria-pressed="${S.books.includes(t)}">${esc(t)}${OFF.has(t)?'<small>offshore</small>':''}</button>`).join('');
+  $('.bsum').textContent=S.books.length===ALLB.length?`all ${ALLB.length}`:`${S.books.length} of ${ALLB.length}`;
+}
+/* where the best bets come from, for all three leagues; the news badge follows the research in the database */
+function styleBar(){
+  document.querySelectorAll('[data-bets]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.bets===S.bets));
+  $('#sbnote').textContent=OURBETS()
+    ?'Showing our call’s own best bets. Priced this way, bets lost about 8% per bet over the last six seasons (NFL −13%, NBA −7%, Premier League −7%), so treat their value as untested.'
+    :'Our call picks each winner, mixing the market and our team view at the weight that picked the most winners in testing. Best bets come from the tested model: the market plus only the factors that held up.';
+  const nb=$('#newsb'),nn=Object.keys(SCOUT).length,at=SCOUT_META&&SCOUT_META.at?Date.parse(SCOUT_META.at):NaN;
+  if(nn){nb.className='badge'+(isFinite(at)&&Date.now()-at>36*36e5?' warn':'');nb.textContent=`News · ${nn} ${nn===1?'game':'games'}${isFinite(at)?' · '+whenCT(new Date(at).toISOString()):''}`;nb.title='Injuries, returns, trades, coaching and drama, researched each morning'}
+  else{nb.className='badge dim';nb.textContent='No news research loaded';nb.title='News research lives in the page’s database, which needs claude.ai'}
+}
+function renderAll(){VER++;renderList();renderNBA();renderEPL();styleBar();clearTimeout(PKT);PKT=setTimeout(syncPicks,4000)}
+/* header: how fresh the lines are */
+const liveOk=/^(ok|partial)/.test(LIVE.status||''),lineAge=liveOk?(Date.now()-Date.parse(LIVE.ts))/36e5:Infinity;
+{const a=$('#asof'),nb=ALLB.length>1?`${ALLB.length} books`:'';
+  if(liveOk&&lineAge<=18)a.textContent=`Live lines${nb?' · '+nb:''} · ${whenCT(LIVE.ts)}`;
+  else{a.classList.add('warn');a.textContent=liveOk?`Lines from ${whenCT(LIVE.ts)}${nb?' · '+nb:''}`:`Lines from nflverse · ${DATA.made}`}
+  a.title='Lines move, so check the current number before betting.'}
+$('#asof2').textContent=`This page was built ${DATA.made}${liveOk?'; lines captured '+whenCT(LIVE.ts):''}. Lines move, so check the current number before betting.`;
+if(NFL){$('#nflwk').textContent=NFL.type==='REG'?'Week '+NFL.week:'Playoffs'}else{$('#nflwk').textContent='off'}
+if(NBA){const day=(d,o)=>new Date(d+'T12:00:00').toLocaleDateString('en-US',o);
+  $('#nbawk').textContent=NBA.preseason?'opens '+day(NBA.start,{month:'short',day:'numeric'}):'through '+day(NBA.end,{weekday:'short'})}
+else{$('#nbawk').textContent='off'}
+if(EPL){$('#eplwk').textContent=EPL.round||''}else{$('#eplwk').textContent='off'}
+/* without claude.ai's database (the standalone site, or a signed-out viewer), bets save in this browser */
+function localTracker(){
+  const K='me4.bets.local';
+  const load=()=>{try{const a=JSON.parse(localStorage.getItem(K)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}};
+  const save=a=>{try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}};
+  const emit=()=>{BETS=load().sort((a,b)=>String(b.placed||'').localeCompare(String(a.placed||'')));renderBets();setTimeout(gradeAll,0)};
+  const doc=path=>{const id=String(path).split('/').pop();return{
+    update:async o=>{const a=load(),i=a.findIndex(b=>b.id===id);if(i>=0){a[i]={...a[i],...o};save(a);emit()}},
+    delete:async()=>{save(load().filter(b=>b.id!==id));emit()},
+    set:async()=>{},  /* the bankroll already lives on this device */
+    collection:()=>({add:async bet=>{const a=load();if(a.length>=500)throw{code:'quota_exceeded'};a.push({...bet,id:'b'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)});save(a);emit()}})}};
+  DB={doc};UID='local';TRACK='local';
+  const n=$('#betsoff');n.textContent='Bets you log here are saved in this browser only, so open the site on the same device to see them.';n.hidden=false;
+  emit();
+}
+/* for the standalone site's refresh: the page's own snapshot of each game's call and best bets, and its grading */
+window.MatchupEdge={pickSnap,gradePick};
+weights();renderBooks();renderList();renderNBA();renderEPL();styleBar();renderForm();fillSettings();renderBets();setTab(['nba','epl','bets'].includes(S.tab)?S.tab:'nfl');
+startTracker();
+})();
+</script>
