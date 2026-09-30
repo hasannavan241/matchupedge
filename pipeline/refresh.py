@@ -581,12 +581,24 @@ def books_for_epl(events, home, away, ko, titles=None):
     return out
 
 
+BOOK_TITLES = ("DraftKings", "FanDuel", "BetMGM", "theScore Bet", "BetRivers", "Hard Rock Bet", "Bally Bet", "Bovada",
+               "BetOnline.ag", "LowVig.ag", "Pinnacle", "Caesars")
+
+
+def book(name):
+    """ESPN's name for the book behind its lines, spelled the way The Odds API titles it ("Draft Kings" ->
+    "DraftKings"), so the page lists each book once."""
+    n = (name or "").strip() or "DraftKings"
+    k = re.sub(r"[^a-z0-9]", "", n.lower())
+    return next((t for t in BOOK_TITLES if re.sub(r"[^a-z0-9]", "", t.lower()) == k), n)
+
+
 def epl_line(d):
     """ESPN's DraftKings soccer lines as the page's market row (None without a 1X2 price)."""
     if not d or d[1] is None or d[2] is None or d[3] is None:
         return None, None
     mkt = {"mlH": d[1], "mlD": d[2], "mlA": d[3], "sp": None if d[4] is None else -d[4], "spH": d[5], "spA": d[6],
-           "tot": d[7], "ov": d[8], "un": d[9], "src": d[0] or "DraftKings"}
+           "tot": d[7], "ov": d[8], "un": d[9], "src": book(d[0])}
     if mkt["sp"] is None or mkt["spH"] is None or mkt["spA"] is None:
         mkt["sp"] = mkt["spH"] = mkt["spA"] = None
     if mkt["tot"] is None or mkt["ov"] is None or mkt["un"] is None:
@@ -668,7 +680,7 @@ def build():
             d = byid.get(g["espn"], (None, None))[0] if g["espn"] else None
             if d and all(d[i] is not None for i in (1, 3, 4, 5, 7, 8)):
                 g["mkt"] = {"sp": -d[1], "spH": d[3], "spA": d[4], "tot": d[5], "ov": d[7], "un": d[8],
-                            "mlH": d[9], "mlA": d[10], "src": d[0] or "DraftKings"}
+                            "mlH": d[9], "mlA": d[10], "src": book(d[0])}
                 g["open"] = {"sp": None if d[2] is None else -d[2], "tot": d[6], "mlH": d[11], "mlA": d[12]}
             g["books"] = books_for((br or {}).get("odds", {}).get("nfl"), g["home"], g["away"], g["ko"], NFL_FULL, titles)
             w = (br or {}).get("wx", {}).get(g["id"])
@@ -684,7 +696,7 @@ def build():
             e = byid.get(g["id"])
             d = e[4] if e else None
             if d and d[1] is not None and d[5] is not None:
-                g["mkt"] = {"sp": -d[1], "spH": d[3], "spA": d[4], "tot": d[5], "ov": d[7], "un": d[8], "mlH": d[9], "mlA": d[10], "src": d[0] or "DraftKings"}
+                g["mkt"] = {"sp": -d[1], "spH": d[3], "spA": d[4], "tot": d[5], "ov": d[7], "un": d[8], "mlH": d[9], "mlA": d[10], "src": book(d[0])}
                 g["open"] = {"sp": None if d[2] is None else -d[2], "tot": d[6]}
             if e and e[1]:
                 g["ct"] = ct_time(e[1])
