@@ -13,3 +13,5 @@ pipeline/site.html
 pipeline/web/
 __pycache__/
 out/
+pipeline/props/
+pipeline/summary.txt

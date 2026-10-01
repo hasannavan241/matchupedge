@@ -42,6 +42,13 @@ jobs:
           pip install -r pipeline/requirements.txt
           python -m playwright install --with-deps chromium
 
+      - name: Player history for the props (finished seasons don't change)
+        uses: actions/cache@v4
+        with:
+          path: pipeline/props
+          key: props-${{ github.run_id }}
+          restore-keys: props-
+
       - name: Download schedules, results and stats; plan the week
         working-directory: pipeline
         env:
@@ -78,7 +85,7 @@ jobs:
         run: |
           git config user.name "matchup-edge-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/picks.json data/results.json
+          git add data/picks.json data/results.json data/props_picks.json
           if ! git diff --cached --quiet; then
             git commit -m "Update model record and results"
             git pull --rebase --autostash origin main && git push origin HEAD:main

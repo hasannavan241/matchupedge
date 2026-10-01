@@ -51,6 +51,12 @@ BOOKS = "draftkings,fanduel,betmgm,espnbet,betrivers,hardrockbet,ballybet,bovada
 # Premier League: Pinnacle (the sharpest soccer book; not open to US customers) replaces LowVig to anchor the fair line
 BOOKS_EPL = "draftkings,fanduel,betmgm,espnbet,betrivers,hardrockbet,ballybet,bovada,betonlineag,pinnacle"
 EPL_ODDS_HOURS = 96  # ask The Odds API for Premier League prices only when a match starts within this many hours (saves credits)
+# NFL player props: every book's prices cost about one credit per market per game, so they are fetched only while the
+# account has PROPS_MIN_CREDITS or more left (a paid plan); below that the page still shows the projections
+PROPS_MIN_CREDITS = 1500
+PROPS_MARKETS = ("player_pass_yds,player_pass_tds,player_pass_completions,player_pass_attempts,player_pass_interceptions,"
+                 "player_rush_yds,player_rush_attempts,player_receptions,player_reception_yds,player_anytime_td")
+PROPS_FIRST = 2018  # first season of player history the props model learns from
 
 
 def next_run(d):
@@ -311,7 +317,7 @@ def epl_plan():
 # ------------------------------------------------------------------------------------------ browser script
 BROWSER_JS = r"""await (async () => {
 const PLAN = __PLAN__;
-const out = {ts: new Date().toISOString(), nfl: [], nba: [], nbaPast: [], wx: {}, inj: [], epl: [], eplPast: [], eplClose: {}, odds: {}, titles: {}, credits: null, errors: []};
+const out = {ts: new Date().toISOString(), nfl: [], nba: [], nbaPast: [], wx: {}, inj: [], nflInj: [], epl: [], eplPast: [], eplClose: {}, odds: {}, props: [], propsNote: null, titles: {}, credits: null, errors: []};
 const J = async (u, h) => { const r = await fetch(u, {headers: h || {Accept: 'application/json'}}); if (!r.ok) throw new Error(r.status + ' ' + u.split('?')[0]); return r.json(); };
 const num = v => { if (v == null || v === '') return null; if (String(v).toUpperCase() === 'EVEN') return 100; const x = Number(String(v).replace(/^[ou]/i, '')); return isFinite(x) ? x : null; };
 const g = (o, a, b) => (o && o[a] && o[a][b]) || {};
@@ -341,6 +347,16 @@ if (PLAN.nfl) {
       out.wx[s.id] = [wind, temp, pop, per[0].shortForecast];
     } catch (e) { out.errors.push('nws ' + s.id + ': ' + e.message); }
   }
+}
+if (PLAN.nfl) {  // NFL injury report (for the player props)
+  try {
+    const j = await J('https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries');
+    for (const t of j.injuries || []) for (const i of t.injuries || []) {
+      const a = i.athlete || {}, m = String((a.links && a.links[0] && a.links[0].href) || '').match(/\/id\/(\d+)/);
+      out.nflInj.push([m ? m[1] : '', a.displayName || '', (a.team && a.team.abbreviation) || t.displayName || '', i.status || '',
+                       String((i.details && [i.details.type, i.details.detail, i.details.side].filter(Boolean).join(' ')) || i.shortComment || '').slice(0, 80)]);
+    }
+  } catch (e) { out.errors.push('espn nfl injuries: ' + e.message); }
 }
 if (PLAN.nba) {
   for (const d of PLAN.nba.dates) {
@@ -429,10 +445,38 @@ if (PLAN.key && PLAN.odds) {
     } catch (e) { out.errors.push('odds api ' + lg + ': ' + e.message); }
   }
 }
+if (PLAN.key && PLAN.props && PLAN.odds && PLAN.odds.nfl) {
+  // NFL player props, game by game (the events list is free; each game costs about one credit per market returned)
+  const left = Number(out.credits), fresh = Date.now() - 12 * 3600e3, w = PLAN.odds.nfl;
+  if (out.credits == null || !(left >= PLAN.props.min)) out.propsNote = `player prices skipped: ${out.credits == null ? 'credits unknown' : left + ' Odds API credits left'} (needs ${PLAN.props.min}+)`;
+  else {
+    try {
+      const r0 = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/events?commenceTimeFrom=${w[0]}&commenceTimeTo=${w[1]}&apiKey=${PLAN.key}`);
+      if (!r0.ok) throw new Error(r0.status + ' from the events endpoint');
+      const evs = await r0.json();
+      for (const e of evs) {
+        if (new Date(e.commence_time).getTime() < Date.now()) continue;  // under way: no pregame props
+        try {
+          const r = await fetch(`https://api.the-odds-api.com/v4/sports/americanfootball_nfl/events/${e.id}/odds?bookmakers=${PLAN.books}&markets=${PLAN.props.markets}&oddsFormat=american&apiKey=${PLAN.key}`);
+          if (!r.ok) throw new Error(r.status + ' from the event odds endpoint');
+          out.credits = r.headers.get('x-requests-remaining');
+          const j = await r.json(), q = [];
+          for (const b of j.bookmakers || []) {
+            if (new Date(b.last_update).getTime() < fresh) continue;
+            out.titles[b.key] = b.title;
+            for (const m of b.markets || []) for (const o of m.outcomes || []) q.push([b.key, m.key, o.description || '', o.name || '', o.point ?? null, o.price ?? null]);
+          }
+          out.props.push([e.home_team, e.away_team, e.commence_time, q]);
+        } catch (err) { out.errors.push('odds api props ' + e.away_team + ' at ' + e.home_team + ': ' + err.message); }
+        if (out.credits != null && Number(out.credits) < PLAN.props.min / 2) { out.propsNote = 'player prices stopped early: Odds API credits running low'; break; }
+      }
+    } catch (err) { out.errors.push('odds api props: ' + err.message); }
+  }
+}
 // one checksum per section, so a copying slip in one section only drops that section
 const ck = x => { let s = 0, c = 0; (function walk(v) { if (typeof v === 'number') { s += v; c++; } else if (v && typeof v === 'object') for (const k in v) walk(v[k]); })(x); return [Math.round(s * 100) / 100, c]; };
 out.check = {nfl: ck(out.nfl), nba: ck(out.nba), nba_past: ck(out.nbaPast), wx: ck(out.wx), odds_nfl: ck(out.odds.nfl || []), odds_nba: ck(out.odds.nba || []),
-             epl: ck(out.epl), epl_past: ck(out.eplPast), epl_close: ck(out.eplClose), odds_epl: ck(out.odds.epl || [])};
+             epl: ck(out.epl), epl_past: ck(out.eplPast), epl_close: ck(out.eplClose), odds_epl: ck(out.odds.epl || []), nfl_inj: ck(out.nflInj), props: ck(out.props)};
 return JSON.stringify(out);
 })()
 """
@@ -452,6 +496,7 @@ def fetch(key=None):
     for y in (nba_season - 1, nba_season):
         get(f"{HOOPR}/player_box/parquet/player_box_{y}.parquet", f"hoopr/player_box_{y}.parquet", required=False)
     nba_tables(range(nba_season - 2, nba_season + 1))
+    props_ok = props_fetch(season)
     nfl = nfl_plan()
     nba = nba_plan(nba_players((nba_season - 1, nba_season)))
     try:
@@ -459,7 +504,8 @@ def fetch(key=None):
     except Exception as e:  # the Premier League is optional: never let it stop the NFL and NBA refresh
         print(f"Premier League plan failed ({e.__class__.__name__}: {e}); building without it")
         epl = None
-    plan = {"today": str(TODAY), "made": dt.datetime.now(CT).strftime("%Y-%m-%d %H:%M CT"), "nfl": nfl, "nba": nba, "epl": epl, "recent_nfl": nfl_recent()}
+    plan = {"today": str(TODAY), "made": dt.datetime.now(CT).strftime("%Y-%m-%d %H:%M CT"), "nfl": nfl, "nba": nba, "epl": epl, "recent_nfl": nfl_recent(),
+            "props_data": props_ok}
     json.dump(plan, open("plan.json", "w"), separators=(",", ":"))
     browser_script(plan, key)
     print(f"plan: NFL week {nfl['week'] if nfl else '-'} ({len(nfl['games']) if nfl else 0} games), "
@@ -467,6 +513,30 @@ def fetch(key=None):
           f"Premier League {epl['round'] if epl else '-'} ({len(epl['games']) if epl else 0} matches)")
     print("next: run browser.js in the desktop browser on a site.api.espn.com page and save the result as browser_result.json "
           "(the GitHub workflow runs python3 refresh.py live instead); then python3 refresh.py build")
+
+
+def props_files(season):
+    ys = range(PROPS_FIRST, season + 1)
+    return {"stats": [f"props/stats_player_week_{y}.csv" for y in ys], "snaps": [f"props/snap_counts_{y}.csv" for y in ys],
+            "rosters": [f"props/roster_{y}.csv" for y in ys], "games": "games.csv", "roster_now": f"props/roster_{season}.csv",
+            "injuries": f"props/injuries_{season}.csv"}
+
+
+def props_fetch(season):
+    """nflverse player stats, snap counts, rosters and this season's injury report, for the player props."""
+    f = props_files(season)
+    ok = True
+    for kind, files in (("stats_player", f["stats"]), ("snap_counts", f["snaps"]), ("rosters", f["rosters"])):
+        for path in files:
+            y = int(re.search(r"(\d{4})", path).group(1))
+            if y < season and os.path.exists(path):
+                continue  # finished seasons don't change
+            name = os.path.basename(path)
+            ok &= get(f"{NFLV}/{kind}/{name}", path, required=False) or y == season
+    get(f"{NFLV}/injuries/injuries_{season}.csv", f["injuries"], required=False)
+    have = all(os.path.exists(p) for p in f["stats"][:-1] + f["snaps"][:-1] + f["rosters"][:-1])
+    print("player props data:", "ok" if have else "incomplete")
+    return bool(have)
 
 
 def browser_script(plan, key=None):
@@ -488,6 +558,7 @@ def browser_script(plan, key=None):
         if soon:
             odds["epl"] = [iso(max(now, min(soon)) - pd.Timedelta(hours=2)), iso(max(soon) + pd.Timedelta(hours=2))]
     bplan = {"key": key or None, "books": BOOKS, "booksEpl": BOOKS_EPL, "odds": odds,
+             "props": {"min": PROPS_MIN_CREDITS, "markets": PROPS_MARKETS} if nfl and plan.get("props_data") else None,
              "epl": None if not epl else {"dates": epl["dates"], "past": epl["past"], "closeFrom": epl["closeFrom"]},
              "nfl": None if not nfl else {"season": nfl["season"], "week": nfl["week"], "weeks": nfl.get("weeks") or [nfl["week"]], "stype": 2 if nfl["type"] == "REG" else 3,
                                           "outdoor": [{"id": x["id"], "lat": x["coords"][0], "lon": x["coords"][1], "ko": x["ko"]} for x in nfl["games"] if x["coords"]]},
@@ -529,7 +600,8 @@ def checked(path="browser_result.json"):
     br.setdefault("odds", {})
     parts = {"nfl": (br, "nfl", []), "nba": (br, "nba", []), "nba_past": (br, "nbaPast", []), "wx": (br, "wx", {}),
              "odds_nfl": (br["odds"], "nfl", []), "odds_nba": (br["odds"], "nba", []),
-             "epl": (br, "epl", []), "epl_past": (br, "eplPast", []), "epl_close": (br, "eplClose", {}), "odds_epl": (br["odds"], "epl", [])}
+             "epl": (br, "epl", []), "epl_past": (br, "eplPast", []), "epl_close": (br, "eplClose", {}), "odds_epl": (br["odds"], "epl", []),
+             "nfl_inj": (br, "nflInj", []), "props": (br, "props", [])}
     bad = []
     for name, (holder, key, empty) in parts.items():
         got = ck(holder.get(key) or empty)
@@ -714,6 +786,14 @@ def build():
         cl = {} if not d else {"sp": None if d[1] is None else -d[1], "spH": d[3], "spA": d[4], "tot": d[5], "ov": d[7], "un": d[8], "mlH": d[9], "mlA": d[10]}
         recent_nba.append({"id": str(eid), "date": str(pd.Timestamp(when).tz_convert("America/Chicago").date()), "away": away, "home": home,
                            "as": int(a_s), "hs": int(h_s), "cl": cl})
+    props = None
+    if nfl and plan.get("props_data"):
+        try:
+            props = props_build(plan, nfl, br)
+        except Exception as e:  # never let the props stop the rest of the build
+            print(f"player props failed ({e.__class__.__name__}: {e}); building without them")
+            live["errors"] = live["errors"] + [f"player props build: {e.__class__.__name__}"]
+    live["props_note"] = (br or {}).get("propsNote")
     epl, recent_epl = plan.get("epl"), []
     if epl:
         try:
@@ -724,7 +804,7 @@ def build():
             epl = None
     data = {"asof": plan["today"], "made": plan["made"], "live": live, "nfl": nfl, "nba": nba, "epl": epl,
             "recent": {"nfl": plan.get("recent_nfl", []), "nba": recent_nba, "epl": recent_epl},
-            "gs": {"m": NBA_GS_MARGIN, "t": NBA_GS_TOTAL}}
+            "gs": {"m": NBA_GS_MARGIN, "t": NBA_GS_TOTAL}, "props": props}
     news, picks = os.environ.get("ME_NEWS"), os.environ.get("ME_PICKS")
     if news and os.path.exists(news):  # the standalone site: news researched each morning, saved in the repo
         try:
@@ -746,6 +826,39 @@ def build():
     open("site.html", "w").write(html)
     print(f"site.html written: NFL {len(nfl['games']) if nfl else 0} games, NBA {len(nba['games']) if nba else 0} games, "
           f"Premier League {len(epl['games']) if epl else 0} matches ({sum(1 for g in (epl or {}).get('games', []) if g.get('mkt') or g.get('books'))} with lines), live lines: {status}")
+
+
+def props_build(plan, nfl, br):
+    """The Props tab: projections for every player in the NFL games on the page, and every book's prop prices."""
+    import props_core as pc
+    events = []
+    for home, away, when, q in (br or {}).get("props") or []:
+        h, a = NFL_FULL.get(home), NFL_FULL.get(away)
+        hit = [g for g in nfl["games"] if g["home"] == h and g["away"] == a and abs((pd.Timestamp(g["ko"]) - pd.Timestamp(when)).total_seconds()) < 36 * 3600]
+        if hit:
+            events.append({"g": hit[0]["id"], "q": q})
+    inj = [[e, n, ESPN_NFL.get(t, t), st, d] for e, n, t, st, d in (br or {}).get("nflInj") or []]
+    W = pc.build_week(props_files(nfl["season"]), nfl["games"], inj, events, nfl["season"], nfl["week"])
+    if W:
+        try:
+            W["bt"] = json.load(open(os.path.join(HERE, "..", "data", "props_backtest.json")))
+        except Exception:
+            W["bt"] = None
+        W["priced"] = len(events)
+        titles = (br or {}).get("titles") or {}
+        for o in W["offers"]:
+            o[2] = titles.get(o[2], o[2])  # the page names books the way the game lines do
+        W["ko"] = {g["id"]: g["ko"] for g in nfl["games"]}
+        rp = os.path.join(os.path.dirname(os.environ.get("ME_PICKS") or ""), "props_picks.json") if os.environ.get("ME_PICKS") else None
+        if rp and os.path.exists(rp):
+            try:
+                R = json.load(open(rp))
+                W["rec"] = [[v["g"], v["name"], v["team"], v["s"], v["side"], v["line"], v["price"], v["book"], v["ev"], v.get("grade"), v["res"], v.get("act"), v.get("pl")]
+                            for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
+            except Exception as e:
+                print(f"props record unreadable ({e.__class__.__name__})")
+        print(f"player props: {len(W['players'])} players, {len(W['offers'])} prices from {len(events)} games, {len(W['unmatched'])} unmatched names")
+    return W
 
 
 def results_archive(path, recent, today, keep_days=400):
@@ -828,9 +941,75 @@ def record():
             if r:
                 o["res"] = r
                 graded += 1
+        try:
+            psnap = pg.evaluate("window.MatchupEdge.propSnap ? window.MatchupEdge.propSnap() : []")
+        except Exception as e:
+            print(f"props snapshot failed ({e.__class__.__name__})")
+            psnap = []
         b.close()
     json.dump(old, open(path, "w"), separators=(",", ":"), sort_keys=True)
     print(f"model record: {len(snap)} upcoming games saved, {graded} newly graded, {sum(1 for v in old.values() if v.get('res'))} graded in all")
+    props_record(os.path.join(os.path.dirname(path), "props_picks.json"), psnap, now)
+
+
+def props_record(path, snap, now):
+    """The props record: each player's best positive-value prop per market at licensed books (the last one saved before
+    kickoff counts), graded from nflverse box scores; void when he didn't take a snap."""
+    old = json.load(open(path)) if os.path.exists(path) else {}
+    for s in snap:
+        if not (old.get(s["id"]) or {}).get("res"):
+            old[s["id"]] = {**s, "at": now}
+    # a pick saved earlier that no longer has value stays (the last save before kickoff counts), unless it hasn't started
+    live_ids = {s["id"] for s in snap}
+    t_now = pd.Timestamp.now(tz="UTC")
+    for k in [k for k, v in old.items() if not v.get("res") and k not in live_ids and pd.Timestamp(v["ko"]) > t_now]:
+        del old[k]
+    season = None
+    try:
+        g = pd.read_csv("games.csv", usecols=["game_id", "season", "home_score"], low_memory=False)
+        done = set(g[g.home_score.notna()].game_id)
+        season = int(g.season.max())
+        st = pd.read_csv(f"props/stats_player_week_{season}.csv", low_memory=False,
+                         usecols=["player_id", "game_id", "completions", "attempts", "passing_yards", "passing_tds", "passing_interceptions",
+                                  "carries", "rushing_yards", "rushing_tds", "receptions", "receiving_yards", "receiving_tds"])
+        sn = pd.read_csv(f"props/snap_counts_{season}.csv", usecols=["game_id", "pfr_player_id", "offense_snaps"], low_memory=False)
+        ro = pd.read_csv(f"props/roster_{season}.csv", usecols=["gsis_id", "pfr_id"], low_memory=False).dropna().drop_duplicates("pfr_id")
+        sn = sn.merge(ro, left_on="pfr_player_id", right_on="pfr_id")
+    except Exception as e:
+        print(f"props record: no box scores to grade with ({e.__class__.__name__})")
+        json.dump(old, open(path, "w"), separators=(",", ":"), sort_keys=True)
+        return
+    have = set(st.game_id)
+    S = st.set_index(["game_id", "player_id"])
+    snapped = set(zip(sn[sn.offense_snaps > 0].game_id, sn[sn.offense_snaps > 0].gsis_id))
+    col = {"pass_att": "attempts", "pass_cmp": "completions", "pass_yds": "passing_yards", "pass_td": "passing_tds", "pass_int": "passing_interceptions",
+           "rush_att": "carries", "rush_yds": "rushing_yards", "rec": "receptions", "rec_yds": "receiving_yards"}
+    graded = 0
+    for k, v in old.items():
+        if v.get("res") or v["g"] not in done or v["g"] not in have:
+            continue
+        key = (v["g"], v["pid"])
+        if key in S.index:
+            r = S.loc[key]
+            r = r.iloc[0] if isinstance(r, pd.DataFrame) else r
+            val = float(r.rushing_tds + r.receiving_tds) if v["s"] == "anytd" else float(r[col[v["s"]]])
+        elif key in snapped:
+            val = 0.0
+        else:
+            v["res"], v["pl"] = "V", 0.0
+            graded += 1
+            continue
+        line = 0.5 if v["s"] == "anytd" else float(v["line"])
+        over = 1 if val > line else -1 if val < line else 0
+        res = over if v["side"] == "over" else -over
+        d = (1 + v["price"] / 100) if v["price"] > 0 else (1 + 100 / -v["price"])
+        v["res"], v["act"] = {1: "W", -1: "L", 0: "P"}[res], val
+        v["pl"] = round(d - 1, 4) if res == 1 else -1.0 if res == -1 else 0.0
+        graded += 1
+    json.dump(old, open(path, "w"), separators=(",", ":"), sort_keys=True)
+    n = [v for v in old.values() if v.get("res") in ("W", "L", "P")]
+    print(f"props record: {len(snap)} open picks saved, {graded} newly graded, {len(n)} graded in all, "
+          f"{sum(v['pl'] for v in n):+.1f} units")
 
 
 WEB_HEAD = """<!doctype html>
@@ -878,6 +1057,14 @@ def summary():
                 print(f"{name} best bets with positive value, tested model ({len(pos)} of {len(L)} {unit}, {len(priced)} with lines):")
                 print("\n".join(pos) or "none")
             print("Best bets come from the tested model on the page too; our call (market + team view + researched news) picks the winners.")
+            ps = pg.evaluate("window.MatchupEdge.propSnap ? window.MatchupEdge.propSnap() : []")
+            top = sorted([x for x in ps if x["ev"] >= 0.02], key=lambda x: -x["ev"])[:15]
+            lab = {"pass_yds": "pass yds", "pass_td": "pass TDs", "pass_cmp": "completions", "pass_att": "pass attempts", "pass_int": "interceptions",
+                   "rush_yds": "rush yds", "rush_att": "rush attempts", "rec": "receptions", "rec_yds": "rec yds"}
+            fo = lambda a: f"+{a}" if a > 0 else f"\u2212{abs(a)}"
+            bet = lambda x: ("Anytime TD" if x["side"] == "over" else "No TD") if x["s"] == "anytd" else f'{"Over" if x["side"] == "over" else "Under"} {x["line"]:g} {lab[x["s"]]}'
+            print(f"NFL player props with +2% value or more ({len(top)} shown of {len(ps)} with positive value; projection blended with the market):")
+            print("\n".join(f'{x["name"]} ({x["team"]}) | Best bet \u00b7 {x["grade"]} | {bet(x)} {fo(x["price"])} | {x["book"]} \u00b7 {x["ev"] * 100:+.1f}% \u00b7 projection {x["mu"]:g}' for x in top) or "none")
             b.close()
     except Exception as e:
         print(f"summary unavailable ({e.__class__.__name__}); read site.html's data instead")
@@ -892,6 +1079,12 @@ if __name__ == "__main__":
         print("browser.js written")
     elif len(sys.argv) > 1 and sys.argv[1] == "summary":
         summary()
+    elif len(sys.argv) > 1 and sys.argv[1] == "props-backtest":  # after fetch: rewrite ../data/props_backtest.json
+        import props_core as pc
+        season = int(pd.read_csv("games.csv", usecols=["season"]).season.max())
+        res = pc.backtest(props_files(season))
+        json.dump(res, open(os.path.join(HERE, "..", "data", "props_backtest.json"), "w"), indent=1)
+        print(json.dumps({k: (v["mae"], v["mae_avg"]) for k, v in res["stats"].items()}))
     elif len(sys.argv) > 1 and sys.argv[1] == "build":
         build()
     elif len(sys.argv) > 1 and sys.argv[1] == "live":
