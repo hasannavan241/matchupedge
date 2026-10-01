@@ -1,12 +1,13 @@
-# Weekly: every finished game's player prop lines from ESPN (ESPN BET's with prices through 2025, DraftKings' since),
+# Twice a week: every finished game's player prop lines from ESPN (ESPN BET's with prices through 2025, DraftKings' since),
 # and the props model's out-of-sample projections tested against them. Writes data/props_lines_backtest.json, which the
 # Props tab shows (and the next refresh builds in). Run it any time from the Actions tab.
 name: Props line backtest
 
 on:
   schedule:
-    # Tuesdays 10:17 AM Central in daylight time (9:17 in winter), after Monday night's game and nflverse's weekly stats
-    - cron: "17 15 * * 2"
+    # Tuesdays and Fridays 10:17 AM Central in daylight time (9:17 in winter): after Monday night's game and nflverse's
+    # weekly stats, and again before the weekend (twice a week also keeps the saved lines from being cleared)
+    - cron: "17 15 * * 2,5"
   workflow_dispatch:
 
 permissions:
@@ -48,7 +49,9 @@ jobs:
 
       - name: Lines and backtest
         working-directory: pipeline
-        run: python refresh.py props-lines | tee -a "$GITHUB_STEP_SUMMARY"
+        run: |
+          set -o pipefail
+          python refresh.py props-lines | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Save the backtest
         run: |

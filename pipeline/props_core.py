@@ -356,6 +356,41 @@ def p_over(s, mu, line, spread, td_disp=None):
     return float(over), float(1 - over)
 
 
+def _centers(edges):
+    e = list(edges)
+    if len(e) < 2:
+        return e
+    return [e[0] - (e[1] - e[0]) / 2] + [(a + b) / 2 for a, b in zip(e[:-1], e[1:])] + [e[-1] + (e[-1] - e[-2]) / 2]
+
+
+def p_over_c(s, mu, line, spread, td_disp=None):
+    """p_over made continuous in the projection: the outcome spread is interpolated between neighbouring projection
+    levels instead of switching tables at a bin edge. Used for the market's side, so a book's prices map to one implied
+    projection and back to exactly its own no-vig chance."""
+    if s in ("anytd", "pass_td", "pass_int") or mu is None or not np.isfinite(mu) or mu <= 0 or len(spread[s]["edges"]) < 2:
+        return p_over(s, mu, line, spread, td_disp)
+    sp = spread[s]
+    c = _centers(sp["edges"])
+
+    def at(i):
+        z = np.array(sp["q"][i])
+        v, qq = z * mu, np.linspace(0, 1, len(z))
+        over = 1 - ecdf(line, v, qq)
+        if abs(line - round(line)) < 1e-9 and s not in ("pass_yds", "rush_yds", "rec_yds"):
+            eq = ecdf(line + 0.5, v, qq) - ecdf(line - 0.5, v, qq)
+            return max(0.0, over - eq / 2), max(0.0, 1 - over - eq / 2)
+        return float(over), float(1 - over)
+
+    if mu <= c[0]:
+        return at(0)
+    if mu >= c[-1]:
+        return at(len(c) - 1)
+    i = int(np.searchsorted(c, mu, side="right")) - 1
+    t = (mu - c[i]) / (c[i + 1] - c[i])
+    a, b = at(i), at(i + 1)
+    return (1 - t) * a[0] + t * b[0], (1 - t) * a[1] + t * b[1]
+
+
 def ecdf(x, v, q):
     """P(outcome <= x) from quantiles v at levels q (v sorted, ties allowed: a point mass, like zero yards)."""
     if x < v[0]:
@@ -394,7 +429,8 @@ def prepare(stat_files, snap_files, roster_files, games_csv, extra_rows=None):
 
 
 def model(P, X, train_seasons):
-    pm = position_means(P[P.season.isin(train_seasons)] if "season" in P else P)
+    yr = pd.to_numeric(P.game_id.astype(str).str[:4], errors="coerce")  # load() drops the season column
+    pm = position_means(P[yr.isin(list(train_seasons))])
     tr_x = X.season.isin(train_seasons)
     vc = fit_volume(X, tr_x)
     X = predict_volume(X, vc)
@@ -504,7 +540,8 @@ def live_rows(P, cur, games, inj, season, dates, lines=None):
             T = P[P.team == team].sort_values("gameday")
             on_team = set(act[act.team == team].gsis_id)
             booked = {pid for (gid, pid) in lines if gid == g["id"] and pid in on_team}
-            bqb = [pid for pid in booked if "pass_yds" in lines[(g["id"], pid)] or "pass_att" in lines[(g["id"], pid)]]
+            qbs_on = set(act[(act.team == team) & (act.position == "QB")].gsis_id)
+            bqb = [pid for pid in booked if pid in qbs_on and ("pass_yds" in lines[(g["id"], pid)] or "pass_att" in lines[(g["id"], pid)])]
             bqb = [pid for pid in bqb if not is_out(inj.get(pid, ("", ""))[0])]
             if len(bqb) == 1 and bqb[0] != qb:
                 qsrc[(g["id"], team)] = {"was": qb}
@@ -559,7 +596,10 @@ ANYTD_HOLD = 1.07  # anytime TD is usually priced on the Yes side only; strip a 
 def solve_mu(s, line, p_target, spread, disp):
     """The projection at which our outcome distribution gives p_target over this line (the market's implied median)."""
     lo, hi = 0.01, max(3.0, line * 3 + 5)
-    f = lambda m: (p_over(s, m, line, spread, disp)[0] or 0) - p_target
+
+    def f(m):  # the chance of over among the outcomes that aren't a push, as a no-vig price states it
+        o, u = p_over_c(s, m, line, spread, disp)
+        return (o / (o + u) if o is not None and o + u > 0 else 0.0) - p_target
     if f(lo) > 0 or f(hi) < 0:
         return None
     for _ in range(50):
@@ -706,7 +746,7 @@ def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=
             for b, l, o, u in quotes:
                 pom, pum = p_over(s, mu[s], l, M["spread"], M["disp"])
                 if mm and priced:
-                    pok, puk = p_over(s, mm, l, M["spread"], M["disp"])
+                    pok, puk = p_over_c(s, mm, l, M["spread"], M["disp"])
                 else:
                     pok = puk = None
                 is_free = b == bname and b_line is not None and l == b_line[0] and o == b_line[2] and u == b_line[3]
@@ -728,7 +768,7 @@ def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=
         players.append(rec)
     teams = {}
     for x in X[X.game_id.isin({g["id"] for g in games})].itertuples():
-        teams[x.team] = {"g": x.game_id, "att": _r(x.v_t_att, 1), "tgt": _r(x.v_t_tgt, 1), "car": _r(x.v_t_car, 1), "impl": _r(x.impl, 1),
+        teams[f"{x.game_id}|{x.team}"] = {"g": x.game_id, "att": _r(x.v_t_att, 1), "tgt": _r(x.v_t_tgt, 1), "car": _r(x.v_t_car, 1), "impl": _r(x.impl, 1),
                          "margin": _r(x.margin, 1), "windy": int(x.windy or 0), "eatt": _r(x.e_t_att, 1), "ecar": _r(x.e_t_car, 1)}
     # players ruled out, with the share of targets and carries they leave behind
     out_list = []
@@ -807,15 +847,23 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
     """Our projections against real prop lines. hist: {season: {ESPN game id: rows}} (see pick_lines). Each season is
     projected by a model fitted only on the seasons before it. Every half-point line gets our over chance, the market's
     (no-vig from the book's prices, or 50% without them) and the outcome; a bet is the side with value on the blend
-    w x ours + (1 - w) x market - shift, at the book's price (assumed without one), 1 unit each. Also reports the w and
-    shift with the best log loss on the first tune_weeks weeks of the first season with prices (how they were chosen)."""
+    w x ours + (1 - w) x market - shift, at the book's price, 1 unit each. A line without prices is bet (at the assumed
+    price) only in markets that books price close to even (est_ok: 85%+ of priced lines within 4 points of 50-50);
+    elsewhere the price carries the information and the line alone can't be valued. Also reports the w and shift with
+    the best log loss on the first tune_weeks weeks of the first season with prices (how they were chosen)."""
     G, P, X, R = prepare(paths["stats"], paths["snaps"], paths["rosters"], paths["games"])
     e2g = espn_map(R)
     espn = {str(int(e)): g for g, e in zip(G.game_id, G.espn) if pd.notna(e)}
+    scored = set(X[X.t_att.notna()].game_id)  # games whose player stats are in (a game with snaps only would read as all zeros)
     rows = []
     for season in sorted(int(s) for s in hist):
         PF, _, M = model(P.assign(live=0), X, list(range(2019, season)))
-        PF = PF[(PF.season == season) & PF.games_before.ge(1)]
+        # a role change the projection may lag: last game's snap share far from the recency-weighted share it uses
+        PF = PF.sort_values(["gameday", "game_id"])
+        last = PF.groupby("pid").offense_pct.shift()
+        PF["role"] = np.where((last >= .4) & (last - PF.u_offense_pct >= .15), "up",
+                              np.where((PF.u_offense_pct >= .4) & (PF.u_offense_pct - last >= .2), "down", "same"))
+        PF = PF[(PF.season == season) & PF.games_before.ge(1) & PF.game_id.isin(scored)]
         idx = {(g, p): i for i, (g, p) in enumerate(zip(PF.game_id, PF.pid))}
         for eid, gl in (hist.get(season) or hist.get(str(season)) or {}).items():
             gid = espn.get(str(eid))
@@ -830,27 +878,35 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
                 if not bool(eligible(PF.iloc[[i]], s).iloc[0]) or not np.isfinite(x["mu_" + s]) or not np.isfinite(x["y_" + s]):
                     continue
                 pm = p_over(s, float(x["mu_" + s]), line, M["spread"], M["disp"])[0]
-                pk = implied(ov) / (implied(ov) + implied(un)) if (ov is not None and un is not None) else None
-                rows.append({"season": season, "week": int(x.week), "s": s, "pos": x.pos, "line": line, "ov": ov, "un": un, "pm": pm, "pk": pk,
-                             "over": int(x["y_" + s] > line)})
+                pk = implied(ov) / (implied(ov) + implied(un)) if ov is not None else np.nan
+                rows.append({"season": season, "week": int(x.week), "s": s, "pos": x.pos, "line": line,
+                             "ov": np.nan if ov is None else float(ov), "un": np.nan if un is None else float(un), "pm": pm, "pk": pk,
+                             "over": int(x["y_" + s] > line), "role": x.role})
     D = pd.DataFrame(rows)
     if D.empty:
         return None
+    D["pk"] = pd.to_numeric(D.pk, errors="coerce")
     clip = lambda p: np.clip(p, 0.001, 0.999)
     ll = lambda d, p: float(-np.mean(np.where(d.over == 1, np.log(clip(p)), np.log(1 - clip(p)))))
     dec = lambda a: 1 + a / 100 if a > 0 else 1 + 100 / -a
     priced = D[D.pk.notna()]
+    # markets books price close to even: only there can a line without prices be valued
+    even = {s: round(float(((d.pk - 0.5).abs() <= 0.04).mean()), 3) for s, d in priced.groupby("s")}
+    est_ok = sorted(s for s, v in even.items() if v >= 0.85 and int((priced.s == s).sum()) >= 100) if len(priced) else ["pass_yds", "rec_yds", "rush_yds"]
     tune = {}
     if len(priced):
         first = priced[(priced.season == priced.season.min()) & (priced.week <= tune_weeks)]
-        grid = [(a, b, ll(first, a * first.pm + (1 - a) * first.pk - b)) for a in np.arange(0, 0.61, 0.05) for b in np.arange(0, 0.061, 0.005)]
-        a, b, l = min(grid, key=lambda z: z[2])
-        tune = {"season": int(first.season.min()), "weeks": tune_weeks, "n": int(len(first)), "w": round(float(a), 2), "shift": round(float(b), 3),
-                "ll": round(l, 5), "ll_market": round(ll(first, first.pk), 5)}
+        if len(first):
+            grid = [(a, b, ll(first, a * first.pm + (1 - a) * first.pk - b)) for a in np.arange(0, 0.61, 0.05) for b in np.arange(0, 0.061, 0.005)]
+            a, b, l = min(grid, key=lambda z: z[2])
+            tune = {"season": int(first.season.min()), "weeks": tune_weeks, "n": int(len(first)), "w": round(float(a), 2), "shift": round(float(b), 3),
+                    "ll": round(l, 5), "ll_market": round(ll(first, first.pk), 5)}
     bets = []
     for x in D.itertuples():
-        has = pd.notna(x.ov) and pd.notna(x.un)
-        pk = x.pk if has and pd.notna(x.pk) else 0.5
+        has = pd.notna(x.pk)
+        if not has and x.s not in est_ok:
+            continue
+        pk = x.pk if has else 0.5
         po, pu = (float(x.ov), float(x.un)) if has else (assumed, assumed)
         pb = w * x.pm + (1 - w) * pk - shift
         eo, eu = pb * (dec(po) - 1) - (1 - pb), (1 - pb) * (dec(pu) - 1) - pb
@@ -859,24 +915,29 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
         side = "over" if eo >= eu else "under"
         win = (x.over == 1) == (side == "over")
         price = po if side == "over" else pu
-        bets.append({"season": x.season, "week": x.week, "s": x.s, "side": side, "ev": max(eo, eu), "priced": bool(has),
+        bets.append({"season": x.season, "week": x.week, "s": x.s, "side": side, "ev": max(eo, eu), "priced": bool(has), "role": x.role,
                      "pl": dec(price) - 1 if win else -1.0, "win": int(win)})
-    B = pd.DataFrame(bets)
+    B = pd.DataFrame(bets, columns=["season", "week", "s", "side", "ev", "priced", "role", "pl", "win"])
     grade = lambda ev: "Strong" if ev >= .05 else "Lean" if ev >= .02 else "Thin"
     agg = lambda d: {"n": int(len(d)), "w": int(d.win.sum()), "units": round(float(d.pl.sum()), 1), "roi": round(float(d.pl.mean()), 4) if len(d) else None}
-    out = {"w": w, "shift": shift, "assumed": assumed, "tune": tune, "seasons": [], "markets": {}, "ok": []}
+    out = {"w": w, "shift": shift, "assumed": assumed, "tune": tune, "even": even, "est_ok": est_ok, "seasons": [], "markets": {}, "ok": []}
     for season, d in D.groupby("season"):
-        b = B[B.season == season] if len(B) else B
+        b = B[B.season == season]
         oos = b[b.week > tune_weeks] if tune and season == tune["season"] else b
-        out["seasons"].append({"season": int(season), "book": "ESPN BET" if d.pk.notna().mean() > .5 else "DraftKings", "props": int(len(d)),
-                               "priced": bool(d.pk.notna().mean() > .5), "over_rate": round(float(d.over.mean()), 3),
-                               "market_over": round(float(d.pk.mean()), 3) if d.pk.notna().any() else None,
+        pr = d[d.pk.notna()]
+        is_priced = len(pr) > len(d) / 2
+        out["seasons"].append({"season": int(season), "book": "ESPN BET" if is_priced else "DraftKings", "props": int(len(d)), "priced": bool(is_priced),
+                               "over_rate": round(float(d.over.mean()), 3),
+                               "over_priced": round(float(pr.over.mean()), 3) if len(pr) else None,
+                               "market_over": round(float(pr.pk.mean()), 3) if len(pr) else None,
                                "ll_market": round(ll(d, d.pk.fillna(0.5)), 5), "ll_blend": round(ll(d, w * d.pm + (1 - w) * d.pk.fillna(0.5) - shift), 5),
                                "bets": agg(b), "tested": agg(oos), "tested_from": tune_weeks + 1 if tune and season == tune["season"] else 1,
                                "grades": {g: agg(oos[oos.ev.map(grade) == g]) for g in ("Strong", "Lean", "Thin")},
                                "sides": {sd: agg(b[b.side == sd]) for sd in ("over", "under")}})
     for s, b in B.groupby("s"):
         out["markets"][s] = agg(b)
+    # markets that held up over every bet (tuning weeks included): they alone make the page's best bets
     out["ok"] = sorted(s for s, v in out["markets"].items() if v["n"] >= 30 and v["roi"] is not None and v["roi"] >= 0)
+    out["roles"] = {k: agg(B[B.role == k]) for k in ("up", "down", "same")}  # bets on players whose snaps just jumped or fell
     out["all"] = agg(B)
     return out

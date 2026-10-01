@@ -36,8 +36,10 @@ quarterback is the one DraftKings posts passing lines for when that differs from
 is valued at 15% our over chance and 85% the market's (no-vig from prices; 50-50 at a line without them), less 2
 points for the under: fitted by log loss on 2025's ESPN BET lines with prices (weeks 1-9), tested on the rest of 2025
 and on 2026's DraftKings lines, where bets with value made money and the bigger the value the more (almost all
-unders; books priced overs about 3 points too high). Lines without a price are valued at -115. Markets that lost in
-that test (per bet below zero on 30+ bets) show their numbers but never make the best bets or the props record.
+unders; books priced overs about 3 points too high). A line without a price is valued at -115, and only in markets
+books price near even money (85%+ of priced lines within 4 points of 50-50: the yardage markets); receptions,
+attempts, touchdowns and interceptions are balanced by the price, so a line alone can't be valued there. Markets that
+lost in the test, or had fewer than 30 bets, show their numbers but never make the best bets or the props record.
 
 Premier League model (`epl_core.py` plus the page's goal model): each match's expected goals are fitted to the
 market (the middle value across books of the no-vig home, draw and away chances, and each book's total, with a

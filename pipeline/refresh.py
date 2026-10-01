@@ -322,7 +322,7 @@ def epl_plan():
 BROWSER_JS = r"""await (async () => {
 const PLAN = __PLAN__;
 const out = {ts: new Date().toISOString(), nfl: [], nba: [], nbaPast: [], wx: {}, inj: [], nflInj: [], epl: [], eplPast: [], eplClose: {}, odds: {}, props: [], propsNote: null, dk: [], titles: {}, credits: null, errors: []};
-const J = async (u, h) => { const r = await fetch(u, {headers: h || {Accept: 'application/json'}}); if (!r.ok) throw new Error(r.status + ' ' + u.split('?')[0]); return r.json(); };
+const J = async (u, h, ms) => { const r = await fetch(u, {headers: h || {Accept: 'application/json'}, signal: ms && typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(ms) : undefined}); if (!r.ok) throw new Error(r.status + ' ' + u.split('?')[0]); return r.json(); };
 const num = v => { if (v == null || v === '') return null; if (String(v).toUpperCase() === 'EVEN') return 100; const x = Number(String(v).replace(/^[ou]/i, '')); return isFinite(x) ? x : null; };
 const g = (o, a, b) => (o && o[a] && o[a][b]) || {};
 function dk(c) {
@@ -375,7 +375,7 @@ if (PLAN.nfl && PLAN.lines) {
     const acc = {};
     try {
       for (let page = 1, pages = 1; page <= pages && page <= 6; page++) {
-        const j = await J(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/${eid}/competitions/${eid}/odds/${pid || PLAN.lines.provider}/propBets?lang=en&region=us&limit=1000&page=${page}`);
+        const j = await J(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/${eid}/competitions/${eid}/odds/${pid || PLAN.lines.provider}/propBets?lang=en&region=us&limit=1000&page=${page}`, null, 20000);
         pages = j.pageCount || 1;
         for (const it of j.items || []) {
           const t = String((it.type || {}).id || ''), m = String((it.athlete || {}).$ref || '').match(/athletes\/(\d+)/);
@@ -387,17 +387,16 @@ if (PLAN.nfl && PLAN.lines) {
         }
       }
     } catch (e) { out.errors.push('espn prop lines ' + eid + ': ' + e.message); }
-    const rows = [];
+    const rows = [], imp = a => (a > 0 ? 100 / (a + 100) : -a / (-a + 100)), off = r => Math.abs(imp(r[4]) / (imp(r[4]) + imp(r[5])) - 0.5);
     for (const list of Object.values(acc)) {
-      // a book that also lists alternate lines prices only its main line: keep that one; otherwise a player's only line
-      const priced = list.filter(r => r[4] != null || r[5] != null);
-      if (priced.length) {
-        const r = priced[0].slice(0, 6);
-        for (const x of priced) if (x[2] === r[2]) { if (r[4] == null) r[4] = x[4]; if (r[5] == null) r[5] = x[5]; }
-        rows.push(r);
-      } else if (new Set(list.map(r => r[2])).size === 1) {
-        rows.push(list.sort((a, b) => (a[6] < b[6] ? 1 : -1))[0].slice(0, 6));
-      }
+      // a book that also lists alternate lines prices only its main line: keep the two-way line priced closest to even,
+      // else a line priced on one side, else a player's only line (the same choice as props_core.pick_lines)
+      const byLine = {};
+      for (const x of list) if (x[4] != null || x[5] != null) { const r = byLine[x[2]] || (byLine[x[2]] = x.slice(0, 6)); if (r[4] == null) r[4] = x[4]; if (r[5] == null) r[5] = x[5]; }
+      const priced = Object.values(byLine), both = priced.filter(r => r[4] != null && r[5] != null);
+      if (both.length) rows.push(both.sort((a, b) => off(a) - off(b))[0]);
+      else if (priced.length) rows.push(priced[0]);
+      else if (new Set(list.map(r => r[2])).size === 1) rows.push(list.sort((a, b) => (a[6] < b[6] ? 1 : -1))[0].slice(0, 6));
     }
     if (rows.length) out.dk.push([String(eid), pname || 'DraftKings', rows]);
   }
@@ -904,7 +903,7 @@ def props_build(plan, nfl, br):
             try:
                 R = json.load(open(rp))
                 W["rec"] = [[v["g"], v["name"], v["team"], v["s"], v["side"], v["line"], v["price"], v["book"], v["ev"], v.get("grade"), v["res"], v.get("act"), v.get("pl"),
-                             v.get("est", 0), v.get("l0")] for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
+                             v.get("est", 0), v.get("l0"), v.get("ref")] for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
             except Exception as e:
                 print(f"props record unreadable ({e.__class__.__name__})")
         print(f"player props: {len(W['players'])} players, {len(W['offers'])} offers ({W['nlines']} free {W['book'] or 'book'} lines from {len(free)} games, "
@@ -1011,13 +1010,17 @@ def props_record(path, snap, now):
     for s in snap:
         prev = old.get(s["id"]) or {}
         if not prev.get("res"):
-            # l0: the line when the pick was first made on this side, to see whether the market moved our way before kickoff
+            # l0: the reference book's line when the pick was first made on this side ("ref" is that line now), to see
+            # whether the market moved our way before kickoff
             same = bool(prev) and prev.get("side") == s["side"]
-            old[s["id"]] = {**s, "at": now, "l0": prev.get("l0", prev.get("line")) if same else s["line"], "at0": prev.get("at0", prev.get("at")) if same else now}
-    # a pick saved earlier that no longer has value stays (the last save before kickoff counts), unless it hasn't started
-    live_ids = {s["id"] for s in snap}
+            ref = s.get("ref", s["line"])
+            old[s["id"]] = {**s, "at": now, "l0": prev.get("l0", prev.get("ref", prev.get("line"))) if same else ref,
+                            "at0": prev.get("at0", prev.get("at")) if same else now}
+    # a pick saved earlier that no longer has value is dropped until kickoff (the last save before it counts); a game
+    # with no picks at all in this run (its lines didn't come through) keeps what it had
+    live_ids, covered = {s["id"] for s in snap}, {s["g"] for s in snap}
     t_now = pd.Timestamp.now(tz="UTC")
-    for k in [k for k, v in old.items() if not v.get("res") and k not in live_ids and pd.Timestamp(v["ko"]) > t_now]:
+    for k in [k for k, v in old.items() if not v.get("res") and k not in live_ids and v["g"] in covered and pd.Timestamp(v["ko"]) > t_now]:
         del old[k]
     season = None
     try:
@@ -1092,7 +1095,21 @@ def props_lines_fetch(seasons, cache_dir="props_lines"):
                 pass
         raise RuntimeError(f"ESPN prop lines {eid}: no answer")
 
+    def am(d):
+        v = (d or {}).get("american")
+        try:
+            return None if v in (None, "") else 100.0 if str(v).upper() == "EVEN" else float(str(v).replace("+", ""))
+        except ValueError:
+            return None
+
     def one(eid, season):
+        try:
+            return lines_of(eid, season)
+        except Exception as e:  # tried again on the next run
+            print(f"  prop lines {eid}: {e.__class__.__name__}")
+            return None
+
+    def lines_of(eid, season):
         for prov in (("58", "100") if season <= 2025 else ("100", "58")):
             j = page(eid, prov, 1)
             if not j:
@@ -1108,7 +1125,6 @@ def props_lines_fetch(seasons, cache_dir="props_lines"):
                 line = (c.get("target") or {}).get("value")
                 if t not in types or not m or line is None:
                     continue
-                am = lambda d: (lambda v: None if v in (None, "") else (100 if str(v).upper() == "EVEN" else float(str(v).replace("+", ""))))((d or {}).get("american"))
                 rows.append([m.group(1), int(t), float(line), (o.get("target") or {}).get("value"), am(c.get("over")), am(c.get("under"))])
             if rows:
                 return [[a, t, l, op, ov, un] for (a, t), (l, op, ov, un) in pc.pick_lines(rows).items()]
@@ -1122,7 +1138,8 @@ def props_lines_fetch(seasons, cache_dir="props_lines"):
         todo = [str(int(e)) for e in done.espn if str(int(e)) not in have]
         with concurrent.futures.ThreadPoolExecutor(6) as ex:
             for eid, rows in zip(todo, ex.map(lambda e: one(e, season), todo)):
-                have[eid] = rows
+                if rows is not None:
+                    have[eid] = rows
         json.dump(have, open(path, "w"), separators=(",", ":"))
         print(f"prop lines {season}: {sum(1 for v in have.values() if v)} of {len(done)} finished games have lines "
               f"({len(todo)} fetched now, {sum(len(v) for v in have.values())} lines)")

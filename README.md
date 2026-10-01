@@ -9,7 +9,8 @@ weekday and published with GitHub Pages.
   and news researched each morning) at the weight that picked the most winners in testing.
 - **Best bets** come from the tested model: the market plus only the factors that held up on years of games.
 - **Player props** value every NFL player's DraftKings line (free through ESPN) against our projection, at the mix that
-  held up when tested on 2025-2026 prop lines; a paid Odds API plan adds every book's prices.
+  held up when tested on 2025-2026 prop lines. The free lines have no prices, so only yardage props are valued (at
+  -115); a paid Odds API plan adds every book's real prices, which receptions, attempts and touchdown props need.
 - For entertainment and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun,
   call 1-800-GAMBLER.
 
@@ -29,7 +30,7 @@ Each run:
 
 The run's summary lists every best bet with positive value.
 
-`.github/workflows/props-lines.yml` runs on Tuesdays (and on demand): it saves every finished game's player prop lines
+`.github/workflows/props-lines.yml` runs on Tuesdays and Fridays (and on demand): it saves every finished game's player prop lines
 and tests the props model against them (`data/props_lines_backtest.json`); the next refresh shows the results.
 
 ## Setup
