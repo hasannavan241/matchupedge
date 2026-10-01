@@ -71,7 +71,7 @@ jobs:
         working-directory: pipeline
         run: |
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          python refresh.py summary | tee -a "$GITHUB_STEP_SUMMARY"
+          python refresh.py summary | tee summary.txt | tee -a "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save the model record and results
@@ -92,6 +92,7 @@ jobs:
           mkdir -p out
           cp pipeline/web/index.html out/index.html
           cp pipeline/site.html out/artifact.html    # the same page without a document head, for the claude.ai copy
+          if [ -f pipeline/summary.txt ]; then cp pipeline/summary.txt out/summary.txt; fi   # best bets as text, for the claude.ai copy task
           if [ -f data/results.json ]; then cp data/results.json out/results.json; fi   # finals, for grading older bets
           touch out/.nojekyll
           if [ -n "$SITE_DOMAIN" ]; then echo "$SITE_DOMAIN" > out/CNAME; fi
