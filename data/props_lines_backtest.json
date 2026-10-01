@@ -1,0 +1,202 @@
+{
+ "w": 0.15,
+ "shift": 0.02,
+ "assumed": -115,
+ "tune": {
+  "season": 2025,
+  "weeks": 9,
+  "n": 5277,
+  "w": 0.15,
+  "shift": 0.025,
+  "ll": 0.68654,
+  "ll_market": 0.68879
+ },
+ "seasons": [
+  {
+   "season": 2025,
+   "book": "ESPN BET",
+   "props": 7721,
+   "priced": true,
+   "over_rate": 0.468,
+   "market_over": 0.499,
+   "ll_market": 0.68957,
+   "ll_blend": 0.68731,
+   "bets": {
+    "n": 2505,
+    "w": 1354,
+    "units": 84.7,
+    "roi": 0.0338
+   },
+   "tested": {
+    "n": 772,
+    "w": 415,
+    "units": 27.0,
+    "roi": 0.035
+   },
+   "tested_from": 10,
+   "grades": {
+    "Strong": {
+     "n": 70,
+     "w": 38,
+     "units": 5.2,
+     "roi": 0.0742
+    },
+    "Lean": {
+     "n": 248,
+     "w": 138,
+     "units": 21.7,
+     "roi": 0.0876
+    },
+    "Thin": {
+     "n": 454,
+     "w": 239,
+     "units": 0.1,
+     "roi": 0.0003
+    }
+   },
+   "sides": {
+    "over": {
+     "n": 13,
+     "w": 2,
+     "units": -8.8,
+     "roi": -0.6769
+    },
+    "under": {
+     "n": 2492,
+     "w": 1352,
+     "units": 93.5,
+     "roi": 0.0375
+    }
+   }
+  },
+  {
+   "season": 2026,
+   "book": "DraftKings",
+   "props": 1948,
+   "priced": false,
+   "over_rate": 0.473,
+   "market_over": null,
+   "ll_market": 0.69315,
+   "ll_blend": 0.69032,
+   "bets": {
+    "n": 669,
+    "w": 378,
+    "units": 37.7,
+    "roi": 0.0563
+   },
+   "tested": {
+    "n": 669,
+    "w": 378,
+    "units": 37.7,
+    "roi": 0.0563
+   },
+   "tested_from": 1,
+   "grades": {
+    "Strong": {
+     "n": 72,
+     "w": 44,
+     "units": 10.3,
+     "roi": 0.1425
+    },
+    "Lean": {
+     "n": 232,
+     "w": 130,
+     "units": 11.0,
+     "roi": 0.0476
+    },
+    "Thin": {
+     "n": 365,
+     "w": 204,
+     "units": 16.4,
+     "roi": 0.0449
+    }
+   },
+   "sides": {
+    "over": {
+     "n": 3,
+     "w": 1,
+     "units": -1.1,
+     "roi": -0.3768
+    },
+    "under": {
+     "n": 666,
+     "w": 377,
+     "units": 38.8,
+     "roi": 0.0583
+    }
+   }
+  }
+ ],
+ "markets": {
+  "pass_att": {
+   "n": 80,
+   "w": 44,
+   "units": 3.2,
+   "roi": 0.0402
+  },
+  "pass_cmp": {
+   "n": 72,
+   "w": 45,
+   "units": 12.1,
+   "roi": 0.1684
+  },
+  "pass_int": {
+   "n": 40,
+   "w": 19,
+   "units": 2.4,
+   "roi": 0.0607
+  },
+  "pass_td": {
+   "n": 96,
+   "w": 54,
+   "units": 14.7,
+   "roi": 0.1528
+  },
+  "pass_yds": {
+   "n": 21,
+   "w": 10,
+   "units": -2.3,
+   "roi": -0.1078
+  },
+  "rec": {
+   "n": 1012,
+   "w": 559,
+   "units": 54.7,
+   "roi": 0.054
+  },
+  "rec_yds": {
+   "n": 861,
+   "w": 464,
+   "units": 12.5,
+   "roi": 0.0145
+  },
+  "rush_att": {
+   "n": 452,
+   "w": 234,
+   "units": -4.4,
+   "roi": -0.0098
+  },
+  "rush_yds": {
+   "n": 540,
+   "w": 303,
+   "units": 29.5,
+   "roi": 0.0546
+  }
+ },
+ "ok": [
+  "pass_att",
+  "pass_cmp",
+  "pass_int",
+  "pass_td",
+  "rec",
+  "rec_yds",
+  "rush_yds"
+ ],
+ "all": {
+  "n": 3174,
+  "w": 1732,
+  "units": 122.4,
+  "roi": 0.0386
+ },
+ "made": "2026-10-01"
+}
