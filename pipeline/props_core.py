@@ -15,9 +15,9 @@ How a projection is made (the same code runs the backtest and the live week):
      actual / projected in the training seasons, at a similar projection level (touchdowns use a Poisson).
   6. Lines. Every player's prop lines come free from the book behind ESPN's odds (DraftKings; ESPN BET through 2025),
      with the opening line; The Odds API adds every book's prices on a paid plan. A line is valued on W_MODEL of our
-     over chance and the rest the market's, less UNDER_SHIFT (books set player props too high). Both were fitted on
-     2025's ESPN BET lines and prices (weeks 1-9) and tested on weeks 10 on and on 2026's DraftKings lines
-     (line_backtest).
+     over chance and the rest the market's, less UNDER_SHIFT (overs hit less often than their prices imply). Both were
+     fitted on 2025's ESPN BET lines and prices (weeks 1-9) and tested on weeks 10 on and on 2026's DraftKings lines
+     (line_backtest). A line without prices is valued only in markets books price near even money.
 """
 import math, re
 import numpy as np
@@ -36,8 +36,8 @@ MARKETS = {"player_pass_attempts": "pass_att", "player_pass_completions": "pass_
 # ESPN's prop types (the lines of the book behind ESPN's odds)
 ESPN_TYPES = {8: "pass_yds", 9: "pass_cmp", 10: "pass_td", 11: "rush_att", 12: "rush_yds", 13: "rec_yds", 14: "rec", 15: "pass_int",
               16: "pass_att"}
-W_MODEL = 0.15      # weight on our over chance against the market's (log-loss best on 2025 weeks 1-9)
-UNDER_SHIFT = 0.02  # taken off the over chance: books' no-vig over chance ran 3 points above the outcome in 2025
+W_MODEL = 0.10       # weight on our over chance against the market's (log-loss best on 2025 weeks 1-9: line_backtest's "tune")
+UNDER_SHIFT = 0.025  # taken off the over chance (same fit): books' no-vig over chance ran 3 points above the outcome in 2025
 ASSUMED = -115      # a line without a price is valued at this price on both sides (the most common prop prices are -115/-115 and -120/-110)
 HL_USE, HL_EFF, HL_TEAM, HL_DEF = 5, 10, 6, 8          # half-lives in games: usage, efficiency, team volume, defense
 SHRINK = {"ypt": 45, "catch": 45, "rectd": 160, "ypc": 90, "rtd": 120, "cmp": 220, "ypa": 220, "ptd": 450, "int": 600}

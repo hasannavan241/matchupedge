@@ -33,7 +33,7 @@ NFL player props (`props_core.py`): every skill player's passing, rushing, recei
 volume (the spread and total), his share of targets, carries and attempts (re-spread when a teammate is ruled out),
 efficiency shrunk toward the position average and scaled by the opponent, calibrated on 2019-2023. The starting
 quarterback is the one DraftKings posts passing lines for when that differs from nflverse's listed starter. Each line
-is valued at 15% our over chance and 85% the market's (no-vig from prices; 50-50 at a line without them), less 2
+is valued at 10% our over chance and 90% the market's (no-vig from prices; 50-50 at a line without them), less 2.5
 points for the under: fitted by log loss on 2025's ESPN BET lines with prices (weeks 1-9), tested on the rest of 2025
 and on 2026's DraftKings lines, where bets with value made money and the bigger the value the more (almost all
 unders; books priced overs about 3 points too high). A line without a price is valued at -115, and only in markets
