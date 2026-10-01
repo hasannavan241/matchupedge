@@ -52,11 +52,15 @@ BOOKS = "draftkings,fanduel,betmgm,espnbet,betrivers,hardrockbet,ballybet,bovada
 BOOKS_EPL = "draftkings,fanduel,betmgm,espnbet,betrivers,hardrockbet,ballybet,bovada,betonlineag,pinnacle"
 EPL_ODDS_HOURS = 96  # ask The Odds API for Premier League prices only when a match starts within this many hours (saves credits)
 # NFL player props: every book's prices cost about one credit per market per game, so they are fetched only while the
-# account has PROPS_MIN_CREDITS or more left (a paid plan); below that the page still shows the projections
+# account has PROPS_MIN_CREDITS or more left (a paid plan); below that the page values the free DraftKings lines alone
 PROPS_MIN_CREDITS = 1500
 PROPS_MARKETS = ("player_pass_yds,player_pass_tds,player_pass_completions,player_pass_attempts,player_pass_interceptions,"
                  "player_rush_yds,player_rush_attempts,player_receptions,player_reception_yds,player_anytime_td")
 PROPS_FIRST = 2018  # first season of player history the props model learns from
+# Free player prop lines: ESPN carries the lines of the book behind its odds (DraftKings since December 2025, ESPN BET
+# before), with the opening line, for every game. These prop types are the ones the props model projects.
+LINES = {"provider": "100", "types": [8, 9, 10, 11, 12, 13, 14, 15, 16]}
+LINES_FROM = 2025  # first season of past prop lines the line backtest uses
 
 
 def next_run(d):
@@ -317,7 +321,7 @@ def epl_plan():
 # ------------------------------------------------------------------------------------------ browser script
 BROWSER_JS = r"""await (async () => {
 const PLAN = __PLAN__;
-const out = {ts: new Date().toISOString(), nfl: [], nba: [], nbaPast: [], wx: {}, inj: [], nflInj: [], epl: [], eplPast: [], eplClose: {}, odds: {}, props: [], propsNote: null, titles: {}, credits: null, errors: []};
+const out = {ts: new Date().toISOString(), nfl: [], nba: [], nbaPast: [], wx: {}, inj: [], nflInj: [], epl: [], eplPast: [], eplClose: {}, odds: {}, props: [], propsNote: null, dk: [], titles: {}, credits: null, errors: []};
 const J = async (u, h) => { const r = await fetch(u, {headers: h || {Accept: 'application/json'}}); if (!r.ok) throw new Error(r.status + ' ' + u.split('?')[0]); return r.json(); };
 const num = v => { if (v == null || v === '') return null; if (String(v).toUpperCase() === 'EVEN') return 100; const x = Number(String(v).replace(/^[ou]/i, '')); return isFinite(x) ? x : null; };
 const g = (o, a, b) => (o && o[a] && o[a][b]) || {};
@@ -329,10 +333,14 @@ function dk(c) {
           num(g(ml, 'home', 'close').odds), num(g(ml, 'away', 'close').odds), num(g(ml, 'home', 'open').odds), num(g(ml, 'away', 'open').odds)];
 }
 function ev(e) { const c = e.competitions[0], t = s => c.competitors.find(x => x.homeAway === s).team.abbreviation; return [e.id, e.date, t('away'), t('home'), dk(c)]; }
+const nflBook = {};  // ESPN event id: [kickoff, state, odds provider id, its name], for the free prop lines
 if (PLAN.nfl) {
   for (const wk of PLAN.nfl.weeks || [PLAN.nfl.week]) {  // the week on the page, plus an earlier week's game still to be played
     try { const j = await J(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?week=${wk}&seasontype=${PLAN.nfl.stype}&dates=${PLAN.nfl.season}`);
-          out.nfl.push(...j.events.filter(e => !(e.status && e.status.type && e.status.type.completed)).map(ev)); }
+          const evs = j.events.filter(e => !(e.status && e.status.type && e.status.type.completed));
+          out.nfl.push(...evs.map(ev));
+          for (const e of evs) { const o = (((e.competitions || [])[0] || {}).odds || [])[0] || {}, p = o.provider || {};
+                                 nflBook[e.id] = [e.date, (e.status && e.status.type && e.status.type.state) || '', String(p.id || ''), p.name || '']; } }
     catch (e) { out.errors.push('espn nfl week ' + wk + ': ' + e.message); }
   }
   for (const s of PLAN.nfl.outdoor) {
@@ -357,6 +365,42 @@ if (PLAN.nfl) {  // NFL injury report (for the player props)
                        String((i.details && [i.details.type, i.details.detail, i.details.side].filter(Boolean).join(' ')) || i.shortComment || '').slice(0, 80)]);
     }
   } catch (e) { out.errors.push('espn nfl injuries: ' + e.message); }
+}
+if (PLAN.nfl && PLAN.lines) {
+  // Free player prop lines: ESPN carries every prop line of the book behind its odds (DraftKings), with the opening line,
+  // but no prices (read anyway, in case it adds them). Rows: [athlete id, prop type, line, opening line, over, under].
+  const T = new Set(PLAN.lines.types.map(String));
+  for (const [eid, [when, state, pid, pname]] of Object.entries(nflBook)) {
+    if (state !== 'pre' || new Date(when).getTime() < Date.now()) continue;  // under way: no pregame lines
+    const acc = {};
+    try {
+      for (let page = 1, pages = 1; page <= pages && page <= 6; page++) {
+        const j = await J(`https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/${eid}/competitions/${eid}/odds/${pid || PLAN.lines.provider}/propBets?lang=en&region=us&limit=1000&page=${page}`);
+        pages = j.pageCount || 1;
+        for (const it of j.items || []) {
+          const t = String((it.type || {}).id || ''), m = String((it.athlete || {}).$ref || '').match(/athletes\/(\d+)/);
+          if (!T.has(t) || !m) continue;
+          const c = it.current || {}, o = it.open || {}, line = num(c.target && c.target.value);
+          if (line == null) continue;
+          (acc[m[1] + '|' + t] = acc[m[1] + '|' + t] || []).push([m[1], Number(t), line, num(o.target && o.target.value),
+            num(c.over && c.over.american), num(c.under && c.under.american), String(it.lastUpdated || '')]);
+        }
+      }
+    } catch (e) { out.errors.push('espn prop lines ' + eid + ': ' + e.message); }
+    const rows = [];
+    for (const list of Object.values(acc)) {
+      // a book that also lists alternate lines prices only its main line: keep that one; otherwise a player's only line
+      const priced = list.filter(r => r[4] != null || r[5] != null);
+      if (priced.length) {
+        const r = priced[0].slice(0, 6);
+        for (const x of priced) if (x[2] === r[2]) { if (r[4] == null) r[4] = x[4]; if (r[5] == null) r[5] = x[5]; }
+        rows.push(r);
+      } else if (new Set(list.map(r => r[2])).size === 1) {
+        rows.push(list.sort((a, b) => (a[6] < b[6] ? 1 : -1))[0].slice(0, 6));
+      }
+    }
+    if (rows.length) out.dk.push([String(eid), pname || 'DraftKings', rows]);
+  }
 }
 if (PLAN.nba) {
   for (const d of PLAN.nba.dates) {
@@ -476,7 +520,8 @@ if (PLAN.key && PLAN.props && PLAN.odds && PLAN.odds.nfl) {
 // one checksum per section, so a copying slip in one section only drops that section
 const ck = x => { let s = 0, c = 0; (function walk(v) { if (typeof v === 'number') { s += v; c++; } else if (v && typeof v === 'object') for (const k in v) walk(v[k]); })(x); return [Math.round(s * 100) / 100, c]; };
 out.check = {nfl: ck(out.nfl), nba: ck(out.nba), nba_past: ck(out.nbaPast), wx: ck(out.wx), odds_nfl: ck(out.odds.nfl || []), odds_nba: ck(out.odds.nba || []),
-             epl: ck(out.epl), epl_past: ck(out.eplPast), epl_close: ck(out.eplClose), odds_epl: ck(out.odds.epl || []), nfl_inj: ck(out.nflInj), props: ck(out.props)};
+             epl: ck(out.epl), epl_past: ck(out.eplPast), epl_close: ck(out.eplClose), odds_epl: ck(out.odds.epl || []), nfl_inj: ck(out.nflInj), props: ck(out.props),
+             dk: ck(out.dk)};
 return JSON.stringify(out);
 })()
 """
@@ -559,6 +604,7 @@ def browser_script(plan, key=None):
             odds["epl"] = [iso(max(now, min(soon)) - pd.Timedelta(hours=2)), iso(max(soon) + pd.Timedelta(hours=2))]
     bplan = {"key": key or None, "books": BOOKS, "booksEpl": BOOKS_EPL, "odds": odds,
              "props": {"min": PROPS_MIN_CREDITS, "markets": PROPS_MARKETS} if nfl and plan.get("props_data") else None,
+             "lines": LINES if nfl and plan.get("props_data") else None,
              "epl": None if not epl else {"dates": epl["dates"], "past": epl["past"], "closeFrom": epl["closeFrom"]},
              "nfl": None if not nfl else {"season": nfl["season"], "week": nfl["week"], "weeks": nfl.get("weeks") or [nfl["week"]], "stype": 2 if nfl["type"] == "REG" else 3,
                                           "outdoor": [{"id": x["id"], "lat": x["coords"][0], "lon": x["coords"][1], "ko": x["ko"]} for x in nfl["games"] if x["coords"]]},
@@ -601,7 +647,7 @@ def checked(path="browser_result.json"):
     parts = {"nfl": (br, "nfl", []), "nba": (br, "nba", []), "nba_past": (br, "nbaPast", []), "wx": (br, "wx", {}),
              "odds_nfl": (br["odds"], "nfl", []), "odds_nba": (br["odds"], "nba", []),
              "epl": (br, "epl", []), "epl_past": (br, "eplPast", []), "epl_close": (br, "eplClose", {}), "odds_epl": (br["odds"], "epl", []),
-             "nfl_inj": (br, "nflInj", []), "props": (br, "props", [])}
+             "nfl_inj": (br, "nflInj", []), "props": (br, "props", []), "dk": (br, "dk", [])}
     bad = []
     for name, (holder, key, empty) in parts.items():
         got = ck(holder.get(key) or empty)
@@ -838,13 +884,17 @@ def props_build(plan, nfl, br):
         if hit:
             events.append({"g": hit[0]["id"], "q": q})
     inj = [[e, n, ESPN_NFL.get(t, t), st, d] for e, n, t, st, d in (br or {}).get("nflInj") or []]
-    W = pc.build_week(props_files(nfl["season"]), nfl["games"], inj, events, nfl["season"], nfl["week"])
+    by_espn = {str(g.get("espn")): g["id"] for g in nfl["games"] if g.get("espn")}
+    free = [{"g": by_espn[str(eid)], "book": book(name), "rows": rows} for eid, name, rows in (br or {}).get("dk") or [] if str(eid) in by_espn]
+    W = pc.build_week(props_files(nfl["season"]), nfl["games"], inj, events, nfl["season"], nfl["week"], dk_events=free)
     if W:
-        try:
-            W["bt"] = json.load(open(os.path.join(HERE, "..", "data", "props_backtest.json")))
-        except Exception:
-            W["bt"] = None
+        for name, path in (("bt", "props_backtest.json"), ("lbt", "props_lines_backtest.json")):
+            try:
+                W[name] = json.load(open(os.path.join(HERE, "..", "data", path)))
+            except Exception:
+                W[name] = None
         W["priced"] = len(events)
+        W["lined"] = len(free)
         titles = (br or {}).get("titles") or {}
         for o in W["offers"]:
             o[2] = titles.get(o[2], o[2])  # the page names books the way the game lines do
@@ -853,11 +903,12 @@ def props_build(plan, nfl, br):
         if rp and os.path.exists(rp):
             try:
                 R = json.load(open(rp))
-                W["rec"] = [[v["g"], v["name"], v["team"], v["s"], v["side"], v["line"], v["price"], v["book"], v["ev"], v.get("grade"), v["res"], v.get("act"), v.get("pl")]
-                            for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
+                W["rec"] = [[v["g"], v["name"], v["team"], v["s"], v["side"], v["line"], v["price"], v["book"], v["ev"], v.get("grade"), v["res"], v.get("act"), v.get("pl"),
+                             v.get("est", 0), v.get("l0")] for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
             except Exception as e:
                 print(f"props record unreadable ({e.__class__.__name__})")
-        print(f"player props: {len(W['players'])} players, {len(W['offers'])} prices from {len(events)} games, {len(W['unmatched'])} unmatched names")
+        print(f"player props: {len(W['players'])} players, {len(W['offers'])} offers ({W['nlines']} free {W['book'] or 'book'} lines from {len(free)} games, "
+              f"Odds API prices from {len(events)} games), {len(W['unmatched'])} unmatched names, {len(W['unbooked'])} lined players not projected")
     return W
 
 
@@ -907,7 +958,8 @@ def live():
     br = json.load(open("browser_result.json"))
     br = json.loads(br) if isinstance(br, str) else br
     print(f"live data: NFL {len(br.get('nfl', []))} games, NBA {len(br.get('nba', []))}, Premier League {len(br.get('epl', []))}, "
-          f"forecasts {len(br.get('wx', {}))}, Odds API leagues {sorted(k for k, v in (br.get('odds') or {}).items() if v)}, "
+          f"forecasts {len(br.get('wx', {}))}, prop lines from {len(br.get('dk') or [])} NFL games, "
+          f"Odds API leagues {sorted(k for k, v in (br.get('odds') or {}).items() if v)}, "
           f"credits left {br.get('credits')}, errors {len(br.get('errors', []))}")
     for e in br.get("errors", [])[:12]:
         print("  ", clean(str(e)))
@@ -957,8 +1009,11 @@ def props_record(path, snap, now):
     kickoff counts), graded from nflverse box scores; void when he didn't take a snap."""
     old = json.load(open(path)) if os.path.exists(path) else {}
     for s in snap:
-        if not (old.get(s["id"]) or {}).get("res"):
-            old[s["id"]] = {**s, "at": now}
+        prev = old.get(s["id"]) or {}
+        if not prev.get("res"):
+            # l0: the line when the pick was first made on this side, to see whether the market moved our way before kickoff
+            same = bool(prev) and prev.get("side") == s["side"]
+            old[s["id"]] = {**s, "at": now, "l0": prev.get("l0", prev.get("line")) if same else s["line"], "at0": prev.get("at0", prev.get("at")) if same else now}
     # a pick saved earlier that no longer has value stays (the last save before kickoff counts), unless it hasn't started
     live_ids = {s["id"] for s in snap}
     t_now = pd.Timestamp.now(tz="UTC")
@@ -1010,6 +1065,90 @@ def props_record(path, snap, now):
     n = [v for v in old.values() if v.get("res") in ("W", "L", "P")]
     print(f"props record: {len(snap)} open picks saved, {graded} newly graded, {len(n)} graded in all, "
           f"{sum(v['pl'] for v in n):+.1f} units")
+
+
+def props_lines_fetch(seasons, cache_dir="props_lines"):
+    """Past games' prop lines from ESPN (the book behind its odds: ESPN BET through 2025, DraftKings since; ESPN BET's
+    come with prices), one file per season in cache_dir, fetching only finished games not already saved. Needs open
+    internet (GitHub's runners)."""
+    import concurrent.futures, urllib.request
+    import props_core as pc
+    g = pd.read_csv("games.csv", usecols=["season", "espn", "home_score", "gameday"], low_memory=False)
+    os.makedirs(cache_dir, exist_ok=True)
+    types = {str(t) for t in LINES["types"]}
+
+    def page(eid, prov, n):
+        u = (f"https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/{eid}/competitions/{eid}/odds/{prov}/propBets"
+             f"?lang=en&region=us&limit=1000&page={n}")
+        req = urllib.request.Request(u, headers={"User-Agent": "MatchupEdge refresh (github.com)", "Accept": "application/json"})
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    return json.load(r)
+            except urllib.error.HTTPError as e:
+                if e.code == 404:
+                    return None
+            except Exception:
+                pass
+        raise RuntimeError(f"ESPN prop lines {eid}: no answer")
+
+    def one(eid, season):
+        for prov in (("58", "100") if season <= 2025 else ("100", "58")):
+            j = page(eid, prov, 1)
+            if not j:
+                continue
+            items = list(j.get("items") or [])
+            for n in range(2, min(int(j.get("pageCount") or 1), 6) + 1):
+                items += (page(eid, prov, n) or {}).get("items") or []
+            rows = []
+            for it in items:
+                t = str((it.get("type") or {}).get("id") or "")
+                m = re.search(r"athletes/(\d+)", str((it.get("athlete") or {}).get("$ref") or ""))
+                c, o = it.get("current") or {}, it.get("open") or {}
+                line = (c.get("target") or {}).get("value")
+                if t not in types or not m or line is None:
+                    continue
+                am = lambda d: (lambda v: None if v in (None, "") else (100 if str(v).upper() == "EVEN" else float(str(v).replace("+", ""))))((d or {}).get("american"))
+                rows.append([m.group(1), int(t), float(line), (o.get("target") or {}).get("value"), am(c.get("over")), am(c.get("under"))])
+            if rows:
+                return [[a, t, l, op, ov, un] for (a, t), (l, op, ov, un) in pc.pick_lines(rows).items()]
+        return []
+
+    out = {}
+    for season in seasons:
+        path = os.path.join(cache_dir, f"lines_{season}.json")
+        have = json.load(open(path)) if os.path.exists(path) else {}
+        done = g[(g.season == season) & g.home_score.notna() & g.espn.notna()]
+        todo = [str(int(e)) for e in done.espn if str(int(e)) not in have]
+        with concurrent.futures.ThreadPoolExecutor(6) as ex:
+            for eid, rows in zip(todo, ex.map(lambda e: one(e, season), todo)):
+                have[eid] = rows
+        json.dump(have, open(path, "w"), separators=(",", ":"))
+        print(f"prop lines {season}: {sum(1 for v in have.values() if v)} of {len(done)} finished games have lines "
+              f"({len(todo)} fetched now, {sum(len(v) for v in have.values())} lines)")
+        out[season] = {k: v for k, v in have.items() if v}
+    return out
+
+
+def props_lines():
+    """The props line backtest: every past game's prop lines from ESPN, our out-of-sample projections against them, written
+    to ../data/props_lines_backtest.json (the page's Props tab reads it). Run after fetch; needs open internet."""
+    import props_core as pc
+    get(RAW + "/nflverse/nfldata/master/data/games.csv", "games.csv")
+    season = int(pd.read_csv("games.csv", usecols=["season"]).season.max())
+    if not props_fetch(season):
+        print("props line backtest: player history incomplete")
+        return
+    hist = props_lines_fetch(range(LINES_FROM, season + 1))
+    res = pc.line_backtest(props_files(season), hist)
+    if not res:
+        print("props line backtest: no lines matched")
+        return
+    res["made"] = dt.datetime.now(CT).strftime("%Y-%m-%d")
+    json.dump(res, open(os.path.join(HERE, "..", "data", "props_lines_backtest.json"), "w"), indent=1)
+    for x in res["seasons"]:
+        print(f"{x['season']} {x['book']}: {x['props']} props, over {x['over_rate']:.1%} (market {x['market_over']}), bets {x['bets']}, tested {x['tested']}")
+    print("markets that held up:", ", ".join(res["ok"]))
 
 
 WEB_HEAD = """<!doctype html>
@@ -1064,7 +1203,7 @@ def summary():
             fo = lambda a: f"+{a}" if a > 0 else f"\u2212{abs(a)}"
             bet = lambda x: ("Anytime TD" if x["side"] == "over" else "No TD") if x["s"] == "anytd" else f'{"Over" if x["side"] == "over" else "Under"} {x["line"]:g} {lab[x["s"]]}'
             print(f"NFL player props with +2% value or more ({len(top)} shown of {len(ps)} with positive value; projection blended with the market):")
-            print("\n".join(f'{x["name"]} ({x["team"]}) | Best bet \u00b7 {x["grade"]} | {bet(x)} {fo(x["price"])} | {x["book"]} \u00b7 {x["ev"] * 100:+.1f}% \u00b7 projection {x["mu"]:g}' for x in top) or "none")
+            print("\n".join(f'{x["name"]} ({x["team"]}) | Best bet \u00b7 {x["grade"]} | {bet(x)} {fo(x["price"])}{" (price est.)" if x.get("est") else ""} | {x["book"]} \u00b7 {x["ev"] * 100:+.1f}% \u00b7 projection {x["mu"]:g}' for x in top) or "none")
             b.close()
     except Exception as e:
         print(f"summary unavailable ({e.__class__.__name__}); read site.html's data instead")
@@ -1085,6 +1224,8 @@ if __name__ == "__main__":
         res = pc.backtest(props_files(season))
         json.dump(res, open(os.path.join(HERE, "..", "data", "props_backtest.json"), "w"), indent=1)
         print(json.dumps({k: (v["mae"], v["mae_avg"]) for k, v in res["stats"].items()}))
+    elif len(sys.argv) > 1 and sys.argv[1] == "props-lines":  # after fetch, on a machine with open internet
+        props_lines()
     elif len(sys.argv) > 1 and sys.argv[1] == "build":
         build()
     elif len(sys.argv) > 1 and sys.argv[1] == "live":

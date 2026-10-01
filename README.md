@@ -8,6 +8,8 @@ weekday and published with GitHub Pages.
 - **Our call** picks the winner of every game, mixing the betting market with a team view (power ratings, every factor
   and news researched each morning) at the weight that picked the most winners in testing.
 - **Best bets** come from the tested model: the market plus only the factors that held up on years of games.
+- **Player props** value every NFL player's DraftKings line (free through ESPN) against our projection, at the mix that
+  held up when tested on 2025-2026 prop lines; a paid Odds API plan adds every book's prices.
 - For entertainment and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun,
   call 1-800-GAMBLER.
 
@@ -27,12 +29,17 @@ Each run:
 
 The run's summary lists every best bet with positive value.
 
+`.github/workflows/props-lines.yml` runs on Tuesdays (and on demand): it saves every finished game's player prop lines
+and tests the props model against them (`data/props_lines_backtest.json`); the next refresh shows the results.
+
 ## Setup
 
 1. **Secret:** Settings → Secrets and variables → Actions → New repository secret: `ODDS_API_KEY` = your key from
    the-odds-api.com. Without it the site still builds, with DraftKings lines only. The key is used only on GitHub's
    servers and is never written to the site or the repository. About 3 credits per league per run; the free plan's
-   500 a month covers this schedule.
+   500 a month covers this schedule. Player prop prices from every book need a paid plan: about 10 credits per NFL game
+   per run (roughly 7,000 a month on this schedule), fetched only while 1,500+ credits are left, so the 20K plan
+   covers them. If subscribing gives you a new key, replace the `ODDS_API_KEY` secret with it.
 2. **Pages:** Settings → Pages → Build and deployment → Source: *Deploy from a branch*, Branch: `gh-pages`, folder
    `/ (root)`. The site appears at `https://<your-username>.github.io/<repo>/`.
 3. **Own domain (optional):** buy one (Cloudflare, Namecheap, Porkbun…), add a variable Settings → Secrets and
@@ -47,6 +54,9 @@ The run's summary lists every best bet with positive value.
 - `data/picks.json`: every game's call and both models' best bets, saved until kickoff and graded from results.
 - `data/results.json`: final scores and closing lines for the last 400 days, published as `results.json` so bets
   older than the page's own results still grade.
+- `data/props_picks.json`: the props record (each pick's first and last line, graded from box scores).
+- `data/props_backtest.json`, `data/props_lines_backtest.json`: the props model's accuracy, and its record against real
+  prop lines.
 
 ## Your bets
 

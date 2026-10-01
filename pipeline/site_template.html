@@ -414,57 +414,98 @@ details.crow[open] .cw::before{content:"\25BE"}
 /* player props */
 .pbar{display:flex;flex-direction:column;gap:10px;padding:12px 14px}
 .pbrow{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.pbrow.pset{padding-top:8px;border-top:1px dashed var(--line)}
 .psearch{display:inline-flex;align-items:center;gap:8px;flex:1 1 200px;max-width:320px}
 .psearch input{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:6px 9px;font-size:14px;color:var(--ink)}
 .pw{display:inline-flex;align-items:center;gap:8px}
 .pw input{width:120px;accent-color:var(--accent)} .pw output{font-family:var(--f-mono);font-size:12px;color:var(--accent);min-width:3.2em}
-.plist{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.seg button:disabled{opacity:.45;cursor:not-allowed}
+.plist{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+  --pcols:minmax(0,1.3fr) minmax(0,1.25fr) minmax(0,1.35fr) minmax(0,.95fr) 104px}
 .prow{border-top:1px solid var(--line);scroll-margin-top:12px}
-.prow:first-child{border-top:0}
-.prow.hdr{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.3fr) minmax(0,1.25fr) minmax(0,1fr) 96px;gap:12px;padding:8px 14px 6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
+.prow:first-child,.pgh+.prow{border-top:0}
+.prow.hdr{display:grid;grid-template-columns:var(--pcols);gap:12px;padding:8px 14px 6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
 .prow.hdr span:last-child{text-align:right}
-.prow>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.3fr) minmax(0,1.25fr) minmax(0,1fr) 96px;gap:4px 12px;align-items:center;padding:10px 14px}
+.prow>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:var(--pcols);gap:4px 12px;align-items:center;padding:10px 14px}
 .prow>summary::-webkit-details-marker{display:none}
 .prow>summary:hover{background:var(--surface-2)}
 .prow[open]>summary{background:var(--surface-2)}
 .pn{display:flex;flex-direction:column;min-width:0}
 .pn b{font-weight:700;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pn small,.pp small,.pv small,.pq small{display:block;color:var(--muted);font-size:12px}
+.pn small,.pp small,.pv small,.pq small,.ph small{display:block;color:var(--muted);font-size:12px}
 .pp{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
-.pq{font-size:13px;min-width:0} .pq b{font-family:var(--f-mono);font-weight:600}
-.pv{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-.gapbar{display:block;width:150px;position:relative;height:6px;border-radius:3px;background:var(--track);margin-top:4px;max-width:150px}
-.gapbar i{position:absolute;top:0;bottom:0;border-radius:3px}
-.gapbar i.up{background:var(--over)} .gapbar i.dn{background:var(--under)}
-.gapbar::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted)}
-@media (max-width:760px){
-  .prow.hdr{display:none}
-  .prow>summary{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n v" "p v" "q q";row-gap:6px}
-  .prow>summary .pn{grid-area:n}.prow>summary .pp{grid-area:p}.prow>summary .pq{grid-area:q}.prow>summary .pv{grid-area:v;align-self:start}.prow>summary .pm{display:none}}
-.pdet{border-top:1px dashed var(--line);background:var(--surface-2);padding:14px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px}
-@media (max-width:900px){.pdet{grid-template-columns:minmax(0,1fr)}}
-.pdet section{min-width:0}
-.pdet h3{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 6px}
-.pdet h3:not(:first-child){margin-top:14px}
-.pdet ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
-.pdet p{margin:0 0 6px;font-size:13px;color:var(--ink-2)}
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 10px}
-@media (max-width:520px){.nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.nums>div{border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:var(--surface);min-width:0}
-.nums small{display:block;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.nums b{font-family:var(--f-display);font-size:20px;font-weight:700}
-.nums span{display:block;font-size:11.5px;color:var(--muted)}
+.pq{font-size:13px;min-width:0;display:flex;flex-direction:column;gap:2px} .pq>b{font-family:var(--f-mono);font-weight:600;font-size:12.5px}
+.ph{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pv{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+/* our spread of outcomes against the line */
+.rng{display:block;position:relative;height:12px;width:100%;max-width:180px}
+.rng::before{content:"";position:absolute;left:0;right:0;top:5px;height:2px;border-radius:1px;background:var(--track)}
+.rng i{position:absolute;display:block}
+.rng .b1{top:3px;height:6px;border-radius:3px;background:var(--accent-soft);border:1px solid var(--line)}
+.rng .b2{top:3px;height:6px;border-radius:3px;background:var(--accent);opacity:.32}
+.rng .md{top:1px;width:2px;height:10px;margin-left:-1px;border-radius:1px;background:var(--accent)}
+.rng .lm{top:-1px;width:3px;height:14px;margin-left:-1.5px;border-radius:1px;background:var(--ink)}
+.rng .om{top:2px;width:8px;height:8px;margin-left:-4px;border-radius:50%;border:1.5px solid var(--muted);background:var(--surface)}
+.mv{font-size:11.5px;font-weight:600} .mv.up{color:var(--over)} .mv.dn{color:var(--under)}
+/* the last 8 games against the line */
+.l8{display:inline-flex;gap:3px;align-items:center}
+.l8 i{display:block;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--under);box-sizing:border-box}
+.l8 i.o{background:var(--over);border-color:var(--over)}
+.l8 i.p{border-color:var(--muted)}
+.brw b.cl.over{color:var(--over)} .brw b.cl.under{color:var(--under)}
+/* All players */
+.pgh{padding:10px 14px 6px;font-family:var(--f-display);font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);background:var(--surface-2);border-top:1px solid var(--line)}
+.pgh:first-child{border-top:0}
+.pls .prow>summary{grid-template-columns:minmax(0,220px) minmax(0,1fr)}
+.pchips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.pchip{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;background:var(--surface);white-space:nowrap}
+.pchip b{font-family:var(--f-mono);font-weight:600;font-size:12.5px}
+.pchip small{color:var(--muted);font-size:11.5px}
+.pchip.vo{border-color:var(--over);box-shadow:inset 3px 0 0 var(--over)} .pchip.vu{border-color:var(--under);box-shadow:inset 3px 0 0 var(--under)}
+/* a player's card */
+.pcard{border-top:1px dashed var(--line);background:var(--surface-2);padding:14px;display:grid;gap:14px;min-width:0}
+.pch{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.pcn{display:flex;flex-direction:column;min-width:0}
+.pcn b{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.02em;line-height:1.1}
+.pcn small{color:var(--muted);font-size:12px}
+.pcols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px}
+@media (max-width:900px){.pcols{grid-template-columns:minmax(0,1fr)}}
+.pcols section{min-width:0}
+.pcard h3{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.05em;text-transform:uppercase;margin:14px 0 6px}
+.pcols section>h3:first-child{margin-top:0}
+.pcard ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
+.pcard p{margin:0 0 6px;font-size:13px;color:var(--ink-2)}
+.pcard p.fine{font-size:11.5px;margin:4px 0 0}
+.pprops tr.sel td{background:var(--accent-soft)}
+.pprops .st{border:0;background:none;padding:0;font:inherit;font-weight:600;color:var(--accent);cursor:pointer;text-align:left}
+.pprops .st[aria-pressed="true"]{color:var(--ink)}
+.sd{font-weight:700} .sd.over{color:var(--over)} .sd.under{color:var(--under)} .sd .ss{display:none}
+#pmethod p.fine,#pbar p.fine{font-size:12px;margin:8px 0 0}
+.pbest b{font-weight:700}
 td.ov{color:var(--over);font-weight:700} td.un{color:var(--under)}
-.spark{display:block;width:100%;max-width:420px;height:auto;margin:4px 0 8px}
-.spark .bar{fill:var(--accent);opacity:.75} .spark .bar.hit{fill:var(--over);opacity:.9} .spark .ln{stroke:var(--ink-2);stroke-width:1.2;stroke-dasharray:4 3} .spark .pj{stroke:var(--accent);stroke-width:2}
+.spark{display:block;width:100%;max-width:440px;height:auto;margin:4px 0 2px}
+.spark .bar{fill:var(--under);opacity:.55} .spark .bar.hit{fill:var(--over);opacity:.9} .spark .ln{stroke:var(--ink);stroke-width:1.4;stroke-dasharray:5 3} .spark .pj{stroke:var(--accent);stroke-width:2}
 .spark text{fill:var(--muted);font-family:var(--f-mono);font-size:10px}
 .calc{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;margin-top:6px}
 .calc label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .calc input{width:96px;font-size:14px;color:var(--ink);border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:6px 8px}
-.calc output{font-size:13px;color:var(--ink-2)}
+.calc input[hidden]{display:none}
+.calc output{font-size:13px;color:var(--ink-2);flex:1 1 220px}
 .ptab td,.ptab th{padding:5px 7px}
-.ptab td.nm{white-space:normal;min-width:9em}
+.ptab td.nm{white-space:normal;min-width:8.5em}
 .pmore{display:block;width:100%;border:0;border-top:1px solid var(--line);background:var(--surface-2);padding:10px;font-weight:600;color:var(--accent);cursor:pointer}
+#pmethod h2:not(:first-child){margin-top:18px}
+@media (max-width:760px){
+  .prow.hdr{display:none}
+  .prow>summary{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n v" "p p" "q h";row-gap:8px}
+  .prow>summary .pn{grid-area:n}.prow>summary .pp{grid-area:p;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 8px}.prow>summary .pq{grid-area:q}.prow>summary .ph{grid-area:h;align-items:flex-end;text-align:right}.prow>summary .pv{grid-area:v;align-self:start}
+  .pls .prow>summary{grid-template-columns:minmax(0,1fr);grid-template-areas:none}
+  .pls .prow>summary>*{grid-area:auto}
+  .pcard{padding:12px}
+  .pprops th:nth-child(4),.pprops td:nth-child(4){display:none}
+  .pprops td,.pprops th{padding:5px 4px}
+  .sd .sl{display:none} .sd .ss{display:inline}
+}
 #stylebar.isprops [aria-labelledby="betslbl"],#stylebar.isprops #betslbl,#stylebar.isprops #sbnote{display:none}
 
 /* how it works */
@@ -541,15 +582,19 @@ details.how dd p{margin:0 0 6px}
     <div class="card board" id="propplays"></div>
     <div class="card pbar" id="pbar">
       <div class="pbrow">
-        <div class="seg" role="group" aria-label="Show"><button data-pshow="value">Positive value</button><button data-pshow="all">Every priced prop</button><button data-pshow="proj">Projections</button></div>
+        <div class="seg" role="group" aria-label="Show"><button data-pshow="best">Best bets</button><button data-pshow="lines">Every line</button><button data-pshow="players">All players</button></div>
         <label class="psearch"><span class="lbl">Player</span><input id="pq" type="search" placeholder="Search" autocomplete="off"></label>
       </div>
       <div class="pbrow">
         <label class="sortl"><span class="lbl">Market</span><select id="pmkt"><option value="all">All markets</option><option value="pass">Passing</option><option value="rush">Rushing</option><option value="rec">Receiving</option><option value="td">Touchdowns</option></select></label>
         <label class="sortl"><span class="lbl">Position</span><select id="ppos"><option value="all">All</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option></select></label>
         <label class="sortl"><span class="lbl">Game</span><select id="pgame"><option value="all">All games</option></select></label>
-        <label class="sortl"><span class="lbl">Sort</span><select id="psort"><option value="value">Best value</option><option value="edge">Biggest gap to the line</option><option value="time">Kickoff</option></select></label>
-        <label class="pw"><span class="lbl">Model weight</span><input id="pw" type="range" min="0" max="100" step="5"><output id="pwo"></output></label>
+        <label class="sortl" id="psortl"><span class="lbl">Sort</span><select id="psort"><option value="value">Best value</option><option value="edge">Biggest gap to the line</option><option value="time">Kickoff</option><option value="name">Player</option></select></label>
+      </div>
+      <div class="pbrow pset">
+        <label class="pw" title="How much our projection counts against the market’s line. The tested mix is 15%."><span class="lbl">Model weight</span><input id="pw" type="range" min="0" max="100" step="5"><output id="pwo"></output></label>
+        <label class="sortl" title="Free lines come without prices; they are valued at this price on both sides."><span class="lbl">Price for free lines</span><select id="ppa"><option value="-110">−110</option><option value="-115">−115</option><option value="-120">−120</option></select></label>
+        <button class="btn sm" id="preset" type="button" hidden>Back to tested settings</button>
       </div>
       <p class="sbnote" id="pnote"></p>
     </div>
@@ -626,7 +671,7 @@ details.how dd p{margin:0 0 6px}
       <dt>Our call</dt><dd>Every game gets a call on who wins, mixed from two views. The <b>betting market</b>: every book’s price with its cut removed, and the middle value across books, so one stale book can’t move it. Our <b>team view</b>: power ratings from this season and last, every factor at full strength, and news researched each morning (injuries and returns, trades and signings, coaching changes, drama, motivation), each scored in points or goals for a team, with sources. Each league uses the mix that picked the most winners in testing, with ratings and factors built only from earlier games: NFL 85% market and 15% team view (66.7% of winners over 20 seasons, against 66.5% for the betting favorite; 67.3% against 66.7% over the last six), NBA 90% and 10% (68.5% over 18 seasons, level with the favorite), and in the Premier League the market alone once lines post (no mix did better over 14 seasons; before lines post, the call is the team view). The researched news can’t be backtested; the model record under My bets tracks it from here.</dd>
       <dt>Best bets</dt><dd>Best bets come from the <b>tested model</b>: the market plus only the factors that held up when tested on years of games, each at the share the closing line missed. NFL: wind and cold 50%, a backup quarterback 45% (spread and moneyline), Denver altitude 10%. NBA: altitude 50%, players out 20%, long trips 15%, back-to-backs 15%. Premier League: about 9% of a shots-on-target rating’s gap on goal difference (10% on the total), −0.011 goals per point of last-5 form difference, and +0.18 goals for a team playing its second league match in 3 days. Pace, head to head, rest, referees, Elo and power ratings count 0%. NFL weights can be changed under Tested model settings. You can switch the best bets to our call’s own pricing, but those are marked untested: see What testing found.</dd>
       <dt>Best bet and value</dt><dd>Every price at your books is valued against our call (or the tested fair line): value = chance to win × profit − chance to lose. NFL margins use a 13.5-point curve with extra weight on key numbers like 3 and 7; the NBA plain curves (12 points for spreads, 18 for totals); soccer a goal model fitted to each match’s home, draw and away prices and totals, where quarter lines count as two half bets. Whole-number lines can push. <b>Strong</b> is +5% or more, <b>Lean</b> +2% to +5%, <b>Thin</b> 0 to +2%. <b>No edge</b> means even the best price is below fair value after the book’s cut: the least-bad way to bet that game, not a bet with an advantage.</dd>
-      <dt>Player props</dt><dd>The Props tab projects every NFL skill player’s passing, rushing, receiving and touchdown numbers: team volume from the spread and total, each player’s share of targets, carries and attempts (re-spread when a teammate is ruled out), efficiency shrunk toward the position average and scaled by the opponent, then calibrated on 2019–2023 and tested on 2024 on. Every book’s line is valued on a blend of our over chance and the market’s (Model weight, 40% to start). Projections beat each player’s own recent average on every stat in testing, but they were never tested against historical prop prices, so the props record is the real test.</dd>
+      <dt>Player props</dt><dd>The Props tab projects every NFL skill player’s passing, rushing, receiving and touchdown numbers: team volume from the spread and total, each player’s share of targets, carries and attempts (re-spread when a teammate is ruled out), efficiency shrunk toward the position average and scaled by the opponent, calibrated on 2019–2023. Every player’s lines come free from DraftKings through ESPN, with the line each opened at; The Odds API adds every book’s prices on a paid plan. Each line is valued at 15% our chance and 85% the market’s, shaded 2 points toward the under, because books set player props a little high. That mix was picked on 2025’s ESPN BET lines and tested on the rest of 2025 and on 2026’s DraftKings lines (results under the Props tab). Markets that lost money in that test show their numbers but never make the best bets.</dd>
       <dt>Bet sizing</dt><dd>Set the bankroll you started with under My bets and pick how stakes are sized. <b>Same amount every bet</b> puts the same share of the bankroll (1% unless you change it) on every pick with value. <b>Bigger bets on bigger edges</b> uses the Kelly formula, value ÷ (decimal odds − 1), so stakes grow with the value and shrink on long odds; Low, Medium and High bet ⅛, ¼ and ½ of it, never more than the cap you set. Full Kelly on the edges the model claims wiped out the bankroll in testing. Stakes follow the bankroll now: the starting bankroll plus whatever settled bets have won or lost. Without a bankroll, stakes show as a share of it.</dd>
       <dt>Tracking</dt><dd>Log a bet from any pick, or anything else (props, parlays, futures) under My bets. Bets on games here grade themselves from the final score, with their closing-line value: their value against the fair closing line (NFL closes from nflverse; NBA and Premier League from DraftKings via ESPN). Beating the close over many bets is the quickest sign an edge is real. Settle anything else by hand, and edit, void or mark any bet cashed out. On the website, bets stay in that browser until you set up sync, which keeps them in a private GitHub repository of yours so your phone and computer share one log; the site also keeps an archive of final scores, so bets still grade after time away. On the claude.ai copy, bets save to your claude.ai account. The model record keeps our calls and both styles’ best bets the same way.</dd>
       <dt>What testing found</dt><dd>
@@ -2323,118 +2368,155 @@ else{$('#nbawk').textContent='off'}
 if(EPL){$('#eplwk').textContent=EPL.round||''}else{$('#eplwk').textContent='off'}
 /* ------------------------------------------------------------------ NFL player props
    Projections come from the build (usage x team volume x efficiency x opponent, injuries re-spread, calibrated on
-   2019-2023 and tested on 2024 on). Each book's price is valued against a blend of our over chance and the market's
-   (every book's no-vig line turned into an implied projection; the median across books), at the model weight. */
+   2019-2023). Every game's lines come free from the book behind ESPN's odds (DraftKings), with the opening line;
+   The Odds API adds every book's prices on a paid plan. A line is valued on PS.w of our over chance and the rest the
+   market's (no-vig from prices; a line without prices is the market's 50-50 point), less PSH for the under lean that
+   held up against 2025-2026 lines. A line without a price is valued at the assumed price (PS.pa). */
 const PR=DATA.props||null;
 const PSTAT=PR?PR.labels:{};
 const PUNIT={pass_yds:'yds',rush_yds:'yds',rec_yds:'yds',pass_att:'att',pass_cmp:'cmp',pass_td:'TD',pass_int:'INT',rush_att:'car',rec:'rec',anytd:''};
 const PGROUP={pass_att:'pass',pass_cmp:'pass',pass_yds:'pass',pass_td:'td',pass_int:'pass',rush_att:'rush',rush_yds:'rush',rec:'rec',rec_yds:'rec',anytd:'td'};
 const PORDER=['pass_yds','pass_td','pass_cmp','pass_att','pass_int','rush_yds','rush_att','rec_yds','rec','anytd'];
-const PDEF={show:'value',mkt:'all',pos:'all',game:'all',sort:'value',q:'',w:PR?Math.round(PR.w*100):40};
-const PS=Object.assign({},PDEF,store.get('pf',{}),{q:''});
-const POPEN=new Set();let PSHOW=60;
-const savePS=()=>store.set('pf',{show:PS.show,mkt:PS.mkt,pos:PS.pos,game:PS.game,sort:PS.sort,w:PS.w});
-const PGAME=id=>NFL&&NFL.games.find(g=>g.id===id);
-const pName=p=>p.n;
-const statLab=s=>PSTAT[s]||s;
-const pLine=(s,l)=>s==='anytd'?'':ln(l);
 const PSHORT={pass_yds:'pass yds',pass_td:'pass TDs',pass_cmp:'completions',pass_att:'pass attempts',pass_int:'interceptions',rush_yds:'rush yds',rush_att:'rush attempts',rec:'receptions',rec_yds:'rec yds'};
+const PTINY={pass_yds:'Pass yds',pass_td:'Pass TD',pass_cmp:'Cmp',pass_att:'Att',pass_int:'INT',rush_yds:'Rush yds',rush_att:'Carries',rec_yds:'Rec yds',rec:'Rec',anytd:'TD'};
+const POSN={WR:'wide receivers',TE:'tight ends',RB:'running backs',QB:'quarterbacks'};
+const LBT=PR&&PR.lbt||null;
+const POK=new Set(LBT&&LBT.ok||[]);                    /* markets that held up against real lines */
+const PSH=PR&&PR.shift!=null?PR.shift:0;
+const PBOOK=PR&&PR.book||'DraftKings';
+const PDEF={show:'best',mkt:'all',pos:'all',game:'all',sort:'value',q:'',w:PR&&PR.w!=null?Math.round(PR.w*100):15,pa:PR&&PR.assumed||-115};
+const PS=Object.assign({},PDEF,store.get('pf2',{}),{q:''});
+const HASL=!!(PR&&PR.offers&&PR.offers.length);
+if(!HASL)PS.show='players';
+if(PR)PR.players.forEach((p,i)=>{p._i=i});
+const PSEL=new Map();let PSHOW=60,PROWS=new Map();
+const savePS=()=>store.set('pf2',{show:PS.show,mkt:PS.mkt,pos:PS.pos,game:PS.game,sort:PS.sort,w:PS.w,pa:PS.pa});
+const PGAME=id=>NFL&&NFL.games.find(g=>g.id===id);
+const statLab=s=>PSTAT[s]||s;
 const pBet=(s,side,l)=>s==='anytd'?(side==='over'?'Anytime TD':'No TD'):`${side==='over'?'Over':'Under'} ${ln(l)} ${PSHORT[s]||statLab(s)}`;
-const pv=(x,d=1)=>x==null?'–':(+x).toFixed(d);
+const pv=(x,d=1)=>x==null||!isFinite(x)?'–':(+x).toFixed(d);
+const CNT=s=>s==='anytd'||s==='pass_td'||s==='pass_int';
+const fv=(s,v)=>v==null||!isFinite(v)?'–':/yds$/.test(s)?String(Math.round(v)):(+v).toFixed(1);
+const tested=s=>s!=='anytd'&&(!POK.size||POK.has(s));
+const shOf=s=>s==='anytd'?0:PSH;
 
 /* chance of over and under a line, from the projection (the same rules as the build) */
 const Q51=Array.from({length:51},(_,i)=>i/50);
-function ecdf(x,v){const n=v.length;if(x<v[0])return 0;if(x>=v[n-1])return 1;let i=0;while(i<n-1&&v[i+1]<=x)i++;const j=i+1;return Q51[i]+(x-v[i])/(v[j]-v[i])*(Q51[j]-Q51[i])}
+function ecdf(x,v){const n=v.length;if(x<v[0])return 0;if(x>=v[n-1])return 1;let i=0;while(i<n-1&&v[i+1]<=x)i++;const j=i+1;return v[j]===v[i]?Q51[j]:Q51[i]+(x-v[i])/(v[j]-v[i])*(Q51[j]-Q51[i])}
 function pOver(s,mu,L){
-  if(!(mu>0))return null;
-  if(s==='anytd'||s==='pass_td'||s==='pass_int'){
-    const r=PR.disp[s],k=Math.floor(L);let pk,cdf=0,p;
+  if(!(mu>0)||L==null||!isFinite(L))return null;
+  if(CNT(s)){
+    const r=PR.disp[s],k=Math.floor(L);let pk=0,cdf=0,p;
     if(r){p=Math.pow(r/(r+mu),r);for(let i=0;i<=k;i++){cdf+=p;pk=p;p*=(i+r)/(i+1)*(mu/(r+mu))}}
     else{p=Math.exp(-mu);for(let i=0;i<=k;i++){cdf+=p;pk=p;p*=mu/(i+1)}}
     return L===k?{o:1-cdf,u:cdf-pk}:{o:1-cdf,u:cdf};
   }
-  const sp=PR.spread[s];let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
+  const sp=PR.spread[s];if(!sp)return null;let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
   const v=sp.q[i].map(z=>z*mu),o=1-ecdf(L,v);
   if(Number.isInteger(L)&&!/yds$/.test(s)){const eq=ecdf(L+.5,v)-ecdf(L-.5,v);return{o:Math.max(0,o-eq/2),u:Math.max(0,1-o-eq/2)}}
   return{o,u:1-o};
 }
+/* a point of the outcome spread: q = .5 is our median, the line our projection calls a coin flip */
+function pQ(s,mu,q){if(!(mu>0)||CNT(s)||!PR.spread[s])return null;const sp=PR.spread[s];let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
+  const z=sp.q[i],k=q*(z.length-1),a=Math.floor(k),b=Math.min(z.length-1,a+1);return mu*(z[a]+(z[b]-z[a])*(k-a))}
+/* the tested chance of each side: PS.w of ours, the rest the market's (its 50-50 point at a line without prices), less the under lean */
+function blend(pm,pu,km,ku,s){const w=PS.w/100,sh=shOf(s);if(km==null||ku==null){const h=(pm+pu)/2;km=h;ku=h}
+  return{o:Math.max(0,w*pm+(1-w)*km-sh),u:Math.max(0,w*pu+(1-w)*ku+sh)}}
+const oursOf=(s,mu)=>s==='anytd'?pc(1-Math.exp(-mu)):fv(s,CNT(s)?mu:pQ(s,mu,.5));
 
-/* every (player, stat): the best price at the chosen books, valued on the blended chance */
+/* every (player, prop): the best price at the chosen books, valued on the tested chance */
 function propRows(){
   if(!PR)return[];
-  const w=PS.w/100,G=new Map();
+  const G=new Map();
   for(const o of PR.offers){
     const [pi,s,book,line,ov,un,pom,pum,pok,puk]=o;
-    if(!useBook(book))continue;
+    if(!useBook(book)||pom==null)continue;
     const k=pi+'|'+s;let r=G.get(k);
     if(!r){r={p:PR.players[pi],pi,s,offers:[],best:null,lines:[]};G.set(k,r)}
     r.offers.push(o);r.lines.push(line);
-    const bl=(m,k2)=>k2==null?m:w*m+(1-w)*k2;
-    for(const [side,price,pw,pl,mw,ml] of [['over',ov,pom,pum,pok,puk],['under',un,pum,pom,puk,pok]]){
-      if(price==null||pw==null)continue;
-      const pW=bl(pw,mw),pL=bl(pl,ml),ev=pW*(dec(price)-1)-pL;
-      if(!r.best||ev>r.best.ev)r.best={side,line,price,book,ev,pW,pL,pm:pw,pk:mw,mkt:mw!=null};
+    const est=ov==null&&un==null,B=blend(pom,pum,pok,puk,s);
+    for(const [side,price,pW,pL,pm] of [['over',est?PS.pa:ov,B.o,B.u,pom],['under',est?PS.pa:un,B.u,B.o,pum]]){
+      if(price==null)continue;
+      const ev=pW*(dec(price)-1)-pL;
+      if(!r.best||ev>r.best.ev)r.best={side,line,price,book,ev,pW,pL,pm,est};
     }
   }
-  return[...G.values()].map(r=>{r.line=med(r.lines);r.mu=r.p.mu[r.s];r.mk=(r.p.mk||{})[r.s];
-    r.gap=r.s==='anytd'?((1-Math.exp(-r.mu))-(r.best?r.best.pk??0:0)):(r.mu-r.line)/Math.max(1,Math.sqrt(Math.abs(r.line)));
-    r.books=new Set(r.offers.map(o=>o[2])).size;return r});
+  return[...G.values()].map(r=>{const p=r.p,s=r.s;r.mu=p.mu[s];r.bk=(p.bk||{})[s]||null;r.line=r.best?r.best.line:med(r.lines);
+    const q=pOver(s,r.mu,r.line);r.po=q?q.o:null;r.ok=tested(s);r.books=new Set(r.offers.map(o=>o[2])).size;return r});
 }
 const pPass=(p,s)=>(PS.pos==='all'||p.p===PS.pos)&&(PS.game==='all'||p.g===PS.game)&&(PS.mkt==='all'||PGROUP[s]===PS.mkt)&&(!PS.q||norm(p.n).includes(norm(PS.q)));
 const norm=t=>String(t).toLowerCase().normalize('NFD').replace(/[^a-z ]/g,'');
 const koOf=p=>(PR.ko&&PR.ko[p.g])||'';
-const matchOf=p=>{const g=PGAME(p.g);return g?`${g.away} @ ${g.home}`:`${p.t} v ${p.o}`};
 const vsOf=p=>{const g=PGAME(p.g);return (g&&g.home===p.t?'vs ':'@ ')+p.o};
-const qTag=p=>p.q?`<span class="tag warn" title="${esc(p.qd||'')}">${esc(p.q)}</span>`:'';
+const dayOf=p=>{const g=PGAME(p.g);return g?`${g.day} ${g.ct}`:''};
+const qTag=p=>(p.q?`<span class="tag warn" title="${esc(p.qd||'')}">${esc(p.q)}</span>`:'')+(roleOf(p)?` <span class="tag" title="Snaps last game far from his recent average">${roleOf(p).up?'role up':'role down'}</span>`:'');
+/* a role change the projection may lag: last game's snap share far from the recency-weighted share it uses */
+function roleOf(p){const G=p.log||[],x=G[G.length-1],a=p.u&&p.u.snap;if(!x||x[14]==null||a==null)return null;const l=x[14];
+  return l>=.4&&l-a>=.15?{up:true,last:l,avg:a}:a>=.4&&a-l>=.2?{up:false,last:l,avg:a}:null}
 const propId=(p,s)=>'pp-'+did(p.i+'_'+s);
 const pLogBtn=(r,b)=>`<button class="logb" data-plog="${esc(JSON.stringify({desc:`${r.p.n} ${pBet(r.s,b.side,b.line)}`,date:(PGAME(r.p.g)||{}).date||'',price:b.price,book:b.book,stake:stakeFor(b).amt||''}))}">Log bet</button>`;
+
+/* the last 8 games against a line: 1 over, 0 under, .5 push */
+const LOGI={tgt:3,rec:4,rec_yds:5,rush_att:6,rush_yds:7,pass_att:8,pass_cmp:9,pass_yds:10,pass_td:11,pass_int:12,anytd:13};
+function hitsOf(p,s,line){if(line==null)return[];const i=LOGI[s];return(p.log||[]).slice(-8).map(x=>{const v=x[i];return s==='anytd'?(v>=1?1:0):v>line?1:v<line?0:.5})}
+const l8=h=>h.length?`<span class="l8" aria-hidden="true">${h.map(x=>`<i class="${x===1?'o':x===0?'u':'p'}"></i>`).join('')}</span>`:'';
+const hitTxt=(h,side)=>{if(!h.length)return 'no games on record';const n=h.filter(x=>side==='under'?x===0:x===1).length;return `${side==='under'?'under':'over'} in ${n} of last ${h.length}`};
+/* our middle 80% and 50% of outcomes, our median, the line and where it opened, on one scale */
+function rangeBar(s,mu,line,open){
+  if(CNT(s)||!(mu>0))return '';
+  const a=pQ(s,mu,.1),b=pQ(s,mu,.25),m=pQ(s,mu,.5),c=pQ(s,mu,.75),d=pQ(s,mu,.9);if(a==null)return '';
+  const xs=[a,d,line,open].filter(v=>v!=null&&isFinite(v)),lo=Math.min(...xs),hi=Math.max(...xs),pad=(hi-lo)*.06||1;
+  const X=v=>(v-(lo-pad))/((hi+pad)-(lo-pad))*100,at=v=>X(v).toFixed(1)+'%',span=(u,v)=>`left:${at(u)};width:${(X(v)-X(u)).toFixed(1)}%`;
+  return `<span class="rng" role="img" aria-label="Our middle 80%: ${fv(s,a)} to ${fv(s,d)}, median ${fv(s,m)}${line!=null?', line '+ln(line):''}${open!=null&&open!==line?', opened '+ln(open):''}">`
+    +`<i class="b1" style="${span(a,d)}"></i><i class="b2" style="${span(b,c)}"></i><i class="md" style="left:${at(m)}"></i>`
+    +(open!=null&&line!=null&&open!==line?`<i class="om" style="left:${at(open)}"></i>`:'')+(line!=null?`<i class="lm" style="left:${at(line)}"></i>`:'')+`</span>`;
+}
+const moveTxt=bk=>bk&&bk[1]!=null&&bk[0]!==bk[1]?`<span class="mv ${bk[0]>bk[1]?'up':'dn'}">opened ${ln(bk[1])} ${bk[0]>bk[1]?'↑':'↓'}</span>`:'';
+const vsTxt=r=>r.s==='anytd'?`${oursOf(r.s,r.mu)} ours`:`${oursOf(r.s,r.mu)} ours · ${ln(r.line)} line`;
 
 function propBoard(rows){
   const el=$('#propplays');
   if(!PR){el.innerHTML='<div class="bhead"><h2>Player props</h2><p class="lede">No player projections in this build.</p></div>';return}
-  const best=rows.filter(r=>r.best&&r.best.ev>=.02).sort((a,b)=>b.best.ev-a.best.ev).slice(0,10);
-  const priced=PR.offers.length>0;
-  const lede=priced?`The props with the most value at your books: our projection against every book’s line, valued at ${PS.w}% model and ${100-PS.w}% market. Strong is +5% or more, Lean +2% to +5%.`
-    :`No sportsbook prices in this build${LIVE.props_note?' ('+esc(LIVE.props_note)+')':''}. The projections below still show where each player should land; type any book’s line into a player’s calculator to see its value.`;
-  const head=`<div class="brw hdr" aria-hidden="true"><span>Player</span><span>Bet</span><span>Projection</span><span>Value</span></div>`;
-  const rowsH=best.map(r=>{const b=r.best;return `<a class="brw" href="#${propId(r.p,r.s)}" data-pjump="${propId(r.p,r.s)}">
-    <span class="bg"><b>${esc(r.p.n)}</b><small>${esc(r.p.p)} · ${esc(r.p.t)} ${esc(vsOf(r.p))}</small></span>
-    <span class="bc"><b class="cl">${esc(pBet(r.s,b.side,b.line))}</b><small>${odds(b.price)} at ${esc(b.book)}</small></span>
-    <span class="bp"><span>${r.s==='anytd'?pc(1-Math.exp(-r.mu)):pv(r.mu)} ${PUNIT[r.s]}</span><small>${r.s==='anytd'?'chance to score':'line '+ln(b.line)}${r.mk!=null&&r.s!=='anytd'?` · market ${pv(r.mk)}`:''}</small></span>
-    <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)}</small></span></a>`}).join('');
+  const best=rows.filter(r=>r.ok&&r.best&&r.best.ev>=.02).sort((a,b)=>b.best.ev-a.best.ev).slice(0,10);
+  const nb=new Set(PR.offers.filter(o=>o[4]!=null||o[5]!=null).map(o=>o[2])).size,np=new Set(PR.offers.map(o=>o[0])).size;
+  const nt=LBT?(LBT.seasons||[]).reduce((a,x)=>a+x.props,0):0;
+  const lede=!HASL?`No prop lines in this build${LIVE.props_note?' ('+esc(LIVE.props_note)+')':''}. Every player’s projection is below; open a player and type your book’s line to see its value.`
+    :`Our projection against the ${esc(PBOOK)} line for ${np} players${nb?`, plus ${nb} ${nb===1?'book’s':'books’'} prices`:''}. Each line is valued at ${PS.w}% our chance and ${100-PS.w}% the market’s, shaded ${Math.round(PSH*100)} points toward the under${nt?`, the mix that held up on ${nt.toLocaleString()} past props`:''}. The free ${esc(PBOOK)} lines come without prices, so they’re valued at ${odds(PS.pa)}${nb?'':': check the price at your book'}. Strong is +5% or more, Lean +2% to +5%.`;
+  const head=`<div class="brw hdr" aria-hidden="true"><span>Player</span><span>Bet</span><span>Ours vs the line</span><span>Value</span></div>`;
+  const rowsH=best.map(r=>{const b=r.best,p=r.p,h=hitsOf(p,r.s,b.line);return `<a class="brw" href="#${propId(p,r.s)}" data-pjump="${propId(p,r.s)}">
+    <span class="bg"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))}${p.q?` · <span class="ut">${esc(p.q)}</span>`:''}</small></span>
+    <span class="bc"><b class="cl ${b.side}">${esc(pBet(r.s,b.side,b.line))}</b><small>${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)}</small></span>
+    <span class="bp"><span>${vsTxt(r)}</span><small>${hitTxt(h,b.side)}${r.bk&&r.bk[1]!=null&&r.bk[1]!==r.bk[0]?` · opened ${ln(r.bk[1])}`:''}</small></span>
+    <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)} · ${pc(b.pW,0)}</small></span></a>`}).join('');
+  const under=best.length&&best.every(r=>r.best.side==='under');
   el.innerHTML=`<div class="bhead"><h2>Best player props</h2><p class="lede">${lede}</p></div>`
-    +(best.length?`<div class="brws">${head}${rowsH}</div>`:priced?'<p class="muted">Nothing at +2% or better at your books right now.</p>':'')
-    +`<p class="bfoot">Projections come from nflverse box scores and snap counts, the market’s spread and total, the injury report and the kickoff forecast.${PR.priced?` Prices from ${PR.priced} games.`:''}</p>`;
+    +(best.length?`<div class="brws">${head}${rowsH}</div>`:HASL?'<p class="muted">Nothing at +2% or better at your books right now.</p>':'')
+    +`<p class="bfoot">${under?'All unders: books set player props a little high, because more people bet overs. ':''}Projections come from nflverse box scores and snap counts, the market’s spread and total, the injury report and the kickoff forecast. Lines move and books limit props, so check the number before you bet.</p>`;
 }
 
 function propSummary(r){
-  const b=r.best,p=r.p,u=PUNIT[r.s],td=r.s==='anytd';
-  const proj=td?pc(1-Math.exp(-r.mu)):pv(r.mu)+(u?' '+u:'');
-  const gapW=td?0:Math.min(50,Math.abs(r.mu-r.line)/Math.max(r.line,1)*100);
-  const bar=td?'':`<span class="gapbar" aria-hidden="true"><i class="${r.mu>=r.line?'up':'dn'}" style="${r.mu>=r.line?`left:50%;width:${gapW}%`:`right:50%;width:${gapW}%`}"></i></span>`;
+  const b=r.best,p=r.p,s=r.s,h=hitsOf(p,s,r.line);
   return `<summary>
-    <span class="pn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} ${qTag(p)}</small></span>
-    <span class="pp"><span class="pill ${b?(b.side==='over'?'over':'under'):'dim'}">${b?esc(pBet(r.s,b.side,b.line)):esc(statLab(r.s))}</span><small>${b?`${odds(b.price)} at ${esc(b.book)} · ${r.books} ${r.books===1?'book':'books'}`:''}</small></span>
-    <span class="pq"><b>${proj}</b> <small>ours${td?'':' · median line '+ln(r.line)}${r.mk!=null&&!td?` · market ${pv(r.mk)}`:''}</small>${bar}</span>
-    <span class="pq pm">${b?`<b>${pc(b.pW,0)}</b> <small>to win${b.mkt?` · model ${pc(b.pm,0)}, market ${pc(b.pk,0)}`:' · model only'}</small>`:''}</span>
-    <span class="pv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)}</small>`:''}</span>
+    <span class="pn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))} ${qTag(p)}${r.ok||s==='anytd'?'':' <span class="tag" title="This market lost money against real lines in testing, so it never makes the best bets">lost in testing</span>'}</small></span>
+    <span class="pp"><span class="pill ${b?b.side:'dim'}">${b?esc(pBet(s,b.side,b.line)):esc(statLab(s))}</span><small>${b?`${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)}${r.books>1?` · ${r.books} books`:''}`:''}</small></span>
+    <span class="pq"><b>${vsTxt(r)}</b>${rangeBar(s,r.mu,r.line,r.bk?r.bk[1]:null)}${moveTxt(r.bk)}</span>
+    <span class="ph">${l8(h)}<small>${b?hitTxt(h,b.side):''}</small></span>
+    <span class="pv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small title="Chance to win on the tested blend">${gradeOf(b.ev)} · ${pc(b.pW,0)}</small>`:''}</span>
   </summary>`;
 }
 
-/* the detail under a prop: the numbers, why, recent games, every book */
-const LOGI={tgt:3,rec:4,rec_yds:5,rush_att:6,rush_yds:7,pass_att:8,pass_cmp:9,pass_yds:10,pass_td:11,pass_int:12,anytd:13};
-const POSN={WR:'wide receivers',TE:'tight ends',RB:'running backs',QB:'quarterbacks'};
+/* the player's card: every prop with its line, the chosen prop's last games, why, every book and a calculator */
 const fx=(v,what)=>v==null||Math.abs(v-1)<.03?'':`${v>1?'gives up':'holds them to'} ${Math.abs(Math.round((v-1)*100))}% ${v>1?'more':'fewer'} ${what} than an average defense`;
 function propWhy(p,s){
   const u=p.u,r=p.r,d=p.d,T=(PR.teams||{})[p.t]||{},out=(PR.out||[]).filter(o=>o.team===p.t),L=[];
-  const g=PGAME(p.g);
+  if(p.p==='QB'&&p.qs)L.push(`Starting for ${esc(p.t)}: ${esc(PBOOK)} posted passing lines for him${p.qs==='no listed starter'?'':`, not ${esc(p.qs)}`}, and books post them only for the expected starter.`);
   if(s.startsWith('pass')){
     L.push(`Projects for <b>${pv(u.att)} pass attempts</b>: the ${esc(p.t)} offense averages ${pv(T.eatt)} lately and is set for ${pv(T.att)} here${T.margin!=null?`, ${T.margin<0?`as a ${pv(-T.margin)}-point underdog (trailing teams throw more)`:T.margin>0?`as a ${pv(T.margin)}-point favorite (leading teams run more)`:'in an even game'}`:''}.`);
     L.push(`Completes ${pc(r.cmp,1)} at ${pv(r.ypa)} yards per attempt, touchdowns on ${pc(r.ptd,1)} and interceptions on ${pc(r.int,1)} of throws (recent games weighted most, steadied by the league average).`);
     const f=[fx(d.ypa,'yards per attempt'),fx(d.cmp,'completions'),fx(d.ptd,'passing touchdowns')].filter(Boolean);
     if(f.length)L.push(`${esc(p.o)} ${f.join('; ')}.`);
   }
-  if(s.startsWith('rush')||(s==='anytd'&&p.p==='RB')||(s==='anytd'&&p.p==='QB')){
+  if(s.startsWith('rush')||(s==='anytd'&&(p.p==='RB'||p.p==='QB'))){
     L.push(`Projects for <b>${pv(u.car)} carries</b>: ${pc(u.csn,0)} of ${esc(p.t)}’s expected ${pv(T.car)}${u.cs!=null&&Math.abs(u.csn-u.cs)>.015?` (${pc(u.cs,0)} of them lately${u.csn>u.cs?', up with teammates out':''})`:''}.`);
     if(r.ypc)L.push(`${pv(r.ypc,2)} yards per carry after shrinking toward the position average; ${fx(d.ypc,'yards per carry to '+POSN[p.p])?esc(p.o)+' '+fx(d.ypc,'yards per carry to '+POSN[p.p]):esc(p.o)+' is about average against the run'}.`);
   }
@@ -2445,110 +2527,144 @@ function propWhy(p,s){
   if(s==='anytd'||s==='pass_td')L.push(`${esc(p.t)} is expected to score <b>${pv(T.impl)} points</b> (from the spread and total), which scales every touchdown chance.`);
   if(out.length)L.push(`Out for ${esc(p.t)}: ${out.map(o=>`${esc(o.name)} (${esc(o.pos)}${o.ts>.05?`, ${pc(o.ts,0)} of targets`:''}${o.cs>.1?`, ${pc(o.cs,0)} of carries`:''})`).join(', ')}. Their share is spread over the players left, by role.`);
   if(T.windy)L.push('Wind of 15+ mph is forecast at kickoff, which cuts passing.');
+  const bk=(p.bk||{})[s];if(bk&&bk[1]!=null&&bk[1]!==bk[0])L.push(`${esc(PBOOK)} opened this at ${ln(bk[1])} and has moved it to ${ln(bk[0])}${Math.abs(bk[0]-bk[1])>=Math.max(1.5,.08*bk[1])?': a big move usually means news on his role':''}.`);
+  const rc=roleOf(p);if(rc)L.push(`His snaps ${rc.up?'jumped':'fell'} to ${pc(rc.last,0)} last game, against ${pc(rc.avg,0)} in the games the projection weighs. It follows role changes slowly${rc.up?'; in testing, bets against a one-game jump like this still came out ahead':', so check whether he is hurt or losing his job'}.`);
   if(p.q)L.push(`<span class="ut">${esc(p.q)}</span>${p.qd?' · '+esc(p.qd):''}. A prop is void if he doesn’t play; check the final injury report.`);
   if(u.gp<4)L.push(`Only ${u.gp} earlier ${u.gp===1?'game':'games'} on record, so his usage leans on the position average.`);
   return L;
 }
-function sparkSVG(p,s,line){
-  const i=LOGI[s],G=p.log.slice(-8);if(!G.length)return '';
-  const vals=G.map(x=>s==='anytd'?x[13]:x[i]),mx=Math.max(line||0,p.mu[s]||0,...vals,1)*1.15,W=420,H=110,bw=W/G.length;
-  const y=v=>H-18-(v/mx)*(H-28);
-  const bars=G.map((x,k)=>{const v=vals[k],h=Math.max(1,(H-18)-y(v));return `<rect class="bar${line!=null&&v>line?' hit':''}" x="${k*bw+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${h}" rx="2"/><text x="${k*bw+bw/2}" y="${H-5}" text-anchor="middle">${x[2]}</text><text x="${k*bw+bw/2}" y="${y(v)-3}" text-anchor="middle">${v}</text>`}).join('');
-  const lnL=line!=null?`<line class="ln" x1="0" x2="${W}" y1="${y(line)}" y2="${y(line)}"/>`:'';
-  const pj=p.mu[s]!=null&&s!=='anytd'?`<line class="pj" x1="${W-6}" x2="${W}" y1="${y(p.mu[s])}" y2="${y(p.mu[s])}"/>`:'';
-  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(statLab(s))} in his last ${G.length} games${line!=null?', against the line of '+ln(line):''}">${bars}${lnL}${pj}</svg>`;
+function sparkSVG(p,s,line,mid){
+  const i=LOGI[s],G=(p.log||[]).slice(-8);if(!G.length)return '';
+  const vals=G.map(x=>x[i]),mx=Math.max(line||0,mid||0,...vals,1)*1.15,W=420,H=118,bw=W/G.length;
+  const y=v=>H-18-(v/mx)*(H-30);
+  const bars=G.map((x,k)=>{const v=vals[k],h=Math.max(1,(H-18)-y(v));return `<rect class="bar${line!=null&&(s==='anytd'?v>=1:v>line)?' hit':''}" x="${k*bw+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${h}" rx="2"/><text x="${k*bw+bw/2}" y="${H-5}" text-anchor="middle">${esc(x[2])}</text><text x="${k*bw+bw/2}" y="${y(v)-3}" text-anchor="middle">${v}</text>`}).join('');
+  const lnL=line!=null&&s!=='anytd'?`<line class="ln" x1="0" x2="${W}" y1="${y(line)}" y2="${y(line)}"/>`:'';
+  const md=mid!=null?`<line class="pj" x1="0" x2="${W}" y1="${y(mid)}" y2="${y(mid)}"/>`:'';
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(statLab(s))} in his last ${G.length} games${line!=null?', against the line of '+ln(line):''}">${bars}${md}${lnL}</svg>`;
 }
-function propDetail(r){
-  const p=r.p,s=r.s,td=s==='anytd',line=r.best?r.best.line:r.line,i=LOGI[s];
-  const G=p.log.slice(-8),vals=G.map(x=>td?x[13]:x[i]),hit=line!=null?vals.filter(v=>td?v>=1:v>line).length:null;
-  const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;
-  const pr=line!=null?pOver(s,r.mu,line):null;
-  const nums=`<div class="nums">
-    <div><small>Our projection</small><b>${td?pc(1-Math.exp(-r.mu)):pv(r.mu)}</b><span>${td?'chance to score':PUNIT[s]+' (average)'}</span></div>
-    <div><small>Market</small><b>${td?(r.best&&r.best.pk!=null?pc(r.best.pk):'–'):r.mk!=null?pv(r.mk):'–'}</b><span>${td?'no-vig chance':'implied average, median book'}</span></div>
-    <div><small>Last ${vals.length}</small><b>${td?`${hit}/${vals.length}`:pv(avg)}</b><span>${td?'games with a TD':line!=null?`over ${ln(line)} in ${hit} of ${vals.length}`:'average'}</span></div>
-    <div><small>Model chance</small><b>${pr?pc(pr.o,0):'–'}</b><span>${td?'to score':line!=null?'over '+ln(line):''}</span></div></div>`;
-  const why=`<ul>${propWhy(p,s).map(t=>`<li>${t}</li>`).join('')}</ul>`;
+function pCard(p,sel){
+  const stats=PORDER.filter(s=>p.mu[s]!=null);
+  if(!(sel&&p.mu[sel]!=null))sel=PSEL.get(p.i);
+  if(!(sel&&p.mu[sel]!=null))sel=stats.find(s=>PROWS.has(p._i+'|'+s))||stats[0];
+  PSEL.set(p.i,sel);
+  const u=p.u,R=s=>PROWS.get(p._i+'|'+s),r=R(sel),b=r&&r.best,s=sel,td=s==='anytd';
+  const line=r?r.line:null,mid=CNT(s)?null:pQ(s,p.mu[s],.5);
+  const use=[u.snap!=null?`${pc(u.snap,0)} of snaps`:'',u.att>3?`${pv(u.att)} pass attempts`:'',u.car>=.5?`${pv(u.car)} carries (${pc(u.csn,0)})`:'',u.tgt>=.5?`${pv(u.tgt)} targets (${pc(u.tsn,0)})`:''].filter(Boolean);
+  const rows=stats.map(t=>{const x=R(t),bb=x&&x.best,po=x?x.po:null,bk=(p.bk||{})[t];
+    return `<tr class="${t===s?'sel':''}"><td class="nm"><button type="button" class="st" data-psel="${esc(p.i)}|${t}" aria-pressed="${t===s}">${esc(statLab(t))}</button>${x&&!x.ok&&t!=='anytd'?'<small>lost in testing</small>':''}</td>
+      <td class="num">${oursOf(t,p.mu[t])}${t!=='anytd'&&!CNT(t)?`<small>avg ${fv(t,p.mu[t])}</small>`:''}</td>
+      <td class="num">${x?(t==='anytd'?'Yes':ln(x.line)):'–'}${bk&&bk[1]!=null&&bk[1]!==bk[0]?`<small>opened ${ln(bk[1])}</small>`:''}</td>
+      <td class="num">${po!=null?pc(po,0):'–'}</td>
+      <td>${bb?`<span class="sd ${bb.side}">${t==='anytd'?(bb.side==='over'?'Yes':'No'):`<span class="sl">${bb.side==='over'?'Over':'Under'}</span><span class="ss">${bb.side==='over'?'O':'U'}</span>`}</span> ${odds(bb.price)}${bb.est?' <small>est.</small>':''}`:'–'}</td>
+      <td class="num">${bb?`<span class="ev ${evCls(bb.ev)}">${sg(bb.ev*100)}%</span>`:''}</td></tr>`}).join('');
+  const G=(p.log||[]).slice(-8),i=LOGI[s];
   const logT=G.length?`<div class="scroll"><table class="ptab"><thead><tr><th>Game</th><th>Snaps</th>${p.p==='QB'?'<th>Att</th><th>Cmp</th><th>Pass yds</th><th>TD</th><th>INT</th><th>Car</th><th>Rush yds</th>':'<th>Tgt</th><th>Rec</th><th>Rec yds</th><th>Car</th><th>Rush yds</th><th>TD</th>'}</tr></thead><tbody>${G.slice().reverse().map(x=>{
-      const c=k=>{const v=x[k];return `<td class="${k===i&&line!=null?(v>line?'ov':'un'):''}">${v}</td>`};
+      const c=k=>{const v=x[k];return `<td class="${k===i&&line!=null&&!td?(v>line?'ov':'un'):''}">${v}</td>`};
       return `<tr><td>${x[0]} wk ${x[1]} ${esc(x[2])}</td><td>${x[14]!=null?pc(x[14]):'–'}</td>${p.p==='QB'?[8,9,10,11,12,6,7].map(c).join(''):[3,4,5,6,7].map(c).join('')+`<td class="${td?(x[13]>=1?'ov':'un'):''}">${x[13]}</td>`}</tr>`}).join('')}</tbody></table></div>`:'<p class="muted">No earlier games on record.</p>';
-  const books=r.offers.slice().sort((a,b)=>a[3]-b[3]||String(a[2]).localeCompare(b[2])).map(o=>{
-    const [,,bk,l,ov,un,pom,pum,pok,puk]=o,w=PS.w/100,bl=(m,k)=>k==null?m:w*m+(1-w)*k;
-    const eO=ov!=null?bl(pom,pok)*(dec(ov)-1)-bl(pum,puk):null,eU=un!=null?bl(pum,puk)*(dec(un)-1)-bl(pom,pok):null;
-    return `<tr><td>${esc(bk)}</td><td>${td?'Yes':ln(l)}</td><td>${odds(ov)} ${eO!=null?`<small class="${eO>0?'pos':'muted'}">${sg(eO*100)}%</small>`:''}</td><td>${un!=null?odds(un):'–'} ${eU!=null?`<small class="${eU>0?'pos':'muted'}">${sg(eU*100)}%</small>`:''}</td></tr>`}).join('');
-  const bookT=r.offers.length?`<div class="scroll"><table class="ptab"><thead><tr><th>Book</th><th>Line</th><th>${td?'Yes':'Over'}</th><th>${td?'No':'Under'}</th></tr></thead><tbody>${books}</tbody></table></div><p class="fine muted">Value at each price on the blended chance. Books you’ve switched off aren’t shown.</p>`:'';
-  const calc=`<div class="calc" data-calc="${esc(p.i)}|${s}"><label>${td?'Yes price':'Line'}<input type="number" step="${td?'any':'0.5'}" data-cl="line" value="${td?'':line??''}" ${td?'hidden':''}></label><label>Odds<input type="text" data-cl="odds" placeholder="−110"></label><output>Type a book’s ${td?'price':'line and price'} to see its value on our projection alone.</output></div>`;
-  return `<div class="pdet"><section>${nums}<h3>Why</h3>${why}<h3>Last ${G.length} games</h3>${sparkSVG(p,s,td?.5:line)}${logT}</section>
-    <section>${r.best?`<h3>Best price</h3><p><b>${esc(pBet(s,r.best.side,r.best.line))} ${odds(r.best.price)}</b> at ${esc(r.best.book)}: ${pc(r.best.pW,1)} to win${r.best.mkt?` (model ${pc(r.best.pm,1)}, market ${pc(r.best.pk,1)})`:''}, value ${sg(r.best.ev*100)}%, ${esc(stakeTxt(r.best))}. ${pLogBtn(r,r.best)}</p>`:''}
-    <h3>Every book</h3>${bookT||'<p class="muted">No book has priced this yet.</p>'}<h3>Your own line</h3>${calc}</section></div>`;
+  const books=r?r.offers.slice().sort((a,c)=>a[3]-c[3]||String(a[2]).localeCompare(c[2])).map(o=>{
+    const [,,bk,l,ov,un,pom,pum,pok,puk]=o,est=ov==null&&un==null,B=blend(pom,pum,pok,puk,s),po=est?PS.pa:ov,pu=est?PS.pa:un;
+    const eO=po!=null?B.o*(dec(po)-1)-B.u:null,eU=pu!=null?B.u*(dec(pu)-1)-B.o:null;
+    return `<tr><td>${esc(bk)}</td><td>${td?'Yes':ln(l)}</td><td>${odds(po)}${est?' <small>est.</small>':''} ${eO!=null?`<small class="${eO>0?'pos':'muted'}">${sg(eO*100)}%</small>`:''}</td><td>${pu!=null?odds(pu):'–'} ${eU!=null?`<small class="${eU>0?'pos':'muted'}">${sg(eU*100)}%</small>`:''}</td></tr>`}).join(''):'';
+  const calc=`<div class="calc" data-calc="${esc(p.i)}|${s}">${td?'<input type="hidden" data-cl="line" value="0.5">':`<label>Line<input type="number" step="0.5" data-cl="line" value="${line??''}"></label>`}<label>${td?'Yes price':'Price'}<input type="text" data-cl="odds" placeholder="${MINUS}110" aria-label="Price"></label><output>Type your book’s ${td?'price':'line and price'} for its value on the tested blend.</output></div>`;
+  const sel1=b?`<p class="pbest"><b>${esc(pBet(s,b.side,b.line))} ${odds(b.price)}${b.est?' est.':''}</b> at ${esc(b.book)}: ${pc(b.pW,1)} to win (ours alone ${pc(b.pm,1)}), value ${sg(b.ev*100)}%, ${esc(stakeTxt(b))}. ${pLogBtn(r,b)}</p>`:'';
+  return `<div class="pcard" data-card="${esc(p.i)}">
+    <div class="pch"><div class="pcn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))} ${qTag(p)}</small></div>${use.length?`<div class="pchips">${use.map(t=>`<span class="pchip"><small>${t}</small></span>`).join('')}</div>`:''}</div>
+    <div class="pcols"><section>
+      <div class="scroll"><table class="ptab pprops"><thead><tr><th>Prop</th><th>Ours</th><th>Line</th><th>Over</th><th>Best</th><th>Value</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <p class="fine muted">Ours is our median (the line we’d call a coin flip; average below). Over is our own chance at the line; value uses the tested blend.</p>
+      <h3>${esc(statLab(s))}: last ${G.length} games</h3>${sparkSVG(p,s,td?null:line,mid)}${G.length?`<p class="fine muted">${line!=null&&!td?`Dashed: the line (${ln(line)}). `:''}${mid!=null?`Solid: our median (${fv(s,mid)}). `:''}Orange bars went over.</p>`:''}${logT}
+    </section><section>
+      <h3>Why</h3><ul>${propWhy(p,s).map(t=>`<li>${t}</li>`).join('')}</ul>
+      ${sel1?`<h3>Best price</h3>${sel1}`:''}
+      ${r&&r.offers.length>1?`<h3>Every book</h3><div class="scroll"><table class="ptab"><thead><tr><th>Book</th><th>Line</th><th>${td?'Yes':'Over'}</th><th>${td?'No':'Under'}</th></tr></thead><tbody>${books}</tbody></table></div><p class="fine muted">Value at each price on the tested blend. Books you’ve switched off aren’t shown.</p>`:''}
+      <h3>Your book’s line</h3>${calc}
+    </section></div></div>`;
 }
 function calcOut(box){
   const [pid,s]=box.dataset.calc.split('|'),p=PR.players.find(x=>x.i===pid&&x.mu[s]!=null);if(!p)return;
   const L=s==='anytd'?.5:parseFloat(box.querySelector('[data-cl=line]').value),a=parseOdds(box.querySelector('[data-cl=odds]').value),out=box.querySelector('output');
   if(!isFinite(L)){out.textContent='Enter a line.';return}
   const r=pOver(s,p.mu[s],L);if(!r){out.textContent='No projection.';return}
-  if(!isFinite(a)){out.textContent=`Our projection alone: ${pc(r.o,1)} over, ${pc(r.u,1)} under${r.o+r.u<.999?', the rest a push':''}. Fair price ${odds(Math.round(r.o>=.5?-100*r.o/(1-r.o):100*(1-r.o)/r.o))} over.`;return}
-  const eO=r.o*(dec(a)-1)-r.u,eU=r.u*(dec(a)-1)-r.o;
-  out.innerHTML=`At ${odds(a)}: over ${s==='anytd'?'(Yes)':''} <b class="${eO>0?'pos':'neg'}">${sg(eO*100)}%</b>${s==='anytd'?'':`, under <b class="${eU>0?'pos':'neg'}">${sg(eU*100)}%</b>`} on our projection alone (${pc(r.o,1)} over).`;
+  const fair=x=>x>0&&x<1?odds(Math.round(x>=.5?-100*x/(1-x):100*(1-x)/x)):'–';
+  if(s==='anytd'){
+    if(!isFinite(a)){out.textContent=`Ours: ${pc(r.o,1)} to score, a fair price of ${fair(r.o)}.`;return}
+    const k=impl(a)/1.07,w=PS.w/100,pb=w*r.o+(1-w)*k,e=pb*(dec(a)-1)-(1-pb);
+    out.innerHTML=`At ${odds(a)}: <b class="${e>0?'pos':'neg'}">${sg(e*100)}%</b> (ours ${pc(r.o,1)}, the price’s ${pc(k,1)} after a typical 7% cut).`;return}
+  const B=blend(r.o,r.u,null,null,s);
+  if(!isFinite(a)){out.textContent=`Ours alone: ${pc(r.o,1)} over. Tested blend at this line: ${pc(B.o,1)} over, ${pc(B.u,1)} under, fair prices ${fair(B.o)} and ${fair(B.u)}.`;return}
+  const eO=B.o*(dec(a)-1)-B.u,eU=B.u*(dec(a)-1)-B.o;
+  out.innerHTML=`At ${odds(a)}: over <b class="${eO>0?'pos':'neg'}">${sg(eO*100)}%</b>, under <b class="${eU>0?'pos':'neg'}">${sg(eU*100)}%</b> on the tested blend (${pc(B.o,1)} over; ours alone ${pc(r.o,1)}).`;
 }
 
-function projTable(list){
-  const cols={QB:[['pass_att','Att'],['pass_cmp','Cmp'],['pass_yds','Pass yds'],['pass_td','Pass TD'],['pass_int','INT'],['rush_yds','Rush yds'],['anytd','TD']],
-    RB:[['rush_att','Car'],['rush_yds','Rush yds'],['rec','Rec'],['rec_yds','Rec yds'],['anytd','TD']],
-    WR:[['rec','Rec'],['rec_yds','Rec yds'],['rush_yds','Rush yds'],['anytd','TD']],TE:[['rec','Rec'],['rec_yds','Rec yds'],['anytd','TD']]};
-  const by=pos=>list.filter(p=>p.p===pos).sort((a,b)=>(b.mu[cols[pos][1][0]]||0)-(a.mu[cols[pos][1][0]]||0));
-  return ['QB','RB','WR','TE'].filter(pos=>PS.pos==='all'||PS.pos===pos).map(pos=>{const L=by(pos);if(!L.length)return '';
-    return `<div class="card"><h2>${POSN[pos]}</h2><div class="scroll"><table class="ptab"><thead><tr><th>Player</th><th>Game</th><th>Usage</th>${cols[pos].map(c=>`<th>${c[1]}</th>`).join('')}</tr></thead><tbody>${L.map(p=>`<tr><td class="nm"><b>${esc(p.n)}</b> ${qTag(p)}</td><td>${esc(p.t)} ${esc(vsOf(p))}</td><td>${pos==='QB'?pv(p.u.car)+' car':pos==='RB'?pv(p.u.car)+' car, '+pv(p.u.tgt)+' tgt':pv(p.u.tgt)+' tgt'}</td>${cols[pos].map(([s])=>`<td>${p.mu[s]==null?'–':s==='anytd'?pc(1-Math.exp(-p.mu[s])):pv(p.mu[s])}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`}).join('');
+/* All players: one row per player, his props as chips; the card opens below */
+function playerRow(p,K){
+  const stats=PORDER.filter(s=>p.mu[s]!=null&&(PS.mkt==='all'||PGROUP[s]===PS.mkt));
+  const chips=stats.map(s=>{const r=PROWS.get(p._i+'|'+s),b=r&&r.best,val=b&&b.ev>0&&r.ok;
+    return `<span class="pchip${val?' v'+b.side[0]:''}"${val?` title="${esc(pBet(s,b.side,b.line))}: ${sg(b.ev*100)}%"`:''}><small>${PTINY[s]}</small><b>${oursOf(s,p.mu[s])}</b>${r&&s!=='anytd'?`<small>${ln(r.line)}</small>`:''}</span>`}).join('');
+  const id='pl-'+did(p.i),open=K.has(id);
+  return `<details class="prow pl" id="${id}"${open?' open':''}><summary><span class="pn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} ${qTag(p)}</small></span><span class="pchips">${chips}</span></summary>${open?pCard(p):''}</details>`;
 }
 
 function propMethod(){
   const el=$('#pmethod');if(!PR){el.hidden=true;return}
-  const bt=PR.bt,S2=bt&&bt.stats||{};
-  const rows=PORDER.filter(s=>S2[s]).map(s=>{const x=S2[s],c=x.calib;return `<tr><td>${esc(statLab(s))}</td><td>${x.n.toLocaleString()}</td><td>${x.mae}</td><td>${x.mae_avg}</td><td>${x.r.toFixed(2)}</td><td>${x.r_avg.toFixed(2)}</td><td>${c.map(q=>`${Math.round(q[0]*100)}→${Math.round(q[1]*100)}`).join(' · ')}</td></tr>`}).join('');
+  const bt=PR.bt,S2=bt&&bt.stats||{},lb=LBT;
   const R=PR.rec||[],G={};R.forEach(x=>{if(x[10]==='V')return;const k=x[9]||'All';for(const g of [k,'All']){const o=G[g]||(G[g]={n:0,w:0,l:0,p:0,u:0});o.n++;o[{W:'w',L:'l',P:'p'}[x[10]]]++;o.u+=x[12]||0}});
-  const recH=R.length?`<h2>Props record</h2><p class="note">Every player’s best positive-value prop per market at licensed books, saved until kickoff and graded from the box score (1 unit each; void when he didn’t play).</p>
+  const mv=R.filter(x=>x[14]!=null&&x[14]!==x[5]),good=mv.filter(x=>x[4]==='under'?x[14]>x[5]:x[14]<x[5]).length;
+  const recH=R.length?`<h2>Props record</h2><p class="note">Every player’s best positive-value prop in a market that held up, at licensed books, saved until kickoff and graded from the box score (1 unit each; void when he didn’t play). Free ${esc(PBOOK)} lines are graded at ${odds(PDEF.pa)}.${mv.length?` After a prop was first picked, its line moved our way ${good} times out of ${mv.length}: the market agreeing is the quickest sign of a real edge.`:''}</p>
     <div class="scroll"><table class="ptab"><thead><tr><th>Grade</th><th>Bets</th><th>Record</th><th>Units</th><th>Per bet</th></tr></thead><tbody>${['Strong','Lean','Thin','All'].filter(k=>G[k]).map(k=>{const o=G[k];return `<tr><td>${k==='All'?'<b>All</b>':k}</td><td>${o.n}</td><td>${o.w}–${o.l}${o.p?'–'+o.p:''}</td><td class="${o.u>=0?'pos':'neg'}">${sg(o.u)}</td><td>${sg(o.u/o.n*100)}%</td></tr>`}).join('')}</tbody></table></div>
-    <details class="srcs"><summary>Last ${Math.min(25,R.length)} graded</summary><div class="scroll"><table class="ptab"><tbody>${R.slice(-25).reverse().map(x=>`<tr><td class="nm">${esc(x[1])} <small>${esc(x[2])}</small></td><td>${esc(pBet(x[3],x[4],x[5]))}</td><td>${odds(x[6])}</td><td>${x[11]??''}</td><td><span class="res ${x[10]}">${x[10]}</span></td></tr>`).join('')}</tbody></table></div></details>`:'';
-  el.innerHTML=recH+`<h2>How the props work</h2>
-  <p class="note"><b>Volume.</b> Each team’s pass attempts, targets and carries come from its recent volume, what its opponent allows, and the market’s spread and total (teams that trail throw more). <b>Usage.</b> Each player’s share of targets, carries and (starting quarterbacks) attempts, recent games weighted most. When a teammate is ruled out, his share is spread over the players left, in proportion to their roles. <b>Efficiency.</b> Catch rate, yards per target and per carry, completion rate, yards per attempt and touchdown and interception rates, shrunk toward the position average by how much evidence a player has, then scaled by what the opponent allows to that position. <b>Calibration.</b> A regression per stat corrects the raw number for the team’s implied points, wind of 15+ mph and home field. <b>Spread.</b> The chance of going over comes from how far real games landed from projections like this one in 2019–2023 (touchdowns use a Poisson-type count).</p>
-  <p class="note"><b>Value.</b> Every book’s price is turned into a no-vig chance, then into the projection it implies; the median across books is the market’s number. Each bet is valued on ${PS.w}% our chance and ${100-PS.w}% the market’s (set it with Model weight). Our projections were tested only against outcomes, not against historical prop prices, so the record under My bets is the real test.</p>
-  ${bt?`<p class="note"><b>Backtest</b> (fitted ${bt.train}, scored on every player-game ${bt.test}). Average miss against the player’s own recent average, and calibration: our over chance at a line set on that average, by fifth, and how often it went over.</p>
-  <div class="scroll"><table class="ptab"><thead><tr><th>Stat</th><th>Games</th><th>Our miss</th><th>Avg miss</th><th>Our corr.</th><th>Avg corr.</th><th>Over chance → went over (%)</th></tr></thead><tbody>${rows}</tbody></table></div>`:''}
+    <details class="srcs"><summary>Last ${Math.min(25,R.length)} graded</summary><div class="scroll"><table class="ptab"><tbody>${R.slice(-25).reverse().map(x=>`<tr><td class="nm">${esc(x[1])} <small>${esc(x[2])}</small></td><td>${esc(pBet(x[3],x[4],x[5]))}</td><td>${odds(x[6])}${x[13]?' <small>est.</small>':''}</td><td>${x[11]??''}</td><td><span class="res ${x[10]}">${x[10]}</span></td></tr>`).join('')}</tbody></table></div></details>`:'';
+  const rec=o=>o&&o.n?`${o.w}–${o.n-o.w}`:'–',per=o=>o&&o.n&&o.roi!=null?`<span class="${o.roi>=0?'pos':'neg'}">${sg(o.roi*100)}%</span>`:'–';
+  const lbH=lb?`<h2>Tested against real lines</h2><p class="note">Our projections for every game against the lines books actually posted, each season projected by a model fitted only on the seasons before it. A bet is the side with value on the blend (${Math.round(lb.w*100)}% ours, ${100-Math.round(lb.w*100)}% the market’s, ${Math.round(lb.shift*100)} points toward the under), 1 unit at the book’s price, or ${odds(lb.assumed)} where the feed has none.${lb.tune&&lb.tune.n?` The mix was picked on ${lb.tune.season} weeks 1–${lb.tune.weeks} (${lb.tune.n.toLocaleString()} props); the record below starts after that.`:''}</p>
+    <div class="scroll"><table class="ptab"><thead><tr><th>Season</th><th>Props</th><th>Went over</th><th>Bets</th><th>Record</th><th>Per bet</th><th>Strong</th><th>Lean</th><th>Thin</th></tr></thead><tbody>${(lb.seasons||[]).map(x=>`<tr><td class="nm">${x.season} · ${esc(x.book)}${x.tested_from>1?` <small>weeks ${x.tested_from} on</small>`:''}${x.priced?'':` <small>no prices: ${odds(lb.assumed)}</small>`}</td><td>${x.props.toLocaleString()}</td><td>${pc(x.over_rate,1)}${x.market_over!=null?`<small>priced ${pc(x.market_over,1)}</small>`:''}</td><td>${x.tested.n}</td><td>${rec(x.tested)}</td><td>${per(x.tested)}</td>${['Strong','Lean','Thin'].map(g=>`<td>${per((x.grades||{})[g])}<small>${((x.grades||{})[g]||{}).n||0} bets</small></td>`).join('')}</tr>`).join('')}</tbody></table></div>
+    <details class="srcs"><summary>By market</summary><div class="scroll"><table class="ptab"><thead><tr><th>Market</th><th>Bets</th><th>Record</th><th>Per bet</th><th>Best bets</th></tr></thead><tbody>${PORDER.filter(s=>(lb.markets||{})[s]).map(s=>{const o=lb.markets[s];return `<tr><td class="nm">${esc(statLab(s))}</td><td>${o.n}</td><td>${rec(o)}</td><td>${per(o)}</td><td>${(lb.ok||[]).includes(s)?'Yes':'<span class="neg">No: lost in testing</span>'}</td></tr>`}).join('')}</tbody></table></div></details>`:'';
+  const rows=PORDER.filter(s=>S2[s]).map(s=>{const x=S2[s],c=x.calib;return `<tr><td>${esc(statLab(s))}</td><td>${x.n.toLocaleString()}</td><td>${x.mae}</td><td>${x.mae_avg}</td><td>${x.r.toFixed(2)}</td><td>${x.r_avg.toFixed(2)}</td><td>${c.map(q=>`${Math.round(q[0]*100)}→${Math.round(q[1]*100)}`).join(' · ')}</td></tr>`}).join('');
+  el.innerHTML=recH+lbH+`<h2>How the props work</h2>
+  <p class="note"><b>Volume.</b> Each team’s pass attempts, targets and carries come from its recent volume, what its opponent allows, and the market’s spread and total (teams that trail throw more). <b>Usage.</b> Each player’s share of targets, carries and (starting quarterbacks) attempts, recent games weighted most. When a teammate is ruled out, his share is spread over the players left, in proportion to their roles. A quarterback is the one ${esc(PBOOK)} posts passing lines for when that differs from the listed starter. <b>Efficiency.</b> Catch rate, yards per target and per carry, completion rate, yards per attempt and touchdown and interception rates, shrunk toward the position average by how much evidence a player has, then scaled by what the opponent allows to that position. <b>Calibration.</b> A regression per stat corrects the raw number for the team’s implied points, wind of 15+ mph and home field. <b>Spread.</b> The chance of going over comes from how far real games landed from projections like this one in 2019–2023 (touchdowns use a Poisson-type count), which also gives our median and the range bars.</p>
+  <p class="note"><b>Lines.</b> The ${esc(PBOOK)} line for every player comes free through ESPN with the line it opened at; The Odds API adds every book’s prices when your plan has the credits. <b>Value.</b> Each line is valued at Model weight of our chance and the rest the market’s: its no-vig chance from the prices, or 50-50 at a line without them, less ${Math.round(PSH*100)} points from the over (books priced overs about 3 points too high in 2025). A line without a price is valued at the assumed price.</p>
+  ${bt?`<details class="srcs"><summary>Projection accuracy (fitted ${bt.train}, scored on every player-game ${bt.test})</summary><p class="note">Average miss against the player’s own recent average, and calibration: our over chance at a line set on that average, by fifth, and how often it went over.</p>
+  <div class="scroll"><table class="ptab"><thead><tr><th>Stat</th><th>Games</th><th>Our miss</th><th>Avg miss</th><th>Our corr.</th><th>Avg corr.</th><th>Over chance → went over (%)</th></tr></thead><tbody>${rows}</tbody></table></div></details>`:''}
+  ${PR.unbooked&&PR.unbooked.length?`<p class="fine muted">${esc(PBOOK)} has lines for players we don’t project (backups, players ruled out, no recent snaps): ${PR.unbooked.slice(0,12).map(esc).join(', ')}${PR.unbooked.length>12?'…':''}.</p>`:''}
   ${PR.unmatched&&PR.unmatched.length?`<p class="fine muted">Priced but not matched to a player: ${PR.unmatched.slice(0,12).map(esc).join(', ')}${PR.unmatched.length>12?'…':''}.</p>`:''}`;
 }
 
 function renderProps(){
   if(!$('#props'))return;
-  $('#propswk').textContent=PR?(PR.offers.length?`${new Set(PR.offers.map(o=>o[0])).size} players`:'projections'):'off';
-  const rows=propRows();propBoard(rows);propMethod();
-  document.querySelectorAll('[data-pshow]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.pshow===PS.show));
-  ['pmkt','ppos','psort'].forEach(id=>{const e=$('#'+id),k={pmkt:'mkt',ppos:'pos',psort:'sort'}[id];if(e.value!==PS[k])e.value=PS[k]});
+  $('#propswk').textContent=PR?(HASL?`${new Set(PR.offers.map(o=>o[0])).size} players`:'projections'):'off';
+  const rows=propRows();PROWS=new Map(rows.map(r=>[r.pi+'|'+r.s,r]));
+  propBoard(rows);propMethod();
+  document.querySelectorAll('[data-pshow]').forEach(b=>{b.setAttribute('aria-pressed',b.dataset.pshow===PS.show);b.disabled=!HASL&&b.dataset.pshow!=='players'});
+  ['pmkt','ppos','psort','ppa'].forEach(id=>{const e=$('#'+id),k={pmkt:'mkt',ppos:'pos',psort:'sort',ppa:'pa'}[id];if(e&&e.value!==String(PS[k]))e.value=String(PS[k])});
   const gs=$('#pgame');if(gs.options.length<2&&NFL)gs.innerHTML='<option value="all">All games</option>'+NFL.games.map(g=>`<option value="${esc(g.id)}">${esc(g.away)} @ ${esc(g.home)} · ${esc(g.day)}</option>`).join('');gs.value=PS.game;
   $('#pw').value=PS.w;$('#pwo').textContent=PS.w+'%';
+  $('#psortl').hidden=PS.show==='players';$('#preset').hidden=PS.w===PDEF.w&&PS.pa===PDEF.pa;
   const el=$('#plist');
   if(!PR){el.innerHTML='';$('#pnote').textContent='';return}
-  if(PS.show==='proj'||!PR.offers.length){
-    const L=PR.players.filter(p=>pPass(p,Object.keys(p.mu).find(s=>PS.mkt==='all'||PGROUP[s]===PS.mkt)||'x'));
-    el.className='list';el.innerHTML=projTable(L)||'<p class="muted">No players match.</p>';
-    $('#pnote').textContent=PR.offers.length?'Every projected player, priced or not.':`Projections only${LIVE.props_note?': '+LIVE.props_note:''}.`;return;
+  const K=new Set([...document.querySelectorAll('#plist details[open]')].map(d=>d.id));
+  if(PS.show==='players'){
+    const PO={QB:0,RB:1,WR:2,TE:3},key=p=>{const s=PORDER.find(t=>p.mu[t]!=null&&t!=='anytd');return s?(CNT(s)?p.mu[s]:pQ(s,p.mu[s],.5))||0:0};
+    const L=PR.players.filter(p=>Object.keys(p.mu).some(s=>pPass(p,s))).sort((a,b)=>koOf(a).localeCompare(koOf(b))||a.g.localeCompare(b.g)||(PO[a.p]-PO[b.p])||(key(b)-key(a)));
+    let last='',html='';
+    for(const p of L.slice(0,Math.max(PSHOW,120))){if(p.g!==last){last=p.g;const g=PGAME(p.g);html+=`<div class="pgh">${g?`${esc(g.away)} @ ${esc(g.home)} · ${esc(g.day)} ${esc(g.ct)}`:esc(p.g)}</div>`}html+=playerRow(p,K)}
+    el.className='plist pls';
+    el.innerHTML=(html||'<p class="muted" style="padding:14px">No players match.</p>')+(L.length>Math.max(PSHOW,120)?`<button class="pmore" data-pmore="1">Show ${Math.min(120,L.length-Math.max(PSHOW,120))} more of ${L.length-Math.max(PSHOW,120)}</button>`:'');
+    $('#pnote').textContent=`${L.length} players. Each chip is our median (the TD chip, the chance he scores) and the line beside it; a colored edge marks a prop with value. Open a player for every prop, his last games and a calculator.`;
+    return;
   }
   el.className='plist';
-  let L=rows.filter(r=>pPass(r.p,r.s)&&(PS.show==='all'||r.best&&r.best.ev>0));
-  const k=PS.sort==='time'?(a,b)=>koOf(a.p).localeCompare(koOf(b.p))||(b.best?b.best.ev:-1)-(a.best?a.best.ev:-1)
-    :PS.sort==='edge'?(a,b)=>Math.abs(b.gap)-Math.abs(a.gap):(a,b)=>(b.best?b.best.ev:-1)-(a.best?a.best.ev:-1);
-  L.sort(k);
-  const K=new Set([...document.querySelectorAll('#plist details[open]')].map(d=>d.id));
+  const L=rows.filter(r=>pPass(r.p,r.s)&&(PS.show==='lines'||(r.ok&&r.best&&r.best.ev>0)));
+  const ev=r=>r.best?r.best.ev:-1;
+  L.sort(PS.sort==='time'?(a,b)=>koOf(a.p).localeCompare(koOf(b.p))||ev(b)-ev(a):PS.sort==='edge'?(a,b)=>Math.abs((b.po??.5)-.5)-Math.abs((a.po??.5)-.5):PS.sort==='name'?(a,b)=>a.p.n.localeCompare(b.p.n)||PORDER.indexOf(a.s)-PORDER.indexOf(b.s):(a,b)=>ev(b)-ev(a));
   const shown=L.slice(0,PSHOW);
-  el.innerHTML=(shown.length?`<div class="prow hdr"><span>Player</span><span>Best bet</span><span>Projection</span><span>Chance</span><span>Value</span></div>`:'')
-    +shown.map(r=>`<details class="prow" id="${propId(r.p,r.s)}"${K.has(propId(r.p,r.s))?' open':''}>${propSummary(r)}${K.has(propId(r.p,r.s))?propDetail(r):''}</details>`).join('')
+  el.innerHTML=(shown.length?`<div class="prow hdr" aria-hidden="true"><span>Player</span><span>Best bet</span><span>Ours vs the line</span><span>Last 8</span><span>Value</span></div>`:'')
+    +shown.map(r=>{const id=propId(r.p,r.s),o=K.has(id);return `<details class="prow" id="${id}"${o?' open':''}>${propSummary(r)}${o?pCard(r.p,r.s):''}</details>`}).join('')
     +(L.length>PSHOW?`<button class="pmore" data-pmore="1">Show ${Math.min(60,L.length-PSHOW)} more of ${L.length-PSHOW}</button>`:'')
-    +(!L.length?'<p class="muted" style="padding:14px">No props match. Try every priced prop, another market, or more books.</p>':'');
-  const pos=rows.filter(r=>r.best&&r.best.ev>0).length;
-  $('#pnote').textContent=`${rows.length} props priced at your books; ${pos} with positive value at ${PS.w}% model weight. Lines can move fast and books limit props; check the price before betting.`;
+    +(!L.length?`<p class="muted" style="padding:14px">No props match. Try Every line, another market, or more books.</p>`:'');
+  const pos=rows.filter(r=>r.ok&&r.best&&r.best.ev>0).length;
+  $('#pnote').textContent=`${rows.length} lines at your books; ${pos} with value in markets that held up in testing. The bar shows our middle 80% of outcomes (darker: middle half), our median, and the line (dark mark; hollow: where it opened). Dots: his last 8 games, filled when he went over.`;
 }
 /* props board → its row */
 function pJump(id){
-  if(!document.getElementById(id)){PS.show='all';PS.mkt='all';PS.pos='all';PS.game='all';PS.q='';$('#pq').value='';PSHOW=1e4;renderProps()}
+  if(!document.getElementById(id)){PS.show='lines';PS.mkt='all';PS.pos='all';PS.game='all';PS.q='';$('#pq').value='';PSHOW=1e4;renderProps()}
   const el=document.getElementById(id);if(!el)return;
   if(!el.open){el.open=true}
   el.scrollIntoView({behavior:calm()?'auto':'smooth',block:'start'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
@@ -2559,29 +2675,34 @@ function prefillProp(o){
   $('#lg-book').value=ALLB.includes(o.book)?o.book:'Other';$('#lg-stake').value=o.stake||'';const m=$('#lg-msg');m.textContent='';m.className='msg';
   $('#logcard').scrollIntoView({behavior:'smooth',block:'start'});$('#lg-stake').focus({preventScroll:true});
 }
-/* the build's record: the best positive-value prop for each player and market at licensed books, saved until kickoff */
+/* the build's record: the best positive-value prop for each player in a market that held up, at licensed books, saved until kickoff */
 function propSnap(){
   if(!PR)return[];
-  const keepB=S.books,keepW=PS.w;S.books=DEFB();PS.w=Math.round(PR.w*100);
+  const keepB=S.books,keepW=PS.w,keepA=PS.pa;S.books=DEFB();PS.w=PDEF.w;PS.pa=PDEF.pa;
   const now=Date.now(),out=[];
-  for(const r of propRows()){const b=r.best;if(!b||b.ev<=0)continue;const ko=koOf(r.p);if(!(Date.parse(ko)>now))continue;
-    out.push({id:`${r.p.g}|${r.p.i}|${r.s}`,g:r.p.g,pid:r.p.i,name:r.p.n,team:r.p.t,s:r.s,side:b.side,line:b.line,price:b.price,book:b.book,ev:r4(b.ev),mu:r4(r.mu),ko,grade:gradeOf(b.ev)})}
-  S.books=keepB;PS.w=keepW;return out;
+  for(const r of propRows()){const b=r.best;if(!b||b.ev<=0||!r.ok)continue;const ko=koOf(r.p);if(!(Date.parse(ko)>now))continue;
+    out.push({id:`${r.p.g}|${r.p.i}|${r.s}`,g:r.p.g,pid:r.p.i,name:r.p.n,team:r.p.t,s:r.s,side:b.side,line:b.line,price:b.price,book:b.book,ev:r4(b.ev),mu:r4(r.mu),ko,grade:gradeOf(b.ev),est:b.est?1:0})}
+  S.books=keepB;PS.w=keepW;PS.pa=keepA;return out;
 }
 document.addEventListener('click',e=>{
   const a=e.target.closest('a[data-pjump]');if(a){e.preventDefault();pJump(a.dataset.pjump);return}
   const b=e.target.closest('button');if(!b)return;
   if(b.dataset.pshow){PS.show=b.dataset.pshow;PSHOW=60;savePS();renderProps()}
-  else if(b.dataset.pmore){PSHOW+=60;renderProps()}
+  else if(b.dataset.pmore){PSHOW+=PS.show==='players'?120:60;renderProps()}
   else if(b.dataset.plog){try{prefillProp(JSON.parse(b.dataset.plog))}catch(err){}}
+  else if(b.dataset.psel){const [pid,s]=b.dataset.psel.split('|'),p=PR.players.find(x=>x.i===pid),c=b.closest('.pcard');if(p&&c){c.outerHTML=pCard(p,s)}}
+  else if(b.id==='preset'){PS.w=PDEF.w;PS.pa=PDEF.pa;savePS();renderProps()}
 });
 document.addEventListener('toggle',e=>{const d=e.target;if(!(d instanceof HTMLDetailsElement)||!d.classList.contains('prow'))return;
-  if(d.open&&!d.querySelector('.pdet')){const r=propRows().find(x=>propId(x.p,x.s)===d.id);if(r)d.insertAdjacentHTML('beforeend',propDetail(r))}},true);
+  if(d.open&&!d.querySelector('.pcard')){let p=null,s=null;
+    if(d.id.startsWith('pl-'))p=PR.players.find(x=>'pl-'+did(x.i)===d.id);
+    else{const r=propRows().find(x=>propId(x.p,x.s)===d.id);if(r){p=r.p;s=r.s}}
+    if(p)d.insertAdjacentHTML('beforeend',pCard(p,s))}},true);
 document.addEventListener('input',e=>{const t=e.target;
   if(t.id==='pq'){PS.q=t.value;PSHOW=60;frame(()=>keepFocus(renderProps))}
   else if(t.id==='pw'){PS.w=+t.value;$('#pwo').textContent=PS.w+'%';savePS();frame(()=>keepFocus(renderProps))}
   else if(t.dataset&&t.dataset.cl){const box=t.closest('[data-calc]');if(box)calcOut(box)}});
-['pmkt','ppos','pgame','psort'].forEach(id=>{const e=$('#'+id);if(e)e.addEventListener('change',()=>{PS[{pmkt:'mkt',ppos:'pos',pgame:'game',psort:'sort'}[id]]=e.value;PSHOW=60;savePS();renderProps()})});
+['pmkt','ppos','pgame','psort','ppa'].forEach(id=>{const e=$('#'+id);if(e)e.addEventListener('change',()=>{const k={pmkt:'mkt',ppos:'pos',pgame:'game',psort:'sort',ppa:'pa'}[id];PS[k]=k==='pa'?+e.value:e.value;PSHOW=60;savePS();renderProps()})});
 /* for the standalone site's refresh: the page's own snapshot of each game's call and best bets, and its grading */
 window.MatchupEdge={pickSnap,gradePick,propSnap};
 weights();renderBooks();renderList();renderNBA();renderEPL();renderProps();styleBar();renderForm();setKind(LGK);renderSizing();renderSync();renderBets();setTab(['nba','epl','props','bets'].includes(S.tab)?S.tab:'nfl');

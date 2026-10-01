@@ -11,9 +11,11 @@ Rebuilds the Matchup Edge site from public data.
 2. Run `browser.js` in a browser tab on any `https://site.api.espn.com/...` page (the Claude desktop browser:
    `javascript_tool` with the file's text). It returns one JSON string: DraftKings lines and opening lines via ESPN,
    National Weather Service kickoff forecasts for outdoor NFL games, ESPN NBA injuries, ESPN Premier League kickoff
-   times, results and shots on target, and ten books' prices from The Odds API when a key was passed. Credits: about
-   3 per league per run from the free plan's 500 a month; Premier League prices are asked for only when a match starts
-   within 96 hours. Save the returned object as `browser_result.json`.
+   times, results and shots on target, every NFL player's prop lines from DraftKings via ESPN (free: the current and
+   opening line, no prices), and ten books' prices from The Odds API when a key was passed. Credits: about 3 per league
+   per run from the free plan's 500 a month; Premier League prices are asked for only when a match starts within 96
+   hours; player prop prices cost about one credit per market per game and are asked for only with 1,500+ credits left
+   (a paid plan). Save the returned object as `browser_result.json`.
    On a server with open internet (the website's GitHub Actions workflow), `python3 refresh.py live` runs the same
    script with Node 18+ instead and writes `browser_result.json`; its temporary copy of the script is deleted afterwards.
 3. `python3 refresh.py build` checks each section of the result against its own checksum, merges the sections that
@@ -21,8 +23,21 @@ Rebuilds the Matchup Edge site from public data.
    valid `browser_result.json` the site builds from nflverse lines alone.
 4. `python3 refresh.py summary` prints the page's header and every positive-value pick (NFL, NBA, Premier League).
 5. For the standalone website: `build` also reads `ME_NEWS` (the morning research as `{meta, docs}`) and `ME_PICKS`
-   (the model record); `python3 refresh.py record` updates the record from the built page, and
-   `python3 refresh.py web` writes `web/index.html`, the page with a complete document head.
+   (the model record); `python3 refresh.py record` updates the record from the built page (and the props record,
+   `props_picks.json` beside it), and `python3 refresh.py web` writes `web/index.html`, the page with a complete document head.
+6. `python3 refresh.py props-lines` (weekly on GitHub, `.github/workflows/props-lines.yml`; needs open internet) saves
+   every finished game's prop lines from ESPN since 2025 (`props_lines/`, cached) and tests the props model against
+   them, writing `../data/props_lines_backtest.json`, which the Props tab shows.
+
+NFL player props (`props_core.py`): every skill player's passing, rushing, receiving and touchdown numbers from team
+volume (the spread and total), his share of targets, carries and attempts (re-spread when a teammate is ruled out),
+efficiency shrunk toward the position average and scaled by the opponent, calibrated on 2019-2023. The starting
+quarterback is the one DraftKings posts passing lines for when that differs from nflverse's listed starter. Each line
+is valued at 15% our over chance and 85% the market's (no-vig from prices; 50-50 at a line without them), less 2
+points for the under: fitted by log loss on 2025's ESPN BET lines with prices (weeks 1-9), tested on the rest of 2025
+and on 2026's DraftKings lines, where bets with value made money and the bigger the value the more (almost all
+unders; books priced overs about 3 points too high). Lines without a price are valued at -115. Markets that lost in
+that test (per bet below zero on 30+ bets) show their numbers but never make the best bets or the props record.
 
 Premier League model (`epl_core.py` plus the page's goal model): each match's expected goals are fitted to the
 market (the middle value across books of the no-vig home, draw and away chances, and each book's total, with a
@@ -54,6 +69,6 @@ of the bankroll on every bet with value, or a Kelly stake (value ÷ (decimal odd
 both from the bankroll now (starting bankroll plus settled profit).
 
 Files: `nfl_core.py` (NFL ratings, factors, pricing; the tested backtest code), `nba_core.py` (NBA ratings and
-factors), `epl_core.py` (Premier League history, fixtures, form and the shots-on-target rating), `refresh.py`,
-`site_template.html`. Needs Python 3 with pandas, numpy, scipy and pyarrow.
+factors), `epl_core.py` (Premier League history, fixtures, form and the shots-on-target rating), `props_core.py`
+(player props: projections, line valuation, both backtests), `refresh.py`, `site_template.html`. Needs Python 3 with pandas, numpy, scipy and pyarrow.
 Model evidence: NFL and NBA backtest reports linked from the site.
