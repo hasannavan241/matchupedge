@@ -416,7 +416,7 @@ def injury_table(R, espn_inj, nflv_inj, week):
     for row in espn_inj or []:
         eid, name, team, status, ret = (list(row) + [None] * 5)[:5]
         g = espn2gsis.get(str(eid)) or name2gsis.get(norm_name(name))
-        if g and status:
+        if g and status and str(status).strip().lower() not in ("active", "probable", ""):
             out[g] = (str(status), str(ret or ""))
     if nflv_inj is not None and len(nflv_inj):
         w = nflv_inj[nflv_inj.week == week]
