@@ -27,7 +27,8 @@
     python3 refresh.py live      runs browser.js with Node on the server instead of in a browser
     python3 refresh.py record    updates the model record (ME_PICKS) from the built page
     python3 refresh.py web       writes web/index.html: site.html as a complete web page
-    build also reads ME_NEWS (researched news) and ME_PICKS (the model record) when those files exist.
+    build also reads ME_NEWS (researched news) and ME_PICKS (the model record) when those files exist, and keeps
+    ME_RESULTS (an archive of final scores and closing lines that the website uses to grade older bets).
 """
 import datetime as dt, glob, json, math, os, re, subprocess, sys
 import numpy as np
@@ -731,6 +732,9 @@ def build():
             data["scout"], data["scout_meta"] = nj.get("docs") or {}, nj.get("meta")
         except Exception as e:
             print(f"news file unreadable ({e.__class__.__name__}); building without it")
+    arch = os.environ.get("ME_RESULTS")
+    if arch:  # the standalone site's archive of final scores and closing lines, so bets older than the page's own results still grade
+        results_archive(arch, data["recent"], plan["today"])
     if picks and os.path.exists(picks):  # the standalone site's model record: graded picks in full, open ones by league only
         try:
             P = json.load(open(picks))
@@ -742,6 +746,29 @@ def build():
     open("site.html", "w").write(html)
     print(f"site.html written: NFL {len(nfl['games']) if nfl else 0} games, NBA {len(nba['games']) if nba else 0} games, "
           f"Premier League {len(epl['games']) if epl else 0} matches ({sum(1 for g in (epl or {}).get('games', []) if g.get('mkt') or g.get('books'))} with lines), live lines: {status}")
+
+
+def results_archive(path, recent, today, keep_days=400):
+    """Merge the page's recent finals into a lasting archive ({league: {game id: result}}), one game per line, dropping
+    games older than keep_days. The website publishes it as results.json for grading older bets."""
+    try:
+        A = json.load(open(path)) if os.path.exists(path) else {}
+    except Exception as e:
+        print(f"results archive unreadable ({e.__class__.__name__}); starting it again")
+        A = {}
+    cutoff = str(dt.date.fromisoformat(today) - dt.timedelta(days=keep_days))
+    for lg, L in (recent or {}).items():
+        m = A.setdefault(lg, {})
+        for r in L or []:
+            if r.get("hs") is None or r.get("as") is None:
+                continue
+            m[str(r.get("id") or f"{r.get('date')}_{r.get('home')}_{r.get('away')}")] = r
+    for lg in A:
+        A[lg] = {k: v for k, v in A[lg].items() if str(v.get("date", "")) >= cutoff}
+    block = lambda m: "{" + ",".join("\n" + json.dumps(k) + ":" + json.dumps(v, separators=(",", ":"), sort_keys=True) for k, v in sorted(m.items())) + ("\n}" if m else "}")
+    with open(path, "w") as f:
+        f.write("{" + ",".join(f"\n{json.dumps(lg)}:" + block(A[lg]) for lg in sorted(A)) + "\n}\n")
+    print("results archive:", ", ".join(f"{lg} {len(A[lg])}" for lg in sorted(A)))
 
 
 def live():

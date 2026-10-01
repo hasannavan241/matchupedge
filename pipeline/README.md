@@ -47,6 +47,11 @@ researches injuries, returns, trades and signings, coaching changes, drama and m
 (goals for soccer) per team and sources. The page also keeps its own record in collection `picks`: each upcoming game's
 call and both models' best bets, saved when the owner opens the page, graded from results. The refresh's `summary`
 reports the tested model's best bets.
+Logged bets and bet sizing go to one of three stores with the same calls (put, patchMany, remove, saveSettings): the
+claude.ai database (`data/users/<id>/profile` and its `bets`), a private GitHub repository the website viewer connects
+with a fine-grained key (`bets/<year>.json`, `settings.json`), or the browser alone. Bet sizing is either the same share
+of the bankroll on every bet with value, or a Kelly stake (value ÷ (decimal odds − 1)) scaled by ⅛, ¼ or ½ and capped,
+both from the bankroll now (starting bankroll plus settled profit).
 
 Files: `nfl_core.py` (NFL ratings, factors, pricing; the tested backtest code), `nba_core.py` (NBA ratings and
 factors), `epl_core.py` (Premier League history, fixtures, form and the shots-on-target rating), `refresh.py`,

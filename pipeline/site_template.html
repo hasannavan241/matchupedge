@@ -303,28 +303,113 @@ details.crow[open] .cw::before{content:"\25BE"}
 @media (prefers-reduced-motion:reduce){.flash{animation:none}}
 
 /* my bets */
-.brow{display:flex;flex-wrap:wrap;gap:10px 14px;margin:4px 0 8px}
-.brow label,.logf label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.brow input,.brow select,.logf input,.logf select{font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:7px 9px;min-width:0}
-.brow input{width:120px}
-.dollar{display:inline-flex;align-items:center;gap:4px;font-size:14px;color:var(--muted);text-transform:none;letter-spacing:0}
-.dollar::before{content:"$"}
-.dollar input{width:100%}
-.logf{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:10px;align-items:end}
-.logf .wide{min-width:0}
-.logf .lgo{grid-column:1 / -1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-@media (max-width:860px){.logf{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.logf .wide{grid-column:1 / -1}}
-.card p.note{margin:0 0 10px;color:var(--muted);font-size:13px;max-width:90ch}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.hrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 10px}
+.hrow h2{margin:0}
+#bets code{font-family:var(--f-mono);font-size:.9em;background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:0 4px;overflow-wrap:anywhere}
+.msg{margin:0;font-size:13px;color:var(--muted)} .msg.good{color:var(--pos)} .msg.bad{color:var(--neg)}
+.sfine{font-size:12.5px;margin:0}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.danger{background:var(--neg);border-color:var(--neg);color:var(--accent-ink)}
+.btn:disabled{opacity:.55;cursor:default}
+/* sync */
+.syncbar{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 12px;font-size:13.5px}
+.syncbar>span:nth-child(2){flex:1 1 300px;min-width:0}
+.sdot{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none;margin-top:6px}
+.syncbar.on .sdot{background:var(--pos)} .syncbar.err .sdot{background:var(--neg)} .syncbar.local .sdot{background:var(--warn)}
+#synccard>.msg{margin-top:10px}
+.setup{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);display:grid;gap:10px}
+.setup ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:82ch;font-size:13.5px}
+.tok{display:flex;flex-wrap:wrap;gap:8px;max-width:640px}
+.tok input{flex:1 1 240px;min-width:0;font-family:var(--f-mono);font-size:13px;color:var(--ink);border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:7px 9px}
+.pair{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.pair .qr{width:200px;max-width:100%;flex:none;line-height:0;border-radius:8px;overflow:hidden}
+.pair .qr svg{width:100%;height:auto;display:block}
+.pair .pl{flex:1 1 260px;min-width:0;display:grid;gap:8px;font-size:13.5px}
+.pair .pl p{margin:0}
+#bets .pair code{display:block;padding:6px 8px;font-size:12px}
+/* bet sizing */
+.sz{display:grid;gap:12px;align-content:start}
+.sz h2{margin:0}
+.bkrow{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 16px}
+.fl,.logf label,.eform label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fl input,.logf input,.logf select,.eform input,.eform select,.cash input{font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:7px 9px;min-width:0}
+.fl input{width:130px}
+.bknow{margin:0;font-size:13.5px;color:var(--ink-2)} .bknow b{font-size:15px} .bknow small{display:block;color:var(--muted);font-size:12px}
+.modes{display:grid;gap:8px}
+.mopt{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:8px}
+.mopt.on{border-color:var(--accent);background:var(--accent-soft)}
+.mopt>label{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;cursor:pointer}
+.mopt input[type=radio]{margin:2px 0 0;width:16px;height:16px;accent-color:var(--accent)}
+.mopt b{display:block;font-size:14px}
+.mopt small{display:block;color:var(--muted);font-size:12.5px}
+.mset{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding-left:26px;font-size:13px;color:var(--ink-2)}
+.inl{display:inline-flex;align-items:center;gap:6px}
+.ex caption{text-align:left;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:4px}
+.ex th,.ex td{padding:6px 0;border-bottom:0;border-top:1px solid var(--line)}
+.ex th{font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);white-space:normal}
+.ex th small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.ex td{padding-left:12px}
+.szhow summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--accent)}
+.szhow p{margin:8px 0 0;font-size:13px;color:var(--ink-2);max-width:65ch}
+/* record: tiles, chart, splits */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .stat{border:1px solid var(--line);border-radius:8px;padding:9px 11px;min-width:0}
 .stat b{display:block;font-family:var(--f-display);font-weight:700;font-size:24px;line-height:1.1}
 .stat small{display:block;color:var(--muted);font-size:12px}
-.brow2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) minmax(0,1.6fr) auto minmax(0,.9fr) auto;gap:6px 12px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:13px}
+.chart{margin-top:16px}
+.chh{margin:0 0 6px;font-weight:700;font-size:14px}
+.chh small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.chw{position:relative}
+.chw svg{display:block;width:100%;height:auto;touch-action:pan-y;overflow:visible}
+.chart .grid line{stroke:var(--line);stroke-width:1}
+.chart .ax text{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+.chart .base{stroke:var(--muted);stroke-width:1}
+.chart .ar{fill:var(--accent);opacity:.1}
+.chart .ln{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart .cross{stroke:var(--ink-2);stroke-width:1}
+.chart .dot{fill:var(--accent);stroke:var(--surface);stroke-width:2}
+.tip{position:absolute;z-index:2;pointer-events:none;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:8px;padding:6px 9px;font-size:12px;white-space:nowrap;color:var(--muted)}
+.tip b{display:block;color:var(--ink);font-family:var(--f-mono);font-size:14px}
+.brk{margin-top:16px}
+.brk .hrow{margin-bottom:6px}
+.brkt th,.brkt td{padding:6px 8px;border-bottom:0;border-top:1px solid var(--line)}
+.brkt thead th{border-top:0}
+.brkt tbody th{font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink)}
+.brkt .r{text-align:right}
+/* the log form */
+.logf{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.3fr) repeat(4,minmax(0,1fr));gap:10px;align-items:end}
+.logf .lgo{grid-column:1 / -1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+@media (max-width:860px){.logf{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.logf .wide{grid-column:1 / -1}}
+.dollar{display:inline-flex;align-items:center;gap:4px;font-size:14px;color:var(--muted);text-transform:none;letter-spacing:0}
+.dollar::before{content:"$"}
+.dollar input{width:100%}
+.card p.note{margin:0 0 10px;color:var(--muted);font-size:13px;max-width:90ch}
+/* the bet list */
+.brow2{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.4fr) minmax(0,1.6fr) 84px minmax(0,1fr) 78px;gap:6px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:13px}
 .brow2:first-child{border-top:0}
 .brow2 small{display:block;color:var(--muted);font-size:12px}
-@media (max-width:760px){.brow2{grid-template-columns:minmax(0,1fr) auto}.brow2 .bx{grid-column:1 / -1}}
-.res{font-family:var(--f-mono);font-weight:600;font-size:12px;padding:2px 7px;border-radius:5px;white-space:nowrap;text-align:center}
-.res.W,.res.HW{background:var(--pos-soft);color:var(--pos)} .res.L,.res.HL{background:var(--neg-soft);color:var(--neg)} .res.P,.res.open{background:var(--track);color:var(--muted)}
+.brow2>:nth-child(5){text-align:right}
+@media (max-width:760px){
+  .brow2{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"ev res" "bx pl" "dt man"}
+  .brow2>:nth-child(1){grid-area:dt;display:flex;gap:6px;align-items:baseline}.brow2>:nth-child(1) small{display:inline}
+  .brow2>:nth-child(2){grid-area:ev}.brow2>.bx{grid-area:bx}.brow2>.res{grid-area:res;justify-self:end}
+  .brow2>:nth-child(5){grid-area:pl}.brow2>[data-man]{grid-area:man;justify-self:end}}
+.res{font-family:var(--f-mono);font-weight:600;font-size:12px;padding:2px 7px;border-radius:5px;white-space:nowrap;text-align:center;justify-self:start}
+.res.W,.res.HW{background:var(--pos-soft);color:var(--pos)} .res.L,.res.HL{background:var(--neg-soft);color:var(--neg)}
+.res.P,.res.V,.res.open{background:var(--track);color:var(--muted)} .res.C{background:var(--under-soft);color:var(--under)}
+.bman{grid-column:1 / -1;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:14px;margin-top:4px}
+.mpart{display:grid;gap:6px}
+.rbtns{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.cash{display:inline-flex;gap:6px;align-items:center}
+.cash input{width:90px;padding:4px 8px;background:var(--surface)}
+.eform{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end}
+.eform input,.eform select{background:var(--surface);padding:6px 8px}
+.eform input{width:100px} .eform .wide{flex:1 1 240px} .eform .wide input{width:100%}
+.mfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.pairask{border:1px solid var(--warn);background:var(--warn-soft);border-radius:8px;padding:10px 12px;display:grid;gap:8px;margin-bottom:12px;font-size:13.5px}
+.pairask p{margin:0}
 
 /* how it works */
 details.how{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
@@ -396,38 +481,64 @@ details.how dd p{margin:0 0 6px}
   </section>
 
   <section id="bets" role="tabpanel" aria-labelledby="tab-bets" class="list" hidden>
-    <div class="card muted" id="betsoff" hidden>Bet tracking needs you signed in to claude.ai with this page open there. Stakes still use the bankroll below on this device.</div>
+    <div class="card" id="synccard"></div>
     <div class="two">
       <div class="card">
         <h2>Your record</h2>
-        <div class="stats" id="stats"><p class="muted">No graded bets yet. Log a bet from any pick, or with the form below.</p></div>
-      </div>
-      <aside class="card">
-        <h2>Bankroll</h2>
-        <div class="brow">
-          <label>Bankroll <span class="dollar"><input id="bk" type="number" min="0" step="10" inputmode="decimal" placeholder="0"></span></label>
-          <label>Kelly share <select id="kf"><option value="0.125">⅛</option><option value="0.25">¼</option><option value="0.5">½</option></select></label>
-          <label>Max bet <select id="kc"><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.03">3%</option><option value="0.05">5%</option></select></label>
+        <div class="stats" id="stats"><p class="muted">No bets yet.</p></div>
+        <div class="chart" id="chart" hidden></div>
+        <div class="brk" id="brkwrap" hidden>
+          <div class="hrow"><span class="lbl" id="brklbl">Split by</span><div class="seg" role="group" aria-labelledby="brklbl"><button data-brk="lg">League</button><button data-brk="mkt">Bet type</button><button data-brk="book">Book</button><button data-brk="mo">Month</button></div></div>
+          <div class="scroll" id="brk"></div>
         </div>
-        <p class="muted">Each positive-value pick gets this share of the Kelly bet for its value, never more than the max share of your bankroll. Picks with no edge get no stake.</p>
+      </div>
+      <aside class="card sz" id="sizing">
+        <h2>Bet sizing</h2>
+        <div class="bkrow">
+          <label class="fl">Starting bankroll <span class="dollar"><input id="bk" type="number" min="0" step="10" inputmode="decimal" placeholder="0"></span></label>
+          <p class="bknow" id="bknow"></p>
+        </div>
+        <div class="modes" role="radiogroup" aria-label="How much to bet">
+          <div class="mopt" data-mode="flat">
+            <label><input type="radio" name="szmode" value="flat"><span><b>Same amount every bet</b><small>Every pick with value gets the same stake. Simple, steady, and the usual way to judge a record.</small></span></label>
+            <div class="mset"><label class="inl">Bet <select id="unit"><option value="0.005">0.5%</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.03">3%</option></select> of the bankroll</label><span id="unitamt" class="muted"></span></div>
+          </div>
+          <div class="mopt" data-mode="edge">
+            <label><input type="radio" name="szmode" value="edge"><span><b>Bigger bets on bigger edges</b><small>The stake grows with the value and shrinks on long odds, since they lose more often.</small></span></label>
+            <div class="mset"><span class="seg" role="group" aria-label="Risk level"><button type="button" data-risk="low">Low</button><button type="button" data-risk="med">Medium</button><button type="button" data-risk="high">High</button></span><label class="inl">at most <select id="cap"><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.03">3%</option><option value="0.05">5%</option></select> a bet</label></div>
+          </div>
+        </div>
+        <div id="szex"></div>
+        <details class="szhow"><summary>How the stakes are worked out</summary>
+          <p>Stakes come from your <b>bankroll now</b>: the starting bankroll plus whatever settled bets have won or lost, so they grow after wins and shrink after losses.</p>
+          <p><b>Same amount</b> bets the share you pick on every pick with value: 1% of a $1,000 bankroll is $10.</p>
+          <p><b>Bigger bets on bigger edges</b> uses the Kelly formula: value ÷ (decimal odds − 1) of the bankroll, the stake that grows a bankroll fastest when the edge is known exactly. A +6% edge at −110 works out to 6.6%. The model’s edges are estimates, and betting the full Kelly amount on them wiped out the bankroll in testing, so <b>Low</b> bets ⅛ of it, <b>Medium</b> ¼ and <b>High</b> ½, never more than the cap.</p>
+          <p>Picks without value get no stake.</p>
+        </details>
       </aside>
     </div>
     <div class="card" id="logcard">
-      <h2>Log a bet</h2>
+      <div class="hrow"><h2>Log a bet</h2><div class="seg" role="group" aria-label="Kind of bet"><button type="button" data-kind="game">A game on this page</button><button type="button" data-kind="other">Anything else</button></div></div>
       <form id="logf" class="logf" autocomplete="off">
-        <label class="wide">Game <select id="lg-game" required></select></label>
-        <label>Bet <select id="lg-bet" required></select></label>
-        <label>Line <input id="lg-line" type="number" step="0.5" inputmode="decimal"></label>
-        <label>Odds <input id="lg-price" type="number" step="1" inputmode="numeric" required placeholder="-110"></label>
+        <label class="wide g">Game <select id="lg-game"></select></label>
+        <label class="g">Bet <select id="lg-bet"></select></label>
+        <label class="g">Line <input id="lg-line" type="number" step="0.5" inputmode="decimal"></label>
+        <label class="wide o" hidden>What you bet <input id="lg-desc" type="text" maxlength="140" placeholder="A prop, a parlay, a future…"></label>
+        <label class="o" hidden>League <select id="lg-lg"><option value="nfl">NFL</option><option value="nba">NBA</option><option value="epl">Premier League</option><option value="other">Other</option></select></label>
+        <label class="o" hidden>Date <input id="lg-date" type="date"></label>
+        <label>Odds <input id="lg-price" type="number" step="any" required placeholder="−110"></label>
         <label>Book <select id="lg-book"></select></label>
-        <label>Stake <span class="dollar"><input id="lg-stake" type="number" min="0" step="1" inputmode="decimal" required></span></label>
-        <div class="lgo"><button class="btn primary" type="submit" id="lg-save">Save bet</button><span id="lg-msg" class="muted" role="status"></span></div>
+        <label>Stake <span class="dollar"><input id="lg-stake" type="number" min="0" step="any" inputmode="decimal" required></span></label>
+        <div class="lgo"><button class="btn primary" type="submit" id="lg-save">Save bet</button><span id="lg-msg" class="msg" role="status"></span></div>
       </form>
     </div>
-    <div class="card"><h2>Bets</h2><div id="betlist"><p class="muted">Nothing logged yet.</p></div></div>
+    <div class="card">
+      <div class="hrow"><h2>Bets</h2><div class="seg" role="group" aria-label="Show bets"><button data-bf="all">All</button><button data-bf="open">Open</button><button data-bf="settled">Settled</button></div><span class="spacer"></span><button class="btn sm" id="csv" hidden>Download CSV</button></div>
+      <div id="betlist"><p class="muted">Nothing logged yet.</p></div>
+    </div>
     <div class="card" id="reccard">
       <h2>Model record</h2>
-      <p class="note">Each time you open this page it saves every upcoming game’s call and both styles’ best bets; the last save before kickoff counts. Graded games show here, with the market favorite as the yardstick. Bets count 1 unit each.</p>
+      <p class="note">The page saves every upcoming game’s call and both styles’ best bets as the lines update; the last save before kickoff counts. Graded games show here, with the market favorite as the yardstick. Bets count 1 unit each.</p>
       <div id="modelrec"><p class="muted">No graded games yet.</p></div>
     </div>
   </section>
@@ -438,8 +549,8 @@ details.how dd p{margin:0 0 6px}
       <dt>Our call</dt><dd>Every game gets a call on who wins, mixed from two views. The <b>betting market</b>: every book’s price with its cut removed, and the middle value across books, so one stale book can’t move it. Our <b>team view</b>: power ratings from this season and last, every factor at full strength, and news researched each morning (injuries and returns, trades and signings, coaching changes, drama, motivation), each scored in points or goals for a team, with sources. Each league uses the mix that picked the most winners in testing, with ratings and factors built only from earlier games: NFL 85% market and 15% team view (66.7% of winners over 20 seasons, against 66.5% for the betting favorite; 67.3% against 66.7% over the last six), NBA 90% and 10% (68.5% over 18 seasons, level with the favorite), and in the Premier League the market alone once lines post (no mix did better over 14 seasons; before lines post, the call is the team view). The researched news can’t be backtested; the model record under My bets tracks it from here.</dd>
       <dt>Best bets</dt><dd>Best bets come from the <b>tested model</b>: the market plus only the factors that held up when tested on years of games, each at the share the closing line missed. NFL: wind and cold 50%, a backup quarterback 45% (spread and moneyline), Denver altitude 10%. NBA: altitude 50%, players out 20%, long trips 15%, back-to-backs 15%. Premier League: about 9% of a shots-on-target rating’s gap on goal difference (10% on the total), −0.011 goals per point of last-5 form difference, and +0.18 goals for a team playing its second league match in 3 days. Pace, head to head, rest, referees, Elo and power ratings count 0%. NFL weights can be changed under Tested model settings. You can switch the best bets to our call’s own pricing, but those are marked untested: see What testing found.</dd>
       <dt>Best bet and value</dt><dd>Every price at your books is valued against our call (or the tested fair line): value = chance to win × profit − chance to lose. NFL margins use a 13.5-point curve with extra weight on key numbers like 3 and 7; the NBA plain curves (12 points for spreads, 18 for totals); soccer a goal model fitted to each match’s home, draw and away prices and totals, where quarter lines count as two half bets. Whole-number lines can push. <b>Strong</b> is +5% or more, <b>Lean</b> +2% to +5%, <b>Thin</b> 0 to +2%. <b>No edge</b> means even the best price is below fair value after the book’s cut: the least-bad way to bet that game, not a bet with an advantage.</dd>
-      <dt>Stakes</dt><dd>With a bankroll set under My bets, each positive-value pick gets a share of the Kelly bet for its value (¼ by default), capped at a share of the bankroll (2% by default). Full Kelly on claimed edges wiped out the bankroll in testing. Without a bankroll, positive-value picks show 1 unit.</dd>
-      <dt>Tracking</dt><dd>Log a bet from any pick or with the form under My bets; it grades itself from the final score, with its closing-line value: its value against the fair closing line (NFL closes from nflverse; NBA and Premier League from DraftKings via ESPN). Beating the close over many bets is the quickest sign an edge is real. Bets save privately to your account. The model record keeps our calls and both styles’ best bets the same way.</dd>
+      <dt>Bet sizing</dt><dd>Set the bankroll you started with under My bets and pick how stakes are sized. <b>Same amount every bet</b> puts the same share of the bankroll (1% unless you change it) on every pick with value. <b>Bigger bets on bigger edges</b> uses the Kelly formula, value ÷ (decimal odds − 1), so stakes grow with the value and shrink on long odds; Low, Medium and High bet ⅛, ¼ and ½ of it, never more than the cap you set. Full Kelly on the edges the model claims wiped out the bankroll in testing. Stakes follow the bankroll now: the starting bankroll plus whatever settled bets have won or lost. Without a bankroll, stakes show as a share of it.</dd>
+      <dt>Tracking</dt><dd>Log a bet from any pick, or anything else (props, parlays, futures) under My bets. Bets on games here grade themselves from the final score, with their closing-line value: their value against the fair closing line (NFL closes from nflverse; NBA and Premier League from DraftKings via ESPN). Beating the close over many bets is the quickest sign an edge is real. Settle anything else by hand, and edit, void or mark any bet cashed out. On the website, bets stay in that browser until you set up sync, which keeps them in a private GitHub repository of yours so your phone and computer share one log; the site also keeps an archive of final scores, so bets still grade after time away. On the claude.ai copy, bets save to your claude.ai account. The model record keeps our calls and both styles’ best bets the same way.</dd>
       <dt>What testing found</dt><dd>
         <p><b>Our call’s own bets, last six seasons</b> (2020-21 to 2025-26, 1 unit per bet at historical closing prices, news not included): 6,696 bets lost 532.6 units, −8.0% per bet. NFL −13.3% on 1,026 bets, NBA −6.9% on 3,624, Premier League −7.2% on 2,046 (−3.5% at the best price across books). Every league lost in every season. The tested model on the same games: −2.6% on 2,688 bets (NFL +1.5%, NBA −2.3%, Premier League −4.0%). Picking winners and beating prices are different jobs: the market already prices who is likely to win.</p>
         <p><b>NFL, 5,246 games.</b> Projecting scores from scratch lost 7.9% per bet against closing lines since 2016. Only wind held up: unders in 15+ mph wind went 240–194, +7.6% per bet. <a href="https://claude.ai/artifact/MMbMJ8yAy92ik3oYEhWg9Z" target="_blank" rel="noopener">NFL backtest</a></p>
@@ -1301,24 +1412,361 @@ function boardHTML(head,lede,rows,foot){
     <div class="brws"><div class="brw hdr" aria-hidden="true"><span>Game</span><span>Our call</span><span>Best bet</span><span>Value</span></div>${rows}</div>`:''}${foot?`<p class="bfoot">${foot}</p>`:''}`;
 }
 
-/* ---------- bankroll, stakes and the bet tracker ---------- */
-/* settings live in the viewer's private db document (kept on this device too, for when db isn't available) */
-let SET={bank:0,kf:.25,kc:.02};{const s=store.get('bank',null);if(s&&typeof s==='object')SET={bank:+s.bank||0,kf:+s.kf||.25,kc:+s.kc||.02}}
+/* ---------- bet sizing, the bet log, and where it is kept ---------- */
+/* bet sizing: the same share of the bankroll on every bet with value, or a scaled-down Kelly stake that grows with the
+   value and shrinks on long odds; both work from the bankroll now (the starting bankroll plus settled profit) */
+const RISK={low:.125,med:.25,high:.5},RISKN={low:'Low',med:'Medium',high:'High'};
+const DEFSET={bank:0,mode:'flat',unit:.01,risk:'med',cap:.02};
+function normSet(d){
+  d=d&&typeof d==='object'?d:{};
+  const o={...DEFSET,bank:+d.bank>0?+d.bank:0};
+  if(d.mode==='flat'||d.mode==='edge'){o.mode=d.mode;if(+d.unit>0&&+d.unit<=.05)o.unit=+d.unit;if(RISK[d.risk])o.risk=d.risk;if(+d.cap>0&&+d.cap<=.05)o.cap=+d.cap}
+  else if(d.kf!=null||d.kc!=null){o.mode='edge';o.risk=+d.kf>=.5?'high':+d.kf<=.125?'low':'med';if(+d.kc>0)o.cap=+d.kc}  /* the earlier "Kelly share" settings */
+  return o;
+}
+let SET=normSet(store.get('bank',null));
 let DB=null,UID=null,BETS=[],TRACK='wait',FG=[];
+const IN_CLAUDE=!!(window.claude&&window.claude.use);
 const money=v=>(v<0?MINUS:'')+'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:Math.abs(v)<100?2:0});
+const pct1=f=>(Math.round(f*1000+1e-6)/10)+'%';
 const fmtDate=d=>d?new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
-/* stake: the chosen share of the Kelly bet for this price's value, capped at a share of the bankroll */
-function kelly(b){if(!b||!(b.ev>0)||!(SET.bank>0))return 0;const d=dec(b.price)-1,f=(d*b.p-b.l)/(d*(b.p+b.l));
-  return f>0?Math.max(1,Math.round(SET.bank*Math.min(SET.kc,SET.kf*f))):0}
-const stakeTxt=b=>b.ev>0?(SET.bank>0?`bet ${money(kelly(b))}`:'1 unit'):'no stake';
-const logBtn=(lg,g,b)=>`<button class="logb" data-log="${esc(JSON.stringify({lg,gid:String(g.id),mkt:b.mkt,side:b.side,line:b.line,price:b.price,book:b.book,stake:kelly(b)||''}))}">Log bet</button>`;
-const betPath=id=>`data/users/${UID}/profile/bets/${id}`;
+const todayCT=()=>{try{return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago'}).format(new Date())}catch(e){return new Date().toISOString().slice(0,10)}};
+const settledPL=()=>BETS.reduce((s,b)=>s+(b.res&&b.res!=='V'?(+b.profit||0):0),0);
+const bankNow=()=>SET.bank>0?Math.max(0,Math.round((SET.bank+settledPL())*100)/100):0;
+/* the share of the bankroll for a priced pick (b.p and b.l: its chances to win and lose; a push returns the stake) */
+function stakePct(b){
+  if(!b||!(b.ev>0))return 0;
+  if(SET.mode==='flat')return SET.unit;
+  const d=dec(b.price)-1,f=(d*b.p-b.l)/(d*(b.p+b.l));
+  return f>0?Math.min(SET.cap,RISK[SET.risk]*f):0;
+}
+function stakeFor(b){const p=stakePct(b),bk=bankNow();return{p,amt:p>0&&bk>0?Math.max(1,Math.round(bk*p+1e-6)):0}}
+const stakeTxt=b=>{if(!(b.ev>0))return 'no stake';const s=stakeFor(b);return s.amt?`bet ${money(s.amt)}`:s.p?`${pct1(s.p)} of bankroll`:'no stake'};
+const logBtn=(lg,g,b)=>`<button class="logb" data-log="${esc(JSON.stringify({lg,gid:String(g.id),mkt:b.mkt,side:b.side,line:b.line,price:b.price,book:b.book,stake:stakeFor(b).amt||''}))}">Log bet</button>`;
+/* sample picks for the sizing card: a value at a price, as chances to win and lose */
+const SZEX=[['Strong pick','+6% value at −110',.06,-110],['Lean pick','+3% value at +150',.03,150],['Thin pick','+1% value at −110',.01,-110],['Longshot','+5% value at +400',.05,400]];
+const exPick=(ev,price)=>{const p=(1+ev)/dec(price);return{ev,price,p,l:1-p}};
+function renderSizing(){
+  const bk=$('#bk');if(!bk)return;
+  if(document.activeElement!==bk)bk.value=SET.bank>0?SET.bank:'';
+  document.querySelectorAll('input[name=szmode]').forEach(r=>{r.checked=r.value===SET.mode});
+  document.querySelectorAll('.mopt').forEach(o=>o.classList.toggle('on',o.dataset.mode===SET.mode));
+  $('#unit').value=String(SET.unit);$('#cap').value=String(SET.cap);
+  document.querySelectorAll('[data-risk]').forEach(b=>b.setAttribute('aria-pressed',SET.mode==='edge'&&b.dataset.risk===SET.risk));
+  const now=bankNow(),pl=settledPL();
+  $('#bknow').innerHTML=SET.bank>0
+    ?`Bankroll now <b class="num">${money(now)}</b>${Math.abs(pl)>=.005?`<small>${pl>0?'+':MINUS}${money(Math.abs(pl))} from settled bets</small>`:'<small>no settled bets yet</small>'}`
+    :'<small>Set the bankroll you started with to see stakes in dollars. Until then they show as a share of the bankroll.</small>';
+  $('#unitamt').textContent=now>0?`= ${money(Math.max(1,Math.round(now*SET.unit)))} a bet`:'';
+  $('#szex').innerHTML=`<table class="ex"><caption>What you’d bet with these settings</caption><tbody>${SZEX.map(([k,t,ev,pr])=>{const s=stakeFor(exPick(ev,pr));
+    return `<tr><th scope="row">${k}<small>${t.replace('−',MINUS)}</small></th><td class="num">${s.amt?money(s.amt):''}</td><td class="num muted">${s.p?pct1(s.p):'–'}</td></tr>`}).join('')}
+    <tr><th scope="row">No value<small>best price below fair</small></th><td class="num"></td><td class="num muted">no bet</td></tr></tbody></table>`;
+}
+let LASTBK=null;
+/* the stakes printed on every pick follow the bankroll, so re-render the boards when it moves */
+function refreshStakes(force){const b=bankNow()+'|'+SET.mode+SET.unit+SET.risk+SET.cap;if(force||b!==LASTBK){const first=LASTBK===null;LASTBK=b;if(!first||force)setTimeout(()=>{renderList();renderNBA();renderEPL()},0)}}
+let SAVET=null;
+function saveSettings(){
+  store.set('bank',SET);renderSizing();refreshStakes();renderStats();
+  if(ST.kind==='gh')try{localStorage.setItem(SDK,'1')}catch(e){}
+  clearTimeout(SAVET);SAVET=setTimeout(async()=>{try{await ST.saveSettings(SET)}catch(e){SMSG={t:'Couldn’t save bet sizing: '+errText(e),c:'bad'};renderSync()}},800);
+}
 
+/* ---------- where bets are kept ---------- */
+/* claude.ai's database on the claude.ai copy; on the website, a private GitHub repository the viewer connects (so a
+   phone and a computer share one log), or this browser until then. Every store has the same five calls. */
+const newId=()=>'b'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const byPlaced=(a,b)=>String(b.placed||'').localeCompare(String(a.placed||''));
+let ST={kind:'wait',ready:false,put:async()=>{throw{code:'not_ready'}},patchMany:async()=>{},remove:async()=>{},saveSettings:async()=>{}};
+function setBets(list){BETS=(list||[]).map(cleanBet).filter(Boolean).sort(byPlaced);renderBets();renderSizing();refreshStakes();setTimeout(gradeAll,0)}
+const recalc=o=>{if(o.res&&RESN[o.res])o.profit=o.res==='C'?r2((+o.cash||0)-o.stake):r2(o.stake*mult(o.res,o.price));return o};
+const patchIn=(list,P)=>list.map(b=>{const p=P.find(x=>x.id===b.id);return p&&!(p.ifOpen&&b.res)?recalc({...b,...p.fields}):b});
+
+function localStore(){
+  const K='me4.bets.local';
+  const load=()=>{try{const a=JSON.parse(localStorage.getItem(K)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}};
+  const save=a=>{try{localStorage.setItem(K,JSON.stringify(a))}catch(e){throw{code:'quota_exceeded'}}setBets(a)};
+  return{kind:'local',ready:true,load,
+    async put(b){const a=load(),i=a.findIndex(x=>x.id===b.id);if(i>=0)a[i]=b;else a.push(b);save(a)},
+    async patchMany(P){save(patchIn(load(),P))},
+    async remove(id){save(load().filter(x=>x.id!==id))},
+    async saveSettings(){},  /* the settings already live in this browser */
+    clear(){try{localStorage.removeItem(K)}catch(e){}}};
+}
+
+function dbStore(db,uid){
+  const prof=db.doc(`data/users/${uid}/profile`),col=prof.collection('bets');
+  const strip=b=>{const o={...b};delete o.id;return o};
+  return{kind:'db',ready:true,
+    async put(b){await col.doc(b.id).set(strip(b))},
+    async patchMany(P){for(const p of P){const b=BETS.find(x=>x.id===p.id);if(b&&!(p.ifOpen&&b.res))await col.doc(p.id).update(p.fields)}},
+    async remove(id){await col.doc(id).delete()},
+    async saveSettings(s){await prof.set({bank:s.bank,mode:s.mode,unit:s.unit,risk:s.risk,cap:s.cap})},
+    start(){
+      prof.onSnapshot(s=>{const d=s.exists?s.data():null;if(!d)return;const n=normSet(d);
+        if(JSON.stringify(n)!==JSON.stringify(SET)){SET=n;store.set('bank',SET);renderSizing();refreshStakes(true);renderStats()}},()=>{});
+      col.orderBy('placed','desc').limit(1000).onSnapshot(q=>setBets(q.docs.map(d=>({id:d.id,...d.data()}))),()=>{TRACK='off';renderSync();renderBets()});
+    }};
+}
+
+/* GitHub: bets/<year>.json (one bet per line) and settings.json in the viewer's private repository, read and written
+   with a fine-grained key that can reach only that repository. The key stays in this browser and goes only to GitHub. */
+const GHK='me4.gh',GHC='me4.gh.cache',GHREPO='matchupedge-bets',SDK='me4.setdirty';
+const ghCfg=()=>{try{const c=JSON.parse(localStorage.getItem(GHK)||'null');return c&&c.t&&c.r?c:null}catch(e){return null}};
+const b64e=s=>{const u=new TextEncoder().encode(s);let x='';for(let i=0;i<u.length;i+=32768)x+=String.fromCharCode.apply(null,u.subarray(i,i+32768));return btoa(x)};
+const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(String(s).replace(/\s/g,'')),c=>c.charCodeAt(0)));
+async function ghApi(t,path,opt={}){
+  let r;
+  try{r=await fetch('https://api.github.com'+path,{method:opt.method||'GET',cache:'no-store',
+    headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+t,...(opt.body?{'Content-Type':'application/json'}:{})},
+    body:opt.body?JSON.stringify(opt.body):undefined})}
+  catch(e){return{status:0,ok:false,j:null}}
+  let j=null;try{j=await r.json()}catch(e){}
+  return{status:r.status,ok:r.ok,j};
+}
+const ghErr=(s,j)=>{const m=j&&j.message||'';
+  return s<0?m
+    :s===401?'GitHub turned the key down: it may have expired or been deleted. Make a new key and connect again.'
+    :s===403&&/rate limit/i.test(m)?'GitHub’s hourly limit is used up. Try again in a few minutes.'
+    :s===403&&/large/i.test(m)?'A bet file grew too big for GitHub to hand back.'
+    :s===403?'The key can’t save to the repository. In the key’s settings, give it Contents “Read and write” access to it.'
+    :s===404?'GitHub can’t find the repository with this key. Check that it exists and that the key was given access to it.'
+    :s===0?'Can’t reach GitHub. Check the connection and try again.'
+    :`GitHub answered ${s}${m?': '+m:''}.`};
+/* GitHub keeps one file per month of bets (bets/YYYY-MM.json, one bet per line) and settings.json. Every read and write
+   goes through one queue, so a refresh can't overwrite a save in flight; edits apply only the changed fields to the
+   latest copy, so a change made on another device survives. Unchanged files are reused by their sha. */
+function ghStore(cfg){
+  const where={};let all=[],files={},q=Promise.resolve();
+  const run=fn=>{const p=q.then(()=>me.dead?null:fn());q=p.catch(()=>{});return p};
+  const keyOf=b=>/^\d{4}-\d{2}/.test(String(b.placed||''))?String(b.placed).slice(0,7):new Date().toISOString().slice(0,7);
+  const pathOf=k=>`bets/${k}.json`;
+  const clean=L=>(Array.isArray(L)?L:[]).map(cleanBet).filter(Boolean);
+  const rebuild=()=>{all=[];Object.keys(where).forEach(k=>{delete where[k]});for(const k in files)files[k].bets.forEach(b=>{where[b.id]=k;all.push(b)})};
+  const cache=()=>{if(me.dead)return;try{localStorage.setItem(GHC,JSON.stringify({r:cfg.r,files,set:SET,last:me.last||null}))}catch(e){}};
+  const dirty=()=>{try{return localStorage.getItem(SDK)==='1'}catch(e){return false}};
+  const setNow=()=>({bank:SET.bank,mode:SET.mode,unit:SET.unit,risk:SET.risk,cap:SET.cap});
+  async function readFile(path){
+    const r=await ghApi(cfg.t,`/repos/${cfg.r}/contents/${path}`);
+    if(r.status===404)return{sha:null,data:null};
+    if(!r.ok)throw{status:r.status,j:r.j};
+    let data=null;try{data=JSON.parse(b64d(r.j.content||''))}catch(e){throw{status:-1,j:{message:`${path} in the repository isn’t readable.`}}}
+    return{sha:r.j.sha,data};
+  }
+  async function writeFile(path,text,message,sha){
+    const r=await ghApi(cfg.t,`/repos/${cfg.r}/contents/${path}`,{method:'PUT',body:{message,content:b64e(text),...(sha?{sha}:{})}});
+    if(!r.ok)throw{status:r.status,j:r.j};
+    return r.j&&r.j.content&&r.j.content.sha||null;
+  }
+  const ser=list=>'{"v":1,"bets":[\n'+list.slice().sort((a,b)=>String(a.placed||'').localeCompare(String(b.placed||''))).map(b=>JSON.stringify(b)).join(',\n')+'\n]}\n';
+  /* change one month's file: read it fresh, apply the change, write it back; if another device wrote in between, again */
+  async function change(k,fn,message){
+    const path=pathOf(k);
+    for(let i=0;i<4;i++){
+      const {sha,data}=await readFile(path);
+      const list=fn(clean(data&&data.bets));
+      let ns;
+      try{ns=await writeFile(path,ser(list),message,sha)}catch(e){if(e.status===409||e.status===422)continue;throw e}
+      if(me.dead)return list;
+      files[k]={sha:ns,bets:list};rebuild();me.last=Date.now();cache();setBets(all);renderSync();
+      return list;
+    }
+    throw{status:409,j:{message:'another device kept saving at the same moment; try again'}};
+  }
+  async function putNow(b,prev){
+    const k=where[b.id]||keyOf(b);
+    if(!prev)return change(k,l=>{const i=l.findIndex(x=>x.id===b.id);if(i>=0)l[i]=b;else l.push(b);return l},commitMsg(b));
+    const set={},del=[];
+    for(const f in b)if(JSON.stringify(b[f])!==JSON.stringify(prev[f]))set[f]=b[f];
+    for(const f in prev)if(!(f in b))del.push(f);
+    return change(k,l=>{const i=l.findIndex(x=>x.id===b.id);
+      if(i<0)throw{status:-2,j:{message:'This bet was removed on another device.'}};
+      const o={...l[i],...set};del.forEach(f=>{delete o[f]});l[i]=recalc(o);return l},commitMsg(b));
+  }
+  async function importNow(L){
+    const by={};clean(L).forEach(b=>{const k=keyOf(b);(by[k]=by[k]||[]).push(b)});
+    for(const k in by){const add=by[k];
+      await change(k,l=>{add.forEach(b=>{const i=l.findIndex(x=>x.id===b.id);if(i>=0)l[i]=b;else l.push(b)});return l},`Move ${add.length} ${add.length===1?'bet':'bets'} saved in a browser`)}
+  }
+  async function saveSettingsNow(){
+    const s=setNow();
+    for(let i=0;i<4;i++){
+      const {sha}=await readFile('settings.json');
+      try{await writeFile('settings.json',JSON.stringify(s,null,1)+'\n','Bet sizing',sha)}catch(e){if(e.status===409||e.status===422)continue;throw e}
+      if(JSON.stringify(s)===JSON.stringify(setNow()))try{localStorage.removeItem(SDK)}catch(e){}  /* nothing newer waiting */
+      cache();return;
+    }
+    throw{status:409,j:{message:'another device kept saving at the same moment; try again'}};
+  }
+  const me={kind:'gh',cfg,ready:false,busy:false,err:null,last:null,dead:false,
+    start(){
+      let c=null;try{c=JSON.parse(localStorage.getItem(GHC)||'null')}catch(e){}
+      if(c&&c.r===cfg.r&&c.files&&typeof c.files==='object'){
+        for(const k in c.files){const f=c.files[k];if(/^\d{4}-\d{2}$/.test(k)&&f&&Array.isArray(f.bets))files[k]={sha:String(f.sha||''),bets:clean(f.bets)}}
+        me.last=c.last||null;if(c.set&&!dirty())SET=normSet(c.set)}
+      rebuild();setBets(all);renderSync();return me.refresh();
+    },
+    refresh(){return run(async()=>{
+      me.busy=true;renderSync();
+      try{
+        const r=await ghApi(cfg.t,`/repos/${cfg.r}/contents/bets`);
+        let L=[];
+        if(r.ok&&Array.isArray(r.j))L=r.j.filter(f=>f&&/^\d{4}-\d{2}\.json$/.test(f.name));
+        else if(r.status!==404)throw{status:r.status,j:r.j};
+        const nf={};
+        await Promise.all(L.map(async f=>{const k=f.name.slice(0,7);
+          if(files[k]&&files[k].sha===f.sha){nf[k]=files[k];return}
+          const {sha,data}=await readFile(pathOf(k));nf[k]={sha,bets:clean(data&&data.bets)}}));
+        if(me.dead)return;
+        files=nf;rebuild();
+        if(dirty())await saveSettingsNow();  /* a sizing change this browser hasn't saved yet wins */
+        else{const s=await readFile('settings.json');
+          if(!s.data)await saveSettingsNow();
+          else{const n=normSet(s.data);if(JSON.stringify(n)!==JSON.stringify(SET)){SET=n;store.set('bank',SET)}}}
+        me.err=null;me.ready=true;me.last=Date.now();cache();
+        const loc=localStore(),moved=loc.load();  /* bets saved in this browser before sync was set up move in */
+        if(moved.length){await importNow(moved);loc.clear();SMSG={t:`Moved ${moved.length} ${moved.length===1?'bet':'bets'} saved in this browser into ${cfg.r}.`,c:'good'}}
+      }catch(e){me.err=ghErr(e.status||0,e.j)}
+      me.busy=false;if(me.dead)return;
+      setBets(all);renderSync();refreshStakes(true);
+    })},
+    put:(b,prev)=>run(()=>putNow(b,prev)),
+    importMany:L=>run(()=>importNow(L)),
+    patchMany:P=>run(async()=>{const by={};P.forEach(p=>{const k=where[p.id];if(k)(by[k]=by[k]||[]).push(p)});
+      for(const k in by)await change(k,l=>patchIn(l,by[k]),`Grade ${by[k].length} ${by[k].length===1?'bet':'bets'}`)}),
+    remove:id=>run(async()=>{const k=where[id];if(!k)return;const b=all.find(x=>x.id===id);
+      await change(k,l=>l.filter(x=>x.id!==id),'Remove '+(b?betPlain(b):'a bet'))}),
+    saveSettings:()=>run(()=>saveSettingsNow()),
+    forget(){me.dead=true;try{localStorage.removeItem(GHK);localStorage.removeItem(GHC);localStorage.removeItem(SDK)}catch(e){}}};
+  return me;
+}
+const commitMsg=b=>(b.res?(b.man?'Settle ':'Grade '):'Log ')+betPlain(b)+(b.res?` (${RESN[b.res]||b.res})`:` at ${b.book} for ${money(+b.stake||0)}`);
+/* connect this browser to the viewer's repository (bets saved in this browser alone then move in) */
+async function ghConnect(token,repo,fromLink){
+  token=String(token||'').trim();
+  const say=(t,c)=>{SMSG={t,c};renderSync()};
+  if(!/^(github_pat_|ghp_)[A-Za-z0-9_]{20,}$/.test(token)){say('That doesn’t look like a GitHub key. Fine-grained keys start with github_pat_.','bad');return false}
+  say('Checking the key with GitHub…');
+  let full=String(repo||'').trim();
+  if(!/^[A-Za-z0-9-]+\/[A-Za-z0-9._-]+$/.test(full)){
+    const u=await ghApi(token,'/user');if(!u.ok){say(ghErr(u.status,u.j),'bad');return false}
+    full=`${u.j.login}/${full||GHREPO}`}
+  const r=await ghApi(token,`/repos/${full}`);
+  if(!r.ok){say(r.status===404?`GitHub can’t find ${full} with this key. Create it as a private repository, and give the key access to it under Repository access.`:ghErr(r.status,r.j),'bad');return false}
+  if(!r.j.private){say(`${full} is public, so anyone could read your bets. Make it private (its Settings, then Change visibility) and connect again.`,'bad');return false}
+  if(ST.kind==='gh')ST.dead=true;  /* replacing another connection: its queued work stops */
+  try{localStorage.setItem(GHK,JSON.stringify({t:token,r:full}));localStorage.removeItem(GHC)}catch(e){say('This browser won’t save the key (private browsing?). Try a normal window.','bad');return false}
+  ST=ghStore({t:token,r:full});TRACK='gh';SETUP=false;PENDPAIR=null;SMSG=null;
+  await ST.start();
+  if(ST.err){SMSG={t:ST.err,c:'bad'};renderSync();return false}
+  const moved=SMSG&&SMSG.c==='good'?' '+SMSG.t:'';
+  SMSG={t:`${fromLink?'This device is connected':'Connected'}: bets now sync through ${full}.${moved}`,c:'good'};renderSync();
+  return true;
+}
+/* a link that connects another device: the key and repository ride in the address after #, which browsers never send */
+const pairLink=()=>{const c=ghCfg();return c?`${location.origin}${location.pathname}#pair=${c.t}~${c.r}`:''};
+function takePair(){
+  const m=/[#&]pair=([A-Za-z0-9_]+)~([A-Za-z0-9-]+\/[A-Za-z0-9._-]+)/.exec(location.hash||'');
+  if(/pair=/.test(location.hash||''))try{history.replaceState(null,'',location.pathname+location.search)}catch(e){location.hash=''}
+  return m?{t:m[1],r:m[2]}:null;
+}
+let QRL=null;
+const loadQR=()=>QRL||(QRL=new Promise((ok,no)=>{const s=document.createElement('script');
+  s.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js';
+  s.integrity='sha384-8FWZA6BGMXhsfO+BLtrJK0We6gg5o1JyO8xQm6peWDEUs17ACA5ziE/NIAkl9z2k';s.crossOrigin='anonymous';
+  s.onload=()=>window.qrcode?ok(window.qrcode):no();s.onerror=()=>{QRL=null;no()};document.head.appendChild(s)}));
+async function drawQR(){
+  const box=$('#qrbox'),link=pairLink();if(!box||!link)return;
+  try{const q=(await loadQR())(0,'M');q.addData(link);q.make();box.innerHTML=q.createSvgTag({cellSize:4,margin:4,scalable:true,title:'QR code that connects another device'})}
+  catch(e){box.remove()}
+}
+
+/* ---------- the sync card ---------- */
+let SETUP=false,PAIR=false,SMSG=null,UNLINK=false,PENDPAIR=null;
+function pairAskHTML(){
+  const cur=ghCfg(),other=cur&&cur.r!==PENDPAIR.r;
+  return `<div class="pairask"><p><b>Connect this browser to the bet log in <code>${esc(PENDPAIR.r)}</code>?</b> Only use a link you made on your own device: the bets logged here go to that repository.${other?` This replaces this browser’s connection to <code>${esc(cur.r)}</code>.`:''}</p>
+    <div class="acts"><button class="btn sm primary" data-sync="pairyes">Connect</button><button class="btn sm" data-sync="pairno">Not now</button></div></div>`;
+}
+const NEWREPO=`https://github.com/new?name=${GHREPO}&visibility=private&description=${encodeURIComponent('Matchup Edge bet log')}`;
+const NEWKEY=`https://github.com/settings/personal-access-tokens/new?name=${encodeURIComponent('Matchup Edge bets')}&description=${encodeURIComponent('Lets the Matchup Edge site save bets to '+GHREPO)}&expires_in=366&contents=write`;
+const clock=ms=>new Date(ms).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+function setupHTML(again){
+  return `<div class="setup">
+    <ol>
+      ${again?'':`<li><a href="${NEWREPO}" target="_blank" rel="noopener">Create a private repository</a> on GitHub. The link fills in the name <code>${GHREPO}</code> and Private; click <b>Create repository</b>.</li>`}
+      <li><a href="${NEWKEY}" target="_blank" rel="noopener">Make a key</a> for it. The link fills in the name and the one permission it needs. Under <b>Repository access</b>, choose <b>Only select repositories</b> and pick <code>${GHREPO}</code>. Click <b>Generate token</b> and copy the key.</li>
+      <li>Paste the key here and connect. It stays in this browser and is only ever sent to GitHub.</li>
+    </ol>
+    <form class="tok" id="tokf" autocomplete="off"><input id="tok" type="password" placeholder="github_pat_…" aria-label="GitHub key" spellcheck="false" autocapitalize="off"><button class="btn primary" type="submit">Connect</button></form>
+    ${again?'':'<p class="muted sfine">Bets already saved in this browser move into the repository. For your phone, connect this device first, then use “Add a device”.</p>'}
+  </div>`;
+}
+function pairHTML(){
+  return `<div class="pair">
+    <div class="qr" id="qrbox"></div>
+    <div class="pl">
+      <p><b>Add your phone or another computer.</b> Scan the code with the phone’s camera, or send yourself the link and open it there. That device then shares this bet log.</p>
+      <code id="plink">${esc(pairLink())}</code>
+      <div class="acts"><button class="btn sm" data-sync="copy">Copy link</button><button class="btn sm" data-sync="pairoff">Done</button></div>
+      <p class="msg bad">The link carries your key: anyone who opens it can read and change your bet log, so keep it to your own devices.</p>
+    </div></div>`;
+}
+function renderSync(){
+  const el=$('#synccard');if(!el)return;
+  const k0=$('#tok'),keep=k0?k0.value:'',focused=k0&&document.activeElement===k0;
+  renderSync0(el);
+  const k1=$('#tok');if(k1&&keep){k1.value=keep;if(focused)k1.focus()}  /* a re-render keeps the key being typed */
+}
+function renderSync0(el){
+  const msg=SMSG?`<p class="msg ${SMSG.c||''}" role="status">${esc(SMSG.t)}</p>`:'';
+  if(ST.kind==='db'||IN_CLAUDE){
+    el.innerHTML=`<div class="syncbar ${TRACK==='off'?'err':'on'}"><span class="sdot" aria-hidden="true"></span><span>${TRACK==='off'?'Sign in to claude.ai to save bets here.':'Bets save to your claude.ai account and show on every device where you’re signed in. The website keeps a separate log.'}</span></div>`;
+    return}
+  const ask=PENDPAIR?pairAskHTML():'';
+  if(ST.kind==='gh'){
+    const bad=!!ST.err,keyBad=bad&&/key/i.test(ST.err);
+    el.innerHTML=ask+`<div class="syncbar ${bad?'err':'on'}"><span class="sdot" aria-hidden="true"></span>
+      <span>${bad?`<b>Can’t sync right now.</b> ${esc(ST.err)}`:`<b>Synced</b> through your private repository <code>${esc(ST.cfg.r)}</code>${ST.busy?' · checking GitHub…':ST.last?` · updated ${clock(ST.last)}`:''}`}</span>
+      <span class="acts">${UNLINK?`<span class="msg">Disconnect this device? To connect it again you’ll need a key or a link from another device.</span><button class="btn sm" data-sync="unlinkyes">Disconnect</button><button class="btn sm" data-sync="unlinkno">Keep</button>`
+        :`<button class="btn sm" data-sync="now"${ST.busy?' disabled':''}>Sync now</button>${bad?'':'<button class="btn sm" data-sync="pair">Add a device</button>'}<button class="btn sm" data-sync="unlink">Disconnect</button>`}</span></div>
+      ${msg}${keyBad?setupHTML(true):''}${PAIR&&!bad?pairHTML():''}`;
+    if(PAIR&&!bad)drawQR();
+    return}
+  el.innerHTML=ask+`<div class="syncbar local"><span class="sdot" aria-hidden="true"></span>
+    <span><b>Saved in this browser only.</b> Sync keeps one bet log on your phone and computer, stored in a private GitHub repository that only you can see.</span>
+    <span class="acts"><button class="btn sm${SETUP?'':' primary'}" data-sync="setup" aria-expanded="${SETUP}">${SETUP?'Hide setup':'Set up sync'}</button></span></div>
+    ${SETUP?setupHTML(false):''}${msg}`;
+}
+async function syncAct(a){
+  if(a==='setup'){SETUP=!SETUP;SMSG=null;renderSync();if(SETUP)setTimeout(()=>{const t=$('#tok');if(t)t.focus()},0)}
+  else if(a==='now'&&ST.refresh){SMSG=null;await ST.refresh()}
+  else if(a==='pair'){PAIR=!PAIR;renderSync()}
+  else if(a==='pairoff'){PAIR=false;renderSync()}
+  else if(a==='copy'){const l=pairLink();try{await navigator.clipboard.writeText(l);SMSG={t:'Link copied. Open it on your other device.',c:'good'}}catch(e){const c=$('#plink');if(c){const r=document.createRange();r.selectNodeContents(c);const s=getSelection();s.removeAllRanges();s.addRange(r)}SMSG={t:'Copy the selected link by hand.'}}renderSync()}
+  else if(a==='pairyes'){const p=PENDPAIR;if(p)await ghConnect(p.t,p.r,true)}
+  else if(a==='pairno'){PENDPAIR=null;SMSG=null;renderSync()}
+  else if(a==='unlink'){UNLINK=true;renderSync()}
+  else if(a==='unlinkno'){UNLINK=false;renderSync()}
+  else if(a==='unlinkyes'){UNLINK=false;PAIR=false;if(ST.forget)ST.forget();ST=localStore();TRACK='local';SMSG={t:'Disconnected. Your bets are still in the GitHub repository.'};renderSync();setBets(ST.load())}
+}
+
+/* ---------- grading ---------- */
+/* finished games come from the page; the website also keeps an archive of finals, for bets older than that */
+let ARCH=null,ARCH_TRY=false;
+/* by game id; Premier League ids differ between sources, so also by teams within three days (loose: every league) */
+function findRes(lg,gid,home,away,date,loose){
+  const near=r=>r.home===home&&r.away===away&&Math.abs(new Date(r.date)-new Date(date))<=3*864e5,byTeams=loose||lg==='epl';
+  const list=(DATA.recent||{})[lg]||[];
+  let R=list.find(r=>String(r.id)===String(gid))||(byTeams?list.find(near):null);
+  if(!R&&ARCH&&ARCH[lg]){const A=ARCH[lg];R=A[String(gid)]||(byTeams?Object.values(A).find(near):null)}
+  return R||null;
+}
 /* grade a logged bet from the final score, and value it against the fair closing line */
 function gradeBet(bt){
-  const list=(DATA.recent||{})[bt.lg]||[];
-  const R=list.find(r=>String(r.id)===String(bt.gid))||(bt.lg==='epl'?list.find(r=>r.home===bt.home&&r.away===bt.away&&Math.abs(new Date(r.date)-new Date(bt.date))<=3*864e5):null);
-  if(!R)return null;
+  if(bt.kind==='other')return null;
+  const R=findRes(bt.lg,bt.gid,bt.home,bt.away,bt.date);
+  if(!R||R.hs==null||R.as==null)return null;
   if(bt.lg==='epl')return gradeEpl(bt,R);
   const mg=R.hs-R.as,tt=R.hs+R.as;
   const v=bt.mkt==='spread'?(bt.side==='home'?mg-bt.L:bt.L-mg):bt.mkt==='total'?(bt.side==='over'?tt-bt.L:bt.L-tt):(bt.side==='home'?mg:-mg);
@@ -1345,48 +1793,243 @@ function gradeEpl(bt,R){
   const cl=bt.mkt==='spread'?{line:c.sp??null}:bt.mkt==='total'?{line:c.tot??null}:{price:c[k]??null};
   return{res,profit:Math.round(profit*100)/100,clv,cl,fs:`${R.home} ${R.hs}, ${R.away} ${R.as}`};
 }
-const GRADING=new Set();
+let GRADING=false;
 async function gradeAll(){
-  if(!DB)return;
-  for(const bt of BETS){
-    if(bt.res||GRADING.has(bt.id))continue;
-    const r=gradeBet(bt);if(!r)continue;
-    GRADING.add(bt.id);
-    try{await DB.doc(betPath(bt.id)).update({...r,graded:new Date().toISOString()})}catch(e){}
-    GRADING.delete(bt.id);
-  }
+  if(GRADING||!ST.ready)return;
+  const open=BETS.filter(b=>!b.res&&b.kind!=='other');if(!open.length)return;
+  const P=[];open.forEach(b=>{const r=gradeBet(b);if(r)P.push({id:b.id,ifOpen:true,fields:{...r,graded:new Date().toISOString()}})});
+  if(P.length){GRADING=true;try{await ST.patchMany(P)}catch(e){}GRADING=false}
+  const stale=open.filter(b=>!P.some(p=>p.id===b.id)&&Date.parse((b.date||'')+'T12:00:00Z')<Date.now()-864e5);
+  if(stale.length&&!ARCH_TRY&&!IN_CLAUDE){ARCH_TRY=true;
+    try{const r=await fetch('results.json',{cache:'no-cache'});if(r.ok){ARCH=await r.json();setTimeout(gradeAll,0)}}catch(e){}}
 }
+
+/* ---------- settling and editing by hand ---------- */
+const RESN={W:'Won',L:'Lost',P:'Push',HW:'Half won',HL:'Half lost',V:'Void',C:'Cashed out'};
+const BLGS=new Set(['nfl','nba','epl','other']),BMKTS=new Set(['spread','ml','total']),BSIDES=new Set(['home','away','draw','over','under']);
+const numv=v=>v==null||v===''?null:isFinite(+v)?+v:null,strv=(v,n)=>v==null?'':String(v).slice(0,n);
+/* every bet read from any store is rebuilt from known fields of the right type, so nothing stored can break the page
+   or run as markup */
+function cleanBet(b){
+  if(!b||typeof b!=='object'||!/^[A-Za-z0-9_-]{1,40}$/.test(String(b.id||'')))return null;
+  const o={id:String(b.id),lg:BLGS.has(b.lg)?b.lg:'other',date:/^\d{4}-\d{2}-\d{2}$/.test(String(b.date||''))?b.date:'',
+    price:numv(b.price),book:strv(b.book,60),stake:numv(b.stake),placed:strv(b.placed,40)};
+  if(o.price==null||!(Math.abs(o.price)>=100)||!(o.stake>0))return null;
+  if(b.kind==='other'){o.kind='other';o.desc=strv(b.desc,140)}
+  else{if(!BMKTS.has(b.mkt)||!BSIDES.has(b.side))return null;
+    Object.assign(o,{gid:strv(b.gid,40),away:strv(b.away,40),home:strv(b.home,40),mkt:b.mkt,side:b.side,L:numv(b.L)});
+    if(b.mkt!=='ml'&&o.L==null)return null}
+  if(b.res&&RESN[b.res]){o.res=b.res;o.profit=numv(b.profit)??0;if(b.man)o.man=true;if(b.res==='C')o.cash=numv(b.cash)??0;if(b.graded)o.graded=strv(b.graded,40)}
+  if(typeof b.clv==='number'&&isFinite(b.clv))o.clv=b.clv;
+  if(b.cl&&typeof b.cl==='object'){const c={},l=numv(b.cl.line),pr=numv(b.cl.price);if(l!=null)c.line=l;if(pr!=null)c.price=pr;o.cl=c}
+  if(b.fs)o.fs=strv(b.fs,80);
+  return o;
+}
+const mult=(res,price)=>{const d=dec(price)-1;return{W:d,HW:d/2,P:0,V:0,HL:-.5,L:-1}[res]??0};
+const r2=v=>Math.round(v*100)/100;
+function settled(b,res,cash){
+  const o={...b,res,man:true,graded:new Date().toISOString()};
+  if(res==='C')o.cash=r2(cash);else delete o.cash;
+  return recalc(o);
+}
+function reopened(b){const o={...b};['res','profit','clv','cl','fs','graded','man','cash'].forEach(k=>delete o[k]);return o}
+function edited(b,p){
+  let o={...b,...p};
+  if(o.res&&!o.man){const r=gradeBet(o);if(r)o={...o,...r}}  /* a graded bet re-grades at its new line and odds */
+  return recalc(o);
+}
+/* the bet as words: "NYJ ML", "Over 44.5", or what was typed for any other bet */
+const sideLine=b=>b.mkt==='spread'?(b.side==='home'?-b.L:b.L):b.mkt==='total'?b.L:null;
+const betPlain=b=>b.kind==='other'?String(b.desc||'Other bet'):betLabel({lg:b.lg,mkt:b.mkt,side:b.side,team:b.side==='home'?b.home:b.side==='away'?b.away:'Draw',line:sideLine(b)});
+const lgName=lg=>lg==='epl'?'EPL':lg&&lg!=='other'?lg.toUpperCase():'Other';
+const eventTxt=b=>b.kind==='other'?String(b.desc||'Other bet'):b.lg==='epl'?`${b.home} v ${b.away}`:`${b.away} @ ${b.home}`;
+const errText=e=>e&&e.code==='quota_exceeded'?(ST.kind==='db'?'The claude.ai bet log is full. Remove old bets to add more.':'This browser’s storage is full. Remove old bets, or set up sync.'):e&&e.code==='not_ready'?'Still loading your bets. Try again in a moment.':e&&e.status!=null?ghErr(e.status,e.j):'Could not save it. Try again.';
+
+/* ---------- the record: totals, bankroll chart, splits ---------- */
+function statsOf(L){
+  const S0=L.filter(b=>b.res&&b.res!=='V');
+  const w=S0.filter(b=>b.res==='W'||b.res==='HW'||b.res==='C'&&b.profit>0).length,l=S0.filter(b=>b.res==='L'||b.res==='HL'||b.res==='C'&&b.profit<0).length;
+  const staked=S0.reduce((s,b)=>s+(+b.stake||0),0),pl=S0.reduce((s,b)=>s+(+b.profit||0),0),C=S0.filter(b=>typeof b.clv==='number');
+  return{n:S0.length,w,l,p:S0.length-w-l,staked,pl,roi:staked?pl/staked:null,clv:C.length?C.reduce((s,b)=>s+b.clv,0)/C.length:null,cn:C.length,cbeat:C.filter(b=>b.clv>0).length};
+}
+const recTxt=s=>`${s.w}–${s.l}${s.p?'–'+s.p:''}`;
 function renderStats(){
-  const G=BETS.filter(b=>b.res),n=r=>G.filter(b=>b.res===r||b.res==='H'+r).length,open=BETS.filter(b=>!b.res);
-  const staked=G.reduce((s,b)=>s+(+b.stake||0),0),pl=G.reduce((s,b)=>s+(+b.profit||0),0),C=G.filter(b=>typeof b.clv==='number');
-  const avg=C.length?C.reduce((s,b)=>s+b.clv,0)/C.length:null,risk=open.reduce((s,b)=>s+(+b.stake||0),0);
+  const el=$('#stats');if(!el)return;
+  const open=BETS.filter(b=>!b.res),s=statsOf(BETS),risk=open.reduce((t,b)=>t+(+b.stake||0),0);
   $('#betswk').textContent=open.length?`${open.length} open`:'';
-  if(!BETS.length){$('#stats').innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to track bets.':'No bets yet. Log a bet from any pick, or with the form below.'}</p>`;return}
-  $('#stats').innerHTML=[
-    ['Record',`${n('W')}–${n('L')}${n('P')?'–'+n('P'):''}`,G.length?`${G.length} graded`:'none graded yet'],
-    ['Profit',G.length?money(pl):'–',staked?`${sg(pl/staked*100)}% on ${money(staked)} staked`:''],
-    ['Closing-line value',avg==null?'–':sg(avg*100)+'%',C.length?`beat the close on ${C.filter(b=>b.clv>0).length} of ${C.length}`:'after games are graded'],
-    ['Open bets',String(open.length),open.length?`${money(risk)} at risk`:'']
-  ].map(([k,v,s])=>`<div class="stat"><small>${k}</small><b class="num">${v}</b><small>${s}</small></div>`).join('');
+  if(!BETS.length){el.innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to save bets.':'No bets yet. Log one with “Log bet” on any pick, or with the form below.'}</p>`;$('#chart').hidden=true;$('#brkwrap').hidden=true;return}
+  /* four tiles: with a bankroll, the open bets move into the record tile to make room for it */
+  const openTxt=open.length?`${open.length} open, ${money(risk)} at risk`:'none open';
+  const T=[['Record',s.n?recTxt(s):'–',(s.n?`${s.n} settled`:'none settled yet')+(SET.bank>0?` · ${openTxt}`:'')],
+    ['Profit',s.n?money(s.pl):'–',s.staked?`${sg(s.roi*100)}% return on ${money(s.staked)}`:'once bets settle'],
+    SET.bank>0?['Bankroll',money(bankNow()),`started at ${money(SET.bank)}`]:['Open bets',String(open.length),open.length?`${money(risk)} at risk`:'none open'],
+    ['Closing-line value',s.clv==null?'–':sg(s.clv*100)+'%',s.cn?`beat the close on ${s.cbeat} of ${s.cn}`:'shows once games are graded']];
+  el.innerHTML=T.map(([k,v,t])=>`<div class="stat"><small>${k}</small><b class="num">${v}</b><small>${t}</small></div>`).join('');
+  renderChart();renderBreak();
+}
+let BRK=store.get('brk','lg');
+const MKTN={spread:'Spread',ml:'Moneyline',total:'Total'};
+function groupOf(b,by){
+  if(by==='lg')return b.lg==='epl'?['2','Premier League']:b.lg==='nfl'?['0','NFL']:b.lg==='nba'?['1','NBA']:['3','Other'];
+  if(by==='mkt')return b.kind==='other'?['3','Other bets']:[String(['spread','ml','total'].indexOf(b.mkt)),MKTN[b.mkt]||'Other bets'];
+  if(by==='book')return[b.book||'Other',b.book||'Other'];
+  const m=String(b.date||b.placed||'').slice(0,7);return[m,/^\d{4}-\d{2}$/.test(m)?new Date(m+'-15T12:00:00').toLocaleDateString('en-US',{month:'short',year:'numeric'}):'Undated'];
+}
+function renderBreak(){
+  const S0=BETS.filter(b=>b.res&&b.res!=='V'),wrap=$('#brkwrap');wrap.hidden=!S0.length;if(!S0.length)return;
+  document.querySelectorAll('[data-brk]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.brk===BRK));
+  const G=new Map();S0.forEach(b=>{const [k,lab]=groupOf(b,BRK);if(!G.has(k))G.set(k,{lab,L:[]});G.get(k).L.push(b)});
+  const rows=[...G.entries()].map(([k,{lab,L}])=>({k,lab,s:statsOf(L)}));
+  rows.sort(BRK==='mo'?(a,b)=>b.k.localeCompare(a.k):BRK==='book'?(a,b)=>b.s.n-a.s.n||a.lab.localeCompare(b.lab):(a,b)=>a.k.localeCompare(b.k));
+  $('#brk').innerHTML=`<table class="brkt"><thead><tr><th scope="col">${{lg:'League',mkt:'Bet type',book:'Book',mo:'Month'}[BRK]}</th><th scope="col" class="r">Bets</th><th scope="col" class="r">Record</th><th scope="col" class="r">Staked</th><th scope="col" class="r">Profit</th><th scope="col" class="r">Return</th><th scope="col" class="r">CLV</th></tr></thead>
+    <tbody>${rows.map(({lab,s})=>`<tr><th scope="row">${esc(lab)}</th><td class="num r">${s.n}</td><td class="num r">${recTxt(s)}</td><td class="num r">${money(s.staked)}</td><td class="num r ${s.pl>0?'pos':s.pl<0?'neg':''}">${money(s.pl)}</td><td class="num r">${s.roi==null?'–':sg(s.roi*100)+'%'}</td><td class="num r">${s.clv==null?'–':sg(s.clv*100)+'%'}</td></tr>`).join('')}</tbody></table>`;
+}
+/* the bankroll (or profit, without one) at the end of each day with settled bets; one line, a crosshair to read it */
+function niceTicks(lo,hi,n){
+  if(hi-lo<1e-9){lo-=1;hi+=1}
+  const raw=(hi-lo)/n,p=Math.pow(10,Math.floor(Math.log10(raw))),m=raw/p,st=(m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p,t=[];
+  for(let v=Math.floor(lo/st)*st;v<=hi+st*.5;v+=st)t.push(Math.round(v*100)/100);
+  return t;
+}
+function renderChart(){
+  const el=$('#chart');if(!el)return;
+  const S0=BETS.filter(b=>b.res&&b.res!=='V'),days=new Map();
+  S0.forEach(b=>{const d=String(b.date||b.placed||'').slice(0,10);if(/^\d{4}-\d{2}-\d{2}$/.test(d))days.set(d,(days.get(d)||0)+(+b.profit||0))});
+  const D=[...days.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+  if(D.length<2){el.hidden=true;el.innerHTML='';return}
+  el.hidden=false;
+  if($('#bets').hidden)return;  /* drawn when the tab opens, at its real width */
+  const W=Math.max(280,Math.round(el.clientWidth||600)),H=W<520?170:200;
+  const bank=SET.bank>0,base=bank?SET.bank:0,day=t=>Date.parse(t+'T12:00:00Z');
+  let cum=base;const P=D.map(([d,ch])=>({t:day(d),d,ch,v:r2(cum+=ch)}));
+  P.unshift({t:P[0].t-864e5,d:null,ch:0,v:base});
+  const vs=P.map(p=>p.v),ticks=niceTicks(Math.min(...vs,base),Math.max(...vs,base),H<200?3:4);
+  const lab=v=>bank?money(v):(v>0?'+':'')+money(v);
+  const L=12+Math.max(...ticks.map(v=>lab(v).length))*7,R=12,T=10,B=24;
+  const x=t=>L+(t-P[0].t)/(P[P.length-1].t-P[0].t)*(W-L-R),y=v=>T+(ticks[ticks.length-1]-v)/(ticks[ticks.length-1]-ticks[0])*(H-T-B);
+  const line=P.map((p,i)=>(i?'L':'M')+x(p.t).toFixed(1)+','+y(p.v).toFixed(1)).join('');
+  const area=line+`L${x(P[P.length-1].t).toFixed(1)},${y(base).toFixed(1)}L${x(P[0].t).toFixed(1)},${y(base).toFixed(1)}Z`;
+  const fd=t=>new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'});
+  const last=P[P.length-1];
+  el.innerHTML=`<p class="chh">${bank?'Bankroll':'Profit'} over time<small>${bank?`${money(base)} start, ${money(last.v)} now`:`${lab(last.v)} across ${D.length} days with settled bets`}</small></p>
+    <div class="chw"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" tabindex="0" aria-label="${bank?'Bankroll':'Profit'} over time: ${esc(lab(base))} at the start, ${esc(lab(last.v))} after ${fd(last.t)}. Use the arrow keys to read each day.">
+      <g class="grid">${ticks.map(v=>`<line x1="${L}" x2="${W-R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}"/>`).join('')}</g>
+      <g class="ax">${ticks.map(v=>`<text x="${L-6}" y="${(y(v)+4).toFixed(1)}" text-anchor="end">${lab(v)}</text>`).join('')}
+        <text x="${L}" y="${H-6}" text-anchor="start">${fd(P[0].t)}</text><text x="${W-R}" y="${H-6}" text-anchor="end">${fd(last.t)}</text></g>
+      <line class="base" x1="${L}" x2="${W-R}" y1="${y(base).toFixed(1)}" y2="${y(base).toFixed(1)}"/>
+      <path class="ar" d="${area}"/><path class="ln" d="${line}"/>
+      <line class="cross" x1="0" x2="0" y1="${T}" y2="${H-B}" visibility="hidden"/><circle class="dot" r="4" cx="0" cy="0" visibility="hidden"/>
+      <rect class="hit" x="${L}" y="0" width="${W-L-R}" height="${H}" fill="transparent"/>
+    </svg><div class="tip" hidden><b></b><span></span></div></div>`;
+  const svg=el.querySelector('svg'),cr=svg.querySelector('.cross'),dot=svg.querySelector('.dot'),tip=el.querySelector('.tip');
+  let cur=-1;
+  const show=i=>{cur=i;const p=P[i],px=x(p.t),py=y(p.v);
+    cr.setAttribute('x1',px);cr.setAttribute('x2',px);cr.setAttribute('visibility','visible');dot.setAttribute('cx',px);dot.setAttribute('cy',py);dot.setAttribute('visibility','visible');
+    tip.querySelector('b').textContent=lab(p.v);tip.querySelector('span').textContent=p.d?`${fd(p.t)} · ${p.ch>=0?'+':MINUS}${money(Math.abs(p.ch))} that day`:'Start';
+    tip.hidden=false;const sc=svg.getBoundingClientRect().width/W,tw=tip.offsetWidth;
+    tip.style.left=Math.min(Math.max(px*sc-tw/2,0),svg.getBoundingClientRect().width-tw)+'px';tip.style.top=Math.max(py*sc-tip.offsetHeight-10,0)+'px'};
+  const hide=()=>{cur=-1;cr.setAttribute('visibility','hidden');dot.setAttribute('visibility','hidden');tip.hidden=true};
+  svg.addEventListener('pointermove',e=>{const r=svg.getBoundingClientRect(),px=(e.clientX-r.left)*W/r.width;let bi=0,bd=Infinity;P.forEach((p,i)=>{const d=Math.abs(x(p.t)-px);if(d<bd){bd=d;bi=i}});show(bi)});
+  svg.addEventListener('pointerleave',hide);svg.addEventListener('blur',hide);
+  svg.addEventListener('focus',()=>show(P.length-1));
+  svg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(Math.min(P.length-1,Math.max(0,(cur<0?P.length-1:cur)+(e.key==='ArrowLeft'?-1:1))))}});
+}
+
+/* ---------- the bet list ---------- */
+let BF=store.get('bf','all'),BOPEN=null,RMV=null,MMSG=null,BSHOW=40;
+function closeTxt(b){
+  const cl=b.cl||{},ep=b.lg==='epl';
+  const hl=sp=>{const l=b.side==='home'?-sp:sp;return `${esc(b.side==='home'?b.home:b.away)} ${l===0?'0':(l>0?'+':MINUS)+lnq(Math.abs(l))}`};
+  return b.mkt==='spread'?(cl.line!=null?`closed ${ep?hl(cl.line):esc(favLine(b,cl.line))}`:''):b.mkt==='total'?(cl.line!=null?`closed ${lnq(cl.line)}`:''):(cl.price!=null?`closed ${odds(cl.price)}`:'');
+}
+function betRow(b){
+  const oth=b.kind==='other',on=BOPEN===b.id,ct=oth?'':closeTxt(b);
+  const res=b.res?`<span class="res ${b.res}">${RESN[b.res]||esc(b.res)}</span>`:'<span class="res open">Open</span>';
+  return `<div class="brow2${on?' on':''}">
+    <span>${fmtDate(b.date)}<small>${lgName(b.lg)}</small></span>
+    <span><b>${esc(oth?'Other bet':eventTxt(b))}</b><small>${b.fs?esc(b.fs):oth?(b.res?'settled by hand':'settle it by hand once it’s decided'):'not graded yet'}</small></span>
+    <span class="bx"><b>${esc(betPlain(b))}</b> <span class="num">${odds(b.price)}</span><small>${esc(b.book)} · ${money(+b.stake||0)}</small></span>
+    ${res}
+    <span class="num">${b.res?money(+b.profit||0):''}<small>${typeof b.clv==='number'?`CLV ${sg(b.clv*100)}%`:''}${ct?(typeof b.clv==='number'?' · ':'')+ct:''}</small></span>
+    <button class="btn sm" data-man="${esc(b.id)}" aria-expanded="${on}">${on?'Close':'Manage'}</button>
+    ${on?manPanel(b):''}</div>`;
+}
+function manPanel(b){
+  const oth=b.kind==='other',m=MMSG&&MMSG.id===b.id?MMSG:null;
+  const books=[...new Set([...ALLB,'Other',b.book].filter(Boolean))];
+  const ln=sideLine(b);
+  return `<div class="bman" data-for="${esc(b.id)}">
+    <div class="mpart"><span class="lbl">Result</span>
+      <div class="rbtns">${['W','L','P','V'].map(r=>`<button type="button" class="btn sm" data-set="${r}" aria-pressed="${b.res===r}">${RESN[r]}</button>`).join('')}
+        <span class="cash"><span class="dollar"><input type="number" min="0" step="0.01" inputmode="decimal" id="m-cash" aria-label="Amount the book paid for the cash-out" placeholder="paid" value="${b.res==='C'?b.cash:''}"></span><button type="button" class="btn sm" data-set="C" aria-pressed="${b.res==='C'}">Cashed out</button></span>
+        ${b.res?`<button type="button" class="btn sm" data-set="open">${oth||b.man?'Reopen':'Grade again'}</button>`:''}</div>
+      <small class="muted">${oth?'Set the result once the bet is decided.':'Game bets grade themselves from the final score. Set a result only to override it: a void, a cash-out, or the book’s own ruling.'}</small></div>
+    <div class="mpart eform">
+      ${oth?`<label class="wide">What you bet <input id="m-desc" type="text" maxlength="140" value="${esc(b.desc||'')}"></label>`:''}
+      ${!oth&&b.mkt!=='ml'?`<label>Line <input id="m-line" type="number" step="${b.lg==='epl'?'0.25':'0.5'}" inputmode="decimal" value="${ln}"></label>`:''}
+      <label>Odds <input id="m-price" type="number" step="1" inputmode="numeric" value="${b.price}"></label>
+      <label>Book <select id="m-book">${books.map(t=>`<option${t===b.book?' selected':''}>${esc(t)}</option>`).join('')}</select></label>
+      <label>Stake <span class="dollar"><input id="m-stake" type="number" min="0" step="1" inputmode="decimal" value="${b.stake}"></span></label>
+      <button type="button" class="btn sm primary" data-act="save">Save changes</button></div>
+    <div class="mpart mfoot"><span id="m-msg" class="msg ${m?m.c||'':''}" role="status">${m?esc(m.t):''}</span>
+      <span class="acts">${RMV===b.id?'<span class="msg bad">Remove this bet for good?</span><button type="button" class="btn sm danger" data-act="rmyes">Remove</button><button type="button" class="btn sm" data-act="rmno">Keep it</button>':'<button type="button" class="btn sm" data-act="rm">Remove bet</button>'}</span></div>
+  </div>`;
 }
 function renderBetList(){
-  const el=$('#betlist');
+  const el=$('#betlist');if(!el)return;
+  document.querySelectorAll('[data-bf]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.bf===BF));
+  const csv=$('#csv');if(csv)csv.hidden=IN_CLAUDE||!BETS.length;
   if(!BETS.length){el.innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to save bets.':'Nothing logged yet. Use “Log bet” on any pick, or the form above.'}</p>`;return}
-  el.innerHTML=BETS.map(b=>{
-    const ep=b.lg==='epl',lab=betLabel({lg:b.lg,mkt:b.mkt,side:b.side,team:b.side==='home'?b.home:b.side==='away'?b.away:'Draw',line:b.mkt==='spread'?(b.side==='home'?-b.L:b.L):b.mkt==='total'?b.L:null});
-    const res=b.res?`<span class="res ${b.res}">${{W:'Won',L:'Lost',P:'Push',HW:'Half won',HL:'Half lost'}[b.res]||esc(b.res)}</span>`:'<span class="res open">Open</span>';
-    const hl=sp=>{const l=b.side==='home'?-sp:sp;return `${esc(b.side==='home'?b.home:b.away)} ${l===0?'0':(l>0?'+':MINUS)+lnq(Math.abs(l))}`};  /* the closing handicap on the side that was bet */
-    const cl=b.cl||{},clT=b.mkt==='spread'?(cl.line!=null?`closed ${ep?hl(cl.line):favLine(b,cl.line)}`:''):b.mkt==='total'?(cl.line!=null?`closed ${lnq(cl.line)}`:''):(cl.price!=null?`closed ${odds(cl.price)}`:'');
-    return `<div class="brow2"><span>${fmtDate(b.date)}<small>${esc(String(b.lg).toUpperCase())}</small></span>
-      <span><b>${ep?`${esc(b.home)} v ${esc(b.away)}`:`${esc(b.away)} @ ${esc(b.home)}`}</b><small>${b.fs?esc(b.fs):'not graded yet'}</small></span>
-      <span class="bx"><b>${lab}</b> <span class="num">${odds(b.price)}</span><small>${esc(b.book)} · ${money(+b.stake||0)}</small></span>
-      ${res}
-      <span class="num">${b.res?money(+b.profit||0):''}<small>${typeof b.clv==='number'?`CLV ${sg(b.clv*100)}%`:''}${clT?(typeof b.clv==='number'?' · ':'')+clT:''}</small></span>
-      <button class="btn sm" data-del="${esc(b.id)}">Remove</button></div>`}).join('');
+  const L=BETS.filter(b=>BF==='open'?!b.res:BF==='settled'?!!b.res:true);
+  if(!L.length){el.innerHTML=`<p class="muted">${BF==='open'?'No open bets.':'No settled bets yet.'}</p>`;return}
+  el.innerHTML=L.slice(0,BSHOW).map(betRow).join('')+(L.length>BSHOW?`<p><button class="btn sm" id="bmore">Show ${Math.min(40,L.length-BSHOW)} more of ${L.length-BSHOW}</button></p>`:'');
 }
 function renderBets(){renderStats();renderBetList();renderRecord()}
+async function commitBet(o,okText,prev){
+  MMSG={id:o.id,t:'Saving…'};const m=$('#m-msg');if(m){m.textContent='Saving…';m.className='msg'}
+  try{await ST.put(o,prev);MMSG={id:o.id,t:okText||'Saved.',c:'good'}}catch(e){MMSG={id:o.id,t:errText(e),c:'bad'}}
+  renderBetList();
+}
+async function manSet(btn){
+  const id=btn.closest('.bman').dataset.for,b=BETS.find(x=>x.id===id);if(!b)return;const r=btn.dataset.set;
+  if(r==='open')return commitBet(reopened(b),b.kind==='other'||b.man?'Reopened.':'Grading it again from the final score.',b);
+  if(r==='C'){const c=parseFloat($('#m-cash').value);if(!(c>=0)){MMSG={id,t:'Enter what the book paid for the cash-out first.',c:'bad'};renderBetList();const i=$('#m-cash');if(i)i.focus();return}
+    return commitBet(settled(b,'C',c),`Settled: cashed out for ${money(c)}.`,b)}
+  return commitBet(settled(b,r),`Settled: ${RESN[r].toLowerCase()}.`,b);
+}
+async function manAct(btn){
+  const id=btn.closest('.bman').dataset.for,b=BETS.find(x=>x.id===id);if(!b)return;const a=btn.dataset.act;
+  if(a==='rm'){RMV=id;renderBetList();return}
+  if(a==='rmno'){RMV=null;renderBetList();return}
+  if(a==='rmyes'){MMSG={id,t:'Removing…'};renderBetList();try{await ST.remove(id);BOPEN=null;RMV=null;MMSG=null}catch(e){RMV=null;MMSG={id,t:errText(e),c:'bad'}}renderBetList();return}
+  if(a==='save'){
+    const price=parseOdds($('#m-price').value),stake=parseFloat($('#m-stake').value),p={price,stake,book:$('#m-book').value};
+    if(!isFinite(price)||!(stake>0)){MMSG={id,t:'Check the odds (like −110, +150 or 1.91) and the stake.',c:'bad'};renderBetList();return}
+    if(b.kind==='other'){const d=$('#m-desc').value.trim();if(!d){MMSG={id,t:'Say what you bet.',c:'bad'};renderBetList();return}p.desc=d.slice(0,140)}
+    else if(b.mkt!=='ml'){const line=parseFloat($('#m-line').value);if(!isFinite(line)){MMSG={id,t:'Check the line.',c:'bad'};renderBetList();return}p.L=b.mkt==='spread'?(b.side==='home'?-line:line):line}
+    return commitBet(edited(b,p),'Changes saved.',b);
+  }
+}
+/* every bet as a spreadsheet file (the website only: the claude.ai copy can't hand out files) */
+function exportCSV(){
+  const q=v=>{const s=String(v==null?'':v);return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
+  const head=['Placed','Date','League','Event','Bet','Line','Odds','Book','Stake','Result','Profit','Closing-line value','Close','Final score'];
+  const rows=BETS.map(b=>{const oth=b.kind==='other',ln=oth?'':sideLine(b);
+    return[String(b.placed||'').slice(0,16).replace('T',' '),b.date||'',lgName(b.lg),oth?'':eventTxt(b),betPlain(b),ln==null?'':ln,b.price,b.book,b.stake,b.res?RESN[b.res]:'Open',b.res?b.profit:'',typeof b.clv==='number'?(b.clv*100).toFixed(1)+'%':'',oth?'':closeTxt(b).replace(/^closed /,''),b.fs||'']});
+  const csv='﻿'+[head,...rows].map(r=>r.map(q).join(',')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download=`matchup-edge-bets-${todayCT()}.csv`;
+  document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
+}
 
-/* the log form: upcoming games with lines, plus games finished in the last few weeks */
+/* ---------- the log form: a game on the page (upcoming or finished in the last few weeks), or anything else ---------- */
+let LGK=store.get('lgk','game')==='other'?'other':'game';
+function setKind(k){
+  LGK=k==='other'?'other':'game';store.set('lgk',LGK);
+  document.querySelectorAll('[data-kind]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.kind===LGK));
+  document.querySelectorAll('#logf .g').forEach(e=>{e.hidden=LGK!=='game'});document.querySelectorAll('#logf .o').forEach(e=>{e.hidden=LGK!=='other'});
+  $('#lg-game').required=LGK==='game';$('#lg-desc').required=LGK==='other';
+  if(LGK==='other'&&!$('#lg-date').value)$('#lg-date').value=todayCT();
+}
 function renderForm(){
   const up=[...(NFL?NFL.games:[]).map(g=>({lg:'nfl',g,final:false})),...(NBA?NBA.games.filter(g=>g.mkt):[]).map(g=>({lg:'nba',g,final:false})),...(EPL?EPL.games:[]).map(g=>({lg:'epl',g,final:false}))];
   const rc=['nfl','nba','epl'].flatMap(lg=>((DATA.recent||{})[lg]||[]).slice().reverse().map(r=>({lg,g:r,final:true})));
@@ -1407,52 +2050,56 @@ function fillLine(){const e=FG[+$('#lg-game').value];if(!e)return;const [m,s]=$(
   else if(m==='total'){li.value=c.tot??'';pr.value=(s==='over'?c.ov:c.un)??''}
   else{li.value='';pr.value=(s==='home'?c.mlH:s==='draw'?c.mlD:c.mlA)??''}}
 function prefill(o){
-  setTab('bets');
+  setTab('bets');setKind('game');
   const i=FG.findIndex(e=>e.lg===o.lg&&String(e.g.id)===String(o.gid));if(i<0)return;
   $('#lg-game').value=String(i);fillBetOpts();$('#lg-bet').value=o.mkt+'|'+o.side;fillLine();
   if(o.mkt!=='ml')$('#lg-line').value=o.line;$('#lg-price').value=o.price;
-  $('#lg-book').value=ALLB.includes(o.book)?o.book:'Other';$('#lg-stake').value=o.stake||'';$('#lg-msg').textContent='';
+  $('#lg-book').value=ALLB.includes(o.book)?o.book:'Other';$('#lg-stake').value=o.stake||'';const m=$('#lg-msg');m.textContent='';m.className='msg';
   $('#logcard').scrollIntoView({behavior:'smooth',block:'start'});$('#lg-stake').focus({preventScroll:true});
 }
+/* American odds (−110, +150), or decimal (1.91, 2.50) turned into American */
+function parseOdds(v){const x=parseFloat(String(v).replace(MINUS,'-'));if(!isFinite(x))return NaN;if(Math.abs(x)>=100)return Math.round(x);if(x>1&&x<100)return Math.round(x>=2?(x-1)*100:-100/(x-1));return NaN}
+let LASTFAIL=null;
 async function saveBet(ev){
-  ev.preventDefault();const msg=$('#lg-msg');
-  if(!DB){msg.textContent='Sign in to claude.ai to save bets.';return}
-  const e=FG[+$('#lg-game').value],[mkt,side]=$('#lg-bet').value.split('|');
-  const price=parseFloat($('#lg-price').value),stake=parseFloat($('#lg-stake').value),line=parseFloat($('#lg-line').value);
-  if(!e||!mkt||!isFinite(price)||Math.abs(price)<100||!(stake>0)||(mkt!=='ml'&&!isFinite(line))){msg.textContent='Check the line, the odds (like −110 or +150) and the stake.';return}
-  const g=e.g,L=mkt==='spread'?(side==='home'?-line:line):mkt==='total'?line:null;
-  const bet={lg:e.lg,gid:String(g.id),date:g.date,away:g.away,home:g.home,mkt,side,L,price,book:$('#lg-book').value,stake,placed:new Date().toISOString()};
-  $('#lg-save').disabled=true;
-  try{await DB.doc(`data/users/${UID}/profile`).collection('bets').add(bet);msg.textContent='Saved.';$('#lg-stake').value=''}
-  catch(err){msg.textContent=err&&err.code==='quota_exceeded'?'The tracker is full. Remove old bets to add more.':'Could not save it. Try again.'}
+  ev.preventDefault();const msg=$('#lg-msg');const bad=t=>{msg.textContent=t;msg.className='msg bad'};
+  const price=parseOdds($('#lg-price').value),stake=parseFloat($('#lg-stake').value),book=$('#lg-book').value,placed=new Date().toISOString();
+  if(!isFinite(price)||!(stake>0))return bad('Check the odds (like −110, +150 or 1.91) and the stake.');
+  let bet;
+  if(LGK==='other'){const desc=$('#lg-desc').value.trim();if(!desc)return bad('Say what you bet, for example “Chiefs and Bills parlay”.');
+    bet={id:newId(),kind:'other',lg:$('#lg-lg').value,date:$('#lg-date').value||todayCT(),desc:desc.slice(0,140),price,book,stake,placed}}
+  else{const e=FG[+$('#lg-game').value],[mkt,side]=$('#lg-bet').value.split('|'),line=parseFloat($('#lg-line').value);
+    if(!e||!mkt||(mkt!=='ml'&&!isFinite(line)))return bad('Pick the game and the bet, and check the line.');
+    const g=e.g,L=mkt==='spread'?(side==='home'?-line:line):mkt==='total'?line:null;
+    bet={id:newId(),lg:e.lg,gid:String(g.id),date:g.date,away:g.away,home:g.home,mkt,side,L,price,book,stake,placed}}
+  const sig=JSON.stringify({...bet,id:0,placed:0});
+  if(LASTFAIL&&LASTFAIL.sig===sig){bet.id=LASTFAIL.id;bet.placed=LASTFAIL.placed}
+  $('#lg-save').disabled=true;msg.textContent='Saving…';msg.className='msg';
+  try{await ST.put(bet);LASTFAIL=null;msg.textContent=`Saved: ${betPlain(bet)} ${odds(price)}, ${money(stake)}.`;msg.className='msg good';$('#lg-stake').value='';if(LGK==='other')$('#lg-desc').value=''}
+  catch(err){LASTFAIL={sig,id:bet.id,placed:bet.placed};bad(errText(err))}
   $('#lg-save').disabled=false;
 }
-async function delBet(id){if(!DB)return;try{await DB.doc(betPath(id)).delete()}catch(e){}}
 
-/* settings */
-function fillSettings(){const bk=$('#bk');if(document.activeElement!==bk)bk.value=SET.bank>0?SET.bank:'';$('#kf').value=String(SET.kf);$('#kc').value=String(SET.kc)}
-let saveT=null;
-function saveSettings(){
-  store.set('bank',SET);renderList();renderNBA();renderEPL();
-  if(!DB)return;clearTimeout(saveT);
-  saveT=setTimeout(async()=>{try{await DB.doc(`data/users/${UID}/profile`).set({bank:SET.bank,kf:SET.kf,kc:SET.kc})}catch(e){}},700);
-}
-/* the viewer's private data: settings and bets under data/users/<id>/ */
+/* ---------- starting up: which store this page uses ---------- */
 async function startTracker(){
   let db=null,user=null,uid=null;
-  try{if(window.claude&&window.claude.use){[db,user]=await Promise.all([window.claude.use('db'),window.claude.use('user')]);uid=user?await user.id():null}}catch(e){}
+  try{if(IN_CLAUDE){[db,user]=await Promise.all([window.claude.use('db'),window.claude.use('user')]);uid=user?await user.id():null}}catch(e){}
   if(db){try{db.collection('scout').onSnapshot(q=>{const o={};q.docs.forEach(d=>{o[d.id]=d.data()});const m=o._meta||null;delete o._meta;if(Object.keys(o).length){SCOUT=o;SCOUT_META=m;renderAll()}},()=>{})}catch(e){}}
-  if(!db||!uid){localTracker();return}
-  DB=db;UID=uid;TRACK='on';
-  try{OWNER=!!(user&&await user.isOwner())}catch(e){OWNER=false}
-  try{db.collection('picks').orderBy('ko','desc').limit(1000).onSnapshot(q=>{const o={};q.docs.forEach(d=>{o[d.id]=d.data()});PICKS=o;renderRecord();clearTimeout(PKT);PKT=setTimeout(syncPicks,1500)},()=>{})}catch(e){}
-  const prof=db.doc(`data/users/${uid}/profile`);
-  prof.onSnapshot(s=>{const d=s.exists?s.data():null;if(!d)return;
-    const n={bank:+d.bank||0,kf:+d.kf||.25,kc:+d.kc||.02};
-    if(JSON.stringify(n)!==JSON.stringify(SET)){SET=n;store.set('bank',SET);fillSettings();renderList();renderNBA();renderEPL()}},()=>{});
-  prof.collection('bets').orderBy('placed','desc').limit(500).onSnapshot(q=>{BETS=q.docs.map(d=>({id:d.id,...d.data()}));renderBets();setTimeout(gradeAll,0)},
-    ()=>{TRACK='off';$('#betsoff').hidden=false;renderBets()});
+  if(db&&uid){
+    DB=db;UID=uid;TRACK='on';
+    try{OWNER=!!(user&&await user.isOwner())}catch(e){OWNER=false}
+    try{db.collection('picks').orderBy('ko','desc').limit(1000).onSnapshot(q=>{const o={};q.docs.forEach(d=>{o[d.id]=d.data()});PICKS=o;renderRecord();clearTimeout(PKT);PKT=setTimeout(syncPicks,1500)},()=>{})}catch(e){}
+    ST=dbStore(db,uid);renderSync();ST.start();return;
+  }
+  if(IN_CLAUDE){ST=localStore();TRACK='off';renderSync();setBets(ST.load());return}
+  /* the website: GitHub sync once connected (or opened from another device's link), this browser until then */
+  const pr=takePair(),cfg=ghCfg();
+  if(pr&&!(cfg&&cfg.t===pr.t&&cfg.r===pr.r)){PENDPAIR=pr;setTab('bets')}
+  if(cfg){ST=ghStore(cfg);TRACK='gh';await ST.start();return}
+  ST=localStore();TRACK='local';renderSync();setBets(ST.load());
 }
+/* a link pasted into a tab that already has the site open arrives as a change of the address after # */
+window.addEventListener('hashchange',()=>{if(IN_CLAUDE)return;const pr=takePair(),cfg=ghCfg();if(pr&&!(cfg&&cfg.t===pr.t&&cfg.r===pr.r)){PENDPAIR=pr;setTab('bets');renderSync()}});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&ST.kind==='gh'&&!ST.busy&&Date.now()-(ST.last||0)>60e3)ST.refresh()});
 
 
 /* ---------- the page's own record: our call and both styles' best bets, saved before kickoff ---------- */
@@ -1487,8 +2134,7 @@ async function syncPicks(){
   PK_BUSY=false;
 }
 function gradePick(o){
-  const list=(DATA.recent||{})[o.lg]||[];
-  const R=list.find(r=>String(r.id)===String(o.gid))||list.find(r=>r.home===o.home&&r.away===o.away&&Math.abs(new Date(r.date)-new Date(o.date))<=3*864e5);
+  const R=findRes(o.lg,o.gid,o.home,o.away,o.date,true);
   if(!R)return null;
   const mg=R.hs-R.as,won=s=>s==='home'?mg>0:s==='away'?mg<0:mg===0;
   const bet=b=>{if(!b)return null;const r=gradeBet({lg:o.lg,gid:String(R.id),home:o.home,away:o.away,date:o.date,mkt:b.mkt,side:b.side,L:b.L,price:b.price,stake:1});return r?{res:r.res,profit:r.profit,clv:r.clv}:null};
@@ -1505,7 +2151,7 @@ function renderRecord(){
 }
 
 /* ---------- tabs, controls, events ---------- */
-function setTab(t){S.tab=t;store.set('tab',t);document.querySelectorAll('[role=tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));['nfl','nba','epl','bets'].forEach(k=>{$('#'+k).hidden=t!==k});$('#stylebar').hidden=t==='bets';$('#bookmenu').open=false}
+function setTab(t){S.tab=t;store.set('tab',t);document.querySelectorAll('[role=tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));['nfl','nba','epl','bets'].forEach(k=>{$('#'+k).hidden=t!==k});$('#stylebar').hidden=t==='bets';$('#bookmenu').open=false;if(t==='bets')renderChart()}
 const calm=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}};
 /* from a board row to its game: show it even if the list is filtered, scroll to it, and flash it */
 function jump(id){
@@ -1534,12 +2180,25 @@ document.addEventListener('click',e=>{
   else if(b.dataset.books)setBooks(b.dataset.books==='all'?ALLB.slice():DEFB());
   else if(b.dataset.bets){S.bets=b.dataset.bets==='ours'?'ours':'tested';store.set('bets',S.bets);renderAll()}
   else if(b.dataset.log){try{prefill(JSON.parse(b.dataset.log))}catch(err){}}
-  else if(b.dataset.del)delBet(b.dataset.del);
+  else if(b.dataset.man){const id=b.dataset.man;BOPEN=BOPEN===id?null:id;RMV=null;MMSG=null;renderBetList();
+    if(BOPEN){const p=document.querySelector('.bman');if(p)p.scrollIntoView({block:'nearest',behavior:calm()?'auto':'smooth'})}}
+  else if(b.dataset.set)manSet(b);
+  else if(b.dataset.act)manAct(b);
+  else if(b.dataset.bf){BF=b.dataset.bf;store.set('bf',BF);BSHOW=40;renderBetList()}
+  else if(b.dataset.brk){BRK=b.dataset.brk;store.set('brk',BRK);renderBreak()}
+  else if(b.dataset.kind)setKind(b.dataset.kind);
+  else if(b.dataset.risk){SET={...SET,mode:'edge',risk:b.dataset.risk};saveSettings()}
+  else if(b.dataset.sync)syncAct(b.dataset.sync);
+  else if(b.id==='csv')exportCSV();
+  else if(b.id==='bmore'){BSHOW+=40;renderBetList()}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){const bm=$('#bookmenu');if(bm.open){bm.open=false;bm.querySelector('summary').focus()}}});
 $('#bk').addEventListener('input',e=>{const v=parseFloat(e.target.value);SET={...SET,bank:v>0?v:0};saveSettings()});
-$('#kf').addEventListener('change',e=>{SET={...SET,kf:+e.target.value};saveSettings()});
-$('#kc').addEventListener('change',e=>{SET={...SET,kc:+e.target.value};saveSettings()});
+document.querySelectorAll('input[name=szmode]').forEach(r=>r.addEventListener('change',e=>{if(e.target.checked){SET={...SET,mode:e.target.value};saveSettings()}}));
+$('#unit').addEventListener('change',e=>{SET={...SET,mode:'flat',unit:+e.target.value};saveSettings()});
+$('#cap').addEventListener('change',e=>{SET={...SET,mode:'edge',cap:+e.target.value};saveSettings()});
+document.addEventListener('submit',e=>{if(e.target&&e.target.id==='tokf'){e.preventDefault();const k=$('#tok');ghConnect(k?k.value:'')}});
+let rzT=0;window.addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(()=>{if(!$('#bets').hidden)renderChart()},150)});
 $('#lg-game').addEventListener('change',fillBetOpts);
 $('#lg-bet').addEventListener('change',fillLine);
 $('#logf').addEventListener('submit',saveBet);
@@ -1583,24 +2242,9 @@ if(NBA){const day=(d,o)=>new Date(d+'T12:00:00').toLocaleDateString('en-US',o);
   $('#nbawk').textContent=NBA.preseason?'opens '+day(NBA.start,{month:'short',day:'numeric'}):'through '+day(NBA.end,{weekday:'short'})}
 else{$('#nbawk').textContent='off'}
 if(EPL){$('#eplwk').textContent=EPL.round||''}else{$('#eplwk').textContent='off'}
-/* without claude.ai's database (the standalone site, or a signed-out viewer), bets save in this browser */
-function localTracker(){
-  const K='me4.bets.local';
-  const load=()=>{try{const a=JSON.parse(localStorage.getItem(K)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}};
-  const save=a=>{try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}};
-  const emit=()=>{BETS=load().sort((a,b)=>String(b.placed||'').localeCompare(String(a.placed||'')));renderBets();setTimeout(gradeAll,0)};
-  const doc=path=>{const id=String(path).split('/').pop();return{
-    update:async o=>{const a=load(),i=a.findIndex(b=>b.id===id);if(i>=0){a[i]={...a[i],...o};save(a);emit()}},
-    delete:async()=>{save(load().filter(b=>b.id!==id));emit()},
-    set:async()=>{},  /* the bankroll already lives on this device */
-    collection:()=>({add:async bet=>{const a=load();if(a.length>=500)throw{code:'quota_exceeded'};a.push({...bet,id:'b'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)});save(a);emit()}})}};
-  DB={doc};UID='local';TRACK='local';
-  const n=$('#betsoff');n.textContent='Bets you log here are saved in this browser only, so open the site on the same device to see them.';n.hidden=false;
-  emit();
-}
 /* for the standalone site's refresh: the page's own snapshot of each game's call and best bets, and its grading */
 window.MatchupEdge={pickSnap,gradePick};
-weights();renderBooks();renderList();renderNBA();renderEPL();styleBar();renderForm();fillSettings();renderBets();setTab(['nba','epl','bets'].includes(S.tab)?S.tab:'nfl');
+weights();renderBooks();renderList();renderNBA();renderEPL();styleBar();renderForm();setKind(LGK);renderSizing();renderSync();renderBets();setTab(['nba','epl','bets'].includes(S.tab)?S.tab:'nfl');
 startTracker();
 })();
 </script>

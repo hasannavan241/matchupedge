@@ -59,6 +59,7 @@ jobs:
         env:
           ME_NEWS: ../data/news.json
           ME_PICKS: ../data/picks.json
+          ME_RESULTS: ../data/results.json
         run: |
           rm -f browser.js
           python refresh.py build
@@ -73,13 +74,13 @@ jobs:
           python refresh.py summary | tee -a "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Save the model record
+      - name: Save the model record and results
         run: |
           git config user.name "matchup-edge-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/picks.json
+          git add data/picks.json data/results.json
           if ! git diff --cached --quiet; then
-            git commit -m "Update model record"
+            git commit -m "Update model record and results"
             git pull --rebase --autostash origin main && git push origin HEAD:main
           fi
 
@@ -91,6 +92,7 @@ jobs:
           mkdir -p out
           cp pipeline/web/index.html out/index.html
           cp pipeline/site.html out/artifact.html    # the same page without a document head, for the claude.ai copy
+          if [ -f data/results.json ]; then cp data/results.json out/results.json; fi   # finals, for grading older bets
           touch out/.nojekyll
           if [ -n "$SITE_DOMAIN" ]; then echo "$SITE_DOMAIN" > out/CNAME; fi
           cd out

@@ -45,8 +45,16 @@ The run's summary lists every best bet with positive value.
 - `data/news.json`: the morning research (injuries, returns, trades, coaching, drama, motivation), one document per
   game, written by a separate research job.
 - `data/picks.json`: every game's call and both models' best bets, saved until kickoff and graded from results.
+- `data/results.json`: final scores and closing lines for the last 400 days, published as `results.json` so bets
+  older than the page's own results still grade.
 
-Bets you log on the site are saved in your browser only.
+## Your bets
+
+Bets you log under **My bets** stay in that browser until you set up sync there: the site walks you through creating
+a private repository named `matchupedge-bets` and a fine-grained key that can reach only that repository (Contents:
+read and write). Bets then live in that repository (`bets/<year>.json`, one bet per line, plus `settings.json` for
+bet sizing), every change is a commit, and **Add a device** gives a QR code that connects a phone. The key stays in
+each browser and is only sent to GitHub; it never touches this repository.
 
 ## Running it yourself
 
@@ -55,7 +63,7 @@ cd pipeline
 pip install -r requirements.txt && python -m playwright install chromium
 ODDS_API_KEY=... python refresh.py fetch
 ODDS_API_KEY=... python refresh.py live        # needs Node 18+
-ME_NEWS=../data/news.json ME_PICKS=../data/picks.json python refresh.py build
+ME_NEWS=../data/news.json ME_PICKS=../data/picks.json ME_RESULTS=../data/results.json python refresh.py build
 python refresh.py web                           # web/index.html
 ```
 
