@@ -160,6 +160,24 @@ details.weights summary span{font-weight:400;color:var(--muted);font-size:13px;m
 .callcell small,.bb small{color:var(--muted);font-size:12px}
 .bb{display:flex;flex-direction:column;gap:4px;align-items:flex-start;min-width:0}
 .reason{margin:0;font-size:13.5px;color:var(--ink-2);max-width:104ch}
+.rk{display:inline-block;min-width:5.6em;margin-right:6px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.betwhy .rk{color:var(--accent)}
+/* Top bets: every bet at Lean or better, in one place */
+#top .card+.card{margin-top:0}
+.brw.top{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1.7fr) 132px}
+@media (min-width:641px){#propplays .brw{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1.4fr) 132px}}
+.brw .bv small,.pv small{white-space:nowrap}
+.brw.top .bc{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+.brw.top .bp small{font-size:12.5px;color:var(--ink-2)}
+.lgt{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:5px}
+.bhead .hrow{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 14px}
+@media (max-width:640px){.brw.top{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;grid-template-areas:"g g v" "c c c" "p p p"}}
+/* a prop's explanation */
+.plead{margin:6px 0 0;font-size:13.5px;color:var(--ink-2)}
+.pparts{width:100%;margin-top:8px} .pparts td.nm small{display:block;color:var(--muted);font-size:11.5px;font-weight:400}
+.pparts tr.tot td{border-top:2px solid var(--line);font-weight:700}
+.pcard h4{margin:12px 0 0;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pwatch li{color:var(--ink-2)}
 @media (max-width:860px){.ghead{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.ghead .match{grid-column:1 / -1}}
 @media (max-width:560px){.callcell b.cl{font-size:20px}.teams{font-size:27px}}
 @media (max-width:360px){.ghead{grid-template-columns:minmax(0,1fr)}}
@@ -421,7 +439,7 @@ details.crow[open] .cw::before{content:"\25BE"}
 .pw input{width:120px;accent-color:var(--accent)} .pw output{font-family:var(--f-mono);font-size:12px;color:var(--accent);min-width:3.2em}
 .seg button:disabled{opacity:.45;cursor:not-allowed}
 .plist{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
-  --pcols:minmax(0,1.3fr) minmax(0,1.25fr) minmax(0,1.35fr) minmax(0,.95fr) 104px}
+  --pcols:minmax(0,1.3fr) minmax(0,1.25fr) minmax(0,1.35fr) minmax(0,.95fr) 132px}
 .prow{border-top:1px solid var(--line);scroll-margin-top:12px}
 .prow:first-child,.pgh+.prow{border-top:0}
 .prow.hdr{display:grid;grid-template-columns:var(--pcols);gap:12px;padding:8px 14px 6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
@@ -469,7 +487,7 @@ details.crow[open] .cw::before{content:"\25BE"}
 .pcn b{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.02em;line-height:1.1}
 .pcn small{color:var(--muted);font-size:12px}
 .pcols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px}
-@media (max-width:900px){.pcols{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.pcols{grid-template-columns:minmax(0,1fr)}.pcols section:nth-child(2){order:-1}.pcols section:nth-child(2)>h3:first-child{margin-top:0}}
 .pcols section{min-width:0}
 .pcard h3{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.05em;text-transform:uppercase;margin:14px 0 6px}
 .pcols section>h3:first-child{margin-top:0}
@@ -531,6 +549,7 @@ details.how dd p{margin:0 0 6px}
   </header>
 
   <nav class="tabs" role="tablist" aria-label="League">
+    <button role="tab" id="tab-top" aria-controls="top" data-tab="top">Top bets<small id="topwk"></small></button>
     <button role="tab" id="tab-nfl" aria-controls="nfl" data-tab="nfl">NFL<small id="nflwk"></small></button>
     <button role="tab" id="tab-nba" aria-controls="nba" data-tab="nba">NBA<small id="nbawk"></small></button>
     <button role="tab" id="tab-epl" aria-controls="epl" data-tab="epl">EPL<small id="eplwk"></small></button>
@@ -553,7 +572,11 @@ details.how dd p{margin:0 0 6px}
     <p class="sbnote" id="sbnote"></p>
   </div>
 
-  <section id="nfl" role="tabpanel" aria-labelledby="tab-nfl" class="list">
+  <section id="top" role="tabpanel" aria-labelledby="tab-top" class="list" hidden>
+    <div class="list" id="topplays"></div>
+  </section>
+
+  <section id="nfl" role="tabpanel" aria-labelledby="tab-nfl" class="list" hidden>
     <div class="card board" id="plays"></div>
     <div class="listbar">
       <div class="seg" role="group" aria-label="Show"><button data-filter="all">All games</button><button data-filter="bets">Positive value</button></div>
@@ -724,7 +747,8 @@ const store={get(k,d){try{const v=localStorage.getItem('me4.'+k);return v==null?
 const DEFW=()=>Object.fromEntries(FACT.map(f=>[f.k,f.def]));
 /* the viewer's books: licensed US books unless they choose otherwise */
 const DEFB=()=>{const d=ALLB.filter(t=>!OFF.has(t));return d.length?d:ALLB.slice()};
-const S={tab:store.get('tab','nfl'),bets:store.get('bets','tested')==='ours'?'ours':'tested',filter:'all',sort:'time',fmt:store.get('fmt','us'),W:Object.assign(DEFW(),store.get('w2',{})),wx:store.get('wx',{}),open:new Set(),books:DEFB()};
+const TOP={nfl:[],nba:[],epl:[],props:[]};  /* each league's games with their picks, and the prop rows, for the Top bets tab */
+const S={tab:store.get('tab','top'),bets:store.get('bets','tested')==='ours'?'ours':'tested',filter:'all',sort:'time',fmt:store.get('fmt','us'),W:Object.assign(DEFW(),store.get('w2',{})),wx:store.get('wx',{}),open:new Set(),books:DEFB()};
 {const b=store.get('books',null);if(Array.isArray(b)){const k=b.filter(t=>ALLB.includes(t));if(k.length)S.books=k}}
 
 /* ---------- math ---------- */
@@ -993,7 +1017,7 @@ function card({g,t,h,x}){
   const bigMove=g.open&&g.open.sp!=null&&Math.abs(g.open.sp-g.mkt.sp)>=3;
   const tags=[g.wk&&g.wk!==NFL.week?`Week ${g.wk}`:'',g.div?'Division game':'',g.neutral?'Neutral site':'',g.backup[0]||g.backup[1]?'Backup QB':'',g.rest[0]<=5?'Short week':'',bigMove?'Big line move':''].filter(Boolean)
     .map(t=>`<span class="tag${t==='Big line move'||t==='Backup QB'?' warn':''}">${t}</span>`).join('')+wxTag(g);
-  const reason=esc(leadText('nfl',g,h)),nt=newsTags(sc,'nfl');
+  const nt=newsTags(sc,'nfl');
   return `<article class="game${x.best&&x.best.ev>=.02?' hasbet':''}" id="g-${did(g.id)}" data-lg="nfl">
     <div class="gbody">
       <div class="ghead">
@@ -1001,7 +1025,7 @@ function card({g,t,h,x}){
         <div class="callcell">${callCell('nfl',g,h)}</div>
         <div class="bb">${betCell('nfl',g,x)}</div>
       </div>
-      ${reason?`<p class="reason">${reason}</p>`:''}${nt?`<div class="tagrow">${nt}</div>`:''}
+      ${whoHTML('nfl',g,h)}${nt?`<div class="tagrow">${nt}</div>`:''}${betHTML('nfl',g,x,h)}
       ${mktTable(g,x)}
       <div class="discs">${callWhy('nfl',g,h,{bet:x.hol})}${x.hol?'':whyHTML(g,t,nflReasons(g,t),'nfl')}<button class="more" data-more="${esc(g.id)}" aria-expanded="${open}" aria-controls="d-${did(g.id)}">Prices, weather and team stats</button></div>
     </div>
@@ -1014,6 +1038,7 @@ function results(){return NFL?NFL.games.map(pickNFL):[]}
 function renderList(){
   if(!NFL||!NFL.games.length){$('#plays').innerHTML='<div class="bhead"><h2>NFL</h2><p class="lede">No NFL games on the schedule right now.</p></div>';$('#games').innerHTML='';$('#wpanel').hidden=true;return}
   const K=openKeys($('#nfl'));let all=results();
+  TOP.nfl=all.map(r=>({lg:'nfl',g:r.g,h:r.h,x:r.x,a:'g-'+did(r.g.id)}));
   if(S.sort==='value')all.sort((a,b)=>(b.x.best?b.x.best.ev:-9)-(a.x.best?a.x.best.ev:-9));
   const res=S.filter==='bets'?all.filter(r=>r.x.best&&r.x.best.ev>0):all;
   $('#games').innerHTML=res.length?res.map(card).join(''):'<div class="card muted">No game has a positive-value price at your books. Choose “All games” to see every pick.</div>';
@@ -1071,7 +1096,6 @@ function nbaCard({g,e,t,h,x}){
     return `<small><b>${team}:</b> ${list.slice(0,3).map(p=>`${esc(p.name)} (${/^out$/i.test(p.status)?'out':esc((p.status||'').toLowerCase())}${p.ret&&/^out$/i.test(p.status)?' until '+fmtDate(p.ret):''})`).join(', ')}</small>`}).join('');
   const notes=[g.b2b[0]?`${g.away} back-to-back`:'',g.b2b[1]?`${g.home} back-to-back`:'',g.alt?'Altitude':'',g.tz>=2?`${g.away} crosses ${g.tz} time zones`:'',
     Math.max(...e.lost)>=1.5?'Key player out':''].filter(Boolean).map(n=>`<span class="tag${n==='Key player out'?' warn':''}">${n}</span>`).join('');
-  const reason=esc(leadText('nba',g,h));
   const why=callWhy('nba',g,h,{bet:!!x&&!!x.hol})+(x&&!x.hol&&x.best?whyHTML(g,x,x.R,'nba'):'');
   const bk=m&&x&&x.fair&&rowsOf(g).length>1?`<details class="bk" data-k="bk-nba-${esc(g.id)}"><summary>Prices at ${rowsOf(g).length} books</summary>${booksTable(g,x.fair)}</details>`:'';
   const tg=newsTags(sc,'nba');
@@ -1081,7 +1105,7 @@ function nbaCard({g,e,t,h,x}){
     <div class="bb">${betCell('nba',g,x)}</div>
     <div>${mk}</div>
     <div><span class="k">Injuries</span>${inj||'<small class="muted">None of note</small>'}</div>
-    ${reason?`<p class="reason full">${reason}</p>`:''}${tg?`<div class="tagrow full">${tg}</div>`:''}
+    ${whoHTML('nba',g,h,'full')}${tg?`<div class="tagrow full">${tg}</div>`:''}${betHTML('nba',g,x,h,'full')}
     ${why||bk?`<div class="discs full">${why}${bk}</div>`:''}
   </article>`;
 }
@@ -1099,6 +1123,7 @@ function renderNBA(){
   const ours=OURBETS(),day=(d,o)=>new Date(d+'T12:00:00').toLocaleDateString('en-US',o);
   const R=NBA.games.map(g=>{const e=nbaGame(g),h=nbaHolistic(g,e),t=g.mkt?nbaAnalyze(g,e):null;return{g,e,h,t,x:g.mkt?(ours?h:t):null}});
   const pr=R.filter(r=>r.g.mkt),pos=pr.filter(r=>r.x&&r.x.best&&r.x.best.ev>0).length,n=R.length;
+  TOP.nba=pr.map(r=>({lg:'nba',g:r.g,h:r.h,x:r.x,a:'n-'+did(r.g.id)}));
   const head=NBA.preseason?'NBA opening week':`NBA through ${day(NBA.end,{weekday:'long'})}`;
   const lede=(NBA.preseason?`The season tips off ${day(NBA.start,{weekday:'long',month:'long',day:'numeric'})}. `:'')
     +(pr.length?`${pr.length} of ${n} games have lines, and ${pos} ${pos===1?'has':'have'} a positive-value bet at your books.`:'No lines are posted yet.')
@@ -1266,7 +1291,6 @@ function eplCard({g,t,h:c,x}){
   const call=callCell('epl',g,c);
   const tm=t=>`<span class="nw">${t.pos?ord(t.pos):''}${t.p?` · ${t.w}–${t.d}–${t.l}`:''}</span>`;
   const form=`<span class="k">Form, last 5</span><small><b>${esc(g.home)}</b> ${fmHTML(h.last5)} ${tm(h)}</small><small><b>${esc(g.away)}</b> ${fmHTML(a.last5)} ${tm(a)}</small>`;
-  const reason=esc(leadText('epl',g,c));
   const why=callWhy('epl',g,c,{bet:priced&&!!x.hol})+(priced&&!x.hol&&x.best?eplWhy(g,x):'');
   const n=eplRows(g).length,bk=priced?`<details class="bk" data-k="bk-epl-${esc(g.id)}"><summary>Prices at ${n} ${n===1?'book':'books'}</summary>${eplBooksTable(g,x.fair)}</details>`:'';
   const tg=newsTags(sc,'epl'),good=priced&&x.best&&x.best.ev>=.02;
@@ -1276,7 +1300,7 @@ function eplCard({g,t,h:c,x}){
     <div class="bb">${betCell('epl',g,priced?x:c)}</div>
     <div>${mk}</div>
     <div>${form}</div>
-    ${reason?`<p class="reason full">${reason}</p>`:''}${tg?`<div class="tagrow full">${tg}</div>`:''}
+    ${whoHTML('epl',g,c,'full')}${tg?`<div class="tagrow full">${tg}</div>`:''}${betHTML('epl',g,priced?x:null,c,'full')}
     ${why||bk?`<div class="discs full">${why}${bk}</div>`:''}
   </article>`;
 }
@@ -1285,6 +1309,7 @@ function renderEPL(){
   if(!EPL||!EPL.games||!EPL.games.length){el.innerHTML='<div class="bhead"><h2>Premier League</h2><p class="lede">No Premier League matches in the fixture list right now.</p></div>';$('#epllist').innerHTML='';return}
   const ours=OURBETS(),R=EPL.games.map(g=>{const h=eplHolistic(g),t=eplAnalyze(g);return{g,h,t,x:h.noMkt?null:(ours?h:t)}});
   const pr=R.filter(r=>r.x),pos=pr.filter(r=>r.x.best&&r.x.best.ev>0).length,n=R.length;
+  TOP.epl=pr.map(r=>({lg:'epl',g:r.g,h:r.h,x:r.x,a:'e-'+did(r.g.id)}));
   const sm=EPL.sotMissing>0?` Shots on target are missing for ${EPL.sotMissing} of this season’s ${EPL.played} matches so far; the rating uses the rest.`:'';
   const lede=pr.length?`${pr.length} of ${n} matches have lines, and ${pos} ${pos===1?'has':'have'} a positive-value bet at your books.${pr.length<n?` The rest show our team view until lines post.`:''}`
     :`Lines aren’t posted yet: DraftKings usually posts Premier League lines about a week ahead, and the other books are added in the four days before kickoff. Until then our call is the team view alone: shots-on-target rating, form, turnaround and the news. Once lines post, it follows the market, which picked more winners in testing.`;
@@ -1520,6 +1545,29 @@ function betCell(lg,g,x){
   const b=x&&x.best;if(!b)return `<span class="k">Best bet</span><small class="muted">${x&&!x.noMkt?'No price at your books':'No lines yet'}</small>`;
   return `<span class="k">Best bet${x.hol?' · <span class="ut">untested</span>':''} · ${x.grade}</span><span class="pill ${pillCls(b)}${b.ev>0?'':' dim'}">${betLabel(b)} <span class="num">${odds(b.price)}</span></span><small>${esc(b.book)} · <b class="${b.ev>0?'pos':'neg'} num">${sg(b.ev*100)}%</b> · ${stakeTxt(b)} ${logBtn(lg,g,b)}</small>`;
 }
+/* the best bet in plain words: what has to happen, how it sits with our call, and whether the price is worth it */
+const betNums=b=>{const q=b.mkt!=='ml'&&isQ(b.line),dp=!q&&b.push>.004;return{dp,need:1/dec(b.price),wr:dp||q?b.p/((b.p+b.l)||1):b.p}};
+function betWhy(lg,g,x,h){
+  const b=x&&x.best;if(!b)return '';
+  const N=betNums(b),C=h&&!h.noMkt?callOf(lg,g,h):null,n=Math.abs(b.line),whole=Number.isInteger(n),q=b.mkt!=='ml'&&isQ(b.line);
+  const wins=b.mkt==='total'?`the two teams combine for ${b.side==='over'?'more':'fewer'} than ${lnq(b.line)} ${lg==='epl'?'goals':'points'}`
+    :b.mkt==='ml'?(b.side==='draw'?'the match ends level':`${theN(lg,b.team)} win`)
+    :lg==='epl'||q||!n?''
+    :b.line<0?`${theN(lg,b.team)} win by ${whole?`more than ${n}`:`${Math.ceil(n)} or more`}`
+    :`${theN(lg,b.team)} win, or lose by ${whole?`fewer than ${n}`:`${Math.floor(n)} or fewer`}`;
+  const rel=b.mkt==='total'?'It is a bet on the score, not on the winner.'
+    :!C||!C.team||b.side==='draw'?''
+    :b.side===C.side?(b.mkt==='ml'?'It backs our call.':`It backs our call, ${theN(lg,C.team)}, to cover the spread.`)
+    :b.mkt==='ml'?`It goes against our call: we expect ${theN(lg,C.team)} to win (${pc(C.p)}), and this bets the other side is priced too long.`
+    :`We still expect ${theN(lg,C.team)} to win (${pc(C.p)}); this bets they don’t cover the spread.`;
+  const src=x.hol?'our call’s own pricing (untested)':x.fair&&x.fair.n?`the fair line from ${x.fair.n} ${x.fair.n===1?'book':'books'}`:'the fair line',of=N.dp?' of bets that don’t push':'';
+  const val=b.ev>0
+    ?`At ${odds(b.price)} it has to win ${pc(N.need,1)}${of} to break even, and ${src} gives it ${pc(N.wr,1)}: <b class="pos">${sg(b.ev*100)}%</b> per bet${b.ev<.02?', a thin edge that a small line move wipes out':''}.`
+    :`There is no edge: at ${odds(b.price)} it has to win ${pc(N.need,1)}${of} and ${src} gives it ${pc(N.wr,1)} (<b class="neg">${sg(b.ev*100)}%</b>). It is only the closest price to fair on this game, so there is nothing to bet.`;
+  return `<b>${betLabel(b)} ${odds(b.price)}</b> at ${esc(b.book)}${wins?` wins if ${wins}`:''}. ${rel?rel+' ':''}${val}`;
+}
+const whoHTML=(lg,g,h,cls)=>{const r=esc(leadText(lg,g,h));return r?`<p class="reason${cls?' '+cls:''}"><span class="rk">Who wins</span>${r}</p>`:''};
+const betHTML=(lg,g,x,h,cls)=>{const r=betWhy(lg,g,x,h);return r?`<p class="reason betwhy${cls?' '+cls:''}"><span class="rk">The bet</span>${r}</p>`:''};
 /* keep open explanations open when a league re-renders */
 const openKeys=root=>new Set([...(root||document).querySelectorAll('details[data-k][open]')].map(d=>d.dataset.k));
 const reopen=(K,root)=>{if(K.size)(root||document).querySelectorAll('details[data-k]').forEach(d=>{if(K.has(d.dataset.k))d.open=true})};
@@ -1530,6 +1578,41 @@ function boardRow(lg,g,h,x,anchor){
     <span class="bc">${callCell(lg,g,h).replace(/<span class="k">[^<]*<\/span>/,'')}</span>
     <span class="bp">${b?`<span class="pill ${pillCls(b)}${b.ev>0?'':' dim'}">${betLabel(b)} <span class="num">${odds(b.price)}</span></span><small>${esc(b.book)}${b.ev>0?' · '+stakeTxt(b):''}</small>`:`<small class="muted">${x&&!x.noMkt?'No price at your books':'No lines yet'}</small>`}</span>
     <span class="bv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${x.grade}${x.hol?' · untested':''}</small>`:''}</span></a>`;
+}
+/* Top bets: every game bet at Lean or better and the best prop for each player, with the reason in a line */
+const LGS={nfl:'NFL',nba:'NBA',epl:'EPL'};
+function betShort(lg,g,x,h){
+  const b=x.best,N=betNums(b),C=h&&!h.noMkt?callOf(lg,g,h):null;
+  const rel=b.mkt==='total'?'On the score, not the winner':!C||!C.team||b.side==='draw'?''
+    :b.side===C.side?`Backs our call (${nameOf(lg,C.team)} ${pc(C.p)})`:b.mkt==='ml'?`Against our call (${nameOf(lg,C.team)} ${pc(C.p)}): a price play`:`${nameOf(lg,C.team)} to win (${pc(C.p)}) but not cover`;
+  return `${rel?rel+'. ':''}Has to win ${pc(N.need,1)}; ${x.hol?'our call':'fair line'} says ${pc(N.wr,1)}.`;
+}
+function renderTop(){
+  const el=$('#topplays');if(!el)return;
+  const G=[...TOP.nfl,...TOP.nba,...TOP.epl].filter(r=>r.x&&r.x.best&&r.x.best.ev>=.02).sort((a,b)=>b.x.best.ev-a.x.best.ev);
+  const PA=TOP.props.filter(r=>r.ok&&r.best&&r.best.ev>=.02).sort((a,b)=>b.best.ev-a.best.ev),seen=new Set(),PP=PA.filter(r=>!seen.has(r.pi)&&seen.add(r.pi)),P10=PP.slice(0,10);
+  const when=g=>{const d=g.date?new Date(g.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}):(g.day||'');return `${d}${g.ct?' · '+g.ct+' CT':''}`};
+  const hdr=a=>`<div class="brw top hdr" aria-hidden="true"><span>${a}</span><span>Bet</span><span>Why</span><span>Value</span></div>`;
+  const gRow=r=>{const b=r.x.best,g=r.g;return `<a class="brw top" href="#${r.a}" data-go="${r.lg}|${r.a}">
+    <span class="bg"><b>${esc(matchTxt(r.lg,g))}</b><small><span class="lgt">${LGS[r.lg]}</span>${esc(when(g))}</small></span>
+    <span class="bc"><span class="pill ${pillCls(b)}">${betLabel(b)} <span class="num">${odds(b.price)}</span></span><small>${esc(b.book)} · ${stakeTxt(b)}</small></span>
+    <span class="bp"><small>${esc(betShort(r.lg,g,r.x,r.h))}</small></span>
+    <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${r.x.grade}${r.x.hol?' · untested':''}</small></span></a>`};
+  const pRow=r=>{const b=r.best,p=r.p;return `<a class="brw top" href="#${propId(p,r.s)}" data-go="props|${propId(p,r.s)}">
+    <span class="bg"><b>${esc(p.n)}</b><small><span class="lgt">NFL prop</span>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))}${p.q?` · <span class="ut">${esc(p.q)}</span>`:''}</small></span>
+    <span class="bc"><span class="pill ${b.side}">${esc(pBet(r.s,b.side,b.line))} <span class="num">${odds(b.price)}</span></span><small>${esc(b.book)} · ${stakeTxt(b)}</small></span>
+    <span class="bp"><small>${esc(propShort(r))}</small></span>
+    <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)} · ${pc(b.pW,0)} to win</small></span></a>`};
+  const ours=OURBETS(),ng=G.length,np=PA.length;
+  $('#topwk').textContent=ng+P10.length?String(ng+P10.length):'';
+  const lede=`${ng?`${ng} game ${ng===1?'bet':'bets'}`:'No game bets'}${typeof PR!=='undefined'&&PR?` and ${np} player ${np===1?'prop':'props'}`:''} ${ng+np===1?'is':'are'} at +2% value or better at your books right now. Each row gives the reason in a line; tap it for the full reasoning.${ours?' <span class="ut">Untested:</span> game bets are from our call’s own pricing, which lost money in testing.':''}`;
+  const games=`<div class="card board"><div class="bhead"><h2>Top bets</h2><p class="lede">${lede}</p></div>
+    ${ng?`<div class="brws">${hdr('Game')}${G.map(gRow).join('')}</div>`:'<p class="muted">No game has a bet at +2% or better right now. Thinner edges are on each league’s tab.</p>'}
+    <p class="bfoot">Value is what the price pays over the bet’s fair chance, after the book’s cut: Strong is +5% or more, Lean +2% to +5%. Game bets come from the ${ours?'our call':'tested model'}; who wins is our call, on each league’s tab.</p></div>`;
+  const props=P10.length?`<div class="card board"><div class="bhead"><div class="hrow"><h2>Top player props</h2><button class="btn sm" data-tab="props" type="button">All ${np} props</button></div><p class="lede">The best prop for each of the ${P10.length} players with the most value. ${np} props clear +2% in all, so treat this as a shortlist, not a card to bet in full.</p></div>
+    <div class="brws">${hdr('Player')}${P10.map(pRow).join('')}</div>
+    <p class="bfoot">Lines move and books limit props, so check the number and the price before you bet.</p></div>`:'';
+  el.innerHTML=games+props;
 }
 function boardHTML(head,lede,rows,foot){
   return `<div class="bhead"><h2>${head}</h2><p class="lede">${lede}</p></div>${rows?`
@@ -2275,7 +2358,7 @@ function renderRecord(){
 }
 
 /* ---------- tabs, controls, events ---------- */
-function setTab(t){S.tab=t;store.set('tab',t);document.querySelectorAll('[role=tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));['nfl','nba','epl','props','bets'].forEach(k=>{$('#'+k).hidden=t!==k});$('#stylebar').hidden=t==='bets';$('#stylebar').classList.toggle('isprops',t==='props');$('#bookmenu').open=false;if(t==='bets')renderChart()}
+function setTab(t){S.tab=t;store.set('tab',t);document.querySelectorAll('[role=tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));['top','nfl','nba','epl','props','bets'].forEach(k=>{$('#'+k).hidden=t!==k});if(t==='top')renderTop();$('#stylebar').hidden=t==='bets';$('#stylebar').classList.toggle('isprops',t==='props');$('#bookmenu').open=false;if(t==='bets')renderChart()}
 const calm=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}};
 /* from a board row to its game: show it even if the list is filtered, scroll to it, and flash it */
 function jump(id){
@@ -2291,6 +2374,7 @@ let rT=0;const frame=f=>{cancelAnimationFrame(rT);rT=requestAnimationFrame(f)};
 document.addEventListener('click',e=>{
   const bm=$('#bookmenu');if(bm.open&&!e.target.closest('#bookmenu'))bm.open=false;
   const j=e.target.closest('a[data-jump]');if(j){e.preventDefault();jump(j.dataset.jump);return}
+  const go=e.target.closest('a[data-go]');if(go){e.preventDefault();const [t,id]=go.dataset.go.split('|');setTab(t);if(t==='props')pJump(id);else jump(id);return}
   const b=e.target.closest('button');if(!b)return;
   if(b.dataset.tab)setTab(b.dataset.tab);
   else if(b.dataset.filter){S.filter=b.dataset.filter;renderList()}
@@ -2353,7 +2437,7 @@ function styleBar(){
   if(nn){nb.className='badge'+(isFinite(at)&&Date.now()-at>36*36e5?' warn':'');nb.textContent=`News · ${nn} ${nn===1?'game':'games'}${isFinite(at)?' · '+whenCT(new Date(at).toISOString()):''}`;nb.title='Injuries, returns, trades, coaching and drama, researched each morning'}
   else{nb.className='badge dim';nb.textContent='No news research loaded';nb.title='News research lives in the page’s database, which needs claude.ai'}
 }
-function renderAll(){VER++;renderList();renderNBA();renderEPL();if(typeof renderProps==='function')renderProps();styleBar();clearTimeout(PKT);PKT=setTimeout(syncPicks,4000)}
+function renderAll(){VER++;renderList();renderNBA();renderEPL();if(typeof renderProps==='function')renderProps();if(S.tab==='top')renderTop();styleBar();clearTimeout(PKT);PKT=setTimeout(syncPicks,4000)}
 /* header: how fresh the lines are */
 const liveOk=/^(ok|partial)/.test(LIVE.status||''),lineAge=liveOk?(Date.now()-Date.parse(LIVE.ts))/36e5:Infinity;
 {const a=$('#asof'),nb=ALLB.length>1?`${ALLB.length} books`:'';
@@ -2483,6 +2567,74 @@ function rangeBar(s,mu,line,open){
 const moveTxt=bk=>bk&&bk[1]!=null&&bk[0]!==bk[1]?`<span class="mv ${bk[0]>bk[1]?'up':'dn'}">opened ${ln(bk[1])} ${bk[0]>bk[1]?'↑':'↓'}</span>`:'';
 const vsTxt=r=>r.s==='anytd'?`${oursOf(r.s,r.mu)} ours`:`${oursOf(r.s,r.mu)} ours · ${ln(r.line)} line`;
 
+/* where a prop's value comes from: the price against the market's own chance, the lean to the under, and our projection */
+function propParts(r){
+  const b=r.best;if(!b)return null;
+  const o=r.offers.find(x=>x[2]===b.book&&x[3]===b.line);if(!o)return null;
+  const pom=o[6],pum=o[7],un=b.side==='under',D=dec(b.price);
+  let km=o[8],ku=o[9];if(km==null||ku==null){const h=(pom+pum)/2;km=h;ku=h}
+  const kW=un?ku:km,kL=un?km:ku,mW=un?pum:pom;
+  const price=kW*(D-1)-kL,lean=(un?1:-1)*shOf(r.s)*D,model=b.ev-price-lean;
+  /* the same bet at the other books: their prices on this line, and the line most books have */
+  const same=r.offers.filter(x=>x[3]===b.line&&x[2]!==b.book).map(x=>un?x[5]:x[4]).filter(v=>v!=null).sort((a,c)=>dec(c)-dec(a));
+  const cnt=new Map();r.offers.forEach(x=>cnt.set(x[3],(cnt.get(x[3])||0)+1));
+  const main=[...cnt.entries()].sort((a,c)=>c[1]-a[1]||a[0]-c[0])[0][0];
+  return{price,lean,model,kW,mW,same,main,nAt:cnt.get(b.line)||1,nB:r.offers.length};
+}
+/* what mostly makes it a bet: a price better than the market's own chance, our projection, or the under lean */
+const propDriver=P=>!P?'':P.price>=.01?'price':P.model>=.02&&P.model>=P.lean*.6?'proj':P.lean>0?'lean':'proj';
+const DRVN={price:'price edge',proj:'our projection',lean:'under lean'};
+const fairO=p=>p>0&&p<1?odds(Math.round(p>=.5?-100*p/(1-p):100*(1-p)/p)):'–';
+const dirOf=(s,side)=>s==='anytd'?(side==='under'?'not to score':'to score'):side==='under'?'to stay under':'to go over';
+/* the reason in a line, for the boards */
+function propShort(r){
+  const b=r.best,P=propParts(r);if(!P)return '';
+  const d=propDriver(P),ours=oursOf(r.s,r.mu),td=r.s==='anytd';
+  const a=d==='price'?`Price edge: ${odds(b.price)} where the market says ${pc(P.kW,0)} ${dirOf(r.s,b.side)}`
+    :d==='proj'?`Our projection: ${td?`${pc(P.mW,0)} ${dirOf(r.s,b.side)}, market ${pc(P.kW,0)}`:`${ours} against a line of ${ln(b.line)}`}`
+    :`Under lean, at the best price of ${r.books} ${r.books===1?'book':'books'}`;
+  return a+(d!=='proj'&&!td?(P.mW>=.55?`; our projection agrees (${ours})`:P.mW<.47?`; our projection (${ours}) is on the other side`:''):'')+'.';
+}
+/* the reason in full, for the player's card */
+function propLead(r){
+  const b=r.best,P=propParts(r);if(!b||!P)return '';
+  const s=r.s,td=s==='anytd',un=b.side==='under',dir=dirOf(s,b.side),d=propDriver(P),nx=P.same[0],ours=oursOf(s,r.mu);
+  const shop=nx!=null?(dec(b.price)>dec(nx)?` The next best price on this line is ${odds(nx)}.`:` Another book matches that price.`):P.nB>1&&!td?' No other book has this line right now.':'';
+  const a=d==='price'?`This is a price play. ${esc(b.book)} pays ${odds(b.price)}${b.est?' (assumed)':''} on a bet the market as a whole makes ${pc(P.kW,0)} ${dir}, which would be fair at about ${fairO(P.kW)}.${shop}`
+    :d==='proj'?`Our projection is the edge. We ${td?`give him ${pc(P.mW,0)} ${dir}`:`project ${ours} against a line of ${ln(b.line)}, ${pc(P.mW,0)} ${dir}`}; the market says ${pc(P.kW,0)}.${shop}`
+    :`This leans on the under. The market makes it ${pc(P.kW,0)} ${dir}, and in testing unders beat their prices by enough to cover the book’s cut; ${esc(b.book)} has the best price for it.${shop}`;
+  const off=!td&&P.main!==b.line&&P.nB>=3?` Most books have this at ${ln(P.main)}; ${esc(b.book)}’s ${ln(b.line)} is ${(un?b.line>P.main:b.line<P.main)?'the easier number to beat, so it may not last':'the harder number, and the price is what makes up for it'}.`:'';
+  const agree=td||d==='proj'?'':P.mW>=.55?` Our projection agrees: ${ours} against a line of ${ln(b.line)}.`
+    :P.mW<.47?` Our own projection (${ours}) is on the other side of this line, so the bet rests on the price and the under lean, not on our number.`
+    :` Our projection (${ours}) is close to the line, so it adds little either way.`;
+  return a+off+agree;
+}
+function propPartsHTML(r){
+  const b=r.best,P=propParts(r);if(!b||!P)return '';
+  const ps=LBT&&(LBT.seasons||[]).find(x=>x.priced&&x.market_over!=null&&x.over_priced!=null);
+  const row=(lab,v,note)=>`<tr><td class="nm">${lab}<small>${note}</small></td><td class="num"><span class="${v>=0?'pos':'neg'}">${sg(v*100)}%</span></td></tr>`;
+  return `<h4>Where the ${sg(b.ev*100)}% comes from</h4><table class="ptab pparts"><tbody>
+    ${row('The price',P.price,`${odds(b.price)}${b.est?' (assumed)':''} against the market’s own ${pc(P.kW,1)} chance${P.price<0?': the book’s cut':''}`)}
+    ${P.lean?row('Lean to the under',P.lean,ps?`in ${ps.season}, overs hit ${pc(ps.over_priced,1)} when priced at ${pc(ps.market_over,1)}`:'unders beat their prices in testing'):''}
+    ${row('Our projection',P.model,`counted at ${PS.w}%; on its own it says ${pc(P.mW,1)} ${dirOf(r.s,b.side)}`)}
+    <tr class="tot"><td class="nm">Value<small>${pc(b.pW,1)} to win on ${blendName()}</small></td><td class="num"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span></td></tr></tbody></table>`;
+}
+/* what could undo the bet: his status, his role, a line no one else has, a move since the open, his recent games */
+function propWatch(p,s,r){
+  const b=r&&r.best,P=r&&propParts(r),u=p.u,L=[];
+  if(p.q)L.push(`<span class="ut">${esc(p.q)}</span>${p.qd?' · '+esc(p.qd):''}. A prop is void if he doesn’t play; check the final injury report.`);
+  const rc=roleOf(p),rr=rc&&LBT&&LBT.roles&&LBT.roles[rc.up?'up':'down'];
+  if(rc)L.push(`His snaps ${rc.up?'jumped':'fell'} to ${pc(rc.last,0)} last game, against ${pc(rc.avg,0)} in the games the projection weighs. It follows role changes slowly${rr&&rr.n>=50&&rr.roi!=null?`; in testing, bets on players in this spot ${rr.roi>=0?'still came out ahead':'lost'} (${sg(rr.roi*100)}% per bet on ${rr.n})`:''}.`);
+  if(b&&P&&s!=='anytd'&&P.nB>=3&&P.nAt===1)L.push(`Only ${esc(b.book)} has ${ln(b.line)}. A line no other book offers can move or be limited before you get there.`);
+  const bk=(p.bk||{})[s];
+  if(bk&&bk[1]!=null&&bk[1]!==bk[0]){const big=Math.abs(bk[0]-bk[1])>=Math.max(1.5,.08*bk[1]),tow=b&&s!=='anytd'?(b.side==='under'?bk[0]<bk[1]:bk[0]>bk[1]):null;
+    L.push(`${esc(PBOOK)} opened this at ${ln(bk[1])} and has moved it to ${ln(bk[0])}${tow==null?'':tow?', toward this bet':', against this bet'}${big?'. A big move usually means news on his role':''}.`)}
+  if(b&&s!=='anytd'){const h=hitsOf(p,s,b.line),n=h.filter(x=>b.side==='under'?x===0:x===1).length,opp=h.filter(x=>b.side==='under'?x===1:x===0).length;
+    if(h.length>=6&&n<=h.length/4)L.push(`He went ${b.side==='under'?'over':'under'} ${ln(b.line)} in ${opp} of his last ${h.length} games.`)}
+  if(u.gp<4)L.push(`Only ${u.gp} earlier ${u.gp===1?'game':'games'} on record, so his usage leans on the position average.`);
+  return L;
+}
+
 function propBoard(rows){
   const el=$('#propplays');
   if(!PR){el.innerHTML='<div class="bhead"><h2>Player props</h2><p class="lede">No player projections in this build.</p></div>';return}
@@ -2493,28 +2645,31 @@ function propBoard(rows){
   const mix=`Each line is valued at ${PS.w}% our chance and ${100-PS.w}% the market’s, shaded ${+(PSH*100).toFixed(1)} points toward the under`
     +(atTested()?(tt.n?`; in testing that mix made ${sg(tt.u/tt.n*100)}% per bet on ${tt.n.toLocaleString()} bets`:''):` (your setting; the tested mix is ${PDEF.w}%)`)+'.';
   const freeTxt=free.length?` The free ${esc(PBOOK)} lines come without prices: ${evenM.length?`${evenM.map(m=>PSHORT[m]||statLab(m)).join(', ')} lines sit near even money, so they’re valued at ${odds(PS.pa)}`:'none of them can be valued without one'}${needM?`; other markets are balanced by the price, so they show our numbers and need your book’s price (open a player to type it)`:''}.`:'';
-  const lede=!HASL?`No prop lines in this build${LIVE.props_note?' ('+esc(LIVE.props_note)+')':''}. Every player’s projection is below; open a player and type your book’s line to see its value.`
+  const nPos=rows.filter(r=>r.ok&&r.best&&r.best.ev>=.02).length,pricedWk=nb>0&&free.length<.2*PR.offers.length;
+  const sGr=LBT?(LBT.seasons||[]).reduce((a,x)=>a+(((x.grades||{}).Strong||{}).n||0),0):0;
+  const lede=pricedWk?`${nPos} ${nPos===1?'prop clears':'props clear'} +2% at your books right now, from ${nb} books’ prices on ${np} players. Value is what the best price pays over the bet’s tested chance: ${100-PS.w}% the market’s own number and ${PS.w}% our projection${atTested()?'':` (your setting; the tested mix is ${PDEF.w}%)`}, with a ${+(PSH*100).toFixed(1)}-point lean to the under. Each row names what mostly makes it a bet; open it to see where the value comes from.`
+    :!HASL?`No prop lines in this build${LIVE.props_note?' ('+esc(LIVE.props_note)+')':''}. Every player’s projection is below; open a player and type your book’s line to see its value.`
     :`Our projection against the ${esc(PBOOK)} line for ${np} players${nb?`, plus ${nb} ${nb===1?'book’s':'books’'} prices`:''}. ${mix}${freeTxt} Strong is +5% or more, Lean +2% to +5%.`;
   const head=`<div class="brw hdr" aria-hidden="true"><span>Player</span><span>Bet</span><span>Ours vs the line</span><span>Value</span></div>`;
   const rowsH=best.map(r=>{const b=r.best,p=r.p,h=hitsOf(p,r.s,b.line);return `<a class="brw" href="#${propId(p,r.s)}" data-pjump="${propId(p,r.s)}">
     <span class="bg"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))}${p.q?` · <span class="ut">${esc(p.q)}</span>`:''}</small></span>
-    <span class="bc"><b class="cl ${b.side}">${esc(pBet(r.s,b.side,b.line))}</b><small>${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)}</small></span>
+    <span class="bc"><b class="cl ${b.side}">${esc(pBet(r.s,b.side,b.line))}</b><small>${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)} · ${DRVN[propDriver(propParts(r))]||''}</small></span>
     <span class="bp"><span>${vsTxt(r)}</span><small>${hitTxt(h,b.side)}${r.bk&&r.bk[1]!=null&&r.bk[1]!==r.bk[0]?` · opened ${ln(r.bk[1])}`:''}</small></span>
-    <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)} · ${pc(b.pW,0)}</small></span></a>`}).join('');
+    <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)} · ${pc(b.pW,0)} to win</small></span></a>`}).join('');
   const under=best.length&&best.every(r=>r.best.side==='under'),ps=LBT&&(LBT.seasons||[]).find(x=>x.priced&&x.market_over!=null&&x.over_priced!=null);
   el.innerHTML=`<div class="bhead"><h2>Best player props</h2><p class="lede">${lede}</p></div>`
     +(best.length?`<div class="brws">${head}${rowsH}</div>`:HASL?'<p class="muted">Nothing at +2% or better at your books right now.</p>':'')
-    +`<p class="bfoot">${under?(ps?`All unders: in ${ps.season}, overs hit ${pc(ps.over_priced,1)} of the time when their prices implied ${pc(ps.market_over,1)}. `:'All unders: the lean toward the under is built into the value. '):''}Projections come from nflverse box scores and snap counts, the market’s spread and total, the injury report and the kickoff forecast. Lines move and books limit props, so check the number before you bet.</p>`;
+    +`<p class="bfoot">${under?(ps?`All unders: in ${ps.season}, overs hit ${pc(ps.over_priced,1)} of the time when their prices implied ${pc(ps.market_over,1)}. `:'All unders: the lean toward the under is built into the value. '):''}${pricedWk?`Strong is +5% or more, Lean +2% to +5%.${atTested()&&tt.n?` In testing this mix made ${sg(tt.u/tt.n*100)}% per bet on ${tt.n.toLocaleString()} bets at one book’s prices. Here each prop takes the best price of your books, so far more reach Strong than did in testing (${sGr} of ${tt.n.toLocaleString()} tested bets): read the grade as a ranking, and the props record below as the real check.`:''} `:'Projections come from nflverse box scores and snap counts, the market’s spread and total, the injury report and the kickoff forecast. '}Lines move and books limit props, so check the number before you bet.</p>`;
 }
 
 function propSummary(r){
   const b=r.best,p=r.p,s=r.s,h=hitsOf(p,s,r.line),wn=r.ok?null:whyNot(s);
   return `<summary>
     <span class="pn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))} ${qTag(p)}${wn&&b?` <span class="tag" title="${esc(wn[1])}">${wn[0]}</span>`:''}</small></span>
-    <span class="pp"><span class="pill ${b?b.side:'dim'}">${b?esc(pBet(s,b.side,b.line)):`${esc(statLab(s))} ${ln(r.line)}`}</span><small${b?'':' title="Books balance this market with the price, not the line, so the line alone can’t be valued"'}>${b?`${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)}${r.books>1?` · ${r.books} books`:''}`:'needs your book’s price'}</small></span>
+    <span class="pp"><span class="pill ${b?b.side:'dim'}">${b?esc(pBet(s,b.side,b.line)):`${esc(statLab(s))} ${ln(r.line)}`}</span><small${b?'':' title="Books balance this market with the price, not the line, so the line alone can’t be valued"'}>${b?`${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)}${DRVN[propDriver(propParts(r))]?' · '+DRVN[propDriver(propParts(r))]:''}`:'needs your book’s price'}</small></span>
     <span class="pq"><b>${vsTxt(r)}</b>${rangeBar(s,r.mu,r.line,r.bk?r.bk[1]:null)}${moveTxt(r.bk)}</span>
     <span class="ph">${l8(h)}<small>${hitTxt(h,b?b.side:'over')}</small></span>
-    <span class="pv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small title="Chance to win on ${blendName()}">${gradeOf(b.ev)} · ${pc(b.pW,0)}</small>`:r.po!=null?`<small>ours ${pc(r.po,0)} over</small>`:''}</span>
+    <span class="pv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small title="Chance to win on ${blendName()}">${gradeOf(b.ev)} · ${pc(b.pW,0)} to win</small>`:r.po!=null?`<small>ours ${pc(r.po,0)} over</small>`:''}</span>
   </summary>`;
 }
 
@@ -2540,11 +2695,6 @@ function propWhy(p,s){
   if(s==='anytd'||s==='pass_td')L.push(`${esc(p.t)} is expected to score <b>${pv(T.impl)} points</b> (from the spread and total), which scales every touchdown chance.`);
   if(out.length)L.push(`Out for ${esc(p.t)}: ${out.map(o=>`${esc(o.name)} (${esc(o.pos)}${o.ts>.05?`, ${pc(o.ts,0)} of targets`:''}${o.cs>.1?`, ${pc(o.cs,0)} of carries`:''})`).join(', ')}. Their share is spread over the players left, by role.`);
   if(T.windy)L.push('Wind of 15+ mph is forecast at kickoff, which cuts passing.');
-  const bk=(p.bk||{})[s];if(bk&&bk[1]!=null&&bk[1]!==bk[0])L.push(`${esc(PBOOK)} opened this at ${ln(bk[1])} and has moved it to ${ln(bk[0])}${Math.abs(bk[0]-bk[1])>=Math.max(1.5,.08*bk[1])?': a big move usually means news on his role':''}.`);
-  const rc=roleOf(p),rr=rc&&LBT&&LBT.roles&&LBT.roles[rc.up?'up':'down'];
-  if(rc)L.push(`His snaps ${rc.up?'jumped':'fell'} to ${pc(rc.last,0)} last game, against ${pc(rc.avg,0)} in the games the projection weighs. It follows role changes slowly${rr&&rr.n>=50&&rr.roi!=null?`; in testing, bets on players in this spot ${rr.roi>=0?'still came out ahead':'lost'} (${sg(rr.roi*100)}% per bet on ${rr.n})`:''}.`);
-  if(p.q)L.push(`<span class="ut">${esc(p.q)}</span>${p.qd?' · '+esc(p.qd):''}. A prop is void if he doesn’t play; check the final injury report.`);
-  if(u.gp<4)L.push(`Only ${u.gp} earlier ${u.gp===1?'game':'games'} on record, so his usage leans on the position average.`);
   return L;
 }
 function sparkSVG(p,s,line,mid){
@@ -2580,7 +2730,9 @@ function pCard(p,sel){
     const eO=po!=null?B.o*(dec(po)-1)-B.u:null,eU=pu!=null?B.u*(dec(pu)-1)-B.o:null;
     return `<tr><td>${esc(bk)}</td><td>${td?'Yes':ln(l)}</td><td>${odds(po)}${est?' <small>est.</small>':''} ${eO!=null?`<small class="${eO>0?'pos':'muted'}">${sg(eO*100)}%</small>`:''}</td><td>${pu!=null?odds(pu):'–'} ${eU!=null?`<small class="${eU>0?'pos':'muted'}">${sg(eU*100)}%</small>`:''}</td></tr>`}).join(''):'';
   const calc=`<div class="calc" data-calc="${p._i}|${s}">${td?'<input type="hidden" data-cl="line" value="0.5">':`<label>Line<input type="number" step="0.5" data-cl="line" value="${line??''}"></label>`}<label>${td?'Yes price':'Over price'}<input type="text" data-cl="over" placeholder="${MINUS}115" inputmode="text"></label>${td?'':`<label>Under price<input type="text" data-cl="under" placeholder="${MINUS}115" inputmode="text"></label>`}<output>Type your book’s ${td?'price':'line and both prices'} for its value.</output></div>`;
-  const sel1=b?`<p class="pbest"><b>${esc(pBet(s,b.side,b.line))} ${odds(b.price)}${b.est?' est.':''}</b> at ${esc(b.book)}: ${pc(b.pW,1)} to win (ours alone ${pc(b.pm,1)}), value ${sg(b.ev*100)}%, ${esc(stakeTxt(b))}. ${pLogBtn(r,b)}</p>`:'';
+  const wn=r&&!r.ok?whyNot(s):null,watch=propWatch(p,s,r);
+  const sel1=b?`<p class="pbest"><b>${esc(pBet(s,b.side,b.line))} ${odds(b.price)}${b.est?' est.':''}</b> at ${esc(b.book)} · <span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span> ${gradeOf(b.ev)} · ${esc(stakeTxt(b))} ${pLogBtn(r,b)}</p>
+      <p class="plead">${propLead(r)}${wn?` <span class="ut">Not a best bet:</span> ${wn[1].charAt(0).toLowerCase()+wn[1].slice(1)}.`:''}</p>${propPartsHTML(r)}`:'';
   return `<div class="pcard" data-card="${p._i}">
     <div class="pch"><div class="pcn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))} ${qTag(p)}</small></div>${use.length?`<div class="pchips">${use.map(t=>`<span class="pchip"><small>${t}</small></span>`).join('')}</div>`:''}</div>
     <div class="pcols"><section>
@@ -2588,8 +2740,9 @@ function pCard(p,sel){
       <p class="fine muted">Ours is our median, the line we’d call a coin flip, with the average below (touchdowns and interceptions show the average). Over is our own chance at the line; value uses ${blendName()}.</p>
       <h3>${esc(statLab(s))}: last ${G.length} games</h3>${sparkSVG(p,s,td?null:line,mid)}${G.length?`<p class="fine muted">${line!=null&&!td?`Dashed: the line (${ln(line)}). `:''}${mid!=null?`Solid: our median (${fv(s,mid)}). `:''}Orange bars went over.</p>`:''}${logT}
     </section><section>
-      <h3>Why</h3><ul>${propWhy(p,s).map(t=>`<li>${t}</li>`).join('')}</ul>
-      ${sel1?`<h3>Best price</h3>${sel1}`:''}
+      ${sel1?`<h3>The bet</h3>${sel1}`:''}
+      ${watch.length?`<h3>Before you bet</h3><ul class="pwatch">${watch.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+      <h3>How we project him</h3><ul>${propWhy(p,s).map(t=>`<li>${t}</li>`).join('')}</ul>
       ${r&&r.offers.length>1?`<h3>Every book</h3><div class="scroll"><table class="ptab"><thead><tr><th>Book</th><th>Line</th><th>${td?'Yes':'Over'}</th><th>${td?'No':'Under'}</th></tr></thead><tbody>${books}</tbody></table></div><p class="fine muted">Value at each price on ${blendName()}. Books you’ve switched off aren’t shown.</p>`:''}
       <h3>Your book’s line</h3>${calc}
     </section></div></div>`;
@@ -2646,7 +2799,7 @@ function propMethod(){
 function renderProps(){
   if(!$('#props'))return;
   $('#propswk').textContent=PR?(HASL?`${new Set(PR.offers.map(o=>o[0])).size} players`:'projections'):'off';
-  const rows=propRows();PROWS=new Map(rows.map(r=>[r.pi+'|'+r.s,r]));
+  const rows=propRows();PROWS=new Map(rows.map(r=>[r.pi+'|'+r.s,r]));TOP.props=rows;
   propBoard(rows);propMethod();
   document.querySelectorAll('[data-pshow]').forEach(b=>{b.setAttribute('aria-pressed',b.dataset.pshow===PS.show);b.disabled=!HASL&&b.dataset.pshow!=='players'});
   ['pmkt','ppos','psort','ppa'].forEach(id=>{const e=$('#'+id),k={pmkt:'mkt',ppos:'pos',psort:'sort',ppa:'pa'}[id];if(e&&e.value!==String(PS[k]))e.value=String(PS[k])});
@@ -2722,7 +2875,7 @@ document.addEventListener('input',e=>{const t=e.target;
 ['pmkt','ppos','pgame','psort','ppa'].forEach(id=>{const e=$('#'+id);if(e)e.addEventListener('change',()=>{const k={pmkt:'mkt',ppos:'pos',pgame:'game',psort:'sort',ppa:'pa'}[id];PS[k]=k==='pa'?+e.value:e.value;PSHOW=60;savePS();renderProps()})});
 /* for the standalone site's refresh: the page's own snapshot of each game's call and best bets, and its grading */
 window.MatchupEdge={pickSnap,gradePick,propSnap};
-weights();renderBooks();renderList();renderNBA();renderEPL();renderProps();styleBar();renderForm();setKind(LGK);renderSizing();renderSync();renderBets();setTab(['nba','epl','props','bets'].includes(S.tab)?S.tab:'nfl');
+weights();renderBooks();renderList();renderNBA();renderEPL();renderProps();styleBar();renderForm();setKind(LGK);renderSizing();renderSync();renderBets();setTab(['nfl','nba','epl','props','bets'].includes(S.tab)?S.tab:'top');
 startTracker();
 })();
 </script>

@@ -5,6 +5,8 @@
 Who wins each NFL, NBA and Premier League game, and the best-value bet at the sportsbooks, rebuilt twice every
 weekday and published with GitHub Pages.
 
+- **Top bets** lists every game bet at +2% value or better and the best prop for each player, each with its reason
+  in a line.
 - **Our call** picks the winner of every game, mixing the betting market with a team view (power ratings, every factor
   and news researched each morning) at the weight that picked the most winners in testing.
 - **Best bets** come from the tested model: the market plus only the factors that held up on years of games.
