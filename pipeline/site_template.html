@@ -16,19 +16,20 @@
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --r:10px;
   --away:#2a78d6; --home:#eb6834;
+  --over-fill:#c2410c; --under-fill:#2750c4;   /* bar fills for over and under the line */
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0c1210; --surface:#131c18; --surface-2:#101814; --ink:#e3ebe7; --ink-2:#c3cec8; --muted:#93a39b; --line:#24332c;
   --accent:#4fc79a; --accent-soft:#16302a; --accent-ink:#0c1210; --track:#1f2b26;
   --over:#ff8a4c; --over-soft:#3a2016; --under:#8aa6ff; --under-soft:#1b2544;
   --pos:#4fd197; --pos-soft:#12301f; --neg:#ff806d; --neg-soft:#35191a; --warn:#e2b44a; --warn-soft:#33290f;
-  --shadow:0 10px 28px rgba(0,0,0,.5); --away:#3987e5; --home:#d95926; color-scheme:dark}}
+  --shadow:0 10px 28px rgba(0,0,0,.5); --away:#3987e5; --home:#d95926; --over-fill:#e0692b; --under-fill:#5f82ee; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0c1210; --surface:#131c18; --surface-2:#101814; --ink:#e3ebe7; --ink-2:#c3cec8; --muted:#93a39b; --line:#24332c;
   --accent:#4fc79a; --accent-soft:#16302a; --accent-ink:#0c1210; --track:#1f2b26;
   --over:#ff8a4c; --over-soft:#3a2016; --under:#8aa6ff; --under-soft:#1b2544;
   --pos:#4fd197; --pos-soft:#12301f; --neg:#ff806d; --neg-soft:#35191a; --warn:#e2b44a; --warn-soft:#33290f;
-  --shadow:0 10px 28px rgba(0,0,0,.5); --away:#3987e5; --home:#d95926; color-scheme:dark}
+  --shadow:0 10px 28px rgba(0,0,0,.5); --away:#3987e5; --home:#d95926; --over-fill:#e0692b; --under-fill:#5f82ee; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
@@ -465,7 +466,7 @@ details.crow[open] .cw::before{content:"\25BE"}
 .rng .lm{top:-1px;width:3px;height:14px;margin-left:-1.5px;border-radius:1px;background:var(--ink)}
 .rng .om{top:2px;width:8px;height:8px;margin-left:-4px;border-radius:50%;border:1.5px solid var(--muted);background:var(--surface)}
 .mv{font-size:11.5px;font-weight:600} .mv.up{color:var(--over)} .mv.dn{color:var(--under)}
-/* the last 8 games against the line */
+/* his last 10 games against the line */
 .l8{display:inline-flex;gap:3px;align-items:center}
 .l8 i{display:block;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--under);box-sizing:border-box}
 .l8 i.o{background:var(--over);border-color:var(--over)}
@@ -486,24 +487,57 @@ details.crow[open] .cw::before{content:"\25BE"}
 .pcn{display:flex;flex-direction:column;min-width:0}
 .pcn b{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.02em;line-height:1.1}
 .pcn small{color:var(--muted);font-size:12px}
-.pcols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px}
-@media (max-width:900px){.pcols{grid-template-columns:minmax(0,1fr)}.pcols section:nth-child(2){order:-1}.pcols section:nth-child(2)>h3:first-child{margin-top:0}}
+/* three parts: the research (a), the bet (b), the working (c). Side by side on a wide screen; on a phone the bet comes first */
+.pcols{display:grid;min-width:0;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"a b" "a c";gap:14px 18px}
+.pcols.nob{grid-template-rows:auto;grid-template-areas:"a c"}
+.pcols>.pa{grid-area:a}.pcols>.pb{grid-area:b}.pcols>.pc{grid-area:c}
+@media (max-width:900px){.pcols{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"b" "a" "c"}.pcols.nob{grid-template-areas:"a" "c"}}
 .pcols section{min-width:0}
 .pcard h3{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.05em;text-transform:uppercase;margin:14px 0 6px}
 .pcols section>h3:first-child{margin-top:0}
 .pcard ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
 .pcard p{margin:0 0 6px;font-size:13px;color:var(--ink-2)}
 .pcard p.fine{font-size:11.5px;margin:4px 0 0}
-.pprops tr.sel td{background:var(--accent-soft)}
-.pprops .st{border:0;background:none;padding:0;font:inherit;font-weight:600;color:var(--accent);cursor:pointer;text-align:left}
-.pprops .st[aria-pressed="true"]{color:var(--ink)}
+.pprops tr.sel td,.phit tr.sel td,.pdvp tr.sel td{background:var(--accent-soft)}
+.pprops .st,.phit .st{border:0;background:none;padding:0;font:inherit;font-weight:600;color:var(--accent);cursor:pointer;text-align:left}
+.pprops .st[aria-pressed="true"],.phit .st[aria-pressed="true"]{color:var(--ink)}
+/* hit rates: a small meter beside the count */
+.hm{display:inline-block;vertical-align:middle;width:56px;height:6px;border-radius:3px;margin-right:8px;background:var(--over-soft);overflow:hidden}
+.hm i{display:block;height:100%;border-radius:3px;background:var(--over-fill)}
+.hm.under{background:var(--under-soft)} .hm.under i{background:var(--under-fill)}
+.hc{display:inline-block;min-width:4.9em;text-align:right}
+/* his role: three small figures with the trend behind them */
+.utiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:8px;margin-top:6px}
+.utile{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:8px 10px;min-width:0}
+.utile .k{margin-bottom:1px}
+.utile b{display:block;font-size:18px;font-weight:700;line-height:1.15}
+.utile small{display:block;color:var(--muted);font-size:11.5px}
+.utile svg{display:block;margin-top:6px;max-width:100%}
+.utile .u0{fill:var(--muted);opacity:.38} .utile .u1{fill:var(--accent)}
+/* the opponent against his position: where it ranks, fewest allowed on the left */
+.rkt{display:inline-block;position:relative;width:84px;height:6px;border-radius:3px;background:var(--track);vertical-align:middle}
+.rkt i{position:absolute;top:-4px;width:14px;height:14px;margin-left:-7px;border-radius:50%;box-sizing:border-box;background:var(--muted);border:2px solid var(--surface-2)}
+.rkt i.hi{background:var(--over-fill)} .rkt i.lo{background:var(--under-fill)}
+.pdvp tr.sel .rkt i{border-color:var(--accent-soft)}
+.pdvp th.rkh{width:84px}
+.pdvp th.rkh span{display:flex;justify-content:space-between;width:84px;margin-left:auto}
+.pdvp th.rkh i{font-style:normal}
+@media (max-width:760px){.pdvp th.rkh,.pdvp td:last-child{display:none}.hm{width:34px;margin-right:6px}.phit td,.phit th{padding:5px 4px}.phit td.nm{min-width:0}}
+.plog{margin-top:10px}
+.plog td small{display:inline;margin-left:5px}
+.sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px;background:var(--under-fill)} .sw.over{background:var(--over-fill)}
 .sd{font-weight:700} .sd.over{color:var(--over)} .sd.under{color:var(--under)} .sd .ss{display:none}
 #pmethod p.fine,#pbar p.fine{font-size:12px;margin:8px 0 0}
 .pbest b{font-weight:700}
 td.ov{color:var(--over);font-weight:700} td.un{color:var(--under)}
-.spark{display:block;width:100%;max-width:440px;height:auto;margin:4px 0 2px}
-.spark .bar{fill:var(--under);opacity:.55} .spark .bar.hit{fill:var(--over);opacity:.9} .spark .ln{stroke:var(--ink);stroke-width:1.4;stroke-dasharray:5 3} .spark .pj{stroke:var(--accent);stroke-width:2}
-.spark text{fill:var(--muted);font-family:var(--f-mono);font-size:10px}
+.spark{display:block;width:100%;height:auto;margin:8px 0 2px}
+.spark .bar{fill:var(--under-fill)} .spark .hit .bar{fill:var(--over-fill)} .spark .push .bar{fill:var(--muted)}
+.spark .hb{fill:transparent}
+.spark .b:hover .bar{opacity:.72}
+.spark .ax{stroke:var(--line);stroke-width:1} .spark .ln{stroke:var(--ink);stroke-width:1.4;stroke-dasharray:5 3} .spark .pj{stroke:var(--accent);stroke-width:2}
+.spark text{fill:var(--muted);font-family:var(--f-mono);font-size:11px}
+.spark text.v,.spark text.rl{fill:var(--ink-2);paint-order:stroke;stroke:var(--surface-2);stroke-width:3px;stroke-linejoin:round}
+.spark.many .v{display:none} .spark.many .keep .v,.spark.many .b:hover .v{display:block}
 .calc{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;margin-top:6px}
 .calc label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .calc input{width:96px;font-size:14px;color:var(--ink);border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:6px 8px}
@@ -612,7 +646,7 @@ details.how dd p{margin:0 0 6px}
         <label class="sortl"><span class="lbl">Market</span><select id="pmkt"><option value="all">All markets</option><option value="pass">Passing</option><option value="rush">Rushing</option><option value="rec">Receiving</option><option value="td">Touchdowns</option></select></label>
         <label class="sortl"><span class="lbl">Position</span><select id="ppos"><option value="all">All</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option></select></label>
         <label class="sortl"><span class="lbl">Game</span><select id="pgame"><option value="all">All games</option></select></label>
-        <label class="sortl" id="psortl"><span class="lbl">Sort</span><select id="psort"><option value="value">Best value</option><option value="edge">Biggest gap to the line</option><option value="time">Kickoff</option><option value="name">Player</option></select></label>
+        <label class="sortl" id="psortl"><span class="lbl">Sort</span><select id="psort"><option value="value">Best value</option><option value="hit">Hit rate, last 10</option><option value="edge">Biggest gap to the line</option><option value="time">Kickoff</option><option value="name">Player</option></select></label>
       </div>
       <div class="pbrow pset">
         <label class="pw" title="How much our projection counts against the market’s line."><span class="lbl">Model weight</span><input id="pw" type="range" min="0" max="100" step="5"><output id="pwo"></output></label>
@@ -2549,9 +2583,43 @@ function roleOf(p){const G=p.log||[],x=G[G.length-1],a=p.u&&p.u.snap;if(!x||x[14
 const propId=(p,s)=>'pp-'+p._i+'-'+s;
 const pLogBtn=(r,b)=>`<button class="logb" data-plog="${esc(JSON.stringify({desc:`${r.p.n} ${pBet(r.s,b.side,b.line)}`,date:(PGAME(r.p.g)||{}).date||'',price:b.price,book:b.book,stake:stakeFor(b).amt||''}))}">Log bet</button>`;
 
-/* the last 8 games against a line: 1 over, 0 under, .5 push */
+/* a game against a line: 1 over, 0 under, .5 push (anytime TD: scored or not). Rows and boards use his last 10 games.
+   A game row: season, week, opponent, then the columns in LOGI, 14 snap share, 15 venue (1 home, 0 away, 2 neutral),
+   16 share of the team's targets, 17 share of its carries (builds before October 2026 stop at 14) */
 const LOGI={tgt:3,rec:4,rec_yds:5,rush_att:6,rush_yds:7,pass_att:8,pass_cmp:9,pass_yds:10,pass_td:11,pass_int:12,anytd:13};
-function hitsOf(p,s,line){if(line==null)return[];const i=LOGI[s];return(p.log||[]).slice(-8).map(x=>{const v=x[i];return s==='anytd'?(v>=1?1:0):v>line?1:v<line?0:.5})}
+const hitOf=(x,s,line)=>{const v=x[LOGI[s]];return s==='anytd'?(v>=1?1:0):v>line?1:v<line?0:.5};
+function hitsOf(p,s,line){if(line==null)return[];return playedLog(p).slice(-10).map(x=>hitOf(x,s,line))}
+const gameTxt=x=>`${x[0]} wk ${x[1]} ${x[15]===0?'@ ':x[15]===1?'vs ':''}${x[2]}`;
+/* a regular (half the snaps or more) who barely played a game (a snap or two to keep a streak, a starter's mop-up
+   appearance from his days as a backup, hurt on the first series) says nothing about a line, so the rates, dots and charts
+   leave that game out and say so; a game he left early (under a quarter of the snaps) counts, and is marked */
+const usual=p=>p.u&&p.u.snap!=null?p.u.snap:null;
+const barely=(p,x)=>x[14]!=null&&usual(p)>=.5&&x[14]<.1;
+const lowSnap=(p,x)=>x[14]!=null&&usual(p)>=.5&&x[14]>=.1&&x[14]<.25;
+const playedLog=p=>p._pl||(p._pl=(p.log||[]).filter(x=>!barely(p,x)));
+/* the sets of games a card can look at: his last 5, 10 and 20, this season, this game's venue, and this opponent */
+const PWIN=new Map();
+function gameSets(p){
+  const L=playedLog(p),g=PGAME(p.g),sea=(PR&&PR.season)||(NFL&&NFL.season),out=[];let prev=0;
+  for(const n of [5,10,20]){const k=Math.min(n,L.length);if(k>prev){out.push({k:'l'+n,lab:`Last ${k}`,rows:L.slice(-k)});prev=k}}
+  const S=L.filter(x=>x[0]===sea);
+  if(S.length)out.push({k:'sea',lab:`${sea} season`,rows:S});
+  const ven=g&&!g.neutral?(g.home===p.t?1:0):null,V=ven==null?[]:L.filter(x=>x[15]===ven);
+  if(V.length)out.push({k:'ven',lab:ven?'Home games':'Away games',sub:`of his last ${L.length}`,rows:V});
+  const H=(p.h2h||[]).filter(x=>!barely(p,x));
+  if(H.length)out.push({k:'opp',lab:`Against ${p.o}`,sub:`since ${sea-2}`,rows:H});
+  return out;
+}
+const pickSet=(p,sets)=>{const k=PWIN.get(p._i)||'l10';return sets.find(x=>x.k===k)||sets.filter(x=>/^l\d/.test(x.k)).pop()||sets[0]||null};
+/* what the opponent has allowed to his position for one stat: per game, and its rank among the defenses (1 allows the most) */
+const DVPL={pass_yds:'Passing yards',pass_td:'Passing TDs',pass_cmp:'Completions',pass_att:'Pass attempts',pass_int:'Interceptions made',rush_yds:'Rushing yards',rush_att:'Carries',tgt:'Targets',rec:'Receptions',rec_yds:'Receiving yards',anytd:'Touchdowns'};
+const DVPW={pass_yds:'passing yards',pass_td:'passing touchdowns',pass_cmp:'completions',pass_att:'pass attempts',rush_yds:'rushing yards',rush_att:'carries',rec:'receptions',rec_yds:'receiving yards'};
+const DVPO={QB:['pass_yds','pass_td','pass_cmp','pass_att','pass_int','rush_yds','rush_att','anytd'],RB:['rush_yds','rush_att','tgt','rec','rec_yds','anytd'],WR:['tgt','rec','rec_yds','anytd'],TE:['tgt','rec','rec_yds','anytd']};
+function dvpOf(p,s){
+  const D=PR&&PR.dvp&&PR.dvp[p.o],T=D&&D[p.p],v=T&&T[s];if(!v)return null;
+  const n=Object.keys(PR.dvp).length,rk=v[1];
+  return{v:v[0],rk,n,D,txt:rk===1?'most':rk===n?'fewest':rk<=n/2?`${ord(rk)} most`:`${ord(n+1-rk)} fewest`};
+}
 const l8=h=>h.length?`<span class="l8" aria-hidden="true">${h.map(x=>`<i class="${x===1?'o':x===0?'u':'p'}"></i>`).join('')}</span>`:'';
 const hitTxt=(h,side)=>{if(!h.length)return 'no games on record';const n=h.filter(x=>side==='under'?x===0:x===1).length;return `${side==='under'?'under':'over'} in ${n} of last ${h.length}`};
 /* our middle 80% and 50% of outcomes, our median, the line and where it opened, on one scale */
@@ -2630,7 +2698,9 @@ function propWatch(p,s,r){
   if(bk&&bk[1]!=null&&bk[1]!==bk[0]){const big=Math.abs(bk[0]-bk[1])>=Math.max(1.5,.08*bk[1]),tow=b&&s!=='anytd'?(b.side==='under'?bk[0]<bk[1]:bk[0]>bk[1]):null;
     L.push(`${esc(PBOOK)} opened this at ${ln(bk[1])} and has moved it to ${ln(bk[0])}${tow==null?'':tow?', toward this bet':', against this bet'}${big?'. A big move usually means news on his role':''}.`)}
   if(b&&s!=='anytd'){const h=hitsOf(p,s,b.line),n=h.filter(x=>b.side==='under'?x===0:x===1).length,opp=h.filter(x=>b.side==='under'?x===1:x===0).length;
-    if(h.length>=6&&n<=h.length/4)L.push(`He went ${b.side==='under'?'over':'under'} ${ln(b.line)} in ${opp} of his last ${h.length} games.`)}
+    if(h.length>=6&&n<=h.length/4)L.push(`He went ${b.side==='under'?'over':'under'} ${ln(b.line)} in ${opp} of his last ${h.length} games.`);
+    const m=DVPW[s]?dvpOf(p,s):null;
+    if(m&&m.D.g>=4&&(b.side==='under'?m.rk<=5:m.rk>m.n-5))L.push(`${esc(p.o)} has allowed the ${m.txt} ${DVPW[s]} to ${POSN[p.p]} over its last ${m.D.g} games, which cuts against this bet.`)}
   if(u.gp<4)L.push(`Only ${u.gp} earlier ${u.gp===1?'game':'games'} on record, so his usage leans on the position average.`);
   return L;
 }
@@ -2697,14 +2767,65 @@ function propWhy(p,s){
   if(T.windy)L.push('Wind of 15+ mph is forecast at kickoff, which cuts passing.');
   return L;
 }
-function sparkSVG(p,s,line,mid){
-  const i=LOGI[s],G=(p.log||[]).slice(-8);if(!G.length)return '';
-  const vals=G.map(x=>x[i]),mx=Math.max(line||0,mid||0,...vals,1)*1.15,W=420,H=118,bw=W/G.length;
-  const y=v=>H-18-(v/mx)*(H-30);
-  const bars=G.map((x,k)=>{const v=vals[k],h=Math.max(1,(H-18)-y(v));return `<rect class="bar${line!=null&&(s==='anytd'?v>=1:v>line)?' hit':''}" x="${k*bw+bw*.18}" y="${y(v)}" width="${bw*.64}" height="${h}" rx="2"/><text x="${k*bw+bw/2}" y="${H-5}" text-anchor="middle">${esc(x[2])}</text><text x="${k*bw+bw/2}" y="${y(v)-3}" text-anchor="middle">${v}</text>`}).join('');
-  const lnL=line!=null&&s!=='anytd'?`<line class="ln" x1="0" x2="${W}" y1="${y(line)}" y2="${y(line)}"/>`:'';
-  const md=mid!=null?`<line class="pj" x1="0" x2="${W}" y1="${y(mid)}" y2="${y(mid)}"/>`:'';
-  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(statLab(s))} in his last ${G.length} games${line!=null?', against the line of '+ln(line):''}">${bars}${md}${lnL}</svg>`;
+/* a set of games as columns against the line (dashed) and our median (solid). Past a dozen games only the best and the
+   latest carry their number; the rest show it on hover or focus, and the game log below has them all */
+function sparkSVG(G,s,line,mid,byDate){
+  const n=G.length;if(!n)return '';
+  const i=LOGI[s],td=s==='anytd',vals=G.map(x=>x[i]),many=n>12,GUT=line!=null||mid!=null?70:0;
+  const pw=many?25:Math.min(46,(420-GUT)/n),W=many?n*25+GUT:420,H=132,top=18,base=H-22,bw=Math.min(24,pw-6);
+  const mx=Math.max(line||0,mid||0,...vals,1)*1.1,y=v=>base-Math.max(0,v)/mx*(base-top),hi=vals.indexOf(Math.max(...vals));
+  const bars=G.map((x,k)=>{const v=vals[k],cx=(k+.5)*pw,x0=cx-bw/2,x1=cx+bw/2,yy=Math.min(y(v),base-2),r=Math.min(4,(base-yy)/2,bw/2);
+    const cls=line!=null&&v===line?' push':(line!=null?v>line:td&&v>=1)?' hit':'';
+    return `<g class="b${cls}${k===hi||k===n-1?' keep':''}"><title>${esc(gameTxt(x))}: ${v}</title><rect class="hb" x="${(k*pw).toFixed(1)}" y="0" width="${pw.toFixed(1)}" height="${H}"/>`
+      +`<path class="bar" d="M${x0.toFixed(1)},${base}V${(yy+r).toFixed(1)}Q${x0.toFixed(1)},${yy.toFixed(1)} ${(x0+r).toFixed(1)},${yy.toFixed(1)}H${(x1-r).toFixed(1)}Q${x1.toFixed(1)},${yy.toFixed(1)} ${x1.toFixed(1)},${(yy+r).toFixed(1)}V${base}Z"/>`
+      +`<text class="v" x="${cx.toFixed(1)}" y="${(yy-4).toFixed(1)}" text-anchor="middle">${v}</text><text x="${cx.toFixed(1)}" y="${H-7}" text-anchor="middle">${byDate?`${String(x[0]).slice(2)} w${x[1]}`:esc(x[2])}</text></g>`}).join('');
+  const refs=[];
+  if(line!=null&&!td)refs.push({y:y(line),c:'ln',t:`line ${ln(line)}`});
+  if(mid!=null)refs.push({y:y(mid),c:'pj',t:`ours ${fv(s,mid)}`});
+  refs.sort((a,b)=>a.y-b.y);
+  const close=refs.length===2&&refs[1].y-refs[0].y<12;
+  const refH=refs.map((r,k)=>`<line class="${r.c}" x1="0" x2="${W}" y1="${r.y.toFixed(1)}" y2="${r.y.toFixed(1)}"/><text class="rl" x="${W-1}" y="${(close&&k===1?r.y+11:r.y-4).toFixed(1)}" text-anchor="end">${r.t}</text>`).join('');
+  return `<div class="scroll"><svg class="spark${many?' many':''}" viewBox="0 0 ${W} ${H}" style="max-width:${W}px${many?`;min-width:${W}px`:''}" role="img" aria-label="${esc(statLab(s))} in ${n} ${n===1?'game':'games'}${line!=null?', against the line of '+ln(line):''}">`
+    +`<line class="ax" x1="0" x2="${W}" y1="${base}" y2="${base}"/>${bars}${refH}</svg></div>`;
+}
+/* hit rates: one row per set of games, for the bet's side; a row chooses which games the chart and log below show */
+function hitTable(p,s,line,side,sets,cur){
+  const td=s==='anytd',i=LOGI[s],un=side==='under',has=td||line!=null;
+  const body=sets.map(S=>{const n=S.rows.length,avg=S.rows.reduce((a,x)=>a+x[i],0)/n,k=has?S.rows.filter(x=>hitOf(x,s,line)===(un?0:1)).length:0;
+    return `<tr class="${S===cur?'sel':''}"><td class="nm"><button type="button" class="st" data-pwin="${p._i}|${S.k}" aria-pressed="${S===cur}">${esc(S.lab)}</button>${S.sub?`<small>${esc(S.sub)}</small>`:''}</td>`
+      +(has?`<td class="num"><span class="hm ${side}" aria-hidden="true"><i style="width:${Math.round(k/n*100)}%"></i></span><span class="hc">${k} of ${n}</span></td><td class="num"><b>${pc(k/n,0)}</b></td>`:`<td class="num">${n}</td>`)
+      +`<td class="num">${avg.toFixed(td?2:1)}</td></tr>`}).join('');
+  return `<div class="scroll"><table class="ptab phit"><thead><tr><th>Games</th>${has?`<th>${td?(un?'Didn’t score':'Scored'):`${un?'Under':'Over'} ${ln(line)}`}</th><th>Rate</th>`:'<th>Played</th>'}<th>Avg</th></tr></thead><tbody>${body}</tbody></table></div>`;
+}
+/* his role across the chosen games: snap share and his share of targets and carries (a quarterback's attempts and carries),
+   the last 3 games against the ones before them once there are 5 */
+function usageHTML(p,rows){
+  const n=rows.length;if(n<2)return '';
+  const M=p.p==='QB'?[['Snap share',14,1],['Pass attempts',8,0],['Carries',6,0]]:[['Snap share',14,1],['Target share',16,1],['Carry share',17,1]];
+  const k=n>=5?3:0,num=z=>z!=null&&isFinite(z),avg=a=>{const b=a.filter(num);return b.length?b.reduce((t,z)=>t+z,0)/b.length:null};
+  const tiles=M.map(([lab,i,isPct])=>{
+    const v=rows.map(x=>x[i]),ok=v.filter(num);if(ok.length<2)return '';
+    if(isPct&&i!==14&&Math.max(...ok)<.05)return '';  /* a role he doesn't have, like a receiver's carries */
+    const f=z=>isPct?Math.round(z*100)+'%':z.toFixed(1),rec=k?avg(v.slice(-k)):avg(v),old=k?avg(v.slice(0,-k)):null;
+    const d=rec!=null&&old!=null?rec-old:null,big=d!=null&&Math.abs(d)>=(isPct?.05:Math.max(1.5,.15*old));
+    const mx=Math.max(...ok,isPct?.05:1),sl=Math.min(9,150/n),bw=Math.max(2,sl-2.5),Hh=26;
+    const bars=v.map((z,t)=>{if(!num(z))return '';const bh=Math.max(1.5,z/mx*Hh);return `<rect class="${!k||t>=n-k?'u1':'u0'}" x="${(t*sl).toFixed(1)}" y="${(Hh-bh).toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}" rx="1"><title>${esc(gameTxt(rows[t]))}: ${f(z)}</title></rect>`}).join('');
+    if(rec==null)return '';
+    const dz=d==null?null:isPct?Math.round(d*100):+d.toFixed(1);
+    return `<div class="utile"><span class="k">${lab}</span><b>${f(rec)}</b><small>${k?`last 3${dz==null?'':dz===0?` · level with the ${n-k} before`:` · ${big?(d>0?'▲ ':'▼ '):''}${isPct?sg(dz,0)+(Math.abs(dz)===1?' pt':' pts'):sg(dz,1)} vs the ${n-k} before`}`:`over ${n} games`}</small>`
+      +`<svg width="${(n*sl).toFixed(0)}" height="${Hh}" viewBox="0 0 ${(n*sl).toFixed(1)} ${Hh}" role="img" aria-label="${lab} by game, oldest first">${bars}</svg></div>`}).filter(Boolean);
+  return tiles.length?`<h4>His role in these games</h4><div class="utiles">${tiles.join('')}</div>`:'';
+}
+/* what this week's opponent has allowed to his position, for the stats behind his props */
+function matchupHTML(p,s){
+  const D=PR&&PR.dvp&&PR.dvp[p.o],T=D&&D[p.p];if(!T)return '';
+  const keys=DVPO[p.p].filter(k=>T[k]&&(k==='tgt'?(p.mu.rec!=null||p.mu.rec_yds!=null):p.mu[k]!=null));if(!keys.length)return '';
+  const n=Object.keys(PR.dvp).length,third=Math.round(n/3);
+  const rows=keys.map(k=>{const m=dvpOf(p,k);
+    return `<tr class="${k===s?'sel':''}"><td class="nm">${DVPL[k]}</td><td class="num">${m.v.toFixed(k==='anytd'||k==='pass_td'||k==='pass_int'?2:1)}</td><td class="num">${m.txt}</td><td><span class="rkt" aria-hidden="true"><i class="${m.rk<=third?'hi':m.rk>n-third?'lo':''}" style="left:${((n-m.rk)/(n-1)*100).toFixed(0)}%"></i></span></td></tr>`}).join('');
+  const basis=D.s>=D.g?`its ${D.g} games this season`:`its last ${D.g} games (${D.s} from this season)`;
+  return `<h3>${esc(p.o)} against ${POSN[p.p]}</h3><div class="scroll"><table class="ptab pdvp"><thead><tr><th>Per game</th><th>Allowed</th><th>Rank</th><th class="rkh"><span><i>fewest</i><i>most</i></span></th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="fine muted">What ${esc(p.o)} has allowed to ${POSN[p.p]} per game over ${basis}, and where that ranks among the ${n} defenses.</p>`;
 }
 function pCard(p,sel){
   const stats=PORDER.filter(s=>p.mu[s]!=null);
@@ -2721,10 +2842,20 @@ function pCard(p,sel){
       <td class="num">${po!=null?pc(po,0):'–'}</td>
       <td>${bb?`<span class="sd ${bb.side}">${t==='anytd'?(bb.side==='over'?'Yes':'No'):`<span class="sl">${bb.side==='over'?'Over':'Under'}</span><span class="ss">${bb.side==='over'?'O':'U'}</span>`}</span> ${odds(bb.price)}${bb.est?' <small>est.</small>':''}`:x?'<small>needs a price</small>':'–'}</td>
       <td class="num">${bb?`<span class="ev ${evCls(bb.ev)}">${sg(bb.ev*100)}%</span>`:''}</td></tr>`}).join('');
-  const G=(p.log||[]).slice(-8),i=LOGI[s];
-  const logT=G.length?`<div class="scroll"><table class="ptab"><thead><tr><th>Game</th><th>Snaps</th>${p.p==='QB'?'<th>Att</th><th>Cmp</th><th>Pass yds</th><th>TD</th><th>INT</th><th>Car</th><th>Rush yds</th>':'<th>Tgt</th><th>Rec</th><th>Rec yds</th><th>Car</th><th>Rush yds</th><th>TD</th>'}</tr></thead><tbody>${G.slice().reverse().map(x=>{
-      const c=k=>{const v=x[k];return `<td class="${k===i&&line!=null&&!td?(v>line?'ov':'un'):''}">${v}</td>`};
-      return `<tr><td>${x[0]} wk ${x[1]} ${esc(x[2])}</td><td>${x[14]!=null?pc(x[14]):'–'}</td>${p.p==='QB'?[8,9,10,11,12,6,7].map(c).join(''):[3,4,5,6,7].map(c).join('')+`<td class="${td?(x[13]>=1?'ov':'un'):''}">${x[13]}</td>`}</tr>`}).join('')}</tbody></table></div>`:'<p class="muted">No earlier games on record.</p>';
+  const sets=gameSets(p),cur=pickSet(p,sets),G=cur?cur.rows:[],i=LOGI[s],side=b?b.side:'over',qb=p.p==='QB',nLow=G.filter(x=>lowSnap(p,x)).length;
+  /* the chosen games, newest first; a non-quarterback's targets and carries carry his share of the team's underneath */
+  const logT=G.length?`<div class="scroll plog"><table class="ptab"><thead><tr><th>Game</th><th>Snaps</th>${qb?'<th>Att</th><th>Cmp</th><th>Pass yds</th><th>TD</th><th>INT</th><th>Car</th><th>Rush yds</th>':'<th>Tgt</th><th>Rec</th><th>Rec yds</th><th>Car</th><th>Rush yds</th><th>TD</th>'}</tr></thead><tbody>${G.slice().reverse().map(x=>{
+      const c=k=>{const v=x[k],sh=qb?null:k===3?x[16]:k===6?x[17]:null;return `<td class="${k===i&&line!=null&&!td?(v>line?'ov':v<line?'un':''):''}">${v}${v>0&&sh!=null&&isFinite(sh)?`<small>${pc(sh,0)}</small>`:''}</td>`};
+      return `<tr><td>${esc(gameTxt(x))}${x[15]===2?'*':''}</td><td>${x[14]!=null?pc(x[14])+(lowSnap(p,x)?'‡':''):'–'}</td>${qb?[8,9,10,11,12,6,7].map(c).join(''):[3,4,5,6,7].map(c).join('')+`<td class="${td?(x[13]>=1?'ov':'un'):''}">${x[13]}</td>`}</tr>`}).join('')}</tbody></table></div>`
+      +(()=>{const t=[!qb&&G.some(x=>x[16]!=null||x[17]!=null)?'The small figure beside his targets and carries is his share of the team’s that game.':'',G.some(x=>x[15]===2)?'* Played at a neutral site.':'',
+          nLow?`‡ He played under a quarter of the snaps; ${nLow===1?'that game still counts':'those games still count'} in the rates above.`:''].filter(Boolean).join(' ');return t?`<p class="fine muted">${t}</p>`:''})():'';
+  const hasLine=td||line!=null,many=G.length>12,seen=new Set();
+  const skipped=[...(p.log||[]),...(p.h2h||[])].filter(x=>barely(p,x)&&!seen.has(x[0]+'|'+x[1])&&seen.add(x[0]+'|'+x[1])).sort((a,c)=>a[0]-c[0]||a[1]-c[1]);
+  const research=sets.length?`<h3>${esc(statLab(s))} in his games</h3>${hitTable(p,s,td?null:line,side,sets,cur)}
+      <p class="fine muted">Choose a row to see those games below.${skipped.length?` Left out, because he barely played: ${skipped.map(x=>`${esc(gameTxt(x))} (${pc(x[14])} of snaps)`).join(', ')}.`:''}</p>
+      ${sparkSVG(G,s,td?null:line,mid,cur.k==='opp')}
+      ${hasLine?`<p class="fine muted"><span class="sw over"></span>${td?'scored':'over the line'} &nbsp; <span class="sw"></span>${td?'didn’t score':'under'}${many?' &nbsp; Hover or tap a bar for its number.':''}</p>`:''}
+      ${usageHTML(p,G)}`:`<h3>${esc(statLab(s))} in his games</h3><p class="muted">No earlier games on record.</p>`;
   const books=r?r.offers.slice().sort((a,c)=>a[3]-c[3]||String(a[2]).localeCompare(c[2])).map(o=>{
     const [,,bk,l,ov,un,pom,pum,pok,puk]=o,est=ov==null&&un==null,B=blend(pom,pum,pok,puk,s),po=est?PS.pa:ov,pu=est?PS.pa:un;
     const eO=po!=null?B.o*(dec(po)-1)-B.u:null,eU=pu!=null?B.u*(dec(pu)-1)-B.o:null;
@@ -2735,14 +2866,17 @@ function pCard(p,sel){
       <p class="plead">${propLead(r)}${wn?` <span class="ut">Not a best bet:</span> ${wn[1].charAt(0).toLowerCase()+wn[1].slice(1)}.`:''}</p>${propPartsHTML(r)}`:'';
   return `<div class="pcard" data-card="${p._i}">
     <div class="pch"><div class="pcn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))} ${qTag(p)}</small></div>${use.length?`<div class="pchips">${use.map(t=>`<span class="pchip"><small>${t}</small></span>`).join('')}</div>`:''}</div>
-    <div class="pcols"><section>
+    <div class="pcols${sel1||watch.length?'':' nob'}"><section class="pa">
       <div class="scroll"><table class="ptab pprops"><thead><tr><th>Prop</th><th>Ours</th><th>Line</th><th>Over</th><th>Best</th><th>Value</th></tr></thead><tbody>${rows}</tbody></table></div>
       <p class="fine muted">Ours is our median, the line we’d call a coin flip, with the average below (touchdowns and interceptions show the average). Over is our own chance at the line; value uses ${blendName()}.</p>
-      <h3>${esc(statLab(s))}: last ${G.length} games</h3>${sparkSVG(p,s,td?null:line,mid)}${G.length?`<p class="fine muted">${line!=null&&!td?`Dashed: the line (${ln(line)}). `:''}${mid!=null?`Solid: our median (${fv(s,mid)}). `:''}Orange bars went over.</p>`:''}${logT}
-    </section><section>
+      ${research}
+      ${logT}
+    </section>${sel1||watch.length?`<section class="pb">
       ${sel1?`<h3>The bet</h3>${sel1}`:''}
       ${watch.length?`<h3>Before you bet</h3><ul class="pwatch">${watch.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+    </section>`:''}<section class="pc">
       <h3>How we project him</h3><ul>${propWhy(p,s).map(t=>`<li>${t}</li>`).join('')}</ul>
+      ${matchupHTML(p,s)}
       ${r&&r.offers.length>1?`<h3>Every book</h3><div class="scroll"><table class="ptab"><thead><tr><th>Book</th><th>Line</th><th>${td?'Yes':'Over'}</th><th>${td?'No':'Under'}</th></tr></thead><tbody>${books}</tbody></table></div><p class="fine muted">Value at each price on ${blendName()}. Books you’ve switched off aren’t shown.</p>`:''}
       <h3>Your book’s line</h3>${calc}
     </section></div></div>`;
@@ -2823,15 +2957,17 @@ function renderProps(){
   el.className='plist';
   const L=rows.filter(r=>pPass(r.p,r.s)&&(PS.show==='lines'||(r.ok&&r.best&&r.best.ev>0)));
   const ev=r=>r.best?r.best.ev:-1;
-  L.sort(PS.sort==='time'?(a,b)=>koOf(a.p).localeCompare(koOf(b.p))||ev(b)-ev(a):PS.sort==='edge'?(a,b)=>Math.abs((b.po??.5)-.5)-Math.abs((a.po??.5)-.5):PS.sort==='name'?(a,b)=>a.p.n.localeCompare(b.p.n)||PORDER.indexOf(a.s)-PORDER.indexOf(b.s):(a,b)=>ev(b)-ev(a));
+  /* the share of his last 10 games that landed on the bet's side (5 games or more) */
+  const hr=r=>{if(r._hr!==undefined)return r._hr;const b=r.best,h=b?hitsOf(r.p,r.s,b.line):[];return r._hr=h.length>=5?h.filter(x=>b.side==='under'?x===0:x===1).length/h.length:-1};
+  L.sort(PS.sort==='hit'?(a,b)=>hr(b)-hr(a)||ev(b)-ev(a):PS.sort==='time'?(a,b)=>koOf(a.p).localeCompare(koOf(b.p))||ev(b)-ev(a):PS.sort==='edge'?(a,b)=>Math.abs((b.po??.5)-.5)-Math.abs((a.po??.5)-.5):PS.sort==='name'?(a,b)=>a.p.n.localeCompare(b.p.n)||PORDER.indexOf(a.s)-PORDER.indexOf(b.s):(a,b)=>ev(b)-ev(a));
   const shown=L.slice(0,PSHOW);
-  el.innerHTML=(shown.length?`<div class="prow hdr" aria-hidden="true"><span>Player</span><span>Best bet</span><span>Ours vs the line</span><span>Last 8</span><span>Value</span></div>`:'')
+  el.innerHTML=(shown.length?`<div class="prow hdr" aria-hidden="true"><span>Player</span><span>Best bet</span><span>Ours vs the line</span><span>Last 10</span><span>Value</span></div>`:'')
     +shown.map(r=>{const id=propId(r.p,r.s),o=K.has(id);return `<details class="prow" id="${id}"${o?' open':''}>${propSummary(r)}${o?pCard(r.p,r.s):''}</details>`}).join('')
     +(L.length>PSHOW?`<button class="pmore" data-pmore="1">Show ${Math.min(60,L.length-PSHOW)} more of ${L.length-PSHOW}</button>`:'')
     +(!L.length?`<p class="muted" style="padding:14px">No props match. Try Every line, another market, or more books.</p>`:'');
   const pos=rows.filter(r=>r.ok&&r.best&&r.best.ev>0).length;
   const need=rows.filter(r=>!r.best).length;
-  $('#pnote').textContent=`${rows.length} lines at your books; ${pos} with value in markets that held up in testing${need?`; ${need} need a price`:''}. The bar shows our middle 80% of outcomes (darker: middle half), our median, and the line (dark mark; hollow: where it opened). Dots: his last 8 games, filled when he went over.`;
+  $('#pnote').textContent=`${rows.length} lines at your books; ${pos} with value in markets that held up in testing${need?`; ${need} need a price`:''}. The bar shows our middle 80% of outcomes (darker: middle half), our median, and the line (dark mark; hollow: where it opened). Dots: his last 10 games, filled when he went over.`;
 }
 /* props board → its row */
 function pJump(id){
@@ -2862,6 +2998,8 @@ document.addEventListener('click',e=>{
   else if(b.dataset.pmore){PSHOW+=PS.show==='players'?120:60;renderProps()}
   else if(b.dataset.plog){try{prefillProp(JSON.parse(b.dataset.plog))}catch(err){}}
   else if(b.dataset.psel){const [pi,s]=b.dataset.psel.split('|'),p=PR.players[+pi],c=b.closest('.pcard');if(p&&c){c.outerHTML=pCard(p,s)}}
+  else if(b.dataset.pwin){const [pi,k]=b.dataset.pwin.split('|'),p=PR.players[+pi],c=b.closest('.pcard'),host=c&&c.parentNode;
+    if(p&&c){PWIN.set(p._i,k);c.outerHTML=pCard(p);const nb=host&&host.querySelector(`[data-pwin="${pi}|${k}"]`);if(nb)try{nb.focus({preventScroll:true})}catch(e){}}}
   else if(b.id==='preset'){PS.w=PDEF.w;PS.pa=PDEF.pa;savePS();renderProps()}
 });
 document.addEventListener('toggle',e=>{const d=e.target;if(!(d instanceof HTMLDetailsElement)||!d.classList.contains('prow'))return;

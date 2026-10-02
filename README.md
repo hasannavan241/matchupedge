@@ -13,6 +13,8 @@ weekday and published with GitHub Pages.
 - **Player props** value every NFL player's DraftKings line (free through ESPN) against our projection, at the mix that
   held up when tested on 2025-2026 prop lines. The free lines have no prices, so only yardage props are valued (at
   -115); a paid Odds API plan adds every book's real prices, which receptions, attempts and touchdown props need.
+  Each player's card shows how often he has cleared the line over his last 5, 10 and 20 games, this season, at home or
+  away and against this opponent, his role game by game, and what the opponent has allowed to his position.
 - For entertainment and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun,
   call 1-800-GAMBLER.
 

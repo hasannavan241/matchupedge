@@ -40,6 +40,11 @@ unders; books priced overs about 3 points too high). A line without a price is v
 books price near even money (85%+ of priced lines within 4 points of 50-50: the yardage markets); receptions,
 attempts, touchdowns and interceptions are balanced by the price, so a line alone can't be valued there. Markets that
 lost in the test, or had fewer than 30 bets, show their numbers but never make the best bets or the props record.
+For the card's research the build also carries each player's last 20 games (or his whole season, if longer) with the
+venue, his snap share and his share of the team's targets and carries; his games against this week's opponent from this
+season and the two before; and what every defense has allowed per game to each position group with its rank among the
+32 (`defense_vs_position`: a defense's games this season, topped up from the end of last season until there are eight).
+The page leaves a regular's token appearances (under 10% of the snaps) out of its hit rates and says which.
 
 Premier League model (`epl_core.py` plus the page's goal model): each match's expected goals are fitted to the
 market (the middle value across books of the no-vig home, draw and away chances, and each book's total, with a

@@ -44,6 +44,13 @@ SHRINK = {"ypt": 45, "catch": 45, "rectd": 160, "ypc": 90, "rtd": 120, "cmp": 22
 DEF_K = {"ypt": 60, "catch": 60, "ypc": 70, "cmp": 130, "ypa": 130, "ptd": 230, "int": 330, "rtd": 120, "rectd": 120}
 PRIOR_SHARE = {"tgt": {"QB": 0.0, "RB": 0.05, "WR": 0.07, "TE": 0.05}, "car": {"QB": 0.06, "RB": 0.18, "WR": 0.01, "TE": 0.0}}
 NB = 8  # projection-level bins for the outcome distributions
+LOG_GAMES = 20   # games of each player's history the page carries (or his whole current season, if longer)
+H2H_GAMES = 6    # his games against this week's opponent, from this season and the two before
+DVP_GAMES = 8    # a defense's games behind "allowed to the position": this season, topped up from last season to this many
+# what a defense allows to each position group, per game (keys as the page's stats; tgt = targets, anytd = rushing + receiving touchdowns)
+DVP_STATS = {"QB": ("pass_att", "pass_cmp", "pass_yds", "pass_td", "pass_int", "rush_att", "rush_yds", "anytd"),
+             "RB": ("rush_att", "rush_yds", "tgt", "rec", "rec_yds", "anytd"),
+             "WR": ("tgt", "rec", "rec_yds", "anytd"), "TE": ("tgt", "rec", "rec_yds", "anytd")}
 Q = np.linspace(0, 1, 201)
 
 
@@ -658,6 +665,36 @@ def _r(v, n=2):
     return None if v is None or not np.isfinite(v) else round(float(v), n)
 
 
+def defense_vs_position(hist, season, min_games=DVP_GAMES):
+    """What each defense has allowed per game to each position group, and where that ranks among the defenses (1 allows
+    the most): {team: {"g": games counted, "s": how many are from this season, pos: {stat: [per game, rank]}}}. The games
+    are the defense's games this season, topped up from the end of last season until there are min_games, so an early
+    season doesn't rank defenses on two or three games. A game where a position recorded nothing counts as zero."""
+    h = hist.dropna(subset=["opp_team", "gameday", "season"])
+    if h.empty:
+        return {}
+    h = h.assign(anytd=h.rush_td + h.rec_td)
+    cols = sorted({c for v in DVP_STATS.values() for c in v})
+    games = h[["opp_team", "game_id", "gameday", "season"]].drop_duplicates(["opp_team", "game_id"]).sort_values(["gameday", "game_id"])
+    by = h.groupby(["opp_team", "game_id", "pos"])[cols].sum()
+    per = {}
+    for team, g in games.groupby("opp_team"):
+        if g.season.max() < season - 1:
+            continue  # a team that no longer plays under this name
+        w = g.tail(max(min_games, int((g.season == season).sum())))
+        ids = list(w.game_id)
+        per[team] = {"g": len(ids), "s": int((w.season == season).sum())}
+        for pos, stats in DVP_STATS.items():
+            a = by.reindex(pd.MultiIndex.from_product([[team], ids, [pos]]), fill_value=0)[list(stats)].mean()
+            per[team][pos] = {s: float(a[s]) for s in stats}
+    for pos, stats in DVP_STATS.items():
+        for s in stats:
+            rank = pd.Series({t: v[pos][s] for t, v in per.items()}).rank(method="min", ascending=False)
+            for t, v in per.items():
+                v[pos][s] = [round(v[pos][s], 2 if s in ("anytd", "pass_td", "pass_int") else 1), int(rank[t])]
+    return per
+
+
 def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=W_MODEL, dk_events=None):
     """Everything the page's Props tab shows for the upcoming games. props_events: The Odds API's prices (paid plan);
     dk_events: the free lines of the book behind ESPN's odds, [{"g": game id, "book": name, "rows": [[ESPN athlete id,
@@ -709,14 +746,26 @@ def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=
     offers_by = match_offers(props_events, games, names)
     key = lambda b: re.sub(r"[^a-z0-9]", "", str(b).lower())
     name_of = dict(zip(R2.gsis_id, R2.full_name))
+    neutral = set(G.loc[G.location != "Home", "game_id"])
+
+    def log_row(x):
+        """One game of a player's history. The page reads the columns by position: season, week, opponent, targets,
+        receptions, receiving yards, carries, rushing yards, pass attempts, completions, passing yards, passing TDs,
+        interceptions, rushing + receiving TDs, share of offensive snaps, venue (1 home, 0 away, 2 neutral site),
+        share of the team's targets, share of its carries."""
+        venue = 2 if x.game_id in neutral else (int(x.home) if x.home == x.home else None)
+        return [int(x.season), int(x.week), x.opp_team, int(x.tgt), int(x.rec), int(x.rec_yds), int(x.rush_att), int(x.rush_yds), int(x.pass_att),
+                int(x.pass_cmp), int(x.pass_yds), int(x.pass_td), int(x.pass_int), int(x.rush_td + x.rec_td), _r(x.offense_pct, 2),
+                venue, _r(x.s_tgt, 3), _r(x.s_car, 3)]
+
     players, offers, matched, used = [], [], set(), set()
     for r in L.itertuples():
         mu = {s: _r(getattr(r, "mu_" + s), 2) for s in STATS if bool(eligible(L.loc[[r.Index]], s).iloc[0])}
         if not mu:
             continue
-        h = hist[hist.pid == r.pid].sort_values("gameday").tail(8)
-        log = [[int(x.season), int(x.week), x.opp_team, int(x.tgt), int(x.rec), int(x.rec_yds), int(x.rush_att), int(x.rush_yds), int(x.pass_att),
-                int(x.pass_cmp), int(x.pass_yds), int(x.pass_td), int(x.pass_int), int(x.rush_td + x.rec_td), _r(x.offense_pct, 2)] for x in h.itertuples()]
+        h = hist[hist.pid == r.pid].sort_values("gameday")
+        log = [log_row(x) for x in h.tail(max(LOG_GAMES, int((h.season == season).sum()))).itertuples()]
+        h2h = [log_row(x) for x in h[(h.opp_team == r.opp_team) & (h.season >= season - 2)].tail(H2H_GAMES).itertuples()]
         st = inj.get(r.pid, ("", ""))
         pi = len(players)
         q = offers_by.get((r.game_id, norm_name(r.name)), {})
@@ -762,6 +811,8 @@ def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=
                "log": log}
         if bk:
             rec["bk"] = bk
+        if h2h:
+            rec["h2h"] = h2h
         was = (qsrc.get((r.game_id, r.team)) or {}).get("was")
         if r.pos == "QB" and (r.game_id, r.team) in qsrc:
             rec["qs"] = name_of.get(was) or "nflverse's listed starter" if was else "no listed starter"
@@ -782,6 +833,7 @@ def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=
     spread = {k: {"edges": v["edges"], "q": [[round(float(t), 3) for t in np.array(z)[::4]] for z in v["q"]]} for k, v in M["spread"].items()}
     return {"w": w_model, "shift": UNDER_SHIFT, "assumed": ASSUMED, "book": next(iter(lbook.values()), None), "nlines": sum(len(v) for v in lines.values()),
             "players": players, "offers": offers, "teams": teams, "out": out_list, "spread": spread, "disp": M["disp"],
+            "season": int(season), "dvp": defense_vs_position(hist, season),
             "unmatched": unmatched[:40], "unbooked": [str(x) for x in unbooked[:40]], "labels": LABEL}
 
 
