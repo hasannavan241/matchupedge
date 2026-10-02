@@ -2843,7 +2843,7 @@ function pCard(p,sel){
       <td>${bb?`<span class="sd ${bb.side}">${t==='anytd'?(bb.side==='over'?'Yes':'No'):`<span class="sl">${bb.side==='over'?'Over':'Under'}</span><span class="ss">${bb.side==='over'?'O':'U'}</span>`}</span> ${odds(bb.price)}${bb.est?' <small>est.</small>':''}`:x?'<small>needs a price</small>':'–'}</td>
       <td class="num">${bb?`<span class="ev ${evCls(bb.ev)}">${sg(bb.ev*100)}%</span>`:''}</td></tr>`}).join('');
   const sets=gameSets(p),cur=pickSet(p,sets),G=cur?cur.rows:[],i=LOGI[s],side=b?b.side:'over',qb=p.p==='QB',nLow=G.filter(x=>lowSnap(p,x)).length;
-  /* the chosen games, newest first; a non-quarterback's targets and carries carry his share of the team's underneath */
+  /* the chosen games, newest first; beside a non-quarterback's targets and carries, his share of the team's that game */
   const logT=G.length?`<div class="scroll plog"><table class="ptab"><thead><tr><th>Game</th><th>Snaps</th>${qb?'<th>Att</th><th>Cmp</th><th>Pass yds</th><th>TD</th><th>INT</th><th>Car</th><th>Rush yds</th>':'<th>Tgt</th><th>Rec</th><th>Rec yds</th><th>Car</th><th>Rush yds</th><th>TD</th>'}</tr></thead><tbody>${G.slice().reverse().map(x=>{
       const c=k=>{const v=x[k],sh=qb?null:k===3?x[16]:k===6?x[17]:null;return `<td class="${k===i&&line!=null&&!td?(v>line?'ov':v<line?'un':''):''}">${v}${v>0&&sh!=null&&isFinite(sh)?`<small>${pc(sh,0)}</small>`:''}</td>`};
       return `<tr><td>${esc(gameTxt(x))}${x[15]===2?'*':''}</td><td>${x[14]!=null?pc(x[14])+(lowSnap(p,x)?'‡':''):'–'}</td>${qb?[8,9,10,11,12,6,7].map(c).join(''):[3,4,5,6,7].map(c).join('')+`<td class="${td?(x[13]>=1?'ov':'un'):''}">${x[13]}</td>`}</tr>`}).join('')}</tbody></table></div>`
@@ -2852,7 +2852,7 @@ function pCard(p,sel){
   const hasLine=td||line!=null,many=G.length>12,seen=new Set();
   const skipped=[...(p.log||[]),...(p.h2h||[])].filter(x=>barely(p,x)&&!seen.has(x[0]+'|'+x[1])&&seen.add(x[0]+'|'+x[1])).sort((a,c)=>a[0]-c[0]||a[1]-c[1]);
   const research=sets.length?`<h3>${esc(statLab(s))} in his games</h3>${hitTable(p,s,td?null:line,side,sets,cur)}
-      <p class="fine muted">Choose a row to see those games below.${skipped.length?` Left out, because he barely played: ${skipped.map(x=>`${esc(gameTxt(x))} (${pc(x[14])} of snaps)`).join(', ')}.`:''}</p>
+      <p class="fine muted">Choose a row to see those games below.${skipped.length?` Left out, because he barely played: ${skipped.slice(-3).reverse().map(x=>`${esc(gameTxt(x))} (${pc(x[14])} of snaps)`).join(', ')}${skipped.length>3?` and ${skipped.length-3} earlier ${skipped.length===4?'game':'games'}`:''}.`:''}</p>
       ${sparkSVG(G,s,td?null:line,mid,cur.k==='opp')}
       ${hasLine?`<p class="fine muted"><span class="sw over"></span>${td?'scored':'over the line'} &nbsp; <span class="sw"></span>${td?'didn’t score':'under'}${many?' &nbsp; Hover or tap a bar for its number.':''}</p>`:''}
       ${usageHTML(p,G)}`:`<h3>${esc(statLab(s))} in his games</h3><p class="muted">No earlier games on record.</p>`;
