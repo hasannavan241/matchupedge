@@ -27,8 +27,15 @@
     python3 refresh.py live      runs browser.js with Node on the server instead of in a browser
     python3 refresh.py record    updates the model record (ME_PICKS) from the built page
     python3 refresh.py web       writes web/index.html: site.html as a complete web page
+    python3 refresh.py check     loads web/index.html and fails if the page has a script error (run before publishing)
     build also reads ME_NEWS (researched news) and ME_PICKS (the model record) when those files exist, and keeps
     ME_RESULTS (an archive of final scores and closing lines that the website uses to grade older bets).
+
+    Two kinds of refresh (ME_MODE, or --mode after fetch; schedule.py picks one for each scheduled run):
+    full   everything, including every book's player-prop prices (about 10 Odds API credits per NFL game)
+    lines  game lines, forecasts, injuries and news only; the Props tab is carried over from the last full refresh
+           (props_prev.json, which the workflow copies from the published site), so the page never mixes fresh lines
+           with old prop prices. A lines refresh with nothing to carry becomes a full one.
 """
 import datetime as dt, glob, json, math, os, re, subprocess, sys
 import numpy as np
@@ -44,8 +51,12 @@ try:
     CT = ZoneInfo("America/Chicago")  # follows daylight saving time
 except Exception:
     CT = dt.timezone(dt.timedelta(hours=-5))
-TODAY = dt.date.fromisoformat(os.environ["ME_TODAY"]) if os.environ.get("ME_TODAY") else dt.datetime.now(CT).date()
-RUN_DAYS = (0, 1, 2, 3, 4)  # days the scheduled refresh runs (Monday-Friday, mornings and evenings); keep in step with the scheduled task
+# the moment of this run (ME_NOW, an ISO time, replays an earlier moment in tests) and its date in Central time
+NOW = pd.Timestamp(os.environ["ME_NOW"]) if os.environ.get("ME_NOW") else pd.Timestamp.now(tz="UTC")
+NOW = NOW.tz_localize("UTC") if NOW.tzinfo is None else NOW.tz_convert("UTC")
+TODAY = (dt.date.fromisoformat(os.environ["ME_TODAY"]) if os.environ.get("ME_TODAY")
+         else NOW.tz_convert("America/Chicago").date() if os.environ.get("ME_NOW") else dt.datetime.now(CT).date())
+RUN_DAYS = (0, 1, 2, 3, 4, 5, 6)  # days the scheduled refresh runs (every day; schedule.py has the times)
 # The Odds API books (up to 10 cost the same as one region): the big licensed US books plus three offshore books
 BOOKS = "draftkings,fanduel,betmgm,espnbet,betrivers,hardrockbet,ballybet,bovada,betonlineag,lowvig"
 # Premier League: Pinnacle (the sharpest soccer book; not open to US customers) replaces LowVig to anchor the fair line
@@ -54,6 +65,11 @@ EPL_ODDS_HOURS = 96  # ask The Odds API for Premier League prices only when a ma
 # NFL player props: every book's prices cost about one credit per market per game, so they are fetched only while the
 # account has PROPS_MIN_CREDITS or more left (a paid plan); below that the page values the free DraftKings lines alone
 PROPS_MIN_CREDITS = 1500
+# The floor rises with the days left before the credits reset (taken as the 1st of the month, UTC), so prop prices can
+# never use up what the hourly game lines need for the rest of the month (about 9 credits a run, 18 to 22 runs a day)
+LINES_CREDITS_PER_DAY = 200
+PROPS_PREV = "props_prev.json"  # the last full refresh's Props tab, copied from the published site by the workflow
+PROPS_KEEP_HOURS = 30           # a carried Props tab older than this is rebuilt whatever the schedule says
 PROPS_MARKETS = ("player_pass_yds,player_pass_tds,player_pass_completions,player_pass_attempts,player_pass_interceptions,"
                  "player_rush_yds,player_rush_attempts,player_receptions,player_reception_yds,player_anytime_td")
 PROPS_FIRST = 2018  # first season of player history the props model learns from
@@ -61,6 +77,13 @@ PROPS_FIRST = 2018  # first season of player history the props model learns from
 # before), with the opening line, for every game. These prop types are the ones the props model projects.
 LINES = {"provider": "100", "types": [8, 9, 10, 11, 12, 13, 14, 15, 16]}
 LINES_FROM = 2025  # first season of past prop lines the line backtest uses
+
+
+def props_floor(now=None):
+    """Odds API credits that must be left for a refresh to fetch player-prop prices."""
+    now = (now or NOW).tz_convert("UTC").tz_localize(None)
+    reset = now.normalize() + pd.offsets.MonthBegin(1)
+    return PROPS_MIN_CREDITS + max(0, (reset - now).days) * LINES_CREDITS_PER_DAY
 
 
 def next_run(d):
@@ -188,7 +211,11 @@ def nfl_plan():
     ALL = bt.ALL
     season = int(ALL.season.max())
     cur = ALL[ALL.season == season]
-    up = cur[cur.home_score.isna() & (cur.gameday >= pd.Timestamp(TODAY))].sort_values("gameday")
+    # still to play: no score yet and not kicked off. nflverse posts a score hours after the game ends, and the refresh
+    # runs during games, so the clock decides; the week then turns over once fewer than 3 of its games are left.
+    ko = pd.to_datetime(cur.gameday.dt.strftime("%Y-%m-%d") + " " + cur.gametime.fillna("23:59").astype(str), errors="coerce")
+    ko = ko.dt.tz_localize("America/New_York", ambiguous="NaT", nonexistent="NaT")
+    up = cur[cur.home_score.isna() & (cur.gameday >= pd.Timestamp(TODAY)) & (ko.isna() | (ko > NOW))].sort_values("gameday")
     if up.empty:
         return None
     # the earliest week that still has 3+ games to play (skips a leftover Monday night game)
@@ -246,8 +273,22 @@ def nfl_plan():
                     "mkt": mk, "A0": round(float(A0), 2), "H0": round(float(H0), 2),
                     "f": {k: [round(float(a), 3), round(float(b), 3)] for k, (a, b) in f.items()}, "h2h": meets})
     out.sort(key=lambda x: (x["ko"], x["home"]))
-    return {"season": season, "week": int(pick[0]), "type": pick[1], "weeks": sorted({int(w) for w in games.week}), "games": out, "teams": teams,
-            "lgPlays": round(lg_plays, 1)}
+    # games under way (kicked off in the last six hours, no score in nflverse yet): off the page, but the build keeps
+    # them with their last pregame line so a bet on one can still be logged
+    live = []
+    for g in cur[cur.home_score.isna() & ko.notna() & (ko <= NOW) & (ko > NOW - pd.Timedelta(hours=6))].itertuples():
+        kt = pd.Timestamp(f"{g.gameday.date()} {g.gametime}").tz_localize("America/New_York")
+        nz = lambda v, dflt: float(v) if pd.notna(v) else dflt
+        mk = None
+        if pd.notna(g.spread_line) and pd.notna(g.total_line):
+            mk = {"sp": float(g.spread_line), "spA": nz(g.away_spread_odds, -110), "spH": nz(g.home_spread_odds, -110),
+                  "tot": float(g.total_line), "ov": nz(g.over_odds, -110), "un": nz(g.under_odds, -110),
+                  "mlA": nz(g.away_moneyline, None), "mlH": nz(g.home_moneyline, None), "src": "nflverse"}
+        live.append({"id": g.game_id, "espn": str(int(g.espn)) if pd.notna(g.espn) else None, "wk": int(g.week), "day": g.weekday[:3],
+                     "date": str(g.gameday.date()), "ct": kt.tz_convert("America/Chicago").strftime("%-I:%M %p"),
+                     "ko": kt.tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ"), "away": g.away_team, "home": g.home_team, "mkt": mk})
+    return {"season": season, "week": int(pick[0]), "type": pick[1], "weeks": sorted({int(w) for w in games.week} | {x["wk"] for x in live}),
+            "games": out, "live": live, "teams": teams, "lgPlays": round(lg_plays, 1)}
 
 
 def nfl_recent(days=28):
@@ -311,7 +352,7 @@ def epl_plan():
               "home": r.home, "away": r.away, "round": r.round} for r in U.itertuples()]
     hist_end = H[H["div"] == "E0"].date.max()
     t0 = pd.Timestamp(TODAY)
-    played = F[(F.date < t0) & ((F.date > hist_end) | (F.date >= t0 - pd.Timedelta(days=21)))]
+    played = F[(F.date <= t0) & ((F.date > hist_end) | (F.date >= t0 - pd.Timedelta(days=21)))]  # today too: a match that has finished grades the same day
     past = sorted({str(d.date()) for d in played.date})[-40:]
     rnd = U["round"].mode().iloc[0] if len(U) else ""
     return {"season": ep.season_label(y), "round": rnd, "games": games, "dates": sorted({g["date"] for g in games}), "past": past,
@@ -332,7 +373,8 @@ function dk(c) {
           num(g(tt, 'over', 'close').line), num(g(tt, 'over', 'open').line), num(g(tt, 'over', 'close').odds), num(g(tt, 'under', 'close').odds),
           num(g(ml, 'home', 'close').odds), num(g(ml, 'away', 'close').odds), num(g(ml, 'home', 'open').odds), num(g(ml, 'away', 'open').odds)];
 }
-function ev(e) { const c = e.competitions[0], t = s => c.competitors.find(x => x.homeAway === s).team.abbreviation; return [e.id, e.date, t('away'), t('home'), dk(c)]; }
+// the last item is ESPN's state for the game: 'pre', 'in' (under way) or 'post'
+function ev(e) { const c = e.competitions[0], t = s => c.competitors.find(x => x.homeAway === s).team.abbreviation; return [e.id, e.date, t('away'), t('home'), dk(c), (e.status && e.status.type && e.status.type.state) || '']; }
 const nflBook = {};  // ESPN event id: [kickoff, state, odds provider id, its name], for the free prop lines
 if (PLAN.nfl) {
   for (const wk of PLAN.nfl.weeks || [PLAN.nfl.week]) {  // the week on the page, plus an earlier week's game still to be played
@@ -465,16 +507,19 @@ if (PLAN.epl) {
   }
 }
 if (PLAN.key && PLAN.odds) {
-  // every book's prices for the games on the page; quotes not updated in the last 12 hours are left out as stale
-  const fresh = Date.now() - 12 * 3600e3;
+  // every book's prices for the games on the page; quotes not updated in the last 12 hours are left out as stale.
+  // Only games still to start: the endpoint also carries in-play prices, which are not pregame lines.
+  const fresh = Date.now() - 12 * 3600e3, nowIso = new Date().toISOString().slice(0, 19) + 'Z';
   for (const [lg, sport] of [['nfl', 'americanfootball_nfl'], ['nba', 'basketball_nba'], ['epl', 'soccer_epl']]) {
     const w = PLAN.odds[lg]; if (!w) continue;
+    const from = w[0] > nowIso ? w[0] : nowIso;
+    if (from >= w[1]) continue;  // every game in the window has started: nothing to ask for
     try {
       const books = lg === 'epl' ? (PLAN.booksEpl || PLAN.books) : PLAN.books;
-      const r = await fetch(`https://api.the-odds-api.com/v4/sports/${sport}/odds?bookmakers=${books}&markets=h2h,spreads,totals&oddsFormat=american&commenceTimeFrom=${w[0]}&commenceTimeTo=${w[1]}&apiKey=${PLAN.key}`);
+      const r = await fetch(`https://api.the-odds-api.com/v4/sports/${sport}/odds?bookmakers=${books}&markets=h2h,spreads,totals&oddsFormat=american&commenceTimeFrom=${from}&commenceTimeTo=${w[1]}&apiKey=${PLAN.key}`);
       if (!r.ok) throw new Error(r.status + ' from the odds endpoint');
       out.credits = r.headers.get('x-requests-remaining');
-      const j = await r.json();
+      const j = (await r.json()).filter(e => new Date(e.commence_time).getTime() > Date.now());
       out.odds[lg] = j.map(e => [e.home_team, e.away_team, e.commence_time, e.bookmakers.filter(b => new Date(b.last_update).getTime() >= fresh).map(b => {
         out.titles[b.key] = b.title;
         const m = k => (b.markets.find(x => x.key === k) || {outcomes: []}).outcomes;
@@ -526,7 +571,7 @@ return JSON.stringify(out);
 """
 
 
-def fetch(key=None):
+def fetch(key=None, mode="full"):
     get(RAW + "/nflverse/nfldata/master/data/games.csv", "games.csv")
     season = int(pd.read_csv("games.csv", usecols=["season"]).season.max())
     for y in range(season - 2, season + 1):
@@ -548,11 +593,15 @@ def fetch(key=None):
     except Exception as e:  # the Premier League is optional: never let it stop the NFL and NBA refresh
         print(f"Premier League plan failed ({e.__class__.__name__}: {e}); building without it")
         epl = None
-    plan = {"today": str(TODAY), "made": dt.datetime.now(CT).strftime("%Y-%m-%d %H:%M CT"), "nfl": nfl, "nba": nba, "epl": epl, "recent_nfl": nfl_recent(),
-            "props_data": props_ok}
+    mode = "lines" if mode == "lines" else "full"
+    if mode == "lines" and nfl and props_ok and not props_prev(nfl):
+        print("lines refresh asked for, but there is no Props tab from this NFL week to carry over: making it a full refresh")
+        mode = "full"
+    plan = {"today": str(TODAY), "made": NOW.tz_convert("America/Chicago").strftime("%Y-%m-%d %H:%M CT"), "mode": mode,
+            "nfl": nfl, "nba": nba, "epl": epl, "recent_nfl": nfl_recent(), "props_data": props_ok}
     json.dump(plan, open("plan.json", "w"), separators=(",", ":"))
     browser_script(plan, key)
-    print(f"plan: NFL week {nfl['week'] if nfl else '-'} ({len(nfl['games']) if nfl else 0} games), "
+    print(f"plan ({mode} refresh): NFL week {nfl['week'] if nfl else '-'} ({len(nfl['games']) if nfl else 0} games), "
           f"NBA {nba['start'] if nba else '-'} to {nba['end'] if nba else '-'} ({len(nba['games']) if nba else 0} games), "
           f"Premier League {epl['round'] if epl else '-'} ({len(epl['games']) if epl else 0} matches)")
     print("next: run browser.js in the desktop browser on a site.api.espn.com page and save the result as browser_result.json "
@@ -601,15 +650,16 @@ def browser_script(plan, key=None):
         soon = [pd.Timestamp(g["ko"]) for g in epl["games"] if pd.Timestamp(g["ko"]) <= now + pd.Timedelta(hours=EPL_ODDS_HOURS)]
         if soon:
             odds["epl"] = [iso(max(now, min(soon)) - pd.Timedelta(hours=2)), iso(max(soon) + pd.Timedelta(hours=2))]
+    full = plan.get("mode", "full") != "lines"  # a lines refresh carries the Props tab over, so it asks for no prop lines or prices
     bplan = {"key": key or None, "books": BOOKS, "booksEpl": BOOKS_EPL, "odds": odds,
-             "props": {"min": PROPS_MIN_CREDITS, "markets": PROPS_MARKETS} if nfl and plan.get("props_data") else None,
-             "lines": LINES if nfl and plan.get("props_data") else None,
+             "props": {"min": props_floor(), "markets": PROPS_MARKETS} if full and nfl and plan.get("props_data") else None,
+             "lines": LINES if full and nfl and plan.get("props_data") else None,
              "epl": None if not epl else {"dates": epl["dates"], "past": epl["past"], "closeFrom": epl["closeFrom"]},
              "nfl": None if not nfl else {"season": nfl["season"], "week": nfl["week"], "weeks": nfl.get("weeks") or [nfl["week"]], "stype": 2 if nfl["type"] == "REG" else 3,
                                           "outdoor": [{"id": x["id"], "lat": x["coords"][0], "lon": x["coords"][1], "ko": x["ko"]} for x in nfl["games"] if x["coords"]]},
              "nba": None if not nba else {"dates": nba["dates"]},
-             # the last seven days' NBA scoreboards: final scores and DraftKings closing lines, to grade logged bets and the page's own picks
-             "nbaPast": [str(dt.date.fromisoformat(plan["today"]) - dt.timedelta(days=i)) for i in (7, 6, 5, 4, 3, 2, 1)]}
+             # today's and the last seven days' NBA scoreboards: final scores and DraftKings closing lines, to grade logged bets and the page's own picks
+             "nbaPast": [str(dt.date.fromisoformat(plan["today"]) - dt.timedelta(days=i)) for i in (7, 6, 5, 4, 3, 2, 1, 0)]}
     open("browser.js", "w").write(BROWSER_JS.replace("__PLAN__", json.dumps(bplan)))
 
 
@@ -711,6 +761,26 @@ def book(name):
     return next((t for t in BOOK_TITLES if re.sub(r"[^a-z0-9]", "", t.lower()) == k), n)
 
 
+def begun_row(g):
+    """A game that has kicked off, kept only so a bet on it can still be logged: its teams, kickoff and last pregame line."""
+    return {k: g.get(k) for k in ("id", "espn", "date", "day", "ct", "ko", "away", "home", "mkt") if g.get(k) is not None}
+
+
+def split_begun(games, state_of):
+    """(games still to start, games under way). state_of(g) is ESPN's state for the game ('pre', 'in', 'post', or ''
+    when ESPN didn't return it); a game whose kickoff has passed counts as begun whatever ESPN says. Finished games
+    drop out: their results reach the page from the results feeds."""
+    todo, begun = [], []
+    for g in games:
+        st = state_of(g) or ""
+        if st in ("in", "post") or (g.get("ko") and pd.Timestamp(g["ko"]) <= NOW):
+            if st != "post" and g.get("mkt"):
+                begun.append(begun_row(g))
+        else:
+            todo.append(g)
+    return todo, begun
+
+
 def epl_line(d):
     """ESPN's DraftKings soccer lines as the page's market row (None without a 1X2 price)."""
     if not d or d[1] is None or d[2] is None or d[3] is None:
@@ -735,13 +805,12 @@ def epl_build(epl, br, titles, today):
     live = {}
     for eid, when, home, away, state, d in (br or {}).get("epl") or []:
         live[(ep.canon(home), ep.canon(away))] = (str(eid), when, state, d)
-    games = []
+    games, begun = [], []
     for g in epl["games"]:
         e = live.get((g["home"], g["away"]))
+        state = ""
         if e:
             eid, when, state, d = e
-            if state in ("in", "post"):
-                continue  # under way or finished: its result reaches the page with the next refresh
             g["espn"] = eid
             g["id"] = eid
             g["ko"] = pd.Timestamp(when).tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -752,12 +821,17 @@ def epl_build(epl, br, titles, today):
         g["date"] = str(kt.tz_convert("Europe/London").date())
         g["day"] = kt.tz_convert("America/Chicago").strftime("%a")
         g["ct"] = kt.tz_convert("America/Chicago").strftime("%-I:%M %p")
+        if state in ("in", "post") or kt <= NOW:
+            # under way or finished: off the page (its result arrives with a later refresh), but still there to log a bet on
+            if state != "post":
+                begun.append(begun_row(g))
+            continue
         g["books"] = books_for_epl((br or {}).get("odds", {}).get("epl"), g["home"], g["away"], g["ko"], titles)
         games.append(g)
     games, teams = ep.features(H, F, today, games)
     games.sort(key=lambda g: (g["ko"], g["home"]))
     e0 = H[(H["div"] == "E0") & (H.season == ep.season_of(today))]
-    epl.update({"games": games, "teams": teams, "sotMissing": int(e0.hst.isna().sum()), "played": int(len(e0))})
+    epl.update({"games": games, "begun": begun, "teams": teams, "sotMissing": int(e0.hst.isna().sum()), "played": int(len(e0))})
     for k in ("past", "closeFrom"):
         epl.pop(k, None)
     # finished matches from the last three weeks, to grade logged bets: ESPN finals with DraftKings closing lines
@@ -787,23 +861,35 @@ def build():
     br, status = checked()
     print("browser data:", status)
     nfl, nba = plan.get("nfl"), plan.get("nba")
+    mode = "lines" if plan.get("mode") == "lines" else "full"
     live = {"status": status, "ts": br.get("ts") if br else None, "errors": (br or {}).get("errors", []),
-            "odds_api": bool(br and any((br.get("odds") or {}).values())), "credits": (br or {}).get("credits")}
+            "odds_api": bool(br and any((br.get("odds") or {}).values())), "credits": (br or {}).get("credits"), "mode": mode}
     titles = (br or {}).get("titles") or {}
+    state = lambda e: e[5] if e and len(e) > 5 else ""  # ESPN's 'pre', 'in' or 'post' (older browser results have none)
     if nfl:
-        byid = {}
-        for eid, date, away, home, d in (br or {}).get("nfl", []):
-            byid[str(eid)] = (d, date)
-        for g in nfl["games"]:
-            d = byid.get(g["espn"], (None, None))[0] if g["espn"] else None
+        byid = {str(e[0]): e for e in (br or {}).get("nfl", [])}
+        def espn_line(g):
+            e = byid.get(g["espn"]) if g["espn"] else None
+            d = e[4] if e else None
             if d and all(d[i] is not None for i in (1, 3, 4, 5, 7, 8)):
                 g["mkt"] = {"sp": -d[1], "spH": d[3], "spA": d[4], "tot": d[5], "ov": d[7], "un": d[8],
                             "mlH": d[9], "mlA": d[10], "src": book(d[0])}
                 g["open"] = {"sp": None if d[2] is None else -d[2], "tot": d[6], "mlH": d[11], "mlA": d[12]}
+        for g in nfl["games"]:
+            espn_line(g)
             g["books"] = books_for((br or {}).get("odds", {}).get("nfl"), g["home"], g["away"], g["ko"], NFL_FULL, titles)
             w = (br or {}).get("wx", {}).get(g["id"])
             g["fc"] = {"wind": w[0], "temp": w[1], "pop": w[2], "desc": w[3]} if w else None
-        nfl["games"] = [g for g in nfl["games"] if g.get("mkt")]
+        # a game that has kicked off leaves the page: its pregame bets can't be made any more. Those the plan already
+        # knew were under way join the ones that kicked off since.
+        espn_state = lambda g: state(byid.get(g["espn"])) if g["espn"] else ""
+        todo, nfl["begun"] = split_begun(nfl["games"], espn_state)
+        for g in nfl.pop("live", None) or []:
+            espn_line(g)
+            if espn_state(g) != "post" and g.get("mkt"):
+                nfl["begun"].append(begun_row(g))
+        nfl["begun"].sort(key=lambda g: (g["ko"], g["home"]))
+        nfl["games"] = [g for g in todo if g.get("mkt")]
     if nba:
         byid = {str(e[0]): e for e in (br or {}).get("nba", [])}
         inj = {}
@@ -818,10 +904,16 @@ def build():
                 g["open"] = {"sp": None if d[2] is None else -d[2], "tot": d[6]}
             if e and e[1]:
                 g["ct"] = ct_time(e[1])
-            g["ko"] = pd.Timestamp(e[1]).tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ") if e and e[1] else f"{g['date']}T23:00:00Z"
+            if e and e[1]:  # without ESPN's tip-off time the page assumes the evening and never takes the game off for the hour
+                g["ko"] = pd.Timestamp(e[1]).tz_convert("UTC").strftime("%Y-%m-%dT%H:%M:%SZ")
 
             g["books"] = books_for((br or {}).get("odds", {}).get("nba"), g["home"], g["away"], g["date"] + "T23:00:00Z", NBA_FULL, titles)
             g["inj"] = [inj.get(g["away"], []), inj.get(g["home"], [])]
+        # a game that has tipped off leaves the page. One ESPN didn't return has only a guessed tip-off time (6 PM
+        # Central), so it stays until ESPN says otherwise.
+        todo, nba["begun"] = split_begun([g for g in nba["games"] if g["id"] in byid], lambda g: state(byid.get(g["id"])))
+        keep = {g["id"] for g in todo} | {g["id"] for g in nba["games"] if g["id"] not in byid}
+        nba["games"] = [g for g in nba["games"] if g["id"] in keep]
         nba.pop("players", None)
     # finished games for grading logged bets: NFL from nflverse, NBA from the browser's last seven days of ESPN scoreboards
     recent_nba = []
@@ -831,14 +923,29 @@ def build():
         cl = {} if not d else {"sp": None if d[1] is None else -d[1], "spH": d[3], "spA": d[4], "tot": d[5], "ov": d[7], "un": d[8], "mlH": d[9], "mlA": d[10]}
         recent_nba.append({"id": str(eid), "date": str(pd.Timestamp(when).tz_convert("America/Chicago").date()), "away": away, "home": home,
                            "as": int(a_s), "hs": int(h_s), "cl": cl})
-    props = None
+    props, carried = None, False
     if nfl and plan.get("props_data"):
-        try:
-            props = props_build(plan, nfl, br)
-        except Exception as e:  # never let the props stop the rest of the build
-            print(f"player props failed ({e.__class__.__name__}: {e}); building without them")
-            live["errors"] = live["errors"] + [f"player props build: {e.__class__.__name__}"]
-    live["props_note"] = (br or {}).get("propsNote")
+        prev = props_prev(nfl)
+        if mode == "lines" and prev:
+            props, carried = props_trim(prev, nfl), True
+        else:
+            try:
+                props = props_build(plan, nfl, br)
+                if props:  # "at": when its lines and prices were fetched; none without live data, so the next run tries again
+                    props["at"], props["week"] = (br or {}).get("ts"), nfl["week"]
+            except Exception as e:  # never let the props stop the rest of the build
+                print(f"player props failed ({e.__class__.__name__}: {e}); building without them")
+                live["errors"] = live["errors"] + [f"player props build: {e.__class__.__name__}"]
+            # a full refresh whose prop lines didn't come through keeps the last full refresh's Props tab; its time
+            # stays as it was, so the next run tries again
+            if prev and prev.get("offers") and not (props and props.get("offers")):
+                print("no prop lines in this refresh: keeping the Props tab from", prev.get("at"))
+                props, carried = props_trim(prev, nfl), True
+        if props:
+            props_extras(props, nfl)
+            print(f"props tab: {'carried over from ' + str(props.get('at')) if carried else 'built now'}, {len(props['players'])} players, {len(props['offers'])} offers")
+    live["props_note"] = None if carried else (br or {}).get("propsNote")
+    live["props_ts"] = props.get("at") if props else None
     epl, recent_epl = plan.get("epl"), []
     if epl:
         try:
@@ -869,6 +976,23 @@ def build():
     # "</" is escaped so that no text in the data (news, team names) can close the page's script tag
     html = open("site_template.html").read().replace("[[DATA]]", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
     open("site.html", "w").write(html)
+    # published beside the page: the Props tab (the next lines refresh carries it over) and what this refresh was
+    # (schedule.py reads it to decide when prop prices are due; the page reads it to say when a newer build is out)
+    if props:
+        json.dump(props, open("props.json", "w"), separators=(",", ":"))
+    elif os.path.exists("props.json"):
+        os.remove("props.json")
+    n = lambda lg: len(lg["games"]) if lg else 0
+    # NFL kickoffs, kept for a day and a half after they pass: schedule.py times the prop prices around them
+    try:
+        was = [k for k in json.load(open("prev_state.json")).get("nfl_ko") or [] if NOW - pd.Timedelta(hours=36) <= pd.Timestamp(k) <= NOW]
+    except Exception:
+        was = []
+    kos = sorted(set(was) | {g["ko"] for g in ((nfl or {}).get("games") or []) + ((nfl or {}).get("begun") or []) if g.get("ko")})
+    json.dump({"made": plan["made"], "ts": live["ts"], "mode": mode, "status": status, "props_at": live["props_ts"],
+               "props_week": [nfl["season"], nfl["week"]] if nfl and props else None, "props_carried": carried,
+               "news_at": (data.get("scout_meta") or {}).get("at"), "credits": live["credits"],
+               "games": {"nfl": n(nfl), "nba": n(nba), "epl": n(epl)}, "nfl_ko": kos}, open("state.json", "w"), indent=1)
     print(f"site.html written: NFL {len(nfl['games']) if nfl else 0} games, NBA {len(nba['games']) if nba else 0} games, "
           f"Premier League {len(epl['games']) if epl else 0} matches ({sum(1 for g in (epl or {}).get('games', []) if g.get('mkt') or g.get('books'))} with lines), live lines: {status}")
 
@@ -887,27 +1011,62 @@ def props_build(plan, nfl, br):
     free = [{"g": by_espn[str(eid)], "book": book(name), "rows": rows} for eid, name, rows in (br or {}).get("dk") or [] if str(eid) in by_espn]
     W = pc.build_week(props_files(nfl["season"]), nfl["games"], inj, events, nfl["season"], nfl["week"], dk_events=free)
     if W:
-        for name, path in (("bt", "props_backtest.json"), ("lbt", "props_lines_backtest.json")):
-            try:
-                W[name] = json.load(open(os.path.join(HERE, "..", "data", path)))
-            except Exception:
-                W[name] = None
         W["priced"] = len(events)
         W["lined"] = len(free)
         titles = (br or {}).get("titles") or {}
         for o in W["offers"]:
             o[2] = titles.get(o[2], o[2])  # the page names books the way the game lines do
-        W["ko"] = {g["id"]: g["ko"] for g in nfl["games"]}
-        rp = os.path.join(os.path.dirname(os.environ.get("ME_PICKS") or ""), "props_picks.json") if os.environ.get("ME_PICKS") else None
-        if rp and os.path.exists(rp):
-            try:
-                R = json.load(open(rp))
-                W["rec"] = [[v["g"], v["name"], v["team"], v["s"], v["side"], v["line"], v["price"], v["book"], v["ev"], v.get("grade"), v["res"], v.get("act"), v.get("pl"),
-                             v.get("est", 0), v.get("l0"), v.get("ref")] for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
-            except Exception as e:
-                print(f"props record unreadable ({e.__class__.__name__})")
         print(f"player props: {len(W['players'])} players, {len(W['offers'])} offers ({W['nlines']} free {W['book'] or 'book'} lines from {len(free)} games, "
               f"Odds API prices from {len(events)} games), {len(W['unmatched'])} unmatched names, {len(W['unbooked'])} lined players not projected")
+    return W
+
+
+def props_extras(W, nfl):
+    """What the Props tab reads besides the week's lines, attached on every refresh (a carried tab too): both
+    backtests, the graded props record and each game's kickoff."""
+    for name, path in (("bt", "props_backtest.json"), ("lbt", "props_lines_backtest.json")):
+        try:
+            W[name] = json.load(open(os.path.join(HERE, "..", "data", path)))
+        except Exception:
+            W[name] = None
+    W["ko"] = {**(W.get("ko") or {}), **{g["id"]: g["ko"] for g in nfl["games"]}}
+    rp = os.path.join(os.path.dirname(os.environ.get("ME_PICKS") or ""), "props_picks.json") if os.environ.get("ME_PICKS") else None
+    if rp and os.path.exists(rp):
+        try:
+            R = json.load(open(rp))
+            W["rec"] = [[v["g"], v["name"], v["team"], v["s"], v["side"], v["line"], v["price"], v["book"], v["ev"], v.get("grade"), v["res"], v.get("act"), v.get("pl"),
+                         v.get("est", 0), v.get("l0"), v.get("ref")] for v in sorted(R.values(), key=lambda v: v["ko"]) if v.get("res")]
+        except Exception as e:
+            print(f"props record unreadable ({e.__class__.__name__})")
+    return W
+
+
+def props_prev(nfl):
+    """The Props tab of the last full refresh (props_prev.json), when it is for this NFL week and recent enough to
+    carry into a lines refresh; else None."""
+    try:
+        W = json.load(open(PROPS_PREV))
+        if not (isinstance(W, dict) and W.get("players") and W.get("season") == nfl["season"] and W.get("week") == nfl["week"]):
+            return None
+        at = pd.Timestamp(W["at"])
+        at = at.tz_localize("UTC") if at.tzinfo is None else at
+        return W if NOW - at <= pd.Timedelta(hours=PROPS_KEEP_HOURS) else None
+    except Exception:
+        return None
+
+
+def props_trim(W, nfl):
+    """A carried Props tab without the players of games that have kicked off or left the page. Offers name their player
+    by his place in the list, so they are renumbered."""
+    ids = {g["id"] for g in nfl["games"]}
+    keep = [i for i, p in enumerate(W["players"]) if p.get("g") in ids]
+    if len(keep) < len(W["players"]):
+        pos = {old: new for new, old in enumerate(keep)}
+        W["players"] = [W["players"][i] for i in keep]
+        W["offers"] = [[pos[o[0]]] + list(o[1:]) for o in W.get("offers") or [] if o[0] in pos]
+    W["out"] = [o for o in W.get("out") or [] if o.get("g") in ids]
+    W["teams"] = {k: v for k, v in (W.get("teams") or {}).items() if v.get("g") in ids}
+    W["ko"] = {k: v for k, v in (W.get("ko") or {}).items() if k in ids}
     return W
 
 
@@ -982,7 +1141,9 @@ def record():
         snap = pg.evaluate("window.MatchupEdge.pickSnap()")
         now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         for s in snap:
-            if not (old.get(s["id"]) or {}).get("res"):
+            was = old.get(s["id"]) or {}
+            # an unchanged pick keeps the time it was saved, so a refresh that moved nothing doesn't rewrite the record
+            if not was.get("res") and {k: v for k, v in was.items() if k != "at"} != s:
                 old[s["id"]] = {**s, "at": now}
         graded = 0
         for pid, o in old.items():
@@ -1014,8 +1175,10 @@ def props_record(path, snap, now):
             # whether the market moved our way before kickoff
             same = bool(prev) and prev.get("side") == s["side"]
             ref = s.get("ref", s["line"])
-            old[s["id"]] = {**s, "at": now, "l0": prev.get("l0", prev.get("ref", prev.get("line"))) if same else ref,
-                            "at0": prev.get("at0", prev.get("at")) if same else now}
+            new = {**s, "l0": prev.get("l0", prev.get("ref", prev.get("line"))) if same else ref,
+                   "at0": prev.get("at0", prev.get("at")) if same else now}
+            if {k: v for k, v in prev.items() if k != "at"} != new:  # an unchanged pick keeps the time it was saved
+                old[s["id"]] = {**new, "at": now}
     # a pick saved earlier that no longer has value is dropped until kickoff (the last save before it counts); a game
     # with no picks at all in this run (its lines didn't come through) keeps what it had
     live_ids, covered = {s["id"] for s in snap}, {s["g"] for s in snap}
@@ -1202,7 +1365,8 @@ def summary():
             pg.add_init_script("try{localStorage.setItem('me4.bets',JSON.stringify('tested'))}catch(e){}")
             pg.goto("file://" + os.path.join(HERE, "site.html"))
             pg.wait_for_timeout(500)
-            print(pg.inner_text("#asof"))
+            # the header badge without its running "x min ago"
+            print(pg.evaluate("(window.MatchupEdge.stamp && window.MatchupEdge.stamp()) || document.querySelector('#asof').innerText"))
             # every game card or row carries data-lg, its match in .gt and its best bet in .bb ("Best bet · Strong", the bet, the book and value)
             rows = pg.evaluate(r"""[...document.querySelectorAll('[data-lg]')].map(r=>({lg:r.dataset.lg,t:((r.querySelector('.gt')||{}).textContent||'').replace(/\s*@\s*/,' @ ').replace(/\s+/g,' ').trim(),
                 b:[...r.querySelectorAll('.bb .k, .bb .pill, .bb small')].map(e=>e.textContent.replace(/Log bet/,'').replace(/\s+/g,' ').trim()).join(' | ')}))""")
@@ -1226,10 +1390,44 @@ def summary():
         print(f"summary unavailable ({e.__class__.__name__}); read site.html's data instead")
 
 
+def check():
+    """The built page (web/index.html) must load and draw without a script error before it is published: the refresh
+    runs many times a day with nobody watching. Exits with an error, which stops the workflow before the publish step."""
+    from playwright.sync_api import sync_playwright
+    errs = []
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        pg = b.new_page()
+        pg.on("pageerror", lambda e: errs.append(str(e)))
+        pg.route(re.compile(r"^https?://"), lambda r: r.abort())
+        pg.goto("file://" + os.path.join(HERE, "web", "index.html"))
+        pg.wait_for_timeout(800)
+        try:
+            seen = pg.evaluate("""() => { const q = s => document.querySelectorAll(s).length, t = s => (document.querySelector(s) || {}).innerText || '';
+                for (const b of document.querySelectorAll('[role=tab]')) b.click();
+                return {asof: t('#asof'), news: t('#newsb'), tabs: q('[role=tab]'), games: q('[data-lg]'), top: t('#topplays').length, props: t('#propplays').length,
+                        api: !!(window.MatchupEdge && window.MatchupEdge.pickSnap)}; }""")
+        except Exception as e:
+            errs.append(f"page did not answer: {e}")
+            seen = {}
+        pg.wait_for_timeout(300)
+        b.close()
+    data = json.loads(re.search(r"const DATA=(.*);\n", open(os.path.join("web", "index.html")).read()).group(1).replace("<\\/", "</"))
+    want = sum(len((data.get(lg) or {}).get("games") or []) for lg in ("nfl", "nba", "epl"))
+    if not seen.get("api") or not seen.get("asof") or seen.get("tabs", 0) < 6 or not seen.get("top") or not seen.get("props"):
+        errs.append(f"page is missing parts: {seen}")
+    if want and not seen.get("games"):
+        errs.append(f"the data has {want} games but the page drew none")
+    if errs:
+        sys.exit("page check failed, nothing will be published:\n  " + "\n  ".join(errs[:10]))
+    one = lambda t: " ".join(str(t).split())
+    print(f"page check ok: {one(seen.get('asof'))} | {one(seen.get('news'))} | {seen.get('games')} game cards for {want} games")
+
+
 if __name__ == "__main__":
     k = sys.argv[sys.argv.index("--odds-key") + 1] if "--odds-key" in sys.argv else os.environ.get("ODDS_API_KEY")
     if len(sys.argv) > 1 and sys.argv[1] == "fetch":
-        fetch(k)
+        fetch(k, (sys.argv[sys.argv.index("--mode") + 1] if "--mode" in sys.argv else os.environ.get("ME_MODE") or "full").strip().lower())
     elif len(sys.argv) > 1 and sys.argv[1] == "script":  # rewrite browser.js from the existing plan.json
         browser_script(json.load(open("plan.json")), k)
         print("browser.js written")
@@ -1251,5 +1449,7 @@ if __name__ == "__main__":
         record()
     elif len(sys.argv) > 1 and sys.argv[1] == "web":
         web()
+    elif len(sys.argv) > 1 and sys.argv[1] == "check":
+        check()
     else:
         print(__doc__)

@@ -2,6 +2,12 @@
 
 Rebuilds the Matchup Edge site from public data.
 
+0. On GitHub, `python3 schedule.py prev_state.json` runs first and says what this run is: `skip` (outside 6 AM to
+   10 PM Central), `full`, or `lines`. A full refresh falls due at 11:45 AM and 5:45 PM Central and 80 minutes before
+   each group of NFL kickoffs; the first run at or after that time does it. `fetch` takes the answer as `ME_MODE` (or
+   `--mode`). A lines refresh asks for no prop lines or prices and carries the Props tab over from the last full
+   refresh (`props_prev.json`, which the workflow copies from the published `props.json`), trimmed to the games still
+   to start; with nothing to carry for this NFL week it becomes a full refresh.
 1. `python3 refresh.py fetch [--odds-key KEY]`
    Downloads nflverse schedules, lines and team stats, hoopR NBA schedules and box scores, and for the Premier
    League xgabora's match file (football-data.co.uk results, shots and odds) and openfootball's fixture list, all
@@ -20,11 +26,17 @@ Rebuilds the Matchup Edge site from public data.
    script with Node 18+ instead and writes `browser_result.json`; its temporary copy of the script is deleted afterwards.
 3. `python3 refresh.py build` checks each section of the result against its own checksum, merges the sections that
    pass, and writes `site.html`. A section that fails is left out and named in the output ("partial"); without a
-   valid `browser_result.json` the site builds from nflverse lines alone.
+   valid `browser_result.json` the site builds from nflverse lines alone. A game that has kicked off (ESPN's state,
+   or the clock) leaves the page and goes to its league's `begun` list with its last pregame line, so a bet on it can
+   still be logged; the Odds API is asked only for games still to start, since it also carries in-play prices. The
+   NFL week turns over once fewer than three of its games are left to start. `build` also writes `props.json` (the
+   Props tab) and `state.json` (when the build was made, when prop prices were fetched, credits left, NFL kickoffs).
 4. `python3 refresh.py summary` prints the page's header and every positive-value pick (NFL, NBA, Premier League).
-5. For the standalone website: `build` also reads `ME_NEWS` (the morning research as `{meta, docs}`) and `ME_PICKS`
+5. For the standalone website: `build` also reads `ME_NEWS` (the researched news as `{meta, docs}`) and `ME_PICKS`
    (the model record); `python3 refresh.py record` updates the record from the built page (and the props record,
-   `props_picks.json` beside it), and `python3 refresh.py web` writes `web/index.html`, the page with a complete document head.
+   `props_picks.json` beside it; a pick that hasn't changed keeps the time it was saved, so a refresh that moved
+   nothing leaves the files alone), `python3 refresh.py web` writes `web/index.html`, the page with a complete
+   document head, and `python3 refresh.py check` loads it and fails on a script error, before anything is published.
 6. `python3 refresh.py props-lines` (weekly on GitHub, `.github/workflows/props-lines.yml`; needs open internet) saves
    every finished game's prop lines from ESPN since 2025 (`props_lines/`, cached) and tests the props model against
    them, writing `../data/props_lines_backtest.json`, which the Props tab shows.
@@ -64,7 +76,7 @@ scale first (its margins run ~10% narrow and its totals ~40% wide). Best bets co
 the factors that held up); our call's own bets can be shown but lost about 8% per bet over 2020-21 to 2025-26 at
 historical closing prices (6,696 bets; tested model -2.6% on the same games), so the page marks them untested.
 News lives in the page's database, collection `scout`, one document per game (`nfl_<game id>`, `nba_<game id>`,
-`epl_<date>_<home>_<away>` with non-alphanumerics removed), written each morning by a separate cloud scheduled task that
+`epl_<date>_<home>_<away>` with non-alphanumerics removed), written every morning and evening by a separate cloud scheduled task that
 researches injuries, returns, trades and signings, coaching changes, drama and motivation, with an impact in points
 (goals for soccer) per team and sources. The page also keeps its own record in collection `picks`: each upcoming game's
 call and both models' best bets, saved when the owner opens the page, graded from results. The refresh's `summary`
@@ -77,5 +89,6 @@ both from the bankroll now (starting bankroll plus settled profit).
 
 Files: `nfl_core.py` (NFL ratings, factors, pricing; the tested backtest code), `nba_core.py` (NBA ratings and
 factors), `epl_core.py` (Premier League history, fixtures, form and the shots-on-target rating), `props_core.py`
-(player props: projections, line valuation, both backtests), `refresh.py`, `site_template.html`. Needs Python 3 with pandas, numpy, scipy and pyarrow.
+(player props: projections, line valuation, both backtests), `refresh.py`, `schedule.py` (which kind of refresh
+each run is), `site_template.html`. Needs Python 3 with pandas, numpy, scipy and pyarrow.
 Model evidence: NFL and NBA backtest reports linked from the site.

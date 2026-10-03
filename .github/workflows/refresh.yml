@@ -1,17 +1,29 @@
-# Refreshes the site twice each weekday and publishes it to GitHub Pages (the gh-pages branch).
+# Refreshes the site through the day, every day, and publishes it to GitHub Pages (the gh-pages branch).
+# pipeline/schedule.py decides what each run does, in Central time: a lines refresh every hour from 6 AM to 10 PM (every
+# half hour on Sundays), a full refresh (every book's player-prop prices too) around noon and 6 PM and 80 minutes before
+# NFL kickoffs, and nothing overnight.
 # The Odds API key comes only from the repository secret ODDS_API_KEY; it is never written to the site or committed.
 name: Refresh site
 
 on:
   schedule:
-    # GitHub schedules run on UTC: 11:47 AM and 5:47 PM Central in daylight time, an hour earlier in winter.
-    # The morning run comes well after the news research (9:48 AM Central) has saved data/news.json.
-    - cron: "47 16 * * 1-5"
-    - cron: "47 22 * * 1-5"
+    # GitHub schedules run on UTC. These hours cover 6 AM to 10 PM Central in both daylight and standard time;
+    # schedule.py skips the one or two that fall outside it. Runs start about 10 minutes after the minute given.
+    - cron: "12 0-5,11-23 * * *"
+    # Sundays, 7 AM to 8 PM Central: on the half hour as well
+    - cron: "42 12-23 * * 0"
+    - cron: "42 0-1 * * 1"
   workflow_dispatch:            # run it any time from the Actions tab
+    inputs:
+      mode:
+        description: "full: everything, with every book's player-prop prices. lines: game lines and news only. auto: whichever the schedule calls for now."
+        type: choice
+        options: [full, lines, auto]
+        default: full
   push:
     branches: [main]
-    paths: ["pipeline/**", ".github/workflows/**"]
+    # the news file too: researched news is on the site a few minutes after it is saved
+    paths: ["pipeline/**", ".github/workflows/**", "data/news.json"]
 
 permissions:
   contents: write
@@ -27,41 +39,67 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: What the last refresh published
+        run: |
+          # beside the page, the published site keeps the Props tab of the last full refresh (props.json) and a note of
+          # what the last refresh was (state.json)
+          rm -f pipeline/prev_state.json pipeline/props_prev.json
+          if git fetch --quiet --depth=1 origin gh-pages; then
+            git show FETCH_HEAD:state.json > pipeline/prev_state.json 2>/dev/null || rm -f pipeline/prev_state.json
+            git show FETCH_HEAD:props.json > pipeline/props_prev.json 2>/dev/null || rm -f pipeline/props_prev.json
+          fi
+
+      - name: Full refresh, lines refresh, or nothing at this hour
+        id: plan
+        env:
+          ME_EVENT: ${{ github.event_name }}
+          ME_CRON: ${{ github.event.schedule }}
+          ME_WANT: ${{ inputs.mode }}
+        run: python3 pipeline/schedule.py pipeline/prev_state.json | tee -a "$GITHUB_STEP_SUMMARY"
+
       - uses: actions/setup-python@v5
+        if: steps.plan.outputs.mode != 'skip'
         with:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: pipeline/requirements.txt
 
       - uses: actions/setup-node@v4
+        if: steps.plan.outputs.mode != 'skip'
         with:
           node-version: "20"
 
       - name: Install
+        if: steps.plan.outputs.mode != 'skip'
         run: |
           pip install -r pipeline/requirements.txt
           python -m playwright install --with-deps chromium
 
       - name: Player history for the props (finished seasons don't change)
+        if: steps.plan.outputs.mode != 'skip'
         uses: actions/cache@v4
         with:
           path: pipeline/props
-          key: props-${{ github.run_id }}
+          key: props-${{ steps.plan.outputs.day }}   # saved once a day; the hourly runs restore it
           restore-keys: props-
 
       - name: Download schedules, results and stats; plan the week
+        if: steps.plan.outputs.mode != 'skip'
         working-directory: pipeline
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ME_MODE: ${{ steps.plan.outputs.mode || 'lines' }}   # if schedule.py ever fails: the cheap refresh, not none
         run: python refresh.py fetch
 
       - name: Live lines, forecasts, injuries and every book's prices
+        if: steps.plan.outputs.mode != 'skip'
         working-directory: pipeline
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python refresh.py live
 
-      - name: Build the page and update the model record
+      - name: Build the page, update the model record, and check that the page loads
+        if: steps.plan.outputs.mode != 'skip'
         working-directory: pipeline
         env:
           ME_NEWS: ../data/news.json
@@ -73,8 +111,10 @@ jobs:
           python refresh.py record
           python refresh.py build
           python refresh.py web
+          python refresh.py check
 
       - name: Best bets
+        if: steps.plan.outputs.mode != 'skip'
         working-directory: pipeline
         run: |
           echo '```' >> "$GITHUB_STEP_SUMMARY"
@@ -82,6 +122,7 @@ jobs:
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save the model record and results
+        if: steps.plan.outputs.mode != 'skip'
         run: |
           git config user.name "matchup-edge-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -92,6 +133,7 @@ jobs:
           fi
 
       - name: Publish to GitHub Pages
+        if: steps.plan.outputs.mode != 'skip'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
@@ -101,6 +143,8 @@ jobs:
           cp pipeline/site.html out/artifact.html    # the same page without a document head, for the claude.ai copy
           if [ -f pipeline/summary.txt ]; then cp pipeline/summary.txt out/summary.txt; fi   # best bets as text, for the claude.ai copy task
           if [ -f data/results.json ]; then cp data/results.json out/results.json; fi   # finals, for grading older bets
+          if [ -f pipeline/props.json ]; then cp pipeline/props.json out/props.json; fi   # the Props tab, which the next lines refresh carries over
+          if [ -f pipeline/state.json ]; then cp pipeline/state.json out/state.json; fi   # what this refresh was: schedule.py and the open page read it
           touch out/.nojekyll
           if [ -n "$SITE_DOMAIN" ]; then echo "$SITE_DOMAIN" > out/CNAME; fi
           cd out

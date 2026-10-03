@@ -2,13 +2,13 @@
 
 **Live at https://hasannavan241.github.io/matchupedge/**
 
-Who wins each NFL, NBA and Premier League game, and the best-value bet at the sportsbooks, rebuilt twice every
-weekday and published with GitHub Pages.
+Who wins each NFL, NBA and Premier League game, and the best-value bet at the sportsbooks, refreshed every hour of
+every day and published with GitHub Pages.
 
 - **Top bets** lists every game bet at +2% value or better and the best prop for each player, each with its reason
   in a line.
 - **Our call** picks the winner of every game, mixing the betting market with a team view (power ratings, every factor
-  and news researched each morning) at the weight that picked the most winners in testing.
+  and news researched every morning and evening) at the weight that picked the most winners in testing.
 - **Best bets** come from the tested model: the market plus only the factors that held up on years of games.
 - **Player props** value every NFL player's DraftKings line (free through ESPN) against our projection, at the mix that
   held up when tested on 2025-2026 prop lines. The free lines have no prices, so only yardage props are valued (at
@@ -20,17 +20,37 @@ weekday and published with GitHub Pages.
 
 ## How it updates
 
-`.github/workflows/refresh.yml` runs at 11:47 AM and 5:47 PM Central, Monday to Friday (an hour earlier in winter,
-since GitHub schedules run on UTC), and on demand from the **Actions** tab → **Refresh site** → **Run workflow**.
+`.github/workflows/refresh.yml` runs every hour from 6 AM to 10 PM Central, every day, and every half hour on Sundays
+from 7 AM to 8 PM. It also runs when the pipeline or the news file changes, and on demand from the **Actions** tab →
+**Refresh site** → **Run workflow**. `pipeline/schedule.py` decides in Central time what each run does (GitHub's
+schedules run on UTC, so the workflow starts a run at every hour that could fall inside those hours in summer or
+winter, and the one or two outside them stop at once):
+
+- A **lines refresh**, most runs: game lines from DraftKings and every other book, kickoff forecasts, injuries,
+  results and the latest news. About 9 Odds API credits. The Props tab is carried over from the last full refresh, so
+  the page never sets fresh lines beside old prop prices; the tab says when its prices were captured.
+- A **full refresh**: all of that plus every NFL player's prop lines and every book's prop prices (about 10 credits
+  for each NFL game still to start). One falls due at 11:45 AM and 5:45 PM every day and 80 minutes before each group
+  of NFL kickoffs, once the inactive lists are out, and the first run after that time does it: about 12:20 PM and
+  6:20 PM on most days, and about 10:50 AM, 2:20 PM and 6:20 PM on a Sunday (7:50 AM too before a morning game
+  overseas). A run from the Actions tab is a full refresh unless you choose otherwise.
+
+A game leaves the page when it kicks off (the page checks the clock itself, so an open tab drops it too), and stays
+available under My bets for logging a bet placed before kickoff. The header shows how old the lines and the news are,
+and an open tab shows a Reload button when a newer build has been published.
+
 Each run:
 
 1. downloads schedules, results and team stats from nflverse, hoopR, football-data.co.uk (via xgabora's match file) and
    openfootball, and rebuilds ratings and factors (`pipeline/refresh.py fetch`);
 2. gets DraftKings lines, kickoff forecasts, NBA injuries and Premier League results from ESPN and the National
    Weather Service, and every book's prices from The Odds API (`refresh.py live`);
-3. builds the page with the morning's researched news (`data/news.json`) and updates the model record
+3. builds the page with the latest researched news (`data/news.json`) and updates the model record
    (`data/picks.json`) (`refresh.py build`, `record`, `web`);
-4. publishes `index.html` to the `gh-pages` branch, which GitHub Pages serves.
+4. loads the built page in a browser and stops if it has a script error (`refresh.py check`);
+5. publishes `index.html` to the `gh-pages` branch, which GitHub Pages serves, with `props.json` (the Props tab, which
+   the next lines refresh carries over) and `state.json` (when this build was made, when prop prices were last
+   fetched and how many credits are left).
 
 The run's summary lists every best bet with positive value.
 
@@ -41,10 +61,12 @@ and tests the props model against them (`data/props_lines_backtest.json`); the n
 
 1. **Secret:** Settings → Secrets and variables → Actions → New repository secret: `ODDS_API_KEY` = your key from
    the-odds-api.com. Without it the site still builds, with DraftKings lines only. The key is used only on GitHub's
-   servers and is never written to the site or the repository. About 3 credits per league per run; the free plan's
-   500 a month covers this schedule. Player prop prices from every book need a paid plan: about 10 credits per NFL game
-   per run (roughly 7,000 a month on this schedule), fetched only while 1,500+ credits are left, so the 20K plan
-   covers them. If subscribing gives you a new key, replace the `ODDS_API_KEY` secret with it.
+   servers and is never written to the site or the repository. About 3 credits per league per run and about 10 per
+   NFL game for prop prices on a full refresh: roughly 14,000 credits a month on this schedule, which the 20K plan
+   covers. Prop prices are fetched only while enough credits are left to keep the hourly lines going until the
+   credits reset on the 1st (1,500 plus 200 for each day left in the month), and a run that finds no credits still
+   builds the page from DraftKings lines. If subscribing gives you a new key, replace the `ODDS_API_KEY` secret with
+   it.
 2. **Pages:** Settings → Pages → Build and deployment → Source: *Deploy from a branch*, Branch: `gh-pages`, folder
    `/ (root)`. The site appears at `https://<your-username>.github.io/<repo>/`.
 3. **Own domain (optional):** buy one (Cloudflare, Namecheap, Porkbun…), add a variable Settings → Secrets and
@@ -54,8 +76,9 @@ and tests the props model against them (`data/props_lines_backtest.json`); the n
 
 ## Data kept in the repository
 
-- `data/news.json`: the morning research (injuries, returns, trades, coaching, drama, motivation), one document per
-  game, written by a separate research job.
+- `data/news.json`: the researched news (injuries, returns, trades, coaching, drama, motivation), one document per
+  game, written by a separate research job every morning and evening and before Sunday's kickoffs. Saving it starts
+  a refresh, so it is on the site a few minutes later.
 - `data/picks.json`: every game's call and both models' best bets, saved until kickoff and graded from results.
 - `data/results.json`: final scores and closing lines for the last 400 days, published as `results.json` so bets
   older than the page's own results still grade.
@@ -76,10 +99,11 @@ each browser and is only sent to GitHub; it never touches this repository.
 ```
 cd pipeline
 pip install -r requirements.txt && python -m playwright install chromium
-ODDS_API_KEY=... python refresh.py fetch
+ODDS_API_KEY=... python refresh.py fetch       # a full refresh; add --mode lines for game lines only
 ODDS_API_KEY=... python refresh.py live        # needs Node 18+
 ME_NEWS=../data/news.json ME_PICKS=../data/picks.json ME_RESULTS=../data/results.json python refresh.py build
 python refresh.py web                           # web/index.html
+python refresh.py check                         # the page loads without a script error
 ```
 
 `pipeline/README.md` describes the models and the testing behind them.

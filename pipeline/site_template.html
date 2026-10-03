@@ -64,6 +64,9 @@ select{border:1px solid var(--line);background:var(--surface-2);border-radius:6p
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;max-width:100%;background:var(--accent-soft);color:var(--accent)}
 .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
 .badge.warn{background:var(--warn-soft);color:var(--warn)} .badge.dim{background:var(--track);color:var(--muted)}
+.badge .age{font-weight:500;white-space:nowrap}
+button.badge.go{border:0;cursor:pointer;background:var(--accent);color:var(--accent-ink)}
+button.badge.go:hover{filter:brightness(1.08)}
 
 /* tabs */
 .tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);overflow-x:auto;scrollbar-width:none}
@@ -725,7 +728,7 @@ details.how dd p{margin:0 0 6px}
   <details class="how">
     <summary>How it works</summary>
     <dl>
-      <dt>Our call</dt><dd>Every game gets a call on who wins, mixed from two views. The <b>betting market</b>: every book’s price with its cut removed, and the middle value across books, so one stale book can’t move it. Our <b>team view</b>: power ratings from this season and last, every factor at full strength, and news researched each morning (injuries and returns, trades and signings, coaching changes, drama, motivation), each scored in points or goals for a team, with sources. Each league uses the mix that picked the most winners in testing, with ratings and factors built only from earlier games: NFL 85% market and 15% team view (66.7% of winners over 20 seasons, against 66.5% for the betting favorite; 67.3% against 66.7% over the last six), NBA 90% and 10% (68.5% over 18 seasons, level with the favorite), and in the Premier League the market alone once lines post (no mix did better over 14 seasons; before lines post, the call is the team view). The researched news can’t be backtested; the model record under My bets tracks it from here.</dd>
+      <dt>Our call</dt><dd>Every game gets a call on who wins, mixed from two views. The <b>betting market</b>: every book’s price with its cut removed, and the middle value across books, so one stale book can’t move it. Our <b>team view</b>: power ratings from this season and last, every factor at full strength, and news researched every morning and evening (injuries and returns, trades and signings, coaching changes, drama, motivation), each scored in points or goals for a team, with sources. Each league uses the mix that picked the most winners in testing, with ratings and factors built only from earlier games: NFL 85% market and 15% team view (66.7% of winners over 20 seasons, against 66.5% for the betting favorite; 67.3% against 66.7% over the last six), NBA 90% and 10% (68.5% over 18 seasons, level with the favorite), and in the Premier League the market alone once lines post (no mix did better over 14 seasons; before lines post, the call is the team view). The researched news can’t be backtested; the model record under My bets tracks it from here.</dd>
       <dt>Best bets</dt><dd>Best bets come from the <b>tested model</b>: the market plus only the factors that held up when tested on years of games, each at the share the closing line missed. NFL: wind and cold 50%, a backup quarterback 45% (spread and moneyline), Denver altitude 10%. NBA: altitude 50%, players out 20%, long trips 15%, back-to-backs 15%. Premier League: about 9% of a shots-on-target rating’s gap on goal difference (10% on the total), −0.011 goals per point of last-5 form difference, and +0.18 goals for a team playing its second league match in 3 days. Pace, head to head, rest, referees, Elo and power ratings count 0%. NFL weights can be changed under Tested model settings. You can switch the best bets to our call’s own pricing, but those are marked untested: see What testing found.</dd>
       <dt>Best bet and value</dt><dd>Every price at your books is valued against our call (or the tested fair line): value = chance to win × profit − chance to lose. NFL margins use a 13.5-point curve with extra weight on key numbers like 3 and 7; the NBA plain curves (12 points for spreads, 18 for totals); soccer a goal model fitted to each match’s home, draw and away prices and totals, where quarter lines count as two half bets. Whole-number lines can push. <b>Strong</b> is +5% or more, <b>Lean</b> +2% to +5%, <b>Thin</b> 0 to +2%. <b>No edge</b> means even the best price is below fair value after the book’s cut: the least-bad way to bet that game, not a bet with an advantage.</dd>
       <dt>Player props</dt><dd>The Props tab projects every NFL skill player’s passing, rushing, receiving and touchdown numbers: team volume from the spread and total, each player’s share of targets, carries and attempts (re-spread when a teammate is ruled out), efficiency shrunk toward the position average and scaled by the opponent, calibrated on every game since 2019. Every player’s lines come free from DraftKings through ESPN, with the line each opened at; The Odds API adds every book’s prices on a paid plan. Each line is valued mostly on the market’s chance, with a small weight on ours and a shade toward the under, because overs have hit less often than their prices implied. The mix (shown on the Props tab) was picked on 2025’s ESPN BET lines and tested on the rest of 2025 and on 2026’s DraftKings lines. Free lines carry no prices, so only yardage lines, which books price near even money, are valued (at −115); receptions, attempts, touchdowns and interceptions need a real price. Markets that lost money in the test show their numbers but never make the best bets.</dd>
@@ -736,7 +739,7 @@ details.how dd p{margin:0 0 6px}
         <p><b>NFL, 5,246 games.</b> Projecting scores from scratch lost 7.9% per bet against closing lines since 2016. Only wind held up: unders in 15+ mph wind went 240–194, +7.6% per bet. <a href="https://claude.ai/artifact/MMbMJ8yAy92ik3oYEhWg9Z" target="_blank" rel="noopener">NFL backtest</a></p>
         <p><b>NBA, 22,810 games.</b> Full projections lost 5.3% per bet at the close. When a rotation player was newly ruled out, the spread moved toward his opponent 71% of the time, about 1.4 points; opening lines miss about 60% of that, so being early is the edge. Totals 6+ points off the opener moved our way 60% of the time but only broke even after the juice. <a href="https://claude.ai/artifact/LzKchZxkYoPTy8uXkW1KgN" target="_blank" rel="noopener">NBA backtest</a></p>
         <p><b>Premier League, 5,300 matches (2012–2026).</b> Three small signals held up in every window, but betting them made +2.5% per bet at the best price only because of the two empty-stadium seasons; the other eight lost 2.6%. Treat them as leans.</p></dd>
-      <dt>Data</dt><dd>Lines and opening lines from DraftKings via ESPN; FanDuel, BetMGM and the other books from The Odds API, leaving out any quote more than 12 hours old. Kickoff forecasts from the National Weather Service. NFL schedules, quarterbacks and results from nflverse; NBA schedules and box scores from hoopR, injuries from ESPN. Premier League fixtures from openfootball, results and shots on target from football-data.co.uk (via xgabora’s match file) and ESPN; The Odds API adds Pinnacle for soccer and is asked only in the four days before kickoff. <span id="asof2"></span></dd>
+      <dt>Data</dt><dd>Lines and opening lines from DraftKings via ESPN; FanDuel, BetMGM and the other books from The Odds API, leaving out any quote more than 12 hours old. Kickoff forecasts from the National Weather Service. NFL schedules, quarterbacks and results from nflverse; NBA schedules and box scores from hoopR, injuries from ESPN. Premier League fixtures from openfootball, results and shots on target from football-data.co.uk (via xgabora’s match file) and ESPN; The Odds API adds Pinnacle for soccer and is asked only in the four days before kickoff. On the website, game lines, forecasts, injuries and news refresh every hour from 6 AM to 10 PM Central, and every half hour on Sundays; every book’s player-prop prices are fetched again around noon and 6 PM and about 80 minutes before NFL kickoffs, once the inactive lists are out. A game leaves the page when it kicks off. <span id="asof2"></span></dd>
     </dl>
   </details>
   <p class="foot">For entertainment and research, not betting advice. 21+ where sports betting is legal. If gambling stops being fun, call 1-800-GAMBLER.</p>
@@ -746,6 +749,24 @@ details.how dd p{margin:0 0 6px}
 (function(){
 const DATA=[[DATA]];
 const NFL=DATA.nfl,NBA=DATA.nba,EPL=DATA.epl,LIVE=DATA.live||{},GS=DATA.gs||{m:.119,t:-.054},SD=13.5,NSD={m:12,t:18};
+/* A game that has kicked off leaves the page: its pregame bets can't be made any more, and its result arrives with a
+   later refresh. It stays in BEGUN (with the ones the build already took off) so a bet on it can still be logged.
+   Its players leave the Props tab the same way (marked, not removed: offers name a player by his place in the list).
+   Runs when the page loads and every minute after; returns how many games and players it took off. */
+const BEGUN={nfl:[],nba:[],epl:[]};
+function dropBegun(){
+  const now=Date.now(),gone=ko=>{const t=Date.parse(ko);return isFinite(t)&&t<=now};let n=0;
+  for(const [lg,L] of [['nfl',NFL],['nba',NBA],['epl',EPL]]){
+    if(!L)continue;
+    if(L.begun){BEGUN[lg].push(...L.begun);L.begun=null}
+    const out=(L.games||[]).filter(g=>gone(g.ko));if(!out.length)continue;
+    L.games=L.games.filter(g=>!gone(g.ko));BEGUN[lg].push(...out.filter(g=>g.mkt));n+=out.length}
+  const P=DATA.props,ko=P&&P.ko||{};
+  if(P&&P.players)P.players.forEach(p=>{if(!p._gone&&gone(ko[p.g])){p._gone=true;n++}});
+  return n;
+}
+dropBegun();
+const begunNote=lg=>{const n=BEGUN[lg].length;return n?` ${n} ${lg==='epl'?(n===1?'match has':'matches have'):(n===1?'game has':'games have')} kicked off and left the board; a bet placed before kickoff can still be logged under My bets.`:''};
 const OFF=new Set(['Bovada','BetOnline.ag','LowVig.ag','MyBookie.ag','BetUS','BetAnything','Pinnacle']);
 /* every book on the page: DraftKings first, then licensed books, then offshore */
 const ALLB=(()=>{const s=new Set();[...(NFL?NFL.games:[]),...(NBA?NBA.games:[]),...(EPL?EPL.games:[])].forEach(g=>{if(g.mkt&&g.mkt.src!=='nflverse')s.add(g.mkt.src);(g.books||[]).forEach(b=>s.add(b.t))});
@@ -958,7 +979,7 @@ const pushers=(b,R)=>R.filter(r=>sideSign(b)*(b.mkt==='total'?r.wt*r.e.t:r.w*r.e
 /* ---------- NFL rendering ---------- */
 function renderPlays(res){
   const pos=res.filter(r=>r.x.best&&r.x.best.ev>0).length,n=res.length,wk=NFL.type==='REG'?'Week '+NFL.week:'Playoffs';
-  const lede=`Who wins each game by our call, and the best-value bet at your books ${OURBETS()?'by our call’s own pricing (untested)':'from the tested model'}. ${pos} of ${n} ${pos===1?'has':'have'} positive value.`;
+  const lede=`Who wins each game by our call, and the best-value bet at your books ${OURBETS()?'by our call’s own pricing (untested)':'from the tested model'}. ${pos} of ${n} ${pos===1?'has':'have'} positive value.${begunNote('nfl')}`;
   $('#plays').innerHTML=boardHTML(`${wk} at a glance`,lede,res.map(({g,h,x})=>boardRow('nfl',g,h,x,'g-'+did(g.id))).join(''),
     'Value is the edge over the best price after the book’s cut: Strong +5% or more, Lean +2 to 5%, Thin 0 to 2%, No edge below zero. Tap a game for its full reasoning.');
 }
@@ -1070,7 +1091,7 @@ function card({g,t,h,x}){
 const pickNFL=g=>{const t=analyze(g),h=nflHolistic(g,t);return{g,t,h,x:OURBETS()?h:t}};
 function results(){return NFL?NFL.games.map(pickNFL):[]}
 function renderList(){
-  if(!NFL||!NFL.games.length){$('#plays').innerHTML='<div class="bhead"><h2>NFL</h2><p class="lede">No NFL games on the schedule right now.</p></div>';$('#games').innerHTML='';$('#wpanel').hidden=true;return}
+  if(!NFL||!NFL.games.length){$('#plays').innerHTML=`<div class="bhead"><h2>NFL</h2><p class="lede">No NFL games on the schedule right now.${begunNote('nfl')}</p></div>`;$('#games').innerHTML='';$('#wpanel').hidden=true;return}
   const K=openKeys($('#nfl'));let all=results();
   TOP.nfl=all.map(r=>({lg:'nfl',g:r.g,h:r.h,x:r.x,a:'g-'+did(r.g.id)}));
   if(S.sort==='value')all.sort((a,b)=>(b.x.best?b.x.best.ev:-9)-(a.x.best?a.x.best.ev:-9));
@@ -1153,7 +1174,7 @@ function nbaCompact({g,e,h}){
 }
 function renderNBA(){
   const el=$('#nbaplays'),root=$('#nba'),K=openKeys(root);
-  if(!NBA||!NBA.games||!NBA.games.length){el.innerHTML='<div class="bhead"><h2>NBA</h2><p class="lede">No NBA games scheduled in the next few days.</p></div>';$('#nbalist').innerHTML='';return}
+  if(!NBA||!NBA.games||!NBA.games.length){el.innerHTML=`<div class="bhead"><h2>NBA</h2><p class="lede">No NBA games scheduled in the next few days.${begunNote('nba')}</p></div>`;$('#nbalist').innerHTML='';return}
   const ours=OURBETS(),day=(d,o)=>new Date(d+'T12:00:00').toLocaleDateString('en-US',o);
   const R=NBA.games.map(g=>{const e=nbaGame(g),h=nbaHolistic(g,e),t=g.mkt?nbaAnalyze(g,e):null;return{g,e,h,t,x:g.mkt?(ours?h:t):null}});
   const pr=R.filter(r=>r.g.mkt),pos=pr.filter(r=>r.x&&r.x.best&&r.x.best.ev>0).length,n=R.length;
@@ -1161,7 +1182,7 @@ function renderNBA(){
   const head=NBA.preseason?'NBA opening week':`NBA through ${day(NBA.end,{weekday:'long'})}`;
   const lede=(NBA.preseason?`The season tips off ${day(NBA.start,{weekday:'long',month:'long',day:'numeric'})}. `:'')
     +(pr.length?`${pr.length} of ${n} games have lines, and ${pos} ${pos===1?'has':'have'} a positive-value bet at your books.`:'No lines are posted yet.')
-    +(pr.length<n?` The other ${n-pr.length} show our team view until lines post, usually a day or two before tip-off.`:'');
+    +(pr.length<n?` The other ${n-pr.length} show our team view until lines post, usually a day or two before tip-off.`:'')+begunNote('nba');
   el.innerHTML=boardHTML(head,lede,pr.map(r=>boardRow('nba',r.g,r.h,r.x,'n-'+did(r.g.id))).join(''),
     pr.length?'Tap a game for its full reasoning. Injury news moves NBA lines fast, so check the current number before betting.':'');
   const days={};R.forEach(r=>{(days[r.g.date]=days[r.g.date]||[]).push(r)});
@@ -1340,14 +1361,14 @@ function eplCard({g,t,h:c,x}){
 }
 function renderEPL(){
   const el=$('#eplplays'),root=$('#epl'),K=openKeys(root);
-  if(!EPL||!EPL.games||!EPL.games.length){el.innerHTML='<div class="bhead"><h2>Premier League</h2><p class="lede">No Premier League matches in the fixture list right now.</p></div>';$('#epllist').innerHTML='';return}
+  if(!EPL||!EPL.games||!EPL.games.length){el.innerHTML=`<div class="bhead"><h2>Premier League</h2><p class="lede">No Premier League matches in the fixture list right now.${begunNote('epl')}</p></div>`;$('#epllist').innerHTML='';return}
   const ours=OURBETS(),R=EPL.games.map(g=>{const h=eplHolistic(g),t=eplAnalyze(g);return{g,h,t,x:h.noMkt?null:(ours?h:t)}});
   const pr=R.filter(r=>r.x),pos=pr.filter(r=>r.x.best&&r.x.best.ev>0).length,n=R.length;
   TOP.epl=pr.map(r=>({lg:'epl',g:r.g,h:r.h,x:r.x,a:'e-'+did(r.g.id)}));
   const sm=EPL.sotMissing>0?` Shots on target are missing for ${EPL.sotMissing} of this season’s ${EPL.played} matches so far; the rating uses the rest.`:'';
   const lede=pr.length?`${pr.length} of ${n} matches have lines, and ${pos} ${pos===1?'has':'have'} a positive-value bet at your books.${pr.length<n?` The rest show our team view until lines post.`:''}`
     :`Lines aren’t posted yet: DraftKings usually posts Premier League lines about a week ahead, and the other books are added in the four days before kickoff. Until then our call is the team view alone: shots-on-target rating, form, turnaround and the news. Once lines post, it follows the market, which picked more winners in testing.`;
-  el.innerHTML=boardHTML(`${esc(EPL.round||'This round')} at a glance`,lede+sm,R.map(r=>boardRow('epl',r.g,r.h,r.x||r.h,'e-'+did(r.g.id))).join(''),
+  el.innerHTML=boardHTML(`${esc(EPL.round||'This round')} at a glance`,lede+sm+begunNote('epl'),R.map(r=>boardRow('epl',r.g,r.h,r.x||r.h,'e-'+did(r.g.id))).join(''),
     'Soccer has three results, so a call under 50% can still be the single most likely one. Tap a match for its full reasoning.');
   const days={};R.forEach(r=>{(days[r.g.date]=days[r.g.date]||[]).push(r)});
   $('#epllist').innerHTML=Object.entries(days).map(([d,rs])=>`<div class="day"><h3>${new Date(d+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})}</h3>${rs.map(eplCard).join('')}</div>`).join('');
@@ -2274,9 +2295,11 @@ function setKind(k){
 function renderForm(){
   const up=[...(NFL?NFL.games:[]).map(g=>({lg:'nfl',g,final:false})),...(NBA?NBA.games.filter(g=>g.mkt):[]).map(g=>({lg:'nba',g,final:false})),...(EPL?EPL.games:[]).map(g=>({lg:'epl',g,final:false}))];
   const rc=['nfl','nba','epl'].flatMap(lg=>((DATA.recent||{})[lg]||[]).slice().reverse().map(r=>({lg,g:r,final:true})));
-  FG=[...up,...rc];
+  /* games that have kicked off and aren't final yet: off the page, but a bet placed before kickoff can still be logged */
+  const on=['nfl','nba','epl'].flatMap(lg=>BEGUN[lg].filter(g=>!findRes(lg,g.id,g.home,g.away,g.date,true)).map(g=>({lg,g,final:false,begun:true})));
+  FG=[...up,...on,...rc];
   const sel=$('#lg-game'),cur=sel.value;
-  sel.innerHTML=FG.map((e,i)=>`<option value="${i}">${e.lg.toUpperCase()} · ${e.lg==='epl'?`${esc(e.g.home)} v ${esc(e.g.away)}`:`${esc(e.g.away)} @ ${esc(e.g.home)}`} · ${fmtDate(e.g.date)}${e.final?' (final)':''}</option>`).join('');
+  sel.innerHTML=FG.map((e,i)=>`<option value="${i}">${e.lg.toUpperCase()} · ${e.lg==='epl'?`${esc(e.g.home)} v ${esc(e.g.away)}`:`${esc(e.g.away)} @ ${esc(e.g.home)}`} · ${fmtDate(e.g.date)}${e.final?' (final)':e.begun?' (started)':''}</option>`).join('');
   $('#lg-book').innerHTML=[...ALLB,'Other'].map(t=>`<option>${esc(t)}</option>`).join('');
   if(cur&&FG[+cur])sel.value=cur;fillBetOpts();
 }
@@ -2468,17 +2491,40 @@ function styleBar(){
     ?'Showing our call’s own best bets. Priced this way, bets lost about 8% per bet over the last six seasons (NFL −13%, NBA −7%, Premier League −7%), so treat their value as untested.'
     :'Our call picks each winner, mixing the market and our team view at the weight that picked the most winners in testing. Best bets come from the tested model: the market plus only the factors that held up.';
   const nb=$('#newsb'),nn=Object.keys(SCOUT).length,at=SCOUT_META&&SCOUT_META.at?Date.parse(SCOUT_META.at):NaN;
-  if(nn){nb.className='badge'+(isFinite(at)&&Date.now()-at>36*36e5?' warn':'');nb.textContent=`News · ${nn} ${nn===1?'game':'games'}${isFinite(at)?' · '+whenCT(new Date(at).toISOString()):''}`;nb.title='Injuries, returns, trades, coaching and drama, researched each morning'}
+  if(nn){nb.className='badge'+(isFinite(at)&&Date.now()-at>30*36e5?' warn':'');nb.innerHTML=esc(`News · ${nn} ${nn===1?'game':'games'}${isFinite(at)?' · '+whenCT(at):''}`)+(isFinite(at)?' '+ageSpan(at):'');nb.title='Injuries, returns, trades, coaching and drama, researched every morning and evening and before Sunday’s kickoffs'}
   else{nb.className='badge dim';nb.textContent='No news research loaded';nb.title='News research lives in the page’s database, which needs claude.ai'}
 }
 function renderAll(){VER++;renderList();renderNBA();renderEPL();if(typeof renderProps==='function')renderProps();if(S.tab==='top')renderTop();styleBar();clearTimeout(PKT);PKT=setTimeout(syncPicks,4000)}
-/* header: how fresh the lines are */
-const liveOk=/^(ok|partial)/.test(LIVE.status||''),lineAge=liveOk?(Date.now()-Date.parse(LIVE.ts))/36e5:Infinity;
-{const a=$('#asof'),nb=ALLB.length>1?`${ALLB.length} books`:'';
-  if(liveOk&&lineAge<=18)a.textContent=`Live lines${nb?' · '+nb:''} · ${whenCT(LIVE.ts)}`;
-  else{a.classList.add('warn');a.textContent=liveOk?`Lines from ${whenCT(LIVE.ts)}${nb?' · '+nb:''}`:`Lines from nflverse · ${DATA.made}`}
-  a.title='Lines move, so check the current number before betting.'}
-$('#asof2').textContent=`This page was built ${DATA.made}${liveOk?'; lines captured '+whenCT(LIVE.ts):''}. Lines move, so check the current number before betting.`;
+/* header: how fresh the lines are. The website refreshes them every hour, the claude.ai copy a few times a day, so
+   "live" allows 8 hours on one and 18 on the other; every time shown has a running age beside it. */
+const liveOk=/^(ok|partial)/.test(LIVE.status||''),LTS=Date.parse(LIVE.ts),STALE_H=IN_CLAUDE?18:8;
+const lineAge=()=>liveOk?(Date.now()-LTS)/36e5:Infinity;
+const ago=t=>{const m=Math.max(0,Math.round((Date.now()-t)/6e4));return m<1?'just now':m<60?`${m} min ago`:m<2880?`${Math.round(m/60)} h ago`:`${Math.round(m/1440)} days ago`};
+const ageSpan=t=>`<span class="age" data-t="${+t}">(${ago(+t)})</span>`;
+/* the badge's words without the age (the refresh's summary starts with them) */
+function stampTxt(){const nb=ALLB.length>1?`${ALLB.length} books`:'';
+  return liveOk&&lineAge()<=STALE_H?`Live lines${nb?' · '+nb:''} · ${whenCT(LIVE.ts)}`:liveOk?`Lines from ${whenCT(LIVE.ts)}${nb?' · '+nb:''}`:`Lines from nflverse · ${DATA.made}`}
+function stamp(){const a=$('#asof');a.classList.toggle('warn',!(liveOk&&lineAge()<=STALE_H));
+  a.innerHTML=esc(stampTxt())+(liveOk?' '+ageSpan(LTS):'');a.title='Lines move, so check the current number before betting.'}
+stamp();
+{const pts=Date.parse(LIVE.props_ts);
+  $('#asof2').textContent=`This page was built ${DATA.made}${liveOk?'; lines captured '+whenCT(LIVE.ts):''}${isFinite(pts)&&Math.abs(pts-LTS)>6e5?'; player-prop prices captured '+whenCT(pts):''}. Lines move, so check the current number before betting.`}
+/* every minute: the ages, and any game that has kicked off since the page loaded */
+setInterval(()=>{stamp();if(dropBegun())keepFocus(()=>{renderAll();renderTop();renderForm()});
+  document.querySelectorAll('.age[data-t]').forEach(e=>{e.textContent=`(${ago(+e.dataset.t)})`})},60e3);
+/* the website: say when a newer build is out (state.json is published beside the page). The page never reloads itself:
+   a bet being typed into the log would be lost. */
+if(!IN_CLAUDE&&/^https?:$/.test(location.protocol)){
+  let newer=false;
+  const look=async()=>{
+    if(newer||document.visibilityState!=='visible')return;
+    try{const r=await fetch('state.json?'+Date.now(),{cache:'no-store'});if(!r.ok)return;
+      const j=await r.json(),t=Date.parse(j&&j.ts);
+      if(!j||!j.made||j.made===DATA.made||!(t>(LTS||0)))return;
+      newer=true;const b=document.createElement('button');b.type='button';b.className='badge go';b.id='fresh';
+      b.textContent=`Newer lines are out (${whenCT(t)}) · Reload`;b.addEventListener('click',()=>location.reload());$('.status').prepend(b)}catch(e){}};
+  setTimeout(look,30e3);setInterval(look,3*60e3);document.addEventListener('visibilitychange',look);
+}
 if(NFL){$('#nflwk').textContent=NFL.type==='REG'?'Week '+NFL.week:'Playoffs'}else{$('#nflwk').textContent='off'}
 if(NBA){const day=(d,o)=>new Date(d+'T12:00:00').toLocaleDateString('en-US',o);
   $('#nbawk').textContent=NBA.preseason?'opens '+day(NBA.start,{month:'short',day:'numeric'}):'through '+day(NBA.end,{weekday:'short'})}
@@ -2554,7 +2600,7 @@ function propRows(){
   const G=new Map();
   for(const o of PR.offers){
     const [pi,s,book,line,ov,un,pom,pum,pok,puk]=o;
-    if(!useBook(book)||pom==null)continue;
+    if(!useBook(book)||pom==null||PR.players[pi]._gone)continue;
     const k=pi+'|'+s;let r=G.get(k);
     if(!r){r={p:PR.players[pi],pi,s,offers:[],best:null,lines:[]};G.set(k,r)}
     r.offers.push(o);r.lines.push(line);
@@ -2574,6 +2620,7 @@ function propRows(){
 const pPass=(p,s)=>(PS.pos==='all'||p.p===PS.pos)&&(PS.game==='all'||p.g===PS.game)&&(PS.mkt==='all'||PGROUP[s]===PS.mkt)&&(!PS.q||norm(p.n).includes(norm(PS.q)));
 const norm=t=>String(t).toLowerCase().normalize('NFD').replace(/[^a-z ]/g,'');
 const koOf=p=>(PR.ko&&PR.ko[p.g])||'';
+const pOffers=()=>PR.offers.filter(o=>!PR.players[o[0]]._gone);  /* offers for games still to start */
 const vsOf=p=>{const g=PGAME(p.g);return (g&&g.home===p.t?'vs ':'@ ')+p.o};
 const dayOf=p=>{const g=PGAME(p.g);return g?`${g.day} ${g.ct}`:''};
 const qTag=p=>(p.q?`<span class="tag warn" title="${esc(p.qd||'')}">${esc(p.q)}</span>`:'')+(roleOf(p)?` <span class="tag" title="Snaps last game far from his recent average">${roleOf(p).up?'role up':'role down'}</span>`:'');
@@ -2709,13 +2756,13 @@ function propBoard(rows){
   const el=$('#propplays');
   if(!PR){el.innerHTML='<div class="bhead"><h2>Player props</h2><p class="lede">No player projections in this build.</p></div>';return}
   const best=rows.filter(r=>r.ok&&r.best&&r.best.ev>=.02).sort((a,b)=>b.best.ev-a.best.ev).slice(0,10);
-  const nb=new Set(PR.offers.filter(o=>o[4]!=null||o[5]!=null).map(o=>o[2])).size,np=new Set(PR.offers.map(o=>o[0])).size;
+  const OF=pOffers(),nb=new Set(OF.filter(o=>o[4]!=null||o[5]!=null).map(o=>o[2])).size,np=new Set(OF.map(o=>o[0])).size;
   const tt=LBT?(LBT.seasons||[]).reduce((a,x)=>({n:a.n+x.tested.n,u:a.u+x.tested.units}),{n:0,u:0}):{n:0,u:0};
-  const free=PR.offers.filter(o=>o[4]==null&&o[5]==null),evenM=PORDER.filter(m=>PEST.has(m)&&free.some(o=>o[1]===m)),needM=free.some(o=>!PEST.has(o[1]));
+  const free=OF.filter(o=>o[4]==null&&o[5]==null),evenM=PORDER.filter(m=>PEST.has(m)&&free.some(o=>o[1]===m)),needM=free.some(o=>!PEST.has(o[1]));
   const mix=`Each line is valued at ${PS.w}% our chance and ${100-PS.w}% the market’s, shaded ${+(PSH*100).toFixed(1)} points toward the under`
     +(atTested()?(tt.n?`; in testing that mix made ${sg(tt.u/tt.n*100)}% per bet on ${tt.n.toLocaleString()} bets`:''):` (your setting; the tested mix is ${PDEF.w}%)`)+'.';
   const freeTxt=free.length?` The free ${esc(PBOOK)} lines come without prices: ${evenM.length?`${evenM.map(m=>PSHORT[m]||statLab(m)).join(', ')} lines sit near even money, so they’re valued at ${odds(PS.pa)}`:'none of them can be valued without one'}${needM?`; other markets are balanced by the price, so they show our numbers and need your book’s price (open a player to type it)`:''}.`:'';
-  const nPos=rows.filter(r=>r.ok&&r.best&&r.best.ev>=.02).length,pricedWk=nb>0&&free.length<.2*PR.offers.length;
+  const nPos=rows.filter(r=>r.ok&&r.best&&r.best.ev>=.02).length,pricedWk=nb>0&&free.length<.2*OF.length;
   const sGr=LBT?(LBT.seasons||[]).reduce((a,x)=>a+(((x.grades||{}).Strong||{}).n||0),0):0;
   const lede=pricedWk?`${nPos} ${nPos===1?'prop clears':'props clear'} +2% at your books right now, from ${nb} books’ prices on ${np} players. Value is what the best price pays over the bet’s tested chance: ${100-PS.w}% the market’s own number and ${PS.w}% our projection${atTested()?'':` (your setting; the tested mix is ${PDEF.w}%)`}, with a ${+(PSH*100).toFixed(1)}-point lean to the under. Each row names what mostly makes it a bet; open it to see where the value comes from.`
     :!HASL?`No prop lines in this build${LIVE.props_note?' ('+esc(LIVE.props_note)+')':''}. Every player’s projection is below; open a player and type your book’s line to see its value.`
@@ -2727,7 +2774,8 @@ function propBoard(rows){
     <span class="bp"><span>${vsTxt(r)}</span><small>${hitTxt(h,b.side)}${r.bk&&r.bk[1]!=null&&r.bk[1]!==r.bk[0]?` · opened ${ln(r.bk[1])}`:''}</small></span>
     <span class="bv"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small>${gradeOf(b.ev)} · ${pc(b.pW,0)} to win</small></span></a>`}).join('');
   const under=best.length&&best.every(r=>r.best.side==='under'),ps=LBT&&(LBT.seasons||[]).find(x=>x.priced&&x.market_over!=null&&x.over_priced!=null);
-  el.innerHTML=`<div class="bhead"><h2>Best player props</h2><p class="lede">${lede}</p></div>`
+  const pts=Date.parse(LIVE.props_ts||LIVE.ts),asof=HASL&&isFinite(pts)?` Prop lines and prices as of ${esc(whenCT(pts))} ${ageSpan(pts)}; they are fetched again around noon and 6 PM Central and before NFL kickoffs.`:'';
+  el.innerHTML=`<div class="bhead"><h2>Best player props</h2><p class="lede">${lede}${asof}</p></div>`
     +(best.length?`<div class="brws">${head}${rowsH}</div>`:HASL?'<p class="muted">Nothing at +2% or better at your books right now.</p>':'')
     +`<p class="bfoot">${under?(ps?`All unders: in ${ps.season}, overs hit ${pc(ps.over_priced,1)} of the time when their prices implied ${pc(ps.market_over,1)}. `:'All unders: the lean toward the under is built into the value. '):''}${pricedWk?`Strong is +5% or more, Lean +2% to +5%.${atTested()&&tt.n?` In testing this mix made ${sg(tt.u/tt.n*100)}% per bet on ${tt.n.toLocaleString()} bets at one book’s prices. Here each prop takes the best price of your books, so far more reach Strong than did in testing (${sGr} of ${tt.n.toLocaleString()} tested bets): read the grade as a ranking, and the props record below as the real check.`:''} `:'Projections come from nflverse box scores and snap counts, the market’s spread and total, the injury report and the kickoff forecast. '}Lines move and books limit props, so check the number before you bet.</p>`;
 }
@@ -2932,13 +2980,13 @@ function propMethod(){
 
 function renderProps(){
   if(!$('#props'))return;
-  $('#propswk').textContent=PR?(HASL?`${new Set(PR.offers.map(o=>o[0])).size} players`:'projections'):'off';
+  $('#propswk').textContent=PR?(HASL?`${new Set(pOffers().map(o=>o[0])).size} players`:'projections'):'off';
   const rows=propRows();PROWS=new Map(rows.map(r=>[r.pi+'|'+r.s,r]));TOP.props=rows;
   propBoard(rows);propMethod();
   document.querySelectorAll('[data-pshow]').forEach(b=>{b.setAttribute('aria-pressed',b.dataset.pshow===PS.show);b.disabled=!HASL&&b.dataset.pshow!=='players'});
   ['pmkt','ppos','psort','ppa'].forEach(id=>{const e=$('#'+id),k={pmkt:'mkt',ppos:'pos',psort:'sort',ppa:'pa'}[id];if(e&&e.value!==String(PS[k]))e.value=String(PS[k])});
   if(PS.game!=='all'&&!(NFL&&NFL.games.some(g=>g.id===PS.game)))PS.game='all';
-  const gs=$('#pgame');if(gs.options.length<2&&NFL)gs.innerHTML='<option value="all">All games</option>'+NFL.games.map(g=>`<option value="${esc(g.id)}">${esc(g.away)} @ ${esc(g.home)} · ${esc(g.day)}</option>`).join('');gs.value=PS.game;
+  const gs=$('#pgame');if(NFL&&gs.options.length!==NFL.games.length+1)gs.innerHTML='<option value="all">All games</option>'+NFL.games.map(g=>`<option value="${esc(g.id)}">${esc(g.away)} @ ${esc(g.home)} · ${esc(g.day)}</option>`).join('');gs.value=PS.game;
   $('#pw').value=PS.w;$('#pwo').textContent=PS.w+'%';
   $('#psortl').hidden=PS.show==='players';$('#preset').hidden=PS.w===PDEF.w&&PS.pa===PDEF.pa;
   const el=$('#plist');
@@ -2946,7 +2994,7 @@ function renderProps(){
   const K=new Set([...document.querySelectorAll('#plist details[open]')].map(d=>d.id));
   if(PS.show==='players'){
     const PO={QB:0,RB:1,WR:2,TE:3},key=p=>{const s=PORDER.find(t=>p.mu[t]!=null&&t!=='anytd');return s?(CNT(s)?p.mu[s]:pQ(s,p.mu[s],.5))||0:0};
-    const L=PR.players.filter(p=>Object.keys(p.mu).some(s=>pPass(p,s))).sort((a,b)=>koOf(a).localeCompare(koOf(b))||a.g.localeCompare(b.g)||(PO[a.p]-PO[b.p])||(key(b)-key(a)));
+    const L=PR.players.filter(p=>!p._gone&&Object.keys(p.mu).some(s=>pPass(p,s))).sort((a,b)=>koOf(a).localeCompare(koOf(b))||a.g.localeCompare(b.g)||(PO[a.p]-PO[b.p])||(key(b)-key(a)));
     let last='',html='';
     for(const p of L.slice(0,Math.max(PSHOW,120))){if(p.g!==last){last=p.g;const g=PGAME(p.g);html+=`<div class="pgh">${g?`${esc(g.away)} @ ${esc(g.home)} · ${esc(g.day)} ${esc(g.ct)}`:esc(p.g)}</div>`}html+=playerRow(p,K)}
     el.className='plist pls';
@@ -3012,7 +3060,7 @@ document.addEventListener('input',e=>{const t=e.target;
   else if(t.dataset&&t.dataset.cl){const box=t.closest('[data-calc]');if(box)calcOut(box)}});
 ['pmkt','ppos','pgame','psort','ppa'].forEach(id=>{const e=$('#'+id);if(e)e.addEventListener('change',()=>{const k={pmkt:'mkt',ppos:'pos',pgame:'game',psort:'sort',ppa:'pa'}[id];PS[k]=k==='pa'?+e.value:e.value;PSHOW=60;savePS();renderProps()})});
 /* for the standalone site's refresh: the page's own snapshot of each game's call and best bets, and its grading */
-window.MatchupEdge={pickSnap,gradePick,propSnap};
+window.MatchupEdge={pickSnap,gradePick,propSnap,stamp:stampTxt};
 weights();renderBooks();renderList();renderNBA();renderEPL();renderProps();styleBar();renderForm();setKind(LGK);renderSizing();renderSync();renderBets();setTab(['nfl','nba','epl','props','bets'].includes(S.tab)?S.tab:'top');
 startTracker();
 })();

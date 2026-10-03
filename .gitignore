@@ -16,3 +16,7 @@ out/
 pipeline/props/
 pipeline/props_lines/
 pipeline/summary.txt
+pipeline/props.json
+pipeline/props_prev.json
+pipeline/state.json
+pipeline/prev_state.json
