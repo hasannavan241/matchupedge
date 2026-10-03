@@ -1,0 +1,36 @@
+Live lines · 10 books · Sat, Oct 3, 5:17 PM CT
+NFL best bets with positive value, tested model (8 of 15 games, 15 with lines):
+IND @ WAS | Best bet · Lean | IND −4 −110 | theScore Bet · +3.5% · 1% of bankroll
+TEN @ BAL | Best bet · Lean | TEN ML +550 | theScore Bet · +3.8% · 1% of bankroll
+NYJ @ CHI | Best bet · Strong | NYJ ML +165 | theScore Bet · +8.5% · 1% of bankroll
+ARI @ NYG | Best bet · Lean | ARI ML −138 | FanDuel · +4.3% · 1% of bankroll
+GB @ TB | Best bet · Lean | GB −3 −115 | DraftKings · +2.9% · 1% of bankroll
+LAC @ SEA | Best bet · Thin | LAC ML +295 | FanDuel · +0.2% · 1% of bankroll
+DET @ CAR | Best bet · Thin | CAR ML +180 | FanDuel · +1.8% · 1% of bankroll
+ATL @ NO | Best bet · Thin | Under 48.5 −110 | theScore Bet · +0.8% · 1% of bankroll
+NBA best bets with positive value, tested model (4 of 52 games, 16 with lines):
+OKC @ SA | Best bet · Thin | Over 228.5 −110 | Bally Bet · +1.8% · 1% of bankroll
+MIL @ WSH | Best bet · Lean | MIL ML +195 | Bally Bet · +3.7% · 1% of bankroll
+GS @ LAL | Best bet · Lean | LAL −4.5 −112 | Bally Bet · +3.6% · 1% of bankroll
+DEN @ OKC | Best bet · Thin | DEN +7.5 +100 | theScore Bet · +0.0% · 1% of bankroll
+Premier League best bets with positive value, tested model (3 of 10 matches, 10 with lines):
+Arsenal v Leeds | Best bet · Thin | Leeds to win +650 | DraftKings · +1.5% · 1% of bankroll
+Chelsea v Bournemouth | Best bet · Lean | Bournemouth to win +330 | DraftKings · +2.3% · 1% of bankroll
+Coventry v Newcastle | Best bet · Thin | Coventry to win +225 | DraftKings · +0.5% · 1% of bankroll
+Best bets come from the tested model on the page too; our call (market + team view + researched news) picks the winners.
+NFL player props with +2% value or more (15 shown of 406 with positive value; projection blended with the market):
+Matthew Stafford (LA) | Best bet · Strong | Under 1.5 rush yds −138 | FanDuel · +20.5% · projection 6.79
+Calvin Ridley (TEN) | Best bet · Strong | Under 0.5 receptions +184 | DraftKings · +17.0% · projection 1.61
+Tyson Bagent (CHI) | Best bet · Strong | Under 13.5 rush yds +110 | theScore Bet · +13.7% · projection 5.86
+Skyy Moore (GB) | Best bet · Strong | Under 1.5 receptions +115 | BetMGM · +13.0% · projection 0.81
+Cam Ward (TEN) | Best bet · Strong | Under 9.5 rush yds +110 | theScore Bet · +12.8% · projection 8.68
+Jacory Croskey-Merritt (WAS) | Best bet · Strong | Under 64.5 rush yds −114 | BetRivers · +11.7% · projection 46.46
+George Holani (SEA) | Best bet · Strong | Under 1.5 receptions +109 | DraftKings · +11.5% · projection 0.91
+Theo Johnson (NYG) | Best bet · Strong | Under 0.5 receptions +178 | DraftKings · +11.1% · projection 2.14
+Braelon Allen (NYJ) | Best bet · Strong | Under 1.5 receptions +133 | DraftKings · +10.7% · projection 1.19
+Kyle Williams (NE) | Best bet · Strong | Under 0.5 receptions +172 | DraftKings · +9.8% · projection 1.04
+Cody White (LV) | Best bet · Strong | Under 11.5 rec yds −115 | BetMGM · +9.3% · projection 8.95
+Blake Corum (LA) | Best bet · Strong | Under 43.5 rush yds −115 | BetMGM · +9.3% · projection 41.07
+Jared Goff (DET) | Best bet · Strong | Under 1.5 pass TDs +160 | theScore Bet · +9.3% · projection 1.96
+Ja'Marr Chase (CIN) | Best bet · Strong | Under 6.5 receptions +120 | theScore Bet · +9.1% · projection 6.67
+Chuba Hubbard (CAR) | Best bet · Strong | Under 2.5 receptions +128 | DraftKings · +8.6% · projection 2.02
