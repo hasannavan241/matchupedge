@@ -2,8 +2,8 @@
 
 **Live at https://hasannavan241.github.io/matchupedge/**
 
-Who wins each NFL, NBA and Premier League game, and the best-value bet at the sportsbooks, refreshed every hour of
-every day and published with GitHub Pages.
+Who wins each NFL, NBA and Premier League game, and the best-value bet at the sportsbooks, refreshed about every hour
+of every day and published with GitHub Pages.
 
 - **Top bets** lists every game bet at +2% value or better and the best prop for each player, each with its reason
   in a line.
@@ -20,20 +20,22 @@ every day and published with GitHub Pages.
 
 ## How it updates
 
-`.github/workflows/refresh.yml` runs every hour from 6 AM to 10 PM Central, every day, and every half hour on Sundays
-from 7 AM to 8 PM. It also runs when the pipeline or the news file changes, and on demand from the **Actions** tab →
-**Refresh site** → **Run workflow**. `pipeline/schedule.py` decides in Central time what each run does (GitHub's
-schedules run on UTC, so the workflow starts a run at every hour that could fall inside those hours in summer or
-winter, and the one or two outside them stop at once):
+`.github/workflows/refresh.yml` refreshes the site about every hour from 6 AM to 10 PM Central, every day, and about
+every half hour in the three hours before an NFL kickoff. It also runs when the pipeline or the news file changes, and
+on demand from the **Actions** tab → **Refresh site** → **Run workflow**. GitHub starts scheduled workflows late and
+drops many of them, so the workflow asks for a run every 10 minutes and `pipeline/schedule.py` decides in Central time,
+from what the site last published, what each run does. Most find nothing due and end in a few seconds (they show in
+the Actions tab as 10-second runs):
 
-- A **lines refresh**, most runs: game lines from DraftKings and every other book, kickoff forecasts, injuries,
-  results and the latest news. About 9 Odds API credits. The Props tab is carried over from the last full refresh, so
-  the page never sets fresh lines beside old prop prices; the tab says when its prices were captured.
+- A **lines refresh**, due 50 minutes after the last refresh (25 minutes in the three hours before an NFL kickoff):
+  game lines from DraftKings and every other book, kickoff forecasts, injuries, results and the latest news. About
+  9 Odds API credits. The Props tab is carried over from the last full refresh, so the page never sets fresh lines
+  beside old prop prices; the tab says when its prices were captured.
 - A **full refresh**: all of that plus every NFL player's prop lines and every book's prop prices (about 10 credits
   for each NFL game still to start). One falls due at 11:45 AM and 5:45 PM every day and 80 minutes before each group
-  of NFL kickoffs, once the inactive lists are out, and the first run after that time does it: about 12:20 PM and
-  6:20 PM on most days, and about 10:50 AM, 2:20 PM and 6:20 PM on a Sunday (7:50 AM too before a morning game
-  overseas). A run from the Actions tab is a full refresh unless you choose otherwise.
+  of NFL kickoffs, once the inactive lists are out, and the first run after that time does it: about noon and 6 PM
+  on most days, and about 10:50 AM, 2:15 PM and 6:10 PM on a Sunday (7:20 AM too before a morning game overseas). A
+  run from the Actions tab is a full refresh unless you choose otherwise.
 
 A game leaves the page when it kicks off (the page checks the clock itself, so an open tab drops it too), and stays
 available under My bets for logging a bet placed before kickoff. The header shows how old the lines and the news are,

@@ -31,7 +31,7 @@
     build also reads ME_NEWS (researched news) and ME_PICKS (the model record) when those files exist, and keeps
     ME_RESULTS (an archive of final scores and closing lines that the website uses to grade older bets).
 
-    Two kinds of refresh (ME_MODE, or --mode after fetch; schedule.py picks one for each scheduled run):
+    Two kinds of refresh (ME_MODE, or --mode after fetch; schedule.py picks one for each scheduled run, or none):
     full   everything, including every book's player-prop prices (about 10 Odds API credits per NFL game)
     lines  game lines, forecasts, injuries and news only; the Props tab is carried over from the last full refresh
            (props_prev.json, which the workflow copies from the published site), so the page never mixes fresh lines
@@ -56,7 +56,7 @@ NOW = pd.Timestamp(os.environ["ME_NOW"]) if os.environ.get("ME_NOW") else pd.Tim
 NOW = NOW.tz_localize("UTC") if NOW.tzinfo is None else NOW.tz_convert("UTC")
 TODAY = (dt.date.fromisoformat(os.environ["ME_TODAY"]) if os.environ.get("ME_TODAY")
          else NOW.tz_convert("America/Chicago").date() if os.environ.get("ME_NOW") else dt.datetime.now(CT).date())
-RUN_DAYS = (0, 1, 2, 3, 4, 5, 6)  # days the scheduled refresh runs (every day; schedule.py has the times)
+RUN_DAYS = (0, 1, 2, 3, 4, 5, 6)  # days the scheduled refresh runs (every day; schedule.py decides when)
 # The Odds API books (up to 10 cost the same as one region): the big licensed US books plus three offshore books
 BOOKS = "draftkings,fanduel,betmgm,espnbet,betrivers,hardrockbet,ballybet,bovada,betonlineag,lowvig"
 # Premier League: Pinnacle (the sharpest soccer book; not open to US customers) replaces LowVig to anchor the fair line
@@ -66,7 +66,7 @@ EPL_ODDS_HOURS = 96  # ask The Odds API for Premier League prices only when a ma
 # account has PROPS_MIN_CREDITS or more left (a paid plan); below that the page values the free DraftKings lines alone
 PROPS_MIN_CREDITS = 1500
 # The floor rises with the days left before the credits reset (taken as the 1st of the month, UTC), so prop prices can
-# never use up what the hourly game lines need for the rest of the month (about 9 credits a run, 18 to 22 runs a day)
+# never use up what the game lines need for the rest of the month (about 9 credits a run, 18 to 22 runs a day)
 LINES_CREDITS_PER_DAY = 200
 PROPS_PREV = "props_prev.json"  # the last full refresh's Props tab, copied from the published site by the workflow
 PROPS_KEEP_HOURS = 30           # a carried Props tab older than this is rebuilt whatever the schedule says
@@ -977,7 +977,8 @@ def build():
     html = open("site_template.html").read().replace("[[DATA]]", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
     open("site.html", "w").write(html)
     # published beside the page: the Props tab (the next lines refresh carries it over) and what this refresh was
-    # (schedule.py reads it to decide when prop prices are due; the page reads it to say when a newer build is out)
+    # (schedule.py reads it to decide when the next refresh and the next prop prices are due; the page reads it to say
+    # when a newer build is out)
     if props:
         json.dump(props, open("props.json", "w"), separators=(",", ":"))
     elif os.path.exists("props.json"):
@@ -989,7 +990,7 @@ def build():
     except Exception:
         was = []
     kos = sorted(set(was) | {g["ko"] for g in ((nfl or {}).get("games") or []) + ((nfl or {}).get("begun") or []) if g.get("ko")})
-    json.dump({"made": plan["made"], "ts": live["ts"], "mode": mode, "status": status, "props_at": live["props_ts"],
+    json.dump({"made": plan["made"], "built": NOW.strftime("%Y-%m-%dT%H:%M:%SZ"), "ts": live["ts"], "mode": mode, "status": status, "props_at": live["props_ts"],
                "props_week": [nfl["season"], nfl["week"]] if nfl and props else None, "props_carried": carried,
                "news_at": (data.get("scout_meta") or {}).get("at"), "credits": live["credits"],
                "games": {"nfl": n(nfl), "nba": n(nba), "epl": n(epl)}, "nfl_ko": kos}, open("state.json", "w"), indent=1)

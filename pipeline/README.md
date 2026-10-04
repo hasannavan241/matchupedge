@@ -2,10 +2,11 @@
 
 Rebuilds the Matchup Edge site from public data.
 
-0. On GitHub, `python3 schedule.py prev_state.json` runs first and says what this run is: `skip` (outside 6 AM to
-   10 PM Central), `full`, or `lines`. A full refresh falls due at 11:45 AM and 5:45 PM Central and 80 minutes before
-   each group of NFL kickoffs; the first run at or after that time does it. `fetch` takes the answer as `ME_MODE` (or
-   `--mode`). A lines refresh asks for no prop lines or prices and carries the Props tab over from the last full
+0. On GitHub, where a run is asked for every 10 minutes (scheduled runs start late and many never start),
+   `python3 schedule.py prev_state.json` runs first and says what this run is: `skip` (outside 6 AM to 10 PM Central,
+   or the site was refreshed less than 50 minutes ago, 25 in the three hours before an NFL kickoff), `full`, or
+   `lines`. A full refresh falls due at 11:45 AM and 5:45 PM Central and 80 minutes before each group of NFL kickoffs;
+   the first run at or after that time does it. `fetch` takes the answer as `ME_MODE` (or `--mode`). A lines refresh asks for no prop lines or prices and carries the Props tab over from the last full
    refresh (`props_prev.json`, which the workflow copies from the published `props.json`), trimmed to the games still
    to start; with nothing to carry for this NFL week it becomes a full refresh.
 1. `python3 refresh.py fetch [--odds-key KEY]`

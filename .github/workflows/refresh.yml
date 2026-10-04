@@ -1,18 +1,17 @@
 # Refreshes the site through the day, every day, and publishes it to GitHub Pages (the gh-pages branch).
-# pipeline/schedule.py decides what each run does, in Central time: a lines refresh every hour from 6 AM to 10 PM (every
-# half hour on Sundays), a full refresh (every book's player-prop prices too) around noon and 6 PM and 80 minutes before
-# NFL kickoffs, and nothing overnight.
+# A run is asked for every 10 minutes, because GitHub starts scheduled runs late and drops many of them. Most runs find
+# nothing due and end in seconds: pipeline/schedule.py decides what each one does, in Central time, from what the site
+# last published. A lines refresh about every hour from 6 AM to 10 PM (about every half hour in the three hours before
+# an NFL kickoff); a full refresh (every book's player-prop prices too) around noon and 6 PM and 80 minutes before NFL
+# kickoffs; nothing overnight.
 # The Odds API key comes only from the repository secret ODDS_API_KEY; it is never written to the site or committed.
 name: Refresh site
 
 on:
   schedule:
     # GitHub schedules run on UTC. These hours cover 6 AM to 10 PM Central in both daylight and standard time;
-    # schedule.py skips the one or two that fall outside it. Runs start about 10 minutes after the minute given.
-    - cron: "12 0-5,11-23 * * *"
-    # Sundays, 7 AM to 8 PM Central: on the half hour as well
-    - cron: "42 12-23 * * 0"
-    - cron: "42 0-1 * * 1"
+    # schedule.py skips the hour that falls outside it.
+    - cron: "3,13,23,33,43,53 0-4,11-23 * * *"
   workflow_dispatch:            # run it any time from the Actions tab
     inputs:
       mode:
@@ -49,11 +48,10 @@ jobs:
             git show FETCH_HEAD:props.json > pipeline/props_prev.json 2>/dev/null || rm -f pipeline/props_prev.json
           fi
 
-      - name: Full refresh, lines refresh, or nothing at this hour
+      - name: Full refresh, lines refresh, or nothing yet
         id: plan
         env:
           ME_EVENT: ${{ github.event_name }}
-          ME_CRON: ${{ github.event.schedule }}
           ME_WANT: ${{ inputs.mode }}
         run: python3 pipeline/schedule.py pipeline/prev_state.json | tee -a "$GITHUB_STEP_SUMMARY"
 
