@@ -1813,7 +1813,7 @@
    "summary": "No surprises on the inactive lists. The Giants (2-1) have LT Andrew Thomas, CB Deonte Banks and S Tyler Nubin all active; Jameis Winston starts again for Jaxson Dart, and edge Brian Burns is lost to a torn ACL. Arizona (1-2) starts Jacoby Brissett, has edge Josh Sweat active and sits S Dadrion Taylor-Demerson. A Giants win earns at least a share of first in the NFC East."
   },
   "nfl_2026_04_ATL_NO": {
-   "at": "2026-10-04T15:56:57Z",
+   "at": "2026-10-04T23:04:18Z",
    "game": "ATL @ NO",
    "items": [
     {
@@ -1902,7 +1902,7 @@
      "impact": 0.1,
      "src": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/",
      "team": "ATL",
-     "text": "DE Samson Ebukam (hamstring) practiced fully Saturday but is questionable, as are LBs Divine Deablo and Yasir Abdullah (illness)",
+     "text": "DE Samson Ebukam (hamstring) practiced fully Saturday but is questionable, as are green-dot LB Divine Deablo (hamstring) and LB Yasir Abdullah (illness)",
      "total": 0,
      "type": "return"
     },
@@ -1927,6 +1927,14 @@
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Falcons list 3 players questionable for Monday Night Football bout at Saints (AJC)",
+     "u": "https://www.ajc.com/sports/2026/10/falcons-saints-monday-night-football-injury-repotr/"
+    },
+    {
+     "t": "Saints Injury Update: Several Question Marks Remain (Heavy)",
+     "u": "https://heavy.com/sports/nfl/new-orleans-saints/saints-injury-update-several-question-marks-remain/"
+    },
     {
      "t": "Saints injuries feature banged up defense, Etienne to IR ahead of Falcons game",
      "u": "https://crescentcitysports.com/saints-injuries-feature-banged-up-defense-etienne-to-ir-ahead-of-falcons-game/"
@@ -2405,7 +2413,7 @@
    "summary": "Unbeaten San Francisco (3-0) hosts Denver (2-1), winner of two straight double-digit comebacks. Nick Bosa is out for a second straight game, along with DT James Thompson Jr. WR Mike Evans (ribs) is a game-time decision pending a pregame workout, LB Dre Greenlaw is expected to play and Trent Williams plays. Denver is nearly healthy: only LB Dondrea Tillman is out, and Marvin Mims Jr. returns."
   },
   "nfl_2026_04_DET_CAR": {
-   "at": "2026-10-04T15:56:57Z",
+   "at": "2026-10-04T23:04:18Z",
    "game": "DET @ CAR",
    "items": [
     {
@@ -2431,25 +2439,25 @@
      "impact": -0.3,
      "src": "https://atozsports.com/nfl/carolina-panthers-news/panthers-receive-significant-injury-update-damien-lewis-bryce-young-sunday-night-football/",
      "team": "CAR",
-     "text": "LG Damien Lewis (torn UCL in elbow, Week 3) officially ruled out; Corey Bullock set for his first career start.",
+     "text": "LG Damien Lewis (torn UCL in elbow, Week 3) is inactive; Corey Bullock set for his first career start.",
      "total": -0.1,
      "type": "injury"
     },
     {
-     "at": "2026-10-02T12:00:00Z",
+     "at": "2026-10-04T17:54:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/REG4",
+     "src": "https://heavy.com/sports/nfl/carolina-panthers/boost-lions-game-monroe-freeling-cleared/",
      "team": "CAR",
-     "text": "Rookie RT Monroe Freeling (concussion) was a full participant Friday; listed questionable",
+     "text": "Rookie RT Monroe Freeling cleared the concussion protocol Sunday and is active; he plays, per Ian Rapoport",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-03T12:00:00Z",
+     "at": "2026-10-04T22:50:00Z",
      "impact": -0.3,
-     "src": "https://www.espn.com/nfl/story/_/id/50093238/panthers-place-wr-xavier-legette-ir-knee-injury",
+     "src": "https://sports.yahoo.com/nfl/live/lions-panthers-score-live-updates-inactives-highlights-stats-where-to-watch-week-4-sunday-night-football-225716907.html",
      "team": "CAR",
-     "text": "WR Jalen Coker (quad), questionable, is likely out per ESPN sources; WR Ja'Seem Reed elevated from the practice squad",
+     "text": "WR Jalen Coker (quad) is officially inactive; Ja'Seem Reed elevated. With Legette on IR, Tetairoa McMillan is the lone top wideout",
      "total": -0.1,
      "type": "injury"
     },
@@ -2481,11 +2489,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-02T12:00:00Z",
+     "at": "2026-10-04T22:51:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/REG4",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/lions-release-week-4-inactives-for-snf-vs-car",
      "team": "DET",
-     "text": "LG Ben Bartch (foot) ruled out after not practicing all week; also missed Week 3",
+     "text": "LG Ben Bartch (foot) is inactive, as in Week 3. Also inactive: LB Devin White, TE Tyler Conklin, S Bishop Fitzgerald, DL Mekhi Wingo, DE Ahmed Hassanein",
      "total": 0,
      "type": "injury"
     },
@@ -2517,26 +2525,51 @@
      "type": "motivation"
     },
     {
-     "at": "2026-10-02T12:00:00Z",
+     "at": "2026-10-04T22:51:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/REG4",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/lions-release-week-4-inactives-for-snf-vs-car",
      "team": "DET",
-     "text": "CB D.J. Reed (rib) limited all week and listed questionable; played the full game in Week 3",
+     "text": "CB D.J. Reed (rib), questionable, is active and plays",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-02T12:00:00Z",
+     "at": "2026-10-04T22:50:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/REG4",
+     "src": "https://sports.yahoo.com/nfl/live/lions-panthers-score-live-updates-inactives-highlights-stats-where-to-watch-week-4-sunday-night-football-225716907.html",
      "team": "CAR",
-     "text": "DTs Lee Hunter (foot) and Cam Jackson (knee) limited Friday, both questionable",
+     "text": "DT Cam Jackson (knee) is inactive; DT Lee Hunter (foot), also questionable, is active",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-04T22:50:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/nfl/live/lions-panthers-score-live-updates-inactives-highlights-stats-where-to-watch-week-4-sunday-night-football-225716907.html",
+     "team": "CAR",
+     "text": "Other Panthers inactives: TE Ja'Tavion Sanders, OT Albert Reese and emergency third QB Haynes King",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Lions vs. Panthers live updates, inactives (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/nfl/live/lions-panthers-score-live-updates-inactives-highlights-stats-where-to-watch-week-4-sunday-night-football-225716907.html"
+    },
+    {
+     "t": "Lions release Week 4 inactives for SNF vs. CAR (NBC Sports)",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/lions-release-week-4-inactives-for-snf-vs-car"
+    },
+    {
+     "t": "Panthers Get Huge Boost Ahead of Lions Game as Key Starter Cleared (Heavy)",
+     "u": "https://heavy.com/sports/nfl/carolina-panthers/boost-lions-game-monroe-freeling-cleared/"
+    },
+    {
+     "t": "Lions Week 4 Inactives Against Panthers (SI)",
+     "u": "https://www.si.com/nfl/lions/onsi/lions-week-four-inactives-against-panthers-is-de-ahmed-hassanein-playing"
+    },
     {
      "t": "Week 4 Thursday Injury Report: Still missing some key pieces",
      "u": "https://www.panthers.com/news/week-4-thursday-injury-report-still-missing-some-key-pieces-damien-lewis-xavier-legette-jalen-coker-limited"
@@ -2606,7 +2639,7 @@
      "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-03/panthers-elevate-jaseem-reed-amidst-coker-injury"
     }
    ],
-   "summary": "Detroit (2-1) has scored 31 in every game behind Jared Goff (8 TD, 0 INT), though its defense ranks 31st in points allowed; only LG Ben Bartch is out and CB D.J. Reed is questionable. Carolina (1-2) lost both starting corners to IR, ruled out LG Damien Lewis and put WR Xavier Legette on IR; WR Jalen Coker is reported likely to sit too, with Ja'Seem Reed elevated. Bryce Young starts."
+   "summary": "Inactives are in. Detroit (2-1), which has scored 31 in every game, sits only LG Ben Bartch among starters, and CB D.J. Reed is active. Carolina (1-2) is without both starting corners (IR), LG Damien Lewis, WR Xavier Legette (IR) and now WR Jalen Coker, officially inactive, plus DT Cam Jackson. Rookie RT Monroe Freeling cleared the concussion protocol and plays; Bryce Young starts."
   },
   "nfl_2026_04_GB_TB": {
    "at": "2026-10-04T15:56:57Z",
@@ -4475,8 +4508,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-04T15:56:57Z",
-  "games": 14,
-  "note": "NFL Week 4 Sunday inactives: Eagles RT Lane Johnson a surprise scratch; Bills CB Benford out; Bagent reported to start for Bears."
+  "at": "2026-10-04T23:04:18Z",
+  "games": 2,
+  "note": "SNF inactives: Panthers WR Jalen Coker and DT Cam Jackson out, RT Freeling cleared; Lions CB D.J. Reed active. No change for ATL @ NO."
  }
 }
