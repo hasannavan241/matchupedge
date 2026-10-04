@@ -12,14 +12,14 @@ what the site last published (state.json), what each run does:
     lines  game lines, forecasts, injuries and news; the Props tab is carried over from the last full refresh.
            Due 50 minutes after the last refresh, or 25 minutes after it in the three hours before an NFL kickoff.
     full   everything, including every book's player-prop prices (about 10 Odds API credits per NFL game).
-           Due at 11:45 AM and 5:45 PM Central every day, and 80 minutes before each group of NFL kickoffs (the
+           Due at 10:45 AM and 5:45 PM Central every day, and 80 minutes before each group of NFL kickoffs (the
            inactive lists come out 90 minutes before a game, and books repost their props after them).
 
 The first run at or after a time something falls due does it, whether that run was scheduled, started by a push or
 delayed, and each full refresh is done once: state.json says when the site was last built, when the prop prices were
 last fetched and when the NFL games on the page kick off. A run started by a push or by hand never skips. On a usual
 Sunday the full refreshes land at about 10:50 AM, 2:15 PM and 6:10 PM (and 7:20 AM before a morning game overseas);
-on other days at about noon and 6 PM.
+on other days at about 11 AM and 6 PM. The claude.ai copy is taken at 11:20 AM and 6:20 PM, after them.
 
 Reads ME_EVENT (schedule, push, workflow_dispatch), ME_WANT (auto, full or lines: what a manual run asked for) and
 ME_NOW (an ISO time, for tests). Prints "mode=<mode>" (also to $GITHUB_OUTPUT) and a line saying why. Standard library
@@ -37,11 +37,11 @@ FIRST_HOUR, LAST_HOUR = 6, 22      # scheduled refreshes run from 6:00 AM to 10:
 GAP = 50                           # minutes between scheduled refreshes
 GAP_NEAR = 25                      # and in the NEAR_HOURS before an NFL kickoff
 NEAR_HOURS = 3
-DAILY = ("11:45", "17:45")         # prop prices every day, Central
+DAILY = ("10:45", "17:45")         # prop prices every day, Central
 BEFORE_KICKOFF = 80                # and this many minutes before each group of NFL kickoffs
 GROUP = 45                         # kickoffs within this many minutes of each other are one group (3:05 and 3:25 PM)
-# A daily time gives way to a kickoff time close to it: one that fell up to 90 minutes earlier (11:45 AM on a Sunday
-# would land as the noon games start) or falls up to an hour later (5:45 PM before a 7:15 PM game).
+# A daily time gives way to a kickoff time close to it: one that fell up to 90 minutes earlier (the 10:40 AM one for a
+# Sunday's noon games) or falls up to an hour later (5:55 PM, for a 7:15 PM game).
 YIELD_BEFORE, YIELD_AFTER = 90, 60
 # Without the page's kickoff times (the first run, or a state file from before they were kept), Sundays use these
 # times for prop prices and the shorter gap from 7 AM to 8 PM.

@@ -32,8 +32,8 @@ the Actions tab as 10-second runs):
   9 Odds API credits. The Props tab is carried over from the last full refresh, so the page never sets fresh lines
   beside old prop prices; the tab says when its prices were captured.
 - A **full refresh**: all of that plus every NFL player's prop lines and every book's prop prices (about 10 credits
-  for each NFL game still to start). One falls due at 11:45 AM and 5:45 PM every day and 80 minutes before each group
-  of NFL kickoffs, once the inactive lists are out, and the first run after that time does it: about noon and 6 PM
+  for each NFL game still to start). One falls due at 10:45 AM and 5:45 PM every day and 80 minutes before each group
+  of NFL kickoffs, once the inactive lists are out, and the first run after that time does it: about 11 AM and 6 PM
   on most days, and about 10:50 AM, 2:15 PM and 6:10 PM on a Sunday (7:20 AM too before a morning game overseas). A
   run from the Actions tab is a full refresh unless you choose otherwise.
 
