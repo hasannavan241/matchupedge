@@ -1,0 +1,64 @@
+# The site's clock, for as long as GitHub's own scheduler can't be relied on. Since late August 2026 GitHub has been
+# dropping scheduled runs, or starting them hours late, for many repositories (this one got none on 2026-10-04), while
+# a run asked for directly starts at once. So this workflow is a chain: each run waits in the "clock" environment,
+# whose wait timer holds the job without using a machine, then starts the next link and asks the Refresh site workflow
+# for an ordinary scheduled run. pipeline/schedule.py decides what that run does (often nothing).
+#
+# One-time setup, which only the repository's owner can do: Settings -> Environments -> clock -> tick "Wait timer",
+# enter 30 (minutes), Save protection rules. With 30 the site gets a lines refresh every hour, and every half hour in
+# the three hours before an NFL kickoff; a shorter timer makes the refreshes rarer, not more frequent, because a run
+# that comes under 25 minutes after a refresh does nothing. Until the timer is set the job starts at once, so a link
+# that waited under 10 minutes ends the chain instead of spinning.
+#
+# refresh.yml starts the chain again whenever it finds no link waiting, so a broken chain mends itself at the next
+# refresh from any source: a push, a run started by hand, or a scheduled run GitHub does start.
+name: Refresh site (clock)
+
+on:
+  workflow_dispatch:
+    inputs:
+      asked:
+        description: "Leave empty. (When this link was asked for, in seconds since 1970; the link before it fills it in.)"
+        type: string
+        default: ""
+
+permissions:
+  actions: write
+
+concurrency:          # one chain: a newer link replaces one that is still queued behind the waiting one
+  group: clock
+  cancel-in-progress: false
+
+jobs:
+  wait:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: clock
+    steps:
+      - name: Start the next link and ask for a refresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ASKED: ${{ inputs.asked }}
+        run: |
+          start() {   # ask for a run of a workflow, up to three times
+            for n in 1 2 3; do
+              if gh workflow run "$@" --repo "$GITHUB_REPOSITORY" --ref main; then return 0; fi
+              sleep $(( n * 10 ))
+            done
+            return 1
+          }
+          # how long this link waited: from when it was asked for, or else from when GitHub says the run began
+          case "$ASKED" in
+            ''|*[!0-9]*)
+              began=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" --jq '.run_started_at // .created_at' || true)
+              ASKED=$(date -u -d "$began" +%s 2>/dev/null || true)
+              if [ -z "$began" ] || [ -z "$ASKED" ]; then ASKED=$(date -u +%s); fi ;;
+          esac
+          waited=$(( $(date -u +%s) - ASKED ))
+          if [ "$waited" -lt 600 ]; then
+            echo "This link waited ${waited} seconds, so the clock environment has no wait timer yet (or one under 10 minutes) and the chain stops here. Set it to 30 minutes under Settings -> Environments -> clock; the next refresh starts the chain again." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "Waited $(( waited / 60 )) minutes." | tee -a "$GITHUB_STEP_SUMMARY"
+          start clock.yml -f asked="$(date -u +%s)" || echo "::warning::Could not start the next link; the next refresh will."
+          start refresh.yml -f mode=tick

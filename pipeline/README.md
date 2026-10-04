@@ -2,8 +2,9 @@
 
 Rebuilds the Matchup Edge site from public data.
 
-0. On GitHub, where a run is asked for every half hour and by a second workflow once an hour (scheduled runs start
-   late and some never start),
+0. On GitHub, where a run is asked for about every half hour (by `clock.yml`, a chain of runs that each wait on a
+   30-minute timer, and by the schedules in `refresh.yml` and `tick.yml` whenever GitHub starts those: its scheduler
+   drops most of them),
    `python3 schedule.py prev_state.json` runs first and says what this run is: `skip` (outside 6 AM to 10 PM Central,
    or the site was refreshed less than 50 minutes ago, 25 in the three hours before an NFL kickoff), `full`, or
    `lines`. A full refresh falls due at 10:45 AM and 5:45 PM Central and 80 minutes before each group of NFL kickoffs;

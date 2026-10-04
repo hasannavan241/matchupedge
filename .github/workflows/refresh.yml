@@ -4,11 +4,11 @@
 # refresh (every book's player-prop prices too) around 11 AM and 6 PM and 80 minutes before NFL kickoffs; nothing
 # overnight, and nothing when the site was refreshed recently (such a run ends in seconds).
 #
-# The schedule asks for a run every half hour and no more often. GitHub starts scheduled runs late (10 minutes on a
-# quiet day, 50 on a busy evening), and it looks as if a run that hasn't started when the workflow's next one comes
-# due never starts: a schedule every 10 minutes started no run at all in 100 minutes on 2026-10-04, an hourly one
-# started 2 of 6 the evening before, and the old twice-a-day one started every time. tick.yml is a second clock on its
-# own schedule, once an hour, for when this one's runs are dropped.
+# GitHub's scheduler can't be relied on: since late August 2026 it has dropped scheduled runs, or started them hours
+# late, for many repositories, and on 2026-10-04 it started none of this one's (every 10 minutes, then every half hour,
+# plus tick.yml's hourly ones), while runs asked for directly started at once. The schedule below and tick.yml stay
+# for whenever GitHub does start them; the working clock is clock.yml, a chain of runs that wait on a timer and ask
+# for the next refresh, and the last step here starts that chain whenever it finds it stopped.
 # The Odds API key comes only from the repository secret ODDS_API_KEY; it is never written to the site or committed.
 name: Refresh site
 
@@ -31,6 +31,7 @@ on:
 
 permissions:
   contents: write
+  actions: write      # to start the clock (clock.yml) when it has stopped
 
 concurrency:
   group: refresh
@@ -156,3 +157,13 @@ jobs:
           git add -A
           git -c user.name="matchup-edge-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Site $(date -u +%Y-%m-%dT%H:%MZ)"
           git push -qf "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+
+      - name: Keep the clock running
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # clock.yml is a chain of waiting runs that ask for the next refresh; start it if no link is waiting or queued
+          waiting=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow clock.yml --limit 20 --json status --jq '[.[] | select(.status != "completed")] | length' || echo unknown)
+          echo "clock links not finished: $waiting"
+          if [ "$waiting" = "0" ]; then gh workflow run clock.yml --repo "$GITHUB_REPOSITORY" --ref main -f asked="$(date -u +%s)" || true; fi

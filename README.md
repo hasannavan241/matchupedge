@@ -22,10 +22,9 @@ of every day and published with GitHub Pages.
 
 `.github/workflows/refresh.yml` refreshes the site about every hour from 6 AM to 10 PM Central, every day, and about
 every half hour in the three hours before an NFL kickoff. It also runs when the pipeline or the news file changes, and
-on demand from the **Actions** tab → **Refresh site** → **Run workflow**. GitHub starts scheduled workflows late and
-drops some, so two workflows ask for runs (`refresh.yml` every half hour and `tick.yml`, a second clock, once an hour
-between them) and `pipeline/schedule.py` decides in Central time, from what the site last published, what each run
-does. A run that finds nothing due ends in a few seconds (it shows in the Actions tab as a 10-second run):
+on demand from the **Actions** tab → **Refresh site** → **Run workflow**. Runs are asked for more often than anything
+falls due, and `pipeline/schedule.py` decides in Central time, from what the site last published, what each run does.
+A run that finds nothing due ends in a few seconds (it shows in the Actions tab as a 10-second run):
 
 - A **lines refresh**, due 50 minutes after the last refresh (25 minutes in the three hours before an NFL kickoff):
   game lines from DraftKings and every other book, kickoff forecasts, injuries, results and the latest news. About
@@ -36,6 +35,16 @@ does. A run that finds nothing due ends in a few seconds (it shows in the Action
   of NFL kickoffs, once the inactive lists are out, and the first run after that time does it: about 11 AM and 6 PM
   on most days, and about 10:50 AM, 2:15 PM and 6:10 PM on a Sunday (7:20 AM too before a morning game overseas). A
   run from the Actions tab is a full refresh unless you choose otherwise.
+
+**What keeps time.** GitHub's own scheduler can't be relied on: since late August 2026 it has dropped scheduled runs,
+or started them hours late, for many repositories, and on 2026-10-04 it started none of this one's, while a run asked
+for directly starts at once. So the clock is `.github/workflows/clock.yml`, a chain: each run waits half an hour in
+the `clock` environment (a wait timer holds the job without using a machine), then starts the next link and asks
+`refresh.yml` for a run. It needs one setting, once, which only the repository's owner can make: **Settings →
+Environments → clock → Wait timer: 30 minutes → Save protection rules**. Without the timer the chain stops after one
+link and the site refreshes only when something is pushed or a run is started by hand. Every refresh restarts the
+chain if it finds it stopped. The schedules in `refresh.yml` (every half hour) and `tick.yml` (once an hour, between
+them) stay as a second source of runs for whenever GitHub does start them.
 
 A game leaves the page when it kicks off (the page checks the clock itself, so an open tab drops it too), and stays
 available under My bets for logging a bet placed before kickoff. The header shows how old the lines and the news are,

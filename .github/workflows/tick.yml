@@ -1,8 +1,7 @@
-# A second clock for the site's refresh. GitHub starts scheduled runs late and seems to drop one that hasn't started when
-# the same workflow's next one comes due (see refresh.yml), so each schedule is kept sparse and there are two of them:
-# refresh.yml's own, every half hour, and this one, once an hour between them. This one only asks the Refresh site
+# A second schedule for the site's refresh, once an hour between refresh.yml's own half-hourly one, for whenever
+# GitHub's scheduler does start runs (see refresh.yml and clock.yml: it often doesn't). It only asks the Refresh site
 # workflow for a run of the kind a scheduled run would be; pipeline/schedule.py then decides whether anything is due,
-# so when both clocks work the second run ends in seconds.
+# and that run restarts clock.yml's chain if it has stopped.
 name: Refresh site (second clock)
 
 on:
