@@ -23,9 +23,9 @@ of every day and published with GitHub Pages.
 `.github/workflows/refresh.yml` refreshes the site about every hour from 6 AM to 10 PM Central, every day, and about
 every half hour in the three hours before an NFL kickoff. It also runs when the pipeline or the news file changes, and
 on demand from the **Actions** tab → **Refresh site** → **Run workflow**. GitHub starts scheduled workflows late and
-drops many of them, so the workflow asks for a run every 10 minutes and `pipeline/schedule.py` decides in Central time,
-from what the site last published, what each run does. Most find nothing due and end in a few seconds (they show in
-the Actions tab as 10-second runs):
+drops some, so two workflows ask for runs (`refresh.yml` every half hour and `tick.yml`, a second clock, once an hour
+between them) and `pipeline/schedule.py` decides in Central time, from what the site last published, what each run
+does. A run that finds nothing due ends in a few seconds (it shows in the Actions tab as a 10-second run):
 
 - A **lines refresh**, due 50 minutes after the last refresh (25 minutes in the three hours before an NFL kickoff):
   game lines from DraftKings and every other book, kickoff forecasts, injuries, results and the latest news. About

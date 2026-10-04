@@ -3,9 +3,9 @@
 
     python3 schedule.py [prev_state.json]
 
-GitHub starts scheduled workflows late and drops many of them (on the first evening of an hourly schedule, one run
-in four started), so the workflow asks for a run every 10 minutes and this script decides, in Central time and from
-what the site last published (state.json), what each run does:
+GitHub starts scheduled workflows late and drops some, so two workflows ask for runs (refresh.yml every half hour,
+tick.yml once an hour between them) and this script decides, in Central time and from what the site last published
+(state.json), what each run does:
 
     skip   nothing: outside the refresh hours (6 AM through the 10 PM hour), or the site was refreshed too recently.
            Nothing is fetched and nothing is published; the run ends in a few seconds.
@@ -21,8 +21,8 @@ last fetched and when the NFL games on the page kick off. A run started by a pus
 Sunday the full refreshes land at about 10:50 AM, 2:15 PM and 6:10 PM (and 7:20 AM before a morning game overseas);
 on other days at about 11 AM and 6 PM. The claude.ai copy is taken at 11:20 AM and 6:20 PM, after them.
 
-Reads ME_EVENT (schedule, push, workflow_dispatch), ME_WANT (auto, full or lines: what a manual run asked for) and
-ME_NOW (an ISO time, for tests). Prints "mode=<mode>" (also to $GITHUB_OUTPUT) and a line saying why. Standard library
+Reads ME_EVENT (schedule, push, workflow_dispatch), ME_WANT (what a manual run asked for: full, lines, auto, or tick
+for "treat this as a scheduled run", which is what tick.yml asks for) and ME_NOW (an ISO time, for tests). Prints "mode=<mode>" (also to $GITHUB_OUTPUT) and a line saying why. Standard library
 only: it runs before anything is installed.
 """
 import datetime as dt, json, os, sys
@@ -93,6 +93,8 @@ def decide(now, event="schedule", want="auto", props_at=None, kickoffs=None, bui
     """(mode, why) for a run at `now` (an aware datetime)."""
     now = now.astimezone(CT)
     f = lambda t: f"{t.astimezone(CT):%a %-I:%M %p}"
+    if want == "tick":  # asked for by the second clock: an ordinary scheduled run
+        event, want = "schedule", "auto"
     if want in ("full", "lines"):
         return want, f"asked for a {want} refresh"
     if event == "schedule" and not FIRST_HOUR <= now.hour <= LAST_HOUR:

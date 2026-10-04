@@ -1,9 +1,14 @@
 # Refreshes the site through the day, every day, and publishes it to GitHub Pages (the gh-pages branch).
-# A run is asked for every 10 minutes, because GitHub starts scheduled runs late and drops many of them. Most runs find
-# nothing due and end in seconds: pipeline/schedule.py decides what each one does, in Central time, from what the site
-# last published. A lines refresh about every hour from 6 AM to 10 PM (about every half hour in the three hours before
-# an NFL kickoff); a full refresh (every book's player-prop prices too) around 11 AM and 6 PM and 80 minutes before NFL
-# kickoffs; nothing overnight.
+# pipeline/schedule.py decides what each scheduled run does, in Central time, from what the site last published: a lines
+# refresh about every hour from 6 AM to 10 PM (about every half hour in the three hours before an NFL kickoff); a full
+# refresh (every book's player-prop prices too) around 11 AM and 6 PM and 80 minutes before NFL kickoffs; nothing
+# overnight, and nothing when the site was refreshed recently (such a run ends in seconds).
+#
+# The schedule asks for a run every half hour and no more often. GitHub starts scheduled runs late (10 minutes on a
+# quiet day, 50 on a busy evening), and it looks as if a run that hasn't started when the workflow's next one comes
+# due never starts: a schedule every 10 minutes started no run at all in 100 minutes on 2026-10-04, an hourly one
+# started 2 of 6 the evening before, and the old twice-a-day one started every time. tick.yml is a second clock on its
+# own schedule, once an hour, for when this one's runs are dropped.
 # The Odds API key comes only from the repository secret ODDS_API_KEY; it is never written to the site or committed.
 name: Refresh site
 
@@ -11,13 +16,13 @@ on:
   schedule:
     # GitHub schedules run on UTC. These hours cover 6 AM to 10 PM Central in both daylight and standard time;
     # schedule.py skips the hour that falls outside it.
-    - cron: "3,13,23,33,43,53 0-4,11-23 * * *"
+    - cron: "12,42 0-4,11-23 * * *"
   workflow_dispatch:            # run it any time from the Actions tab
     inputs:
       mode:
-        description: "full: everything, with every book's player-prop prices. lines: game lines and news only. auto: whichever the schedule calls for now."
+        description: "full: everything, with every book's player-prop prices. lines: game lines and news only. auto: whichever the schedule calls for now. tick: what a scheduled run would do now (nothing, if the site was refreshed recently)."
         type: choice
-        options: [full, lines, auto]
+        options: [full, lines, auto, tick]
         default: full
   push:
     branches: [main]
