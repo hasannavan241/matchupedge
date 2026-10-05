@@ -42,7 +42,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
+      # The branch as it is when this job starts, not as it was when the run was asked for: runs wait their turn (the
+      # concurrency group above), and the run before this one has usually just saved the model record. A run that built
+      # from the older copy could not save its own record on top (the record files are one line each) and failed
+      # before publishing; that stopped the 2026-10-05 4:25 PM push from going live.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - name: What the last refresh published
         run: |
@@ -133,7 +139,12 @@ jobs:
           git add data/picks.json data/results.json data/props_picks.json
           if ! git diff --cached --quiet; then
             git commit -m "Update model record and results"
-            git pull --rebase --autostash origin main && git push origin HEAD:main
+            # Something else may have changed the record while this run worked (a push from a chat session, the news
+            # task). The page is still published; the next refresh starts from what is there and saves the record.
+            if ! { git pull --rebase --autostash origin main && git push origin HEAD:main; }; then
+              git rebase --abort 2>/dev/null || true
+              echo "::warning::The model record was not saved this time: the repository changed while this run worked. The page is published; the next refresh saves the record."
+            fi
           fi
 
       - name: Publish to GitHub Pages
