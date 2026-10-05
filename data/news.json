@@ -1813,7 +1813,7 @@
    "summary": "No surprises on the inactive lists. The Giants (2-1) have LT Andrew Thomas, CB Deonte Banks and S Tyler Nubin all active; Jameis Winston starts again for Jaxson Dart, and edge Brian Burns is lost to a torn ACL. Arizona (1-2) starts Jacoby Brissett, has edge Josh Sweat active and sits S Dadrion Taylor-Demerson. A Giants win earns at least a share of first in the NFC East."
   },
   "nfl_2026_04_ATL_NO": {
-   "at": "2026-10-05T16:06:21Z",
+   "at": "2026-10-05T23:03:43Z",
    "game": "ATL @ NO",
    "items": [
     {
@@ -1835,11 +1835,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-09-29T12:00:00Z",
+     "at": "2026-10-05T22:45:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/falcons-release-depth-chart-mnf-204705079.html",
+     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football",
      "team": "ATL",
-     "text": "Tua Tagovailoa (oblique, missed Weeks 1-2) is healthy and listed as Penix's backup.",
+     "text": "Tua Tagovailoa is Penix's backup tonight; Cooper Rush is the inactive emergency third QB.",
      "total": 0,
      "type": "other"
     },
@@ -1862,11 +1862,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-03T12:00:00Z",
-     "impact": -0.6,
-     "src": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/",
+     "at": "2026-10-05T22:45:00Z",
+     "impact": -0.5,
+     "src": "https://sports.yahoo.com/articles/falcons-vs-saints-inactives-list-225017618.html",
      "team": "NO",
-     "text": "LB Kaden Elliss (calf), DE Carl Granderson (ankle), edge Anfernee Jennings (knee) out; LB Pete Werner (shoulder) still questionable on game day",
+     "text": "Inactive: LB Kaden Elliss (calf), DE Carl Granderson (ankle), edge Anfernee Jennings (knee). LB Pete Werner (shoulder) is active.",
      "total": 0.3,
      "type": "injury"
     },
@@ -1898,11 +1898,11 @@
      "type": "other"
     },
     {
-     "at": "2026-10-03T12:00:00Z",
-     "impact": 0.1,
-     "src": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/",
+     "at": "2026-10-05T22:45:00Z",
+     "impact": 0.3,
+     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football",
      "team": "ATL",
-     "text": "DE Samson Ebukam (hamstring) practiced fully Saturday but is questionable, as are green-dot LB Divine Deablo (hamstring) and LB Yasir Abdullah (illness)",
+     "text": "DE Samson Ebukam (hamstring, missed Week 3) and green-dot LB Divine Deablo (hamstring) are active; LB Yasir Abdullah (illness) also dressed.",
      "total": 0,
      "type": "return"
     },
@@ -1916,17 +1916,38 @@
      "type": "add"
     },
     {
-     "at": "2026-10-03T12:00:00Z",
-     "impact": 0,
-     "src": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/",
+     "at": "2026-10-05T22:45:00Z",
+     "impact": -0.2,
+     "src": "https://sports.yahoo.com/articles/falcons-vs-saints-inactives-list-225017618.html",
      "team": "NO",
-     "text": "TE Noah Fant (abdomen) is questionable; S Julian Blackmon, DT Christen Miller and WR Barion Brown have no designation",
+     "text": "TE Noah Fant (abdomen) and rookie DT Christen Miller are inactive; Juwan Johnson handles tight end.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-05T22:45:00Z",
+     "impact": 0,
+     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football",
+     "team": "ATL",
+     "text": "Falcons inactives are all depth: QBs Rush (emergency 3rd) and Strand, DBs Dewalt and Longerbeam, DE Jared Ivey, OL Ethan Onianwa.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Falcons vs. Saints inactives list: Who's in, who's out for Week 4? (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/falcons-vs-saints-inactives-list-225017618.html"
+    },
+    {
+     "t": "Atlanta Falcons Week 4 inactives vs. New Orleans Saints on Monday Night Football (AtlantaFalcons.com)",
+     "u": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football"
+    },
+    {
+     "t": "Falcons release Week 4 inactives for MNF vs. NO (NBC Sports)",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-05/falcons-release-week-4-inactives-for-mnf-vs-no"
+    },
     {
      "t": "Saints vs. Falcons: Injuries, Key Stats and Players to Watch on Monday Night Football (SI)",
      "u": "https://www.si.com/nfl/saints/onsi/saints-vs-falcons-injuries-key-stats-and-players-to-watch-on-monday-night-football-01m452jsjqr3"
@@ -1996,7 +2017,7 @@
      "u": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/"
     }
    ],
-   "summary": "Two 1-2 NFC South rivals meet Monday night. New Orleans is without three defensive starters, LB Kaden Elliss and edges Carl Granderson and Anfernee Jennings, with LB Pete Werner and TE Noah Fant game-time calls; RB Travis Etienne Jr. is on IR. Atlanta, fresh off routing Green Bay in Michael Penix Jr.'s return, has no one ruled out. Inactives are due about 90 minutes before kickoff."
+   "summary": "Two 1-2 NFC South rivals meet Monday night. Inactives are in: New Orleans is without LB Kaden Elliss, edges Carl Granderson and Anfernee Jennings and TE Noah Fant, but LB Pete Werner plays; RB Travis Etienne Jr. is on IR. Atlanta has every starter available, with Samson Ebukam and Divine Deablo both cleared, a week after routing Green Bay in Michael Penix Jr.'s return."
   },
   "nfl_2026_04_DAL_HOU": {
    "at": "2026-10-04T15:56:57Z",
@@ -4644,8 +4665,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-05T16:06:21Z",
-  "games": 2,
-  "note": "New: TB @ DAL (Mayfield out, rookie Daniels starts; Tyler Smith, Overshown trending to return). ATL @ NO unchanged, Werner and Fant still questionable."
+  "at": "2026-10-05T23:03:43Z",
+  "games": 1,
+  "note": "ATL @ NO inactives: Saints' Fant, Elliss, Granderson, Jennings out, Werner active; Falcons' Ebukam and Deablo active. TB @ DAL not due."
  }
 }
