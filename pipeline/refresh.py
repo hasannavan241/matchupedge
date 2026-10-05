@@ -970,7 +970,10 @@ def build():
     if picks and os.path.exists(picks):  # the standalone site's model record: graded picks in full, open ones by league only
         try:
             P = json.load(open(picks))
-            data["picks"] = {k: ({"lg": v.get("lg"), "res": v["res"]} if v.get("res") else {"lg": v.get("lg")}) for k, v in P.items()}
+            # "e": each style's value when the pick was last saved, so the record can count only picks that had value as bets
+            ev = lambda b: b.get("ev") if isinstance(b, dict) else None
+            data["picks"] = {k: ({"lg": v.get("lg"), "res": v["res"], "e": {"hb": ev(v.get("hb")), "tb": ev(v.get("tb"))}} if v.get("res")
+                                 else {"lg": v.get("lg")}) for k, v in P.items()}
         except Exception as e:
             print(f"picks file unreadable ({e.__class__.__name__}); building without it")
     # "</" is escaped so that no text in the data (news, team names) can close the page's script tag
@@ -1167,7 +1170,10 @@ def record():
 
 def props_record(path, snap, now):
     """The props record: each player's best positive-value prop per market at licensed books (the last one saved before
-    kickoff counts), graded from nflverse box scores; void when he didn't take a snap."""
+    kickoff counts), graded from nflverse box scores; void when he didn't take a snap. The box scores arrive hours
+    before the snap counts, and a player who was on the field without a catch or a carry is in the snap counts alone,
+    so a pick with no box-score line waits for its game's snap counts before it is called void (a week at most), and
+    a pick voided before they were in is graded again."""
     old = json.load(open(path)) if os.path.exists(path) else {}
     for s in snap:
         prev = old.get(s["id"]) or {}
@@ -1204,23 +1210,28 @@ def props_record(path, snap, now):
     have = set(st.game_id)
     S = st.set_index(["game_id", "player_id"])
     snapped = set(zip(sn[sn.offense_snaps > 0].game_id, sn[sn.offense_snaps > 0].gsis_id))
+    snap_games = set(sn.game_id)  # games whose snap counts are in
     col = {"pass_att": "attempts", "pass_cmp": "completions", "pass_yds": "passing_yards", "pass_td": "passing_tds", "pass_int": "passing_interceptions",
            "rush_att": "carries", "rush_yds": "rushing_yards", "rec": "receptions", "rec_yds": "receiving_yards"}
     graded = 0
     for k, v in old.items():
+        key = (v["g"], v["pid"])
+        if v.get("res") == "V" and (key in S.index or key in snapped):
+            v.pop("res"), v.pop("pl", None)  # voided before the snap counts were in: he did play
         if v.get("res") or v["g"] not in done or v["g"] not in have:
             continue
-        key = (v["g"], v["pid"])
         if key in S.index:
             r = S.loc[key]
             r = r.iloc[0] if isinstance(r, pd.DataFrame) else r
             val = float(r.rushing_tds + r.receiving_tds) if v["s"] == "anytd" else float(r[col[v["s"]]])
         elif key in snapped:
             val = 0.0
-        else:
+        elif v["g"] in snap_games or t_now - pd.Timestamp(v["ko"]) > pd.Timedelta(days=7):
             v["res"], v["pl"] = "V", 0.0
             graded += 1
             continue
+        else:
+            continue  # no box-score line and the game's snap counts aren't in yet: wait for them
         line = 0.5 if v["s"] == "anytd" else float(v["line"])
         over = 1 if val > line else -1 if val < line else 0
         res = over if v["side"] == "over" else -over

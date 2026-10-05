@@ -47,11 +47,23 @@ Rebuilds the Matchup Edge site from public data.
 NFL player props (`props_core.py`): every skill player's passing, rushing, receiving and touchdown numbers from team
 volume (the spread and total), his share of targets, carries and attempts (re-spread when a teammate is ruled out),
 efficiency shrunk toward the position average and scaled by the opponent, calibrated on 2019-2023. The starting
-quarterback is the one DraftKings posts passing lines for when that differs from nflverse's listed starter. Each line
-is valued at 10% our over chance and 90% the market's (no-vig from prices; 50-50 at a line without them), less 2.5
-points for the under: fitted by log loss on 2025's ESPN BET lines with prices (weeks 1-9), tested on the rest of 2025
-and on 2026's DraftKings lines, where bets with value made money and the bigger the value the more (almost all
-unders; books priced overs about 3 points too high). A line without a price is valued at -115, and only in markets
+quarterback is the one DraftKings posts passing lines for when that differs from nflverse's listed starter, and his
+carries come from the games he played more than half the snaps in (shrunk toward the usual starter's share while he
+has had few), not from an average that counts his snaps as a backup. The chance of going over a line comes from how
+outcomes spread around projections like this one for players at his position: a position with 2,000 or more
+player-games has its own table, because a quarterback projected for 18 rushing yards and a backup running back
+projected for 18 land in very different places. Each line is valued at 17% our over chance and 83% the market's
+(no-vig from prices; 50-50 at a line without them), less 2.25 points for the under, and more for passing and
+receiving in 15+ mph wind (half of what the projection's own wind adjustment takes off): the weight and the lean
+fitted by log loss on 2025's ESPN BET lines with prices (weeks 1-9), tested on the rest of 2025 and on 2026's
+DraftKings lines, where bets with value made money (almost all unders; books priced overs about 3 points too high).
+With several books, the market's chance at a line is the middle of the books that hang that line or one close to it
+(less than 10% of the outcomes between the two lines); a book at a far-off line is not read across the gap, which
+leaned on our spread and made unders at 0.5 receptions look four points better than any book there priced them. A
+bigger lean for visiting players was tested and is not counted: the gap is in the prices (overs ran 4 points
+further short on the road) but counting it only swapped in bets that broke even in the weeks held back from tuning.
+The props record grades a pick from the box score; a player with no stat line waits for the snap counts, and is
+graded at zero if he took a snap and void if he did not. A line without a price is valued at -115, and only in markets
 books price near even money (85%+ of priced lines within 4 points of 50-50: the yardage markets); receptions,
 attempts, touchdowns and interceptions are balanced by the price, so a line alone can't be valued there. Markets that
 lost in the test, or had fewer than 30 bets, show their numbers but never make the best bets or the props record.
@@ -78,6 +90,15 @@ level with the favorite), Premier League the market alone once lines post. The N
 scale first (its margins run ~10% narrow and its totals ~40% wide). Best bets come from the tested model (market plus
 the factors that held up); our call's own bets can be shown but lost about 8% per bet over 2020-21 to 2025-26 at
 historical closing prices (6,696 bets; tested model -2.6% on the same games), so the page marks them untested.
+The fair line is the middle across books of each book's numbers with its cut removed. For two-way prices the cut
+comes off both sides evenly, and for three-way soccer prices by the power method: dividing by the sum, the usual
+way, left longshots too long against results (NFL closing moneylines since 2006: +200 or longer returned -6.6% a
+bet and -200 or shorter -1.8%, where dividing by the sum expects -2.7% from both). The NFL margin curve is a bell
+(sd 13.9) weighted at the key numbers and refitted to margins since 2006; the moneyline's chance moves with the
+margin on a scale of 15.25 and totals use 13.5. A backup quarterback starting counts at 30% of its full effect, and
+not at all once the spread has moved 2.5 or more points toward that team since it opened (the market knows something
+the automatic flag does not). The model record counts a best bet only if it had value when it was last saved before
+kickoff; picks that were only the closest price to fair are shown apart.
 News lives in the page's database, collection `scout`, one document per game (`nfl_<game id>`, `nba_<game id>`,
 `epl_<date>_<home>_<away>` with non-alphanumerics removed), written every morning and evening by a separate cloud scheduled task that
 researches injuries, returns, trades and signings, coaching changes, drama and motivation, with an impact in points

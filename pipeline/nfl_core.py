@@ -190,9 +190,13 @@ def factors(g, A0, H0, plA, plH):
 
 # ---------------------------------------------------------------- pricing (same math as the site)
 KS = np.arange(-70, 71)
-KEY = {0: .12, 1: 1.05, 3: 2.4, 4: 1.15, 6: 1.3, 7: 1.8, 8: 1.05, 10: 1.3, 14: 1.25, 17: 1.1, 21: 1.1}
+# key-number weights and the margin bell's width: the best fit to 2,958 results since 2015 against the fair margin from
+# closing prices (a ridge pulls the weights toward 1). Fitted on 2015-21 they beat the earlier curve on 2022-26 by 0.018
+# log-likelihood a game, and the other way round by 0.010. The total keeps its 13.5-point bell.
+KEY = {0: .24, 1: 1.25, 2: 1.29, 3: 4.12, 4: 1.36, 5: 1.29, 6: 2.06, 7: 2.64, 8: 1.36, 10: 1.63, 11: .75, 13: .79, 14: 2.09, 17: 1.74, 21: 1.51}
 MULT = np.array([KEY.get(abs(k), 1.0) for k in KS])
-SD = 13.5
+SD = 13.9
+SD_T = 13.5
 
 
 def margin_pmf(M):
@@ -207,8 +211,8 @@ def cover(p, hs):
 
 def total_probs(T, L):
     if float(L).is_integer():
-        return 1 - norm.cdf((L + 0.5 - T) / SD), norm.cdf((L - 0.5 - T) / SD)
-    o = 1 - norm.cdf((L - T) / SD)
+        return 1 - norm.cdf((L + 0.5 - T) / SD_T), norm.cdf((L - 0.5 - T) / SD_T)
+    o = 1 - norm.cdf((L - T) / SD_T)
     return o, 1 - o
 
 

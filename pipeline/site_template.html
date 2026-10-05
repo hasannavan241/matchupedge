@@ -652,7 +652,7 @@ details.how dd p{margin:0 0 6px}
         <label class="sortl" id="psortl"><span class="lbl">Sort</span><select id="psort"><option value="value">Best value</option><option value="hit">Hit rate, last 10</option><option value="edge">Biggest gap to the line</option><option value="time">Kickoff</option><option value="name">Player</option></select></label>
       </div>
       <div class="pbrow pset">
-        <label class="pw" title="How much our projection counts against the market’s line."><span class="lbl">Model weight</span><input id="pw" type="range" min="0" max="100" step="5"><output id="pwo"></output></label>
+        <label class="pw" title="How much our projection counts against the market’s line."><span class="lbl">Model weight</span><input id="pw" type="range" min="0" max="100" step="1"><output id="pwo"></output></label>
         <label class="sortl" title="Free lines come without prices; they are valued at this price on both sides."><span class="lbl">Price for free lines</span><select id="ppa"><option value="-110">−110</option><option value="-115">−115</option><option value="-120">−120</option></select></label>
         <button class="btn sm" id="preset" type="button" hidden>Back to tested settings</button>
       </div>
@@ -720,7 +720,7 @@ details.how dd p{margin:0 0 6px}
     </div>
     <div class="card" id="reccard">
       <h2>Model record</h2>
-      <p class="note">The page saves every upcoming game’s call and both styles’ best bets as the lines update; the last save before kickoff counts. Graded games show here, with the market favorite as the yardstick. Bets count 1 unit each.</p>
+      <p class="note">The page saves every upcoming game’s call and both styles’ best bets as the lines update; the last save before kickoff counts. Graded games show here, with the market favorite as the yardstick. A best bet counts only if it had value when it was last saved; each counts 1 unit.</p>
       <div id="modelrec"><p class="muted">No graded games yet.</p></div>
     </div>
   </section>
@@ -729,13 +729,14 @@ details.how dd p{margin:0 0 6px}
     <summary>How it works</summary>
     <dl>
       <dt>Our call</dt><dd>Every game gets a call on who wins, mixed from two views. The <b>betting market</b>: every book’s price with its cut removed, and the middle value across books, so one stale book can’t move it. Our <b>team view</b>: power ratings from this season and last, every factor at full strength, and news researched every morning and evening (injuries and returns, trades and signings, coaching changes, drama, motivation), each scored in points or goals for a team, with sources. Each league uses the mix that picked the most winners in testing, with ratings and factors built only from earlier games: NFL 85% market and 15% team view (66.7% of winners over 20 seasons, against 66.5% for the betting favorite; 67.3% against 66.7% over the last six), NBA 90% and 10% (68.5% over 18 seasons, level with the favorite), and in the Premier League the market alone once lines post (no mix did better over 14 seasons; before lines post, the call is the team view). The researched news can’t be backtested; the model record under My bets tracks it from here.</dd>
-      <dt>Best bets</dt><dd>Best bets come from the <b>tested model</b>: the market plus only the factors that held up when tested on years of games, each at the share the closing line missed. NFL: wind and cold 50%, a backup quarterback 45% (spread and moneyline), Denver altitude 10%. NBA: altitude 50%, players out 20%, long trips 15%, back-to-backs 15%. Premier League: about 9% of a shots-on-target rating’s gap on goal difference (10% on the total), −0.011 goals per point of last-5 form difference, and +0.18 goals for a team playing its second league match in 3 days. Pace, head to head, rest, referees, Elo and power ratings count 0%. NFL weights can be changed under Tested model settings. You can switch the best bets to our call’s own pricing, but those are marked untested: see What testing found.</dd>
-      <dt>Best bet and value</dt><dd>Every price at your books is valued against our call (or the tested fair line): value = chance to win × profit − chance to lose. NFL margins use a 13.5-point curve with extra weight on key numbers like 3 and 7; the NBA plain curves (12 points for spreads, 18 for totals); soccer a goal model fitted to each match’s home, draw and away prices and totals, where quarter lines count as two half bets. Whole-number lines can push. <b>Strong</b> is +5% or more, <b>Lean</b> +2% to +5%, <b>Thin</b> 0 to +2%. <b>No edge</b> means even the best price is below fair value after the book’s cut: the least-bad way to bet that game, not a bet with an advantage.</dd>
-      <dt>Player props</dt><dd>The Props tab projects every NFL skill player’s passing, rushing, receiving and touchdown numbers: team volume from the spread and total, each player’s share of targets, carries and attempts (re-spread when a teammate is ruled out), efficiency shrunk toward the position average and scaled by the opponent, calibrated on every game since 2019. Every player’s lines come free from DraftKings through ESPN, with the line each opened at; The Odds API adds every book’s prices on a paid plan. Each line is valued mostly on the market’s chance, with a small weight on ours and a shade toward the under, because overs have hit less often than their prices implied. The mix (shown on the Props tab) was picked on 2025’s ESPN BET lines and tested on the rest of 2025 and on 2026’s DraftKings lines. Free lines carry no prices, so only yardage lines, which books price near even money, are valued (at −115); receptions, attempts, touchdowns and interceptions need a real price. Markets that lost money in the test show their numbers but never make the best bets.</dd>
+      <dt>Best bets</dt><dd>Best bets come from the <b>tested model</b>: the market plus only the factors that held up when tested on years of games, each at the share the closing line missed. NFL: wind and cold 50%, a backup quarterback 30% (spread and moneyline), Denver altitude 10%. NBA: altitude 50%, players out 20%, long trips 15%, back-to-backs 15%. Premier League: about 9% of a shots-on-target rating’s gap on goal difference (10% on the total), −0.011 goals per point of last-5 form difference, and +0.18 goals for a team playing its second league match in 3 days. Pace, head to head, rest, referees, Elo and power ratings count 0%. NFL weights can be changed under Tested model settings. You can switch the best bets to our call’s own pricing, but those are marked untested: see What testing found.</dd>
+      <dt>Best bet and value</dt><dd>Every price at your books is valued against our call (or the tested fair line): value = chance to win × profit − chance to lose. The fair line takes each book’s cut out of its prices the way results say it is taken, more from the longshot than from the favorite, so an underdog’s moneyline doesn’t look better than it is. NFL margins use a curve fitted to results since 2015, with extra weight on key numbers like 3 and 7 (a favorite laying 3 wins by exactly 3 about one game in nine); the NBA plain curves (12 points for spreads, 18 for totals); soccer a goal model fitted to each match’s home, draw and away prices and totals, where quarter lines count as two half bets. Whole-number lines can push. <b>Strong</b> is +5% or more, <b>Lean</b> +2% to +5%, <b>Thin</b> 0 to +2%. <b>No edge</b> means even the best price is below fair value after the book’s cut: the least-bad way to bet that game, not a bet with an advantage.</dd>
+      <dt>Player props</dt><dd>The Props tab projects every NFL skill player’s passing, rushing, receiving and touchdown numbers: team volume from the spread and total, each player’s share of targets, carries and attempts (re-spread when a teammate is ruled out), efficiency shrunk toward the position average and scaled by the opponent, calibrated on every game since 2019. Every player’s lines come free from DraftKings through ESPN, with the line each opened at; The Odds API adds every book’s prices on a paid plan. Each line is valued mostly on the market’s chance, with a small weight on ours and a shade toward the under, because overs have hit less often than their prices implied. The shade is bigger for passing and receiving in 15+ mph wind, which the lines priced little of in testing. When several books hang different lines, each line is judged by the books at that line or close to it. The mix (shown on the Props tab) was picked on 2025’s ESPN BET lines and tested on the rest of 2025 and on 2026’s DraftKings lines. Free lines carry no prices, so only yardage lines, which books price near even money, are valued (at −115); receptions, attempts, touchdowns and interceptions need a real price. Markets that lost money in the test show their numbers but never make the best bets.</dd>
       <dt>Bet sizing</dt><dd>Set the bankroll you started with under My bets and pick how stakes are sized. <b>Same amount every bet</b> puts the same share of the bankroll (1% unless you change it) on every pick with value. <b>Bigger bets on bigger edges</b> uses the Kelly formula, value ÷ (decimal odds − 1), so stakes grow with the value and shrink on long odds; Low, Medium and High bet ⅛, ¼ and ½ of it, never more than the cap you set. Full Kelly on the edges the model claims wiped out the bankroll in testing. Stakes follow the bankroll now: the starting bankroll plus whatever settled bets have won or lost. Without a bankroll, stakes show as a share of it.</dd>
       <dt>Tracking</dt><dd>Log a bet from any pick, or anything else (props, parlays, futures) under My bets. Bets on games here grade themselves from the final score, with their closing-line value: their value against the fair closing line (NFL closes from nflverse; NBA and Premier League from DraftKings via ESPN). Beating the close over many bets is the quickest sign an edge is real. Settle anything else by hand, and edit, void or mark any bet cashed out. On the website, bets stay in that browser until you set up sync, which keeps them in a private GitHub repository of yours so your phone and computer share one log; the site also keeps an archive of final scores, so bets still grade after time away. On the claude.ai copy, bets save to your claude.ai account. The model record keeps our calls and both styles’ best bets the same way.</dd>
       <dt>What testing found</dt><dd>
         <p><b>Our call’s own bets, last six seasons</b> (2020-21 to 2025-26, 1 unit per bet at historical closing prices, news not included): 6,696 bets lost 532.6 units, −8.0% per bet. NFL −13.3% on 1,026 bets, NBA −6.9% on 3,624, Premier League −7.2% on 2,046 (−3.5% at the best price across books). Every league lost in every season. The tested model on the same games: −2.6% on 2,688 bets (NFL +1.5%, NBA −2.3%, Premier League −4.0%). Picking winners and beating prices are different jobs: the market already prices who is likely to win.</p>
+        <p><b>Prices, checked against results.</b> At closing moneylines since 2006, NFL underdogs of +200 or longer returned −6.6% per bet and favorites of −200 or shorter −1.8%. In 235,000 soccer matches, sides priced under 15% won 9.5% of the time. Dividing a book’s prices by their sum, the usual way to remove its cut, expects the same loss from both NFL groups (−2.7%) and says 11.2% for those longshots, so it makes underdogs look like the best price on the board. Since October 2026 the fair line removes the cut the way the results say it is taken, which fits both.</p>
         <p><b>NFL, 5,246 games.</b> Projecting scores from scratch lost 7.9% per bet against closing lines since 2016. Only wind held up: unders in 15+ mph wind went 240–194, +7.6% per bet. <a href="https://claude.ai/artifact/MMbMJ8yAy92ik3oYEhWg9Z" target="_blank" rel="noopener">NFL backtest</a></p>
         <p><b>NBA, 22,810 games.</b> Full projections lost 5.3% per bet at the close. When a rotation player was newly ruled out, the spread moved toward his opponent 71% of the time, about 1.4 points; opening lines miss about 60% of that, so being early is the edge. Totals 6+ points off the opener moved our way 60% of the time but only broke even after the juice. <a href="https://claude.ai/artifact/LzKchZxkYoPTy8uXkW1KgN" target="_blank" rel="noopener">NBA backtest</a></p>
         <p><b>Premier League, 5,300 matches (2012–2026).</b> Three small signals held up in every window, but betting them made +2.5% per bet at the best price only because of the two empty-stadium seasons; the other eight lost 2.6%. Treat them as leans.</p></dd>
@@ -748,7 +749,9 @@ details.how dd p{margin:0 0 6px}
 <script>
 (function(){
 const DATA=[[DATA]];
-const NFL=DATA.nfl,NBA=DATA.nba,EPL=DATA.epl,LIVE=DATA.live||{},GS=DATA.gs||{m:.119,t:-.054},SD=13.5,NSD={m:12,t:18};
+/* NFL curves: SD the margin bell (with the key-number weights below), SDT the total, SDW the scale that turns points of
+   margin into win chance (results since 2015: win chance = Phi(fair margin / 15.25)) */
+const NFL=DATA.nfl,NBA=DATA.nba,EPL=DATA.epl,LIVE=DATA.live||{},GS=DATA.gs||{m:.119,t:-.054},SD=13.9,SDT=13.5,SDW=15.25,NSD={m:12,t:18};
 /* A game that has kicked off leaves the page: its pregame bets can't be made any more, and its result arrives with a
    later refresh. It stays in BEGUN (with the ones the build already took off) so a bet on it can still be logged.
    Its players leave the Props tab the same way (marked, not removed: offers name a player by his place in the list).
@@ -774,9 +777,11 @@ const ALLB=(()=>{const s=new Set();[...(NFL?NFL.games:[]),...(NBA?NBA.games:[]),
   return[...s].sort((a,b)=>(OFF.has(a)-OFF.has(b))||(a==='DraftKings'?-1:b==='DraftKings'?1:a.localeCompare(b)))})();
 const FACT=[
   /* def = weight on the margin; tr = the total's weight as a share of it (backtest betas per market) */
-  /* Weights = the share of each factor the closing line missed, weighted toward recent seasons (2006 to week 3 of 2026) and shrunk toward zero */
+  /* Weights = the share of each factor the closing line missed, weighted toward recent seasons (2006 to week 3 of 2026) and shrunk toward zero.
+     The backup-QB weight is the best fit to what bets settle on, covers and wins, in the 764 games with one since 2006 (30%; its 95% range runs
+     from 0 to 60%). The average margin alone says 45%, but blowouts carry that average: the middle backup-QB game lands on the closing spread. */
   {k:'weather',label:'Wind & cold',s:'wind and cold',eff:'Totals',v:'held',def:50,tr:1,note:'Closing totals missed about 80% of game-time wind and cold, in every window tested. 50% allows for forecast error.',rec:'Unders in 15+ mph wind went 240–194 in testing, +7.6% per bet.'},
-  {k:'injuries',label:'Backup QB starting',s:'the backup QB',eff:'Spread, moneyline',v:'weak',def:45,tr:0,note:'Closing spreads missed about half of it, more in the last three seasons. Totals went the other way lately, so they don’t count.',rec:'In testing, betting against backup QBs at the closing line only broke even, so treat this as a lean.'},
+  {k:'injuries',label:'Backup QB starting',s:'the backup QB',eff:'Spread, moneyline',v:'weak',def:30,tr:0,note:'Teams facing a backup won 67% of 764 games since 2006 where the closing moneyline said 64%, but covered the spread only 51% of the time. 30% is the best fit to both; no effect at all is just inside its range. Totals went the other way lately, so they don’t count.',rec:'In testing, moneyline bets against backup QBs came out ahead and spread bets against them did not, so treat this as a lean.'},
   {k:'rest',label:'Rest & travel',s:'rest',eff:'Spread, moneyline, total',v:'flip',def:0,tr:1,note:'Looked good before 2016, then reversed.'},
   {k:'h2h',label:'Head to head',s:'head to head',eff:'Spread, moneyline, total',v:'none',def:0,tr:1,note:'No reliable effect on spreads in recent seasons; totals went the wrong way.'},
   {k:'pace',label:'Pace',s:'pace',eff:'Totals',v:'none',def:0,tr:1,note:'Closing totals already price it, in every window tested. Measured against this season’s league average.'},
@@ -803,7 +808,7 @@ const DEFW=()=>Object.fromEntries(FACT.map(f=>[f.k,f.def]));
 /* the viewer's books: licensed US books unless they choose otherwise */
 const DEFB=()=>{const d=ALLB.filter(t=>!OFF.has(t));return d.length?d:ALLB.slice()};
 const TOP={nfl:[],nba:[],epl:[],props:[]};  /* each league's games with their picks, and the prop rows, for the Top bets tab */
-const S={tab:store.get('tab','top'),bets:store.get('bets','tested')==='ours'?'ours':'tested',filter:'all',sort:'time',fmt:store.get('fmt','us'),W:Object.assign(DEFW(),store.get('w2',{})),wx:store.get('wx',{}),open:new Set(),books:DEFB()};
+const S={tab:store.get('tab','top'),bets:store.get('bets','tested')==='ours'?'ours':'tested',filter:'all',sort:'time',fmt:store.get('fmt','us'),W:Object.assign(DEFW(),store.get('w3',{})),wx:store.get('wx',{}),open:new Set(),books:DEFB()};
 {const b=store.get('books',null);if(Array.isArray(b)){const k=b.filter(t=>ALLB.includes(t));if(k.length)S.books=k}}
 
 /* ---------- math ---------- */
@@ -820,7 +825,21 @@ function invPhi(p){
 }
 const impl=a=>a<0?-a/(-a+100):100/(a+100);
 const dec=a=>a>0?1+a/100:1+100/-a;
-const nv=(a,b)=>{const x=impl(a),y=impl(b);return x/(x+y)};
+/* A book's prices as chances with its cut taken out. Dividing each by their sum, the usual shortcut, leaves longshots
+   too high, because books take more of their cut from the longshot. Checked on results: at closing moneylines since
+   2006, NFL underdogs of +200 or longer returned -6.6% and favorites of -200 or shorter -1.8%, where dividing by the
+   sum expects -2.7% from both; and soccer sides it puts under 15% won 9.5% of 36,600 times where it says 11.2%. So
+   two-way prices give up the same number of points on each side (Shin's method for two outcomes: it expects -6.2%
+   and -1.8% for those two groups), and three-way prices are each raised to the power that makes them add to 1 (the
+   best fit to 235,000 soccer matches, the Premier League's among them: 9.7% for those longshots). */
+function fairP(q){
+  const s=q.reduce((a,v)=>a+v,0);
+  if(q.length===2){const h=(s-1)/2,a=q[0]-h,b=q[1]-h;if(a>.005&&b>.005)return[a,b]}
+  let lo=.3,hi=3;for(let i=0;i<40;i++){const k=(lo+hi)/2;if(q.reduce((t,v)=>t+Math.pow(v,k),0)>1)lo=k;else hi=k}
+  const k=(lo+hi)/2;return q.map(v=>Math.pow(v,k));
+}
+const nv=(a,b)=>fairP([impl(a),impl(b)])[0];
+const nvm=(a,b)=>{const x=impl(a),y=impl(b);return x/(x+y)};  /* divide by the sum: player props, as tested */
 
 /* ---------- formatting ---------- */
 const $=s=>document.querySelector(s);
@@ -844,19 +863,31 @@ function weatherEffect(g){
   return -Math.max(0,(isFinite(i.w)?i.w:0)-10)*.3-Math.max(0,40-(isFinite(i.t)?i.t:60))*.06;
 }
 const srcName=m=>m.src==='nflverse'?'Consensus':m.src;
+/* The backup-QB flag is automatic: nflverse's listed starter against who has started this season. It can't see why a line
+   moved. When the spread has moved 2.5+ points toward the flagged team since it opened, the market knows something the
+   flag doesn't (the usual starter is back, or the other team has lost someone), and betting the factor would be betting
+   against that news. So the flag is not counted then. Returns the points moved and the team, or null. */
+function qbOff(g){
+  const o=g.open,m=g.mkt,b=g.backup;if(!o||o.sp==null||!m||m.sp==null||!b||b[0]===b[1])return null;
+  const mv=m.sp-o.sp;  /* + = toward the home team */
+  return b[0]&&mv<=-2.5?{n:-mv,team:g.away}:b[1]&&mv>=2.5?{n:mv,team:g.home}:null;
+}
 
 /* ---------- every book: fair price and value ---------- */
 const med=a=>{const s=a.slice().sort((x,y)=>x-y),n=s.length;return n?(n%2?s[(n-1)/2]:(s[n/2-1]+s[n/2])/2):null};
 const useBook=t=>t!=='Consensus'&&S.books.includes(t);
 const rowsOf=g=>{const m=g.mkt;return[{...m,t:srcName(m)},...(g.books||[]).filter(b=>b.t!==m.src)]};
 const SIDES=[['spH','spread','home'],['spA','spread','away'],['mlH','ml','home'],['mlA','ml','away'],['ov','total','over'],['un','total','under']];
-/* Outcome curves. NFL margins use the backtest's bell curve with extra weight on key numbers (3, 7, 10...), so +3 and +3.5
-   are priced apart properly; totals and the NBA use plain bell curves. Whole-number lines can push. Each returns the
-   chance the line is beaten (w), pushes (p) or loses (l) when the expected result is mu. */
-const KS=Array.from({length:141},(_,i)=>i-70),KEYW={0:.12,1:1.05,3:2.4,4:1.15,6:1.3,7:1.8,8:1.05,10:1.3,14:1.25,17:1.1,21:1.1},KMUL=KS.map(k=>KEYW[Math.abs(k)]||1);
+/* Outcome curves. NFL margins use a bell curve with extra weight on key numbers (3, 7, 6, 14...), so +3 and +3.5 are
+   priced apart properly; totals and the NBA use plain bell curves. Whole-number lines can push. Each returns the
+   chance the line is beaten (w), pushes (p) or loses (l) when the expected result is mu.
+   The weights and the 13.9-point width are the best fit to 2,958 results since 2015 against the fair margin from closing
+   prices (fitted on 2015-21 they beat the earlier curve on 2022-26, and the other way round). A favorite laying 3 has
+   won by exactly 3 in 11% of those games: the earlier curve said 6%, this one 8%. */
+const KS=Array.from({length:141},(_,i)=>i-70),KEYW={0:.24,1:1.25,2:1.29,3:4.12,4:1.36,5:1.29,6:2.06,7:2.64,8:1.36,10:1.63,11:.75,13:.79,14:2.09,17:1.74,21:1.51},KMUL=KS.map(k=>KEYW[Math.abs(k)]||1);
 const keyCurve=sd=>(mu,L)=>{let s=0,w=0,p=0;for(let i=0;i<KS.length;i++){const k=KS[i],v=Math.exp(-.5*((k-mu)/sd)**2)*KMUL[i];s+=v;if(k>L+1e-9)w+=v;else if(k>L-1e-9)p+=v}return{w:w/s,p:p/s,l:Math.max(0,1-(w+p)/s)}};
 const bell=sd=>(mu,L)=>{if(Number.isInteger(L)){const w=1-Phi((L+.5-mu)/sd),l=Phi((L-.5-mu)/sd);return{w,p:Math.max(0,1-w-l),l}}const w=1-Phi((L-mu)/sd);return{w,p:0,l:1-w}};
-const CURVES={nfl:{m:keyCurve(SD),t:bell(SD),sd:SD},nba:{m:bell(NSD.m),t:bell(NSD.t),sd:NSD.m}};
+const CURVES={nfl:{m:keyCurve(SD),t:bell(SDT),sd:SDW},nba:{m:bell(NSD.m),t:bell(NSD.t),sd:NSD.m}};
 /* the expected result at which a book's no-vig price is fair */
 function solveMu(D,L,q){let lo=L-80,hi=L+80;for(let i=0;i<40;i++){const m=(lo+hi)/2,r=D(m,L);if(r.w/(r.w+r.l)<q)lo=m;else hi=m}return(lo+hi)/2}
 /* The fair line: every book's no-vig price turned into an expected margin and total; the middle value across books is the anchor,
@@ -894,9 +925,10 @@ function priced(g,fair,dM,dT){
   return out.sort((a,b)=>b.ev-a.ev);
 }
 function analyze(g){
-  const m=g.mkt,W=k=>(S.W[k]||0)/100,eff={};
+  const m=g.mkt,W=k=>(S.W[k]||0)/100,eff={};let inj=[0,0];
   FACT.forEach(f=>{if(f.k==='ratings')return;let a=0,h=0;
-    if(f.k==='weather'){const v=weatherEffect(g);if(v){a=v/2;h=v/2}}else if(g.f[f.k]){[a,h]=g.f[f.k]}
+    if(f.k==='weather'){const v=weatherEffect(g);if(v){a=v/2;h=v/2}}else if(g.f[f.k]&&!(f.k==='injuries'&&qbOff(g))){[a,h]=g.f[f.k]}
+    if(f.k==='injuries')inj=[a,h];
     eff[f.k]={m:h-a,t:a+h}});
   const prM=g.H0-g.A0+(g.neutral?0:1.6),prT=g.A0+g.H0;
   eff.ratings={m:prM-m.sp,t:prT-m.tot};
@@ -908,7 +940,7 @@ function analyze(g){
   const grade=best?gradeOf(best.ev):'No line';
   let pa=g.A0,ph=g.H0;FACT.forEach(f=>{if(f.k==='ratings')return;const e=eff[f.k];pa+=(e.t-e.m)/2;ph+=(e.t+e.m)/2});
   pa+=g.neutral?0:-.8;ph+=g.neutral?0:.8;
-  return{eff,dM,dT,pW:fair.pW,fair,bets,by,best,grade,nb:new Set(bets.map(b=>b.book)).size,modelM:m.sp+dM,modelT:m.tot+dT,pr:{a:pa,h:ph}};
+  return{eff,dM,dT,pW:fair.pW,fair,bets,by,best,grade,nb:new Set(bets.map(b=>b.book)).size,modelM:m.sp+dM,modelT:m.tot+dT,pr:{a:pa,h:ph},inj};
 }
 const betLabel=b=>b.mkt==='total'?(b.side==='over'?'Over ':'Under ')+lnq(b.line):b.mkt==='ml'?(b.side==='draw'?'Draw':b.team+(b.lg==='epl'?' to win':' ML')):b.team+' '+(b.line===0?(b.lg==='epl'?'draw no bet':'PK'):(b.line>0?'+':MINUS)+lnq(Math.abs(b.line)));
 const pillCls=b=>b.mkt==='total'?b.side:'team';
@@ -932,7 +964,7 @@ function nflFactorText(k,g){
   const T=NFL.teams;
   switch(k){
     case 'weather':{if(!outdoor(g))return 'Played indoors';const i=wxIn(g);return `${i.you?'Your':'Kickoff'} forecast: ${isFinite(i.w)?i.w+' mph wind':'wind unknown'}${isFinite(i.t)?', '+i.t+'°F':''}`}
-    case 'injuries':return [0,1].filter(i=>g.backup[i]).map(i=>`${i?g.home:g.away} starts ${esc(g.qb[i]||'a backup')}, not the usual starter`).join('; ');
+    case 'injuries':{const off=qbOff(g);return [0,1].filter(i=>g.backup[i]).map(i=>`${i?g.home:g.away} starts ${esc(g.qb[i]||'a backup')}, not the usual starter`).join('; ')+(off?`. Not counted: the spread has moved ${ln(off.n)} points toward ${off.team} since it opened, so the market knows something this automatic flag doesn’t`:'')}
     case 'rest':return `${g.away} has ${g.rest[0]} days of rest, ${g.home} ${g.rest[1]}`;
     case 'h2h':{const n=g.h2h.length;if(!n)return 'No meetings in six years';const won=m=>m.home===g.home?m.hs>m.as:m.as>m.hs,hw=g.h2h.filter(won).length,avg=g.h2h.reduce((s,m)=>s+m.hs+m.as,0)/n;
       if(n===1){const m=g.h2h[0];return `They last met in ${m.date.slice(0,4)}: ${m.hs===m.as?'a tie':(won(m)?g.home:g.away)+' won'}, ${m.hs+m.as} points in all`}
@@ -964,7 +996,8 @@ function whyHTML(g,x,R,lg){
   const math=`At ${odds(b.price)} it needs to win ${pc(1/dec(b.price),1)}${dp?' of bets that don’t push':''}; the fair line gives it ${pc(wr,1)}${dp?` (and a ${pc(b.push,1)} chance of a push)`:''}. Value: <b class="${b.ev>0?'pos':'neg'}">${sg(b.ev*100)}%</b> per bet.`;
   const alt=x.bets.find(o=>o.mkt!==b.mkt||o.side!==b.side);
   const tail=b.ev>0?'':' Every price on this game is below fair value after the book’s cut; this one gives up the least.';
-  const li=R.map(r=>{const [ic,lab]=VLAB[r.v];return `<li${r.w>0||r.wt>0?'':' class="off"'}><b>${r.label}</b> <span class="v v-${r.v}"><i aria-hidden="true">${ic}</i>${lab}</span> ${r.text}. Full effect ${r.full}; ${counted(r)}.</li>`}).join('');
+  const li=R.map(r=>{const [ic,lab]=VLAB[r.v];return `<li${r.w>0||r.wt>0?'':' class="off"'}><b>${r.label}</b> <span class="v v-${r.v}"><i aria-hidden="true">${ic}</i>${lab}</span> ${r.text}. Full effect ${r.full}; ${counted(r)}.</li>`}).join('')
+    +(lg==='nfl'&&qbOff(g)?`<li class="off"><b>Backup QB starting</b> ${nflFactorText('injuries',g)}.</li>`:'');
   return `<details class="why" data-k="${lg}-${esc(g.id)}"><summary>Why ${betLabel(b)}</summary><div class="whyb">
     <p>${testedLead(g,x,R)}</p><p>${math}${tail}${alt?` Next best: ${betLabel(alt)} ${odds(alt.price)} at ${esc(alt.book)} (${sg(alt.ev*100)}%).`:''}</p>
     ${li?`<p class="k">What each factor says</p><ul>${li}</ul>`:'<p class="muted">No factor has anything to say about this game.</p>'}
@@ -1070,7 +1103,7 @@ function detail(g,x){
 function card({g,t,h,x}){
   const open=S.open.has(g.id),sc=h.sc;
   const bigMove=g.open&&g.open.sp!=null&&Math.abs(g.open.sp-g.mkt.sp)>=3;
-  const tags=[g.wk&&g.wk!==NFL.week?`Week ${g.wk}`:'',g.div?'Division game':'',g.neutral?'Neutral site':'',g.backup[0]||g.backup[1]?'Backup QB':'',g.rest[0]<=5?'Short week':'',bigMove?'Big line move':''].filter(Boolean)
+  const tags=[g.wk&&g.wk!==NFL.week?`Week ${g.wk}`:'',g.div?'Division game':'',g.neutral?'Neutral site':'',g.backup[0]||g.backup[1]?(qbOff(g)?'Backup QB flag not counted':'Backup QB'):'',g.rest[0]<=5?'Short week':'',bigMove?'Big line move':''].filter(Boolean)
     .map(t=>`<span class="tag${t==='Big line move'||t==='Backup QB'?' warn':''}">${t}</span>`).join('')+wxTag(g);
   const nt=newsTags(sc,'nfl');
   return `<article class="game${x.best&&x.best.ev>=.02?' hasbet':''}" id="g-${did(g.id)}" data-lg="nfl">
@@ -1241,7 +1274,7 @@ const eplRows=g=>{const m=g.mkt;return[...(m?[{...m,t:m.src}]:[]),...(g.books||[
 function eplAnchors(g){
   if(g._anc!==undefined)return g._anc;
   const rows=eplRows(g),P=[];
-  rows.forEach(r=>{if(r.mlH!=null&&r.mlD!=null&&r.mlA!=null){const x=[impl(r.mlH),impl(r.mlD),impl(r.mlA)],s=x[0]+x[1]+x[2];P.push(x.map(v=>v/s))}});
+  rows.forEach(r=>{if(r.mlH!=null&&r.mlD!=null&&r.mlA!=null)P.push(fairP([impl(r.mlH),impl(r.mlD),impl(r.mlA)]))});
   if(!P.length)return g._anc=null;
   let pH=med(P.map(p=>p[0])),pD=med(P.map(p=>p[1])),pA=med(P.map(p=>p[2]));const s=pH+pD+pA;pH/=s;pD/=s;pA/=s;
   const tots=rows.filter(r=>r.tot!=null&&r.ov!=null&&r.un!=null);
@@ -1340,7 +1373,7 @@ function eplCard({g,t,h:c,x}){
     g.round&&EPL.round&&g.round!==EPL.round?g.round:''].filter(Boolean).map(t=>`<span class="tag">${esc(t)}</span>`).join('');
   let mk;
   if(priced){const A=c.a;
-    const mv=o&&o.mlH!=null&&o.mlA!=null&&o.mlD!=null&&m&&m.mlH!=null&&m.mlD!=null&&m.mlA!=null?(()=>{const p0=impl(o.mlH)/(impl(o.mlH)+impl(o.mlD)+impl(o.mlA)),p1=impl(m.mlH)/(impl(m.mlH)+impl(m.mlD)+impl(m.mlA));return Math.abs(p1-p0)>=.03?` · ${esc(g.home)} opened ${pc(p0)}`:''})():'';
+    const mv=o&&o.mlH!=null&&o.mlA!=null&&o.mlD!=null&&m&&m.mlH!=null&&m.mlD!=null&&m.mlA!=null?(()=>{const p0=fairP([impl(o.mlH),impl(o.mlD),impl(o.mlA)])[0],p1=fairP([impl(m.mlH),impl(m.mlD),impl(m.mlA)])[0];return Math.abs(p1-p0)>=.03?` · ${esc(g.home)} opened ${pc(p0)}`:''})():'';
     mk=`<span class="k">Market · ${A.n} ${A.n===1?'book':'books'}, no-vig</span>${triHTML(g,[A.pH,A.pD,A.pA])}<small>Expected goals ${A.lh.toFixed(2)}–${A.la.toFixed(2)}${m&&m.tot!=null?` · total ${lnq(m.tot)}`:''}${mv}</small>`}
   else mk='<span class="k">Market</span><b class="muted">Not posted</b><small>DraftKings usually posts about a week ahead</small>';
   const call=callCell('epl',g,c);
@@ -1404,7 +1437,7 @@ const MW=lg=>CALLW[lg];
 const OURBETS=()=>S.bets==='ours';  /* best bets from our call's own pricing (untested) instead of the tested model */
 /* NFL: team view = power ratings with home field + every factor at full strength + news (which replaces the automatic backup-QB flag) */
 function nflHolistic(g,x){
-  const a=anchors(g,'nfl'),sc=scoutFor('nfl',g),n=newsSum(sc,g,'nfl'),inj=sc&&g.f.injuries?g.f.injuries:[0,0];
+  const a=anchors(g,'nfl'),sc=scoutFor('nfl',g),n=newsSum(sc,g,'nfl'),inj=sc&&x.inj?x.inj:[0,0];
   const ra=x.pr.a-inj[0],rh=x.pr.h-inj[1],tM=1.1*(rh-ra)+n.h-n.a,tT=.71*(ra+rh)+12.9+n.t;
   const mM=a.mu==null?g.mkt.sp:a.mu,mT=a.tot==null?g.mkt.tot:a.tot,w=MW('nfl');
   const cM=w*mM+(1-w)*tM,cT=w*mT+(1-w)*tT,dM=cM-mM,dT=cT-mT;
@@ -2407,11 +2440,24 @@ function gradePick(o){
 function renderRecord(){
   const G=Object.values(PICKS).filter(p=>p.res),el=$('#modelrec');if(!el)return;
   if(!G.length){el.innerHTML=`<p class="muted">${TRACK==='off'?'Sign in to claude.ai to keep the record.':`No graded games yet. ${Object.keys(PICKS).length} upcoming ${Object.keys(PICKS).length===1?'game is':'games are'} saved.`}</p>`;return}
-  const row=(lab,L)=>{if(!L.length)return '';const k=(f)=>L.filter(f).length,u=key=>{const B=L.map(p=>p.res[key]).filter(Boolean);if(!B.length)return '–';
-      const w=B.filter(b=>b.res==='W'||b.res==='HW').length,l=B.filter(b=>b.res==='L'||b.res==='HL').length,pu=B.reduce((s,b)=>s+(+b.profit||0),0),C=B.filter(b=>typeof b.clv==='number');
-      return `${w}–${l}${B.length-w-l?'–'+(B.length-w-l):''}, <b class="${pu>=0?'pos':'neg'}">${sg(pu,2)} u</b>${C.length?` <small>CLV ${sg(C.reduce((s,b)=>s+b.clv,0)/C.length*100)}%</small>`:''}`};
-    return `<tr><td>${lab}</td><td class="num">${k(p=>p.res.call)} of ${L.length} (${pc(k(p=>p.res.call)/L.length)})</td><td class="num">${k(p=>p.res.fav)} of ${L.length} (${pc(k(p=>p.res.fav)/L.length)})</td><td class="num tw">${u('hb')}</td><td class="num tw">${u('tb')}</td></tr>`};
-  el.innerHTML=`<div class="scroll"><table><thead><tr><th></th><th>Our call right</th><th>Market favorite right</th><th>Our-call best bets</th><th>Tested best bets</th></tr></thead><tbody>${['nfl','nba','epl'].map(lg=>row(lg.toUpperCase(),G.filter(p=>p.lg===lg))).join('')}${row('All',G)}</tbody></table></div>`;
+  /* A pick is a bet only if it had value when it was last saved before kickoff. Every game gets a pick, and most are just
+     the closest price to fair ("No edge"): counting those as bets would grade the page on bets it told no one to make.
+     The value is on the saved pick (claude.ai) or beside the result (the website's record: "e"); a record from before
+     it was kept counts every pick. */
+  const evOf2=(p,key)=>p[key]&&typeof p[key].ev==='number'?p[key].ev:p.e&&typeof p.e[key]==='number'?p.e[key]:null;
+  const pick=(L,key,f)=>L.filter(p=>p.res[key]&&f(evOf2(p,key))).map(p=>p.res[key]);
+  const val=ev=>ev==null||ev>0;
+  const line=B=>{if(!B.length)return '–';
+    const w=B.filter(b=>b.res==='W'||b.res==='HW').length,l=B.filter(b=>b.res==='L'||b.res==='HL').length,pu=B.reduce((s,b)=>s+(+b.profit||0),0),C=B.filter(b=>typeof b.clv==='number');
+    return `${w}–${l}${B.length-w-l?'–'+(B.length-w-l):''}, <b class="${pu>=0?'pos':'neg'}">${sg(pu,2)} u</b>${C.length?` <small>CLV ${sg(C.reduce((s,b)=>s+b.clv,0)/C.length*100)}%</small>`:''}`};
+  const row=(lab,L)=>{if(!L.length)return '';const k=(f)=>L.filter(f).length;
+    return `<tr><td>${lab}</td><td class="num">${k(p=>p.res.call)} of ${L.length} (${pc(k(p=>p.res.call)/L.length)})</td><td class="num">${k(p=>p.res.fav)} of ${L.length} (${pc(k(p=>p.res.fav)/L.length)})</td><td class="num tw">${line(pick(L,'hb',val))}</td><td class="num tw">${line(pick(L,'tb',val))}</td></tr>`};
+  const GR=[['Strong','+5% or more',ev=>ev!=null&&ev>=.05],['Lean','+2% to +5%',ev=>ev!=null&&ev>=.02&&ev<.05],['Thin','0 to +2%',ev=>ev!=null&&ev>0&&ev<.02],['No edge','not counted as bets',ev=>ev!=null&&ev<=0]];
+  const known=G.some(p=>evOf2(p,'tb')!=null||evOf2(p,'hb')!=null);
+  const grades=known?`<div class="scroll"><table><thead><tr><th>Value when saved</th><th>Our-call best bets</th><th>Tested best bets</th></tr></thead><tbody>${GR.map(([g,sub,f])=>{
+      const t=pick(G,'tb',f),h=pick(G,'hb',f);return t.length||h.length?`<tr${g==='No edge'?' class="off"':''}><td>${g}<small>${sub}</small></td><td class="num tw">${line(h)}</td><td class="num tw">${line(t)}</td></tr>`:''}).join('')}</tbody></table></div>
+    <p class="fine muted">Only picks that had value when last saved count as bets above. The No edge row is every other game’s closest price to fair, for comparison. CLV is the bet’s value against the fair closing line: over many bets it should be above zero if the edges are real.</p>`:'';
+  el.innerHTML=`<div class="scroll"><table><thead><tr><th></th><th>Our call right</th><th>Market favorite right</th><th>Our-call best bets</th><th>Tested best bets</th></tr></thead><tbody>${['nfl','nba','epl'].map(lg=>row(lg.toUpperCase(),G.filter(p=>p.lg===lg))).join('')}${row('All',G)}</tbody></table></div>${grades}`;
 }
 
 /* ---------- tabs, controls, events ---------- */
@@ -2438,7 +2484,7 @@ document.addEventListener('click',e=>{
   else if(b.dataset.more){const id=b.dataset.more,art=b.closest('article');if(S.open.has(id))S.open.delete(id);else S.open.add(id);
     const d=art&&art.querySelector('.detail');if(d)d.remove();else if(art){const g=NFL.games.find(x=>x.id===id);if(g)art.insertAdjacentHTML('beforeend',detail(g,pickNFL(g).x))}
     b.setAttribute('aria-expanded',S.open.has(id))}
-  else if(b.id==='wreset'){S.W=DEFW();store.set('w2',S.W);weights();renderList()}
+  else if(b.id==='wreset'){S.W=DEFW();store.set('w3',S.W);weights();renderList()}
   else if(b.dataset.book){let cur=S.books.slice();const t=b.dataset.book;
     if(cur.includes(t)){if(cur.length===1)return;cur=cur.filter(x=>x!==t)}else cur.push(t);
     setBooks(cur)}
@@ -2469,7 +2515,7 @@ $('#lg-bet').addEventListener('change',fillLine);
 $('#logf').addEventListener('submit',saveBet);
 document.addEventListener('input',e=>{
   const t=e.target;
-  if(t.dataset.w){S.W[t.dataset.w]=+t.value;store.set('w2',S.W);const o=document.getElementById('wo-'+t.dataset.w);if(o)o.textContent=t.value+'%';frame(renderList)}
+  if(t.dataset.w){S.W[t.dataset.w]=+t.value;store.set('w3',S.W);const o=document.getElementById('wo-'+t.dataset.w);if(o)o.textContent=t.value+'%';frame(renderList)}
   else if(t.dataset.wx){const id=t.dataset.wx,w=S.wx[id]||(S.wx[id]={});w[t.dataset.f]=t.value;store.set('wx',S.wx);
     const g=NFL&&NFL.games.find(x=>x.id===id),n=document.getElementById('wn-'+did(id));if(g&&n)n.textContent=wxNote(g)}
 });
@@ -2551,12 +2597,14 @@ const PEST=new Set(LBT&&LBT.est_ok||['pass_yds','rush_yds','rec_yds']);
 const PSH=PR&&PR.shift!=null?PR.shift:0;
 const PBOOK=PR&&PR.book||'DraftKings';
 const PDEF={show:'best',mkt:'all',pos:'all',game:'all',sort:'value',q:'',w:PR&&PR.w!=null?Math.round(PR.w*100):10,pa:PR&&PR.assumed||-115};
-const PS=Object.assign({},PDEF,store.get('pf2',{}),{q:''});
+/* saved view settings; the weight and the assumed price are saved only when the viewer has moved them off the tested
+   values, so a retuned mix reaches everyone who never touched them (pf2 saved them always) */
+const PS=Object.assign({},PDEF,store.get('pf3',{}),{q:''});
 const HASL=!!(PR&&PR.offers&&PR.offers.length);
 if(!HASL)PS.show='players';
 if(PR)PR.players.forEach((p,i)=>{p._i=i});
 const PSEL=new Map();let PSHOW=60,PROWS=new Map();
-const savePS=()=>store.set('pf2',{show:PS.show,mkt:PS.mkt,pos:PS.pos,game:PS.game,sort:PS.sort,w:PS.w,pa:PS.pa});
+const savePS=()=>store.set('pf3',Object.assign({show:PS.show,mkt:PS.mkt,pos:PS.pos,game:PS.game,sort:PS.sort},PS.w!==PDEF.w?{w:PS.w}:{},PS.pa!==PDEF.pa?{pa:PS.pa}:{}));
 const PGAME=id=>NFL&&NFL.games.find(g=>g.id===id);
 const statLab=s=>PSTAT[s]||s;
 const pBet=(s,side,l)=>s==='anytd'?(side==='over'?'Anytime TD':'No TD'):`${side==='over'?'Over':'Under'} ${ln(l)} ${PSHORT[s]||statLab(s)}`;
@@ -2568,12 +2616,20 @@ const tested=s=>s!=='anytd'&&(LBT?POK.has(s):true);
 const whyNot=s=>{if(s==='anytd')return['not tested','Touchdown scorer prices were not in the line test, so this never makes the best bets'];
   const m=LBT&&LBT.markets&&LBT.markets[s];return m&&m.n>=30?['lost in testing','This market lost money against real lines in testing, so it never makes the best bets']:['too few test bets','Fewer than 30 bets in the line test, so this market never makes the best bets']};
 const atTested=()=>PS.w===PDEF.w,blendName=()=>atTested()?'the tested blend':'your blend';
-const shOf=s=>s==='anytd'?0:PSH;
+/* the lean to the under for one player's prop: the base (PSH), plus what the build adds for the venue (more on the road,
+   less at home) and for 15+ mph wind (passing and receiving): p.ln[stat] = [venue, wind], in probability */
+const leanOf=(p,s)=>(p&&p.ln&&p.ln[s])||[0,0];
+const shOf=(s,p)=>{if(s==='anytd')return 0;const l=leanOf(p,s);return PSH+l[0]+l[1]};
+const PVEN=PR&&PR.venue||0,PWK=PR&&PR.wind_keep||0;
+/* the lean in words: the base, how the venue moves it (when that is counted) and the wind */
+const leanTxt=()=>{const b=+(PSH*100).toFixed(2),v=+(PVEN*100).toFixed(1);return v?`${b} points (${+(b+v).toFixed(1)} on the road, ${+(b-v).toFixed(1)} at home${PWK?', more in 15+ mph wind':''})`:`${b} points${PWK?' (more for passing and receiving in 15+ mph wind)':''}`};
 
 /* chance of over and under a line, from the projection (the same rules as the build) */
 const Q51=Array.from({length:51},(_,i)=>i/50);
 function ecdf(x,v){const n=v.length;if(x<v[0])return 0;if(x>=v[n-1])return 1;let i=0;while(i<n-1&&v[i+1]<=x)i++;const j=i+1;return v[j]===v[i]?Q51[j]:Q51[i]+(x-v[i])/(v[j]-v[i])*(Q51[j]-Q51[i])}
-function pOver(s,mu,L){
+/* the outcome spread for a stat: the player's position has its own table where the build made one ("stat|POS") */
+const spOf=(s,pos)=>PR.spread[s+'|'+pos]||PR.spread[s];
+function pOver(s,mu,L,pos){
   if(!(mu>0)||L==null||!isFinite(L))return null;
   if(CNT(s)){
     const r=PR.disp[s],k=Math.floor(L);let pk=0,cdf=0,p;
@@ -2581,18 +2637,18 @@ function pOver(s,mu,L){
     else{p=Math.exp(-mu);for(let i=0;i<=k;i++){cdf+=p;pk=p;p*=mu/(i+1)}}
     return L===k?{o:1-cdf,u:cdf-pk}:{o:1-cdf,u:cdf};
   }
-  const sp=PR.spread[s];if(!sp)return null;let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
+  const sp=spOf(s,pos);if(!sp)return null;let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
   const v=sp.q[i].map(z=>z*mu),o=1-ecdf(L,v);
   if(Number.isInteger(L)&&!/yds$/.test(s)){const eq=ecdf(L+.5,v)-ecdf(L-.5,v);return{o:Math.max(0,o-eq/2),u:Math.max(0,1-o-eq/2)}}
   return{o,u:1-o};
 }
 /* a point of the outcome spread: q = .5 is our median, the line our projection calls a coin flip */
-function pQ(s,mu,q){if(!(mu>0)||CNT(s)||!PR.spread[s])return null;const sp=PR.spread[s];let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
+function pQ(s,mu,q,pos){if(!(mu>0)||CNT(s)||!spOf(s,pos))return null;const sp=spOf(s,pos);let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
   const z=sp.q[i],k=q*(z.length-1),a=Math.floor(k),b=Math.min(z.length-1,a+1);return mu*(z[a]+(z[b]-z[a])*(k-a))}
 /* the tested chance of each side: PS.w of ours, the rest the market's (its 50-50 point at a line without prices), less the under lean */
-function blend(pm,pu,km,ku,s){const w=PS.w/100,sh=shOf(s);if(km==null||ku==null){const h=(pm+pu)/2;km=h;ku=h}
+function blend(pm,pu,km,ku,s,p){const w=PS.w/100,sh=shOf(s,p);if(km==null||ku==null){const h=(pm+pu)/2;km=h;ku=h}
   const cl=x=>Math.min(1,Math.max(0,x));return{o:cl(w*pm+(1-w)*km-sh),u:cl(w*pu+(1-w)*ku+sh)}}
-const oursOf=(s,mu)=>s==='anytd'?pc(1-Math.exp(-mu)):fv(s,CNT(s)?mu:pQ(s,mu,.5));
+const oursOf=(s,mu,pos)=>s==='anytd'?pc(1-Math.exp(-mu)):fv(s,CNT(s)?mu:pQ(s,mu,.5,pos));
 
 /* every (player, prop): the best price at the chosen books, valued on the tested chance */
 function propRows(){
@@ -2607,7 +2663,7 @@ function propRows(){
     /* no value without a real market: a free line in a market balanced by price, or a line priced on one side only */
     const est=ov==null&&un==null;
     if((est&&!PEST.has(s))||(s!=='anytd'&&!est&&(ov==null||un==null)))continue;
-    const B=blend(pom,pum,pok,puk,s);
+    const B=blend(pom,pum,pok,puk,s,PR.players[pi]);
     for(const [side,price,pW,pL,pm] of [['over',est?PS.pa:ov,B.o,B.u,pom],['under',est?PS.pa:un,B.u,B.o,pum]]){
       if(price==null)continue;
       const ev=pW*(dec(price)-1)-pL;
@@ -2615,7 +2671,7 @@ function propRows(){
     }
   }
   return[...G.values()].map(r=>{const p=r.p,s=r.s;r.mu=p.mu[s];r.bk=(p.bk||{})[s]||null;r.line=r.best?r.best.line:r.bk&&r.lines.includes(r.bk[0])?r.bk[0]:med(r.lines);
-    const q=pOver(s,r.mu,r.line);r.po=q?q.o:null;r.ok=tested(s);r.books=new Set(r.offers.map(o=>o[2])).size;return r});
+    const q=pOver(s,r.mu,r.line,p.p);r.po=q?q.o:null;r.ok=tested(s);r.books=new Set(r.offers.map(o=>o[2])).size;return r});
 }
 const pPass=(p,s)=>(PS.pos==='all'||p.p===PS.pos)&&(PS.game==='all'||p.g===PS.game)&&(PS.mkt==='all'||PGROUP[s]===PS.mkt)&&(!PS.q||norm(p.n).includes(norm(PS.q)));
 const norm=t=>String(t).toLowerCase().normalize('NFD').replace(/[^a-z ]/g,'');
@@ -2670,9 +2726,9 @@ function dvpOf(p,s){
 const l8=h=>h.length?`<span class="l8" aria-hidden="true">${h.map(x=>`<i class="${x===1?'o':x===0?'u':'p'}"></i>`).join('')}</span>`:'';
 const hitTxt=(h,side)=>{if(!h.length)return 'no games on record';const n=h.filter(x=>side==='under'?x===0:x===1).length;return `${side==='under'?'under':'over'} in ${n} of last ${h.length}`};
 /* our middle 80% and 50% of outcomes, our median, the line and where it opened, on one scale */
-function rangeBar(s,mu,line,open){
+function rangeBar(s,mu,line,open,pos){
   if(CNT(s)||!(mu>0))return '';
-  const a=pQ(s,mu,.1),b=pQ(s,mu,.25),m=pQ(s,mu,.5),c=pQ(s,mu,.75),d=pQ(s,mu,.9);if(a==null)return '';
+  const a=pQ(s,mu,.1,pos),b=pQ(s,mu,.25,pos),m=pQ(s,mu,.5,pos),c=pQ(s,mu,.75,pos),d=pQ(s,mu,.9,pos);if(a==null)return '';
   const xs=[a,d,line,open].filter(v=>v!=null&&isFinite(v)),lo=Math.min(...xs),hi=Math.max(...xs),pad=(hi-lo)*.06||1;
   const X=v=>(v-(lo-pad))/((hi+pad)-(lo-pad))*100,at=v=>X(v).toFixed(1)+'%',span=(u,v)=>`left:${at(u)};width:${(X(v)-X(u)).toFixed(1)}%`;
   return `<span class="rng" role="img" aria-label="Our middle 80%: ${fv(s,a)} to ${fv(s,d)}, median ${fv(s,m)}${line!=null?', line '+ln(line):''}${open!=null&&open!==line?', opened '+ln(open):''}">`
@@ -2680,7 +2736,7 @@ function rangeBar(s,mu,line,open){
     +(open!=null&&line!=null&&open!==line?`<i class="om" style="left:${at(open)}"></i>`:'')+(line!=null?`<i class="lm" style="left:${at(line)}"></i>`:'')+`</span>`;
 }
 const moveTxt=bk=>bk&&bk[1]!=null&&bk[0]!==bk[1]?`<span class="mv ${bk[0]>bk[1]?'up':'dn'}">opened ${ln(bk[1])} ${bk[0]>bk[1]?'↑':'↓'}</span>`:'';
-const vsTxt=r=>r.s==='anytd'?`${oursOf(r.s,r.mu)} ours`:`${oursOf(r.s,r.mu)} ours · ${ln(r.line)} line`;
+const vsTxt=r=>r.s==='anytd'?`${oursOf(r.s,r.mu)} ours`:`${oursOf(r.s,r.mu,r.p.p)} ours · ${ln(r.line)} line`;
 
 /* where a prop's value comes from: the price against the market's own chance, the lean to the under, and our projection */
 function propParts(r){
@@ -2688,13 +2744,14 @@ function propParts(r){
   const o=r.offers.find(x=>x[2]===b.book&&x[3]===b.line);if(!o)return null;
   const pom=o[6],pum=o[7],un=b.side==='under',D=dec(b.price);
   let km=o[8],ku=o[9];if(km==null||ku==null){const h=(pom+pum)/2;km=h;ku=h}
-  const kW=un?ku:km,kL=un?km:ku,mW=un?pum:pom;
-  const price=kW*(D-1)-kL,lean=(un?1:-1)*shOf(r.s)*D,model=b.ev-price-lean;
+  const kW=un?ku:km,kL=un?km:ku,mW=un?pum:pom,sgn=un?1:-1,[lv,lw]=r.s==='anytd'?[0,0]:leanOf(r.p,r.s);
+  /* the lean in parts: the base, the venue (bigger on the road, smaller at home) and the wind */
+  const price=kW*(D-1)-kL,lean=sgn*shOf(r.s,r.p)*D,venue=sgn*lv*D,wind=sgn*lw*D,model=b.ev-price-lean;
   /* the same bet at the other books: their prices on this line, and the line most books have */
   const same=r.offers.filter(x=>x[3]===b.line&&x[2]!==b.book).map(x=>un?x[5]:x[4]).filter(v=>v!=null).sort((a,c)=>dec(c)-dec(a));
   const cnt=new Map();r.offers.forEach(x=>cnt.set(x[3],(cnt.get(x[3])||0)+1));
   const main=[...cnt.entries()].sort((a,c)=>c[1]-a[1]||a[0]-c[0])[0][0];
-  return{price,lean,model,kW,mW,same,main,nAt:cnt.get(b.line)||1,nB:r.offers.length};
+  return{price,lean,venue,wind,base:lean-venue-wind,lv,lw,model,kW,mW,same,main,nAt:cnt.get(b.line)||1,nB:r.offers.length};
 }
 /* what mostly makes it a bet: a price better than the market's own chance, our projection, or the under lean */
 const propDriver=P=>!P?'':P.price>=.01?'price':P.model>=.02&&P.model>=P.lean*.6?'proj':P.lean>0?'lean':'proj';
@@ -2704,7 +2761,7 @@ const dirOf=(s,side)=>s==='anytd'?(side==='under'?'not to score':'to score'):sid
 /* the reason in a line, for the boards */
 function propShort(r){
   const b=r.best,P=propParts(r);if(!P)return '';
-  const d=propDriver(P),ours=oursOf(r.s,r.mu),td=r.s==='anytd';
+  const d=propDriver(P),ours=oursOf(r.s,r.mu,r.p.p),td=r.s==='anytd';
   const a=d==='price'?`Price edge: ${odds(b.price)} where the market says ${pc(P.kW,0)} ${dirOf(r.s,b.side)}`
     :d==='proj'?`Our projection: ${td?`${pc(P.mW,0)} ${dirOf(r.s,b.side)}, market ${pc(P.kW,0)}`:`${ours} against a line of ${ln(b.line)}`}`
     :`Under lean, at the best price of ${r.books} ${r.books===1?'book':'books'}`;
@@ -2713,24 +2770,38 @@ function propShort(r){
 /* the reason in full, for the player's card */
 function propLead(r){
   const b=r.best,P=propParts(r);if(!b||!P)return '';
-  const s=r.s,td=s==='anytd',un=b.side==='under',dir=dirOf(s,b.side),d=propDriver(P),nx=P.same[0],ours=oursOf(s,r.mu);
+  const s=r.s,td=s==='anytd',un=b.side==='under',dir=dirOf(s,b.side),d=propDriver(P),nx=P.same[0],ours=oursOf(s,r.mu,r.p.p);
   const shop=nx!=null?(dec(b.price)>dec(nx)?` The next best price on this line is ${odds(nx)}.`:` Another book matches that price.`):P.nB>1&&!td?' No other book has this line right now.':'';
-  const a=d==='price'?`This is a price play. ${esc(b.book)} pays ${odds(b.price)}${b.est?' (assumed)':''} on a bet the market as a whole makes ${pc(P.kW,0)} ${dir}, which would be fair at about ${fairO(P.kW)}.${shop}`
+  const a=d==='price'?`This is a price play. ${esc(b.book)} pays ${odds(b.price)}${b.est?' (assumed)':''} on a bet the market makes ${pc(P.kW,0)} ${dir}, which would be fair at about ${fairO(P.kW)}.${shop}`
     :d==='proj'?`Our projection is the edge. We ${td?`give him ${pc(P.mW,0)} ${dir}`:`project ${ours} against a line of ${ln(b.line)}, ${pc(P.mW,0)} ${dir}`}; the market says ${pc(P.kW,0)}.${shop}`
     :`This leans on the under. The market makes it ${pc(P.kW,0)} ${dir}, and in testing unders beat their prices by enough to cover the book’s cut; ${esc(b.book)} has the best price for it.${shop}`;
   const off=!td&&P.main!==b.line&&P.nB>=3?` Most books have this at ${ln(P.main)}; ${esc(b.book)}’s ${ln(b.line)} is ${(un?b.line>P.main:b.line<P.main)?'the easier number to beat, so it may not last':'the harder number, and the price is what makes up for it'}.`:'';
   const agree=td||d==='proj'?'':P.mW>=.55?` Our projection agrees: ${ours} against a line of ${ln(b.line)}.`
     :P.mW<.47?` Our own projection (${ours}) is on the other side of this line, so the bet rests on the price and the under lean, not on our number.`
     :` Our projection (${ours}) is close to the line, so it adds little either way.`;
-  return a+off+agree;
+  /* the venue and wind parts of the lean, said plainly when they are in play */
+  const where=td?'':(P.lw>0?' Wind of 15+ mph is forecast, which the lines have priced little of in testing.':'')
+    +(P.lv>0?' He is on the road, where overs have fallen further short of their prices.':P.lv<0&&un?' He is at home, where overs have held up better, so the lean to the under is smaller here.':'');
+  return a+off+agree+where;
 }
+/* what the venue and wind leans rest on: the line test's season with prices */
+const LPS=LBT&&(LBT.seasons||[]).find(x=>x.priced&&x.market_over!=null&&x.over_priced!=null)||null;
+const ptsTxt=v=>(Math.abs(v)*100).toFixed(1)+' points';
+/* what a recent hit rate is worth: in the line test, players who had cleared a line often went over it no more than their prices said */
+const hitNote=()=>{const H=LBT&&LBT.hit10||[],hot=H.find(x=>x.lo>=.75&&x.n>=100),cold=H.find(x=>x.lo===0&&x.n>=100);
+  return hot&&cold&&LPS?`A hit rate describes his games, it is not an edge: in ${LPS.season}, players who had gone over a line in three of every four recent games or more went over it ${pc(hot.over,0)} of the time against prices that said ${pc(hot.market,0)}, and players who rarely had, ${pc(cold.over,0)} against ${pc(cold.market,0)}.`:''};
+const venTxt=()=>{const v=LPS&&LPS.venue;return v&&v.home&&v.away&&v.home.n&&v.away.n?`in ${LPS.season}, visiting players’ overs ran ${ptsTxt(v.away.gap)} short of their prices and home players’ ${ptsTxt(v.home.gap)}`:'in testing, visiting players’ overs fell further short of their prices than home players’'};
+const venGap=()=>{const v=LPS&&LPS.venue;return v&&v.home&&v.away&&v.home.n&&v.away.n?`In ${LPS.season}, visiting players’ overs ran ${ptsTxt(v.away.gap)} short of their prices and home players’ ${ptsTxt(v.home.gap)}.`:''};
+const windTxt=()=>{const w=LPS&&LPS.wind&&LPS.wind.windy;return w&&w.n?`in ${LPS.season}’s ${LPS.wind.games} games with wind like that, passing and receiving lines went over ${pc(w.over,0)} of the time when priced at ${pc(w.market,0)}`:'in testing, the lines priced little of the wind'};
 function propPartsHTML(r){
   const b=r.best,P=propParts(r);if(!b||!P)return '';
   const ps=LBT&&(LBT.seasons||[]).find(x=>x.priced&&x.market_over!=null&&x.over_priced!=null);
   const row=(lab,v,note)=>`<tr><td class="nm">${lab}<small>${note}</small></td><td class="num"><span class="${v>=0?'pos':'neg'}">${sg(v*100)}%</span></td></tr>`;
   return `<h4>Where the ${sg(b.ev*100)}% comes from</h4><table class="ptab pparts"><tbody>
     ${row('The price',P.price,`${odds(b.price)}${b.est?' (assumed)':''} against the market’s own ${pc(P.kW,1)} chance${P.price<0?': the book’s cut':''}`)}
-    ${P.lean?row('Lean to the under',P.lean,ps?`in ${ps.season}, overs hit ${pc(ps.over_priced,1)} when priced at ${pc(ps.market_over,1)}`:'unders beat their prices in testing'):''}
+    ${P.base?row('Lean to the under',P.base,ps?`in ${ps.season}, overs hit ${pc(ps.over_priced,1)} when priced at ${pc(ps.market_over,1)}`:'unders beat their prices in testing'):''}
+    ${P.venue?row(P.lv>0?'On the road':'At home',P.venue,`${venTxt()}; half of that gap is counted`):''}
+    ${P.wind?row('Wind',P.wind,`15+ mph is forecast; ${windTxt()}. ${PWK===.5?'Half':pc(PWK,0)} of our own wind adjustment is counted`):''}
     ${row('Our projection',P.model,`counted at ${PS.w}%; on its own it says ${pc(P.mW,1)} ${dirOf(r.s,b.side)}`)}
     <tr class="tot"><td class="nm">Value<small>${pc(b.pW,1)} to win on ${blendName()}</small></td><td class="num"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span></td></tr></tbody></table>`;
 }
@@ -2738,9 +2809,14 @@ function propPartsHTML(r){
 function propWatch(p,s,r){
   const b=r&&r.best,P=r&&propParts(r),u=p.u,L=[];
   if(p.q)L.push(`<span class="ut">${esc(p.q)}</span>${p.qd?' · '+esc(p.qd):''}. A prop is void if he doesn’t play; check the final injury report.`);
-  const rc=roleOf(p),rr=rc&&LBT&&LBT.roles&&LBT.roles[rc.up?'up':'down'];
+  /* a starting quarterback is projected for the whole game (attempts, and carries from the games he played most of),
+     so a jump in his snaps is not a lag in the projection; what matters is how few starts it rests on */
+  const qbS=p.p==='QB'&&u.qg!=null,rc=qbS?null:roleOf(p),rr=rc&&LBT&&LBT.roles&&LBT.roles[rc.up?'up':'down'];
+  const qbNew=qbS&&u.qg<4&&(s==='rush_att'||s==='rush_yds'||s==='anytd');
+  if(qbNew)L.push(u.qg?`Only ${u.qg} earlier ${u.qg===1?'start':'starts'} on record. His carries are shrunk toward the usual starting quarterback’s share, which undersells a quarterback who runs by design; the books’ line knows which kind he is.`:`No earlier start on record, so his carries are the usual starting quarterback’s share. The books’ line knows whether he runs.`);
   if(rc)L.push(`His snaps ${rc.up?'jumped':'fell'} to ${pc(rc.last,0)} last game, against ${pc(rc.avg,0)} in the games the projection weighs. It follows role changes slowly${rr&&rr.n>=50&&rr.roi!=null?`; in testing, bets on players in this spot ${rr.roi>=0?'still came out ahead':'lost'} (${sg(rr.roi*100)}% per bet on ${rr.n})`:''}.`);
   if(b&&P&&s!=='anytd'&&P.nB>=3&&P.nAt===1)L.push(`Only ${esc(b.book)} has ${ln(b.line)}. A line no other book offers can move or be limited before you get there.`);
+  if(b&&P&&P.wind>0)L.push(`Part of this value (${sg(P.wind*100)}%) rests on the forecast of 15+ mph wind at kickoff. Check it again before you bet: if the wind drops, so does that part.`);
   const bk=(p.bk||{})[s];
   if(bk&&bk[1]!=null&&bk[1]!==bk[0]){const big=Math.abs(bk[0]-bk[1])>=Math.max(1.5,.08*bk[1]),tow=b&&s!=='anytd'?(b.side==='under'?bk[0]<bk[1]:bk[0]>bk[1]):null;
     L.push(`${esc(PBOOK)} opened this at ${ln(bk[1])} and has moved it to ${ln(bk[0])}${tow==null?'':tow?', toward this bet':', against this bet'}${big?'. A big move usually means news on his role':''}.`)}
@@ -2748,7 +2824,7 @@ function propWatch(p,s,r){
     if(h.length>=6&&n<=h.length/4)L.push(`He went ${b.side==='under'?'over':'under'} ${ln(b.line)} in ${opp} of his last ${h.length} games.`);
     const m=DVPW[s]?dvpOf(p,s):null;
     if(m&&m.D.g>=4&&(b.side==='under'?m.rk<=5:m.rk>m.n-5))L.push(`${esc(p.o)} has allowed the ${m.txt} ${DVPW[s]} to ${POSN[p.p]} over its last ${m.D.g} games, which cuts against this bet.`)}
-  if(u.gp<4)L.push(`Only ${u.gp} earlier ${u.gp===1?'game':'games'} on record, so his usage leans on the position average.`);
+  if(u.gp<4&&!qbNew)L.push(`Only ${u.gp} earlier ${u.gp===1?'game':'games'} on record, so his usage leans on the position average.`);
   return L;
 }
 
@@ -2759,12 +2835,12 @@ function propBoard(rows){
   const OF=pOffers(),nb=new Set(OF.filter(o=>o[4]!=null||o[5]!=null).map(o=>o[2])).size,np=new Set(OF.map(o=>o[0])).size;
   const tt=LBT?(LBT.seasons||[]).reduce((a,x)=>({n:a.n+x.tested.n,u:a.u+x.tested.units}),{n:0,u:0}):{n:0,u:0};
   const free=OF.filter(o=>o[4]==null&&o[5]==null),evenM=PORDER.filter(m=>PEST.has(m)&&free.some(o=>o[1]===m)),needM=free.some(o=>!PEST.has(o[1]));
-  const mix=`Each line is valued at ${PS.w}% our chance and ${100-PS.w}% the market’s, shaded ${+(PSH*100).toFixed(1)} points toward the under`
+  const mix=`Each line is valued at ${PS.w}% our chance and ${100-PS.w}% the market’s, shaded toward the under by ${leanTxt()}`
     +(atTested()?(tt.n?`; in testing that mix made ${sg(tt.u/tt.n*100)}% per bet on ${tt.n.toLocaleString()} bets`:''):` (your setting; the tested mix is ${PDEF.w}%)`)+'.';
   const freeTxt=free.length?` The free ${esc(PBOOK)} lines come without prices: ${evenM.length?`${evenM.map(m=>PSHORT[m]||statLab(m)).join(', ')} lines sit near even money, so they’re valued at ${odds(PS.pa)}`:'none of them can be valued without one'}${needM?`; other markets are balanced by the price, so they show our numbers and need your book’s price (open a player to type it)`:''}.`:'';
   const nPos=rows.filter(r=>r.ok&&r.best&&r.best.ev>=.02).length,pricedWk=nb>0&&free.length<.2*OF.length;
   const sGr=LBT?(LBT.seasons||[]).reduce((a,x)=>a+(((x.grades||{}).Strong||{}).n||0),0):0;
-  const lede=pricedWk?`${nPos} ${nPos===1?'prop clears':'props clear'} +2% at your books right now, from ${nb} books’ prices on ${np} players. Value is what the best price pays over the bet’s tested chance: ${100-PS.w}% the market’s own number and ${PS.w}% our projection${atTested()?'':` (your setting; the tested mix is ${PDEF.w}%)`}, with a ${+(PSH*100).toFixed(1)}-point lean to the under. Each row names what mostly makes it a bet; open it to see where the value comes from.`
+  const lede=pricedWk?`${nPos} ${nPos===1?'prop clears':'props clear'} +2% at your books right now, from ${nb} books’ prices on ${np} players. Value is what the best price pays over the bet’s tested chance: ${100-PS.w}% the market’s own number and ${PS.w}% our projection${atTested()?'':` (your setting; the tested mix is ${PDEF.w}%)`}, with a lean to the under of ${leanTxt()}. Each row names what mostly makes it a bet; open it to see where the value comes from.`
     :!HASL?`No prop lines in this build${LIVE.props_note?' ('+esc(LIVE.props_note)+')':''}. Every player’s projection is below; open a player and type your book’s line to see its value.`
     :`Our projection against the ${esc(PBOOK)} line for ${np} players${nb?`, plus ${nb} ${nb===1?'book’s':'books’'} prices`:''}. ${mix}${freeTxt} Strong is +5% or more, Lean +2% to +5%.`;
   const head=`<div class="brw hdr" aria-hidden="true"><span>Player</span><span>Bet</span><span>Ours vs the line</span><span>Value</span></div>`;
@@ -2785,7 +2861,7 @@ function propSummary(r){
   return `<summary>
     <span class="pn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} · ${esc(dayOf(p))} ${qTag(p)}${wn&&b?` <span class="tag" title="${esc(wn[1])}">${wn[0]}</span>`:''}</small></span>
     <span class="pp"><span class="pill ${b?b.side:'dim'}">${b?esc(pBet(s,b.side,b.line)):`${esc(statLab(s))} ${ln(r.line)}`}</span><small${b?'':' title="Books balance this market with the price, not the line, so the line alone can’t be valued"'}>${b?`${odds(b.price)}${b.est?' est.':''} at ${esc(b.book)}${DRVN[propDriver(propParts(r))]?' · '+DRVN[propDriver(propParts(r))]:''}`:'needs your book’s price'}</small></span>
-    <span class="pq"><b>${vsTxt(r)}</b>${rangeBar(s,r.mu,r.line,r.bk?r.bk[1]:null)}${moveTxt(r.bk)}</span>
+    <span class="pq"><b>${vsTxt(r)}</b>${rangeBar(s,r.mu,r.line,r.bk?r.bk[1]:null,r.p.p)}${moveTxt(r.bk)}</span>
     <span class="ph">${l8(h)}<small>${hitTxt(h,b?b.side:'over')}</small></span>
     <span class="pv">${b?`<span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span><small title="Chance to win on ${blendName()}">${gradeOf(b.ev)} · ${pc(b.pW,0)} to win</small>`:r.po!=null?`<small>ours ${pc(r.po,0)} over</small>`:''}</span>
   </summary>`;
@@ -2881,11 +2957,11 @@ function pCard(p,sel){
   if(!(sel&&p.mu[sel]!=null))sel=stats.find(s=>PROWS.has(p._i+'|'+s))||stats[0];
   PSEL.set(p._i,sel);
   const u=p.u,R=s=>PROWS.get(p._i+'|'+s),r=R(sel),b=r&&r.best,s=sel,td=s==='anytd';
-  const line=r?r.line:null,mid=CNT(s)?null:pQ(s,p.mu[s],.5);
+  const line=r?r.line:null,mid=CNT(s)?null:pQ(s,p.mu[s],.5,p.p);
   const use=[u.snap!=null?`${pc(u.snap,0)} of snaps`:'',u.att>3?`${pv(u.att)} pass attempts`:'',u.car>=.5?`${pv(u.car)} carries (${pc(u.csn,0)})`:'',u.tgt>=.5?`${pv(u.tgt)} targets (${pc(u.tsn,0)})`:''].filter(Boolean);
   const rows=stats.map(t=>{const x=R(t),bb=x&&x.best,po=x?x.po:null,bk=(p.bk||{})[t];
     return `<tr class="${t===s?'sel':''}"><td class="nm"><button type="button" class="st" data-psel="${p._i}|${t}" aria-pressed="${t===s}">${esc(statLab(t))}</button>${x&&!x.ok?`<small>${whyNot(t)[0]}</small>`:''}</td>
-      <td class="num">${oursOf(t,p.mu[t])}${t!=='anytd'&&!CNT(t)?`<small>avg ${fv(t,p.mu[t])}</small>`:''}</td>
+      <td class="num">${oursOf(t,p.mu[t],p.p)}${t!=='anytd'&&!CNT(t)?`<small>avg ${fv(t,p.mu[t])}</small>`:''}</td>
       <td class="num">${x?(t==='anytd'?'Yes':ln(x.line)):'–'}${bk&&bk[1]!=null&&bk[1]!==bk[0]?`<small>opened ${ln(bk[1])}</small>`:''}</td>
       <td class="num">${po!=null?pc(po,0):'–'}</td>
       <td>${bb?`<span class="sd ${bb.side}">${t==='anytd'?(bb.side==='over'?'Yes':'No'):`<span class="sl">${bb.side==='over'?'Over':'Under'}</span><span class="ss">${bb.side==='over'?'O':'U'}</span>`}</span> ${odds(bb.price)}${bb.est?' <small>est.</small>':''}`:x?'<small>needs a price</small>':'–'}</td>
@@ -2900,12 +2976,12 @@ function pCard(p,sel){
   const hasLine=td||line!=null,many=G.length>12,seen=new Set();
   const skipped=[...(p.log||[]),...(p.h2h||[])].filter(x=>barely(p,x)&&!seen.has(x[0]+'|'+x[1])&&seen.add(x[0]+'|'+x[1])).sort((a,c)=>a[0]-c[0]||a[1]-c[1]);
   const research=sets.length?`<h3>${esc(statLab(s))} in his games</h3>${hitTable(p,s,td?null:line,side,sets,cur)}
-      <p class="fine muted">Choose a row to see those games below.${skipped.length?` Left out, because he barely played: ${skipped.slice(-3).reverse().map(x=>`${esc(gameTxt(x))} (${pc(x[14])} of snaps)`).join(', ')}${skipped.length>3?` and ${skipped.length-3} earlier ${skipped.length===4?'game':'games'}`:''}.`:''}</p>
+      <p class="fine muted">Choose a row to see those games below.${hitNote()?' '+hitNote():''}${skipped.length?` Left out, because he barely played: ${skipped.slice(-3).reverse().map(x=>`${esc(gameTxt(x))} (${pc(x[14])} of snaps)`).join(', ')}${skipped.length>3?` and ${skipped.length-3} earlier ${skipped.length===4?'game':'games'}`:''}.`:''}</p>
       ${sparkSVG(G,s,td?null:line,mid,cur.k==='opp')}
       ${hasLine?`<p class="fine muted"><span class="sw over"></span>${td?'scored':'over the line'} &nbsp; <span class="sw"></span>${td?'didn’t score':'under'}${many?' &nbsp; Hover or tap a bar for its number.':''}</p>`:''}
       ${usageHTML(p,G)}`:`<h3>${esc(statLab(s))} in his games</h3><p class="muted">No earlier games on record.</p>`;
   const books=r?r.offers.slice().sort((a,c)=>a[3]-c[3]||String(a[2]).localeCompare(c[2])).map(o=>{
-    const [,,bk,l,ov,un,pom,pum,pok,puk]=o,est=ov==null&&un==null,B=blend(pom,pum,pok,puk,s),po=est?PS.pa:ov,pu=est?PS.pa:un;
+    const [,,bk,l,ov,un,pom,pum,pok,puk]=o,est=ov==null&&un==null,B=blend(pom,pum,pok,puk,s,p),po=est?PS.pa:ov,pu=est?PS.pa:un;
     const eO=po!=null?B.o*(dec(po)-1)-B.u:null,eU=pu!=null?B.u*(dec(pu)-1)-B.o:null;
     return `<tr><td>${esc(bk)}</td><td>${td?'Yes':ln(l)}</td><td>${odds(po)}${est?' <small>est.</small>':''} ${eO!=null?`<small class="${eO>0?'pos':'muted'}">${sg(eO*100)}%</small>`:''}</td><td>${pu!=null?odds(pu):'–'} ${eU!=null?`<small class="${eU>0?'pos':'muted'}">${sg(eU*100)}%</small>`:''}</td></tr>`}).join(''):'';
   const calc=`<div class="calc" data-calc="${p._i}|${s}">${td?'<input type="hidden" data-cl="line" value="0.5">':`<label>Line<input type="number" step="0.5" data-cl="line" value="${line??''}"></label>`}<label>${td?'Yes price':'Over price'}<input type="text" data-cl="over" placeholder="${MINUS}115" inputmode="text"></label>${td?'':`<label>Under price<input type="text" data-cl="under" placeholder="${MINUS}115" inputmode="text"></label>`}<output>Type your book’s ${td?'price':'line and both prices'} for its value.</output></div>`;
@@ -2934,16 +3010,16 @@ function calcOut(box){
   const val=k=>{const e=box.querySelector(`[data-cl=${k}]`);return e?e.value:''};
   const L=s==='anytd'?.5:parseFloat(val('line')),a=parseOdds(val('over')),c=parseOdds(val('under')),out=box.querySelector('output');
   if(!isFinite(L)){out.textContent='Enter a line.';return}
-  const r=pOver(s,p.mu[s],L);if(!r){out.textContent='No projection.';return}
+  const r=pOver(s,p.mu[s],L,p.p);if(!r){out.textContent='No projection.';return}
   const fair=x=>x>0&&x<1?odds(Math.round(x>=.5?-100*x/(1-x):100*(1-x)/x)):'–',col=e=>`<b class="${e>0?'pos':'neg'}">${sg(e*100)}%</b>`;
   if(s==='anytd'){
     if(!isFinite(a)){out.textContent=`Ours: ${pc(r.o,1)} to score, a fair price of ${fair(r.o)}.`;return}
     const k=impl(a)/1.07,w=PS.w/100,pb=w*r.o+(1-w)*k,e=pb*(dec(a)-1)-(1-pb);
     out.innerHTML=`At ${odds(a)}: ${col(e)} (ours ${pc(r.o,1)}, the price’s ${pc(k,1)} after a typical 7% cut).`;return}
-  if(!isFinite(a)&&!isFinite(c)){const B=blend(r.o,r.u,null,null,s);out.textContent=`Ours alone: ${pc(r.o,1)} over. If the book prices both sides the same, ${blendName()} makes it ${pc(B.o,1)} over and ${pc(B.u,1)} under, fair at ${fair(B.o)} and ${fair(B.u)}. Add both prices for the value.`;return}
+  if(!isFinite(a)&&!isFinite(c)){const B=blend(r.o,r.u,null,null,s,p);out.textContent=`Ours alone: ${pc(r.o,1)} over. If the book prices both sides the same, ${blendName()} makes it ${pc(B.o,1)} over and ${pc(B.u,1)} under, fair at ${fair(B.o)} and ${fair(B.u)}. Add both prices for the value.`;return}
   if(!isFinite(a)||!isFinite(c)){out.textContent='Add the other side’s price too: the two prices together show where the book thinks he lands.';return}
   /* the book's own no-vig chance at this line, split around any push the way ours is */
-  const k=nv(a,c),np=r.o+r.u,B=blend(r.o,r.u,k*np,(1-k)*np,s),eO=B.o*(dec(a)-1)-B.u,eU=B.u*(dec(c)-1)-B.o;
+  const k=nvm(a,c),np=r.o+r.u,B=blend(r.o,r.u,k*np,(1-k)*np,s,p),eO=B.o*(dec(a)-1)-B.u,eU=B.u*(dec(c)-1)-B.o;
   out.innerHTML=`Over at ${odds(a)}: ${col(eO)}. Under at ${odds(c)}: ${col(eU)}. The book’s prices say ${pc(k,1)} over, ours alone ${pc(r.o,1)}, ${blendName()} ${pc(B.o,1)}.`;
 }
 
@@ -2951,7 +3027,7 @@ function calcOut(box){
 function playerRow(p,K){
   const stats=PORDER.filter(s=>p.mu[s]!=null&&(PS.mkt==='all'||PGROUP[s]===PS.mkt));
   const chips=stats.map(s=>{const r=PROWS.get(p._i+'|'+s),b=r&&r.best,val=b&&b.ev>0&&r.ok;
-    return `<span class="pchip${val?' v'+b.side[0]:''}"${val?` title="${esc(pBet(s,b.side,b.line))}: ${sg(b.ev*100)}%"`:''}><small>${PTINY[s]}</small><b>${oursOf(s,p.mu[s])}</b>${r&&s!=='anytd'?`<small>${ln(r.line)}</small>`:''}</span>`}).join('');
+    return `<span class="pchip${val?' v'+b.side[0]:''}"${val?` title="${esc(pBet(s,b.side,b.line))}: ${sg(b.ev*100)}%"`:''}><small>${PTINY[s]}</small><b>${oursOf(s,p.mu[s],p.p)}</b>${r&&s!=='anytd'?`<small>${ln(r.line)}</small>`:''}</span>`}).join('');
   const id='pl-'+p._i,open=K.has(id);
   return `<details class="prow pl" id="${id}"${open?' open':''}><summary><span class="pn"><b>${esc(p.n)}</b><small>${esc(p.p)} · ${esc(p.t)} ${esc(vsOf(p))} ${qTag(p)}</small></span><span class="pchips">${chips}</span></summary>${open?pCard(p):''}</details>`;
 }
@@ -2965,13 +3041,13 @@ function propMethod(){
     <div class="scroll"><table class="ptab"><thead><tr><th>Grade</th><th>Bets</th><th>Record</th><th>Units</th><th>Per bet</th></tr></thead><tbody>${['Strong','Lean','Thin','All'].filter(k=>G[k]).map(k=>{const o=G[k];return `<tr><td>${k==='All'?'<b>All</b>':k}</td><td>${o.n}</td><td>${o.w}–${o.l}${o.p?'–'+o.p:''}</td><td class="${o.u>=0?'pos':'neg'}">${sg(o.u)}</td><td>${sg(o.u/o.n*100)}%</td></tr>`}).join('')}</tbody></table></div>
     <details class="srcs"><summary>Last ${Math.min(25,R.length)} graded</summary><div class="scroll"><table class="ptab"><tbody>${R.slice(-25).reverse().map(x=>`<tr><td class="nm">${esc(x[1])} <small>${esc(x[2])}</small></td><td>${esc(pBet(x[3],x[4],x[5]))}</td><td>${odds(x[6])}${x[13]?' <small>est.</small>':''}</td><td>${x[11]??''}</td><td><span class="res ${x[10]}">${x[10]}</span></td></tr>`).join('')}</tbody></table></div></details>`:'';
   const rec=o=>o&&o.n?`${o.w}–${o.n-o.w}`:'–',per=o=>o&&o.n&&o.roi!=null?`<span class="${o.roi>=0?'pos':'neg'}">${sg(o.roi*100)}%</span>`:'–';
-  const lbH=lb?`<h2>Tested against real lines</h2><p class="note">Our projections for every game against the lines books actually posted, each season projected by a model fitted only on the seasons before it. A bet is the side with value on the blend (${Math.round(lb.w*100)}% ours, ${100-Math.round(lb.w*100)}% the market’s, ${+(lb.shift*100).toFixed(1)} points toward the under), 1 unit at the book’s price, or ${odds(lb.assumed)} where the feed has none.${lb.tune&&lb.tune.n?` The mix was picked on ${lb.tune.season} weeks 1–${lb.tune.weeks} (${lb.tune.n.toLocaleString()} props${Math.abs(lb.tune.w-lb.w)>.001||Math.abs(lb.tune.shift-lb.shift)>.0001?`; the best fit there is now ${Math.round(lb.tune.w*100)}% and ${+(lb.tune.shift*100).toFixed(1)} points`:''}); the season rows below start after that.`:''} Lines without prices are bet only in markets books price near even money.</p>
+  const lbH=lb?`<h2>Tested against real lines</h2><p class="note">Our projections for every game against the lines books actually posted, each season projected by a model fitted only on the seasons before it. A bet is the side with value on the blend (${Math.round(lb.w*100)}% ours, ${100-Math.round(lb.w*100)}% the market’s, ${+(lb.shift*100).toFixed(2)} points toward the under${lb.venue_shift?`, ${+(lb.venue_shift*100).toFixed(2)} more on the road and less at home`:''}${lb.wind_keep?', more for passing and receiving in 15+ mph wind':''}), 1 unit at the book’s price, or ${odds(lb.assumed)} where the feed has none.${lb.tune&&lb.tune.n?` The mix was picked on ${lb.tune.season} weeks 1–${lb.tune.weeks} (${lb.tune.n.toLocaleString()} props${Math.abs(lb.tune.w-lb.w)>.001||Math.abs(lb.tune.shift-lb.shift)>.0001?`; the best fit there is now ${Math.round(lb.tune.w*100)}% and ${+(lb.tune.shift*100).toFixed(2)} points`:''}); the season rows below start after that.`:''} Lines without prices are bet only in markets books price near even money.</p>
     <div class="scroll"><table class="ptab"><thead><tr><th>Season</th><th>Props</th><th>Went over</th><th>Bets</th><th>Record</th><th>Per bet</th><th>Strong</th><th>Lean</th><th>Thin</th></tr></thead><tbody>${(lb.seasons||[]).map(x=>`<tr><td class="nm">${x.season} · ${esc(x.book)}${x.tested_from>1?` <small>weeks ${x.tested_from} on</small>`:''}${x.priced?'':` <small>no prices: ${odds(lb.assumed)}</small>`}</td><td>${x.props.toLocaleString()}</td><td>${pc(x.over_rate,1)}${x.market_over!=null?`<small>priced ${pc(x.market_over,1)}</small>`:''}</td><td>${x.tested.n}</td><td>${rec(x.tested)}</td><td>${per(x.tested)}</td>${['Strong','Lean','Thin'].map(g=>`<td>${per((x.grades||{})[g])}<small>${((x.grades||{})[g]||{}).n||0} bets</small></td>`).join('')}</tr>`).join('')}</tbody></table></div>
     <details class="srcs"><summary>By market (every bet, including the weeks the mix was picked on)</summary><div class="scroll"><table class="ptab"><thead><tr><th>Market</th><th>Bets</th><th>Record</th><th>Per bet</th><th>Priced near even</th><th>Best bets</th></tr></thead><tbody>${PORDER.filter(s=>(lb.markets||{})[s]).map(s=>{const o=lb.markets[s],ev=(lb.even||{})[s];return `<tr><td class="nm">${esc(statLab(s))}</td><td>${o.n}</td><td>${rec(o)}</td><td>${per(o)}</td><td>${ev!=null?pc(ev,0)+' of lines':'–'}</td><td>${(lb.ok||[]).includes(s)?'Yes':`<span class="neg">No: ${whyNot(s)[0]}</span>`}</td></tr>`}).join('')}</tbody></table></div><p class="fine muted">Priced near even: the share of priced lines within 4 points of 50-50. Below 85%, a line without prices can’t be valued.</p></details>`:'';
   const rows=PORDER.filter(s=>S2[s]).map(s=>{const x=S2[s],c=x.calib;return `<tr><td>${esc(statLab(s))}</td><td>${x.n.toLocaleString()}</td><td>${x.mae}</td><td>${x.mae_avg}</td><td>${x.r.toFixed(2)}</td><td>${x.r_avg.toFixed(2)}</td><td>${c.map(q=>`${Math.round(q[0]*100)}→${Math.round(q[1]*100)}`).join(' · ')}</td></tr>`}).join('');
   el.innerHTML=recH+lbH+`<h2>How the props work</h2>
-  <p class="note"><b>Volume.</b> Each team’s pass attempts, targets and carries come from its recent volume, what its opponent allows, and the market’s spread and total (teams that trail throw more). <b>Usage.</b> Each player’s share of targets, carries and (starting quarterbacks) attempts, recent games weighted most. When a teammate is ruled out, his share is spread over the players left, in proportion to their roles. A quarterback is the one ${esc(PBOOK)} posts passing lines for when that differs from the listed starter. <b>Efficiency.</b> Catch rate, yards per target and per carry, completion rate, yards per attempt and touchdown and interception rates, shrunk toward the position average by how much evidence a player has, then scaled by what the opponent allows to that position. <b>Calibration.</b> A regression per stat, fitted on every game since 2019, corrects the raw number for the team’s implied points, wind of 15+ mph and home field. <b>Spread.</b> The chance of going over comes from how far those games landed from projections like this one (touchdowns use a Poisson-type count), which also gives our median and the range bars.</p>
-  <p class="note"><b>Lines.</b> The ${esc(PBOOK)} line for every player comes free through ESPN with the line it opened at; The Odds API adds every book’s prices when your plan has the credits. <b>Value.</b> Each line is valued at Model weight of our chance and the rest the market’s: its no-vig chance from the prices, or 50-50 at a line without them, less ${+(PSH*100).toFixed(1)} points from the over${(()=>{const x=lb&&(lb.seasons||[]).find(y=>y.priced&&y.market_over!=null&&y.over_priced!=null);return x?` (in ${x.season} overs hit ${pc(x.over_priced,1)} of the time when their prices implied ${pc(x.market_over,1)})`:''})()}. A line without a price is valued at the assumed price, and only in markets books price near even money (yardage); receptions, attempts, touchdowns and interceptions are balanced by the price, so they need one.</p>
+  <p class="note"><b>Volume.</b> Each team’s pass attempts, targets and carries come from its recent volume, what its opponent allows, and the market’s spread and total (teams that trail throw more). <b>Usage.</b> Each player’s share of targets, carries and (starting quarterbacks) attempts, recent games weighted most. When a teammate is ruled out, his share is spread over the players left, in proportion to their roles. A quarterback is the one ${esc(PBOOK)} posts passing lines for when that differs from the listed starter, and his carries come from the games he played most of, not from snaps he took as a backup (with few such games, shrunk toward the usual starter’s share). <b>Efficiency.</b> Catch rate, yards per target and per carry, completion rate, yards per attempt and touchdown and interception rates, shrunk toward the position average by how much evidence a player has, then scaled by what the opponent allows to that position. <b>Calibration.</b> A regression per stat, fitted on every game since 2019, corrects the raw number for the team’s implied points, wind of 15+ mph and home field. <b>Spread.</b> The chance of going over comes from how far those games landed from projections like this one, for players at his position (touchdowns use a Poisson-type count), which also gives our median and the range bars. Position matters: a quarterback projected for 18 rushing yards gets near it most weeks, a backup running back projected for 18 often gets none.</p>
+  <p class="note"><b>Lines.</b> The ${esc(PBOOK)} line for every player comes free through ESPN with the line it opened at; The Odds API adds every book’s prices when your plan has the credits. <b>Value.</b> Each line is valued at Model weight of our chance and the rest the market’s: its no-vig chance from the prices, or 50-50 at a line without them, less ${+(PSH*100).toFixed(2)} points from the over${(()=>{const x=lb&&(lb.seasons||[]).find(y=>y.priced&&y.market_over!=null&&y.over_priced!=null);return x?` (in ${x.season} overs hit ${pc(x.over_priced,1)} of the time when their prices implied ${pc(x.market_over,1)})`:''})()}.${PVEN?` <b>Home and away.</b> The lean is ${+(PVEN*100).toFixed(1)} point bigger for a visiting player and ${+(PVEN*100).toFixed(1)} smaller for a home player in the attempts, completions, catches, carries and yardage markets: ${venTxt()}.`:venGap()?` <b>Home and away.</b> ${venGap()} Counting that gap was tested: it added bets on visiting players that only broke even in the weeks held back from tuning, so it is watched here and not counted.`:''}${PWK?` <b>Wind.</b> In wind of 15+ mph outdoors, passing and receiving lines lean further under, by ${PWK===.5?'half':pc(PWK,0)} of what our own wind adjustment takes off them: ${windTxt()}. The build sees a forecast, not the wind at kickoff, hence only part of it.`:''}${PR.near?` <b>Which books count.</b> With several books, the market’s chance at a line is the middle of what the books say that hang that line or one close to it. A book whose line is far off (${+(PR.near*100).toFixed(0)}% or more of the outcomes fall between the two, like 0.5 and 1.5 catches) is not read across the gap: that reading leans on our own spread of outcomes, and at the lowest lines it made unders look about four points better than any book at that line priced them.`:''} A line without a price is valued at the assumed price, and only in markets books price near even money (yardage); receptions, attempts, touchdowns and interceptions are balanced by the price, so they need one.${hitNote()?` <b>Hit rates.</b> ${hitNote()} The price already accounts for his recent games.`:''}</p>
   ${bt?`<details class="srcs"><summary>Projection accuracy (fitted ${bt.train}, scored on every player-game ${bt.test})</summary><p class="note">Average miss against the player’s own recent average, and calibration: our over chance at a line set on that average, by fifth, and how often it went over.</p>
   <div class="scroll"><table class="ptab"><thead><tr><th>Stat</th><th>Games</th><th>Our miss</th><th>Avg miss</th><th>Our corr.</th><th>Avg corr.</th><th>Over chance → went over (%)</th></tr></thead><tbody>${rows}</tbody></table></div></details>`:''}
   ${PR.unbooked&&PR.unbooked.length?`<p class="fine muted">${esc(PBOOK)} has lines for players we don’t project (backups, players ruled out, no recent snaps): ${PR.unbooked.slice(0,12).map(esc).join(', ')}${PR.unbooked.length>12?'…':''}.</p>`:''}
@@ -2993,7 +3069,7 @@ function renderProps(){
   if(!PR){el.innerHTML='';$('#pnote').textContent='';return}
   const K=new Set([...document.querySelectorAll('#plist details[open]')].map(d=>d.id));
   if(PS.show==='players'){
-    const PO={QB:0,RB:1,WR:2,TE:3},key=p=>{const s=PORDER.find(t=>p.mu[t]!=null&&t!=='anytd');return s?(CNT(s)?p.mu[s]:pQ(s,p.mu[s],.5))||0:0};
+    const PO={QB:0,RB:1,WR:2,TE:3},key=p=>{const s=PORDER.find(t=>p.mu[t]!=null&&t!=='anytd');return s?(CNT(s)?p.mu[s]:pQ(s,p.mu[s],.5,p.p))||0:0};
     const L=PR.players.filter(p=>!p._gone&&Object.keys(p.mu).some(s=>pPass(p,s))).sort((a,b)=>koOf(a).localeCompare(koOf(b))||a.g.localeCompare(b.g)||(PO[a.p]-PO[b.p])||(key(b)-key(a)));
     let last='',html='';
     for(const p of L.slice(0,Math.max(PSHOW,120))){if(p.g!==last){last=p.g;const g=PGAME(p.g);html+=`<div class="pgh">${g?`${esc(g.away)} @ ${esc(g.home)} · ${esc(g.day)} ${esc(g.ct)}`:esc(p.g)}</div>`}html+=playerRow(p,K)}
