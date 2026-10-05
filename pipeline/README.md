@@ -49,7 +49,8 @@ volume (the spread and total), his share of targets, carries and attempts (re-sp
 efficiency shrunk toward the position average and scaled by the opponent, calibrated on 2019-2023. The starting
 quarterback is the one DraftKings posts passing lines for when that differs from nflverse's listed starter, and his
 carries come from the games he played more than half the snaps in (shrunk toward the usual starter's share while he
-has had few), not from an average that counts his snaps as a backup. The chance of going over a line comes from how
+has had few, and with our number counting for that much less on his rushing props), not from an average that counts
+his snaps as a backup. The chance of going over a line comes from how
 outcomes spread around projections like this one for players at his position: a position with 2,000 or more
 player-games has its own table, because a quarterback projected for 18 rushing yards and a backup running back
 projected for 18 land in very different places. Each line is valued at 17% our over chance and 83% the market's

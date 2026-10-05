@@ -78,6 +78,16 @@ PRIOR_SHARE = {"tgt": {"QB": 0.0, "RB": 0.05, "WR": 0.07, "TE": 0.05}, "car": {"
 # come out level with the projection (3.87 a game against 3.88) where it used to project 2.28.
 QB_GAME = 0.5
 QB_CAR_K = 1.5
+
+
+def qb_rush_weight(pos, starter, starts):
+    """How much of W_MODEL our number keeps on a starting quarterback's rushing props: the part of his projected carries
+    that comes from his own starts, starts / (starts + QB_CAR_K). The rest is the usual starter's share, which says
+    nothing against a line the book set for this quarterback: it knows whether he runs by design, and after one start
+    we do not. 0.4 after one start, 0.87 after ten. 1 for everyone and everything else."""
+    if pos != "QB" or starter != 1 or starts is None or not np.isfinite(starts):
+        return 1.0
+    return float(starts / (starts + QB_CAR_K))
 NB = 8  # projection-level bins for the outcome distributions
 # The spread of outcomes around a projection depends on who the player is. A quarterback projected for 18 rushing
 # yards gets near it most weeks; a backup running back projected for 18 gets nothing in a fifth of his games and
@@ -959,6 +969,9 @@ def build_week(paths, plan_games, espn_inj, props_events, season, week, w_model=
             rec["bk"] = bk
         if lean:
             rec["ln"] = lean
+        f = qb_rush_weight(r.pos, getattr(r, "starter", 0), getattr(r, "n_car_q", None))
+        if f < 0.995:  # the share of the model weight his rushing props keep (qb_rush_weight)
+            rec["wf"] = {s: _r(f, 3) for s in ("rush_att", "rush_yds") if s in mu}
         if h2h:
             rec["h2h"] = h2h
         was = (qsrc.get((r.game_id, r.team)) or {}).get("was")
@@ -1093,7 +1106,8 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
                 rows.append({"season": season, "week": int(x.week), "g": gid, "s": s, "pos": x.pos, "line": line,
                              "ov": np.nan if ov is None else float(ov), "un": np.nan if un is None else float(un), "pm": pm, "pk": pk,
                              "over": int(x["y_" + s] > line), "role": x.role, "ven": float(x.ven) if np.isfinite(x.ven) else 0.0,
-                             "windy": int(windy), "lean": lv + lw, "h10": h10})
+                             "windy": int(windy), "lean": lv + lw, "h10": h10,
+                             "wf": qb_rush_weight(x.pos, x.starter, x.n_car_q) if s in ("rush_att", "rush_yds") else 1.0})
     D = pd.DataFrame(rows)
     if D.empty:
         return None
@@ -1110,7 +1124,8 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
         first = priced[(priced.season == priced.season.min()) & (priced.week <= tune_weeks)]
         if len(first):
             # the weight and the base lean with the best log loss, the venue and wind leans as the page counts them
-            grid = [(a, b, ll(first, a * first.pm + (1 - a) * first.pk - b - first.lean)) for a in np.arange(0, 0.405, 0.01) for b in np.arange(0, 0.0601, 0.0025)]
+            grid = [(a, b, ll(first, a * first.wf * first.pm + (1 - a * first.wf) * first.pk - b - first.lean))
+                    for a in np.arange(0, 0.405, 0.01) for b in np.arange(0, 0.0601, 0.0025)]
             a, b, l = min(grid, key=lambda z: z[2])
             tune = {"season": int(first.season.min()), "weeks": tune_weeks, "n": int(len(first)), "w": round(float(a), 2), "shift": round(float(b), 4),
                     "ll": round(l, 5), "ll_market": round(ll(first, first.pk), 5),
@@ -1122,7 +1137,8 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
             continue
         pk = x.pk if has else 0.5
         po, pu = (float(x.ov), float(x.un)) if has else (assumed, assumed)
-        pb = w * x.pm + (1 - w) * pk - shift - x.lean
+        ww = w * x.wf
+        pb = ww * x.pm + (1 - ww) * pk - shift - x.lean
         eo, eu = pb * (dec(po) - 1) - (1 - pb), (1 - pb) * (dec(pu) - 1) - pb
         if max(eo, eu) <= 0:
             continue
@@ -1151,7 +1167,7 @@ def line_backtest(paths, hist, w=W_MODEL, shift=UNDER_SHIFT, assumed=ASSUMED, tu
                                "over_rate": round(float(d.over.mean()), 3),
                                "over_priced": round(float(pr.over.mean()), 3) if len(pr) else None,
                                "market_over": round(float(pr.pk.mean()), 3) if len(pr) else None,
-                               "ll_market": round(ll(d, d.pk.fillna(0.5)), 5), "ll_blend": round(ll(d, w * d.pm + (1 - w) * d.pk.fillna(0.5) - shift - d.lean), 5),
+                               "ll_market": round(ll(d, d.pk.fillna(0.5)), 5), "ll_blend": round(ll(d, w * d.wf * d.pm + (1 - w * d.wf) * d.pk.fillna(0.5) - shift - d.lean), 5),
                                "ll_flat": round(ll(d, w * d.pm + (1 - w) * d.pk.fillna(0.5) - shift), 5),
                                "bets": agg(b), "tested": agg(oos), "tested_from": tune_weeks + 1 if tune and season == tune["season"] else 1,
                                "grades": {g: agg(oos[oos.ev.map(grade) == g]) for g in ("Strong", "Lean", "Thin")},

@@ -2646,7 +2646,10 @@ function pOver(s,mu,L,pos){
 function pQ(s,mu,q,pos){if(!(mu>0)||CNT(s)||!spOf(s,pos))return null;const sp=spOf(s,pos);let i=0;while(i<sp.edges.length&&mu>sp.edges[i])i++;
   const z=sp.q[i],k=q*(z.length-1),a=Math.floor(k),b=Math.min(z.length-1,a+1);return mu*(z[a]+(z[b]-z[a])*(k-a))}
 /* the tested chance of each side: PS.w of ours, the rest the market's (its 50-50 point at a line without prices), less the under lean */
-function blend(pm,pu,km,ku,s,p){const w=PS.w/100,sh=shOf(s,p);if(km==null||ku==null){const h=(pm+pu)/2;km=h;ku=h}
+/* the share of the model weight a prop keeps: under 1 only for a starting quarterback's rushing props while his carries
+   rest on few starts (p.wf, from the build: starts / (starts + 1.5)) */
+const wfOf=(p,s)=>p&&p.wf&&p.wf[s]!=null?p.wf[s]:1;
+function blend(pm,pu,km,ku,s,p){const w=PS.w/100*wfOf(p,s),sh=shOf(s,p);if(km==null||ku==null){const h=(pm+pu)/2;km=h;ku=h}
   const cl=x=>Math.min(1,Math.max(0,x));return{o:cl(w*pm+(1-w)*km-sh),u:cl(w*pu+(1-w)*ku+sh)}}
 const oursOf=(s,mu,pos)=>s==='anytd'?pc(1-Math.exp(-mu)):fv(s,CNT(s)?mu:pQ(s,mu,.5,pos));
 
@@ -2802,7 +2805,7 @@ function propPartsHTML(r){
     ${P.base?row('Lean to the under',P.base,ps?`in ${ps.season}, overs hit ${pc(ps.over_priced,1)} when priced at ${pc(ps.market_over,1)}`:'unders beat their prices in testing'):''}
     ${P.venue?row(P.lv>0?'On the road':'At home',P.venue,`${venTxt()}; half of that gap is counted`):''}
     ${P.wind?row('Wind',P.wind,`15+ mph is forecast; ${windTxt()}. ${PWK===.5?'Half':pc(PWK,0)} of our own wind adjustment is counted`):''}
-    ${row('Our projection',P.model,`counted at ${PS.w}%; on its own it says ${pc(P.mW,1)} ${dirOf(r.s,b.side)}`)}
+    ${row('Our projection',P.model,`counted at ${+(PS.w*wfOf(r.p,r.s)).toFixed(1)}%${wfOf(r.p,r.s)<1?` (${PS.w}% less the part of his carries that is the usual starter’s share, not his own starts)`:''}; on its own it says ${pc(P.mW,1)} ${dirOf(r.s,b.side)}`)}
     <tr class="tot"><td class="nm">Value<small>${pc(b.pW,1)} to win on ${blendName()}</small></td><td class="num"><span class="ev ${evCls(b.ev)}">${sg(b.ev*100)}%</span></td></tr></tbody></table>`;
 }
 /* what could undo the bet: his status, his role, a line no one else has, a move since the open, his recent games */
@@ -2813,7 +2816,8 @@ function propWatch(p,s,r){
      so a jump in his snaps is not a lag in the projection; what matters is how few starts it rests on */
   const qbS=p.p==='QB'&&u.qg!=null,rc=qbS?null:roleOf(p),rr=rc&&LBT&&LBT.roles&&LBT.roles[rc.up?'up':'down'];
   const qbNew=qbS&&u.qg<4&&(s==='rush_att'||s==='rush_yds'||s==='anytd');
-  if(qbNew)L.push(u.qg?`Only ${u.qg} earlier ${u.qg===1?'start':'starts'} on record. His carries are shrunk toward the usual starting quarterback’s share, which undersells a quarterback who runs by design; the books’ line knows which kind he is.`:`No earlier start on record, so his carries are the usual starting quarterback’s share. The books’ line knows whether he runs.`);
+  if(qbNew){const wq=wfOf(p,s)<1&&s!=='anytd'?`, so our number counts for ${+(PS.w*wfOf(p,s)).toFixed(1)}% here instead of ${PS.w}%`:'';
+    L.push(u.qg?`Only ${u.qg} earlier ${u.qg===1?'start':'starts'} on record. His carries lean on the usual starting quarterback’s share, which undersells a quarterback who runs by design. The book’s line knows which kind he is${wq}.`:`No earlier start on record, so his carries are the usual starting quarterback’s share. The book’s line knows whether he runs${wq}.`)}
   if(rc)L.push(`His snaps ${rc.up?'jumped':'fell'} to ${pc(rc.last,0)} last game, against ${pc(rc.avg,0)} in the games the projection weighs. It follows role changes slowly${rr&&rr.n>=50&&rr.roi!=null?`; in testing, bets on players in this spot ${rr.roi>=0?'still came out ahead':'lost'} (${sg(rr.roi*100)}% per bet on ${rr.n})`:''}.`);
   if(b&&P&&s!=='anytd'&&P.nB>=3&&P.nAt===1)L.push(`Only ${esc(b.book)} has ${ln(b.line)}. A line no other book offers can move or be limited before you get there.`);
   if(b&&P&&P.wind>0)L.push(`Part of this value (${sg(P.wind*100)}%) rests on the forecast of 15+ mph wind at kickoff. Check it again before you bet: if the wind drops, so does that part.`);
