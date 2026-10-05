@@ -1813,7 +1813,7 @@
    "summary": "No surprises on the inactive lists. The Giants (2-1) have LT Andrew Thomas, CB Deonte Banks and S Tyler Nubin all active; Jameis Winston starts again for Jaxson Dart, and edge Brian Burns is lost to a torn ACL. Arizona (1-2) starts Jacoby Brissett, has edge Josh Sweat active and sits S Dadrion Taylor-Demerson. A Giants win earns at least a share of first in the NFC East."
   },
   "nfl_2026_04_ATL_NO": {
-   "at": "2026-10-04T23:04:18Z",
+   "at": "2026-10-05T16:06:21Z",
    "game": "ATL @ NO",
    "items": [
     {
@@ -1866,7 +1866,7 @@
      "impact": -0.6,
      "src": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/",
      "team": "NO",
-     "text": "LB Kaden Elliss (calf), DE Carl Granderson (ankle) and edge Anfernee Jennings (knee) ruled out; LB Pete Werner (shoulder) questionable",
+     "text": "LB Kaden Elliss (calf), DE Carl Granderson (ankle), edge Anfernee Jennings (knee) out; LB Pete Werner (shoulder) still questionable on game day",
      "total": 0.3,
      "type": "injury"
     },
@@ -1928,6 +1928,14 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Saints vs. Falcons: Injuries, Key Stats and Players to Watch on Monday Night Football (SI)",
+     "u": "https://www.si.com/nfl/saints/onsi/saints-vs-falcons-injuries-key-stats-and-players-to-watch-on-monday-night-football-01m452jsjqr3"
+    },
+    {
+     "t": "Falcons vs Saints Odds: Spread, Picks, and More for Monday Night Football (Bleacher Nation)",
+     "u": "https://bleachernation.com/betting/2026/10/05/falcons-vs-saints-odds"
+    },
+    {
      "t": "Falcons list 3 players questionable for Monday Night Football bout at Saints (AJC)",
      "u": "https://www.ajc.com/sports/2026/10/falcons-saints-monday-night-football-injury-repotr/"
     },
@@ -1988,7 +1996,7 @@
      "u": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/"
     }
    ],
-   "summary": "Two 1-2 NFC South rivals meet Monday night. New Orleans ruled out three defensive starters, LB Kaden Elliss and edges Carl Granderson and Anfernee Jennings, and lists LB Pete Werner and TE Noah Fant as questionable; RB Travis Etienne Jr. is on IR. Atlanta, which routed Green Bay in Michael Penix Jr.'s first start back, has no one ruled out, though CB1 A.J. Terrell is on IR."
+   "summary": "Two 1-2 NFC South rivals meet Monday night. New Orleans is without three defensive starters, LB Kaden Elliss and edges Carl Granderson and Anfernee Jennings, with LB Pete Werner and TE Noah Fant game-time calls; RB Travis Etienne Jr. is on IR. Atlanta, fresh off routing Green Bay in Michael Penix Jr.'s return, has no one ruled out. Inactives are due about 90 minutes before kickoff."
   },
   "nfl_2026_04_DAL_HOU": {
    "at": "2026-10-04T15:56:57Z",
@@ -4505,11 +4513,139 @@
     }
    ],
    "summary": "Winless Tennessee (0-3, 37 points in three games) visits Baltimore (2-1) with Cam Ward still starting. Inactives brought no surprises: Ravens edge Trey Hendrickson is out after a finger procedure, while Lamar Jackson, LT Ronnie Stanley and WR Zay Flowers are all active. Both Baltimore centers remain out. Tennessee's scratches are depth players."
+  },
+  "nfl_2026_05_TB_DAL": {
+   "at": "2026-10-05T16:06:21Z",
+   "game": "TB @ DAL",
+   "items": [
+    {
+     "at": "2026-09-28T12:00:00Z",
+     "impact": -3.5,
+     "src": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels",
+     "team": "TB",
+     "text": "QB Baker Mayfield (dislocated right thumb) out until at least Week 7; undrafted rookie Jalon Daniels starts again. Mayfield played 3 of the Bucs' 4 games.",
+     "total": -1.5,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nfl/tampa-bay-buccaneers/buccaneers-news-jalon-daniels-cowboys-packers-debacle",
+     "team": "TB",
+     "text": "Daniels went 19/27 for 148 yds, 1 TD, 2 INT plus 55 rush yds in a 17-14 loss to Green Bay; Bowles confirmed he stays the starter. Easton Stick is the fallback.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/betting/buccaneers-vs-cowboys-prediction-odds-spread-injuries-trends-for-nfl-week-5-2026",
+     "team": "TB",
+     "text": "OLB Rueben Bain Jr. (groin/shoulder) and LB SirVocea Dennis (calf) are listed as questionable; Bain did not practice last week.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.footballnationusa.com/post/buccaneers-at-cowboys-preview-dallas-pressure-tests-jalon-daniels",
+     "team": "TB",
+     "text": "WR Jalen McMillan (knee) is expected to miss 6-8 weeks.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/next-game-tampa-bay-buccaneers-vs-dallas-cowboys-nfl-season-week-5-2026",
+     "team": "TB",
+     "text": "Bucs are 0-4 and seeking a first win; defense has held three straight opponents under 300 yards and forced two takeaways vs Green Bay.",
+     "total": 0,
+     "type": "motivation"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://clutchpoints.com/nfl/dallas-cowboys/cowboys-news-tyler-smith-demarvion-overshown-positive-injury-updates-week-5",
+     "team": "DAL",
+     "text": "All-Pro G Tyler Smith (thumb surgery, on IR all season) is 'trending positively' to return; status expected to be clearer Tuesday. T.J. Bass has filled in.",
+     "total": 0.1,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://clutchpoints.com/nfl/dallas-cowboys/cowboys-news-tyler-smith-demarvion-overshown-positive-injury-updates-week-5",
+     "team": "DAL",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) is also 'trending positively' for Thursday, per Schottenheimer.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans",
+     "team": "DAL",
+     "text": "CB Joey Porter Jr., acquired from Pittsburgh before Week 4, played 24 snaps in his debut and should see a larger role.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/betting/buccaneers-vs-cowboys-prediction-odds-spread-injuries-trends-for-nfl-week-5-2026",
+     "team": "DAL",
+     "text": "S Jalen Thompson (hamstring) and DL Jonathan Bullard are on IR; CB Cobie Durant is questionable. S Malik Hooker returned in Week 4 (7 tackles, 2 PBU).",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans",
+     "team": "DAL",
+     "text": "Dak Prescott threw for 355 yds and CeeDee Lamb caught 17 for 189 in a 34-30 comeback at Houston; Dallas has allowed 20+ points in every game.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Buccaneers vs. Cowboys Prediction, Odds, Spread, Injuries, Trends for NFL Week 5 (SI)",
+     "u": "https://www.si.com/betting/buccaneers-vs-cowboys-prediction-odds-spread-injuries-trends-for-nfl-week-5-2026"
+    },
+    {
+     "t": "Next Up: Bucs Face Cowboys in Dallas on TNF (Buccaneers.com)",
+     "u": "https://www.buccaneers.com/news/next-game-tampa-bay-buccaneers-vs-dallas-cowboys-nfl-season-week-5-2026"
+    },
+    {
+     "t": "Buccaneers QB Baker Mayfield out at least 3 weeks with thumb injury; rookie Jalon Daniels to start (NFL.com)",
+     "u": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels"
+    },
+    {
+     "t": "Cowboys stars Tyler Smith, DeMarvion Overshown get positive injury updates for Week 5 (ClutchPoints)",
+     "u": "https://clutchpoints.com/nfl/dallas-cowboys/cowboys-news-tyler-smith-demarvion-overshown-positive-injury-updates-week-5"
+    },
+    {
+     "t": "Pic 6: News and notes from Cowboys' Week 4 win over Texans (DallasCowboys.com)",
+     "u": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans"
+    },
+    {
+     "t": "Buccaneers at Cowboys Preview and Prediction Week 5 2026 (Football Nation)",
+     "u": "https://www.footballnationusa.com/post/buccaneers-at-cowboys-preview-dallas-pressure-tests-jalon-daniels"
+    },
+    {
+     "t": "Buccaneers news: Will Jalon Daniels start again vs. Cowboys on TNF? (ClutchPoints)",
+     "u": "https://clutchpoints.com/nfl/tampa-bay-buccaneers/buccaneers-news-jalon-daniels-cowboys-packers-debacle"
+    }
+   ],
+   "summary": "Winless Tampa Bay (0-4) goes to Dallas on a short week with undrafted rookie Jalon Daniels making his second start; Baker Mayfield (dislocated right thumb) is out until at least Week 7. Dallas (2-2) rallied past Houston 34-30 behind Dak Prescott's 355 yards, and All-Pro guard Tyler Smith and LB DeMarvion Overshown are trending toward returning."
   }
  },
  "meta": {
-  "at": "2026-10-04T23:04:18Z",
+  "at": "2026-10-05T16:06:21Z",
   "games": 2,
-  "note": "SNF inactives: Panthers WR Jalen Coker and DT Cam Jackson out, RT Freeling cleared; Lions CB D.J. Reed active. No change for ATL @ NO."
+  "note": "New: TB @ DAL (Mayfield out, rookie Daniels starts; Tyler Smith, Overshown trending to return). ATL @ NO unchanged, Werner and Fant still questionable."
  }
 }
