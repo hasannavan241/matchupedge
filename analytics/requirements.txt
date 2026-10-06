@@ -1,0 +1,6 @@
+# The versions the model and the page check were last run with. Pinned so a new release can't change a refresh.
+pandas==3.0.5
+numpy==2.5.3
+scipy==1.18.1
+pyarrow==25.0.1
+playwright==1.56.0

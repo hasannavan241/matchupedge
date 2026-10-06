@@ -6,9 +6,12 @@
     python3 build.py all      both
 
 Inputs, all optional beyond the nflverse files nfl_data.py fetches:
-    AN_LIVE   live.json   {"ts", "nflInj": [[espn id, name, team, status, detail]...], "wx": {game id: [wind mph, temp F, rain %, text]}}
-    AN_NEWS   news.json   the researched news, {"meta", "docs"}
-    ME_NOW                an ISO time to build as of (tests)
+    AN_LIVE   live.json            what live.py wrote: {"nflInj": [[espn id, name, team, status, detail]...], "injAt", "wx": {game id: [wind mph, temp F, rain %, text]}}
+    AN_NEWS   ../data/news.json    the researched news, {"meta", "docs"}
+    AN_PICKS  ../data/an_picks.json   the picks saved before kickoff, graded (record.py)
+    ME_NOW                         an ISO time to build as of (tests)
+
+run.py does a whole refresh: download, live.py, a refit when results are in, this build, check.py and the record.
 """
 import datetime as dt, json, math, os, re, sys
 import numpy as np
@@ -19,6 +22,7 @@ import nfl_data as nd
 import nfl_model as nm
 import nfl_players as npl
 import nfl_stats as ns
+import record as rc
 
 OUT = os.path.join(nd.HERE, "out")
 NOW = pd.Timestamp(os.environ["ME_NOW"]) if os.environ.get("ME_NOW") else pd.Timestamp.now(tz="UTC")
@@ -252,12 +256,15 @@ def build_data():
             x["d_" + k] = outs["a"][1][k] - outs["h"][1][k]
         doc = docs.get("nfl_" + g["id"])
         x["news"] = news_points(doc, g["home"]) - news_points(doc, g["away"])
+        # the page adds the factors up itself from these numbers (its sliders), so the pick is taken from the same rounded
+        # values: the page, this build and the saved record can never disagree about which side a close game falls on
+        x = {k: r_(v, 4) for k, v in x.items()}
         margin = sum(C[c] * x[c] for c in nm.M_FEATS) + x["news"]
         total = sum(CT[c] * x[c] for c in nm.T_FEATS)
         w = wx.get(g["id"])
         meet = G[(G.gameday < row.gameday) & (G.gameday >= row.gameday - pd.Timedelta(days=6 * 365)) & G.home_score.notna()
                  & (((G.home == g["home"]) & (G.away == g["away"])) | ((G.home == g["away"]) & (G.away == g["home"])))].tail(5)
-        games.append({**g, "x": {k: r_(v, 4) for k, v in x.items()}, "m": r_(margin, 2), "t": r_(total, 2),
+        games.append({**g, "x": x, "m": r_(margin, 2), "t": r_(total, 2), "pick": g["home"] if margin >= 0 else g["away"],
                       "rate": {"mu": r_(row.mu, 2), "o": [r_(row.o_a, 2), r_(row.o_h, 2)], "d": [r_(row.d_a, 2), r_(row.d_h, 2)]},
                       "qb": [sides["a"], sides["h"]], "outs": [outs["a"][0], outs["h"][0]],
                       "form": [r_(row.form_a, 2), r_(row.form_h, 2)], "l5": [row.l5_a, row.l5_h], "rec": [row.rec_a, row.rec_h],
@@ -357,8 +364,10 @@ def build_data():
         b = b[b.season == b.season.max()]
         record["test_season"] = int(b.season.max())
         record["test"] = [[int(x.week), x.away, x.home, r_(x.pred, 1), r_(float(norm.cdf(abs(x.pred) / x.sd)), 3), int(x.result), int((x.pred > 0) == (x.result > 0))] for x in b.itertuples()]
-    picks = load_json("AN_PICKS", os.path.join("..", "data", "an_picks.json")) or {}
-    record["live"] = [v for v in picks.get("games", {}).values() if v.get("res") is not None]
+    # the picks the site saved before kickoff, graded (record.py): what the page calls its own record
+    picks = rc.load()
+    record["live"] = rc.rows(picks, NOW.to_pydatetime())
+    record["since"] = min((p["at"] for p in picks["games"].values() if p.get("at")), default=None)
 
     ctnow = NOW.tz_convert("America/Chicago")
     test = model["test"]
@@ -367,7 +376,7 @@ def build_data():
             "made": model["made"], "test": {k: test[k] for k in ("first", "last", "last_week", "all", "calibration", "baselines", "without", "extra", "total", "size", "alt") if k in test},
             "by_season": test["by_season"], "players_test": model.get("players_test")}
     data = {"preview": bool(os.environ.get("AN_PREVIEW")), "asof": ctnow.strftime("%a %b %-d, %-I:%M %p CT"), "built": NOW.strftime("%Y-%m-%dT%H:%M:%SZ"), "season": season, "week": week,
-            "live": {"inj_ts": live.get("ts"), "inj_n": len(espn_inj), "wx_n": len(wx)},
+            "live": {"inj_ts": live.get("injAt") or (live.get("ts") if espn_inj else None), "inj_n": len(espn_inj), "wx_n": len(wx)},
             "model": slim, "games": games, "teams": teams, "players": players,
             "news": {k: v for k, v in docs.items() if k.startswith("nfl_") and k[4:] in {g["id"] for g in games}}, "news_meta": news.get("meta"),
             "record": record, "names": NAMES,
@@ -392,6 +401,24 @@ def write_site():
             'body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>')
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(head + page + "</body></html>")
     print("site:", round(len(page) / 1e6, 2), "MB")
+
+
+def write_summary(d):
+    """out/summary.md: the week's picks as a small table, for the refresh's own page on GitHub."""
+    sd = float(d["model"]["sd"])
+    L = [f"### NFL {d['season']}" + (f" week {d['week']}: {len(d['games'])} games to play" if d["week"] is not None else ": no games to play"), "",
+         f"Built {d['asof']}. {d['live']['inj_n']} injury listings" + (f" (read {d['live']['inj_ts']})" if d["live"]["inj_ts"] else "") + f", {d['live']['wx_n']} forecasts.", ""]
+    if d["games"]:
+        L += ["| Game | Kickoff (CT) | Pick | Chance | Projected score |", "|---|---|---|---|---|"]
+        for g in d["games"]:
+            m, t, pick = float(g["m"]), float(g["t"]), g["pick"]
+            L.append(f"| {g['away']} at {g['home']} | {g['day']} {g['ct']} | {NAMES.get(pick, pick)} | {norm.cdf(abs(m) / sd) * 100:.0f}% | "
+                     f"{g['away']} {(t - m) / 2:.0f}, {g['home']} {(t + m) / 2:.0f} |")
+    graded = [r for r in d["record"]["live"] if r[9] is not None]
+    if graded:
+        won = sum(r[9] for r in graded)
+        L += ["", f"Picks saved before kickoff and graded: {won}-{len(graded) - won}."]
+    open(os.path.join(OUT, "summary.md"), "w").write("\n".join(L) + "\n")
 
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ Every number for a game uses only games played before that week's first kickoff,
 factor for a season is fitted on the seasons before it (test()). No betting line is read anywhere.
 
     python3 nfl_model.py fit      fit the weights on every finished game and write model.json, with the walk-forward test
+    python3 nfl_model.py refit    the same, only when results have arrived since model.json was made (the refresh runs this)
 """
 import glob, json, math, os, sys
 import numpy as np
@@ -418,6 +419,77 @@ def baselines(F, P):
     return {"home": round(home, 1), "record": round(float((np.sign(d.result) == better).mean() * 100), 1)}
 
 
+def data_state(G=None):
+    """What the model's inputs hold right now: finished games since the first fitted season, and how many of this
+    season's have their play-by-play, snap counts and player stats in. A fit records it; a later refresh compares."""
+    G = nd.games() if G is None else G
+    season = int(G.season.max())
+    done = G[G.home_score.notna() & (G.season >= FIRST_FIT)]
+    cur = set(done[done.season == season].game_id)
+
+    def ids(f):
+        if not (os.path.exists(f) and os.path.getsize(f) > 300):
+            return set()
+        return set(pd.read_csv(f, usecols=["game_id"], low_memory=False).game_id.dropna())
+
+    T = nd.table("team_game", season, season)
+    return {"games": int(len(done)), "last": str(done.game_id.iloc[-1]) if len(done) else "", "season": season, "season_games": len(cur),
+            "pbp": len(cur & set(T.game_id)) if len(T) else 0,
+            "snaps": len(cur & ids(nd.path("players", f"snap_counts_{season}.csv"))),
+            "stats": len(cur & ids(nd.path("players", f"stats_player_week_{season}.csv")))}
+
+
+def refit(force=False, now=None):
+    """Fit again when results have arrived since model.json was made. It waits until the new games' play-by-play, snap
+    counts and player stats are all in, or three days past the last of them. A fit whose main weights jump is thrown
+    away (a broken download, not football). Returns (did it refit, one line saying why)."""
+    import shutil
+    mj = os.path.join(nd.HERE, "model.json")
+    old = json.load(open(mj)) if os.path.exists(mj) else None
+    G = nd.games()
+    st = data_state(G)
+    if old and not force:
+        if old.get("state") == st:
+            return False, f"model is current: fitted on {old['fit_games']} games through {st['last']}"
+        whole = st["pbp"] == st["snaps"] == st["stats"] == st["season_games"]
+        done = G[G.home_score.notna()]
+        now = pd.Timestamp.now(tz="UTC") if now is None else now
+        age = (now.tz_localize(None) - done.gameday.max()).days if len(done) else 99
+        if not whole and age < 3:
+            return False, (f"new results are still arriving ({st['season_games']} games played this season: play-by-play for {st['pbp']}, "
+                           f"snap counts for {st['snaps']}, player stats for {st['stats']}); keeping the model fitted through {(old.get('state') or {}).get('last', '?')}")
+    keep = [mj, os.path.join(nd.HERE, "cache", "game_proj.csv"), os.path.join(nd.HERE, "cache", "backtest_games.csv")]
+    saved = {f: f + ".keep" for f in keep if os.path.exists(f)}
+    for f, k in saved.items():
+        shutil.copyfile(f, k)
+    try:
+        model, _, _ = fit()
+        bad = None
+        if old and not force:
+            for c in ("pts_m", "home_f"):
+                a, b = old["coef"][c], model["coef"][c]
+                if b <= 0 or abs(b - a) > 0.15 * abs(a):
+                    bad = f"{c} went from {a} to {b}"
+            if abs(model["sd"] - old["sd"]) > 0.05 * old["sd"]:
+                bad = f"the spread of outcomes went from {old['sd']} to {model['sd']}"
+        if bad:
+            for f, k in saved.items():
+                shutil.copyfile(k, f)
+            return False, f"refit thrown away ({bad}); keeping the model fitted on {old['fit_games']} games"
+        t = model["test"]["all"]
+        return True, f"refit on {model['fit_games']} games through {st['last']}: {t['wins']} of {t['decided']} winners in testing ({t['win_pct']}%), average miss {t['mae']}"
+    except Exception as e:
+        for f, k in saved.items():
+            shutil.copyfile(k, f)
+        if not old:
+            raise
+        return False, f"refit failed ({e.__class__.__name__}: {e}); keeping the model fitted on {old['fit_games']} games"
+    finally:
+        for k in saved.values():
+            if os.path.exists(k):
+                os.remove(k)
+
+
 def fit(first_test=2017):
     G = nd.games()
     Q = nd.table("qb_game")
@@ -450,7 +522,7 @@ def fit(first_test=2017):
     Pt = walk(F, T_FEATS, target="total", first_test=first_test)
     test["total"] = scores(Pt, "total")
     test["size"] = {k: round(float(np.abs(d[cols].values @ b[[M_FEATS.index(c) for c in cols]]).mean()), 2) for k, cols in GROUPS}
-    model = {"made": pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%d"), "fit_from": FIRST_FIT, "fit_games": int(len(d)),
+    model = {"made": pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%d"), "fit_from": FIRST_FIT, "fit_games": int(len(d)), "state": data_state(G),
              "coef": {c: round(float(v), 4) for c, v in zip(M_FEATS, b)}, "sd": round(sd, 3),
              "total": {c: round(float(v), 4) for c, v in zip(T_FEATS, bt)}, "sd_total": round(sdt, 3),
              "params": {"lam": LAM, "tau": TAU, "window": WINDOW, "tau_q": TAU_Q, "k_q": K_Q, "delta_q": DELTA_Q, "qb_plays": QB_PLAYS,
@@ -491,5 +563,7 @@ if __name__ == "__main__":
         print("average size in points:", t["size"])
         print("calibration:", t["calibration"])
         print("total:", t["total"])
+    elif len(sys.argv) > 1 and sys.argv[1] == "refit":
+        print(refit(force="--force" in sys.argv)[1])
     else:
         print(__doc__)

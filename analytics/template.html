@@ -97,6 +97,11 @@ details.mix summary b{font-size:14px}
 .board .sm{display:none}
 @media (max-width:640px){.board .xs{display:none}.board .sm{display:inline}.board th,.board td{padding:7px 5px}}
 .board tbody tr:hover td{background:var(--surface-2)}
+.res td.pick b{font-family:var(--f-display);font-size:17px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.res td:first-child{white-space:nowrap}
+.res .fin-s{display:none}
+@media (max-width:640px){.res .xs{display:none}.res .fin-s{display:block;color:var(--muted);font-size:12px;font-family:var(--f-mono)}.res th,.res td{padding:7px 5px}}
+.narrow{max-width:620px}
 .split{display:flex;height:8px;gap:2px;min-width:90px}
 .split i{display:block;height:100%}
 .split .a{background:var(--away);border-radius:4px 0 0 4px}
@@ -452,10 +457,25 @@ function board(){
   return `<div class="card board"><div class="gh"><h2>Week ${D.week} picks</h2><span class="when">${D.games.length} games · tap a row for the reasons</span></div>
     <div class="scroll"><table><thead><tr><th class="l">Game <span class="xs">(kickoff CT)</span></th><th class="l">Pick</th><th>Chance</th><th class="xs"><span style="display:inline-flex;gap:8px"><span><b class="sw a"></b> away</span><span><b class="sw h"></b> home</span></span></th><th><span class="xs">Projected score</span><span class="sm">Score</span></th><th class="l xs">Biggest reason</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
+/* the record: picks saved before kickoff. A row: season, week, away, home, pick, chance, margin, away score, home score, hit, kickoff */
+const REC=(D.record&&D.record.live)||[];
+const wl=rows=>{const g=rows.filter(r=>r[9]!=null),w=g.filter(r=>r[9]===1).length;return{w,l:g.length-w,n:g.length}};
+const missOf=rows=>{const g=rows.filter(r=>r[7]!=null);return g.length?g.reduce((s,r)=>s+Math.abs((r[8]-r[7])-r[6]),0)/g.length:null};
+const hitMark=r=>r[7]==null?'<span class="pill p-q">Pending</span>':r[9]===1?'<span class="pill p-ok"><i aria-hidden="true">✓</i>Won</span>':r[9]===0?'<span class="pill p-out"><i aria-hidden="true">✕</i>Lost</span>':'<span class="pill p-q">Tie</span>';
+const finalOf=r=>r[7]==null?'':`${esc(r[2])} ${r[7]}, ${esc(r[3])} ${r[8]}`;
+const resTable=rows=>`<div class="scroll"><table class="res"><thead><tr><th class="l">Game</th><th class="l">Our pick</th><th>Chance</th><th class="xs">Final</th><th class="l">Result</th></tr></thead><tbody>${rows.map(r=>`<tr><td class="l">${esc(r[2])} at ${esc(r[3])}<span class="fin-s">${finalOf(r)||'no final yet'}</span></td><td class="l pick"><b>${esc(r[4])}</b></td><td class="num">${pc(r[5])}</td><td class="num xs">${finalOf(r)||'–'}</td><td class="l">${hitMark(r)}</td></tr>`).join('')}</tbody></table></div>`;
+function resultsCard(){
+  const R=REC.filter(r=>r[0]===D.season);if(!R.length)return'';
+  const weeks=[...new Set(R.map(r=>r[1]))].sort((a,b)=>a-b),last=weeks[weeks.length-1],cur=R.filter(r=>r[1]===last),c=wl(cur),all=wl(REC);
+  const before=weeks.length>1?R.filter(r=>r[1]===weeks[weeks.length-2]):[],b=wl(before);
+  return `<div class="card"><div class="gh"><h2>How the picks did</h2><span class="when">Week ${last}${last===D.week?' so far':''}: ${c.n?`${c.w}–${c.l}`:'no finals yet'}${all.n>c.n?` · every pick on record: ${all.w}–${all.l}`:''}</span></div>
+    ${resTable(cur)}${before.length?`<details style="margin-top:10px"><summary class="fine" style="cursor:pointer">Week ${weeks[weeks.length-2]}: ${b.w}–${b.l}</summary>${resTable(before)}</details>`:''}
+    <p class="fine" style="margin-top:8px">Each pick is the one this page showed at its last refresh before kickoff. The full record is under How it works.</p></div>`;
+}
 function renderGames(){
   const el=$('#games');
-  if(!D.games.length){el.innerHTML='<div class="card"><h2>No games to project</h2><p class="muted">The next week appears here once this one is finished.</p></div>';return}
-  el.innerHTML=mixPanel()+board()+`<div class="games">${D.games.map(gameCard).join('')}</div>`;
+  if(!D.games.length){el.innerHTML='<div class="card"><h2>No games to project</h2><p class="muted">The next week appears here once this one is finished.</p></div>'+resultsCard();return}
+  el.innerHTML=mixPanel()+board()+resultsCard()+`<div class="games">${D.games.map(gameCard).join('')}</div>`;
 }
 
 /* ---------- players: the outcome spread ---------- */
@@ -634,6 +654,20 @@ function teamDetail(t){
 }
 
 /* ---------- how it works ---------- */
+function recordCard(){
+  const R=D.record||{},a=wl(REC),miss=missOf(REC);
+  const since=R.since?new Date(R.since).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'America/Chicago'}):null;
+  const keys=[...new Set(REC.map(r=>r[0]+'|'+r[1]))].reverse();
+  const byWeek=keys.map(k=>{const rows=REC.filter(r=>r[0]+'|'+r[1]===k),w=wl(rows),m=missOf(rows);
+    return `<tr><td class="num">${rows[0][0]} week ${rows[0][1]}</td><td class="num">${w.n?`${w.w}–${w.l}`:'pending'}</td><td class="num">${w.n?Math.round(w.w/w.n*100)+'%':'–'}</td><td class="num">${m==null?'–':m.toFixed(1)}</td></tr>`}).join('');
+  const next=D.games.length?`This week’s ${D.games.length} picks are saved before each kickoff.`:'';
+  return `<div class="card"><div class="gh"><h2>Our record</h2><span class="when">${since?'Picks on record since '+esc(since):'Starting now'}</span></div>
+    <p class="fine" style="max-width:86ch">The numbers above are a test on past seasons. This is the live record: each pick as this page showed it at its last refresh before kickoff, graded when the game ends. A saved pick can’t be changed once its game starts.</p>
+    ${a.n?`<div class="kv" style="margin:12px 0 4px"><div><b>${a.w}–${a.l}</b><span>winners picked (${Math.round(a.w/a.n*100)}%)</span></div><div><b>${miss==null?'–':miss.toFixed(1)}</b><span>average miss on the final margin, in points</span></div><div><b>${a.n}</b><span>games graded. A season is about 270, so a few weeks is a small sample</span></div></div>
+      <div class="scroll narrow"><table><thead><tr><th>Week</th><th>Record</th><th>Winners</th><th>Avg. miss</th></tr></thead><tbody>${byWeek}</tbody></table></div>
+      <details style="margin-top:10px"><summary class="fine" style="cursor:pointer">Every pick, newest first</summary>${resTable(REC.slice().reverse())}</details>${next?`<p class="fine" style="margin-top:8px">${next}</p>`:''}`
+      :`<p style="margin-top:10px;color:var(--ink-2)">No pick has been graded yet. ${next} The record starts when those games finish.</p>`}</div>`;
+}
 function renderMethod(){
   const t=M.test,a=t.all,pt=M.players_test,R=D.record;
   const cal=t.calibration.map(c=>`<tr><td class="num">${Math.round(c.lo*100)}–${Math.round(c.hi*100)}%</td><td class="num">${c.n}</td><td class="num">${fx(c.said,1)}%</td><td class="num">${fx(c.won,1)}%</td><td><span class="dumb" aria-hidden="true"><i class="s" style="left:${((c.said-50)*2).toFixed(1)}%"></i><i class="w" style="left:${((Math.max(50,Math.min(100,c.won))-50)*2).toFixed(1)}%"></i></span></td></tr>`).join('');
@@ -650,6 +684,7 @@ function renderMethod(){
     <div class="kpi"><span class="k">Always the home team</span><b>${fx(t.baselines.home,1)}%</b><span>the same games</span></div>
     <div class="kpi"><span class="k">The better record</span><b>${fx(t.baselines.record,1)}%</b><span>the same games</span></div>
     <div class="kpi"><span class="k">Average miss</span><b>${a.mae.toFixed(1)}</b><span>points on the final margin. Games are noisy: the sharpest forecasts anywhere miss by about 10</span></div></div>
+  ${recordCard()}
   <div class="two">
     <div class="card prose"><h2>How a pick is made</h2>
       <p>Every game starts from how strong each team has been: points scored and allowed, adjusted for who they played, with recent games counting most. Then come the things that change a game: who is at quarterback, which regulars are out, home field, a bye. Each one is measured in points and they add up to a projected margin. The margin becomes a win chance.</p>
@@ -668,7 +703,7 @@ function renderMethod(){
       <div class="scroll"><table><thead><tr><th>Factor</th><th>Fitted weight</th><th>Winners with it</th><th>Miss with it</th></tr></thead><tbody>${ext}</tbody></table></div></div>
     <div class="card"><h2>Season by season</h2><p class="fine" style="margin:6px 0 10px">The tested picks. A season’s weights come only from earlier seasons.</p>
       <div class="scroll"><table><thead><tr><th>Season</th><th>Record</th><th>Winners</th><th>Avg. miss</th></tr></thead><tbody>${seasons}</tbody></table></div>
-      ${weeks?`<h3 style="margin:16px 0 4px">${R.test_season} so far, as tested: ${tw}–${tl}</h3><div class="scroll"><table><tbody>${weeks}</tbody></table></div><p class="fine" style="margin-top:8px">These are the model’s test picks, not picks published in advance.</p>`:''}</div>
+      ${weeks?`<h3 style="margin:16px 0 4px">${R.test_season} so far, as tested: ${tw}–${tl}</h3><div class="scroll"><table><tbody>${weeks}</tbody></table></div><p class="fine" style="margin-top:8px">These are the model’s test picks, not picks published in advance. Those are under Our record.</p>`:''}</div>
   </div>
   ${pt?`<div class="two"><div class="card prose"><h2>Player projections</h2>
       <p>A player’s number is his team’s projected plays, times his share of them, times his efficiency against this opponent. The team’s plays come from our own projected score for the game.</p>
@@ -724,7 +759,10 @@ document.addEventListener('focusout',()=>{tip.hidden=true});
 document.addEventListener('scroll',()=>{tip.hidden=true},true);
 
 $('#wk').textContent=D.week==null?`NFL ${D.season}`:`NFL ${D.season} · Week ${D.week}`;
-$('#fresh').innerHTML=(D.preview?'<span class="badge" style="background:var(--warn-soft);color:var(--warn);border-color:transparent">Preview</span>':'')+`<span class="badge"><i></i>Built ${esc(D.asof)}</span>`+(D.live.inj_n?`<span class="badge"><i></i>${D.live.inj_n} injury listings</span>`:'')+(D.news_meta&&D.news_meta.at?`<span class="badge"><i></i>News ${esc(new Date(D.news_meta.at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'');
+const warnB=t=>`<span class="badge" style="background:var(--warn-soft);color:var(--warn);border-color:transparent">${t}</span>`;
+const injAge=D.live.inj_ts?(new Date(D.built)-new Date(D.live.inj_ts))/36e5:null;   /* hours between the injury list and this build */
+const injB=!D.live.inj_n?(D.games.length?warnB('No injury list in this build'):''):injAge!=null&&injAge>6?warnB('Injuries as of '+esc(new Date(D.live.inj_ts).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))+' CT'):`<span class="badge"><i></i>${D.live.inj_n} injury listings</span>`;
+$('#fresh').innerHTML=(D.preview?warnB('Preview'):'')+`<span class="badge"><i></i>Built ${esc(D.asof)}</span>`+injB+(D.news_meta&&D.news_meta.at?`<span class="badge"><i></i>News ${esc(new Date(D.news_meta.at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'');
 $('#foot').textContent='Projections are estimates from past results and can be wrong. NFL only for now; the NBA is next, before its season opens. Stats from nflverse, NFL Next Gen Stats and Pro Football Reference; injuries from ESPN; forecasts from the National Weather Service.';
 const first=(location.hash||'').slice(1),want=['games','players','teams','method'].includes(first)?first:store.get('tab','games');
 setTab(['games','players','teams','method'].includes(want)?want:'games');

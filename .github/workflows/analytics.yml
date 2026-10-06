@@ -1,0 +1,111 @@
+# The stats-only site (analytics/): one whole refresh on GitHub's machines, to prove it runs on its own.
+#
+# This is a test job. It runs only when the analytics branch is pushed, and it publishes nothing: the built page is
+# kept with the run as a download named analytics-site. The live site is still built from pipeline/ by refresh.yml.
+#
+# What it saves back to this branch: the picks record (data/an_picks.json: each pick as it stood at the last refresh
+# before kickoff) and, after new results, the refitted model (analytics/model.json, analytics/cache/).
+#
+# Nothing here reads a sportsbook, and the job uses no secrets.
+name: Analytics site (test build)
+
+on:
+  push:
+    branches: [analytics]
+    paths: ["analytics/**", ".github/workflows/analytics.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analytics-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: analytics/requirements.txt
+
+      - name: Install
+        run: |
+          pip install -r analytics/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: This month
+        id: when
+        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      # Finished seasons never change, so their downloads and roll-ups are kept between runs (saved again each month).
+      # Without them a run still works: it downloads everything, which takes a few minutes longer.
+      - name: Seasons already downloaded and rolled up
+        uses: actions/cache@v4
+        with:
+          path: analytics/_data
+          key: analytics-data-v1-${{ steps.when.outputs.month }}
+          restore-keys: analytics-data-v1-
+
+      - name: The newest researched news (it is saved on main)
+        run: |
+          if git fetch --quiet --depth=1 origin main && git show FETCH_HEAD:data/news.json > "$RUNNER_TEMP/news.json" 2>/dev/null && [ -s "$RUNNER_TEMP/news.json" ]; then
+            echo "AN_NEWS=$RUNNER_TEMP/news.json" >> "$GITHUB_ENV"
+          else
+            echo "No newer news file; using the one on this branch."
+          fi
+
+      - name: Refresh
+        working-directory: analytics
+        env:
+          AN_SLIM: "1"       # keep only the roll-ups of finished seasons between runs
+          AN_PREVIEW: "1"    # the page says Preview while this is a test build
+        run: python run.py
+
+      - name: What was built
+        if: always()
+        run: |
+          if [ -f analytics/out/summary.md ]; then cat analytics/out/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [ -f analytics/out/state.json ]; then
+            python3 - >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          import json
+          s = json.load(open("analytics/out/state.json"))
+          print("\n| Step | Seconds | Result |\n|---|---|---|")
+          for name, secs, line, ok in s.get("steps", []):
+              print(f"| {name} | {secs} | {'' if ok else '**failed** '}{str(line)[:300]} |")
+          if s.get("errors"):
+              print("\nNotes:\n" + "\n".join(f"- {e}" for e in s["errors"][:20]))
+          EOF
+          fi
+
+      - name: Save the picks record, and the model after a refit
+        run: |
+          git config user.name "matchup-edge-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in data/an_picks.json analytics/model.json analytics/cache; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing to save: no pick moved and the model did not change."
+          else
+            git commit -m "Update the picks record"
+            # the branch may have moved while this run worked; the record is saved by the next run if this push loses
+            if ! { git pull --rebase --autostash origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; }; then
+              git rebase --abort 2>/dev/null || true
+              echo "::warning::The picks record was not saved this time: the branch changed while this run worked. The next run saves it."
+            fi
+          fi
+
+      - name: Keep the built page with this run
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: analytics-site
+          path: analytics/out
+          if-no-files-found: warn
+          retention-days: 14

@@ -29,11 +29,13 @@ def main():
             page.wait_for_selector("#games .card")
             if name == "desktop-light":
                 # the page's picks are the build's picks
-                got = page.evaluate("MatchupEdge.data.games.map(g=>{const r=MatchupEdge.calc(g);return [g.id,r.m,r.t]})")
-                for gid, m, t in got:
+                got = page.evaluate("MatchupEdge.data.games.map(g=>{const r=MatchupEdge.calc(g);return [g.id,r.m,r.t,r.team]})")
+                for gid, m, t, team in got:
                     g = next(x for x in data["games"] if x["id"] == gid)
                     if abs(m - g["m"]) > 0.02 or abs(t - g["t"]) > 0.02:
                         errors.append(f"{gid}: the page projects {m:.2f} / {t:.2f}, the build {g['m']} / {g['t']}")
+                    if team != g["pick"]:   # the saved record takes the build's pick: it has to be the one the page shows
+                        errors.append(f"{gid}: the page picks {team}, the build {g['pick']}")
                 # the page's outcome chances are the model's (props_core.p_over), on a sample of players
                 sample = page.evaluate("""(() => {const P=MatchupEdge.data.players.players, out=[];
                     for (const p of P.filter((_, i) => i % 9 === 0)) for (const s of Object.keys(p.mu)) for (const L of [p.mu[s]*0.6, Math.round(p.mu[s]), p.mu[s]*1.4+0.5]) {
@@ -63,6 +65,17 @@ def main():
                 if tab == "teams":
                     page.click("#teams tr[data-team]")
                     page.wait_for_selector("#teamdetail")
+                # the record: every saved pick that has kicked off is on the page, on both tabs that show it
+                rec = data["record"]["live"]
+                if tab == "method":
+                    if not page.query_selector("#method h2 >> text=/our record/i"):
+                        errors.append(f"{name}: no record section under How it works")
+                    shown = page.evaluate("document.querySelectorAll('#method table.res tbody tr').length")
+                    if shown != len(rec):
+                        errors.append(f"{name}: the record lists {shown} picks, the build has {len(rec)}")
+                    page.evaluate("document.querySelectorAll('#method details').forEach(d => d.open = true)")
+                if tab == "games" and any(r[0] == data["season"] for r in rec) and not page.query_selector("#games h2 >> text=/how the picks did/i"):
+                    errors.append(f"{name}: picks have been graded but the Games tab doesn't show them")
                 wide = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
                 if wide > 1:
                     errors.append(f"{name}: the {tab} tab scrolls sideways by {wide}px")
