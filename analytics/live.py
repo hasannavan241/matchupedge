@@ -69,7 +69,11 @@ def injuries():
             links = a.get("links") or []
             m = re.search(r"/id/(\d+)", str(links[0].get("href") if links and isinstance(links[0], dict) else ""))
             d = i.get("details") or {}
-            detail = " ".join(str(x) for x in (d.get("type"), d.get("detail"), d.get("side")) if x)
+            parts = []
+            for x in (d.get("type"), d.get("detail"), d.get("side")):   # "Knee", "Sprain", "Left"; ESPN fills gaps with "Not Specified"
+                if x and str(x) != "Not Specified" and str(x) not in parts:
+                    parts.append(str(x))
+            detail = " ".join(parts)
             rows.append([m.group(1) if m else "", str(a.get("displayName") or ""), str((a.get("team") or {}).get("abbreviation") or t.get("displayName") or ""),
                          str(i.get("status") or ""), detail[:60]])
     return rows
