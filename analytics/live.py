@@ -144,7 +144,10 @@ def main(plan=None, now=None):
                 out["wx"][gid], out["wxAt"][gid] = old_wx[gid], at
 
     os.makedirs(os.path.dirname(LIVE) or ".", exist_ok=True)
-    json.dump(out, open(LIVE, "w"), separators=(",", ":"))
+    c = lambda v: json.dumps(v, separators=(",", ":"))
+    with open(LIVE, "w") as f:   # one player a line, so a copy kept in the repository changes only where the list did
+        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "errors", "wx", "wxAt")) + ',\n"nflInj":[\n'
+                + ",\n".join(c(r) for r in out["nflInj"]) + "\n]}\n")
     kept = sum(1 for e in out["errors"] if "kept" in e)
     print(f"live: {len(out['nflInj'])} injury listings (read {out['injAt'] or 'never'}), forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, "
           f"{len(out['errors']) - kept} failed")

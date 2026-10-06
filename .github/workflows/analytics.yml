@@ -4,7 +4,8 @@
 # kept with the run as a download named analytics-site. The live site is still built from pipeline/ by refresh.yml.
 #
 # What it saves back to this branch: the picks record (data/an_picks.json: each pick as it stood at the last refresh
-# before kickoff) and, after new results, the refitted model (analytics/model.json, analytics/cache/).
+# before kickoff), the injury list and forecasts as last read (data/an_live.json: the next run falls back on them if
+# ESPN or the weather service fails) and, after new results, the refitted model (analytics/model.json, analytics/cache/).
 #
 # Nothing here reads a sportsbook, and the job uses no secrets.
 name: Analytics site (test build)
@@ -65,6 +66,8 @@ jobs:
         env:
           AN_SLIM: "1"       # keep only the roll-ups of finished seasons between runs
           AN_PREVIEW: "1"    # the page says Preview while this is a test build
+          # the injury list and forecasts as last read: written here, and used again if ESPN or the weather service fails
+          AN_LIVE: ${{ github.workspace }}/data/an_live.json
         run: python run.py
 
       - name: What was built
@@ -81,17 +84,26 @@ jobs:
           if s.get("errors"):
               print("\nNotes:\n" + "\n".join(f"- {e}" for e in s["errors"][:20]))
           EOF
+            # the same lines as a notice on the run, so they can be read without opening the log
+            python3 - <<'EOF'
+          import json
+          s = json.load(open("analytics/out/state.json"))
+          lines = [f"{'ok  ' if ok else 'FAIL'} {name}: {str(line)[:400]} ({secs}s)" for name, secs, line, ok in s.get("steps", [])]
+          lines += [f"note: {e}" for e in s.get("errors", [])[:15]]
+          esc = lambda t: t.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+          print("::notice title=Analytics refresh::" + esc("\n".join(lines)))
+          EOF
           fi
 
-      - name: Save the picks record, and the model after a refit
+      - name: Save the picks record, the live inputs as read, and the model after a refit
         run: |
           git config user.name "matchup-edge-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in data/an_picks.json analytics/model.json analytics/cache; do
+          for f in data/an_picks.json data/an_live.json analytics/model.json analytics/cache; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then
-            echo "Nothing to save: no pick moved and the model did not change."
+            echo "Nothing to save."
           else
             git commit -m "Update the picks record"
             # the branch may have moved while this run worked; the record is saved by the next run if this push loses

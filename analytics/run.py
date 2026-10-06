@@ -14,7 +14,7 @@ What happens when a step fails:
 Prints one line per step and writes out/state.json (what this refresh was) and out/summary.md (the picks, as a table).
 AN_SLIM=1 deletes a finished season's play-by-play once it is rolled up, so only the roll-ups are kept between runs.
 """
-import datetime as dt, glob, json, os, subprocess, sys, time, traceback
+import datetime as dt, glob, hashlib, json, os, subprocess, sys, time, traceback
 
 import nfl_data as nd
 
@@ -92,8 +92,12 @@ def main():
         d = build.build_data()
         build.write_site()
         state.update({"season": d["season"], "week": d["week"], "games": len(d["games"]), "players": len((d["players"] or {}).get("players", []))})
+        # a short fingerprint of every pick and every player projection: two builds from the same inputs print the same one
+        mark = lambda v: hashlib.sha1(json.dumps(v, sort_keys=True, separators=(",", ":")).encode()).hexdigest()[:12]
+        state["fingerprint"] = {"games": mark([[g["id"], g["pick"], g["m"], g["t"], g["x"]] for g in d["games"]]),
+                                "players": mark(sorted([p["i"], p["g"], p["mu"]] for p in (d["players"] or {}).get("players", [])))}
         build.write_summary(d)
-        return f"season {d['season']} week {d['week']}: {len(d['games'])} games, {state['players']} players"
+        return f"season {d['season']} week {d['week']}: {len(d['games'])} games, {state['players']} players (picks {state['fingerprint']['games']}, players {state['fingerprint']['players']})"
 
     def s_check():
         r = subprocess.run([sys.executable, os.path.join(nd.HERE, "check.py")], capture_output=True, text=True)
