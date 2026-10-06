@@ -1,42 +1,42 @@
 {
  "docs": {
   "epl_2026-10-10_Arsenal_Leeds": {
-   "at": "2026-09-30T19:36:39Z",
+   "at": "2026-10-06T16:08:35Z",
    "game": "Arsenal v Leeds",
    "items": [
     {
-     "at": "2026-09-25T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://www.skysports.com/football/news/13591713/kai-havertz-returning-to-arsenal-to-be-assessed-after-suffering-injury-for-germany-against-netherlands",
+     "at": "2026-10-05T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.aol.co.uk/articles/arsenal-injury-christos-tzolis-kai-050000000.html",
      "team": "Arsenal",
-     "text": "First-choice striker Kai Havertz strained a hamstring on Germany duty v Netherlands (24 Sep); back at Arsenal for treatment and doubtful for Leeds.",
-     "total": -0.01,
+     "text": "First-choice striker Kai Havertz (hamstring, hurt with Germany 24 Sep) is now listed as unavailable for Leeds, with an October/November return.",
+     "total": -0.03,
      "type": "injury"
     },
     {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": -0.01,
-     "src": "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/arsenal-learn-odegaard-injury-update-as-midfielder-misses-training_605967.html",
-     "team": "Arsenal",
-     "text": "Captain Martin Odegaard took an ankle knock for Norway v Portugal (27 Sep); missed training but pain easing, expected back for Leeds.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-21T12:00:00Z",
-     "impact": -0.01,
-     "src": "https://www.aol.co.uk/articles/declan-rice-pulls-england-duty-124714000.html",
-     "team": "Arsenal",
-     "text": "Declan Rice withdrew from England to manage a neural hamstring issue carried since the World Cup; described as precautionary, not an acute injury.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-29T12:00:00Z",
+     "at": "2026-10-02T12:00:00Z",
      "impact": 0,
-     "src": "https://www.rotowire.com/soccer/article/september-2026-international-break-injuries-mbappe-havertz-musiala-full-list-136921",
+     "src": "https://www.aol.co.uk/articles/tzolis-havertz-rice-saliba-arsenal-100426000.html",
      "team": "Arsenal",
-     "text": "Ezri Konsa picked up a minor issue on England duty and faced a late fitness test before the Czechia game.",
+     "text": "Captain Martin Odegaard shook off his ankle knock, played for Norway against Wales and is expected to be available for Leeds.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.aol.co.uk/articles/arsenal-injury-christos-tzolis-kai-050000000.html",
+     "team": "Arsenal",
+     "text": "Declan Rice skipped England duty for load management with no new injury and should be available.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": -0.03,
+     "src": "https://www.aol.co.uk/articles/arsenal-injury-christos-tzolis-kai-050000000.html",
+     "team": "Arsenal",
+     "text": "Ezri Konsa came off early on England duty against Croatia and is awaiting assessment; a doubt for Leeds.",
      "total": 0,
      "type": "injury"
     },
@@ -50,11 +50,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-09-26T12:00:00Z",
-     "impact": 0,
-     "src": "https://readarsenal.com/2026/09/26/arsenal-injury-news-saliba-out-white-brighton/",
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0.02,
+     "src": "https://www.aol.co.uk/articles/arsenal-injury-christos-tzolis-kai-050000000.html",
      "team": "Arsenal",
-     "text": "Ben White (groin), Cristhian Mosquera (thigh) and Piero Hincapie (muscular) could be available after the break; none started the Brighton loss.",
+     "text": "Ben White (groin), Cristhian Mosquera (hamstring) and Piero Hincapie are back in training and expected to be available.",
      "total": 0,
      "type": "return"
     },
@@ -63,7 +63,7 @@
      "impact": 0,
      "src": "https://www.vavel.com/en/football/2026/09/29/arsenal/1273317-assessing-arsenal-s-summer-signings.html",
      "team": "Arsenal",
-     "text": "Summer signings Bruno Guimaraes, Ezri Konsa and Christos Tzolis are bedding in as starters; ex-Leeds keeper Illan Meslier arrived on a free.",
+     "text": "Summer signings Bruno Guimaraes and Ezri Konsa are bedding in as starters; ex-Leeds keeper Illan Meslier arrived on a free.",
      "total": 0,
      "type": "add"
     },
@@ -77,20 +77,20 @@
      "type": "motivation"
     },
     {
-     "at": "2026-09-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.thesportsbank.net/football/leeds-united-harry-wilson/",
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0.02,
+     "src": "https://www.leedsunited.news/match-coverage/early-team-news-as-leeds-united-face-arsenal-bahoya-rice-and-white-among-10-doubts/",
      "team": "Leeds",
-     "text": "Summer signing Harry Wilson (quad) missed the Palace draw and Wales duty; Farke hopes to have him back after the break, not yet confirmed fit.",
+     "text": "Summer signing Harry Wilson (quad), who missed the Palace draw, is expected to be available for Arsenal.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-03T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://www.goal.com/en-us/lists/joe-rodon-leeds-united-injury-blow-/blta0e9c73245d5f825",
+     "src": "https://www.leedsunited.news/match-coverage/early-team-news-as-leeds-united-face-arsenal-bahoya-rice-and-white-among-10-doubts/",
      "team": "Leeds",
-     "text": "Centre-back Joe Rodon (hamstring, hurt 30 Aug v Brentford) is still out on an 8-10 week layoff; striker Mateo Joseph (ACL) is out until 2027.",
+     "text": "Centre-back Joe Rodon (hamstring, hurt 30 Aug) is out until late October or early November; striker Mateo Joseph (ACL) is out until 2027.",
      "total": 0,
      "type": "injury"
     },
@@ -122,64 +122,37 @@
      "type": "motivation"
     },
     {
-     "at": "2026-09-30T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-news-international-jean-matteo-bahoya-nico-elvedi-9231437",
+     "src": "https://theleedspress.com/major-leeds-injury-blow-confirmed-as-worrying-statement-emerges-53916",
      "team": "Leeds",
-     "text": "No injuries reported from Leeds' internationals; James Trafford started England's 2-0 win in Czechia and Nico Elvedi scored for Switzerland.",
+     "text": "Deadline-day winger Jean-Matteo Bahoya hurt an ankle with France U21 (3 Oct) and is doubtful; he is a fringe player so far.",
      "total": 0,
-     "type": "other"
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-02T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.aol.co.uk/articles/arsenal-injury-christos-tzolis-kai-050000000.html",
+     "team": "Arsenal",
+     "text": "Summer signing Christos Tzolis injured a hamstring 18 minutes into Greece v Netherlands (1 Oct); out up to three weeks, targeting Everton on 24 Oct.",
+     "total": -0.01,
+     "type": "injury"
     }
    ],
    "lg": "epl",
    "sources": [
     {
-     "t": "Kai Havertz returning to Arsenal to be assessed after suffering injury for Germany against Netherlands (Sky Sports)",
-     "u": "https://www.skysports.com/football/news/13591713/kai-havertz-returning-to-arsenal-to-be-assessed-after-suffering-injury-for-germany-against-netherlands"
-    },
-    {
-     "t": "Arsenal learn Odegaard injury update as midfielder misses Norway training (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/arsenal/injury-news/news/arsenal-learn-odegaard-injury-update-as-midfielder-misses-training_605967.html"
-    },
-    {
-     "t": "Declan Rice pulls out of England duty as Arsenal injury fears eased despite hamstring concern (AOL)",
-     "u": "https://www.aol.co.uk/articles/declan-rice-pulls-england-duty-124714000.html"
-    },
-    {
      "t": "Arsenal Injury News: White, Hincapie, Mosquera & Return Dates (Read Arsenal)",
      "u": "https://readarsenal.com/2026/09/26/arsenal-injury-news-saliba-out-white-brighton/"
-    },
-    {
-     "t": "Arsenal Injury News: Odegaard & Havertz (Read Arsenal)",
-     "u": "https://readarsenal.com/2026/09/28/arsenal-injury-news-odegaard-havertz-leeds"
     },
     {
      "t": "Assessing Arsenal's summer signings (VAVEL)",
      "u": "https://www.vavel.com/en/football/2026/09/29/arsenal/1273317-assessing-arsenal-s-summer-signings.html"
     },
     {
-     "t": "Player Ratings as Brighton Punish Arteta's Side in 3-0 Loss (EPL Index)",
-     "u": "https://eplindex.com/150634/player-ratings-as-brighton-punish-artetas-side-in-3-0-loss.html"
-    },
-    {
      "t": "Arsenal pecked by the Seagulls as Everton, Newcastle win - Saturday's Premier League roundup (Sports Mole)",
      "u": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/feature/arsenal-pecked-by-the-seagulls-as-everton-newcastle-win-saturdays-premier-league-roundup_605487.html"
-    },
-    {
-     "t": "September 2026 International Break Injuries (RotoWire)",
-     "u": "https://www.rotowire.com/soccer/article/september-2026-international-break-injuries-mbappe-havertz-musiala-full-list-136921"
-    },
-    {
-     "t": "Arsenal & Leeds United early injury news as fresh blow leaves 9 out or doubtful (Yorkshire Evening Post)",
-     "u": "https://yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-arsenal-joe-rodon-harry-wilson-declan-rice-kai-havertz-wiliam-saliba-9205049"
-    },
-    {
-     "t": "Leeds United Injury Updates: Wilson, Rodon, Joseph (The Sports Bank)",
-     "u": "https://www.thesportsbank.net/football/leeds-united-harry-wilson/"
-    },
-    {
-     "t": "Joe Rodon injury 'big blow' for Leeds (Goal)",
-     "u": "https://www.goal.com/en-us/lists/joe-rodon-leeds-united-injury-blow-/blta0e9c73245d5f825"
     },
     {
      "t": "Daniel Farke has three big decisions to make before Leeds United face Arsenal (The Leeds Press)",
@@ -194,14 +167,26 @@
      "u": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-news-international-jean-matteo-bahoya-nico-elvedi-9231437"
     },
     {
-     "t": "EPL Injury Table (Premier Injuries, updated 29 Sep)",
-     "u": "https://www.premierinjuries.com/injury-table.php"
+     "t": "Tzolis, Havertz, Rice, Saliba - Arsenal injury news and return dates ahead of Leeds United",
+     "u": "https://www.aol.co.uk/articles/tzolis-havertz-rice-saliba-arsenal-100426000.html"
+    },
+    {
+     "t": "Major Leeds injury blow confirmed as worrying statement emerges",
+     "u": "https://theleedspress.com/major-leeds-injury-blow-confirmed-as-worrying-statement-emerges-53916"
+    },
+    {
+     "t": "Arsenal injury update: Christos Tzolis, Kai Havertz, Declan Rice latest news and return dates",
+     "u": "https://www.aol.co.uk/articles/arsenal-injury-christos-tzolis-kai-050000000.html"
+    },
+    {
+     "t": "Early team news as Leeds United face Arsenal: Bahoya, Rice and White among 10 doubts",
+     "u": "https://www.leedsunited.news/match-coverage/early-team-news-as-leeds-united-face-arsenal-bahoya-rice-and-white-among-10-doubts/"
     }
    ],
-   "summary": "Arsenal (2nd) return from the break after a 3-0 loss at Brighton, their first defeat, with first-choice striker Kai Havertz doubtful (hamstring on Germany duty); Odegaard's ankle knock and Rice's hamstring management look minor and Saliba is still out. Leeds (5th) are unbeaten in five under Farke and hope to have Harry Wilson back, but still lack Joe Rodon. Ex-Leeds keeper Meslier is now at Arsenal."
+   "summary": "Arsenal (2nd) return from the break after a 3-0 loss at Brighton with attacking problems: striker Kai Havertz (hamstring) is now expected to miss out and summer signing Christos Tzolis tore a hamstring with Greece, while Konsa is being assessed. Odegaard, Rice, White and Mosquera should be available. Leeds (5th, unbeaten in five) expect Harry Wilson back but still lack Joe Rodon."
   },
   "epl_2026-10-10_AstonVilla_Brentford": {
-   "at": "2026-09-30T19:36:39Z",
+   "at": "2026-10-06T16:08:35Z",
    "game": "Aston Villa v Brentford",
    "items": [
     {
@@ -214,20 +199,20 @@
      "type": "injury"
     },
     {
-     "at": "2026-09-24T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://thesportsbank.net/football/aston-villa/torres-goretzka-maatsen",
+     "src": "https://www.thestatszone.com/aston-villa-vs-brentford-preview-team-news-prediction-227732",
      "team": "Aston Villa",
-     "text": "Pau Torres (hamstring strain v Forest, not serious) missed the Spurs win but could be in contention for Brentford.",
+     "text": "Pau Torres (hamstring strain v Forest) missed the Spurs win but may return after the break; listed with a 10 Oct return date.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-24T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0.01,
-     "src": "https://thesportsbank.net/football/aston-villa/torres-goretzka-maatsen",
+     "src": "https://www.thestatszone.com/aston-villa-vs-brentford-preview-team-news-prediction-227732",
      "team": "Aston Villa",
-     "text": "Free signing Leon Goretzka (knee) has yet to debut for Villa but is expected to be fit to feature against Brentford.",
+     "text": "Free signing Leon Goretzka (knee) has yet to debut and is still building fitness; 10 Oct is his listed return date.",
      "total": 0,
      "type": "add"
     },
@@ -259,29 +244,29 @@
      "type": "coach"
     },
     {
-     "at": "2026-09-11T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0.03,
-     "src": "https://www.brentfordfc.com/en/news/first-team-bournemouth-v-brentford-premier-league-keith-andrews-squad-news-update-nathan-collins",
+     "src": "https://www.thestatszone.com/aston-villa-vs-brentford-preview-team-news-prediction-227732",
      "team": "Brentford",
-     "text": "Captain Nathan Collins, off after 17 minutes v Sunderland with a calf strain and out for two games since, is expected back after the break.",
+     "text": "Captain Nathan Collins (calf strain, missed the last two games) could be available again at Villa Park.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": null,
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0.01,
-     "src": "https://sports.yahoo.com/articles/did-international-break-come-time-202304420.html",
+     "src": "https://www.thestatszone.com/aston-villa-vs-brentford-preview-team-news-prediction-227732",
      "team": "Brentford",
-     "text": "Defender Sepp van den Berg, yet to play this season, is 'in a good place to come back after the international break', per Keith Andrews.",
+     "text": "Defender Sepp van den Berg, yet to play this season, and midfielder Mathias Jensen could also return after the break.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-28T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/dango-ouattara-misses-again-burkina-161011554.html",
+     "src": "https://www.premierinjuries.com/injury-table.php",
      "team": "Brentford",
-     "text": "Mathias Jensen (minor issue) is expected back; winger Dango Ouattara, a bench option lately, missed Burkina Faso games through illness.",
+     "text": "Winger Dango Ouattara, a bench option lately, is rated 25% with a virus after missing Burkina Faso's games.",
      "total": 0,
      "type": "injury"
     },
@@ -302,6 +287,15 @@
      "text": "Kevin Schade (3 league goals) is in his best form under Andrews with contract talks ongoing; Igor Thiago was left out by Brazil but is backed by his coach.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-04T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://sports.yahoo.com/articles/denmark-boss-discusses-mikkel-damsgaards-125932389.html",
+     "team": "Brentford",
+     "text": "Playmaker Mikkel Damsgaard rolled an ankle for Denmark v Portugal; coach Riemer said it 'turned out to be a bigger injury'. Back at Brentford, rated 25%.",
+     "total": -0.03,
+     "type": "injury"
     }
    ],
    "lg": "epl",
@@ -311,20 +305,8 @@
      "u": "https://readastonvilla.com/2026/09/13/aston-villa-dealt-major-ian-maatsen-blow-as-eight-week-absence-expected/"
     },
     {
-     "t": "Matteo Ruggeri Solves Aston Villa Left-Back Dilemma (Read Aston Villa)",
-     "u": "https://readastonvilla.com/2026/09/20/matteo-ruggeri-aston-villa-ian-maatsen-replacement/"
-    },
-    {
-     "t": "Aston Villa Injury Updates: Torres, Goretzka, Maatsen, Onana (The Sports Bank)",
-     "u": "https://thesportsbank.net/football/aston-villa/torres-goretzka-maatsen"
-    },
-    {
      "t": "Alysson, Goretzka and Torres: Aston Villa injury news latest (3 Added Minutes)",
      "u": "https://www.3addedminutes.com/sport/football/aston-villa/alysson-madjo-torres-aston-villa-injury-news-absentee-list-seven-9139881"
-    },
-    {
-     "t": "Aston Villa Injuries & Suspensions (Read Aston Villa)",
-     "u": "https://readastonvilla.com/aston-villa-injuries/"
     },
     {
      "t": "Aston Villa Premier League 2026/27: From Summer Rebuild To Crisis (Extra Time Talk)",
@@ -335,91 +317,83 @@
      "u": "https://the4thofficial.net/2026/09/big-update-on-aston-villa-bosss-future-after-dreadful-start-should-they-sack-emery/"
     },
     {
-     "t": "Aston Villa earn first Premier League win after sweeping aside toothless Tottenham (Flashscore)",
-     "u": "https://www.flashscore.com/news/soccer-premier-league-tottenham-aston-villa-report-september-19-2026/YDx6CCeU/"
-    },
-    {
-     "t": "Bournemouth v Brentford team news: Nathan Collins injury update (Brentford FC)",
-     "u": "https://www.brentfordfc.com/en/news/first-team-bournemouth-v-brentford-premier-league-keith-andrews-squad-news-update-nathan-collins"
-    },
-    {
-     "t": "Nathan Collins news (RotoWire)",
-     "u": "https://www.rotowire.com/soccer/player/nathan-collins-31313"
-    },
-    {
      "t": "Did the International Break Come at the Right Time for Brentford? (Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/did-international-break-come-time-202304420.html"
-    },
-    {
-     "t": "Dango Ouattara Misses Out Again for Burkina Faso in AFCON Qualifiers (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/dango-ouattara-misses-again-burkina-161011554.html"
     },
     {
      "t": "Andrews on team news, Thiago and Schade contract (Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/andrews-team-news-thiago-schade-140125474.html"
     },
     {
-     "t": "Brentford 3-0 Chelsea: Recap and analysis (NBC Sports)",
-     "u": "https://www.nbcsports.com/soccer/live/brentford-vs-chelsea-live-updates-score-goals-highlights-stats-2026-september-18"
+     "t": "Aston Villa vs Brentford Preview: Team News & Prediction",
+     "u": "https://www.thestatszone.com/aston-villa-vs-brentford-preview-team-news-prediction-227732"
+    },
+    {
+     "t": "Denmark Boss Discusses Mikkel Damsgaard's 'Bigger Injury' Before Wales",
+     "u": "https://sports.yahoo.com/articles/denmark-boss-discusses-mikkel-damsgaards-125932389.html"
+    },
+    {
+     "t": "Premier League injury table",
+     "u": "https://www.premierinjuries.com/injury-table.php"
     }
    ],
-   "summary": "Aston Villa (16th) finally won, 3-2 at Spurs, after a winless start that put Unai Emery under scrutiny, but have lost starting left-back Ian Maatsen for weeks while Pau Torres and yet-to-debut Leon Goretzka push to return. Brentford (4th) are unbeaten under Keith Andrews after a 3-0 rout of Chelsea, have Kevin Schade in form and expect captain Nathan Collins back from a calf strain."
+   "summary": "Aston Villa (16th) finally won, 3-2 at Spurs, but are still without left-back Ian Maatsen, with Pau Torres and yet-to-debut Leon Goretzka pushing to return. Unbeaten Brentford (4th) may get captain Nathan Collins, Sepp van den Berg and Mathias Jensen back, but chief creator Mikkel Damsgaard rolled an ankle with Denmark and his coach called it 'a bigger injury', leaving him a major doubt."
   },
   "epl_2026-10-10_Chelsea_Bournemouth": {
-   "at": "2026-09-30T19:36:39Z",
+   "at": "2026-10-06T16:08:35Z",
    "game": "Chelsea v Bournemouth",
    "items": [
     {
-     "at": "2026-09-18T12:00:00Z",
-     "impact": -0.03,
-     "src": "https://sports.yahoo.com/articles/key-chelsea-player-told-rest-113647962.html",
+     "at": "2026-10-06T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/",
      "team": "Chelsea",
-     "text": "Top scorer Joao Pedro (3G, 3A) has a knee strain from the Hull draw; told to rest ~3.5 weeks from 18 Sep, so Bournemouth is touch and go.",
-     "total": -0.02,
+     "text": "Top scorer Joao Pedro (3G, 3A; knee, hurt v Hull) is unlikely to be available before late October; he also missed the Brentford loss.",
+     "total": -0.03,
      "type": "injury"
     },
     {
-     "at": "2026-09-28T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0.03,
-     "src": "https://chelsea.news/2026/09/chelsea-injuries-bournemouth/",
+     "src": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/",
      "team": "Chelsea",
-     "text": "Moises Caicedo (calf; just 14 minutes all season) is targeting a return against Bournemouth after the break.",
+     "text": "Moises Caicedo (calf; just 14 minutes all season) should be fit to face Bournemouth.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-21T12:00:00Z",
-     "impact": -0.02,
-     "src": "https://readchelsea.com/2026/09/23/chelsea-injury-news-james-caicedo-joao-pedro-latest/",
-     "team": "Chelsea",
-     "text": "Cole Palmer pulled out of England with a minor muscle problem; not thought serious, with Bournemouth the target for his return.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://chelsea.news/2026/09/chelsea-injuries-bournemouth/",
+     "src": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/",
      "team": "Chelsea",
-     "text": "Reece James (hamstring) missed the Brentford loss and England duty but is aiming to be fit for Bournemouth.",
+     "text": "Cole Palmer (minor muscle problem, pulled out of England duty) has resumed training and is expected to be available.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://chelsea.news/2026/09/chelsea-injuries-bournemouth/",
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0.02,
+     "src": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/",
      "team": "Chelsea",
-     "text": "Summer signings Marco Palestra and Emmanuel Emegha have yet to debut; both are targeting the Bournemouth game.",
+     "text": "Reece James (hamstring, missed the Brentford loss) has resumed training and is expected to be available.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/",
+     "team": "Chelsea",
+     "text": "Summer signing Marco Palestra is back in training and Emmanuel Emegha is nearing a return; neither has debuted yet.",
      "total": 0,
      "type": "add"
     },
     {
-     "at": "2026-09-28T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://readchelsea.com/2026/09/28/jamie-gittens-chelsea-injury-england-u21/",
+     "src": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/",
      "team": "Chelsea",
-     "text": "Back-up keeper Mike Penders (quad) and unused winger Jamie Gittens (ankle, on crutches) were hurt on international duty.",
+     "text": "Winger Jamie Gittens (ankle, seen on crutches) is likely out; back-up keeper Mike Penders (quad) has been back on a bench.",
      "total": 0,
      "type": "injury"
     },
@@ -442,11 +416,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-09-11T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/rose-team-fitness-silva-brentford-134113635.html",
+     "src": "https://www.premierinjuries.com/injury-table.php",
      "team": "Bournemouth",
-     "text": "Eli Junior Kroupi (foot) and Julian Araujo (thigh) are out until November; Amine Adli and Veljko Milosavljevic are nearing returns.",
+     "text": "Eli Junior Kroupi (ankle) and Julian Araujo (thigh) are out until November; Amine Adli and Veljko Milosavljevic are not due back until about 18 Oct.",
      "total": 0,
      "type": "injury"
     },
@@ -485,57 +459,30 @@
      "text": "Summer centre-back signing Antonio Silva has settled fast; Rose says he looks like he has played in the Premier League for years.",
      "total": 0,
      "type": "add"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": -0.06,
+     "src": "https://thechelseachronicle.com/news/major-alex-scott-blow-emerges-after-reports-said-chelsea-were-leading-100m-battle",
+     "team": "Bournemouth",
+     "text": "Midfielder Alex Scott injured a quad starting for England v Croatia and is expected to miss a couple of months, back around December.",
+     "total": -0.01,
+     "type": "injury"
     }
    ],
    "lg": "epl",
    "sources": [
     {
-     "t": "Key Chelsea Player Told To Rest For Weeks After Medical Check (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/key-chelsea-player-told-rest-113647962.html"
-    },
-    {
-     "t": "Joao Pedro Injury: Bournemouth Return Expected (Chelsea News)",
-     "u": "https://chelsea.news/2026/09/joao-pedro-injury-bournemouth-return/"
-    },
-    {
-     "t": "Chelsea Injuries: Palmer, James Return Target (Chelsea News)",
-     "u": "https://chelsea.news/2026/09/chelsea-injuries-bournemouth/"
-    },
-    {
-     "t": "Chelsea Injury News: Palmer, James, Caicedo, Joao Pedro & Return Dates (Read Chelsea)",
-     "u": "https://readchelsea.com/2026/09/23/chelsea-injury-news-james-caicedo-joao-pedro-latest/"
-    },
-    {
-     "t": "Jamie Gittens Chelsea injury update (Read Chelsea)",
-     "u": "https://readchelsea.com/2026/09/28/jamie-gittens-chelsea-injury-england-u21/"
-    },
-    {
-     "t": "Mike Penders Injury: Chelsea Goalkeeper Left Behind (Chelsea News)",
-     "u": "https://chelsea.news/2026/09/mike-penders-injury/"
-    },
-    {
      "t": "Brentford 3-0 Chelsea: Defensive issues for Xabi Alonso laid bare (Sky Sports)",
      "u": "https://www.skysports.com/football/news/11668/13589535/brentford-3-0-chelsea-defensive-issues-for-xabi-alonso-laid-bare-after-chastening-west-london-derby-defeat"
-    },
-    {
-     "t": "Brentford 3-0 Chelsea: Recap and analysis (NBC Sports)",
-     "u": "https://www.nbcsports.com/soccer/live/brentford-vs-chelsea-live-updates-score-goals-highlights-stats-2026-september-18"
     },
     {
      "t": "Justin Kluivert Injury: Out for several weeks (RotoWire)",
      "u": "https://www.rotowire.com/soccer/headlines/justin-kluivert-injury-out-for-several-weeks-534738"
     },
     {
-     "t": "Injured Bournemouth ace Justin Kluivert pulls out of Netherlands squad (Tribal Football)",
-     "u": "https://www.tribalfootball.com/article/injured-bournemouth-ace-justin-kluivert-pulls-out-of-netherlands-squad-23007b16-bc8e-43c7-b766-04aa2ea581a4"
-    },
-    {
      "t": "Bournemouth 0-1 Liverpool: What Rose said (Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/bournemouth-0-1-liverpool-rose-163242293.html"
-    },
-    {
-     "t": "Bournemouth vs Liverpool Confirmed Lineups for September 20 (Last Word on Sports)",
-     "u": "https://lastwordonsports.com/football/2026/09/20/bournemouth-vs-liverpool-teams/"
     },
     {
      "t": "'That's Bournemouth football' - Rose impressed with European debut (beIN Sports)",
@@ -548,12 +495,24 @@
     {
      "t": "EPL Injury Table (Premier Injuries, updated 29 Sep)",
      "u": "https://www.premierinjuries.com/injury-table.php"
+    },
+    {
+     "t": "Early team news as Chelsea host Bournemouth: 13 potentially missing including Palmer and Scott",
+     "u": "https://www.thechelseachronicle.com/match-coverage/early-team-news-as-chelsea-host-bournemouth-13-potentially-missing-including-palmer-and-scott/"
+    },
+    {
+     "t": "https://www.rotowire.com/soccer/news.php?league=EPL",
+     "u": "https://www.rotowire.com/soccer/news.php?league=EPL"
+    },
+    {
+     "t": "Major Alex Scott blow emerges 24 hours after reports said Chelsea were winning £100m race",
+     "u": "https://thechelseachronicle.com/news/major-alex-scott-blow-emerges-after-reports-said-chelsea-were-leading-100m-battle"
     }
    ],
-   "summary": "Xabi Alonso's Chelsea (10th) are winless in three after a 3-0 loss at Brentford and have gone 22 league games without a clean sheet; Caicedo, Reece James and Palmer target returns, but top scorer Joao Pedro (knee) is touch and go. Marco Rose's Bournemouth (17th) are still winless in the league despite a winning Europa League debut and will be without the injured Justin Kluivert."
+   "summary": "Xabi Alonso's Chelsea (10th, winless in three) get bodies back: Palmer, Reece James and Palestra are training and Caicedo should be fit, but top scorer Joao Pedro (knee) is now unlikely before late October. Marco Rose's Bournemouth (17th, still winless) lose midfielder Alex Scott until around December after a quad injury on his first England start, on top of Kluivert, Kroupi, Adli and Araujo."
   },
   "epl_2026-10-10_Ipswich_Fulham": {
-   "at": "2026-09-30T19:36:39Z",
+   "at": "2026-10-06T16:08:35Z",
    "game": "Ipswich v Fulham",
    "items": [
     {
@@ -566,11 +525,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-09-29T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://www.premierinjuries.com/injury-table.php",
+     "src": "https://www.thestatszone.com/ipswich-vs-fulham-preview-team-news-prediction-227743",
      "team": "Ipswich",
-     "text": "Midfielder Jack Taylor (knee) remains sidelined; Emersonn and Azor Matusiwa, doubts before Everton, are not on current injury lists.",
+     "text": "Midfielder Jack Taylor (knee) remains sidelined; Jaden Philogene is expected to make his first league start of the season in place of Fatawu.",
      "total": 0,
      "type": "injury"
     },
@@ -611,11 +570,11 @@
      "type": "motivation"
     },
     {
-     "at": "2026-09-18T12:00:00Z",
+     "at": "2026-10-06T12:00:00Z",
      "impact": 0,
-     "src": "https://www.sportsmole.co.uk/football/fulham/injury-news/news/tete-to-miss-man-united-clash-as-arbeloa-provides-fulham-injury-update_605440.html",
+     "src": "https://www.premierinjuries.com/injury-table.php",
      "team": "Fulham",
-     "text": "Tom Cairney (knee) is out; Kenny Tete (concussion) and Ryan Sessegnon (groin) were doubts, with Castagne and Robinson the starting full-backs.",
+     "text": "Captain Tom Cairney (knee, due back about 17 Oct) and right-back Kenny Tete (concussion) remain out; Castagne and Robinson are the full-backs.",
      "total": 0,
      "type": "injury"
     },
@@ -636,24 +595,12 @@
      "u": "https://www.sportsmole.co.uk/football/brighton-and-hove-albion/feature/arsenal-pecked-by-the-seagulls-as-everton-newcastle-win-saturdays-premier-league-roundup_605487.html"
     },
     {
-     "t": "Team News: Everton vs. Ipswich injury, suspension list, predicted XIs (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/everton/injury-news/team-news/everton-vs-ipswich-injury-suspension-list-predicted-xis_605356.html"
-    },
-    {
      "t": "Everton vs Ipswich - prediction, team news, lineups (Sports Mole)",
      "u": "https://www.sportsmole.co.uk/football/everton/preview/everton-vs-ipswich-prediction-team-news-lineups_605292.html"
     },
     {
      "t": "Frank 'sounded out' by PL sides as interest grows in ex-Spurs boss (Sports Mole)",
      "u": "https://www.sportsmole.co.uk/football/fulham/sack-race/news/frank-sounded-out-by-pl-sides-as-interest-grows-in-ex-spurs-boss_605840.html"
-    },
-    {
-     "t": "Tete to miss Man United clash as Arbeloa provides Fulham injury update (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/fulham/injury-news/news/tete-to-miss-man-united-clash-as-arbeloa-provides-fulham-injury-update_605440.html"
-    },
-    {
-     "t": "Team News: Fulham vs. Man United injury, suspension list, predicted XIs (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/man-utd/injury-news/team-news/fulham-vs-man-united-injury-suspension-list-predicted-xis_605410.html"
     },
     {
      "t": "Leeds United summer transfers: every confirmed signing and sale (Sports Mole)",
@@ -664,11 +611,11 @@
      "u": "https://www.premierinjuries.com/injury-table.php"
     },
     {
-     "t": "Premier League 2026-27 points table after matchday 5 (Khel Now)",
-     "u": "https://khelnow.com/football/premier-league-points-table-after-matchday-5-202609"
+     "t": "Ipswich vs Fulham Preview: Team News & Prediction",
+     "u": "https://www.thestatszone.com/ipswich-vs-fulham-preview-team-news-prediction-227743"
     }
    ],
-   "summary": "Promoted Ipswich (11th) have two wins under new boss Gary O'Neil but lose winger Abdul Fatawu to a one-match ban after a second yellow for simulation at Everton. Fulham (19th) are winless in five under Alvaro Arbeloa, and reports say the club has sounded out Thomas Frank, though draws with Liverpool and Man United showed resilience. Both squads are otherwise largely healthy."
+   "summary": "Promoted Ipswich (11th) have two wins under Gary O'Neil but are without winger Abdul Fatawu, suspended after two yellows at Everton; Jaden Philogene is expected to make his first league start in his place. Fulham (winless in five, 2 points) keep Alvaro Arbeloa under pressure, with reports the club has sounded out Thomas Frank. Tom Cairney and Kenny Tete remain out for Fulham."
   },
   "epl_2026-10-10_ManUnited_Tottenham": {
    "at": "2026-09-30T19:36:39Z",
@@ -868,51 +815,51 @@
    "summary": "Both managers are under pressure. Carrick's United have one league win in five and needed a late equaliser to draw at Fulham. De Zerbi's Spurs are bottom and winless, with two goals in five despite heavy possession. United picked up injuries on international duty: Dorgu and Mazraoui are hurt, Sesko is doubtful and Bruno's knock is being managed. Spurs lose right-back Porro but could welcome Kulusevski back after 16 months out."
   },
   "epl_2026-10-10_Sunderland_Brighton": {
-   "at": "2026-09-30T19:36:39Z",
+   "at": "2026-10-06T16:08:35Z",
    "game": "Sunderland v Brighton",
    "items": [
     {
-     "at": "2026-09-25T12:00:00Z",
+     "at": "2026-10-03T12:00:00Z",
      "impact": -0.07,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/dan-ballard-injury-latest-as-sunderland-handed-worrying-months-out-reports-after-hamstring-issue-9216220",
+     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-injury-news-brighton-injury-news-9255363",
      "team": "Sunderland",
-     "text": "Ever-present centre-back Dan Ballard hurt a hamstring for Northern Ireland in Georgia (25 Sep) and left on crutches; reports fear months out.",
+     "text": "Ever-present centre-back Dan Ballard (hamstring, hurt with Northern Ireland 25 Sep) is expected to miss Brighton; reports fear months out.",
      "total": 0.02,
      "type": "injury"
     },
     {
-     "at": "2026-09-25T12:00:00Z",
-     "impact": -0.03,
-     "src": "https://www.sportsmole.co.uk/football/sunderland/injury-news/news/sunderlands-nightmare-international-break-continues-with-another-hamstring-setback_605816.html",
+     "at": "2026-10-03T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-injury-news-brighton-injury-news-9255363",
      "team": "Sunderland",
-     "text": "Striker Brian Brobbey strained a hamstring for the Netherlands v Germany (24 Sep) and was sent back to Sunderland for assessment.",
-     "total": -0.01,
+     "text": "Striker Brian Brobbey (suspected hamstring, hurt with the Netherlands 24 Sep) is a major doubt, rated 25%; severity not confirmed.",
+     "total": -0.02,
      "type": "injury"
     },
     {
-     "at": "2026-09-29T12:00:00Z",
-     "impact": -0.01,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-handed-fresh-injury-worry-as-key-midfielder-limps-off-during-international-match-9216392",
+     "at": "2026-10-06T12:00:00Z",
+     "impact": -0.02,
+     "src": "https://www.premierinjuries.com/injury-table.php",
      "team": "Sunderland",
-     "text": "Key midfielder Noah Sadiki limped off for DR Congo on 28 Sep; the knock is not thought to be serious.",
+     "text": "Key midfielder Noah Sadiki, who limped off for DR Congo on 28 Sep, is rated a 50% doubt with a knock.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-09-18T12:00:00Z",
+     "at": "2026-10-03T12:00:00Z",
      "impact": 0.01,
-     "src": "https://www.sportsmole.co.uk/football/sunderland/predicted-lineups/defensive-reshuffle-methalie-debut-decision-predicted-sunderland-lineup-vs-man-city_605359.html",
+     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-injury-news-brighton-injury-news-9255363",
      "team": "Sunderland",
-     "text": "Left-back Reinildo served his one-match ban (sent off v Arsenal) at Man City and is due back for Brighton.",
+     "text": "Left-back Reinildo is back from his one-match ban; Le Bris must choose between him and Dayann Methalie.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-29T12:00:00Z",
+     "at": "2026-10-03T12:00:00Z",
      "impact": 0,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-international-regis-le-bris-9219343",
+     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-injury-news-brighton-injury-news-9255363",
      "team": "Sunderland",
-     "text": "Habib Diarra (hamstring) and Romaine Mundle (knee, out until around January) remain out; Omar Alderete played 90 mins for Paraguay and can cover.",
+     "text": "Habib Diarra (hamstring) had a scan and Brighton may come too soon; Romaine Mundle (knee) is out until around January.",
      "total": 0,
      "type": "injury"
     },
@@ -935,29 +882,29 @@
      "type": "return"
     },
     {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0.02,
-     "src": "https://www.sussexexpress.co.uk/sport/football/brighton-and-hove-albion/another-major-injury-boost-for-brighton-as-sunderland-await-9205308",
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0.01,
+     "src": "https://www.premierinjuries.com/injury-table.php",
      "team": "Brighton",
-     "text": "Mats Wieffer (knee), Jack Hinshelwood (missed six games), Yankuba Minteh and Femi Azeez are pushing to be available after the break.",
+     "text": "Mats Wieffer (knee), Jack Hinshelwood and Femi Azeez are targeting returns this weekend; Yankuba Minteh (calf) stays out until late October.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-24T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": -0.01,
-     "src": "https://www.sussexexpress.co.uk/sport/football/brighton-and-hove-albion/mitoma-hinshelwood-minteh-every-brighton-injury-explained-and-expected-return-dates-9170591",
+     "src": "https://www.thestatszone.com/sunderland-vs-brighton-preview-team-news-prediction-227752",
      "team": "Brighton",
-     "text": "Pascal Struijk (hamstring, went off late v Arsenal) is being assessed; captain Lewis Dunk's neck injury from training is 'nothing major'.",
+     "text": "Captain Lewis Dunk (neck) is expected to return; Pascal Struijk (hamstring) and Yasin Ayari (cold) are rated 50% doubts.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-09-24T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://www.sussexexpress.co.uk/sport/football/brighton-and-hove-albion/mitoma-hinshelwood-minteh-every-brighton-injury-explained-and-expected-return-dates-9170591",
+     "src": "https://www.thestatszone.com/sunderland-vs-brighton-preview-team-news-prediction-227752",
      "team": "Brighton",
-     "text": "Kaoru Mitoma (hamstring) has yet to feature this season; Evan Ferguson (ankle surgery) and Stefanos Tzimas (ACL setback) remain out.",
+     "text": "Kaoru Mitoma (hamstring) is nearing a first appearance of the season; Evan Ferguson (ankle) and Stefanos Tzimas (knee) remain out.",
      "total": 0,
      "type": "injury"
     },
@@ -983,40 +930,8 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Dan Ballard injury latest as Sunderland handed worrying 'months out' reports (Sunderland Echo)",
-     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/dan-ballard-injury-latest-as-sunderland-handed-worrying-months-out-reports-after-hamstring-issue-9216220"
-    },
-    {
-     "t": "Sunderland's nightmare international break continues with another hamstring setback (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/sunderland/injury-news/news/sunderlands-nightmare-international-break-continues-with-another-hamstring-setback_605816.html"
-    },
-    {
-     "t": "Limping off: Sunderland suffer third major fitness problem of cursed international break (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/congo-dr/injury-news/news/limping-off-sunderland-suffer-third-major-fitness-problem-of-cursed-international-break_605966.html"
-    },
-    {
-     "t": "Sunderland handed fresh injury worry as key midfielder limps off during international match (Sunderland Echo)",
-     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-handed-fresh-injury-worry-as-key-midfielder-limps-off-during-international-match-9216392"
-    },
-    {
-     "t": "Sunderland AFC international round-up as injury concerns grow for Regis Le Bris (Sunderland Echo)",
-     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-international-regis-le-bris-9219343"
-    },
-    {
-     "t": "Defensive reshuffle, Methalie debut decision: Predicted Sunderland lineup vs. Man City (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/sunderland/predicted-lineups/defensive-reshuffle-methalie-debut-decision-predicted-sunderland-lineup-vs-man-city_605359.html"
-    },
-    {
-     "t": "Alderete, Diarra, Mundle: Sunderland injury news ahead of Man City trip (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/sunderland/injury-news/news/alderete-diarra-mundle-sunderland-injury-news-ahead-of-man-city-trip_605429.html"
-    },
-    {
      "t": "Another major injury boost for Brighton as Sunderland await (Sussex Express)",
      "u": "https://www.sussexexpress.co.uk/sport/football/brighton-and-hove-albion/another-major-injury-boost-for-brighton-as-sunderland-await-9205308"
-    },
-    {
-     "t": "Mitoma, Hinshelwood, Minteh - Every Brighton injury explained and expected return dates (Sussex Express)",
-     "u": "https://www.sussexexpress.co.uk/sport/football/brighton-and-hove-albion/mitoma-hinshelwood-minteh-every-brighton-injury-explained-and-expected-return-dates-9170591"
     },
     {
      "t": "Brighton & Hove Albion v Arsenal - live commentary (TNT Sports)",
@@ -1027,15 +942,19 @@
      "u": "https://khelnow.com/football/premier-league-points-table-after-matchday-5-202609"
     },
     {
-     "t": "2026-27 Premier League (Wikipedia)",
-     "u": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Premier_League"
-    },
-    {
      "t": "EPL Injury Table (Premier Injuries, updated 29 Sep)",
      "u": "https://www.premierinjuries.com/injury-table.php"
+    },
+    {
+     "t": "Sunderland vs Brighton Preview: Team News & Prediction",
+     "u": "https://www.thestatszone.com/sunderland-vs-brighton-preview-team-news-prediction-227752"
+    },
+    {
+     "t": "The early Sunderland and Brighton team news with three ruled out and ten doubts",
+     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-injury-news-brighton-injury-news-9255363"
     }
    ],
-   "summary": "Brighton (3rd, best goal difference in the league) are flying after 5-0 at Coventry and 3-0 over Arsenal, with Kostoulas fine after stitches and Wieffer, Hinshelwood and Minteh pushing to return. Sunderland (14th) shipped five at Man City, then had a cursed international break: ever-present centre-back Dan Ballard (hamstring, reports fear months) and striker Brian Brobbey were hurt and Noah Sadiki limped off."
+   "summary": "Brighton (3rd, best goal difference) are flying after 5-0 at Coventry and 3-0 over Arsenal, with Dunk expected back and Mitoma, Wieffer and Hinshelwood nearing returns, though Minteh stays out. Sunderland (14th) are braced to be without ever-present centre-back Dan Ballard (hamstring), striker Brian Brobbey is a major doubt and Habib Diarra looks unlikely; Reinildo is back from his ban."
   },
   "epl_2026-10-11_CrystalPalace_NottmForest": {
    "at": "2026-09-30T19:36:39Z",
@@ -4536,7 +4455,7 @@
    "summary": "Winless Tennessee (0-3, 37 points in three games) visits Baltimore (2-1) with Cam Ward still starting. Inactives brought no surprises: Ravens edge Trey Hendrickson is out after a finger procedure, while Lamar Jackson, LT Ronnie Stanley and WR Zay Flowers are all active. Both Baltimore centers remain out. Tennessee's scratches are depth players."
   },
   "nfl_2026_05_TB_DAL": {
-   "at": "2026-10-05T16:06:21Z",
+   "at": "2026-10-06T16:08:35Z",
    "game": "TB @ DAL",
    "items": [
     {
@@ -4559,10 +4478,10 @@
     },
     {
      "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/betting/buccaneers-vs-cowboys-prediction-odds-spread-injuries-trends-for-nfl-week-5-2026",
+     "impact": -0.2,
+     "src": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026",
      "team": "TB",
-     "text": "OLB Rueben Bain Jr. (groin/shoulder) and LB SirVocea Dennis (calf) are listed as questionable; Bain did not practice last week.",
+     "text": "LB SirVocea Dennis (ankle/foot, had an MRI) and CB Benjamin Morrison (quad) were estimated non-participants Monday; OLB Rueben Bain Jr. was a full participant.",
      "total": 0,
      "type": "injury"
     },
@@ -4587,20 +4506,20 @@
     {
      "at": "2026-10-05T12:00:00Z",
      "impact": 0.3,
-     "src": "https://clutchpoints.com/nfl/dallas-cowboys/cowboys-news-tyler-smith-demarvion-overshown-positive-injury-updates-week-5",
+     "src": "https://sports.yahoo.com/articles/cowboys-injury-roundup-two-key-235200563.html",
      "team": "DAL",
-     "text": "All-Pro G Tyler Smith (thumb surgery, on IR all season) is 'trending positively' to return; status expected to be clearer Tuesday. T.J. Bass has filled in.",
+     "text": "All-Pro G Tyler Smith (thumb surgery, on IR all season) had his practice window opened and was limited in Monday's estimated practice; hopes to face the Bucs.",
      "total": 0.1,
      "type": "return"
     },
     {
      "at": "2026-10-05T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://clutchpoints.com/nfl/dallas-cowboys/cowboys-news-tyler-smith-demarvion-overshown-positive-injury-updates-week-5",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/cowboys-injury-roundup-two-key-235200563.html",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) is also 'trending positively' for Thursday, per Schottenheimer.",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) was an estimated non-participant Monday, so a Thursday return looks less likely.",
      "total": 0,
-     "type": "return"
+     "type": "injury"
     },
     {
      "at": "2026-10-05T12:00:00Z",
@@ -4612,11 +4531,11 @@
      "type": "add"
     },
     {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/betting/buccaneers-vs-cowboys-prediction-odds-spread-injuries-trends-for-nfl-week-5-2026",
+     "at": "2026-10-06T12:00:00Z",
+     "impact": -0.2,
+     "src": "https://dknetwork.draftkings.com/2026/10/06/nfl-injury-report-week-5/",
      "team": "DAL",
-     "text": "S Jalen Thompson (hamstring) and DL Jonathan Bullard are on IR; CB Cobie Durant is questionable. S Malik Hooker returned in Week 4 (7 tackles, 2 PBU).",
+     "text": "CB Cobie Durant (hamstring) is expected to miss Thursday; T Drew Shelton (hamstring) also sat out. S Jalen Thompson and DL Jonathan Bullard are on IR.",
      "total": 0,
      "type": "injury"
     },
@@ -4628,14 +4547,28 @@
      "text": "Dak Prescott threw for 355 yds and CeeDee Lamb caught 17 for 189 in a 34-30 comeback at Houston; Dallas has allowed 20+ points in every game.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": -1,
+     "src": "https://dknetwork.draftkings.com/2026/10/06/nfl-injury-report-week-5/",
+     "team": "TB",
+     "text": "S Antoine Winfield Jr. has a slight rib fracture from late in the Green Bay loss and will miss 2-4 weeks, per Todd Bowles; he had 24 tackles in four games.",
+     "total": 0.3,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026",
+     "team": "DAL",
+     "text": "WR CeeDee Lamb (thigh), CB Joey Porter Jr. (ankle) and S Malik Hooker (forearm) were all listed as full participants Monday.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
-    {
-     "t": "Buccaneers vs. Cowboys Prediction, Odds, Spread, Injuries, Trends for NFL Week 5 (SI)",
-     "u": "https://www.si.com/betting/buccaneers-vs-cowboys-prediction-odds-spread-injuries-trends-for-nfl-week-5-2026"
-    },
     {
      "t": "Next Up: Bucs Face Cowboys in Dallas on TNF (Buccaneers.com)",
      "u": "https://www.buccaneers.com/news/next-game-tampa-bay-buccaneers-vs-dallas-cowboys-nfl-season-week-5-2026"
@@ -4643,10 +4576,6 @@
     {
      "t": "Buccaneers QB Baker Mayfield out at least 3 weeks with thumb injury; rookie Jalon Daniels to start (NFL.com)",
      "u": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels"
-    },
-    {
-     "t": "Cowboys stars Tyler Smith, DeMarvion Overshown get positive injury updates for Week 5 (ClutchPoints)",
-     "u": "https://clutchpoints.com/nfl/dallas-cowboys/cowboys-news-tyler-smith-demarvion-overshown-positive-injury-updates-week-5"
     },
     {
      "t": "Pic 6: News and notes from Cowboys' Week 4 win over Texans (DallasCowboys.com)",
@@ -4659,14 +4588,26 @@
     {
      "t": "Buccaneers news: Will Jalon Daniels start again vs. Cowboys on TNF? (ClutchPoints)",
      "u": "https://clutchpoints.com/nfl/tampa-bay-buccaneers/buccaneers-news-jalon-daniels-cowboys-packers-debacle"
+    },
+    {
+     "t": "NFL Injury Report for Week 5: Latest Player Updates",
+     "u": "https://dknetwork.draftkings.com/2026/10/06/nfl-injury-report-week-5/"
+    },
+    {
+     "t": "Cowboys Injury Roundup: Two Key Players Eyeing Thursday Return",
+     "u": "https://sports.yahoo.com/articles/cowboys-injury-roundup-two-key-235200563.html"
+    },
+    {
+     "t": "Buccaneers-Cowboys Injury Report Oct. 5",
+     "u": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026"
     }
    ],
-   "summary": "Winless Tampa Bay (0-4) goes to Dallas on a short week with undrafted rookie Jalon Daniels making his second start; Baker Mayfield (dislocated right thumb) is out until at least Week 7. Dallas (2-2) rallied past Houston 34-30 behind Dak Prescott's 355 yards, and All-Pro guard Tyler Smith and LB DeMarvion Overshown are trending toward returning."
+   "summary": "Winless Tampa Bay (0-4) visits Dallas on a short week with undrafted rookie Jalon Daniels starting again for Baker Mayfield (thumb), and now without star safety Antoine Winfield Jr. (rib fracture, 2-4 weeks). Dallas (2-2) has opened All-Pro guard Tyler Smith's practice window and he was limited Monday, but LB DeMarvion Overshown did not practice and CB Cobie Durant is expected to miss the game."
   }
  },
  "meta": {
-  "at": "2026-10-05T23:03:43Z",
-  "games": 1,
-  "note": "ATL @ NO inactives: Saints' Fant, Elliss, Granderson, Jennings out, Werner active; Falcons' Ebukam and Deablo active. TB @ DAL not due."
+  "at": "2026-10-06T16:08:35Z",
+  "games": 6,
+  "note": "TB @ DAL: Winfield out 2-4 wks, T. Smith limited. EPL Sat: Havertz, Tzolis out; Damsgaard major doubt; Alex Scott out to Dec; Joao Pedro unlikely."
  }
 }
