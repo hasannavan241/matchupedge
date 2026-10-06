@@ -1,0 +1,18 @@
+{"note":"Matchup Edge: the pick the site showed for each NFL game at its last refresh before kickoff. m: projected margin, positive toward the home team. p: the chance given to the pick. t: projected total. at: when the pick was last changed. res: final score and whether the pick won (null for a tie).",
+"games":{
+"2026_05_TB_DAL":{"at":"2026-10-06T23:39:00Z","away":"TB","home":"DAL","ko":"2026-10-09T00:15:00Z","m":7.9,"p":0.731,"pick":"DAL","season":2026,"t":50.1,"type":"REG","wk":5},
+"2026_05_PHI_JAX":{"at":"2026-10-06T23:39:00Z","away":"PHI","home":"JAX","ko":"2026-10-11T13:30:00Z","m":6.6,"p":0.696,"pick":"JAX","season":2026,"t":43.2,"type":"REG","wk":5},
+"2026_05_CHI_GB":{"at":"2026-10-06T23:39:00Z","away":"CHI","home":"GB","ko":"2026-10-11T17:00:00Z","m":-0.6,"p":0.518,"pick":"CHI","season":2026,"t":45.3,"type":"REG","wk":5},
+"2026_05_CIN_MIA":{"at":"2026-10-06T23:39:00Z","away":"CIN","home":"MIA","ko":"2026-10-11T17:00:00Z","m":-4.8,"p":0.646,"pick":"CIN","season":2026,"t":44.5,"type":"REG","wk":5},
+"2026_05_CLE_NYJ":{"at":"2026-10-06T23:39:00Z","away":"CLE","home":"NYJ","ko":"2026-10-11T17:00:00Z","m":-1.9,"p":0.559,"pick":"CLE","season":2026,"t":44.3,"type":"REG","wk":5},
+"2026_05_HOU_TEN":{"at":"2026-10-06T23:39:00Z","away":"HOU","home":"TEN","ko":"2026-10-11T17:00:00Z","m":-5.7,"p":0.672,"pick":"HOU","season":2026,"t":42.5,"type":"REG","wk":5},
+"2026_05_IND_PIT":{"at":"2026-10-06T23:39:00Z","away":"IND","home":"PIT","ko":"2026-10-11T17:00:00Z","m":2.2,"p":0.567,"pick":"PIT","season":2026,"t":46.8,"type":"REG","wk":5},
+"2026_05_LV_NE":{"at":"2026-10-06T23:39:00Z","away":"LV","home":"NE","ko":"2026-10-11T17:00:00Z","m":3.5,"p":0.607,"pick":"NE","season":2026,"t":44.2,"type":"REG","wk":5},
+"2026_05_MIN_NO":{"at":"2026-10-06T23:39:00Z","away":"MIN","home":"NO","ko":"2026-10-11T17:00:00Z","m":-4.5,"p":0.636,"pick":"MIN","season":2026,"t":46.8,"type":"REG","wk":5},
+"2026_05_NYG_WAS":{"at":"2026-10-06T23:39:00Z","away":"NYG","home":"WAS","ko":"2026-10-11T17:00:00Z","m":-0.6,"p":0.518,"pick":"NYG","season":2026,"t":44.8,"type":"REG","wk":5},
+"2026_05_DEN_LAC":{"at":"2026-10-06T23:39:00Z","away":"DEN","home":"LAC","ko":"2026-10-11T20:05:00Z","m":-1.6,"p":0.549,"pick":"DEN","season":2026,"t":44.4,"type":"REG","wk":5},
+"2026_05_DET_ARI":{"at":"2026-10-06T23:39:00Z","away":"DET","home":"ARI","ko":"2026-10-11T20:25:00Z","m":-4.0,"p":0.621,"pick":"DET","season":2026,"t":53.8,"type":"REG","wk":5},
+"2026_05_SF_SEA":{"at":"2026-10-06T23:39:00Z","away":"SF","home":"SEA","ko":"2026-10-11T20:25:00Z","m":0.9,"p":0.529,"pick":"SEA","season":2026,"t":45.4,"type":"REG","wk":5},
+"2026_05_BAL_ATL":{"at":"2026-10-06T23:39:00Z","away":"BAL","home":"ATL","ko":"2026-10-12T00:20:00Z","m":2.1,"p":0.565,"pick":"ATL","season":2026,"t":49.1,"type":"REG","wk":5},
+"2026_05_BUF_LA":{"at":"2026-10-06T23:39:00Z","away":"BUF","home":"LA","ko":"2026-10-13T00:15:00Z","m":0.6,"p":0.518,"pick":"LA","season":2026,"t":52.3,"type":"REG","wk":5}
+}}
