@@ -70,9 +70,10 @@ def main():
     def s_live():
         import live
         o = live.main()
-        state["live"] = {"inj_n": len(o["nflInj"]), "inj_at": o["injAt"], "wx_n": len(o["wx"]), "errors": o["errors"]}
+        n = len(live.listed(o["nflInj"]))
+        state["live"] = {"inj_n": n, "inj_at": o["injAt"], "wx_n": len(o["wx"]), "errors": o["errors"]}
         errors.extend("live " + e for e in o["errors"] if "kept" not in e)
-        return f"{len(o['nflInj'])} injury listings, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
+        return f"{n} injury listings, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
 
     def s_refit():
         import nfl_model as nm

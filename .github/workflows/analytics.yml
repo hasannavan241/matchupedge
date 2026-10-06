@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04      # a fixed image: the pinned browser in requirements.txt is known to install on it
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4

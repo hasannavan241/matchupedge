@@ -376,7 +376,8 @@ def build_data():
             "made": model["made"], "test": {k: test[k] for k in ("first", "last", "last_week", "all", "calibration", "baselines", "without", "extra", "total", "size", "alt") if k in test},
             "by_season": test["by_season"], "players_test": model.get("players_test")}
     data = {"preview": bool(os.environ.get("AN_PREVIEW")), "asof": ctnow.strftime("%a %b %-d, %-I:%M %p CT"), "built": NOW.strftime("%Y-%m-%dT%H:%M:%SZ"), "season": season, "week": week,
-            "live": {"inj_ts": live.get("injAt") or (live.get("ts") if espn_inj else None), "inj_n": len(espn_inj), "wx_n": len(wx)},
+            "live": {"inj_ts": live.get("injAt") or (live.get("ts") if espn_inj else None), "wx_n": len(wx),
+                     "inj_n": sum(1 for r in espn_inj if str(r[3]).strip().lower() not in ("active", "probable", ""))},
             "model": slim, "games": games, "teams": teams, "players": players,
             "news": {k: v for k, v in docs.items() if k.startswith("nfl_") and k[4:] in {g["id"] for g in games}}, "news_meta": news.get("meta"),
             "record": record, "names": NAMES,

@@ -58,7 +58,9 @@ def get_json(url, accept="application/json", tries=3, timeout=40):
 
 
 def injuries():
-    """ESPN's NFL injury list as rows of [ESPN athlete id, name, team, status, detail]."""
+    """ESPN's NFL injury list as rows of [ESPN athlete id, name, team, status, detail]. The detail is the injury itself
+    (knee sprain, left): ESPN's written notes about a player are not copied. The list holds each team's 25 newest
+    entries, and many are players ESPN now calls active: those rows are kept, because they say a player is off the report."""
     j = get_json(ESPN_INJURIES)
     rows = []
     for t in j.get("injuries") or []:
@@ -67,10 +69,15 @@ def injuries():
             links = a.get("links") or []
             m = re.search(r"/id/(\d+)", str(links[0].get("href") if links and isinstance(links[0], dict) else ""))
             d = i.get("details") or {}
-            detail = " ".join(str(x) for x in (d.get("type"), d.get("detail"), d.get("side")) if x) or str(i.get("shortComment") or "")
+            detail = " ".join(str(x) for x in (d.get("type"), d.get("detail"), d.get("side")) if x)
             rows.append([m.group(1) if m else "", str(a.get("displayName") or ""), str((a.get("team") or {}).get("abbreviation") or t.get("displayName") or ""),
-                         str(i.get("status") or ""), detail[:80]])
+                         str(i.get("status") or ""), detail[:60]])
     return rows
+
+
+def listed(rows):
+    """The rows that are injury listings: everything but the players ESPN calls active."""
+    return [r for r in rows if str(r[3]).strip().lower() not in ("active", "probable", "")]
 
 
 def forecast(lat, lon, ko):
@@ -116,8 +123,8 @@ def main(plan=None, now=None):
 
     try:
         rows = injuries()
-        if len(rows) < MIN_LISTED and plan:
-            raise RuntimeError(f"only {len(rows)} players listed")
+        if len(listed(rows)) < MIN_LISTED and plan:
+            raise RuntimeError(f"only {len(listed(rows))} players listed")
         out["nflInj"], out["injAt"] = rows, iso(now)
     except Exception as e:
         out["errors"].append(f"injuries: {e}")
@@ -149,7 +156,7 @@ def main(plan=None, now=None):
         f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "errors", "wx", "wxAt")) + ',\n"nflInj":[\n'
                 + ",\n".join(c(r) for r in out["nflInj"]) + "\n]}\n")
     kept = sum(1 for e in out["errors"] if "kept" in e)
-    print(f"live: {len(out['nflInj'])} injury listings (read {out['injAt'] or 'never'}), forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, "
+    print(f"live: {len(listed(out['nflInj']))} injury listings (read {out['injAt'] or 'never'}), forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, "
           f"{len(out['errors']) - kept} failed")
     for e in out["errors"][:12]:
         print("  ", e)

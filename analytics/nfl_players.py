@@ -51,7 +51,18 @@ def write_games(proj):
 def statuses(R, cur, espn_inj, nflv_inj, week):
     """{gsis id: (status, detail)}: ESPN's injury list when the build has it, else the week's official report."""
     R2 = pd.concat([R, cur[["gsis_id", "full_name", "position"] + (["espn_id"] if "espn_id" in cur else [])]], ignore_index=True)
-    return pc.injury_table(R2, espn_inj, nflv_inj, week), R2
+    inj = pc.injury_table(R2, espn_inj, nflv_inj, week)
+    # ESPN's list also names players it now calls active: off the report, or cleared on game day. That is newer than the
+    # week's official report, so a game status the report still shows for such a player (questionable, doubtful, out)
+    # is dropped. A missed practice stays: it is shown, and it never counted as out.
+    e2g = pc.espn_map(R2)
+    n2g = {pc.norm_name(n): g for n, g in zip(R2.full_name, R2.gsis_id) if pd.notna(g)}
+    for row in espn_inj or []:
+        if str(row[3]).strip().lower() in ("active", "probable"):
+            g = e2g.get(str(row[0])) or n2g.get(pc.norm_name(row[1]))
+            if g in inj and not str(inj[g][0]).startswith("Practice"):
+                del inj[g]
+    return inj, R2
 
 
 def prepare_week(season, week, plan_games, espn_inj):
