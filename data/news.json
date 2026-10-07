@@ -4469,70 +4469,185 @@
    ],
    "summary": "Winless Tennessee (0-3, 37 points in three games) visits Baltimore (2-1) with Cam Ward still starting. Inactives brought no surprises: Ravens edge Trey Hendrickson is out after a finger procedure, while Lamar Jackson, LT Ronnie Stanley and WR Zay Flowers are all active. Both Baltimore centers remain out. Tennessee's scratches are depth players."
   },
-  "nfl_2026_05_TB_DAL": {
-   "at": "2026-10-06T16:08:35Z",
-   "game": "TB @ DAL",
+  "nfl_2026_05_PHI_JAX": {
+   "at": "2026-10-07T16:07:10Z",
+   "game": "PHI @ JAX",
    "items": [
     {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": -3.5,
-     "src": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels",
-     "team": "TB",
-     "text": "QB Baker Mayfield (dislocated right thumb) out until at least Week 7; undrafted rookie Jalon Daniels starts again. Mayfield played 3 of the Bucs' 4 games.",
-     "total": -1.5,
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-fantasy-football-lamar-jackson-saquon-barkley-jamarr-chase-120206335.html",
+     "team": "PHI",
+     "text": "RT Lane Johnson announced his retirement Tuesday after 14 seasons; he was a late scratch in Week 4, when Markel Bell replaced him at right tackle.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.inquirer.com/eagles/live/eagles-news-injury-report-next-game-saquon-barkley-lane-johnson-20261005.html",
+     "team": "PHI",
+     "text": "RB Saquon Barkley (hamstring, four snaps vs the Rams) is week-to-week and unlikely to play; Tank Bigsby (core muscle surgery) is on IR. Will Shipley leads.",
+     "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-04T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://clutchpoints.com/nfl/tampa-bay-buccaneers/buccaneers-news-jalon-daniels-cowboys-packers-debacle",
-     "team": "TB",
-     "text": "Daniels went 19/27 for 148 yds, 1 TD, 2 INT plus 55 rush yds in a 17-14 loss to Green Bay; Bowles confirmed he stays the starter. Easton Stick is the fallback.",
+     "src": "https://nbcsportsphiladelphia.com/nfl/philadelphia-eagles/going-through-eagles-laundry-list-of-injury-entering-week-5/756662",
+     "team": "PHI",
+     "text": "WR DeVonta Smith (hamstring) is expected to miss more than one game and TE Dallas Goedert (MCL sprain) may miss a third straight.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://nbcsportsphiladelphia.com/nfl/philadelphia-eagles/going-through-eagles-laundry-list-of-injury-entering-week-5/756662",
+     "team": "PHI",
+     "text": "CB Quinyon Mitchell (knee) is awaiting tests, LB Zack Baun is in concussion protocol and OLB Jonathan Greenard (ankle) is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.inquirer.com/eagles/week-5-jaguars-london-trevor-lawrence-jalen-hurts-injuries-20261006.html",
+     "team": "PHI",
+     "text": "Eagles lost 24-20 to the Rams after leading by two scores in the fourth quarter, going 0-for-12 on third down; Hurts was pressured on 57.6% of dropbacks.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": -0.2,
-     "src": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026",
-     "team": "TB",
-     "text": "LB SirVocea Dennis (ankle/foot, had an MRI) and CB Benjamin Morrison (quad) were estimated non-participants Monday; OLB Rueben Bain Jr. was a full participant.",
+     "at": null,
+     "impact": 0,
+     "src": "https://blackandteal.com/jaguars-place-caleb-ransaw-on-ir-to-make-space-for-latest-cb-signings-alijah-huzzie-jaylon-jones",
+     "team": "JAX",
+     "text": "S Caleb Ransaw (knee) went on IR and S Eric Murray is in concussion protocol; Rayuan Lane and rookie Jalen Huskey should play more.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-03T12:00:00Z",
+     "at": null,
      "impact": 0,
-     "src": "https://www.footballnationusa.com/post/buccaneers-at-cowboys-preview-dallas-pressure-tests-jalon-daniels",
+     "src": "https://blackandteal.com/jaguars-place-caleb-ransaw-on-ir-to-make-space-for-latest-cb-signings-alijah-huzzie-jaylon-jones",
+     "team": "JAX",
+     "text": "CBs Alijah Huzzie and Jaylon Jones were signed to the active roster as depth; neither is expected to play much. CB Montaric Brown (hamstring) missed Week 4.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.inquirer.com/eagles/week-5-jaguars-london-trevor-lawrence-jalen-hurts-injuries-20261006.html",
+     "team": "JAX",
+     "text": "Jaguars are 3-1 after beating Cincinnati despite 13 penalties; the defense has six interceptions, tied for the league lead.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "What we know (and don't) about the Eagles entering Week 5 vs. the Jaguars (Philadelphia Inquirer)",
+     "u": "https://www.inquirer.com/eagles/week-5-jaguars-london-trevor-lawrence-jalen-hurts-injuries-20261006.html"
+    },
+    {
+     "t": "Eagles news: Saquon Barkley, DeVonta Smith injury updates, next game (Philadelphia Inquirer)",
+     "u": "https://www.inquirer.com/eagles/live/eagles-news-injury-report-next-game-saquon-barkley-lane-johnson-20261005.html"
+    },
+    {
+     "t": "NFL news, live updates: Eagles All-Pro RT Lane Johnson announces retirement (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-fantasy-football-lamar-jackson-saquon-barkley-jamarr-chase-120206335.html"
+    },
+    {
+     "t": "Going through Eagles' laundry list of injuries entering Week 5 (NBC Sports Philadelphia)",
+     "u": "https://nbcsportsphiladelphia.com/nfl/philadelphia-eagles/going-through-eagles-laundry-list-of-injury-entering-week-5/756662"
+    },
+    {
+     "t": "Eagles place RB Tank Bigsby on Injured Reserve (PhiladelphiaEagles.com)",
+     "u": "https://www.philadelphiaeagles.com/news/eagles-place-rb-tank-bigsby-on-injured-reserve-release-lb-anfernee-orji-from-the-practice-squad"
+    },
+    {
+     "t": "Jaguars place Caleb Ransaw on IR to make space for latest CB signings (Black and Teal)",
+     "u": "https://blackandteal.com/jaguars-place-caleb-ransaw-on-ir-to-make-space-for-latest-cb-signings-alijah-huzzie-jaylon-jones"
+    }
+   ],
+   "summary": "Philadelphia (2-2) heads to London badly depleted: right tackle Lane Johnson retired Tuesday, Saquon Barkley (hamstring) is week-to-week, Tank Bigsby is on injured reserve, and DeVonta Smith and Dallas Goedert are expected to miss the game. Jacksonville (3-1) comes off a win over Cincinnati with a defense tied for the league lead in interceptions, though its safety depth has thinned."
+  },
+  "nfl_2026_05_TB_DAL": {
+   "at": "2026-10-07T16:07:10Z",
+   "game": "TB @ DAL",
+   "items": [
+    {
+     "at": "2026-09-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels",
      "team": "TB",
-     "text": "WR Jalen McMillan (knee) is expected to miss 6-8 weeks.",
+     "text": "QB Baker Mayfield (dislocated right thumb) is out until at least Week 7; undrafted rookie Jalon Daniels makes his second start, his first on the road.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.bucsnation.com/tampa-bay-buccaneers-injuries/68933/buccaneers-cowboys-initial-injury-report-antoine-winfield-jr-to-miss-2-4-weeks",
+     "team": "TB",
+     "text": "S Antoine Winfield Jr. has a rib injury from the Green Bay loss and is expected to miss 2-4 weeks; he has not practiced this week.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5",
+     "team": "TB",
+     "text": "CB Benjamin Morrison (quad), LB SirVocea Dennis (calf) and K Chase McLaughlin (right groin/hip) were listed as not practicing.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": "2026-10-04T12:00:00Z",
      "impact": 0,
-     "src": "https://www.buccaneers.com/news/next-game-tampa-bay-buccaneers-vs-dallas-cowboys-nfl-season-week-5-2026",
+     "src": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5",
      "team": "TB",
-     "text": "Bucs are 0-4 and seeking a first win; defense has held three straight opponents under 300 yards and forced two takeaways vs Green Bay.",
+     "text": "Daniels threw for 148 yds, 1 TD and 2 INT and ran for 55 in his debut, a 17-14 loss to Green Bay.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5",
+     "team": "TB",
+     "text": "Bucs are 0-4 and still seeking a first win; the defense has held three straight opponents to 285 yards or fewer.",
      "total": 0,
      "type": "motivation"
     },
     {
      "at": "2026-10-05T12:00:00Z",
      "impact": 0.3,
-     "src": "https://sports.yahoo.com/articles/cowboys-injury-roundup-two-key-235200563.html",
+     "src": "https://www.dallascowboys.com/news/cowboys-open-practice-window-for-all-pro-tyler-smith",
      "team": "DAL",
-     "text": "All-Pro G Tyler Smith (thumb surgery, on IR all season) had his practice window opened and was limited in Monday's estimated practice; hopes to face the Bucs.",
-     "total": 0.1,
+     "text": "All-Pro G Tyler Smith (thumb surgery, on IR all season) had his practice window opened Monday and was limited; not yet activated, so Thursday is uncertain.",
+     "total": 0,
      "type": "return"
     },
     {
      "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/cowboys-injury-roundup-two-key-235200563.html",
+     "src": "https://www.dallascowboys.com/news/updates-october-2026",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) was an estimated non-participant Monday, so a Thursday return looks less likely.",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) did not practice; Brian Schottenheimer called a return this week a 'long shot'.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.dallascowboys.com/news/updates-october-2026",
+     "team": "DAL",
+     "text": "CB Cobie Durant (hamstring) is likely to be ruled out; T Drew Shelton (hamstring) also sat out Monday. S Jalen Thompson and DT Jonathan Bullard are on IR.",
      "total": 0,
      "type": "injury"
     },
@@ -4541,49 +4656,30 @@
      "impact": 0.2,
      "src": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans",
      "team": "DAL",
-     "text": "CB Joey Porter Jr., acquired from Pittsburgh before Week 4, played 24 snaps in his debut and should see a larger role.",
+     "text": "CB Joey Porter Jr., acquired from Pittsburgh before Week 4, played 24 snaps in his debut and should see a larger role with Durant out.",
      "total": 0,
      "type": "add"
     },
     {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": -0.2,
-     "src": "https://dknetwork.draftkings.com/2026/10/06/nfl-injury-report-week-5/",
-     "team": "DAL",
-     "text": "CB Cobie Durant (hamstring) is expected to miss Thursday; T Drew Shelton (hamstring) also sat out. S Jalen Thompson and DL Jonathan Bullard are on IR.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
+     "at": "2026-10-07T12:00:00Z",
      "impact": 0,
-     "src": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans",
+     "src": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5",
      "team": "DAL",
-     "text": "Dak Prescott threw for 355 yds and CeeDee Lamb caught 17 for 189 in a 34-30 comeback at Houston; Dallas has allowed 20+ points in every game.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": -1,
-     "src": "https://dknetwork.draftkings.com/2026/10/06/nfl-injury-report-week-5/",
-     "team": "TB",
-     "text": "S Antoine Winfield Jr. has a slight rib fracture from late in the Green Bay loss and will miss 2-4 weeks, per Todd Bowles; he had 24 tackles in four games.",
-     "total": 0.3,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026",
-     "team": "DAL",
-     "text": "WR CeeDee Lamb (thigh), CB Joey Porter Jr. (ankle) and S Malik Hooker (forearm) were all listed as full participants Monday.",
+     "text": "Dallas is 2-2 after a comeback win at Houston; it ranks 2nd in scoring (30.5 a game) but 31st against the run (150.3 yards a game).",
      "total": 0,
      "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Bucs vs. Cowboys TNF Game Preview (Buccaneers.com)",
+     "u": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5"
+    },
+    {
+     "t": "Buccaneers-Cowboys Injury Report Oct. 5 (Buccaneers.com)",
+     "u": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026"
+    },
     {
      "t": "Next Up: Bucs Face Cowboys in Dallas on TNF (Buccaneers.com)",
      "u": "https://www.buccaneers.com/news/next-game-tampa-bay-buccaneers-vs-dallas-cowboys-nfl-season-week-5-2026"
@@ -4593,36 +4689,28 @@
      "u": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels"
     },
     {
+     "t": "Buccaneers at Cowboys Initial Injury Report: Winfield to miss 2-4 weeks (Bucs Nation)",
+     "u": "https://www.bucsnation.com/tampa-bay-buccaneers-injuries/68933/buccaneers-cowboys-initial-injury-report-antoine-winfield-jr-to-miss-2-4-weeks"
+    },
+    {
+     "t": "Updates: Overshown a 'long shot' in Wk. 5 (DallasCowboys.com)",
+     "u": "https://www.dallascowboys.com/news/updates-october-2026"
+    },
+    {
+     "t": "Cowboys open practice window for All-Pro Tyler Smith (DallasCowboys.com)",
+     "u": "https://www.dallascowboys.com/news/cowboys-open-practice-window-for-all-pro-tyler-smith"
+    },
+    {
      "t": "Pic 6: News and notes from Cowboys' Week 4 win over Texans (DallasCowboys.com)",
      "u": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans"
-    },
-    {
-     "t": "Buccaneers at Cowboys Preview and Prediction Week 5 2026 (Football Nation)",
-     "u": "https://www.footballnationusa.com/post/buccaneers-at-cowboys-preview-dallas-pressure-tests-jalon-daniels"
-    },
-    {
-     "t": "Buccaneers news: Will Jalon Daniels start again vs. Cowboys on TNF? (ClutchPoints)",
-     "u": "https://clutchpoints.com/nfl/tampa-bay-buccaneers/buccaneers-news-jalon-daniels-cowboys-packers-debacle"
-    },
-    {
-     "t": "NFL Injury Report for Week 5: Latest Player Updates",
-     "u": "https://dknetwork.draftkings.com/2026/10/06/nfl-injury-report-week-5/"
-    },
-    {
-     "t": "Cowboys Injury Roundup: Two Key Players Eyeing Thursday Return",
-     "u": "https://sports.yahoo.com/articles/cowboys-injury-roundup-two-key-235200563.html"
-    },
-    {
-     "t": "Buccaneers-Cowboys Injury Report Oct. 5",
-     "u": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026"
     }
    ],
-   "summary": "Winless Tampa Bay (0-4) visits Dallas on a short week with undrafted rookie Jalon Daniels starting again for Baker Mayfield (thumb), and now without star safety Antoine Winfield Jr. (rib fracture, 2-4 weeks). Dallas (2-2) has opened All-Pro guard Tyler Smith's practice window and he was limited Monday, but LB DeMarvion Overshown did not practice and CB Cobie Durant is expected to miss the game."
+   "summary": "Winless Tampa Bay (0-4) goes to Dallas on a short week with undrafted rookie Jalon Daniels making his first road start for Baker Mayfield (thumb), and without safety Antoine Winfield Jr. (rib). Dallas (2-2) has opened All-Pro guard Tyler Smith's practice window but had not activated him; LB DeMarvion Overshown is a long shot and CB Cobie Durant is likely out."
   }
  },
  "meta": {
-  "at": "2026-10-06T23:04:45Z",
-  "games": 1,
-  "note": "Man United v Tottenham refreshed: Sesko, Dorgu, Mazraoui doubts; Bruno, Rashford, Mainoo expected fit; Spurs' Van Hecke a doubt, Porro out."
+  "at": "2026-10-07T16:07:10Z",
+  "games": 2,
+  "note": "NFL: TB @ DAL refreshed (Tyler Smith window open, Winfield out); PHI @ JAX new (Lane Johnson retired, Barkley unlikely)."
  }
 }
