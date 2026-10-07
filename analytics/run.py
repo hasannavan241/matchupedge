@@ -63,6 +63,11 @@ def main():
 
     def s_fetch():
         nd.fetch()
+        old = nd.stale()
+        if old:   # stop here: the site keeps its last page, and the next refresh tries the downloads again
+            raise RuntimeError("could not download " + ", ".join(old) + ", and the copies here are more than a day old")
+        if nd.MISSED:   # optional files, or core ones with a copy from the last day
+            errors.append("download: not fetched this time: " + ", ".join(os.path.basename(f) for f, _ in nd.MISSED))
         nd.agg()
         gone = slim() if os.environ.get("AN_SLIM") else 0
         return f"season {nd.current_season()}" + (f", {gone} finished seasons' play-by-play cleared" if gone else "")

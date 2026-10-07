@@ -7,7 +7,7 @@ team-games, quarterback-games and player-games.
 
 Nothing here comes from a sportsbook. games.csv carries closing lines in some columns; the site never reads them.
 """
-import glob, os, subprocess, sys
+import glob, os, subprocess, sys, time
 import numpy as np
 import pandas as pd
 
@@ -31,17 +31,35 @@ def path(*parts):
     return os.path.join(DATA, *parts)
 
 
+MISSED = []   # downloads that failed and were not required: (file, hours since the copy already here was fetched, or None)
+
+
 def get(url, dest, required=True):
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     tmp = dest + ".part"
-    ok = subprocess.run(["curl", "-sSLf", "--retry", "2", "-o", tmp, url]).returncode == 0
+    # nflverse replaces its files in place, so one can be missing for a few seconds: every kind of failure is tried again
+    ok = subprocess.run(["curl", "-sSLf", "--retry", "4", "--retry-all-errors", "--retry-delay", "3", "-o", tmp, url]).returncode == 0
     if ok:
         os.replace(tmp, dest)
     elif os.path.exists(tmp):
         os.remove(tmp)
     if not ok and required:
         sys.exit(f"download failed: {url}")
+    if not ok:
+        MISSED.append((dest, (time.time() - os.path.getmtime(dest)) / 3600 if os.path.exists(dest) else None))
     return ok
+
+
+def stale(hours=26):
+    """This season's core files that could not be downloaded and whose copy here is old (or absent) although the season
+    has games played: a build from them would quietly use last week's players. Returns their names."""
+    season = current_season()
+    G = pd.read_csv(path("games.csv"), usecols=["season", "home_score"])
+    if not G[(G.season == season)].home_score.notna().any():
+        return []   # nothing played yet: the season's files don't exist
+    core = {path("pbp", f"play_by_play_{season}.parquet"), path("players", f"stats_player_week_{season}.csv"),
+            path("players", f"snap_counts_{season}.csv"), path("players", f"roster_{season}.csv"), path("roster_weekly.csv")}
+    return [os.path.basename(f) for f, age in MISSED if f in core and (age is None or age > hours)]
 
 
 def current_season():
@@ -51,6 +69,7 @@ def current_season():
 def fetch(first=None):
     """Schedules and results, play-by-play, player stats, snap counts, rosters, injury reports and tracking stats.
     A finished season's files are downloaded once."""
+    del MISSED[:]
     get(RAW + "/nflverse/nfldata/master/data/games.csv", path("games.csv"))
     season = current_season()
     first = int(first or FIRST_PBP)
