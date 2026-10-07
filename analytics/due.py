@@ -74,6 +74,8 @@ def read_state(path):
             state = json.load(open(path))
         except Exception:
             state = {}
+    if not isinstance(state, dict):   # "null", a list: not a state file
+        state = {}
     # "at" is when the last refresh started (the new site's state); "built" and "ts" are the old site's
     built = next((t for t in (parse(state.get(k)) for k in ("at", "built", "ts") if state.get(k)) if t), None)
     kos = state.get("kickoffs") if isinstance(state.get("kickoffs"), list) else state.get("nfl_ko")
@@ -82,9 +84,14 @@ def read_state(path):
 
 
 if __name__ == "__main__":
-    now = parse(os.environ["ME_NOW"]) if os.environ.get("ME_NOW") else dt.datetime.now(dt.timezone.utc)
-    built, kos = read_state(sys.argv[1] if len(sys.argv) > 1 else None)
-    mode, why = decide(now, os.environ.get("ME_EVENT") or "schedule", (os.environ.get("ME_WANT") or "tick").strip().lower(), built, kos)
+    now = (parse(os.environ["ME_NOW"]) if os.environ.get("ME_NOW") else None) or dt.datetime.now(dt.timezone.utc)
+    event, want = os.environ.get("ME_EVENT") or "schedule", (os.environ.get("ME_WANT") or "tick").strip().lower()
+    try:
+        built, kos = read_state(sys.argv[1] if len(sys.argv) > 1 else None)
+        mode, why = decide(now, event, want, built, kos)
+    except Exception as e:   # whatever went wrong reading the last refresh, the hours rule still holds
+        mode, why = decide(now, event, want, None, None)
+        why += f" (the last refresh could not be read: {e.__class__.__name__})"
     stamp = f"{now.astimezone(CT):%a %b %-d, %-I:%M %p} Central"
     print(f"mode={mode}")
     print(f"{stamp}: refresh ({why})" if mode != "skip" else f"{stamp}: nothing to do ({why})")

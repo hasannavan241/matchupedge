@@ -7,7 +7,8 @@ outdoor stadiums (the National Weather Service). Writes live.json for build.py.
 No sportsbook is read here or anywhere else on the site: no lines, no prices, no odds.
 
 A source that fails does not stop the refresh. The last good copy is used while it is fresh enough (AN_LIVE_PREV, else
-the live.json already there): the injury list for 36 hours, a forecast for 24. The page says when each was read.
+the live.json already there): the injury list for 36 hours, a forecast for 24. The page says when the injury list was
+read and warns when that is over six hours before the build; live.json itself keeps when each forecast was read (wxAt).
 """
 import datetime as dt, json, math, os, re, sys, time
 import urllib.error, urllib.request

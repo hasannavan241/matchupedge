@@ -4,6 +4,9 @@ that scrolls sideways. Run before publishing.
 
     python3 check.py            checks only
     python3 check.py shots DIR  also saves screenshots of every tab (desktop and phone, light and dark)
+
+A page with no games to project (between the last game of a round and the next ones being listed, and all
+off-season) is a valid page: the checks that need a game or a player are skipped, the rest still run.
 """
 import json, os, sys
 
@@ -15,6 +18,9 @@ def main():
     from playwright.sync_api import sync_playwright
     shots = sys.argv[2] if len(sys.argv) > 2 and sys.argv[1] == "shots" else None
     data = json.load(open(os.path.join(OUT, "data.json")))
+    games = data.get("games") or []
+    players = (data.get("players") or {}).get("players") or []
+    rec = (data.get("record") or {}).get("live") or []
     errors = []
     with sync_playwright() as pw:
         exe = "/opt/pw-browsers/chromium" if os.path.exists("/opt/pw-browsers/chromium") and os.path.isfile("/opt/pw-browsers/chromium") else None
@@ -27,15 +33,16 @@ def main():
             page.on("console", lambda m, n=name: errors.append(f"{n}: console error: {m.text}") if m.type == "error" and "fonts.g" not in m.text and "ERR_" not in m.text else None)
             page.goto("file://" + os.path.join(OUT, "index.html"))
             page.wait_for_selector("#games .card")
-            if name == "desktop-light":
+            if name == "desktop-light" and games:
                 # the page's picks are the build's picks
                 got = page.evaluate("MatchupEdge.data.games.map(g=>{const r=MatchupEdge.calc(g);return [g.id,r.m,r.t,r.team]})")
                 for gid, m, t, team in got:
-                    g = next(x for x in data["games"] if x["id"] == gid)
+                    g = next(x for x in games if x["id"] == gid)
                     if abs(m - g["m"]) > 0.02 or abs(t - g["t"]) > 0.02:
                         errors.append(f"{gid}: the page projects {m:.2f} / {t:.2f}, the build {g['m']} / {g['t']}")
                     if team != g["pick"]:   # the saved record takes the build's pick: it has to be the one the page shows
                         errors.append(f"{gid}: the page picks {team}, the build {g['pick']}")
+            if name == "desktop-light" and players:
                 # the page's outcome chances are the model's (props_core.p_over), on a sample of players
                 sample = page.evaluate("""(() => {const P=MatchupEdge.data.players.players, out=[];
                     for (const p of P.filter((_, i) => i % 9 === 0)) for (const s of Object.keys(p.mu)) for (const L of [p.mu[s]*0.6, Math.round(p.mu[s]), p.mu[s]*1.4+0.5]) {
@@ -53,10 +60,13 @@ def main():
             for tab in ("games", "players", "teams", "method"):
                 page.click(f'[data-tab="{tab}"]')
                 page.wait_for_timeout(150)
-                if tab == "games":
+                if tab == "games" and games:
                     page.evaluate("document.querySelector('details.more').open = true")
                     page.evaluate("document.querySelector('details.mix').open = true")
-                if tab == "players":
+                    shown = page.evaluate("document.querySelectorAll('#games article.card[data-g]').length")
+                    if shown != len(games):
+                        errors.append(f"{name}: the page shows {shown} game cards, the build has {len(games)} games")
+                if tab == "players" and players:
                     page.click("#players .prow")
                     page.wait_for_selector("#players .pc")
                     page.fill("#players .you input", "55.5")
@@ -65,8 +75,7 @@ def main():
                 if tab == "teams":
                     page.click("#teams tr[data-team]")
                     page.wait_for_selector("#teamdetail")
-                # the record: every saved pick that has kicked off is on the page, on both tabs that show it
-                rec = data["record"]["live"]
+                # the record: every saved pick whose game has kicked off is on the page, graded or still waiting for a final
                 if tab == "method":
                     if not page.query_selector("#method h2 >> text=/our record/i"):
                         errors.append(f"{name}: no record section under How it works")
@@ -75,14 +84,14 @@ def main():
                         errors.append(f"{name}: the record lists {shown} picks, the build has {len(rec)}")
                     page.evaluate("document.querySelectorAll('#method details').forEach(d => d.open = true)")
                 if tab == "games" and any(r[0] == data["season"] for r in rec) and not page.query_selector("#games h2 >> text=/how the picks did/i"):
-                    errors.append(f"{name}: picks have been graded but the Games tab doesn't show them")
+                    errors.append(f"{name}: picks have kicked off but the Games tab doesn't show how they did")
                 wide = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
                 if wide > 1:
                     errors.append(f"{name}: the {tab} tab scrolls sideways by {wide}px")
                 if shots:
                     os.makedirs(shots, exist_ok=True)
                     page.screenshot(path=os.path.join(shots, f"{name}-{tab}.png"), full_page=True)
-            if name == "desktop-light":
+            if name == "desktop-light" and games:
                 # a slider moves the picks
                 page.click('[data-tab="games"]')
                 page.evaluate("document.querySelector('details.mix').open = true")
@@ -104,7 +113,7 @@ def main():
     if errors:
         print("\n".join(errors))
         sys.exit(1)
-    print("page ok")
+    print("page ok" if games else "page ok (no games to project)")
 
 
 if __name__ == "__main__":

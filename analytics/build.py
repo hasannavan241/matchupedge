@@ -184,17 +184,23 @@ def build_data():
     names.update({g: n for g, n in zip(pl.gsis_id, pl.display_name) if g not in names})
     ref = pd.Timestamp(min(g["date"] for g in plan)) if plan else pd.Timestamp(TODAY)
     base_lg = QB.league(ref)
+    week_ref = G.groupby(["season", "week"]).gameday.min().to_dict()   # each week's first kickoff date, as nfl_model.features dates it
+    base_at = {ref: base_lg}
 
     # ------------------------------------------------------------------ this week's games
     games, team_now = [], {}
     regs_by = {}
     for g in plan:
         row = F[F.game_id == g["id"]].iloc[0]
+        # Quarterbacks are valued as of the first kickoff of this game's own week: the date the model's own row for the game
+        # uses. A game's numbers then stay put when an earlier game kicks off and leaves the page.
+        gref = week_ref.get((int(row.season), int(row.week)), ref)
+        gbase = base_at.setdefault(gref, QB.league(gref))
         x = {k: float(row[k]) if pd.notna(row[k]) else 0.0 for k in nm.M_FEATS + nm.EXTRA + nm.T_FEATS}
         sides, outs = {}, {}
         for side, team, opp in (("a", g["away"], g["home"]), ("h", g["home"], g["away"])):
             qid = row["qbid_" + side]
-            v, n = QB.value(qid, ref, base_lg)
+            v, n = QB.value(qid, gref, gbase)
             stq = inj.get(qid, ("", ""))
             rt = roster.get(qid) if isinstance(qid, str) else None
             p_sit = out_fraction(stq[0], rt[1] if rt else "ACT", rt is None or rt[0] == team, qb=True) if isinstance(qid, str) else 0.0
@@ -202,11 +208,11 @@ def build_data():
             if p_sit > 0:   # the next man up: for part of the game when the starter is questionable, all of it when he is out
                 pool = cur[(cur.team.replace(nd.FR) == team) & (cur.position == "QB") & (cur.status == "ACT") & (cur.gsis_id != qid)].gsis_id
                 pool = [q for q in pool if not npl.pc.is_out(inj.get(q, ("", ""))[0])]
-                best = max(pool, key=lambda q: QB.value(q, ref, base_lg)[1], default=None)
+                best = max(pool, key=lambda q: QB.value(q, gref, gbase)[1], default=None)
                 if best:
-                    bk_id, bk_v = best, QB.value(best, ref, base_lg)[0]
+                    bk_id, bk_v = best, QB.value(best, gref, gbase)[0]
                 if p_sit >= 1:   # ruled out and still listed (the player step normally replaces him before this): the backup starts
-                    qid, (v, n), stq, p_sit = bk_id, (bk_v, QB.value(bk_id, ref, base_lg)[1] if bk_id else 0.0), inj.get(bk_id, ("", "")) if bk_id else ("", ""), 0.0
+                    qid, (v, n), stq, p_sit = bk_id, (bk_v, QB.value(bk_id, gref, gbase)[1] if bk_id else 0.0), inj.get(bk_id, ("", "")) if bk_id else ("", ""), 0.0
                     bk_id = None
             used = (1 - p_sit) * v + p_sit * bk_v
             # the quarterback the team's results were mostly produced with
@@ -369,7 +375,11 @@ def build_data():
         record["test_season"] = int(b.season.max())
         record["test"] = [[int(x.week), x.away, x.home, r_(x.pred, 1), r_(float(norm.cdf(abs(x.pred) / x.sd)), 3), int(x.result), int((x.pred > 0) == (x.result > 0))] for x in b.itertuples()]
     # the picks the site saved before kickoff, graded (record.py): what the page calls its own record
-    picks = rc.load()
+    try:
+        picks = rc.load()
+    except rc.Unreadable as e:   # never fatal, and never overwritten: the page says the record is unavailable
+        print("record:", e)
+        picks, record["broken"] = {"games": {}}, True
     record["live"] = rc.rows(picks, NOW.to_pydatetime())
     record["since"] = min((p["at"] for p in picks["games"].values() if p.get("at")), default=None)
 
@@ -385,6 +395,10 @@ def build_data():
             "model": slim, "games": games, "teams": teams, "players": players,
             "news": {k: v for k, v in docs.items() if k.startswith("nfl_") and k[4:] in {g["id"] for g in games}}, "news_meta": news.get("meta"),
             "record": record, "names": NAMES,
+            # Read by the scheduled tasks written for the old page, until they are rewritten: the copy task compares "made",
+            # and the news research task lists the games to research from nfl.games (id, teams, kickoff). No odds in either.
+            "made": ctnow.strftime("%Y-%m-%d %H:%M CT"),
+            "nfl": {"games": [{"id": g["id"], "away": g["away"], "home": g["home"], "ko": g["ko"], "mkt": None} for g in games]}, "nba": None, "epl": None,
             "stats": [[k, lab, hi, dig, unit] for k, lab, _, hi, dig, unit in ns.TEAM_STATS]}
     os.makedirs(OUT, exist_ok=True)
     json.dump(data, open(os.path.join(OUT, "data.json"), "w"), separators=(",", ":"), allow_nan=False)
@@ -417,8 +431,10 @@ def write_summary(d):
         L += ["| Game | Kickoff (CT) | Pick | Chance | Projected score |", "|---|---|---|---|---|"]
         for g in d["games"]:
             m, t, pick = float(g["m"]), float(g["t"]), g["pick"]
+            hs, as_ = (t + m) / 2, (t - m) / 2
+            dec = 1 if round(hs) == round(as_) and abs(m) >= 0.05 else 0   # as the page does: a decimal when whole numbers would tie
             L.append(f"| {g['away']} at {g['home']} | {g['day']} {g['ct']} | {NAMES.get(pick, pick)} | {norm.cdf(abs(m) / sd) * 100:.0f}% | "
-                     f"{g['away']} {(t - m) / 2:.0f}, {g['home']} {(t + m) / 2:.0f} |")
+                     f"{g['away']} {as_:.{dec}f}, {g['home']} {hs:.{dec}f} |")
     graded = [r for r in d["record"]["live"] if r[9] is not None]
     if graded:
         won = sum(r[9] for r in graded)

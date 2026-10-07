@@ -34,11 +34,15 @@ def path(*parts):
 MISSED = []   # downloads that failed and were not required: (file, hours since the copy already here was fetched, or None)
 
 
-def get(url, dest, required=True):
+def get(url, dest, required=True, patient=None):
+    """Download url to dest. patient: also try again when the server says the file isn't there. nflverse replaces its
+    files in place, so one that exists can be missing for a few seconds; a file that was never published (next season's,
+    once its schedule is out) is not worth 13 seconds of retries on every refresh."""
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     tmp = dest + ".part"
-    # nflverse replaces its files in place, so one can be missing for a few seconds: every kind of failure is tried again
-    ok = subprocess.run(["curl", "-sSLf", "--retry", "4", "--retry-all-errors", "--retry-delay", "3", "-o", tmp, url]).returncode == 0
+    patient = required if patient is None else patient
+    cmd = ["curl", "-sSLf", "--retry", "4", "--retry-delay", "3"] + (["--retry-all-errors"] if patient else []) + ["-o", tmp, url]
+    ok = subprocess.run(cmd, stderr=subprocess.DEVNULL if not required else None).returncode == 0
     if ok:
         os.replace(tmp, dest)
     elif os.path.exists(tmp):
@@ -73,16 +77,18 @@ def fetch(first=None):
     get(RAW + "/nflverse/nfldata/master/data/games.csv", path("games.csv"))
     season = current_season()
     first = int(first or FIRST_PBP)
+    g = pd.read_csv(path("games.csv"), usecols=["season", "home_score"])
+    begun = bool(g[g.season == season].home_score.notna().any())   # this season has games played, so its files exist
     for y in range(first, season + 1):
         if y < season and (os.path.exists(path("agg", f"team_game_{y}.parquet")) or os.path.exists(path("pbp", f"play_by_play_{y}.parquet"))):
             continue  # already rolled up (or already here)
-        get(f"{NFLV}/pbp/play_by_play_{y}.parquet", path("pbp", f"play_by_play_{y}.parquet"), required=y < season)
+        get(f"{NFLV}/pbp/play_by_play_{y}.parquet", path("pbp", f"play_by_play_{y}.parquet"), required=y < season, patient=y < season or begun)
     for kind, name in (("stats_player", "stats_player_week_{y}.csv"), ("snap_counts", "snap_counts_{y}.csv"), ("rosters", "roster_{y}.csv")):
         for y in range(max(first, FIRST_PLAYERS), season + 1):
             dest = path("players", name.format(y=y))
             if y < season and os.path.exists(dest):
                 continue
-            get(f"{NFLV}/{kind}/{name.format(y=y)}", dest, required=y < season)
+            get(f"{NFLV}/{kind}/{name.format(y=y)}", dest, required=y < season, patient=y < season or begun)
     for y in range(max(first, 2009), season + 1):
         dest = path("inj", f"injuries_{y}.csv")
         if not (y < season and os.path.exists(dest)):
@@ -95,7 +101,7 @@ def fetch(first=None):
             if not (y < season and os.path.exists(dest)):
                 get(f"{NFLV}/pfr_advstats/advstats_week_{k}_{y}.parquet", dest, required=False)
     get(f"{NFLV}/players/players.csv", path("players.csv"), required=False)
-    get(f"{NFLV}/weekly_rosters/roster_weekly_{season}.csv", path("roster_weekly.csv"), required=False)
+    get(f"{NFLV}/weekly_rosters/roster_weekly_{season}.csv", path("roster_weekly.csv"), required=False, patient=begun)
     print(f"fetched: season {season}, play-by-play from {first}")
 
 

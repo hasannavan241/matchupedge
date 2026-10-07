@@ -98,7 +98,8 @@ def main():
         d = build.build_data()
         build.write_site()
         state.update({"season": d["season"], "week": d["week"], "games": len(d["games"]), "players": len((d["players"] or {}).get("players", [])),
-                      "built": d["built"], "kickoffs": [g["ko"] for g in d["games"]]})   # due.py reads these from the published copy
+                      "built": d["built"], "kickoffs": [g["ko"] for g in d["games"]],   # due.py reads these from the published copy
+                      "made": d["made"], "ts": d["built"]})   # an old page left open offers Reload when it sees a newer "made" and "ts"
         # a short fingerprint of every pick and every player projection: two builds from the same inputs print the same one
         mark = lambda v: hashlib.sha1(json.dumps(v, sort_keys=True, separators=(",", ":")).encode()).hexdigest()[:12]
         state["fingerprint"] = {"games": mark([[g["id"], g["pick"], g["m"], g["t"], g["x"]] for g in d["games"]]),

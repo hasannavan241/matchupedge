@@ -20,17 +20,23 @@ NOTE = ("Matchup Edge: the pick the site showed for each NFL game at its last re
         "res: final score and whether the pick won (null for a tie).")
 
 
+class Unreadable(Exception):
+    """The record file is there but can't be used. Nothing is written while that is so."""
+
+
 def load(path=None):
+    """The record. A file that exists but can't be read, or isn't a record, is left exactly as it is: this raises, the
+    grade and save steps fail with a note, and the page goes on without its record until the file is repaired."""
     path = path or PATH
-    if os.path.exists(path):
-        try:
-            d = json.load(open(path))
-            if isinstance(d, dict) and isinstance(d.get("games"), dict):
-                return d
-        except Exception as e:
-            print(f"{path}: unreadable ({e}); starting a new record beside it")
-            os.replace(path, path + ".unreadable")
-    return {"note": NOTE, "games": {}}
+    if not os.path.exists(path):
+        return {"note": NOTE, "games": {}}
+    try:
+        d = json.load(open(path))
+    except Exception as e:
+        raise Unreadable(f"{os.path.basename(path)} can't be read ({e.__class__.__name__}: {e}); it is left as it is") from None
+    if not (isinstance(d, dict) and isinstance(d.get("games"), dict) and all(isinstance(v, dict) for v in d["games"].values())):
+        raise Unreadable(f"{os.path.basename(path)} is not a picks record; it is left as it is")
+    return d
 
 
 def write(rec, path=None):
