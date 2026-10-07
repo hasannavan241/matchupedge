@@ -1,6 +1,6 @@
 # The switch to the stats-only site
 
-Done on 2026-10-06 (evening, Central) at the owner's say. Before it, the site was built from `pipeline/` and read
+Done on 2026-10-06 at 9:23 PM Central, at the owner's say (commit `b35ff3a`; the first build was published at 9:25 PM). Before it, the site was built from `pipeline/` and read
 sportsbook lines and prices; since it, the site is built from `analytics/` and reads none.
 
 ## What the switch commit did
@@ -18,11 +18,12 @@ backtests) were left in place, unused, so the switch can be undone.
 ## To undo it
 
 ```
-git revert -m 1 <the switch merge or commit> && git push origin HEAD:main
+git revert b35ff3a && git push origin HEAD:main
 ```
 
-The revert puts the old `refresh.yml` back and its push starts an old-style refresh: the odds-based site is back
-within a few minutes. The Odds API key must still be in the repository's secrets for that to work, so the plan
+`b35ff3a` is the switch commit ("Switch the site to the stats-only build"). The revert puts the old `refresh.yml`
+back and its push starts an old-style refresh: the odds-based site is back within a few minutes. It also brings
+back the side-branch test job and `props-lines.yml`; `analytics/` stays, unused. The Odds API key must still be in the repository's secrets for that to work, so the plan
 should be cancelled only once the owner is happy with the new site.
 
 ## What is different on the published site
