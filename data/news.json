@@ -971,586 +971,6 @@
    ],
    "summary": "Brighton (3rd, best goal difference) are flying after 5-0 at Coventry and 3-0 over Arsenal, with Dunk expected back and Mitoma, Wieffer and Hinshelwood nearing returns, though Minteh stays out. Sunderland (14th) are braced to be without ever-present centre-back Dan Ballard (hamstring), striker Brian Brobbey is a major doubt and Habib Diarra looks unlikely; Reinildo is back from his ban."
   },
-  "epl_2026-10-11_CrystalPalace_NottmForest": {
-   "at": "2026-09-30T19:36:39Z",
-   "game": "Crystal Palace v Nottm Forest",
-   "items": [
-    {
-     "at": "2026-09-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://readcrystalpalace.com/2026/09/16/crystal-palace-leeds-preview-glasner-forest-mateta-injury/",
-     "team": "",
-     "text": "Glasner reunion: the former Palace boss, who won the FA Cup, Conference League and Community Shield there, now manages Forest.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-09-18T12:00:00Z",
-     "impact": 0.04,
-     "src": "https://www.rotowire.com/soccer/headlines/jean-philippe-mateta-injury-return-remains-uncertain-534304",
-     "team": "Crystal Palace",
-     "text": "Star striker Jean-Philippe Mateta (hamstring, out since late August) may return after the break, but Sage calls him 'more uncertain'.",
-     "total": 0.02,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-18T12:00:00Z",
-     "impact": 0.03,
-     "src": "https://www.rotowire.com/soccer/headlines/dean-henderson-injury-signs-new-palace-deal-534017",
-     "team": "Crystal Palace",
-     "text": "Captain and goalkeeper Dean Henderson (foot) is expected back after the break; Walter Benitez has deputised.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-12T14:28:00Z",
-     "impact": -0.02,
-     "src": "https://www.sportsmole.co.uk/football/crystal-palace/news/crystal-palace-games-axel-disasi-will-miss-after-reckless-challenge-on-jack-clarke_605028.html",
-     "team": "Crystal Palace",
-     "text": "Axel Disasi serves the last game of a three-match ban for his straight red card v Ipswich on Sept 12.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-30T17:30:00Z",
-     "impact": 0,
-     "src": "https://www.premierinjuries.com/teams/crystal-palace",
-     "team": "Crystal Palace",
-     "text": "Lerma (foot, 75%) and Tomiyasu (calf, 50%) are being assessed; Chadi Riad (knee) is out long-term.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.skysports.com/football/news/11661/13586089/leeds-0-0-crystal-palace-pierre-sages-side-claim-valuable-point-as-daniel-farkes-team-stay-unbeaten-in-premier-league",
-     "team": "Crystal Palace",
-     "text": "New boss Pierre Sage's side kept their first clean sheet in a 0-0 at Leeds, after conceding 11 in their first four games.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-08-27T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.wearepalace.uk/transfers/every-confirmed-incoming-and-outgoing-at-crystal-palace-in-summer-of-2026/",
-     "team": "Crystal Palace",
-     "text": "Summer: centre-back Lacroix was sold to Chelsea; Disasi, Tomiyasu, Mingueza, McNeil and Khalaili were among the arrivals.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-09-29T10:32:00Z",
-     "impact": 0.02,
-     "src": "https://www.premierinjuries.com/teams/nottingham-forest",
-     "team": "Nottm Forest",
-     "text": "Centre-back Nikola Milenkovic (hamstring) missed Villa and Coventry; Premier Injuries lists Oct 11 as his expected return.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-29T10:32:00Z",
-     "impact": 0,
-     "src": "https://www.premierinjuries.com/teams/nottingham-forest",
-     "team": "Nottm Forest",
-     "text": "Right-back Nicolò Savona (knee) is still out after several setbacks.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nottinghamforest.news/2026/09/30/city-ground-blues-and-away-day-joy-5-things-weve-already-learned-about-nottingham-forest-in-26-27/",
-     "team": "Nottm Forest",
-     "text": "Forest have failed to score in three straight home league games, a club first, but drew 2-2 at Liverpool and won 2-1 at Villa.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-09-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vavel.com/en/football/2026/09/20/premier-league/1272287-glasner-is-working-to-remove-heaviness-of-the-past-for-forest.html",
-     "team": "Nottm Forest",
-     "text": "Glasner said he felt 'the heaviness of the past' after the 1-0 home defeat by promoted Coventry.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-09-01T12:00:00Z",
-     "impact": 0,
-     "src": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Nottingham_Forest_F.C._season",
-     "team": "Nottm Forest",
-     "text": "Summer: Forest signed Delap (£50m), Diomande, Ndoye and ex-Palace right-back Daniel Muñoz, and sold Elliot Anderson to Man City (£116m).",
-     "total": 0,
-     "type": "add"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Crystal Palace Face Leeds After Newcastle Thrashing Ahead of Forest Reunion (Read Crystal Palace)",
-     "u": "https://readcrystalpalace.com/2026/09/16/crystal-palace-leeds-preview-glasner-forest-mateta-injury/"
-    },
-    {
-     "t": "Jean-Philippe Mateta Injury: Return remains uncertain (RotoWire)",
-     "u": "https://www.rotowire.com/soccer/headlines/jean-philippe-mateta-injury-return-remains-uncertain-534304"
-    },
-    {
-     "t": "Dean Henderson Injury: Signs new deal, expected fit after break (RotoWire)",
-     "u": "https://www.rotowire.com/soccer/headlines/dean-henderson-injury-signs-new-palace-deal-534017"
-    },
-    {
-     "t": "Crystal Palace games Axel Disasi will miss (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/crystal-palace/news/crystal-palace-games-axel-disasi-will-miss-after-reckless-challenge-on-jack-clarke_605028.html"
-    },
-    {
-     "t": "Crystal Palace injuries (Premier Injuries)",
-     "u": "https://www.premierinjuries.com/teams/crystal-palace"
-    },
-    {
-     "t": "Leeds 0-0 Crystal Palace (Sky Sports)",
-     "u": "https://www.skysports.com/football/news/11661/13586089/leeds-0-0-crystal-palace-pierre-sages-side-claim-valuable-point-as-daniel-farkes-team-stay-unbeaten-in-premier-league"
-    },
-    {
-     "t": "Nottingham Forest injuries (Premier Injuries)",
-     "u": "https://www.premierinjuries.com/teams/nottingham-forest"
-    },
-    {
-     "t": "City Ground blues and away day joy: 5 things learned about Forest in 26/27",
-     "u": "https://www.nottinghamforest.news/2026/09/30/city-ground-blues-and-away-day-joy-5-things-weve-already-learned-about-nottingham-forest-in-26-27/"
-    },
-    {
-     "t": "Glasner is working to remove 'heaviness of the past' for Forest (VAVEL)",
-     "u": "https://www.vavel.com/en/football/2026/09/20/premier-league/1272287-glasner-is-working-to-remove-heaviness-of-the-past-for-forest.html"
-    }
-   ],
-   "summary": "Oliver Glasner returns to Selhurst Park for the first time since leaving Palace, where he won the FA Cup and Conference League. His Forest side cannot score at home but look sharp away (2-2 at Liverpool, 2-1 at Villa). Pierre Sage's Palace have one win and only just kept their first clean sheet, at Leeds. Mateta and Henderson could return after the break; Disasi serves the last game of his ban."
-  },
-  "epl_2026-10-11_HullCity_Everton": {
-   "at": "2026-09-30T19:36:39Z",
-   "game": "Hull City v Everton",
-   "items": [
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/latest-tim-iroegbunams-hull-city-134904956.html",
-     "team": "Hull City",
-     "text": "Tim Iroegbunam, signed from Everton, re-aggravated a groin injury and misses the reunion. He had yet to start a Premier League game.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://uk.sports.yahoo.com/news/hull-city-hit-injury-blow-111952456.html",
-     "team": "Hull City",
-     "text": "Summer striker signing Ilyas Ansah (back) is due to see a specialist, and Hidemasa Morita is still working back from a pre-season injury.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-17T12:00:00Z",
-     "impact": 0.01,
-     "src": "https://hayters.com/hull-city-defender-to-miss-newcastle-trip-as-jakirovic-provides-updates-on-several-players/",
-     "team": "Hull City",
-     "text": "Nobel Mendy (concussed v Chelsea) missed Newcastle; Jakirovic said he would then join up with his national team.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.premierinjuries.com/teams/hull-city",
-     "team": "Hull City",
-     "text": "Left-back Matt Targett (ankle) is 50% and being assessed; goalkeeper Jack Butland (elbow surgery) is out until December.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vavel.com/en/football/2026/09/19/premier-league/1272159-jakirovic-highlights-how-premier-league-teams-have-individual-quality-to-punish-you.html",
-     "team": "Hull City",
-     "text": "Promoted Hull went unbeaten in their first four games (8 pts), including a 2-0 win over Man Utd, before losing at Newcastle.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-09-26T12:00:00Z",
-     "impact": 0,
-     "src": "https://the4thofficial.net/2026/09/everton-handed-major-boost-as-12m-star-reveals-injury-comeback-timeline-should-moyes-put-him-straight-back-in/",
-     "team": "Everton",
-     "text": "Merlin Röhl, who started the first three games at right-back, is aiming for Hull; Maitland-Niles has since taken his place.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://britbrief.co.uk/sports/grassroots/everton-injury-boost-as-norgaard-returns-to-training.html",
-     "team": "Everton",
-     "text": "Christian Nørgaard is back in training. He has not played since his £7m move from Arsenal; Moyes calls him 'hugely important'.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.everton.news/moyes-still-has-one-big-gripe-with-everton-despite-ipswich-win-and-unbeaten-start/",
-     "team": "Everton",
-     "text": "Unbeaten in seven under Moyes after beating Ipswich 1-0, but they have scored only six goals from 60 chances in five league games.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-09-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://readeverton.com/everton-news-moyes-branthwaite-hackney-internationals/",
-     "team": "Everton",
-     "text": "Thin squad: only 18 first-team players, with Thierno Barry the lone senior centre-forward. Summer signing Hackney is settling in.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "The latest on Tim Iroegbunam's Hull City fitness (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/latest-tim-iroegbunams-hull-city-134904956.html"
-    },
-    {
-     "t": "Hull City hit by injury blow with hopes of Everton reunion scuppered (Yahoo Sports)",
-     "u": "https://uk.sports.yahoo.com/news/hull-city-hit-injury-blow-111952456.html"
-    },
-    {
-     "t": "Hull City defender to miss Newcastle trip as Jakirovic provides updates (Hayters)",
-     "u": "https://hayters.com/hull-city-defender-to-miss-newcastle-trip-as-jakirovic-provides-updates-on-several-players/"
-    },
-    {
-     "t": "Hull City injuries (Premier Injuries)",
-     "u": "https://www.premierinjuries.com/teams/hull-city"
-    },
-    {
-     "t": "Jakirovic highlights how Premier League teams have individual quality to punish you (VAVEL)",
-     "u": "https://www.vavel.com/en/football/2026/09/19/premier-league/1272159-jakirovic-highlights-how-premier-league-teams-have-individual-quality-to-punish-you.html"
-    },
-    {
-     "t": "Everton handed major boost as £12m star reveals injury comeback timeline (The 4th Official)",
-     "u": "https://the4thofficial.net/2026/09/everton-handed-major-boost-as-12m-star-reveals-injury-comeback-timeline-should-moyes-put-him-straight-back-in/"
-    },
-    {
-     "t": "Everton injury boost as Norgaard returns to training (Brit Brief)",
-     "u": "https://britbrief.co.uk/sports/grassroots/everton-injury-boost-as-norgaard-returns-to-training.html"
-    },
-    {
-     "t": "Moyes still has one big gripe with Everton despite Ipswich win (Everton News)",
-     "u": "https://www.everton.news/moyes-still-has-one-big-gripe-with-everton-despite-ipswich-win-and-unbeaten-start/"
-    },
-    {
-     "t": "Everton news: Moyes, Branthwaite, Hackney and internationals (Read Everton)",
-     "u": "https://readeverton.com/everton-news-moyes-branthwaite-hackney-internationals/"
-    }
-   ],
-   "summary": "Two of the season's surprise packages meet. Promoted Hull went unbeaten in their first four, including a 2-0 win over Man United and a draw at Chelsea, before losing at Newcastle. Moyes' Everton are unbeaten in seven in all competitions but wasteful: six goals from 60 chances. Iroegbunam misses the game against his old club. Everton may get Röhl and Nørgaard back, though neither changes much; Barry is their only senior striker."
-  },
-  "epl_2026-10-11_Liverpool_ManCity": {
-   "at": "2026-09-30T19:36:39Z",
-   "game": "Liverpool v Man City",
-   "items": [
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": -0.07,
-     "src": "https://uk.sports.yahoo.com/news/liverpool-injury-alexander-isak-cody-060042878.html",
-     "team": "Liverpool",
-     "text": "First-choice striker Alexander Isak has a thigh problem from Sweden duty. Potter says it is 'not a big one', but he is a 50% doubt.",
-     "total": -0.04,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": -0.03,
-     "src": "https://www.teamtalk.com/liverpool/rocked-double-injury-concern-isak-gakpo-potential-blows",
-     "team": "Liverpool",
-     "text": "Regular left-winger Cody Gakpo hurt his ankle in a tackle v Serbia and left the Netherlands squad; he is being assessed.",
-     "total": -0.01,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-29T10:32:00Z",
-     "impact": 0,
-     "src": "https://www.premierinjuries.com/teams/liverpool",
-     "team": "Liverpool",
-     "text": "Ekitike (Achilles), Bradley (knee) and Leoni (ACL) are still out; Chiesa (back) has a realistic chance of involvement.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-06-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Liverpool_F.C._season",
-     "team": "Liverpool",
-     "text": "Andoni Iraola is in his first season, appointed in June after Arne Slot was sacked.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-09-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.skysports.com/liverpool",
-     "team": "Liverpool",
-     "text": "Unbeaten in the league (W2 D3, 7-4 goals); Isak scored the winner at Bournemouth before the break.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-09-01T12:00:00Z",
-     "impact": 0,
-     "src": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Liverpool_F.C._season",
-     "team": "Liverpool",
-     "text": "Summer: Salah, Konaté, Robertson and Curtis Jones left; Barcola (£106m), Jacquet, Víctor Muñoz and Araújo (loan) arrived.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-09-13T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://www.sportsmole.co.uk/football/man-city/news/man-city-games-foden-will-miss-as-oliver-explains-man-utd-red-card_605070.html",
-     "team": "Man City",
-     "text": "Phil Foden serves the final game of a three-match ban for his derby red card (kicking out at Bruno Fernandes); he already missed Sunderland.",
-     "total": -0.01,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-24T12:00:00Z",
-     "impact": -0.03,
-     "src": "https://live4liverpool.com/man-city-defender-leaves-international-base-injured-ahead-of-huge-anfield-showdown",
-     "team": "Man City",
-     "text": "Antoine Semenyo withdrew from Ghana duty with an ankle/leg problem and is a major doubt.",
-     "total": -0.01,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://live4liverpool.com/man-city-defender-leaves-international-base-injured-ahead-of-huge-anfield-showdown",
-     "team": "Man City",
-     "text": "Nico O'Reilly missed England's Czechia game with a minor issue; he had already lost his starting left-back spot to Gvardiol.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-30T05:12:00Z",
-     "impact": 0,
-     "src": "https://www.skysports.com/football/news/13290810/man-city-charges-verdict-club-found-guilty-of-all-charges-related-to-serious-breaches-of-premier-league-financial-rules",
-     "team": "Man City",
-     "text": "An independent commission found City guilty of serious Premier League financial breaches. Sanctions are pending and City plan to appeal.",
-     "total": 0,
-     "type": "drama"
-    },
-    {
-     "at": "2026-06-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Manchester_City_F.C._season",
-     "team": "Man City",
-     "text": "Enzo Maresca replaced Guardiola, who resigned, in June. The £116m signing of Elliot Anderson from Forest is already in the side.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-09-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.skysports.com/manchester-city",
-     "team": "Man City",
-     "text": "Perfect start: five league wins from five (13-5 goals) and top of the table.",
-     "total": 0,
-     "type": "motivation"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Liverpool injury update: Alexander Isak, Cody Gakpo and Hugo Ekitike latest (Yahoo Sports)",
-     "u": "https://uk.sports.yahoo.com/news/liverpool-injury-alexander-isak-cody-060042878.html"
-    },
-    {
-     "t": "Liverpool rocked by double injury concern as Isak, Gakpo leave Iraola in panic mode (TEAMtalk)",
-     "u": "https://www.teamtalk.com/liverpool/rocked-double-injury-concern-isak-gakpo-potential-blows"
-    },
-    {
-     "t": "Liverpool injuries (Premier Injuries)",
-     "u": "https://www.premierinjuries.com/teams/liverpool"
-    },
-    {
-     "t": "2026-27 Liverpool F.C. season (Wikipedia)",
-     "u": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Liverpool_F.C._season"
-    },
-    {
-     "t": "Man City games Phil Foden will miss as Michael Oliver explains Man Utd red card (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/man-city/news/man-city-games-foden-will-miss-as-oliver-explains-man-utd-red-card_605070.html"
-    },
-    {
-     "t": "Man City defender leaves international base injured ahead of huge Anfield showdown (Live4Liverpool)",
-     "u": "https://live4liverpool.com/man-city-defender-leaves-international-base-injured-ahead-of-huge-anfield-showdown"
-    },
-    {
-     "t": "Man City charges verdict: club found guilty (Sky Sports)",
-     "u": "https://www.skysports.com/football/news/13290810/man-city-charges-verdict-club-found-guilty-of-all-charges-related-to-serious-breaches-of-premier-league-financial-rules"
-    },
-    {
-     "t": "2026-27 Manchester City F.C. season (Wikipedia)",
-     "u": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Manchester_City_F.C._season"
-    },
-    {
-     "t": "Liverpool team page (Sky Sports)",
-     "u": "https://www.skysports.com/liverpool"
-    },
-    {
-     "t": "Manchester City team page (Sky Sports)",
-     "u": "https://www.skysports.com/manchester-city"
-    }
-   ],
-   "summary": "Leaders Man City, five wins from five under Guardiola's successor Maresca, visit unbeaten Liverpool in Iraola's biggest test yet. City arrive in the shadow of a guilty verdict on the Premier League financial charges, with sanctions still pending. They are also without the suspended Foden, and Semenyo is doubtful. Liverpool's worry is up front: Isak (thigh) and Gakpo (ankle) were hurt on international duty, and Ekitike is already out long-term."
-  },
-  "epl_2026-10-12_Coventry_Newcastle": {
-   "at": "2026-09-30T19:36:39Z",
-   "game": "Coventry v Newcastle",
-   "items": [
-    {
-     "at": "2026-09-22T12:00:00Z",
-     "impact": -0.02,
-     "src": "https://coventryobserver.co.uk/sport/football-frank-lampard-confirms-coventry-city-defender-aurele-amenda-injured-for-several-months-with-severe-calf-injury/",
-     "team": "Coventry",
-     "text": "Centre-back Aurèle Amenda, who started the first four league games, is out for two to three months with a severe calf injury.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-28T10:50:00Z",
-     "impact": -0.02,
-     "src": "https://www.premierinjuries.com/teams/coventry-city",
-     "team": "Coventry",
-     "text": "Striker Taiwo Awoniyi is still serving a red-card ban (listed back Oct 19), and Haji Wright (thigh) is out until late October.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-18T12:00:00Z",
-     "impact": 0.02,
-     "src": "https://coventryobserver.co.uk/sport/football-coventry-city-boss-frank-lampard-confirms-aurele-amenda-injury-and-explains-jake-bidwell-squad-omission/",
-     "team": "Coventry",
-     "text": "Lampard expects Luke Woolfenden, Kaine Kesler-Hayden and Josh Eccles to be fit after the international break.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-22T12:00:00Z",
-     "impact": 0,
-     "src": "https://coventryobserver.co.uk/sport/football-frank-lampard-confirms-coventry-city-defender-aurele-amenda-injured-for-several-months-with-severe-calf-injury/",
-     "team": "Coventry",
-     "text": "Full-back Milan van Ewijk (hamstring) is hoped to be back for Newcastle; Premier Injuries rates him 25%.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.skysports.com/football/n-forest-vs-coventry/report/559492",
-     "team": "Coventry",
-     "text": "After a brutal opening run, the Sky Blues won 1-0 at Forest for their first Premier League win in 25 years; they have one goal in five games.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-09-29T15:30:00Z",
-     "impact": 0.02,
-     "src": "https://www.newcastleworld.com/sport/football/newcastle-united/newcastle-united-injury-news-joelinton-fabian-schar-9221031",
-     "team": "Newcastle",
-     "text": "Joelinton (groin) trained with the senior group and is in line to face Coventry.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0.03,
-     "src": "https://www.newcastleworld.com/sport/football/newcastle-united/newcastle-united-injury-anthony-elanga-9196677",
-     "team": "Newcastle",
-     "text": "Dan Burn, Amar Dedić and Nico González, all absent v Hull, are expected back after the international break.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newcastleworld.com/sport/football/newcastle-united/newcastle-united-injury-anthony-elanga-9196677",
-     "team": "Newcastle",
-     "text": "Regular starter Anthony Elanga has missed two games with no return date; Livramento, Osula and Ramsey are also still out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-29T15:30:00Z",
-     "impact": 0,
-     "src": "https://www.newcastleworld.com/sport/football/newcastle-united/newcastle-united-injury-news-joelinton-fabian-schar-9221031",
-     "team": "Newcastle",
-     "text": "Fabian Schär was a new absence from training on Sept 29, with no reason given.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-08-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Newcastle_United_F.C._season",
-     "team": "Newcastle",
-     "text": "Matthias Jaissle replaced Eddie Howe in August. Bruno Guimarães, Tonali and Gordon were sold, and eight signings came in.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-09-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.skysports.com/football/newcastle-vs-hull-city/report/559491",
-     "team": "Newcastle",
-     "text": "Newcastle beat Hull 2-1 despite nine injured players, five days after a 4-1 hammering at Leeds.",
-     "total": 0,
-     "type": "motivation"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Lampard confirms Coventry defender Aurele Amenda injured for several months (Coventry Observer)",
-     "u": "https://coventryobserver.co.uk/sport/football-frank-lampard-confirms-coventry-city-defender-aurele-amenda-injured-for-several-months-with-severe-calf-injury/"
-    },
-    {
-     "t": "Lampard confirms Amenda injury and explains Bidwell squad omission (Coventry Observer)",
-     "u": "https://coventryobserver.co.uk/sport/football-coventry-city-boss-frank-lampard-confirms-aurele-amenda-injury-and-explains-jake-bidwell-squad-omission/"
-    },
-    {
-     "t": "Coventry City injuries (Premier Injuries)",
-     "u": "https://www.premierinjuries.com/teams/coventry-city"
-    },
-    {
-     "t": "Nottingham Forest 0-1 Coventry (Sky Sports)",
-     "u": "https://www.skysports.com/football/n-forest-vs-coventry/report/559492"
-    },
-    {
-     "t": "NUFC injury boost & fresh absence as seven missing from training (Newcastle World)",
-     "u": "https://www.newcastleworld.com/sport/football/newcastle-united/newcastle-united-injury-news-joelinton-fabian-schar-9221031"
-    },
-    {
-     "t": "NUFC's 'most significant' injury blow with no clear return date (Newcastle World)",
-     "u": "https://www.newcastleworld.com/sport/football/newcastle-united/newcastle-united-injury-anthony-elanga-9196677"
-    },
-    {
-     "t": "Newcastle 2-1 Hull City (Sky Sports)",
-     "u": "https://www.skysports.com/football/newcastle-vs-hull-city/report/559491"
-    },
-    {
-     "t": "2026-27 Newcastle United F.C. season (Wikipedia)",
-     "u": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Newcastle_United_F.C._season"
-    }
-   ],
-   "summary": "Promoted Coventry got off the mark with a 1-0 win at Forest, their first Premier League win in 25 years. But they have scored once in five, centre-back Amenda is out for months, Awoniyi is still banned and Wright injured. Newcastle, rebuilt under Matthias Jaissle after Howe's exit, beat Hull with nine players injured after a 4-1 thrashing at Leeds. Several, led by Joelinton, Burn and Dedić, are due back after the break."
-  },
   "nfl_2026_04_ARI_NYG": {
    "at": "2026-10-04T15:56:57Z",
    "game": "ARI @ NYG",
@@ -4469,6 +3889,822 @@
    ],
    "summary": "Winless Tennessee (0-3, 37 points in three games) visits Baltimore (2-1) with Cam Ward still starting. Inactives brought no surprises: Ravens edge Trey Hendrickson is out after a finger procedure, while Lamar Jackson, LT Ronnie Stanley and WR Zay Flowers are all active. Both Baltimore centers remain out. Tennessee's scratches are depth players."
   },
+  "nfl_2026_05_CHI_GB": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "CHI @ GB",
+   "items": [
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "CHI",
+     "text": "QB Caleb Williams (hamstring) is week-to-week and did not practice; Tyson Bagent is expected to start.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://athlonsports.com/nfl/chicago-bears/bears-packers-wednesday-injury-report-first-report-and-analysis-for-week-5",
+     "team": "CHI",
+     "text": "OL Joe Thuney (pectoral), Darnell Wright (ankle) and Jonah Jackson (ankle) and RBs D'Andre Swift and Kyle Monangai all missed Wednesday's practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://packers.com/news/packers-bears-injury-report-oct-7-2026",
+     "team": "CHI",
+     "text": "DB Kyler Gordon (calf) practiced fully in his return window from IR; DL Shemar Turner was limited. Neither has been activated yet.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "GB",
+     "text": "RB Josh Jacobs is on the commissioner's exempt list and unavailable; backup Chris Brooks (ankle) did not practice Wednesday.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "GB",
+     "text": "WR Jayden Reed (neck) is expected to need season-ending surgery.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://packers.com/news/packers-bears-injury-report-oct-7-2026",
+     "team": "GB",
+     "text": "G Aaron Banks (knee/toe), C/G Jacob Monk and C/G Jager Burton did not practice; Lukas Van Ness, Devonte Wyatt and Anthony Belton were limited.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Packers-Bears Injury Report (Packers.com)",
+     "u": "https://packers.com/news/packers-bears-injury-report-oct-7-2026"
+    },
+    {
+     "t": "Bears-Packers Wednesday Injury Report (Athlon Sports)",
+     "u": "https://athlonsports.com/nfl/chicago-bears/bears-packers-wednesday-injury-report-first-report-and-analysis-for-week-5"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Chicago goes to Lambeau without Caleb Williams (hamstring), so Tyson Bagent starts, and four offensive regulars including three linemen sat out Wednesday. Slot corner Kyler Gordon is practicing fully in his return window from injured reserve. Green Bay is without Josh Jacobs, who is on the commissioner's exempt list, and Jayden Reed, who is expected to need season-ending neck surgery."
+  },
+  "nfl_2026_05_CIN_MIA": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "CIN @ MIA",
+   "items": [
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "CIN",
+     "text": "WR Ja'Marr Chase (concussion protocol) did not practice and was reported more likely than not to miss the game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.bengals.com/news/bengals-dolphins-week-5-2026-injury-report",
+     "team": "CIN",
+     "text": "WR Tee Higgins (groin/neck) and safeties Bryan Cook (ankle) and Kyle Dugger (quad) did not practice Wednesday; WR Andrei Iosivas is on IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5",
+     "team": "CIN",
+     "text": "Bengals are 2-2 after back-to-back fourth-quarter losses; they ran for only 23 yards against Jacksonville.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5",
+     "team": "MIA",
+     "text": "RB De'Von Achane tore an ACL in Week 3 and is out for the season; Ollie Gordon II ran for 100 yards on nine carries against Minnesota.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.bengals.com/news/bengals-dolphins-week-5-2026-injury-report",
+     "team": "MIA",
+     "text": "WR Caleb Douglas (ankle) has missed two games and did not practice Wednesday; T Austin Jackson (knee) was limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5",
+     "team": "MIA",
+     "text": "Dolphins are 0-4 and 30th in total offense (267.5 yards a game); Malik Willis threw for 85 yards in a 15-10 loss to Minnesota.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 5 Injury Report (Bengals.com)",
+     "u": "https://www.bengals.com/news/bengals-dolphins-week-5-2026-injury-report"
+    },
+    {
+     "t": "6 Things to Know About the Dolphins Heading Into Week 5 (Athlon Sports)",
+     "u": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Cincinnati (2-2) has lost two straight in the fourth quarter and may be short at receiver: Ja'Marr Chase is in the concussion protocol and Tee Higgins did not practice Wednesday. Miami is 0-4 under first-year coach Jeff Hafley, averages 267.5 yards a game with Malik Willis at quarterback, and has lost De'Von Achane to a season-ending knee injury."
+  },
+  "nfl_2026_05_CLE_NYJ": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "CLE @ NYJ",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-wednesday-10-07-2026",
+     "team": "CLE",
+     "text": "DT Mason Graham (knee/ankle, week-to-week), DT Mike Hall Jr. (ankle) and DE Derek Barnett (ankle) did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-wednesday-10-07-2026",
+     "team": "CLE",
+     "text": "C Elgton Jenkins (concussion) practiced fully; G Teven Jenkins (back) did not practice and S Grant Delpit (shoulder) was limited.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.amny.com/sports/jets-browns-prew5-10-7-26/",
+     "team": "CLE",
+     "text": "Browns have won three straight; Deshaun Watson threw for 268 yards in the 27-24 win over Pittsburgh.",
+     "total": 0,
+     "type": "motivation"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/jets/onsi/what-jets-wednesday-injury-report-means-week-5-vs-browns-01m4bp5w8jdf",
+     "team": "NYJ",
+     "text": "RB Breece Hall (quad, week-to-week) and WR Adonai Mitchell (finger) did not practice and are unlikely to play.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-wednesday-10-07-2026",
+     "team": "NYJ",
+     "text": "OL Dylan Parham (knee) and CB Jarvis Brownlee (concussion protocol) did not practice; WR Omar Cooper (ankle) is on IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-wednesday-10-07-2026",
+     "team": "NYJ",
+     "text": "TE Mason Taylor (thumb) practiced fully and could return after missing two games; edge Kingsley Enagbare (knee) was limited.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.amny.com/sports/jets-browns-prew5-10-7-26/",
+     "team": "NYJ",
+     "text": "Jets have lost three straight after a 1-0 start; Geno Smith went 8-of-15 for 119 yards in a 23-12 loss to Chicago.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Jets vs. Browns Week 5 Injury Report - Wednesday (NewYorkJets.com)",
+     "u": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-wednesday-10-07-2026"
+    },
+    {
+     "t": "Jets still searching for identity in Week 5 meeting vs. Browns (amNewYork)",
+     "u": "https://www.amny.com/sports/jets-browns-prew5-10-7-26/"
+    },
+    {
+     "t": "What Jets' Wednesday Injury Report Means for Week 5 vs. Browns (SI)",
+     "u": "https://www.si.com/nfl/jets/onsi/what-jets-wednesday-injury-report-means-week-5-vs-browns-01m4bp5w8jdf"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Cleveland arrives on a three-game winning streak after beating Pittsburgh 27-24, but three defensive linemen, including Mason Graham, missed Wednesday's practice. The Jets have lost three straight since winning their opener, have allowed 12 sacks, and are likely again without Breece Hall and Adonai Mitchell. Tight end Mason Taylor is on track to return after missing two games."
+  },
+  "nfl_2026_05_DEN_LAC": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "DEN @ LAC",
+   "items": [
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newsweek.com/sports/nfl/broncos-hit-with-double-crucial-injury-losses-before-chargers-game-12531806",
+     "team": "DEN",
+     "text": "CB Patrick Surtain II (ankle) and WR Pat Bryant (ankle) are expected to go on injured reserve, per ESPN's Adam Schefter; neither practiced.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos",
+     "team": "DEN",
+     "text": "CB Riley Moss (ribs) did not practice Wednesday; RB Jonah Coleman (ankle) is on short-term IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newsweek.com/sports/nfl/broncos-hit-with-double-crucial-injury-losses-before-chargers-game-12531806",
+     "team": "DEN",
+     "text": "Broncos lost 24-14 to San Francisco in Week 4.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos",
+     "team": "LAC",
+     "text": "Tackles Rashawn Slater (ankle) and Joe Alt (neck) both did not practice; OL Trevor Penning (concussion) and G Kayode Awosika also sat out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos",
+     "team": "LAC",
+     "text": "S Derwin James (hamstring), WR Ladd McConkey (foot) and CB Donte Jackson (hamstring) did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "LAC",
+     "text": "TE David Njoku (fibula) is on IR for an extended absence; TE Charlie Kolar (forearm) was limited after surgery.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Chargers-Broncos Injury Report Week 5 (Chargers.com)",
+     "u": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos"
+    },
+    {
+     "t": "Broncos Hit With Double Crucial Injury Losses Before Chargers Game (Newsweek)",
+     "u": "https://www.newsweek.com/sports/nfl/broncos-hit-with-double-crucial-injury-losses-before-chargers-game-12531806"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Both teams come in hurt after Week 4 losses. Denver is expected to place cornerback Patrick Surtain II and receiver Pat Bryant on injured reserve, and Riley Moss also sat out Wednesday. The Chargers practiced without both tackles, Rashawn Slater and Joe Alt, plus Derwin James, Ladd McConkey and Donte Jackson, and tight end David Njoku is on injured reserve."
+  },
+  "nfl_2026_05_DET_ARI": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "DET @ ARI",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://sports.yahoo.com/articles/detroit-lions-injury-report-3-213716640.html",
+     "team": "DET",
+     "text": "DB Brian Branch (Achilles) and C Cade Mays (wrist) were limited Wednesday after extended absences; with a bye next, neither is sure to play.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/detroit-lions-injury-report-3-213716640.html",
+     "team": "DET",
+     "text": "CB Rock Ya-Sin (hamstring), DL Tyleik Williams (foot) and OL Ben Bartch (foot) did not practice; Dan Campbell was not optimistic on Ya-Sin.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "DET",
+     "text": "RB Isiah Pacheco (back) is on injured reserve; Jacob Saylors and Sione Vaki may split his work.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.azcardinals.com/news/paris-johnson-jr-out-for-season-as-offensive-line-shuffles-again",
+     "team": "ARI",
+     "text": "LT Paris Johnson Jr. tore his left biceps against the Giants and is out for the season; rookie seventh-rounder Jayden Williams will start.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.azcardinals.com/news/paris-johnson-jr-out-for-season-as-offensive-line-shuffles-again",
+     "team": "ARI",
+     "text": "RG Isaiah Adams (ankle) was carted off in Week 4; Jon Gaines II starts if he cannot go. S Andrew Wingard has a bone bruise in his knee.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-update-jeremiyah-love-injury-before-detroit-lions-game",
+     "team": "ARI",
+     "text": "RB Jeremiyah Love (ankle) is on a maintenance plan and expected to play, Mike LaFleur said; he split snaps with Tyler Allgeier last week.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-update-jeremiyah-love-injury-before-detroit-lions-game",
+     "team": "ARI",
+     "text": "Cardinals are 1-3 and have lost three straight since their opening win.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Lions at Cardinals practice report: Oct. 7 (DetroitLions.com)",
+     "u": "https://www.detroitlions.com/news/lions-at-cardinals-practice-report-oct-7-branch-mays-williams"
+    },
+    {
+     "t": "Detroit Lions Injury Report: 3 Players Miss Practice (Detroit Sports Nation via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/detroit-lions-injury-report-3-213716640.html"
+    },
+    {
+     "t": "Paris Johnson Jr. Out For Season As Offensive Line Shuffles Again (AZCardinals.com)",
+     "u": "https://www.azcardinals.com/news/paris-johnson-jr-out-for-season-as-offensive-line-shuffles-again"
+    },
+    {
+     "t": "Cardinals Update Jeremiyah Love Injury Before Lions Game (SI)",
+     "u": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-update-jeremiyah-love-injury-before-detroit-lions-game"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Arizona (1-3) has lost three straight and lost left tackle Paris Johnson Jr. for the season to a torn biceps; rookie Jayden Williams steps in. Jeremiyah Love is expected to play through an ankle issue. Detroit got safety Brian Branch (Achilles) and center Cade Mays back at practice in a limited role, but with a bye next week neither is certain to play; the Lions' defense has allowed the most yards in the league."
+  },
+  "nfl_2026_05_HOU_TEN": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "HOU @ TEN",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans",
+     "team": "HOU",
+     "text": "WR Tank Dell (knee, on IR all season) had his practice window opened this week and was limited Wednesday; he is not yet activated.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans",
+     "team": "HOU",
+     "text": "DE Will Anderson Jr. (ankle) did not practice; LB Azeez Al-Shaair (groin) was limited. WR Jayden Higgins (ACL) is out for the season.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-wednesday-of-texans-week-x1725",
+     "team": "TEN",
+     "text": "DT Jeffery Simmons (back), RB Tony Pollard (foot), DL John Franklin-Myers (back) and CB Marcus Harris did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-wednesday-of-texans-week-x1725",
+     "team": "TEN",
+     "text": "S Amani Hooker is back in the concussion protocol after symptoms returned; Robert Saleh said he won't practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-wednesday-of-texans-week-x1725",
+     "team": "TEN",
+     "text": "CB Joshua Williams was designated to return from IR and practiced fully; he has a three-week window to be activated.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-131447698.html",
+     "team": "",
+     "text": "Both teams are 0-4 and have lost close games late; the loser falls to 0-5.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 5 Injury Report: Texans at Titans (HoustonTexans.com)",
+     "u": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans"
+    },
+    {
+     "t": "Quick Hits on the Titans From Wednesday of Texans Week (TennesseeTitans.com)",
+     "u": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-wednesday-of-texans-week-x1725"
+    },
+    {
+     "t": "Tennessee Titans vs. Houston Texans: 6 things to know about Week 5 (Titans Wire via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-131447698.html"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Both teams are 0-4, so one gets its first win. Houston opened receiver Tank Dell's practice window from injured reserve and he was limited Wednesday, while edge Will Anderson Jr. (ankle) did not practice. Tennessee held out Jeffery Simmons, Tony Pollard, John Franklin-Myers and safety Amani Hooker, who is back in the concussion protocol."
+  },
+  "nfl_2026_05_IND_PIT": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "IND @ PIT",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://steelersdepot.com/2026/10/colts-week-5-wednesday-injury-report-starting-c-tanor-bortolini-four-others-dnp/",
+     "team": "IND",
+     "text": "WR Alec Pierce (heel) is on IR and DE Arden Key (hamstring) is out; C Tanor Bortolini (ankle) did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://steelersdepot.com/2026/10/colts-week-5-wednesday-injury-report-starting-c-tanor-bortolini-four-others-dnp/",
+     "team": "IND",
+     "text": "WR Keenan Allen (groin) was limited after sitting out the London game; LBs Jaylon Carlies and Akeem Davis-Gaither did not practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.archyde.com/colts-and-steelers-meet-in-week-5-with-identical-2-2-records/",
+     "team": "IND",
+     "text": "Colts beat Washington 30-13 in London in Week 4; Jonathan Taylor ran for 95 yards and two touchdowns.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://steelersdepot.com/2026/10/steelers-week-five-wednesday-injury-report-three-players-sit-out-pittman-battling-foot-injury/",
+     "team": "PIT",
+     "text": "CB Jalen Ramsey (broken wrist) did not practice but played all but one snap with it last week; CB Jamel Dean (ankle) is doubtful.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://steelersdepot.com/2026/10/steelers-week-five-wednesday-injury-report-three-players-sit-out-pittman-battling-foot-injury/",
+     "team": "PIT",
+     "text": "RB Rico Dowdle (toe) was limited after missing two games; WR Michael Pittman Jr. (foot) was also limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.archyde.com/colts-and-steelers-meet-in-week-5-with-identical-2-2-records/",
+     "team": "PIT",
+     "text": "Steelers lost 27-24 to Cleveland in Week 4; Aaron Rodgers has 999 yards, 7 TD and 4 INT and has been sacked 13 times.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Steelers' Week Five Wednesday Injury Report (Steelers Depot)",
+     "u": "https://steelersdepot.com/2026/10/steelers-week-five-wednesday-injury-report-three-players-sit-out-pittman-battling-foot-injury/"
+    },
+    {
+     "t": "Colts' Week 5 Wednesday Injury Report (Steelers Depot)",
+     "u": "https://steelersdepot.com/2026/10/colts-week-5-wednesday-injury-report-starting-c-tanor-bortolini-four-others-dnp/"
+    },
+    {
+     "t": "Colts and Steelers meet in Week 5 with identical 2-2 records (Archyde)",
+     "u": "https://www.archyde.com/colts-and-steelers-meet-in-week-5-with-identical-2-2-records/"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Two 2-2 teams meet in Pittsburgh. The Colts beat Washington 30-13 in London but are without receiver Alec Pierce (injured reserve) and edge Arden Key, and center Tanor Bortolini missed Wednesday's practice. The Steelers lost 27-24 to Cleveland; cornerback Jalen Ramsey is playing through a broken wrist, Jamel Dean is doubtful, and running back Rico Dowdle is working back after two missed games."
+  },
+  "nfl_2026_05_LV_NE": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "LV @ NE",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
+     "team": "LV",
+     "text": "WR Jalen Nailor (concussion) did not practice; TE Brock Bowers (knee) and G/C Jackson Powers-Johnson (groin) were limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
+     "team": "LV",
+     "text": "WR Dont'e Thornton (hamstring) returned to practice from IR with full participation; the Raiders have 21 days to activate him.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://raiders.com/news/game-preview-las-vegas-raiders-at-new-england-patriots-nfl-week-5-101126",
+     "team": "LV",
+     "text": "Raiders are 3-1 and have scored at least 26 points in every game; their first loss came in Week 4 against Kansas City.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
+     "team": "NE",
+     "text": "CBs Christian Gonzalez (shoulder), Carlton Davis (neck) and Karon Prunty and WR Mack Hollins (calf) did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-06T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
+     "team": "NE",
+     "text": "WR A.J. Brown (high-ankle sprain) is on IR and cannot return before Week 6.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
+     "team": "NE",
+     "text": "QB Drake Maye (right shoulder) practiced fully; he had 269 yards, 3 TD passes and 54 rushing yards in the Week 4 win at Buffalo.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 5 Injury Report: Patriots vs. Raiders (Patriots.com)",
+     "u": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders"
+    },
+    {
+     "t": "Game Preview: Raiders at Patriots (Raiders.com)",
+     "u": "https://raiders.com/news/game-preview-las-vegas-raiders-at-new-england-patriots-nfl-week-5-101126"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Las Vegas (3-1) took its first loss last week against Kansas City but has scored at least 26 points in every game. New England (2-2) won at Buffalo behind three Drake Maye touchdown passes; Maye practiced fully with a right shoulder listing. The Patriots' secondary is thin, with cornerbacks Christian Gonzalez and Carlton Davis both sitting out Wednesday, and A.J. Brown remains on injured reserve."
+  },
+  "nfl_2026_05_MIN_NO": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "MIN @ NO",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "MIN",
+     "text": "WR Justin Jefferson (right ankle) was limited Wednesday after missing two games; the team will decide on Sunday later in the week.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "MIN",
+     "text": "LG Donovan Jackson (torn meniscus) is expected to miss the rest of the season; LT Christian Darrisaw is in the concussion protocol.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "MIN",
+     "text": "WR Jordan Addison (hamstring) did not practice; Kevin O'Connell called it minor. RB Jordan Mason (thumb) is on IR until at least Week 7.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "MIN",
+     "text": "WR Odell Beckham Jr. signed to the practice squad; he can play Sunday only if elevated.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "NO",
+     "text": "QB Tyler Shough (left hand) did not practice Wednesday; whether he starts Sunday is the open question.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "NO",
+     "text": "RB Alvin Kamara (back), LB Kaden Elliss (calf) and WR Barion Brown (thigh) did not practice; RB Travis Etienne (hamstring) is expected to miss time.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
+     "team": "NO",
+     "text": "Saints are 1-3 after losing to Atlanta on Monday night.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Saints, Vikings both dealing with key injuries Wednesday ahead of Week 5 matchup (Crescent City Sports)",
+     "u": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "Unbeaten Minnesota (4-0) could get Justin Jefferson back: he was limited Wednesday after missing two games with an ankle injury. Left guard Donovan Jackson is expected to miss the rest of the season and Christian Darrisaw is in the concussion protocol. New Orleans (1-3) has a quarterback question, as Tyler Shough sat out Wednesday with a left hand injury, and Alvin Kamara also did not practice."
+  },
+  "nfl_2026_05_NYG_WAS": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "NYG @ WAS",
+   "items": [
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders",
+     "team": "NYG",
+     "text": "QB Jaxson Dart (knee) needs surgery and is out for the regular season; Jameis Winston starts. J.J. McCarthy, acquired from Minnesota, may be the backup.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo",
+     "team": "NYG",
+     "text": "WR Malik Nabers (knee) and LT Andrew Thomas (groin) did not practice Wednesday; OLB Brian Burns is on injured reserve.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders",
+     "team": "NYG",
+     "text": "Giants are 3-1 after beating Arizona 36-24; CB Deonte Banks, back from a calf injury, was named NFC Defensive Player of the Week.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.commanders.com/news/commanders-vs-giants-week-5-injury-report",
+     "team": "WAS",
+     "text": "QB Jayden Daniels (left elbow) practiced fully Wednesday and is on track to start after Marcus Mariota started the last two games.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.commanders.com/news/commanders-vs-giants-week-5-injury-report",
+     "team": "WAS",
+     "text": "WRs Terry McLaurin (hamstring) and Stefon Diggs (hamstring) and DE Charles Omenihu did not practice; G Sam Cosmi (concussion) was limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.commanders.com/news/commanders-vs-giants-week-5-injury-report",
+     "team": "WAS",
+     "text": "Backup QB Marcus Mariota (knee) did not practice, leaving rookie Athan Kaliakmanis as the likely No. 2.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders",
+     "team": "WAS",
+     "text": "Commanders are 1-3 after a 30-13 loss to Indianapolis in London.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 5 Tracker: Latest news, notes & roster moves (Giants.com)",
+     "u": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders"
+    },
+    {
+     "t": "Giants vs. Commanders Week 5 Injury Report (Giants.com)",
+     "u": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo"
+    },
+    {
+     "t": "Commanders vs. Giants Week 5 injury report (Commanders.com)",
+     "u": "https://www.commanders.com/news/commanders-vs-giants-week-5-injury-report"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "The Giants (3-1) keep winning with Jameis Winston at quarterback after Jaxson Dart's knee injury ended his regular season, though Malik Nabers and Andrew Thomas missed Wednesday's practice. Washington (1-3) expects Jayden Daniels back from a left elbow injury after Marcus Mariota started the last two games; receivers Terry McLaurin and Stefon Diggs did not practice."
+  },
   "nfl_2026_05_PHI_JAX": {
    "at": "2026-10-07T16:07:10Z",
    "game": "PHI @ JAX",
@@ -4575,34 +4811,105 @@
    ],
    "summary": "Philadelphia (2-2) heads to London badly depleted: right tackle Lane Johnson retired Tuesday, Saquon Barkley (hamstring) is week-to-week, Tank Bigsby is on injured reserve, and DeVonta Smith and Dallas Goedert are expected to miss the game. Jacksonville (3-1) comes off a win over Cincinnati with a defense tied for the league lead in interceptions, though its safety depth has thinned."
   },
-  "nfl_2026_05_TB_DAL": {
-   "at": "2026-10-07T16:07:10Z",
-   "game": "TB @ DAL",
+  "nfl_2026_05_SF_SEA": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "SF @ SEA",
    "items": [
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels",
-     "team": "TB",
-     "text": "QB Baker Mayfield (dislocated right thumb) is out until at least Week 7; undrafted rookie Jalon Daniels makes his second start, his first on the road.",
-     "total": 0,
-     "type": "injury"
-    },
     {
      "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://www.bucsnation.com/tampa-bay-buccaneers-injuries/68933/buccaneers-cowboys-initial-injury-report-antoine-winfield-jr-to-miss-2-4-weeks",
-     "team": "TB",
-     "text": "S Antoine Winfield Jr. has a rib injury from the Green Bay loss and is expected to miss 2-4 weeks; he has not practiced this week.",
+     "src": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-opens-sam-142333803.html",
+     "team": "SEA",
+     "text": "QB Sam Darnold is back as the starter, not Drew Lock: he played the full Week 4 win over the Chargers (13-of-22, 168 yds, 2 TD, 1 INT).",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.49erswebzone.com/articles/203972-seahawks-injury-report-practice-showdown/",
+     "team": "SEA",
+     "text": "RB Zach Charbonnet (knee) and DT Leonard Williams (ankle) were limited Wednesday; RB Jadarian Price (chest) is on IR.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": "2026-10-07T12:00:00Z",
      "impact": 0,
-     "src": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5",
+     "src": "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/kyle-juszczyk-injury-report-seahawks/1969584/?partner=yahoo",
+     "team": "SF",
+     "text": "DL Nick Bosa (knee, calf) did not practice and will miss a third straight game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/kyle-juszczyk-injury-report-seahawks/1969584/?partner=yahoo",
+     "team": "SF",
+     "text": "FB Kyle Juszczyk (knee hyperextension, bone bruise) is out multiple weeks; S Marques Sigle (high-ankle sprain) at least a month.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.49erswebzone.com/articles/203972-seahawks-injury-report-practice-showdown/",
+     "team": "SF",
+     "text": "DL Mykel Williams (ACL rehab, has not played this season) was limited and is expected to be activated from PUP before Sunday.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.49erswebzone.com/articles/203972-seahawks-injury-report-practice-showdown/",
+     "team": "SF",
+     "text": "WR Mike Evans (ribs) was limited as planned; CB Upton Stout (AC joint sprain) did not practice. WR Demarcus Robinson (ankle) is out long term.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "49ers vs. Seahawks injury report: 8 miss practice (49ers Webzone)",
+     "u": "https://www.49erswebzone.com/articles/203972-seahawks-injury-report-practice-showdown/"
+    },
+    {
+     "t": "Kyle Juszczyk, at least three other 49ers will miss Week 5 vs. Seahawks (NBC Sports Bay Area)",
+     "u": "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/kyle-juszczyk-injury-report-seahawks/1969584/?partner=yahoo"
+    },
+    {
+     "t": "Seahawks' Mike Macdonald Opens up on Sam Darnold After Beating Chargers (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-opens-sam-142333803.html"
+    },
+    {
+     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
+     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
+    }
+   ],
+   "summary": "San Francisco comes to Seattle off a win over Denver but without Nick Bosa for a third straight game, plus Kyle Juszczyk and Marques Sigle. Edge Mykel Williams is expected to be activated after ACL rehab. Seattle has Sam Darnold back under center: he returned to start the 30-23 win over the Chargers in Week 4 after Drew Lock had filled in."
+  },
+  "nfl_2026_05_TB_DAL": {
+   "at": "2026-10-07T23:10:26Z",
+   "game": "TB @ DAL",
+   "items": [
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/cowboys/onsi/dallas-cowboys-week-5-injury-report-reveals-official-tyler-smith-designation",
      "team": "TB",
-     "text": "CB Benjamin Morrison (quad), LB SirVocea Dennis (calf) and K Chase McLaughlin (right groin/hip) were listed as not practicing.",
+     "text": "QB Baker Mayfield (right thumb) is ruled out; undrafted rookie Jalon Daniels makes his second start, his first on the road.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/cowboys/onsi/dallas-cowboys-week-5-injury-report-reveals-official-tyler-smith-designation",
+     "team": "TB",
+     "text": "S Antoine Winfield Jr. (rib, expected to miss 2-4 weeks), CB Benjamin Morrison (quad) and LB SirVocea Dennis (ankle/foot) are ruled out.",
      "total": 0,
      "type": "injury"
     },
@@ -4625,29 +4932,20 @@
      "type": "motivation"
     },
     {
-     "at": "2026-10-05T12:00:00Z",
+     "at": "2026-10-07T12:00:00Z",
      "impact": 0.3,
-     "src": "https://www.dallascowboys.com/news/cowboys-open-practice-window-for-all-pro-tyler-smith",
+     "src": "https://www.dallascowboys.com/news/updates-october-2026",
      "team": "DAL",
-     "text": "All-Pro G Tyler Smith (thumb surgery, on IR all season) had his practice window opened Monday and was limited; not yet activated, so Thursday is uncertain.",
+     "text": "All-Pro G Tyler Smith (thumb, on IR all season) is questionable: full in Wednesday's walkthrough, but not yet activated as of Wednesday afternoon.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-05T12:00:00Z",
+     "at": "2026-10-07T12:00:00Z",
      "impact": 0,
      "src": "https://www.dallascowboys.com/news/updates-october-2026",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) did not practice; Brian Schottenheimer called a return this week a 'long shot'.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.dallascowboys.com/news/updates-october-2026",
-     "team": "DAL",
-     "text": "CB Cobie Durant (hamstring) is likely to be ruled out; T Drew Shelton (hamstring) also sat out Monday. S Jalen Thompson and DT Jonathan Bullard are on IR.",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1), CB Cobie Durant (hamstring) and T Drew Shelton (hamstring) are ruled out.",
      "total": 0,
      "type": "injury"
     },
@@ -4673,28 +4971,24 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Bucs vs. Cowboys TNF Game Preview (Buccaneers.com)",
-     "u": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5"
-    },
-    {
-     "t": "Buccaneers-Cowboys Injury Report Oct. 5 (Buccaneers.com)",
-     "u": "https://www.buccaneers.com/news/buccaneers-cowboys-injury-report-oct-5-week-5-2026"
-    },
-    {
-     "t": "Next Up: Bucs Face Cowboys in Dallas on TNF (Buccaneers.com)",
-     "u": "https://www.buccaneers.com/news/next-game-tampa-bay-buccaneers-vs-dallas-cowboys-nfl-season-week-5-2026"
-    },
-    {
-     "t": "Buccaneers QB Baker Mayfield out at least 3 weeks with thumb injury; rookie Jalon Daniels to start (NFL.com)",
-     "u": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels"
-    },
-    {
-     "t": "Buccaneers at Cowboys Initial Injury Report: Winfield to miss 2-4 weeks (Bucs Nation)",
-     "u": "https://www.bucsnation.com/tampa-bay-buccaneers-injuries/68933/buccaneers-cowboys-initial-injury-report-antoine-winfield-jr-to-miss-2-4-weeks"
+     "t": "Dallas Cowboys Week 5 Injury Report Reveals Official Tyler Smith Designation (SI)",
+     "u": "https://www.si.com/nfl/cowboys/onsi/dallas-cowboys-week-5-injury-report-reveals-official-tyler-smith-designation"
     },
     {
      "t": "Updates: Overshown a 'long shot' in Wk. 5 (DallasCowboys.com)",
      "u": "https://www.dallascowboys.com/news/updates-october-2026"
+    },
+    {
+     "t": "Buccaneers at Cowboys: Day 2 injury report (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/buccaneers-cowboys-day-2-injury-013350857.html"
+    },
+    {
+     "t": "Bucs vs. Cowboys TNF Game Preview (Buccaneers.com)",
+     "u": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-cowboys-week-5"
+    },
+    {
+     "t": "Buccaneers QB Baker Mayfield out at least 3 weeks (NFL.com)",
+     "u": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-thumb-out-at-least-three-weeks-jalon-daniels"
     },
     {
      "t": "Cowboys open practice window for All-Pro Tyler Smith (DallasCowboys.com)",
@@ -4705,12 +4999,12 @@
      "u": "https://dallascowboys.com/news/pic-6-news-and-notes-from-cowboys-week-4-win-over-texans"
     }
    ],
-   "summary": "Winless Tampa Bay (0-4) goes to Dallas on a short week with undrafted rookie Jalon Daniels making his first road start for Baker Mayfield (thumb), and without safety Antoine Winfield Jr. (rib). Dallas (2-2) has opened All-Pro guard Tyler Smith's practice window but had not activated him; LB DeMarvion Overshown is a long shot and CB Cobie Durant is likely out."
+   "summary": "Winless Tampa Bay (0-4) visits Dallas with undrafted rookie Jalon Daniels making his first road start; Baker Mayfield, Antoine Winfield Jr., Benjamin Morrison and SirVocea Dennis are all ruled out. Dallas (2-2) lists All-Pro guard Tyler Smith as questionable to make his season debut off injured reserve, and is without DeMarvion Overshown and Cobie Durant."
   }
  },
  "meta": {
-  "at": "2026-10-07T16:07:10Z",
-  "games": 2,
-  "note": "NFL: TB @ DAL refreshed (Tyler Smith window open, Winfield out); PHI @ JAX new (Lane Johnson retired, Barkley unlikely)."
+  "at": "2026-10-07T23:10:26Z",
+  "games": 12,
+  "note": "NFL: TB @ DAL refreshed (final statuses, Tyler Smith questionable); 11 Sunday games new. SEA starter is Darnold, not Lock."
  }
 }
