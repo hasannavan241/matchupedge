@@ -32,21 +32,28 @@ def path(*parts):
 
 
 MISSED = []   # downloads that failed and were not required: (file, hours since the copy already here was fetched, or None)
+WAITED = []   # a download that was waited for in full and still failed: the server is down, so the rest are asked for once
+PATIENT = ["--retry", "15", "--retry-delay", "10", "--retry-all-errors"]   # ask again every 10 seconds for two and a half minutes
 
 
 def get(url, dest, required=True, patient=None):
-    """Download url to dest. patient: also try again when the server says the file isn't there. nflverse replaces its
-    files in place, so one that exists can be missing for a few seconds; a file that was never published (next season's,
-    once its schedule is out) is not worth 13 seconds of retries on every refresh."""
+    """Download url to dest. patient: keep asking when the server says the file isn't there. nflverse replaces a file by
+    deleting it and uploading the new one, so a file that exists can be missing for a while: on 2026-10-07 this season's
+    play-by-play was gone for more than 13 seconds, and a refresh that asked five times in 12 seconds went without it.
+    A file that was never published (next season's, once its schedule is out) is not worth that wait on every refresh.
+    Once one file has been waited for in full, the rest of the run is asked for once: that is an outage, not a file
+    being replaced."""
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     tmp = dest + ".part"
-    patient = required if patient is None else patient
-    cmd = ["curl", "-sSLf", "--retry", "4", "--retry-delay", "3"] + (["--retry-all-errors"] if patient else []) + ["-o", tmp, url]
+    patient = (required if patient is None else patient) and not WAITED
+    cmd = ["curl", "-sSLf"] + (PATIENT if patient else ["--retry", "4", "--retry-delay", "3"]) + ["-o", tmp, url]
     ok = subprocess.run(cmd, stderr=subprocess.DEVNULL if not required else None).returncode == 0
     if ok:
         os.replace(tmp, dest)
     elif os.path.exists(tmp):
         os.remove(tmp)
+    if not ok and patient:
+        WAITED.append(url)
     if not ok and required:
         sys.exit(f"download failed: {url}")
     if not ok:
@@ -73,7 +80,7 @@ def current_season():
 def fetch(first=None):
     """Schedules and results, play-by-play, player stats, snap counts, rosters, injury reports and tracking stats.
     A finished season's files are downloaded once."""
-    del MISSED[:]
+    del MISSED[:], WAITED[:]
     get(RAW + "/nflverse/nfldata/master/data/games.csv", path("games.csv"))
     season = current_season()
     first = int(first or FIRST_PBP)
