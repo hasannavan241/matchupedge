@@ -618,60 +618,69 @@
    "summary": "Promoted Ipswich (11th) have two wins under Gary O'Neil but are without winger Abdul Fatawu, suspended after two yellows at Everton; Jaden Philogene is expected to make his first league start in his place. Fulham (winless in five, 2 points) keep Alvaro Arbeloa under pressure, with reports the club has sounded out Thomas Frank. Tom Cairney and Kenny Tete remain out for Fulham."
   },
   "epl_2026-10-10_ManUnited_Tottenham": {
-   "at": "2026-09-30T19:36:39Z",
+   "at": "2026-10-06T23:04:45Z",
    "game": "Man United v Tottenham",
    "items": [
     {
-     "at": "2026-09-23T12:00:00Z",
+     "at": "2026-10-06T14:45:00Z",
      "impact": -0.05,
-     "src": "https://readmanutd.com/2026/09/23/benjamin-sesko-injury-update-manchester-united/",
+     "src": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html",
      "team": "Man United",
-     "text": "Benjamin Sesko (recurring shin problem) missed the Fulham draw and withdrew from Slovenia duty; no return date given.",
+     "text": "Benjamin Sesko (long-standing shin problem) missed the Fulham draw and Slovenia duty; still no return date and he faces a fitness test.",
      "total": -0.03,
      "type": "injury"
     },
     {
-     "at": "2026-09-28T11:07:00Z",
+     "at": "2026-10-06T14:45:00Z",
      "impact": -0.04,
-     "src": "https://www.sportsmole.co.uk/football/man-utd/injury-news/news/dorgu-injury-latest-as-man-united-defender-suffers-fitness-issue-in-denmark-clash_605920.html",
+     "src": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html",
      "team": "Man United",
-     "text": "Patrick Dorgu hurt his hamstring after 30 minutes of Denmark v Wales and was sent home; a recurrence, very unlikely to face Spurs.",
+     "text": "Patrick Dorgu hurt his hamstring after 30 minutes for Denmark and was sent home; no return date, rated a major doubt for Spurs.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-09-29T12:00:00Z",
+     "at": "2026-10-06T14:45:00Z",
      "impact": -0.01,
-     "src": "https://www.rotowire.com/soccer/headlines/noussair-mazraoui-injury-suffers-injury-with-morocco-536439",
+     "src": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html",
      "team": "Man United",
-     "text": "Noussair Mazraoui went off with a back problem for Morocco v Lesotho. That deepens the left-back shortage, with Shaw's fitness also a concern.",
+     "text": "Noussair Mazraoui (back, hurt with Morocco) still needs assessing, which leaves United thin at full-back.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-09-27T12:00:00Z",
-     "impact": -0.02,
-     "src": "https://readmanutd.com/2026/09/27/bruno-fernandes-injury-portugal-norway-absence/",
-     "team": "Man United",
-     "text": "Captain Bruno Fernandes was left out of Portugal's squad v Norway. He had played through pain in his last three games; United are monitoring him.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
+     "at": "2026-10-06T14:45:00Z",
      "impact": 0,
-     "src": "https://uk.sports.yahoo.com/news/manchester-united-injury-bruno-fernandes-053043654.html",
+     "src": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html",
      "team": "Man United",
-     "text": "Rashford (knock at Fulham) and Mainoo (load management) pulled out of England duty; both are expected to be available for Spurs.",
+     "text": "Bruno Fernandes played for Portugal later in the break after missing the Norway game; expected to be fit barring a late problem.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-06T14:45:00Z",
+     "impact": 0,
+     "src": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html",
+     "team": "Man United",
+     "text": "Rashford and Mainoo, who both pulled out of England duty, are likely to be available for selection.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-09-30T12:00:00Z",
+     "at": "2026-10-06T14:45:00Z",
      "impact": 0,
-     "src": "https://www.aol.co.uk/articles/fernandes-mainoo-sesko-rashford-mazraoui-100500000.html",
+     "src": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html",
      "team": "Man United",
-     "text": "De Ligt (back), Ugarte (knee surgery) and Heaton are still out; Amad Diallo is close to returning from a pre-season ankle injury.",
+     "text": "Amad Diallo (ankle, out all season) is hoped to make the bench; summer signing Carlos Baleba is ready for his debut after an ankle injury.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://readmanutd.com/2026/10/04/man-united-injury-update/",
+     "team": "Man United",
+     "text": "De Ligt (back) is closing in on a return but has no date; Ugarte (knee surgery) is out; keepers Darlow and Heaton are both doubts.",
      "total": 0,
      "type": "injury"
     },
@@ -689,34 +698,52 @@
      "impact": 0,
      "src": "https://www.sportsmole.co.uk/football/man-utd/transfer-talk/feature/man-united-summer-transfers-all-confirmed-ins-and-outs-for-2026_599075.html",
      "team": "Man United",
-     "text": "Summer signings Baleba, Tielemans, Andrey Santos and Darlow are already in the recent results; Hojlund, Casemiro and Sancho left.",
+     "text": "Summer signings Tielemans, Andrey Santos and Darlow are already in the recent results; Hojlund, Casemiro and Sancho left.",
      "total": 0,
      "type": "add"
     },
     {
-     "at": "2026-09-24T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": -0.04,
-     "src": "https://lastwordonsports.com/football/2026/09/24/tottenham-porro-injury/",
+     "src": "https://sports.yahoo.com/articles/tottenham-injury-micky-van-ven-060347299.html",
      "team": "Tottenham",
-     "text": "Pedro Porro (hamstring, hurt v Aston Villa) is out for about a month. He is the only senior right-back, so Archie Gray is likely to deputise.",
+     "text": "Pedro Porro (hamstring) is out until about 19 October. He is the only senior right-back, so Archie Gray is likely to deputise.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-09-30T12:00:00Z",
-     "impact": 0.02,
-     "src": "https://readtottenham.com/2026/09/30/dejan-kulusevski-tottenham-training-update-de-zerbi/",
+     "at": "2026-10-05T12:00:00Z",
+     "impact": -0.03,
+     "src": "https://sports.yahoo.com/articles/tottenham-injury-micky-van-ven-060347299.html",
      "team": "Tottenham",
-     "text": "Dejan Kulusevski is back in full group training after 16 months out; Old Trafford is tipped as a possible first involvement.",
+     "text": "Centre-back Jan Paul van Hecke left the Netherlands camp with a foot problem; reports call it minor but his return date is unknown.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.caughtoffside.com/2026/10/05/micky-van-de-ven-jan-paul-van-hecke-injury-man-united/",
+     "team": "Tottenham",
+     "text": "Micky van de Ven hurt a finger when Jovic landed on his arm for the Netherlands; not serious and he is expected to play.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/tottenham-injury-micky-van-ven-060347299.html",
+     "team": "Tottenham",
+     "text": "Dejan Kulusevski is training after 16 months out but is being managed day by day; a return is pencilled in for October or November.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-09-29T12:00:00Z",
+     "at": "2026-10-05T12:00:00Z",
      "impact": 0,
-     "src": "https://www.premierinjuries.com/teams/tottenham-hotspur",
+     "src": "https://sports.yahoo.com/articles/tottenham-injury-micky-van-ven-060347299.html",
      "team": "Tottenham",
-     "text": "Xavi Simons and Wilson Odobert (both ACL) and Mykhailo Mudryk (ankle) are still out.",
+     "text": "Xavi Simons and Wilson Odobert (both ACL) and Mykhailo Mudryk (ankle, due back about 31 October) are still out.",
      "total": 0,
      "type": "injury"
     },
@@ -760,44 +787,32 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Benjamin Sesko Injury Update (Read Man Utd)",
-     "u": "https://readmanutd.com/2026/09/23/benjamin-sesko-injury-update-manchester-united/"
+     "t": "Man United must assess fitness of nine players ahead of Tottenham showdown (Sports Mole)",
+     "u": "https://sportsmole.co.uk/football/man-utd/injury-news/news/nine-man-united-players-facing-fitness-tests-ahead-of-spurs-showdown_606332.html"
     },
     {
-     "t": "Patrick Dorgu injury latest (Sports Mole)",
-     "u": "https://www.sportsmole.co.uk/football/man-utd/injury-news/news/dorgu-injury-latest-as-man-united-defender-suffers-fitness-issue-in-denmark-clash_605920.html"
+     "t": "Man United injury update (Read Man Utd)",
+     "u": "https://readmanutd.com/2026/10/04/man-united-injury-update/"
     },
     {
-     "t": "Noussair Mazraoui Injury: Suffers injury with Morocco (RotoWire)",
-     "u": "https://www.rotowire.com/soccer/headlines/noussair-mazraoui-injury-suffers-injury-with-morocco-536439"
+     "t": "Tottenham injury update: Van de Ven, Van Hecke, Porro latest news and return dates (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/tottenham-injury-micky-van-ven-060347299.html"
     },
     {
-     "t": "Bruno Fernandes injury: Portugal coach confirms United midfielder blow (Read Man Utd)",
-     "u": "https://readmanutd.com/2026/09/27/bruno-fernandes-injury-portugal-norway-absence/"
+     "t": "Tottenham handed huge double injury boost ahead of Man United clash (CaughtOffside)",
+     "u": "https://www.caughtoffside.com/2026/10/05/micky-van-de-ven-jan-paul-van-hecke-injury-man-united/"
     },
     {
-     "t": "Manchester United injury update: Bruno Fernandes, Marcus Rashford, Kobbie Mainoo (Yahoo Sports)",
-     "u": "https://uk.sports.yahoo.com/news/manchester-united-injury-bruno-fernandes-053043654.html"
+     "t": "Second Tottenham star suffers injury ahead of Manchester United clash (Yardbarker)",
+     "u": "https://www.yardbarker.com/soccer/articles/second_tottenham_hotspur_star_suffers_injury_ahead_of_manchester_united_clash/s1_17737_44389074"
     },
     {
-     "t": "Fernandes, Mainoo, Sesko, Rashford, Mazraoui - Man Utd injury update (AOL)",
-     "u": "https://www.aol.co.uk/articles/fernandes-mainoo-sesko-rashford-mazraoui-100500000.html"
+     "t": "Injury table (Premier Injuries)",
+     "u": "https://www.premierinjuries.com/injury-table.php"
     },
     {
      "t": "Man Utd salvage Fulham draw as pressure mounts on Carrick (Al Jazeera)",
      "u": "https://www.aljazeera.com/sports/2026/9/20/man-utd-salvage-fulham-draw-as-pressure-mounts-on-carrick"
-    },
-    {
-     "t": "Pedro Porro Injury Blow Leaves Tottenham Short at Right-Back (Last Word on Sports)",
-     "u": "https://lastwordonsports.com/football/2026/09/24/tottenham-porro-injury/"
-    },
-    {
-     "t": "Kulusevski Trains at Hotspur Way (Read Tottenham)",
-     "u": "https://readtottenham.com/2026/09/30/dejan-kulusevski-tottenham-training-update-de-zerbi/"
-    },
-    {
-     "t": "Tottenham Hotspur injuries (Premier Injuries)",
-     "u": "https://www.premierinjuries.com/teams/tottenham-hotspur"
     },
     {
      "t": "Pochettino sent stark warning over Tottenham return as De Zerbi pressure mounts (TEAMtalk)",
@@ -812,7 +827,7 @@
      "u": "https://www.inkl.com/news/crisis-facing-roberto-de-zerbi-deepens-as-tottenham-hit-rock-bottom-in-premier-league"
     }
    ],
-   "summary": "Both managers are under pressure. Carrick's United have one league win in five and needed a late equaliser to draw at Fulham. De Zerbi's Spurs are bottom and winless, with two goals in five despite heavy possession. United picked up injuries on international duty: Dorgu and Mazraoui are hurt, Sesko is doubtful and Bruno's knock is being managed. Spurs lose right-back Porro but could welcome Kulusevski back after 16 months out."
+   "summary": "Both managers are under pressure: Carrick's United have one league win in five, and De Zerbi's Spurs are bottom and winless with two goals in five. United came out of the break with Sesko, Dorgu and Mazraoui doubtful, but Bruno, Rashford and Mainoo should play and Amad and Baleba are close. Spurs are without Porro; Van de Ven should be fine but Van Hecke is a doubt."
   },
   "epl_2026-10-10_Sunderland_Brighton": {
    "at": "2026-10-06T16:08:35Z",
@@ -4606,8 +4621,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-06T16:08:35Z",
-  "games": 6,
-  "note": "TB @ DAL: Winfield out 2-4 wks, T. Smith limited. EPL Sat: Havertz, Tzolis out; Damsgaard major doubt; Alex Scott out to Dec; Joao Pedro unlikely."
+  "at": "2026-10-06T23:04:45Z",
+  "games": 1,
+  "note": "Man United v Tottenham refreshed: Sesko, Dorgu, Mazraoui doubts; Bruno, Rashford, Mainoo expected fit; Spurs' Van Hecke a doubt, Porro out."
  }
 }
