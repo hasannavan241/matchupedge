@@ -32,25 +32,27 @@ should be cancelled only once the owner is happy with the new site.
   `summary.txt`, `props.json` or `results.json`.
 - `state.json` changed shape: `at` (when the refresh started), `built`, `kickoffs`, `steps`, `errors`,
   `fingerprint`, and `made` and `ts` so that an old page left open in a browser offers Reload.
-- The page's data keeps two things the scheduled tasks written for the old page still read: `made` (the copy
-  task compares it) and `nfl.games` (id, teams, kickoff: the news research task lists the games from it). Drop
-  them from `build.py` once those tasks are rewritten.
+- The page's data still carries `nfl.games`, `nba` and `epl`, which the old news research prompt read. The new
+  prompt reads `DATA.games`, so those three keys can be dropped from `build.py` once the new prompt has been
+  seen to work. Keep `made`: `run.py` copies it into `state.json` for old pages left open.
 
-## Still to change (each is the owner's call)
+## The scheduled tasks (changed 2026-10-06, 11:05 PM Central, with the owner's OK)
 
-- **Scheduled task "Matchup Edge: copy website build"** (11:27 AM and 6:27 PM Central). It copies `artifact.html`
-  to the claude.ai page "Matchup Edge" and sends "best bets" read from `summary.txt`. There are no best bets
-  now. Either rewrite its prompt (copy the page; send the week's picks from `summary.md`) or switch it off. If
-  it is switched off, the news research task must get its list of games from the website instead of that page.
-- **Scheduled task "Matchup Edge news research"** (11:02 AM and 6:02 PM Central). Its prompt scores injuries for
-  a betting page. The new site counts injuries itself, from the injury list and snap counts, and counts only
-  news of the types add, return, coach, drama, motivation and other, capped at 1.5 points a team. The prompt
-  should say so, so the research goes where the stats can't see. It still researches the NBA and the Premier
-  League, which the new site doesn't show yet.
-- **Scheduled task "Matchup Edge: news to website"** needs no change: it writes `data/news.json`, which the new
-  build reads. Do not save its form in the browser (see the project notes).
+- **"Matchup Edge: copy website build"** is switched off. It copied the page to the claude.ai page "Matchup Edge"
+  and sent "best bets" twice a day; there are none now. Its prompt is unchanged, so it can be switched back on if
+  the switch is undone. That claude.ai page is no longer updated: it still shows the old site as of Oct 6.
+- **"Matchup Edge news research"** (11:02 AM and 6:02 PM Central) has a new prompt. It lists the week's games
+  from the website (`artifact.html` on `gh-pages`, `DATA.games`), researches the NFL only, gives injuries and
+  quarterback changes no points (the site counts those itself), scores only returns from a long absence, new
+  players, coaching changes and concrete drama or motivation, uses no sportsbook or odds site as a source, and
+  sends the owner nothing. It still saves to the "scout" collection of that claude.ai page's database.
+- **"Matchup Edge: news to website"** is unchanged: it writes `data/news.json`, which the build reads. Do not
+  save its form in the browser (see the project notes).
+
+## Still the owner's to do
+
 - **The Odds API plan** ($30 a month) and the `ODDS_API_KEY` secret: cancel and delete once the new site has
-  run for a few days.
+  run for a few days. Undoing the switch needs both.
 
 ## Later clean-up, once the new site has settled
 
