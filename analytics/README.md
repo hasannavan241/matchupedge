@@ -1,8 +1,8 @@
 # The analytics site
 
-A stats-only rebuild of Matchup Edge: NFL game picks, player projections and team stats with no sportsbook
-anywhere. No lines, prices or odds are read, on the page or behind it. It lives beside the current site
-(`pipeline/`) until the owner switches over.
+Matchup Edge, built from stats alone: NFL game picks, player projections and team stats with no sportsbook
+anywhere. No lines, prices or odds are read, on the page or behind it. It replaced the odds-based site
+(`pipeline/`) on 2026-10-06; `SWITCH.md` says what changed and how to undo it.
 
 ## One refresh
 
@@ -58,7 +58,7 @@ projected margin and total where it used to read the market's.
 - `check.py` the browser check. `python check.py shots DIR` also saves screenshots of every tab.
 - `run.py` one whole refresh.
 - `due.py` whether a scheduled run should refresh now (about hourly; every half hour before kickoffs).
-- `switch/` the live job's workflow file and the steps for switching the live site over. Nothing in it runs.
+- `SWITCH.md` what the switch from the odds-based site changed, and how to undo it.
 - `model.json`, `cache/` the fitted weights, every past game's projected margin and total, and the test picks.
 
 ## Settings (environment)
@@ -73,14 +73,26 @@ projected margin and total where it used to read the market's.
 
 ## On GitHub
 
-`.github/workflows/analytics.yml` runs one refresh whenever the `analytics` branch is pushed. It publishes
-nothing: the built page is kept with the run as a download named `analytics-site`. It commits the record, the
-injury list and forecasts as read (`../data/an_live.json`), and the model after a refit, back to the branch. It
-also dry-runs the live job's clock and publish steps. Each run posts its result as a notice
-(`gh api repos/<owner>/<repo>/check-runs/<job id>/annotations`). No secrets are used.
+`.github/workflows/refresh.yml` is the live job. It runs one refresh and publishes the page to the `gh-pages`
+branch, which GitHub Pages serves. It starts on a push to `main` that touches `analytics/`, the workflows,
+`pipeline/props_core.py` or `data/news.json`, when asked for by hand, and from the clock: `clock.yml` is a chain
+of runs that each wait half an hour and ask for the next, because GitHub's own scheduler drops runs. `due.py`
+decides what a clock run does: a refresh about every hour from 6 AM to 10 PM Central, every half hour in the
+three hours before an NFL kickoff, nothing overnight. No secrets are used.
+
+Each refresh:
+
+- commits `data/an_picks.json` to `main` when a pick moved or a game was graded, and `model.json` and `cache/`
+  after a refit;
+- publishes `index.html`, `artifact.html` (the same page without a document head), `summary.md` (the week's picks
+  as a table), `state.json` (what the refresh was) and `live.json` (the injury list and forecasts as read: the
+  next refresh falls back on it if ESPN or the weather service fails);
+- posts its step-by-step result as a notice on the run: `gh api repos/<owner>/<repo>/check-runs/<job id>/annotations`.
+  Run logs can't be downloaded from a chat session, so the notice and `state.json` on `gh-pages` are how to see
+  what a run did.
+
+A refresh that fails publishes nothing: the site keeps its last page and the next refresh tries again.
 
 Two builds from the same inputs are identical: the build step prints a fingerprint of every pick and every
-player projection, and a rebuild elsewhere from the same `an_live.json`, news file and nflverse data prints the
+player projection, and a rebuild elsewhere from the same `live.json`, news file and nflverse data prints the
 same one.
-
-The live site is still the old one. `switch/README.md` says what switching over takes.
