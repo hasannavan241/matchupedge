@@ -61,6 +61,18 @@ jobs:
             echo "No newer news file; using the one on this branch."
           fi
 
+      # The live job (analytics/switch/refresh.yml) begins by reading what the site last published and asking due.py
+      # whether a refresh is due. The same two commands here, against the live site as it is, change nothing.
+      - name: Dry run of the live job's clock (what would a scheduled run do right now?)
+        run: |
+          rm -f analytics/prev_state.json
+          if git fetch --quiet --depth=1 origin gh-pages; then
+            git show FETCH_HEAD:state.json > analytics/prev_state.json 2>/dev/null || rm -f analytics/prev_state.json
+          fi
+          said=$(ME_EVENT=schedule GITHUB_OUTPUT= python3 analytics/due.py analytics/prev_state.json | tail -1)
+          echo "$said" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "::notice title=Clock dry run::$said"
+
       - name: Refresh
         working-directory: analytics
         env:
@@ -112,6 +124,20 @@ jobs:
               echo "::warning::The picks record was not saved this time: the branch changed while this run worked. The next run saves it."
             fi
           fi
+
+      # The files the live job would put on the site, assembled the same way. Nothing is pushed.
+      - name: Dry run of the live job's publish step
+        run: |
+          mkdir -p site
+          cp analytics/out/index.html site/index.html
+          cp analytics/out/site.html site/artifact.html
+          cp analytics/out/summary.md site/summary.md
+          cp analytics/out/state.json site/state.json
+          if [ -f data/an_live.json ]; then cp data/an_live.json site/live.json; fi
+          touch site/.nojekyll
+          ls -la site
+          echo "::notice title=Publish dry run::$(cd site && ls -A | tr '\n' ' ')($(du -sh site | cut -f1))"
+          rm -rf site
 
       - name: Keep the built page with this run
         if: always()

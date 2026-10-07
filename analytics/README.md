@@ -57,6 +57,8 @@ projected margin and total where it used to read the market's.
 - `record.py` the saved picks.
 - `check.py` the browser check. `python check.py shots DIR` also saves screenshots of every tab.
 - `run.py` one whole refresh.
+- `due.py` whether a scheduled run should refresh now (about hourly; every half hour before kickoffs).
+- `switch/` the live job's workflow file and the steps for switching the live site over. Nothing in it runs.
 - `model.json`, `cache/` the fitted weights, every past game's projected margin and total, and the test picks.
 
 ## Settings (environment)
@@ -72,5 +74,13 @@ projected margin and total where it used to read the market's.
 ## On GitHub
 
 `.github/workflows/analytics.yml` runs one refresh whenever the `analytics` branch is pushed. It publishes
-nothing: the built page is kept with the run as a download named `analytics-site`. It commits the record, and the
-model after a refit, back to the branch. No secrets are used.
+nothing: the built page is kept with the run as a download named `analytics-site`. It commits the record, the
+injury list and forecasts as read (`../data/an_live.json`), and the model after a refit, back to the branch. It
+also dry-runs the live job's clock and publish steps. Each run posts its result as a notice
+(`gh api repos/<owner>/<repo>/check-runs/<job id>/annotations`). No secrets are used.
+
+Two builds from the same inputs are identical: the build step prints a fingerprint of every pick and every
+player projection, and a rebuild elsewhere from the same `an_live.json`, news file and nflverse data prints the
+same one.
+
+The live site is still the old one. `switch/README.md` says what switching over takes.

@@ -131,6 +131,10 @@ def news_points(doc, team):
 
 
 def build_data():
+    global NOW, TODAY
+    if not os.environ.get("ME_NOW"):   # the time the page is built, not the time this module was first loaded
+        NOW = pd.Timestamp.now(tz="UTC")
+        TODAY = NOW.tz_convert("America/Chicago").date()
     model = json.load(open(os.path.join(nd.HERE, "model.json")))
     C, CT = model["coef"], model["total"]
     G = nd.games()

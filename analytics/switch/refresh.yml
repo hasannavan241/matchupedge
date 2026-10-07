@@ -1,0 +1,176 @@
+# Refreshes the site through the day, every day, and publishes it to GitHub Pages (the gh-pages branch).
+#
+# The site is the stats-only one in analytics/. One refresh is analytics/run.py: download, the injury list and
+# forecasts, a refit when new results are in, the build, the browser check, and the picks record. Nothing here reads a
+# sportsbook and no secret is used.
+#
+# analytics/due.py decides what each scheduled run does, in Central time, from what the site last published: a refresh
+# about every hour from 6 AM to 10 PM, every half hour in the three hours before an NFL kickoff, and nothing when the
+# site was refreshed recently (such a run ends in seconds). A push (new code, or the news file) always refreshes.
+#
+# GitHub's scheduler can't be relied on: since late August 2026 it has dropped scheduled runs, or started them hours
+# late, for many repositories. The schedule below and tick.yml stay for whenever GitHub does start them; the working
+# clock is clock.yml, a chain of runs that wait on a timer and ask for the next refresh, and the last step here starts
+# that chain whenever it finds it stopped.
+name: Refresh site
+
+on:
+  schedule:
+    # GitHub schedules run on UTC. These hours cover 6 AM to 10 PM Central in both daylight and standard time;
+    # due.py skips the hour that falls outside it.
+    - cron: "12,42 0-4,11-23 * * *"
+  workflow_dispatch:            # run it any time from the Actions tab
+    inputs:
+      mode:
+        description: "now: refresh. tick: what a scheduled run would do now (nothing, if the site was refreshed recently). full, lines and auto are the old site's names and still work: full and lines mean now, auto means tick."
+        type: choice
+        options: [now, tick, full, lines, auto]
+        default: now
+  push:
+    branches: [main]
+    # the news file too: researched news is on the site a few minutes after it is saved
+    paths: ["analytics/**", "pipeline/props_core.py", ".github/workflows/**", "data/news.json"]
+
+permissions:
+  contents: write
+  actions: write      # to start the clock (clock.yml) when it has stopped
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04      # a fixed image: the pinned browser in analytics/requirements.txt is known to install on it
+    timeout-minutes: 30
+    steps:
+      # The branch as it is when this job starts, not as it was when the run was asked for: runs wait their turn, and
+      # the run before this one has usually just saved the picks record.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: What the last refresh published
+        run: |
+          # beside the page, the published site keeps a note of what the last refresh was (state.json) and the injury
+          # list and forecasts as last read (live.json: used again if ESPN or the weather service fails this time)
+          rm -f analytics/prev_state.json analytics/prev_live.json
+          if git fetch --quiet --depth=1 origin gh-pages; then
+            git show FETCH_HEAD:state.json > analytics/prev_state.json 2>/dev/null || rm -f analytics/prev_state.json
+            git show FETCH_HEAD:live.json > analytics/prev_live.json 2>/dev/null || rm -f analytics/prev_live.json
+          fi
+
+      - name: Is a refresh due
+        id: plan
+        env:
+          ME_EVENT: ${{ github.event_name }}
+          ME_WANT: ${{ inputs.mode }}
+        run: python3 analytics/due.py analytics/prev_state.json | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.mode != 'skip'
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: analytics/requirements.txt
+
+      - name: Install
+        if: steps.plan.outputs.mode != 'skip'
+        run: |
+          pip install -r analytics/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      # Finished seasons never change, so their downloads and roll-ups are kept between runs (saved again each month).
+      # Without them a run still works: it downloads everything, which takes a minute longer.
+      - name: Seasons already downloaded and rolled up
+        if: steps.plan.outputs.mode != 'skip'
+        uses: actions/cache@v4
+        with:
+          path: analytics/_data
+          key: analytics-data-v1-${{ steps.plan.outputs.month }}
+          restore-keys: analytics-data-v1-
+
+      - name: Refresh
+        if: steps.plan.outputs.mode != 'skip'
+        working-directory: analytics
+        env:
+          AN_SLIM: "1"       # keep only the roll-ups of finished seasons between runs
+          AN_LIVE: ${{ runner.temp }}/live.json
+          AN_LIVE_PREV: ${{ github.workspace }}/analytics/prev_live.json
+        run: python run.py
+
+      - name: What was built
+        if: always() && steps.plan.outputs.mode != 'skip'
+        run: |
+          if [ -f analytics/out/summary.md ]; then cat analytics/out/summary.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [ -f analytics/out/state.json ]; then
+            python3 - >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          import json
+          s = json.load(open("analytics/out/state.json"))
+          print("\n| Step | Seconds | Result |\n|---|---|---|")
+          for name, secs, line, ok in s.get("steps", []):
+              print(f"| {name} | {secs} | {'' if ok else '**failed** '}{str(line)[:300]} |")
+          if s.get("errors"):
+              print("\nNotes:\n" + "\n".join(f"- {e}" for e in s["errors"][:20]))
+          EOF
+            # the same lines as a notice on the run, so they can be read without opening the log
+            python3 - <<'EOF'
+          import json
+          s = json.load(open("analytics/out/state.json"))
+          lines = [f"{'ok  ' if ok else 'FAIL'} {name}: {str(line)[:400]} ({secs}s)" for name, secs, line, ok in s.get("steps", [])]
+          lines += [f"note: {e}" for e in s.get("errors", [])[:15]]
+          esc = lambda t: t.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+          print("::notice title=Refresh::" + esc("\n".join(lines)))
+          EOF
+          fi
+
+      - name: Save the picks record, and the model after a refit
+        if: steps.plan.outputs.mode != 'skip'
+        run: |
+          git config user.name "matchup-edge-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in data/an_picks.json analytics/model.json analytics/cache; do
+            if [ -e "$f" ]; then git add "$f"; fi
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing to save: no pick moved and the model did not change."
+          else
+            git commit -m "Update the picks record"
+            # Something else may have changed the branch while this run worked (a push from a chat session, the news
+            # task). The page is still published; the next refresh starts from what is there and saves the record.
+            if ! { git pull --rebase --autostash origin main && git push origin HEAD:main; }; then
+              git rebase --abort 2>/dev/null || true
+              echo "::warning::The picks record was not saved this time: the repository changed while this run worked. The page is published; the next refresh saves the record."
+            fi
+          fi
+
+      - name: Publish to GitHub Pages
+        if: steps.plan.outputs.mode != 'skip'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
+        run: |
+          mkdir -p site
+          cp analytics/out/index.html site/index.html
+          cp analytics/out/site.html site/artifact.html     # the same page without a document head, for a claude.ai copy
+          cp analytics/out/summary.md site/summary.md       # the week's picks as a table
+          cp analytics/out/state.json site/state.json       # what this refresh was: due.py reads it at the next run
+          if [ -f "$RUNNER_TEMP/live.json" ]; then cp "$RUNNER_TEMP/live.json" site/live.json; fi   # the injury list and forecasts as read
+          touch site/.nojekyll
+          if [ -n "$SITE_DOMAIN" ]; then echo "$SITE_DOMAIN" > site/CNAME; fi
+          cd site
+          git init -q
+          git checkout -q -b gh-pages
+          git add -A
+          git -c user.name="matchup-edge-bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Site $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -qf "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+
+      - name: Keep the clock running
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # clock.yml is a chain of waiting runs that ask for the next refresh; start it if no link is waiting or queued
+          waiting=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow clock.yml --limit 20 --json status --jq '[.[] | select(.status != "completed")] | length' || echo unknown)
+          echo "clock links not finished: $waiting"
+          if [ "$waiting" = "0" ]; then gh workflow run clock.yml --repo "$GITHUB_REPOSITORY" --ref main -f asked="$(date -u +%s)" || true; fi

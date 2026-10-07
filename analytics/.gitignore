@@ -1,4 +1,6 @@
 _data
 __pycache__/
 live.json
+prev_state.json
+prev_live.json
 out/
