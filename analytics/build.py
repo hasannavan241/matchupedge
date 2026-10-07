@@ -117,6 +117,31 @@ def player_worth(r, c):
     return c["d_df_snap"] * r["share"] + c["d_df_splash"] * r["splash"]
 
 
+# The site carries no sportsbook, and that goes for the researched news too. An item keeps its text but loses a link that
+# goes to a sportsbook or to a site that exists to publish odds; a sentence or item that talks about a betting line is
+# left off the page. (What an item counts for is unchanged: news_points reads the documents as researched.)
+NO_LINK = ("draftkings", "fanduel", "betmgm", "caesars.com/sportsbook", "williamhill", "espnbet", "bet365", "pointsbet", "betrivers", "bovada", "betonline",
+           "hardrock.bet", "ballybet", "lowvig", "pinnacle.com", "fanatics.com/sportsbook", "oddsshark", "vegasinsider", "covers.com", "actionnetwork",
+           "oddschecker", "bettingpros", "sportsbookreview", "thelines.com", "sportsline.com", "docsports", "pickswise", "betql", "sportsbettingdime",
+           "oddstrader", "scoresandodds", "the-odds-api")
+BET_TALK = re.compile(r"\b(odds(?! with)|point spread|against the spread|the spread(?! (?:offense|formation|attack|look|scheme|concepts?))|money ?line|over/under|"
+                      r"sportsbooks?|betting|bettors?|wagers?|parlays?|prop bets?|\d+(?:\.\d+)?-point (?:favorite|underdog)s?|favored by \d|"
+                      r"draftkings|fanduel|betmgm|caesars sportsbook|espn bet|bet365)\b", re.I)
+
+
+def clean_news(doc):
+    """A researched news document as the page shows it: no link to a sportsbook, no talk of a betting line."""
+    if not isinstance(doc, dict):
+        return doc
+    blocked = lambda u: isinstance(u, str) and any(b in u.lower() for b in NO_LINK)
+    d = dict(doc)
+    d["items"] = [({**it, "src": None} if blocked(it.get("src")) else it) for it in doc.get("items") or []
+                  if isinstance(it, dict) and not BET_TALK.search(str(it.get("text") or ""))]
+    d["sources"] = [x for x in doc.get("sources") or [] if isinstance(x, dict) and not blocked(x.get("u")) and not BET_TALK.search(str(x.get("t") or ""))]
+    d["summary"] = " ".join(t for t in re.split(r"(?<=[.!?])\s+", str(doc.get("summary") or "")) if t and not BET_TALK.search(t))
+    return d
+
+
 def news_points(doc, team):
     if not doc:
         return 0.0
@@ -393,7 +418,7 @@ def build_data():
             "live": {"inj_ts": live.get("injAt") or (live.get("ts") if espn_inj else None), "wx_n": len(wx),
                      "inj_n": sum(1 for r in espn_inj if str(r[3]).strip().lower() not in ("active", "probable", ""))},
             "model": slim, "games": games, "teams": teams, "players": players,
-            "news": {k: v for k, v in docs.items() if k.startswith("nfl_") and k[4:] in {g["id"] for g in games}}, "news_meta": news.get("meta"),
+            "news": {k: clean_news(v) for k, v in docs.items() if k.startswith("nfl_") and k[4:] in {g["id"] for g in games}}, "news_meta": news.get("meta"),
             "record": record, "names": NAMES,
             # Read by the scheduled tasks written for the old page, until they are rewritten: the copy task compares "made",
             # and the news research task lists the games to research from nfl.games (id, teams, kickoff). No odds in either.
