@@ -1,11 +1,11 @@
 {"note":"Matchup Edge: the pick the site showed for each NFL game at its last refresh before kickoff. m: projected margin, positive toward the home team. p: the chance given to the pick. t: projected total. at: when the pick was last changed. res: final score and whether the pick won (null for a tie).",
 "games":{
 "2026_05_TB_DAL":{"at":"2026-10-08T16:25:21Z","away":"TB","home":"DAL","ko":"2026-10-09T00:15:00Z","m":8.4,"p":0.741,"pick":"DAL","season":2026,"t":50.1,"type":"REG","wk":5},
-"2026_05_PHI_JAX":{"at":"2026-10-08T11:27:57Z","away":"PHI","home":"JAX","ko":"2026-10-11T13:30:00Z","m":6.2,"p":0.685,"pick":"JAX","season":2026,"t":43.2,"type":"REG","wk":5},
+"2026_05_PHI_JAX":{"at":"2026-10-08T21:27:34Z","away":"PHI","home":"JAX","ko":"2026-10-11T13:30:00Z","m":6.5,"p":0.691,"pick":"JAX","season":2026,"t":43.2,"type":"REG","wk":5},
 "2026_05_CHI_GB":{"at":"2026-10-07T23:25:40Z","away":"CHI","home":"GB","ko":"2026-10-11T17:00:00Z","m":-0.3,"p":0.508,"pick":"CHI","season":2026,"t":45.3,"type":"REG","wk":5},
 "2026_05_CIN_MIA":{"at":"2026-10-08T20:51:36Z","away":"CIN","home":"MIA","ko":"2026-10-11T17:00:00Z","m":-4.8,"p":0.646,"pick":"CIN","season":2026,"t":45.2,"type":"REG","wk":5},
 "2026_05_CLE_NYJ":{"at":"2026-10-08T20:51:36Z","away":"CLE","home":"NYJ","ko":"2026-10-11T17:00:00Z","m":-1.8,"p":0.554,"pick":"CLE","season":2026,"t":44.3,"type":"REG","wk":5},
-"2026_05_HOU_TEN":{"at":"2026-10-08T16:25:21Z","away":"HOU","home":"TEN","ko":"2026-10-11T17:00:00Z","m":-6.5,"p":0.693,"pick":"HOU","season":2026,"t":42.5,"type":"REG","wk":5},
+"2026_05_HOU_TEN":{"at":"2026-10-08T21:27:34Z","away":"HOU","home":"TEN","ko":"2026-10-11T17:00:00Z","m":-6.7,"p":0.699,"pick":"HOU","season":2026,"t":42.5,"type":"REG","wk":5},
 "2026_05_IND_PIT":{"at":"2026-10-08T16:25:21Z","away":"IND","home":"PIT","ko":"2026-10-11T17:00:00Z","m":1.9,"p":0.557,"pick":"PIT","season":2026,"t":46.2,"type":"REG","wk":5},
 "2026_05_LV_NE":{"at":"2026-10-07T23:25:40Z","away":"LV","home":"NE","ko":"2026-10-11T17:00:00Z","m":3.3,"p":0.602,"pick":"NE","season":2026,"t":44.2,"type":"REG","wk":5},
 "2026_05_MIN_NO":{"at":"2026-10-08T20:51:36Z","away":"MIN","home":"NO","ko":"2026-10-11T17:00:00Z","m":-4.5,"p":0.636,"pick":"MIN","season":2026,"t":46.8,"type":"REG","wk":5},
