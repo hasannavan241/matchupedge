@@ -1,0 +1,90 @@
+{
+ "live": {
+  "inj_n": 222,
+  "inj_at": "2026-10-11T03:19:30Z",
+  "wx_n": 8,
+  "errors": []
+ },
+ "refit": false,
+ "season": 2026,
+ "week": 5,
+ "games": 14,
+ "players": 257,
+ "built": "2026-10-11T03:19:33Z",
+ "kickoffs": [
+  "2026-10-11T13:30:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T17:00:00Z",
+  "2026-10-11T20:05:00Z",
+  "2026-10-11T20:25:00Z",
+  "2026-10-11T20:25:00Z",
+  "2026-10-12T00:20:00Z",
+  "2026-10-13T00:15:00Z"
+ ],
+ "made": "2026-10-10 22:19 CT",
+ "ts": "2026-10-11T03:19:33Z",
+ "fingerprint": {
+  "games": "a1c7b9f38a38",
+  "players": "f219d2f05dd8"
+ },
+ "record": {
+  "saved": 15,
+  "graded": 1,
+  "won": 0,
+  "lost": 1
+ },
+ "ok": true,
+ "at": "2026-10-11T03:19:28Z",
+ "took": 47,
+ "steps": [
+  [
+   "download",
+   2.2,
+   "season 2026",
+   true
+  ],
+  [
+   "live inputs",
+   2.2,
+   "222 injury listings, 8 forecasts",
+   true
+  ],
+  [
+   "model",
+   0.1,
+   "model is current: fitted on 3627 games through 2026_05_TB_DAL",
+   true
+  ],
+  [
+   "grade",
+   0.0,
+   "0 newly graded",
+   true
+  ],
+  [
+   "build",
+   31.6,
+   "season 2026 week 5: 14 games, 257 players (picks a1c7b9f38a38, players f219d2f05dd8)",
+   true
+  ],
+  [
+   "check",
+   11.3,
+   "page ok",
+   true
+  ],
+  [
+   "save picks",
+   0.0,
+   "0 picks saved or changed; 15 on record, 0-1 graded",
+   true
+  ]
+ ],
+ "errors": []
+}
