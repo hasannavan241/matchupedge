@@ -971,213 +971,6 @@
    ],
    "summary": "Brighton (3rd, best goal difference) are flying after 5-0 at Coventry and 3-0 over Arsenal, with Dunk expected back and Mitoma, Wieffer and Hinshelwood nearing returns, though Minteh stays out. Sunderland (14th) are braced to be without ever-present centre-back Dan Ballard (hamstring), striker Brian Brobbey is a major doubt and Habib Diarra looks unlikely; Reinildo is back from his ban."
   },
-  "nfl_2026_04_ATL_NO": {
-   "at": "2026-10-05T23:03:43Z",
-   "game": "ATL @ NO",
-   "items": [
-    {
-     "at": "2026-09-29T12:00:00Z",
-     "impact": 1,
-     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-depth-chart-vs-new-orleans-saints",
-     "team": "ATL",
-     "text": "QB Michael Penix Jr. (partial ACL tear) starts again after his Week 3 return (18/25, 256 yds vs GB); Cooper Rush started Weeks 1-2, both losses.",
-     "total": 0.5,
-     "type": "return"
-    },
-    {
-     "at": "2026-09-22T12:00:00Z",
-     "impact": -0.2,
-     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-depth-chart-vs-new-orleans-saints",
-     "team": "ATL",
-     "text": "CB1 A.J. Terrell Jr. (groin) on IR since Sep 22 and missed Week 3; C.J. Henderson starts, CB Robert Longerbeam signed.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-05T22:45:00Z",
-     "impact": 0,
-     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football",
-     "team": "ATL",
-     "text": "Tua Tagovailoa is Penix's backup tonight; Cooper Rush is the inactive emergency third QB.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-09-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.atlantafalcons.com/news/",
-     "team": "ATL",
-     "text": "RB Bijan Robinson named NFC Offensive Player of the Week (194 rush yds, 2 TD vs GB; 467 scrimmage yds in 3 games).",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-01T12:00:00Z",
-     "impact": -0.2,
-     "src": "https://www.audacy.com/wwl/local-sports/saints/saints-week-4-injury-report",
-     "team": "NO",
-     "text": "RB Travis Etienne Jr. (hamstring) placed on IR, out at least four games; Alvin Kamara and Kendre Miller share the load",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-05T22:45:00Z",
-     "impact": -0.5,
-     "src": "https://sports.yahoo.com/articles/falcons-vs-saints-inactives-list-225017618.html",
-     "team": "NO",
-     "text": "Inactive: LB Kaden Elliss (calf), DE Carl Granderson (ankle), edge Anfernee Jennings (knee). LB Pete Werner (shoulder) is active.",
-     "total": 0.3,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-23T12:00:00Z",
-     "impact": -0.2,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-09-23/saints-place-kelvin-banks-ankle-on-ir",
-     "team": "NO",
-     "text": "LT Kelvin Banks Jr. (ankle) went on IR Sep 23 and missed Week 3; remains out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-09-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.tsn.ca/nfl/article/moore-wants-saints-to-turn-focus-forward-after-emotional-collapse-vs-raiders/",
-     "team": "NO",
-     "text": "Blew a 27-16 third-quarter lead vs Las Vegas with four fourth-quarter turnovers; Moore wants team to 'keep going' after emotional loss.",
-     "total": 0,
-     "type": "drama"
-    },
-    {
-     "at": "2026-09-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.covers.com/nfl/falcons-vs-saints-predictions-odds-early-leans-week-4-2026",
-     "team": "NO",
-     "text": "QB Tyler Shough confirmed starter; threw career-high 4 TDs vs Raiders but has been sacked on 20% of pressures.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-05T22:45:00Z",
-     "impact": 0.3,
-     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football",
-     "team": "ATL",
-     "text": "DE Samson Ebukam (hamstring, missed Week 3) and green-dot LB Divine Deablo (hamstring) are active; LB Yasir Abdullah (illness) also dressed.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-01T12:00:00Z",
-     "impact": 0,
-     "src": "https://crescentcitysports.com/saints-injuries-feature-banged-up-defense-etienne-to-ir-ahead-of-falcons-game/",
-     "team": "NO",
-     "text": "Signed WR Kevin Austin Jr. to the active roster; RB Ulysses Bentley IV and edge David Ojabo added to the practice squad",
-     "total": 0,
-     "type": "add"
-    },
-    {
-     "at": "2026-10-05T22:45:00Z",
-     "impact": -0.2,
-     "src": "https://sports.yahoo.com/articles/falcons-vs-saints-inactives-list-225017618.html",
-     "team": "NO",
-     "text": "TE Noah Fant (abdomen) and rookie DT Christen Miller are inactive; Juwan Johnson handles tight end.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-05T22:45:00Z",
-     "impact": 0,
-     "src": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football",
-     "team": "ATL",
-     "text": "Falcons inactives are all depth: QBs Rush (emergency 3rd) and Strand, DBs Dewalt and Longerbeam, DE Jared Ivey, OL Ethan Onianwa.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Falcons vs. Saints inactives list: Who's in, who's out for Week 4? (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/falcons-vs-saints-inactives-list-225017618.html"
-    },
-    {
-     "t": "Atlanta Falcons Week 4 inactives vs. New Orleans Saints on Monday Night Football (AtlantaFalcons.com)",
-     "u": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-inactives-vs-new-orleans-saints-on-monday-night-football"
-    },
-    {
-     "t": "Falcons release Week 4 inactives for MNF vs. NO (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-05/falcons-release-week-4-inactives-for-mnf-vs-no"
-    },
-    {
-     "t": "Saints vs. Falcons: Injuries, Key Stats and Players to Watch on Monday Night Football (SI)",
-     "u": "https://www.si.com/nfl/saints/onsi/saints-vs-falcons-injuries-key-stats-and-players-to-watch-on-monday-night-football-01m452jsjqr3"
-    },
-    {
-     "t": "Falcons vs Saints Odds: Spread, Picks, and More for Monday Night Football (Bleacher Nation)",
-     "u": "https://bleachernation.com/betting/2026/10/05/falcons-vs-saints-odds"
-    },
-    {
-     "t": "Falcons list 3 players questionable for Monday Night Football bout at Saints (AJC)",
-     "u": "https://www.ajc.com/sports/2026/10/falcons-saints-monday-night-football-injury-repotr/"
-    },
-    {
-     "t": "Saints Injury Update: Several Question Marks Remain (Heavy)",
-     "u": "https://heavy.com/sports/nfl/new-orleans-saints/saints-injury-update-several-question-marks-remain/"
-    },
-    {
-     "t": "Saints injuries feature banged up defense, Etienne to IR ahead of Falcons game",
-     "u": "https://crescentcitysports.com/saints-injuries-feature-banged-up-defense-etienne-to-ir-ahead-of-falcons-game/"
-    },
-    {
-     "t": "Saints Week 4 injury report: Travis Etienne to IR; Elliss, Werner both absent",
-     "u": "https://www.audacy.com/wwl/local-sports/saints/saints-week-4-injury-report"
-    },
-    {
-     "t": "Atlanta Falcons' Week 4 depth chart vs. New Orleans Saints (AtlantaFalcons.com)",
-     "u": "https://www.atlantafalcons.com/news/atlanta-falcons-week-4-depth-chart-vs-new-orleans-saints"
-    },
-    {
-     "t": "Falcons release new depth chart for MNF showdown vs. Saints (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/falcons-release-depth-chart-mnf-204705079.html"
-    },
-    {
-     "t": "NFL Network: Falcons' Michael Penix Jr. could start Week 3; Tua Tagovailoa not expected to be moved (NFL.com)",
-     "u": "https://www.nfl.com/news/falcons-michael-penix-jr-week-3-tua-tagovailoa"
-    },
-    {
-     "t": "Around the NFC South: Injuries plague multiple teams as records even out once again (Panthers.com)",
-     "u": "https://panthers.com/news/around-the-nfc-south-injuries-plague-multiple-teams-as-records-even-out-once-again"
-    },
-    {
-     "t": "Saints RB Etienne Ruled Out vs. Falcons With Hamstring Injury (SI)",
-     "u": "https://www.si.com/nfl/saints/onsi/saints-rb-travis-etienne-ruled-out-vs-falcons-with-hamstring-injury-01m3n2vknt9h"
-    },
-    {
-     "t": "Saints RB Travis Etienne will have 'time lost' with hamstring injury (Audacy/WWL)",
-     "u": "https://www.audacy.com/wwl/local-sports/saints/travis-etienne-injury"
-    },
-    {
-     "t": "Saints place Kelvin Banks (ankle) on IR (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-09-23/saints-place-kelvin-banks-ankle-on-ir"
-    },
-    {
-     "t": "Kellen Moore wants New Orleans Saints to turn focus forward after emotional collapse vs. Las Vegas Raiders (TSN/AP)",
-     "u": "https://www.tsn.ca/nfl/article/moore-wants-saints-to-turn-focus-forward-after-emotional-collapse-vs-raiders/"
-    },
-    {
-     "t": "Falcons vs Saints Prediction, Picks & Early Odds: NFL Week 4 (Covers)",
-     "u": "https://www.covers.com/nfl/falcons-vs-saints-predictions-odds-early-leans-week-4-2026"
-    },
-    {
-     "t": "Falcons vs. Saints Prediction, Odds, Spread, Injuries, Trends for NFL Week 4 (SI)",
-     "u": "https://www.si.com/betting/falcons-vs-saints-prediction-odds-spread-injuries-trends-for-nfl-week-4-2026"
-    },
-    {
-     "t": "Saints defense has Elliss and Granderson out, Werner questionable vs. Falcons",
-     "u": "https://crescentcitysports.com/saints-defense-has-elliss-and-granderson-out-werner-questionable-vs-falcons/"
-    }
-   ],
-   "summary": "Two 1-2 NFC South rivals meet Monday night. Inactives are in: New Orleans is without LB Kaden Elliss, edges Carl Granderson and Anfernee Jennings and TE Noah Fant, but LB Pete Werner plays; RB Travis Etienne Jr. is on IR. Atlanta has every starter available, with Samson Ebukam and Divine Deablo both cleared, a week after routing Green Bay in Michael Penix Jr.'s return."
-  },
   "nfl_2026_05_BAL_ATL": {
    "at": "2026-10-11T23:05:37Z",
    "game": "BAL @ ATL",
@@ -1322,7 +1115,7 @@
    "summary": "Baltimore (3-1) is without Lamar Jackson (ankle); Tyler Huntley starts. Trey Hendrickson, new center Cam Jurgens and guard Andrew Vorhees are also inactive, but Zay Flowers and Marlon Humphrey are active. Atlanta (2-2) sits edge Za'Darius Smith, while left tackle Jake Matthews is active and Michael Penix Jr. has the offense rolling."
   },
   "nfl_2026_05_BUF_LA": {
-   "at": "2026-10-12T16:06:00Z",
+   "at": "2026-10-12T23:10:00Z",
    "game": "BUF @ LA",
    "items": [
     {
@@ -1362,11 +1155,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-10T12:00:00Z",
+     "at": "2026-10-12T22:52:00Z",
      "impact": 0,
-     "src": "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-rams-week-5",
+     "src": "https://sports.yahoo.com/articles/rams-bills-inactives-quentin-lake-225241119.html",
      "team": "BUF",
-     "text": "WR D.J. Moore (shoulder), CB Dee Alford (ankle) and DL Landon Jackson (knee) are questionable; all travel and will be decided by game time.",
+     "text": "Inactive: WR D.J. Moore (shoulder), CB Dee Alford (ankle) and DL Landon Jackson (knee); Keon Coleman and Khalil Shakir take bigger roles.",
      "total": 0,
      "type": "injury"
     },
@@ -1389,17 +1182,21 @@
      "type": "other"
     },
     {
-     "at": "2026-10-10T12:00:00Z",
+     "at": "2026-10-12T22:52:00Z",
      "impact": 0,
-     "src": "https://www.therams.com/news/rams-injury-report-week-5-2026-vs-bills-aaron-donald-colby-parkinson-and-jaylen-watson-good-to-go-for-monday-night-football",
+     "src": "https://sports.yahoo.com/articles/rams-bills-inactives-quentin-lake-225241119.html",
      "team": "LA",
-     "text": "S Quentin Lake (hip) is questionable but trending in the right direction, Sean McVay said; LBs Stewart, Stuard and Landman have no status.",
+     "text": "S Quentin Lake (hip), questionable all week, is active.",
      "total": 0,
-     "type": "injury"
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Rams-Bills inactives: Quentin Lake active, Buffalo's top WR out (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/rams-bills-inactives-quentin-lake-225241119.html"
+    },
     {
      "t": "Bills at Rams: Thursday injury reports for both teams (Bills Wire via Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/bills-rams-thursday-injury-reports-114528249.html"
@@ -1445,7 +1242,7 @@
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dj-moore-questionable-ed-oliver-out-for-bills-on-monday-night"
     }
    ],
-   "summary": "Buffalo (3-1), off a 29-26 home loss to New England, has ruled out Ed Oliver and Joshua Palmer; D.J. Moore, Dee Alford and Landon Jackson remain questionable with no word yet, while Christian Benford is good to go. The Rams (2-2) are nearly whole: Aaron Donald and Colby Parkinson are cleared and only Quentin Lake is questionable. Inactives come 90 minutes before kickoff."
+   "summary": "Buffalo (3-1), off a 29-26 home loss to New England, is short-handed: D.J. Moore, Dee Alford and Landon Jackson are inactive, and Ed Oliver and Joshua Palmer were already ruled out, though Christian Benford returns. The Rams (2-2) are nearly whole: Aaron Donald and Colby Parkinson are back and Quentin Lake is active."
   },
   "nfl_2026_05_CHI_GB": {
    "at": "2026-10-11T16:07:32Z",
@@ -3373,8 +3170,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-12T16:06:00Z",
-  "games": 2,
-  "note": "NFL: BUF @ LA refreshed (Moore, Alford, Lake still questionable); SEA @ DEN added (Darnold starts, Surtain/Moss/Hufanga doubts)."
+  "at": "2026-10-12T23:10:00Z",
+  "games": 1,
+  "note": "NFL: BUF @ LA inactives added (Moore, Alford, L. Jackson out; Lake active). SEA @ DEN not due."
  }
 }
