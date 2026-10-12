@@ -1322,7 +1322,7 @@
    "summary": "Baltimore (3-1) is without Lamar Jackson (ankle); Tyler Huntley starts. Trey Hendrickson, new center Cam Jurgens and guard Andrew Vorhees are also inactive, but Zay Flowers and Marlon Humphrey are active. Atlanta (2-2) sits edge Za'Darius Smith, while left tackle Jake Matthews is active and Michael Penix Jr. has the offense rolling."
   },
   "nfl_2026_05_BUF_LA": {
-   "at": "2026-10-11T23:05:37Z",
+   "at": "2026-10-12T16:06:00Z",
    "game": "BUF @ LA",
    "items": [
     {
@@ -1439,9 +1439,13 @@
     {
      "t": "Bills' Final Week 5 Injury Report: DJ Moore Practices Saturday, Two Ruled Out for MNF (Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/bills-final-week-5-injury-160314435.html"
+    },
+    {
+     "t": "DJ Moore questionable, Ed Oliver out for Bills on Monday night (PFT)",
+     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dj-moore-questionable-ed-oliver-out-for-bills-on-monday-night"
     }
    ],
-   "summary": "Buffalo (3-1), off a 29-26 home loss to New England, has ruled out Ed Oliver and Joshua Palmer; D.J. Moore and Dee Alford are questionable and will be decided at game time, while Christian Benford is good to go. The Rams (2-2) are nearly whole: Aaron Donald and Colby Parkinson are cleared and only Quentin Lake is questionable. Myles Garrett stays on injured reserve."
+   "summary": "Buffalo (3-1), off a 29-26 home loss to New England, has ruled out Ed Oliver and Joshua Palmer; D.J. Moore, Dee Alford and Landon Jackson remain questionable with no word yet, while Christian Benford is good to go. The Rams (2-2) are nearly whole: Aaron Donald and Colby Parkinson are cleared and only Quentin Lake is questionable. Inactives come 90 minutes before kickoff."
   },
   "nfl_2026_05_CHI_GB": {
    "at": "2026-10-11T16:07:32Z",
@@ -3264,11 +3268,113 @@
     }
    ],
    "summary": "Inactives are in. Dallas (2-2) gets All-Pro guard Tyler Smith back for his season debut but lost cornerback Joey Porter Jr. to an illness just before kickoff, with Cobie Durant and DeMarvion Overshown also out. Winless Tampa Bay (0-4) starts rookie Jalon Daniels again without Baker Mayfield and Antoine Winfield Jr.; rookie edge Rueben Bain Jr. returns."
+  },
+  "nfl_2026_06_SEA_DEN": {
+   "at": "2026-10-12T16:06:00Z",
+   "game": "SEA @ DEN",
+   "items": [
+    {
+     "at": "2026-10-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-opens-sam-142333803.html",
+     "team": "SEA",
+     "text": "QB Sam Darnold is Seattle's starter, not Drew Lock; he has started since returning from a glute strain in Week 3.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.seahawks.com/news/rb-zach-charbonnet-not-expected-to-make-return-for-seahawks-week-6-game-at-denver",
+     "team": "SEA",
+     "text": "RB Zach Charbonnet (ACL rehab, PUP) is not expected to be activated, Macdonald said; rookie RB Jadarian Price is on IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.seahawks.com/news/rb-zach-charbonnet-not-expected-to-make-return-for-seahawks-week-6-game-at-denver",
+     "team": "SEA",
+     "text": "LB Drake Thomas hurt his ankle against the 49ers but returned and finished the game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-12T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/seahawks-reveal-injury-following-loss-135254598.html",
+     "team": "SEA",
+     "text": "Lost 32-29 to San Francisco; four turnovers, including a George Holani fumble near the goal line, led to 21 49ers points.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.denvergazette.com/2026/10/11/sean-payton-underwhelming-broncos-offense-notebook/",
+     "team": "DEN",
+     "text": "CBs Patrick Surtain II (ankle) and Riley Moss (ribs) missed Week 5 and could miss Seattle too; Abrams-Draine and Barron filled in.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.denvergazette.com/2026/10/11/sean-payton-underwhelming-broncos-offense-notebook/",
+     "team": "DEN",
+     "text": "S Talanoa Hufanga left the Chargers game with an ankle injury; asked about Thursday he said, 'I don't know.'",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.denvergazette.com/2026/10/11/sean-payton-underwhelming-broncos-offense-notebook/",
+     "team": "DEN",
+     "text": "Sean Payton called plays in the 23-17 win at the Chargers and will keep doing so; the offense managed 224 yards and went 1-of-12 on third down.",
+     "total": 0,
+     "type": "coach"
+    },
+    {
+     "at": "2026-10-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers",
+     "team": "DEN",
+     "text": "WR Pat Bryant (ankle) is on IR and RB Jonah Coleman (ankle) on short-term IR.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Seahawks' Mike Macdonald Opens up on Sam Darnold After Beating Chargers (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-opens-sam-142333803.html"
+    },
+    {
+     "t": "RB Zach Charbonnet Not Expected To Make Return For Seahawks' Week 6 Game At Denver (Seahawks.com)",
+     "u": "https://www.seahawks.com/news/rb-zach-charbonnet-not-expected-to-make-return-for-seahawks-week-6-game-at-denver"
+    },
+    {
+     "t": "Seahawks reveal injury update following loss to 49ers in Week 5 (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/seahawks-reveal-injury-following-loss-135254598.html"
+    },
+    {
+     "t": "Sean Payton calls underwhelming Broncos offense (Denver Gazette)",
+     "u": "https://www.denvergazette.com/2026/10/11/sean-payton-underwhelming-broncos-offense-notebook/"
+    },
+    {
+     "t": "Injury Report: CBs Pat Surtain II, Riley Moss ruled out for Broncos' Week 5 game vs. Chargers (DenverBroncos.com)",
+     "u": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers"
+    }
+   ],
+   "summary": "Both teams are 3-2 on a short week. Seattle lost 32-29 to San Francisco after four turnovers led to 21 points; Sam Darnold remains the starter and Zach Charbonnet is not expected to be activated. Denver beat the Chargers 23-17 with Sean Payton calling plays, but corners Patrick Surtain II and Riley Moss could miss again and safety Talanoa Hufanga hurt an ankle."
   }
  },
  "meta": {
-  "at": "2026-10-11T23:05:37Z",
+  "at": "2026-10-12T16:06:00Z",
   "games": 2,
-  "note": "NFL: 2 Week 5 games refreshed; Sunday night inactives in (Flowers, Humphrey, Matthews active; Jackson, Hendrickson, Jurgens, Vorhees, Za'Darius Smith inactive)."
+  "note": "NFL: BUF @ LA refreshed (Moore, Alford, Lake still questionable); SEA @ DEN added (Darnold starts, Surtain/Moss/Hufanga doubts)."
  }
 }
