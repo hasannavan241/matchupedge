@@ -11,7 +11,8 @@ tick.yml whenever GitHub does start those. This script decides, in Central time 
     skip      outside the refresh hours (6 AM through the 10 PM hour), or the site was refreshed too recently.
               Nothing is downloaded and nothing is published; the run ends in a few seconds.
     refresh   due 50 minutes after the last refresh, or 25 minutes after it in the three hours before an NFL kickoff
-              (inactive lists come out 90 minutes before a game: the last refresh before kickoff has them);
+              or an NBA tip-off (NFL inactive lists come out 90 minutes before a game, and NBA injury reports change
+              through the afternoon: the last refresh before the start has them);
               or at once when the news file or the site's code differs from what the last refresh was built from.
 
 With clock.yml's 30-minute wait that is a refresh about every hour, and every half hour before kickoffs. A run started
@@ -33,7 +34,7 @@ except Exception:
 
 FIRST_HOUR, LAST_HOUR = 6, 22      # scheduled refreshes run from 6:00 AM to 10:59 PM Central
 GAP = 50                           # minutes between scheduled refreshes
-GAP_NEAR = 25                      # and in the NEAR_HOURS before an NFL kickoff
+GAP_NEAR = 25                      # and in the NEAR_HOURS before an NFL kickoff or an NBA tip-off
 NEAR_HOURS = 3
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INPUTS = ("analytics", "pipeline/props_core.py", "data/news.json")   # what a build is made from in the repository
@@ -41,8 +42,8 @@ INPUTS = ("analytics", "pipeline/props_core.py", "data/news.json")   # what a bu
 
 def inputs(rev="HEAD", root=ROOT):
     """A short fingerprint of what a build is made from in the repository: the site's code and the researched news, as
-    committed at `rev`. Left out: the fitted model and its cache (a refresh commits those itself after a refit) and
-    notes. None when git can't say, and then no refresh is started on its account."""
+    committed at `rev`. Left out: the fitted models and the NFL's cache (a refresh commits those itself after a refit)
+    and notes. None when git can't say, and then no refresh is started on its account."""
     try:
         r = subprocess.run(["git", "-C", root, "ls-tree", "-r", rev, "--", *INPUTS], capture_output=True, text=True, timeout=30)
     except Exception:
@@ -52,7 +53,7 @@ def inputs(rev="HEAD", root=ROOT):
     keep = []
     for line in r.stdout.splitlines():
         meta, _, path = line.partition("\t")
-        if path == "analytics/model.json" or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
+        if path in ("analytics/model.json", "analytics/nba_model.json") or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
             continue
         keep.append(f"{meta.split()[-1]} {path}")
     return hashlib.sha1("\n".join(sorted(keep)).encode()).hexdigest()[:12]
@@ -94,8 +95,8 @@ def decide(now, event="schedule", want="tick", built_at=None, kickoffs=None, cha
 
 
 def read_state(path):
-    """(when the site was last built, the kickoffs of the games on it) from a published state.json, old or new.
-    published_inputs() reads the fingerprint of what it was built from."""
+    """(when the site was last built, the starts of the games on it: NFL kickoffs and NBA tip-offs) from a published
+    state.json, old or new. published_inputs() reads the fingerprint of what it was built from."""
     state = {}
     if path and os.path.exists(path):
         try:
@@ -108,6 +109,10 @@ def read_state(path):
     built = next((t for t in (parse(state.get(k)) for k in ("at", "built", "ts") if state.get(k)) if t), None)
     kos = state.get("kickoffs") if isinstance(state.get("kickoffs"), list) else state.get("nfl_ko")
     kos = [t for t in map(parse, kos) if t] if isinstance(kos, list) else None
+    nba = state.get("nba") if isinstance(state.get("nba"), dict) else {}
+    tips = [t for t in map(parse, nba.get("tips")) if t] if isinstance(nba.get("tips"), list) else []
+    if tips:
+        kos = (kos or []) + tips
     return built, kos
 
 

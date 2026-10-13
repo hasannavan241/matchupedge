@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """One refresh of the analytics site, start to finish. This is what the scheduled job on GitHub runs.
 
-    python3 run.py              download, roll up, live inputs, refit if results are in, grade, build, check, save picks
-    python3 run.py --no-check   the same without loading the page in a browser
+    python3 run.py              download, roll up, live inputs, refit if results are in, grade, build, check, save picks;
+                                then the same for the NBA page
+    python3 run.py --no-check   the same without loading the pages in a browser
 
 What happens when a step fails:
     download       stop. Nothing can be built from stale files; the site keeps its last page.
@@ -10,6 +11,10 @@ What happens when a step fails:
     refit          go on with the model already here.
     grade, save    go on. The record catches up at the next refresh.
     build, check   stop. A page that failed its check is never published.
+
+The NBA steps (nba download, nba model, nba grade, nba build, nba check, nba save picks) never stop the refresh: the
+NFL page is published either way. When the NBA page could not be built or failed its check, out/nba.html is not
+there and the workflow publishes the NBA page from the last refresh again.
 
 Prints one line per step and writes out/state.json (what this refresh was) and out/summary.md (the picks, as a table).
 AN_SLIM=1 deletes a finished season's play-by-play once it is rolled up, so only the roll-ups are kept between runs.
@@ -78,10 +83,10 @@ def main():
     def s_live():
         import live
         o = live.main()
-        n = len(live.listed(o["nflInj"]))
-        state["live"] = {"inj_n": n, "inj_at": o["injAt"], "wx_n": len(o["wx"]), "errors": o["errors"]}
+        n, nn = len(live.listed(o["nflInj"])), len(live.listed(o["nbaInj"]))
+        state["live"] = {"inj_n": n, "inj_at": o["injAt"], "nba_inj_n": nn, "nba_inj_at": o["nbaInjAt"], "wx_n": len(o["wx"]), "errors": o["errors"]}
         errors.extend("live " + e for e in o["errors"] if "kept" not in e)
-        return f"{n} injury listings, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
+        return f"{n} NFL injury listings, {nn} NBA, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
 
     def s_refit():
         import nfl_model as nm
@@ -124,7 +129,86 @@ def main():
         state["record"] = s
         return f"{n} picks saved or changed; {s['saved']} on record, {s['won']}-{s['lost']} graded"
 
+    # ---- the NBA page: nothing here stops the refresh ----
+    nba = {}   # how far the NBA got this run: its page is published only once it is built and has passed its check
+    NBA_FILES = ("nba.html", "nba_data.json")
+
+    def nba_drop():
+        for f in NBA_FILES:
+            try:
+                os.remove(os.path.join(OUT, f))
+            except FileNotFoundError:
+                pass
+
+    def s_nba_fetch():
+        import nba_data as nb
+        nba_drop()   # a page left from an earlier build in this folder is never published by mistake
+        season = nb.fetch()
+        old = nb.stale(season)
+        if old:   # the NBA page stays as the last refresh published it
+            raise RuntimeError("could not download " + ", ".join(old) + ", and there is no copy here from the last day")
+        kept = [os.path.basename(f) for f, age in nd.MISSED if str(f).startswith(nb.DIR) and age is not None]
+        if kept:
+            errors.append("nba download: not fetched this time, the copy here used: " + ", ".join(kept))
+        nba["data"] = season
+        return f"season {season}" + (f", {len(kept)} files from an earlier download" if kept else "")
+
+    def s_nba_refit():
+        if "data" not in nba:
+            return "skipped: no NBA data this run"
+        import nba_model as nbm
+        did, line = nbm.refit()
+        nba["refit"] = did
+        if "thrown away" in line:
+            errors.append("nba model: " + line)
+        return line
+
+    def s_nba_grade():
+        if "data" not in nba:
+            return "skipped: no NBA data this run"
+        import nba_record as nbr
+        return f"{nbr.grade()} newly graded"
+
+    def s_nba_build():
+        if "data" not in nba:
+            return "skipped: no NBA data this run; the site keeps the NBA page it has"
+        import nba_build as nbb
+        try:
+            d = nbb.build_data()
+            nbb.write_site()
+        except BaseException:
+            nba_drop()
+            raise
+        fp = nbb.fingerprint(d)
+        nba["built"] = True
+        state["nba"] = {"season": d["season"], "dates": d["dates"], "games": len(d["games"]), "players": len(d["players"]["players"]),
+                        "tips": [g["tip"] for g in d["games"]],   # due.py refreshes more often before these, like before NFL kickoffs
+                        "inj_n": d["live"]["inj_n"], "fingerprint": fp}
+        return (f"{len(d['games'])} games on {' and '.join(d['dates']) or 'no dates'}, {state['nba']['players']} players, "
+                f"{d['live']['inj_n']} listed injured (picks {fp['games']}, players {fp['players']})")
+
+    def s_nba_check():
+        if not nba.get("built"):
+            return "skipped: no NBA page this run"
+        r = subprocess.run([sys.executable, os.path.join(nd.HERE, "check_nba.py")], capture_output=True, text=True)
+        out = (r.stdout + r.stderr).strip()
+        if r.returncode != 0:
+            nba_drop()   # never published: the site keeps the NBA page it has
+            raise RuntimeError(out[-1500:] or "the NBA page check failed")
+        nba["checked"] = True
+        return out.splitlines()[-1] if out else "ok"
+
+    def s_nba_save():
+        if not nba.get("checked"):
+            return "skipped: the NBA page is not published this run"
+        import nba_record as nbr
+        n = nbr.save()
+        s = nbr.summary()
+        state["nba"]["record"] = s
+        return f"{n} picks saved or changed; {s['saved']} on record, {s['won']}-{s['lost']} graded"
+
     step("download", s_fetch, True)
+    step("nba download", s_nba_fetch, False)
     step("live inputs", s_live, False)
     step("model", s_refit, False)
     step("grade", s_grade, False)
@@ -132,6 +216,14 @@ def main():
     if "--no-check" not in sys.argv:
         step("check", s_check, True)
     step("save picks", s_save, False)
+    step("nba model", s_nba_refit, False)
+    step("nba grade", s_nba_grade, False)
+    step("nba build", s_nba_build, False)
+    if "--no-check" not in sys.argv:
+        step("nba check", s_nba_check, False)
+    else:
+        nba["checked"] = nba.get("built")
+    step("nba save picks", s_nba_save, False)
     finish(True)
     print(f"refresh done in {state['took']}s" + (f" with {len(errors)} notes" if errors else ""))
 

@@ -1,8 +1,9 @@
 # The analytics site
 
-Matchup Edge, built from stats alone: NFL game picks, player projections and team stats with no sportsbook
-anywhere. No lines, prices or odds are read, on the page or behind it. It replaced the odds-based site
-(`pipeline/`) on 2026-10-06; `SWITCH.md` says what changed and how to undo it.
+Matchup Edge, built from stats alone: NFL and NBA game picks, player projections and team stats with no
+sportsbook anywhere. No lines, prices or odds are read, on the pages or behind them. It replaced the odds-based
+site (`pipeline/`) on 2026-10-06; `SWITCH.md` says what changed and how to undo it. The NBA page (`nba.html`,
+linked from the NFL page's header) was added on 2026-10-13, before the 2026-27 season.
 
 ## One refresh
 
@@ -23,8 +24,16 @@ python run.py
 | build | `build.py` | `out/data.json`, then the page: `out/index.html` (the website) and `out/site.html` (the same page without a document head). | The refresh stops. |
 | check | `check.py` | Loads the page in a browser at phone and desktop width, light and dark. Fails on a script error, a pick that differs from the build, chance maths that differs from the model, or a page that scrolls sideways. | The refresh stops: a page that failed is never published. |
 | save picks | `record.py` | Saves each pick for games that have not kicked off. | Goes on. |
+| nba download | `nba_data.py` | Schedules, box scores and rosters (hoopR, on GitHub, updated about 2 AM Central). Finished seasons once. | No NBA build this time: the site keeps the NBA page it has. |
+| nba model | `nba_model.py refit` | Refits when new finals are in (about 15 seconds). A fit whose lineup weight jumps by a quarter is thrown away. | Goes on with `nba_model.json` as it is. |
+| nba grade | `nba_record.py` | Final scores for the NBA picks already saved. | Goes on. |
+| nba build | `nba_build.py` | `out/nba_data.json` and `out/nba.html`: the next two days with games. | The site keeps the NBA page it has. |
+| nba check | `check_nba.py` | The same browser check for the NBA page. | `out/nba.html` is deleted, so it is never published; the site keeps the NBA page it has. |
+| nba save picks | `nba_record.py` | Saves each NBA pick for games that have not tipped off. | Goes on. |
 
-It also writes `out/state.json` (what the refresh was, step by step) and `out/summary.md` (the picks as a table).
+Nothing in the NBA steps stops the refresh: the NFL page is published either way. It also writes
+`out/state.json` (what the refresh was, step by step; the NBA's under `nba`) and `out/summary.md` (the NFL picks
+as a table).
 
 ## The record
 
@@ -34,7 +43,7 @@ never after. Once the final score is in, it is graded. The page shows the record
 week's finished games on the Games tab.
 
 The job on GitHub commits that file after every refresh, so the time each pick was last changed is public
-before the game is played.
+before the game is played. The NBA's record is `../data/an_picks_nba.json`, kept the same way.
 
 ## The model, in one paragraph
 
@@ -46,6 +55,16 @@ for nothing unless a visitor turns them up, because they added nothing in testin
 records, head to head, and long trips. Player projections reuse `../pipeline/props_core.py` with our own
 projected margin and total where it used to read the market's.
 
+The NBA model, in one paragraph: team strength (point margins adjusted for the opponents, a game's weight halving
+every 166 days), home court, and who is playing: every player's value is his box score per minute (Game Score),
+recent games counting most and shrunk toward a fringe player's, and a lineup is its players' values weighted by
+their minutes. Tonight's lineup against the lineups behind a team's results moves the margin; so do back-to-backs,
+altitude and researched news. A player out (or suspended) is left out of tonight's lineup; one who may sit counts
+by the chance his status sits. Fitted on every game since 2014-15 and tested season by season from 2017-18 with
+weights from earlier seasons only (67.3% of winners, against 64.7% from results and home court alone). Player
+projections are minutes times rates per minute, adjusted for pace (and, for points, the other team's defense),
+with a negative binomial spread fitted on two seasons and tested on the next two (`nba_players.json`).
+
 ## Files
 
 - `nfl_data.py` downloads and play-by-play roll-ups. `_data/` is the download folder (not in the repository).
@@ -56,8 +75,12 @@ projected margin and total where it used to read the market's.
 - `build.py` the page's data and the page. `template.html` is the page; the build fills `const DATA=`.
 - `record.py` the saved picks.
 - `check.py` the browser check. `python check.py shots DIR` also saves screenshots of every tab.
+- `nba_data.py` hoopR downloads, `nba_model.py` the NBA ratings, player values, fit and test (`nba_model.json`),
+  `nba_players.py` the NBA player projections and their test (`nba_players.json`; refit by hand with
+  `python nba_players.py test`), `nba_build.py` the NBA page from `nba_template.html` (it shares the NFL page's
+  fonts and styles), `nba_record.py` the saved NBA picks, `check_nba.py` its browser check.
 - `run.py` one whole refresh.
-- `due.py` whether a scheduled run should refresh now (about hourly; every half hour before kickoffs).
+- `due.py` whether a scheduled run should refresh now (about hourly; every half hour before kickoffs and tip-offs).
 - `SWITCH.md` what the switch from the odds-based site changed, and how to undo it.
 - `model.json`, `cache/` the fitted weights, every past game's projected margin and total, and the test picks.
 
@@ -66,7 +89,7 @@ projected margin and total where it used to read the market's.
 - `AN_DATA` the download folder (default `_data/`).
 - `AN_LIVE`, `AN_LIVE_PREV` where `live.json` is written, and the last good copy to fall back on.
 - `AN_NEWS` the researched news (default `../data/news.json`).
-- `AN_PICKS` the record (default `../data/an_picks.json`).
+- `AN_PICKS` the record (default `../data/an_picks.json`); `AN_PICKS_NBA` the NBA's (default `../data/an_picks_nba.json`).
 - `AN_SLIM=1` delete a finished season's play-by-play once it is rolled up.
 - `AN_PREVIEW=1` title the page "Matchup Edge Analytics" and show a Preview badge.
 - `ME_NOW` an ISO time to build as of (tests).
@@ -78,17 +101,18 @@ branch, which GitHub Pages serves. It starts on a push to `main` that touches `a
 `pipeline/props_core.py` or `data/news.json`, when asked for by hand, and from the clock: `clock.yml` is a chain
 of runs that each wait half an hour and ask for the next, because GitHub's own scheduler drops runs. `due.py`
 decides what a clock run does: a refresh about every hour from 6 AM to 10 PM Central, every half hour in the
-three hours before an NFL kickoff, nothing overnight, and a refresh at once when the news file or the site's code
+three hours before an NFL kickoff or an NBA tip-off, nothing overnight, and a refresh at once when the news file or the site's code
 differs from what the last refresh was built from (`state.json` keeps a fingerprint of them as `inputs`). That last
 rule catches a push whose own run was replaced while it waited behind a refresh already under way. No secrets are used.
 
 Each refresh:
 
-- commits `data/an_picks.json` to `main` when a pick moved or a game was graded, and `model.json` and `cache/`
-  after a refit;
-- publishes `index.html`, `artifact.html` (the same page without a document head), `summary.md` (the week's picks
-  as a table), `state.json` (what the refresh was) and `live.json` (the injury list and forecasts as read: the
-  next refresh falls back on it if ESPN or the weather service fails);
+- commits `data/an_picks.json` and `data/an_picks_nba.json` to `main` when a pick moved or a game was graded,
+  and `model.json`, `cache/` and `nba_model.json` after a refit;
+- publishes `index.html`, `nba.html` (this refresh's, or the one already published when the NBA page could not be
+  built or failed its check), `artifact.html` (the NFL page without a document head), `summary.md` (the week's
+  picks as a table), `state.json` (what the refresh was) and `live.json` (the injury lists and forecasts as read:
+  the next refresh falls back on it if ESPN or the weather service fails);
 - posts its step-by-step result as a notice on the run: `gh api repos/<owner>/<repo>/check-runs/<job id>/annotations`.
   Run logs can't be downloaded from a chat session, so the notice and `state.json` on `gh-pages` are how to see
   what a run did.

@@ -3,4 +3,5 @@ __pycache__/
 live.json
 prev_state.json
 prev_live.json
+prev_nba.html
 out/

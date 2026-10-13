@@ -1,0 +1,171 @@
+{
+ "made": "2026-10-13T13:58:27Z",
+ "params": {
+  "lam": 10.0,
+  "tau": 240.0,
+  "window": 700,
+  "tau_v": 500.0,
+  "k_v": 1000.0,
+  "prior_v": 0.2,
+  "em_a": 0.14,
+  "em_cap": 40.0,
+  "em_new": 10.0,
+  "em_long": 0.04,
+  "em_gap": 60,
+  "em_k": 4,
+  "em_prior": 12.0,
+  "alt_teams": [
+   7,
+   26
+  ]
+ },
+ "coef": {
+  "lineup": 116.76852780197481,
+  "b2b_h": -1.7083777440073753,
+  "b2b_a": 1.894960657829697,
+  "alt": 1.1115751014092887
+ },
+ "sd": 11.6,
+ "state": {
+  "games": 15479,
+  "last": "401859967",
+  "last_day": "2026-06-13"
+ },
+ "test": {
+  "first": 2018,
+  "last": 2026,
+  "games": 10752,
+  "wins": 7233,
+  "win_pct": 67.3,
+  "mae": 10.48,
+  "logloss": 0.606,
+  "results_only": {
+   "win_pct": 64.7,
+   "mae": 10.8
+  },
+  "home_pct": 56.0,
+  "by_season": [
+   {
+    "season": 2018,
+    "games": 1230,
+    "wins": 833,
+    "win_pct": 67.7,
+    "mae": 9.71
+   },
+   {
+    "season": 2019,
+    "games": 1230,
+    "wins": 834,
+    "win_pct": 67.8,
+    "mae": 10.05
+   },
+   {
+    "season": 2020,
+    "games": 1059,
+    "wins": 701,
+    "win_pct": 66.2,
+    "mae": 10.0
+   },
+   {
+    "season": 2021,
+    "games": 1080,
+    "wins": 708,
+    "win_pct": 65.6,
+    "mae": 10.9
+   },
+   {
+    "season": 2022,
+    "games": 1230,
+    "wins": 822,
+    "win_pct": 66.8,
+    "mae": 10.88
+   },
+   {
+    "season": 2023,
+    "games": 1230,
+    "wins": 810,
+    "win_pct": 65.9,
+    "mae": 9.94
+   },
+   {
+    "season": 2024,
+    "games": 1231,
+    "wins": 842,
+    "win_pct": 68.4,
+    "mae": 10.76
+   },
+   {
+    "season": 2025,
+    "games": 1231,
+    "wins": 834,
+    "win_pct": 67.7,
+    "mae": 10.86
+   },
+   {
+    "season": 2026,
+    "games": 1231,
+    "wins": 849,
+    "win_pct": 69.0,
+    "mae": 11.22
+   }
+  ],
+  "calibration": [
+   {
+    "from": 50,
+    "to": 55,
+    "games": 1893,
+    "said": 52.5,
+    "won": 53.8
+   },
+   {
+    "from": 55,
+    "to": 60,
+    "games": 1809,
+    "said": 57.4,
+    "won": 58.3
+   },
+   {
+    "from": 60,
+    "to": 65,
+    "games": 1659,
+    "said": 62.4,
+    "won": 63.0
+   },
+   {
+    "from": 65,
+    "to": 70,
+    "games": 1547,
+    "said": 67.5,
+    "won": 68.5
+   },
+   {
+    "from": 70,
+    "to": 75,
+    "games": 1283,
+    "said": 72.5,
+    "won": 75.1
+   },
+   {
+    "from": 75,
+    "to": 80,
+    "games": 1044,
+    "said": 77.5,
+    "won": 77.1
+   },
+   {
+    "from": 80,
+    "to": 85,
+    "games": 822,
+    "said": 82.4,
+    "won": 82.6
+   },
+   {
+    "from": 85,
+    "to": 100,
+    "games": 695,
+    "said": 88.7,
+    "won": 87.6
+   }
+  ]
+ }
+}

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""The two live inputs that are not in nflverse: who is hurt (ESPN's injury list) and the game-time forecast at
-outdoor stadiums (the National Weather Service). Writes live.json for build.py.
+"""The live inputs that are not in the stats files: who is hurt (ESPN's NFL and NBA injury lists) and the game-time
+forecast at outdoor NFL stadiums (the National Weather Service). Writes live.json for build.py and nba_build.py.
 
     python3 live.py
 
 No sportsbook is read here or anywhere else on the site: no lines, no prices, no odds.
 
 A source that fails does not stop the refresh. The last good copy is used while it is fresh enough (AN_LIVE_PREV, else
-the live.json already there): the injury list for 36 hours, a forecast for 24. The page says when the injury list was
-read and warns when that is over six hours before the build; live.json itself keeps when each forecast was read (wxAt).
+the live.json already there): an injury list for 36 hours, a forecast for 24. The pages say when the injury list was
+read and warn when that is over six hours before the build; live.json itself keeps when each forecast was read (wxAt).
 """
 import datetime as dt, json, math, os, re, sys, time
 import urllib.error, urllib.request
@@ -19,9 +19,11 @@ LIVE = os.environ.get("AN_LIVE") or os.path.join(nd.HERE, "live.json")
 PREV = os.environ.get("AN_LIVE_PREV") or LIVE
 AGENT = "MatchupEdge (github.com/hasannavan241/matchupedge)"   # the weather service asks callers to say who they are
 ESPN_INJURIES = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+ESPN_NBA_INJURIES = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
 NWS = "https://api.weather.gov"
 KEEP_INJ_HOURS, KEEP_WX_HOURS = 36, 24
 MIN_LISTED = 20   # fewer rows than this in season is a broken answer, not a healthy league
+MIN_NBA_LISTED = 5   # the NBA's list is shorter (15-man rosters), but never this short from October to June
 # outdoor stadiums by home team (latitude, longitude); domes and retractable roofs are left out
 STAD = {"BAL": (39.278, -76.623), "BUF": (42.774, -78.787), "CAR": (35.226, -80.853), "CHI": (41.862, -87.617),
         "CIN": (39.095, -84.516), "CLE": (41.506, -81.700), "DEN": (39.744, -105.020), "GB": (44.501, -88.062),
@@ -58,11 +60,12 @@ def get_json(url, accept="application/json", tries=3, timeout=40):
     raise RuntimeError(last or "no answer")
 
 
-def injuries():
-    """ESPN's NFL injury list as rows of [ESPN athlete id, name, team, status, detail]. The detail is the injury itself
-    (knee sprain, left): ESPN's written notes about a player are not copied. The list holds each team's 25 newest
-    entries, and many are players ESPN now calls active: those rows are kept, because they say a player is off the report."""
-    j = get_json(ESPN_INJURIES)
+def injuries(url=ESPN_INJURIES):
+    """ESPN's injury list (the NFL's, or the NBA's from the same kind of page) as rows of [ESPN athlete id, name, team,
+    status, detail]. The detail is the injury itself (knee sprain, left): ESPN's written notes about a player are not
+    copied. The NFL list holds each team's 25 newest entries, and many are players ESPN now calls active: those rows are
+    kept, because they say a player is off the report."""
+    j = get_json(url)
     rows = []
     for t in j.get("injuries") or []:
         for i in t.get("injuries") or []:
@@ -124,7 +127,7 @@ def main(plan=None, now=None):
         except Exception:
             old = {}
     old_inj_at = old.get("injAt") or old.get("ts")
-    out = {"ts": iso(now), "nflInj": [], "injAt": None, "wx": {}, "wxAt": {}, "errors": []}
+    out = {"ts": iso(now), "nflInj": [], "injAt": None, "nbaInj": [], "nbaInjAt": None, "wx": {}, "wxAt": {}, "errors": []}
 
     try:
         rows = injuries()
@@ -136,6 +139,18 @@ def main(plan=None, now=None):
         if old.get("nflInj") and fresh(old_inj_at, KEEP_INJ_HOURS, now):
             out["nflInj"], out["injAt"] = old["nflInj"], old_inj_at
             out["errors"].append(f"injuries kept from {old_inj_at}")
+
+    try:
+        rows = injuries(ESPN_NBA_INJURIES)
+        in_season = now.month >= 10 or now.month <= 6
+        if len(listed(rows)) < MIN_NBA_LISTED and in_season:
+            raise RuntimeError(f"only {len(listed(rows))} players listed")
+        out["nbaInj"], out["nbaInjAt"] = rows, iso(now)
+    except Exception as e:
+        out["errors"].append(f"nba injuries: {e}")
+        if old.get("nbaInj") and fresh(old.get("nbaInjAt"), KEEP_INJ_HOURS, now):
+            out["nbaInj"], out["nbaInjAt"] = old["nbaInj"], old["nbaInjAt"]
+            out["errors"].append(f"nba injuries kept from {old['nbaInjAt']}")
 
     old_wx, old_at = old.get("wx") or {}, old.get("wxAt") or {}
     failed_in_a_row = 0
@@ -158,11 +173,11 @@ def main(plan=None, now=None):
     os.makedirs(os.path.dirname(LIVE) or ".", exist_ok=True)
     c = lambda v: json.dumps(v, separators=(",", ":"))
     with open(LIVE, "w") as f:   # one player a line, so a copy kept in the repository changes only where the list did
-        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "errors", "wx", "wxAt")) + ',\n"nflInj":[\n'
-                + ",\n".join(c(r) for r in out["nflInj"]) + "\n]}\n")
+        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "nbaInjAt", "errors", "wx", "wxAt"))
+                + "".join(f",\n{c(k)}:[\n" + ",\n".join(c(r) for r in out[k]) + "\n]" for k in ("nflInj", "nbaInj")) + "}\n")
     kept = sum(1 for e in out["errors"] if "kept" in e)
-    print(f"live: {len(listed(out['nflInj']))} injury listings (read {out['injAt'] or 'never'}), forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, "
-          f"{len(out['errors']) - kept} failed")
+    print(f"live: {len(listed(out['nflInj']))} NFL injury listings (read {out['injAt'] or 'never'}), {len(listed(out['nbaInj']))} NBA "
+          f"(read {out['nbaInjAt'] or 'never'}), forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, {len(out['errors']) - kept} failed")
     for e in out["errors"][:12]:
         print("  ", e)
     return out

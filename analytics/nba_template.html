@@ -1,0 +1,375 @@
+<title>Matchup Edge NBA</title>
+<!--SHARED_HEAD-->
+<style>
+/* NBA additions to the shared styles */
+.board tr.dayrow{cursor:default}
+.board tr.dayrow th{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--muted);text-align:left;padding-top:16px}
+.board tbody:first-of-type tr.dayrow th{padding-top:8px}
+.board tbody tr.dayrow:hover th{background:none}
+.nw{white-space:nowrap}
+@media (max-width:640px){.ptest .xs,.log .xs{display:none}.ptest th,.ptest td{padding:7px 5px}.log th,.log td{padding:5px 4px}}
+.rot{display:grid;grid-template-columns:minmax(0,1fr) 54px 54px;gap:3px 10px;font-size:13px;align-items:baseline}
+.rot .h{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.rot .r{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.rot .off{color:var(--muted)}
+.log td,.log th{padding:5px 6px}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <nav class="sport" aria-label="Sport"><a href="./">NFL</a><a href="nba.html" aria-current="page">NBA</a></nav>
+      <h1>Matchup <span>Edge</span></h1>
+      <p>NBA picks and player projections built from stats alone: team strength, who is playing tonight, home court, rest and the news. No sportsbooks, no odds.</p>
+    </div>
+    <div class="fresh" id="fresh"></div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="games" aria-selected="true">Games</button>
+    <button role="tab" data-tab="players" aria-selected="false">Players</button>
+    <button role="tab" data-tab="teams" aria-selected="false">Teams</button>
+    <button role="tab" data-tab="method" aria-selected="false">How it works</button>
+    <span class="wk" id="wk"></span>
+  </nav>
+
+  <section class="tab" id="games"></section>
+  <section class="tab" id="players" hidden></section>
+  <section class="tab" id="teams" hidden></section>
+  <section class="tab" id="method" hidden></section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const DATA=/*DATA*/null;
+(function(){
+'use strict';
+const D=DATA,M=D.model,C=M.coef,T=D.teams,P=D.players||{players:[],spread:{},marks:{},labels:{}};
+const $=s=>document.querySelector(s),MINUS='−';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\/[^\s"<>]+$/i.test(String(u||''))?String(u):'';
+const f1=v=>v==null||!isFinite(v)?'–':(Math.round(v*10)/10).toFixed(1);
+const f0=v=>v==null||!isFinite(v)?'–':String(Math.round(v));
+const sg=(v,d=1)=>{if(v==null||!isFinite(v))return'–';const s=Math.abs(v).toFixed(d);return +s===0?s:(v>0?'+':MINUS)+s};
+const pc=p=>p==null||!isFinite(p)?'–':Math.round(p*100)+'%';
+const ord=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])};
+const nm=t=>(T[t]&&T[t].name)||t;
+const theN=t=>'the '+nm(t);
+const store={get(k,d){try{const v=localStorage.getItem('menba1.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('menba1.'+k,JSON.stringify(v))}catch(e){}}};
+const pct1=v=>Number(v).toFixed(1);
+/* a game in a player's log: "Apr 2", with the year when it is from before last season's end */
+const shortDate=d=>{const t=new Date(d+'T12:00:00Z'),old=(Date.parse(D.built)-t)/864e5>300;return t.toLocaleDateString('en-US',Object.assign({month:'short',day:'numeric',timeZone:'UTC'},old?{year:'numeric'}:{}))};
+const seasonName=y=>(y-1)+'-'+String(y).slice(2);
+const dayName=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric',timeZone:'UTC'});
+
+/* ---------- maths ---------- */
+function erf(x){const s=x<0?-1:1;x=Math.abs(x);const t=1/(1+.3275911*x);return s*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x))}
+const Phi=z=>.5*(1+erf(z/Math.SQRT2));
+function lgamma(x){const c=[76.18009172947146,-86.50532032941677,24.01409824083091,-1.231739572450155,.1208650973866179e-2,-.5395239384953e-5];let y=x,t=x+5.5;t-=(x+.5)*Math.log(t);let s=1.000000000190015;for(let j=0;j<6;j++)s+=c[j]/++y;return -t+Math.log(2.5066282746310005*s/x)}
+/* a stat is a count: negative binomial with variance a*mu + b*sqrt(mu) (nba_players.py) */
+function sizeOf(s,mu){const ab=P.spread[s]||[1.2,0];const v=ab[0]*mu+ab[1]*Math.sqrt(mu);return mu*mu/Math.max(v-mu,1e-3)}
+function cdf(s,mu,k){ /* P(X <= k) */
+  if(k<0)return 0;mu=Math.max(mu,.02);const r=sizeOf(s,mu),lp=Math.log(r/(r+mu)),lq=Math.log(mu/(r+mu));let c=0;
+  for(let i=0;i<=k;i++)c+=Math.exp(lgamma(i+r)-lgamma(r)-lgamma(i+1)+r*lp+i*lq);
+  return Math.min(1,c)}
+const atLeast=(s,mu,k)=>1-cdf(s,mu,Math.ceil(k)-1);
+/* over a number: a whole number can land exactly on it, which is neither over nor under */
+function overUnder(s,mu,L){
+  if(L==null||!isFinite(L)||L<0)return null;
+  const k=Math.floor(L);if(L===k){const c=cdf(s,mu,k),pm=c-cdf(s,mu,k-1);return{o:1-c,u:c-pm,eq:pm}}
+  const c=cdf(s,mu,k);return{o:1-c,u:c,eq:0}}
+function quant(s,mu,q){let k=0;while(k<200&&cdf(s,mu,k)<q)k++;return k}
+
+/* ---------- the factors ---------- */
+const TEST=M.test;
+const FACTORS=[
+  {k:'strength',label:'Team strength',max:200,def:100,tag:'held',note:'Point margins, adjusted for the opponents, recent games counting most. On its own (with home court) it picks '+pct1(TEST.results_only.win_pct)+'% of games right.'},
+  {k:'lineup',label:'Who is playing',max:200,def:100,tag:'held',note:'Tonight’s players against the ones behind each team’s results: every player valued by his box score per minute, a lineup by its minutes. It catches stars sitting, and trades and signings since last season. With it the test rises to '+pct1(TEST.win_pct)+'%.'},
+  {k:'home',label:'Home court',max:200,def:100,tag:'held',note:'Worth '+M.home.toFixed(1)+' points to the home team lately (it has shrunk over the years). Nothing at a neutral site.'},
+  {k:'rest',label:'Back-to-backs',max:200,def:100,tag:'held',note:'A team on the second night of a back-to-back did worse: '+Math.abs(C.b2b_h).toFixed(1)+' points for a home team, '+Math.abs(C.b2b_a).toFixed(1)+' for a visitor.'},
+  {k:'alt',label:'Altitude',max:200,def:100,tag:'weak',note:'Denver and Utah won by about '+C.alt.toFixed(1)+' points more at home than home court alone explains.'},
+  {k:'news',label:'News',max:100,def:100,tag:'none',tagText:'Can’t be tested',note:'Researched items the stats can’t see: a coaching change, a player back from a long absence. Counted as written, at most '+M.news_cap+' points a team. Injuries are counted under Who is playing.'}
+];
+const TAGS={held:['✓','Held up in testing'],weak:['~','Small'],none:['–','No signal']};
+const DEFW=()=>Object.fromEntries(FACTORS.map(f=>[f.k,f.def]));
+const S={tab:'games',W:Object.assign(DEFW(),store.get('w',{})),open:new Set(store.get('open',[])),day:'ALL',stat:store.get('stat','pts'),game:'ALL',q:'',player:null,num:{},psort:['proj',-1]};
+FACTORS.forEach(f=>{if(!(S.W[f.k]>=0&&S.W[f.k]<=f.max))S.W[f.k]=f.def});
+const changed=()=>FACTORS.some(f=>S.W[f.k]!==f.def);
+
+function calc(g){
+  const x=g.x,w=k=>S.W[k]/100;
+  const full={strength:x.strength,lineup:C.lineup*(x.roster+x.out),home:x.home,rest:C.b2b_h*x.b2b_h+C.b2b_a*x.b2b_a,alt:C.alt*x.alt,news:x.news||0};
+  const c={};let m=0;FACTORS.forEach(f=>{c[f.k]=w(f.k)*full[f.k];m+=c[f.k]});
+  const t=g.t,pH=Phi(m/M.sd),side=m>=0?'home':'away',p=m>=0?pH:1-pH;
+  const hs=(t+m)/2,as=(t-m)/2,tie=Math.round(hs)===Math.round(as),sc=v=>tie?v.toFixed(1):String(Math.round(v));
+  return{c,full,m,t,pH,side,p,team:g[side],other:g[side==='home'?'away':'home'],hs,as,hsT:sc(hs),asT:sc(as)};
+}
+const confWord=p=>p<.55?'a coin flip':p<.62?'a lean':p<.72?'a solid favorite':p<.85?'a strong favorite':'a heavy favorite';
+const byT=(g,m)=>Math.abs(m)<.05?'dead even':`${m>0?g.home:g.away} by ${Math.abs(m).toFixed(1)}`;
+const statusPill=s=>{if(!s)return'';const l=s.toLowerCase(),cls=l.startsWith('out')||l.startsWith('susp')?'p-out':l.startsWith('doubt')?'p-dbt':'p-q',ic=cls==='p-out'?'✕':cls==='p-dbt'?'!':'?';return `<span class="pill ${cls}"><i aria-hidden="true">${ic}</i>${esc(s)}</span>`};
+
+/* ---------- games ---------- */
+function whyText(g,r){
+  const side=r.m>=0?1:-1,tm=side>0?g.home:g.away,op=side>0?g.away:g.home;
+  const outN=i=>(g.lineups[i]||[]).filter(p=>p.f>=.5&&p.full>=15).sort((a,b)=>b.worth-a.worth).slice(0,2).map(p=>p.n);
+  const ph={
+    strength:v=>`${theN(v>0?g.home:g.away)} have the better results (${Math.abs(v).toFixed(1)} points)`,
+    lineup:v=>{const j=v>0?0:1,o=outN(j),t=j?g.home:g.away;return o.length?`${theN(t)} are without ${o.join(' and ')} (${Math.abs(v).toFixed(1)})`:Math.abs(C.lineup*g.x.roster)>Math.abs(C.lineup*g.x.out)?`the rosters have changed in ${theN(v>0?g.home:g.away)}’ favor since the games behind the ratings (${Math.abs(v).toFixed(1)})`:`tonight’s lineups favor ${theN(v>0?g.home:g.away)} (${Math.abs(v).toFixed(1)})`},
+    home:()=>`home court (${Math.abs(r.c.home).toFixed(1)})`,
+    rest:v=>`${theN(v>0?g.away:g.home)} are on the second night of a back-to-back (${Math.abs(v).toFixed(1)})`,
+    alt:v=>`the altitude in ${esc(nm(g.home))} territory (${Math.abs(v).toFixed(1)})`,
+    news:v=>`the news favors ${theN(v>0?g.home:g.away)} (${Math.abs(v).toFixed(1)})`};
+  const parts=FACTORS.map(f=>({k:f.k,v:r.c[f.k]})).filter(p=>Math.abs(p.v)>=.3).sort((a,b)=>Math.abs(b.v)-Math.abs(a.v));
+  const pro=parts.filter(p=>side*p.v>0).slice(0,3).map(p=>ph[p.k](p.v)),con=parts.filter(p=>side*p.v<0).slice(0,2).map(p=>ph[p.k](p.v));
+  const list=a=>a.length>1?a.slice(0,-1).join(', ')+' and '+a[a.length-1]:a[0];
+  let s=Math.abs(r.m)<.5?`Too close to call: the factors come out within half a point.`:`${nm(tm)} by ${Math.abs(r.m).toFixed(1)}.`;
+  if(pro.length)s+=` For ${theN(tm)}: ${list(pro)}.`;
+  if(con.length)s+=` For ${theN(op)}: ${list(con)}.`;
+  return s;
+}
+function tug(g,r){
+  const rows=FACTORS.map(f=>({f,v:r.c[f.k],full:r.full[f.k]})).filter(o=>Math.abs(o.full)>=.05||S.W[o.f.k]!==o.f.def);
+  const mx=Math.max(3,Math.abs(r.m),...rows.map(o=>Math.abs(o.v)));
+  const bar=v=>Math.abs(v)<.05?'':`<i class="${v>0?'h':'a'}" style="${v>0?'left':'right'}:50%;width:${(Math.abs(v)/mx*50).toFixed(1)}%"></i>`;
+  const val=v=>Math.abs(v)<.05?'0':`${v>0?g.home:g.away} +${Math.abs(v).toFixed(1)}`;
+  return `<div class="tug" role="img" aria-label="What goes into the pick, in points toward each team">
+    <div class="tax" aria-hidden="true"><span><b class="sw a"></b>◀ ${esc(nm(g.away))}</span><span>${esc(nm(g.home))} ▶<b class="sw h"></b></span></div>
+    ${rows.map(o=>{const off=S.W[o.f.k]===0;return `<div class="trow${off?' off':''}" data-tip="${esc(o.f.label+': '+(off?`not counted (it would be ${val(o.full)} at full weight)`:val(o.v)+(S.W[o.f.k]!==100?` at ${S.W[o.f.k]}% weight`:'')))}"><span class="tl">${esc(o.f.label)}</span><span class="tb">${bar(o.v)}</span><span class="tv num">${esc(val(o.v))}</span></div>`}).join('')}
+    <div class="trow sum"><span class="tl">Projected margin</span><span class="tb">${bar(r.m)}</span><span class="tv num">${esc(byT(g,r.m))}</span></div></div>`;
+}
+function rotation(g,i){
+  const L=(g.lineups[i]||[]).filter(p=>p.min>=1||(p.f>0&&p.full>=8)),t=i?g.home:g.away;
+  if(!L.length)return `<p class="muted">No roster on record.</p>`;
+  const rows=L.slice(0,12).map(p=>`<span class="${p.min<1?'off':''}"><b>${esc(p.n)}</b> <span class="muted">${esc(p.pos||'')}</span> ${p.st?statusPill(p.st):''}</span><span class="r">${p.min<1?'–':f0(p.min)}</span><span class="r">${sg(p.worth,1)}</span>`).join('');
+  return `<div class="rot"><span class="h">${esc(nm(t))} tonight</span><span class="h r">Min</span><span class="h r">Worth</span>${rows}</div>`;
+}
+function lineupNote(g){
+  const r=C.lineup*g.x.roster,o=C.lineup*g.x.out;
+  const roster=Math.abs(r)>=.3?`The rosters, at full strength, are worth ${Math.abs(r).toFixed(1)} points to ${theN(r>0?g.home:g.away)} next to the lineups behind the two teams’ results`+(D.dates[0]&&Math.abs(r)>=2?' (trades, signings and players back from injury since then).':'.'):'At full strength the rosters are about what the teams’ results were built on.';
+  const out=Math.abs(o)>=.3?` Tonight’s injury list moves ${Math.abs(o).toFixed(1)} points to ${theN(o>0?g.home:g.away)}.`:'';
+  return roster+out;
+}
+function newsBlock(g){
+  const d=D.news['nba_'+g.id];if(!d)return `<div class="sec wide"><h3>News</h3><p class="muted">No news research for this game yet. It is researched closer to tip-off.</p></div>`;
+  const items=(d.items||[]).slice(0,30).map(it=>{const u=safeUrl(it.src),counted=['add','return','coach','drama','motivation','other'].includes(it.type)&&Math.abs(it.impact||0)>=.05;
+    return `<li><span class="nt">${esc(it.type||'')}</span> ${esc(String(it.text||'').slice(0,260))}${counted?` <b class="num">${esc(it.team)} ${sg(it.impact)}</b>`:''}${u?` <a href="${esc(u)}" target="_blank" rel="noopener">source</a>`:''}</li>`}).join('');
+  return `<div class="sec wide"><h3>News</h3><p>${esc(String(d.summary||'').slice(0,700))}</p><details><summary class="fine" style="cursor:pointer">All ${(d.items||[]).length} items, with sources</summary><ul class="news" style="margin-top:8px">${items}</ul></details></div>`;
+}
+function teamFacts(t){const x=T[t];if(!x)return'';return `${esc(x.rec)} this season · ${ord(x.rank)} in our ratings (${sg(x.r)}) · scores ${f1(x.off)}, allows ${f1(x.def)} · pace ${f1(x.pace)}`}
+function gameCard(g){
+  const r=calc(g),A=T[g.away]||{},H=T[g.home]||{},k='g-'+g.id;
+  const rest=i=>{const d=g.rest[i];return d==null||d>20?'first game in a while':d===1?'second night of a back-to-back':`${d} days since the last game`};
+  const h2h=g.h2h.length?g.h2h.map(m=>{const w=m[2]>m[3]?m[1]:(m[1]===g.home?g.away:g.home);return `<span class="nw">${esc(m[0].slice(0,7))}: ${esc(w)} ${Math.max(m[2],m[3])}–${Math.min(m[2],m[3])}</span>`}).join(' · '):'No recent meetings';
+  return `<article class="card" id="${k}" data-g="${esc(g.id)}">
+    <div class="gh"><h2>${esc(nm(g.away))} at ${esc(nm(g.home))}</h2><span class="when">${esc(g.day)} ${esc(g.ct)} CT${g.venue?' · '+esc(g.venue):''}${g.neutral?' · neutral site':''}</span></div>
+    <div class="gtop"><div>
+      <div class="teamline"><span class="nm"><i class="sw a"></i><b>${esc(g.away)}</b><span>${esc(A.rec||'')} · ${A.rank?ord(A.rank)+' in our ratings':''}</span></span><span class="sc num">${r.asT}</span></div>
+      <div class="teamline"><span class="nm"><i class="sw h"></i><b>${esc(g.home)}</b><span>${esc(H.rec||'')} · ${H.rank?ord(H.rank)+' in our ratings':''}</span></span><span class="sc num">${r.hsT}</span></div>
+      <div class="pickbox"><span class="k">Our pick</span><b>${esc(nm(r.team))} ${pc(r.p)}</b> <span class="conf">${confWord(r.p)}</span>
+        <div class="split" style="margin-top:8px" role="img" aria-label="${esc(g.away)} ${pc(1-r.pH)}, ${esc(g.home)} ${pc(r.pH)}"><i class="a" style="width:${((1-r.pH)*100).toFixed(1)}%"></i><i class="h" style="width:${(r.pH*100).toFixed(1)}%"></i></div>
+        <div class="fine" style="margin-top:5px">${esc(g.away)} ${pc(1-r.pH)} · ${esc(g.home)} ${pc(r.pH)} · projected total ${f1(r.t)}</div></div>
+      <p class="why">${esc(whyText(g,r))}</p></div>
+      <div>${tug(g,r)}<p class="fine" style="margin-top:8px">Each bar is points toward that team. They add up to the projected margin; a margin becomes a win chance on a ${M.sd.toFixed(1)}-point spread of outcomes.</p></div></div>
+    <details class="more" data-k="${k}"${S.open.has(k)?' open':''}><summary>Rotations, who is out, the teams and news</summary>
+      <div class="sections">
+        <div class="sec">${rotation(g,0)}</div>
+        <div class="sec">${rotation(g,1)}</div>
+        <div class="sec wide"><p class="fine">Minutes: each player’s recent minutes, the team’s 240 handed out in that order to the players available tonight. Worth: the points of margin the team loses if he sits (his minutes go to the others). ${esc(lineupNote(g))} A listed player is counted by how often his status sits: ${Object.entries(M.sit).map(([k,v])=>k+' '+pc(v)).join(', ')}.</p></div>
+        <div class="sec"><h3>${esc(nm(g.away))}</h3><p>${teamFacts(g.away)}</p><p class="fine">Rest: ${rest(0)}. Last season: ${esc(A.last||'–')}.</p></div>
+        <div class="sec"><h3>${esc(nm(g.home))}</h3><p>${teamFacts(g.home)}</p><p class="fine">Rest: ${rest(1)}. Last season: ${esc(H.last||'–')}.</p></div>
+        <div class="sec wide"><h3>Head to head</h3><p>${h2h}</p><p class="fine">The total: ${f1(r.t)} points, from both teams’ scoring and defense over the same games as their ratings.</p></div>
+        ${newsBlock(g)}
+      </div></details></article>`;
+}
+function mixPanel(){
+  return `<details class="card mix" data-k="mix"${S.open.has('mix')?' open':''}><summary><b>What counts in a pick</b><span class="muted">${changed()?'Your mix. ':'Each factor counts for what it has been worth in '+M.fit_games.toLocaleString()+' games since 2014. '}Move a slider to change it.</span>${changed()?'<button type="button" class="btn" id="resetw">Back to the tested weights</button>':''}</summary>
+    <div class="wgrid">${FACTORS.map(f=>{const [ic,lab]=TAGS[f.tag];return `<div class="w"><label for="w-${f.k}"><span>${esc(f.label)} <span class="tag t-${f.tag}"><i aria-hidden="true">${ic}</i>${esc(f.tagText||lab)}</span></span><output id="wo-${f.k}" class="num">${S.W[f.k]}%</output></label>
+      <input type="range" id="w-${f.k}" data-w="${f.k}" min="0" max="${f.max}" step="5" value="${S.W[f.k]}"><small>${esc(f.note)}</small></div>`}).join('')}</div></details>`;
+}
+function board(){
+  const days=D.dates;if(S.day!=='ALL'&&!days.includes(S.day))S.day='ALL';
+  const L=D.games.map(g=>({g,r:calc(g)})).filter(o=>S.day==='ALL'||o.g.date===S.day);
+  const groups=days.filter(d=>S.day==='ALL'||d===S.day).map(d=>({d,L:L.filter(o=>o.g.date===d)})).filter(x=>x.L.length);
+  const chips=`<div class="chips" role="group" aria-label="Day">${[['ALL','Both days']].concat(days.map(d=>[d,dayName(d).split(',')[0]])).map(([k,l])=>`<button type="button" data-day="${esc(k)}" aria-pressed="${S.day===k}">${esc(l)}</button>`).join('')}</div>`;
+  const rows=o=>{const {g,r}=o;return `<tr data-jump="g-${esc(g.id)}"><td class="l">${esc(g.away)} at ${esc(g.home)}<span class="sub">${esc(g.ct)}</span></td><td class="l pick"><b>${esc(r.team)}</b></td><td class="num">${pc(r.p)}</td>
+      <td class="xs"><div class="split" role="img" aria-label="${esc(g.away)} ${pc(1-r.pH)}, ${esc(g.home)} ${pc(r.pH)}"><i class="a" style="width:${((1-r.pH)*100).toFixed(1)}%"></i><i class="h" style="width:${(r.pH*100).toFixed(1)}%"></i></div></td>
+      <td class="num"><span class="xs">${esc(g.away)} ${r.asT}, ${esc(g.home)} ${r.hsT}</span><span class="sm">${r.asT}–${r.hsT}</span></td><td class="num xs">${Math.abs(r.m).toFixed(1)}</td></tr>`};
+  return `<div class="card board"><div class="gh"><h2>The picks</h2><span class="when">${D.games.length} games · tap a row for the reasons</span></div>
+    ${days.length>1?`<div class="filters"><span class="fg"><span class="k">Day</span>${chips}</span></div>`:''}
+    <div class="scroll"><table><thead><tr><th class="l">Game <span class="xs">(tip-off CT)</span></th><th class="l">Pick</th><th>Chance</th><th class="xs"><span style="display:inline-flex;gap:8px"><span><b class="sw a"></b> away</span><span><b class="sw h"></b> home</span></span></th><th>Projected <span class="xs">score</span></th><th class="xs">Margin</th></tr></thead>
+    ${groups.map(x=>`<tbody><tr class="dayrow"><th colspan="6" scope="colgroup">${esc(dayName(x.d))}</th></tr>${x.L.map(rows).join('')}</tbody>`).join('')}</table></div></div>`;
+}
+/* the record: a row is season, date, away, home, pick, chance, margin, away score, home score, hit, tip-off */
+const REC=(D.record&&D.record.live)||[];
+const wl=rows=>{const f=rows.filter(r=>r[7]!=null),w=f.filter(r=>r[9]===1).length;return{w,l:f.length-w,f:f.length}};
+const wlText=x=>x.f?`${x.w}–${x.l}`:'no finals yet';
+const missOf=rows=>{const g=rows.filter(r=>r[7]!=null);return g.length?g.reduce((s,r)=>s+Math.abs((r[8]-r[7])-r[6]),0)/g.length:null};
+const hitMark=r=>r[7]==null?'<span class="pill p-q">Pending</span>':r[9]===1?'<span class="pill p-ok"><i aria-hidden="true">✓</i>Won</span>':'<span class="pill p-out"><i aria-hidden="true">✕</i>Lost</span>';
+const finalOf=r=>r[7]==null?'':`${esc(r[2])} ${r[7]}, ${esc(r[3])} ${r[8]}`;
+const resTable=rows=>`<div class="scroll"><table class="res"><thead><tr><th class="l">Game</th><th class="l">Our pick</th><th>Chance</th><th class="xs">Final</th><th class="l">Result</th></tr></thead><tbody>${rows.map(r=>`<tr><td class="l">${esc(r[2])} at ${esc(r[3])}<span class="fin-s">${finalOf(r)||'no final yet'}</span></td><td class="l pick"><b>${esc(r[4])}</b></td><td class="num">${pc(r[5])}</td><td class="num xs">${finalOf(r)||'–'}</td><td class="l">${hitMark(r)}</td></tr>`).join('')}</tbody></table></div>`;
+function resultsCard(){
+  const R=REC.filter(r=>r[0]===D.season);if(!R.length)return'';
+  const days=[...new Set(R.map(r=>r[1]))].sort(),last=days[days.length-1],cur=R.filter(r=>r[1]===last),c=wl(cur),all=wl(R);
+  const before=days.length>1?R.filter(r=>r[1]===days[days.length-2]):[];
+  return `<div class="card"><div class="gh"><h2>How the picks did</h2><span class="when">${esc(dayName(last))}: ${wlText(c)}${all.f>c.f?` · this season: ${wlText(all)}`:''}</span></div>
+    ${resTable(cur)}${before.length?`<details style="margin-top:10px"><summary class="fine" style="cursor:pointer">${esc(dayName(days[days.length-2]))}: ${wlText(wl(before))}</summary>${resTable(before)}</details>`:''}
+    <p class="fine" style="margin-top:8px">Each pick is the one this page showed at its last refresh before tip-off. Finals come in the morning after. The full record is under How it works.</p></div>`;
+}
+function renderGames(){
+  const el=$('#games');
+  if(!D.games.length){el.innerHTML='<div class="card"><h2>No games to project</h2><p class="muted">The next games appear here once they are on the schedule.</p></div>'+resultsCard();return}
+  const L=D.games.filter(g=>S.day==='ALL'||g.date===S.day);
+  el.innerHTML=mixPanel()+board()+resultsCard()+`<div class="games">${L.map(gameCard).join('')}</div>`;
+}
+
+/* ---------- players ---------- */
+const SL={pts:'Points',reb:'Rebounds',ast:'Assists',tpm:'Threes',pra:'Points + rebounds + assists',stl:'Steals',blk:'Blocks',tov:'Turnovers'};
+const SSH={pts:'points',reb:'rebounds',ast:'assists',tpm:'threes',pra:'P+R+A',stl:'steals',blk:'blocks',tov:'turnovers'};
+const STATS=['pts','reb','ast','tpm','pra','stl','blk','tov'];
+const LOGC={pts:3,reb:4,ast:5,tpm:6,stl:7,blk:8,tov:9};
+const logVal=(r,s)=>s==='pra'?r[3]+r[4]+r[5]:r[LOGC[s]];
+const pid=p=>p.i+'|'+p.g;
+const BYID={};P.players.forEach(p=>{BYID[pid(p)]=p});
+const gameOf=id=>D.games.find(g=>g.id===id);
+function likely(){
+  const list=(label,s,k)=>{const a=P.players.map(p=>({p,v:(1-(p.f||0))*atLeast(s,p.mu[s],k)})).sort((x,y)=>y.v-x.v).slice(0,6);
+    return `<div><h3>${label}</h3><ol>${a.map(o=>`<li><button type="button" data-open="${esc(pid(o.p))}">${esc(o.p.n)} <span class="muted">${esc(o.p.t)}</span></button><div class="meter" aria-hidden="true"><i style="width:${(o.v*100).toFixed(0)}%"></i></div><span class="num">${pc(o.v)}</span></li>`).join('')}</ol></div>`};
+  return `<div class="card"><div class="gh"><h2>Most likely</h2><span class="when">from every projected player, ${esc(D.dates.map(d=>dayName(d).split(',')[0]).join(' and '))}, counting the chance a listed player sits</span></div><div class="likely">
+    ${list('25+ points','pts',25)}${list('10+ rebounds','reb',10)}${list('8+ assists','ast',8)}</div></div>`;
+}
+const defNum=(p,s)=>Math.max(.5,Math.floor(quant(s,p.mu[s],.5))+.5);
+const numOf=(p,s)=>{const k=pid(p)+'|'+s;return S.num[k]!=null?S.num[k]:defNum(p,s)};
+function rangeBar(p,s){
+  const mu=p.mu[s],q=x=>quant(s,mu,x),a=q(.1),b=q(.25),c=q(.75),d=q(.9),hi=Math.max(d*1.15,4),x=v=>(Math.max(0,Math.min(hi,v))/hi*100).toFixed(1)+'%';
+  return `<div class="range" role="img" aria-label="Usual range ${b} to ${c}; four games in five between ${a} and ${d}"><i class="r90" style="left:${x(a)};width:calc(${x(d)} - ${x(a)})"></i><i class="r50" style="left:${x(b)};width:calc(${x(c)} - ${x(b)})"></i><i class="dot" style="left:${x(mu)}" data-tip="Projection ${f1(mu)}"></i></div>
+    <div class="rax num"><span>0</span><span>${f0(hi/2)}</span><span>${f0(hi)}</span></div>`;
+}
+function playerCard(p){
+  const s=STATS.includes(S.stat)?S.stat:'pts',mu=p.mu[s],L=numOf(p,s),ou=overUnder(s,mu,L),marks=(P.marks[s]||[]).map(k=>({k,v:atLeast(s,mu,k)})).filter(o=>o.v>=.03&&o.v<=.98);
+  const g=gameOf(p.g),log=p.log||[],last=log.slice(0,10),hit=last.filter(r=>logVal(r,s)>L).length;
+  const avg=k=>last.length?last.reduce((a,r)=>a+logVal(r,k),0)/last.length:null;
+  return `<div class="pc"><div class="pcgrid"><div>
+      <span class="k">${esc(SL[s])} projected${p.f>0?' if he plays':''}</span><div class="big">${f1(mu)}<small>in ${f0(p.min)} minutes</small></div>
+      ${rangeBar(p,s)}<p class="fine">Usual range ${quant(s,mu,.25)} to ${quant(s,mu,.75)}; four games in five between ${quant(s,mu,.1)} and ${quant(s,mu,.9)}.</p>
+      <div class="you" style="margin-top:10px"><label for="yn">Your number</label><input id="yn" type="number" step="0.5" min="0" value="${L}" data-num="${esc(pid(p))}|${s}"><span class="ans">Over ${pc(ou&&ou.o)} · under ${pc(ou&&ou.u)}</span>${ou&&ou.eq>=.005?`<span class="fine">exactly ${L}: ${pc(ou.eq)}</span>`:''}</div>
+      <p class="fine" style="margin-top:6px">Over ${L} in ${hit} of his last ${last.length} games.</p>${p.st?`<p class="fine" style="margin-top:4px">${statusPill(p.st)} We count a ${pc(p.f)} chance he sits. The numbers here are for a game he plays.</p>`:''}</div>
+    <div><span class="k">Chance of at least</span><div class="ms" style="margin-top:6px">${marks.map(o=>`<span class="lab">${o.k}+ ${esc(SSH[s])}</span><div class="meter" aria-hidden="true"><i style="width:${(o.v*100).toFixed(0)}%"></i></div><span class="num">${pc(o.v)}</span>`).join('')||'<span class="muted">–</span>'}</div>
+      <div class="kv" style="margin-top:12px">${['pts','reb','ast','tpm','pra'].map(k=>`<div><b>${f1(p.mu[k])}</b><span>${esc(SL[k])} projected${avg(k)!=null?` · last ${last.length}: ${f1(avg(k))}`:''}</span></div>`).join('')}</div></div></div>
+    ${last.length?`<div class="scroll"><table class="log"><thead><tr><th class="l">Last games</th><th>Min</th><th>Pts</th><th>Reb</th><th>Ast</th><th>3PM</th><th class="xs">Stl</th><th class="xs">Blk</th><th class="xs">TO</th></tr></thead><tbody>${last.map(r=>`<tr><td class="l"><span class="nw">${esc(shortDate(r[0]))}</span> <span class="muted">${esc(r[1])}</span></td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${r[4]}</td><td class="num">${r[5]}</td><td class="num">${r[6]}</td><td class="num xs">${r[7]}</td><td class="num xs">${r[8]}</td><td class="num xs">${r[9]}</td></tr>`).join('')}</tbody></table></div>`:'<p class="muted">No NBA games on record yet: the projection is the league’s average rates in his expected minutes.</p>'}
+  </div>`;
+}
+function playerRows(){
+  const q=S.q.trim().toLowerCase(),s=S.stat;
+  let L=P.players.filter(p=>(S.game==='ALL'||p.g===S.game)&&(!q||p.n.toLowerCase().includes(q)||p.t.toLowerCase()===q));
+  const [k,dir]=S.psort,key={proj:p=>p.mu[s],min:p=>p.min,name:null}[k];
+  if(!key)return L.sort((a,b)=>a.n.localeCompare(b.n)*dir);
+  return L.sort((a,b)=>(key(a)-key(b))*dir||a.n.localeCompare(b.n));
+}
+function renderPlayers(){
+  const el=$('#players');
+  if(!P.players.length){el.innerHTML='<div class="card"><h2>No players to project</h2><p class="muted">Players appear with the next games on the schedule.</p></div>';return}
+  const s=S.stat,L=playerRows(),[sk,dir]=S.psort;
+  const th=(k,l,cls)=>`<span class="sort${cls?' '+cls:''}" data-ps="${k}"${sk===k?` data-dir="${dir<0?'desc':'asc'}"`:''} tabindex="0">${l}</span>`;
+  const games=D.games.map(g=>[g.id,`${g.away} at ${g.home}`]);
+  el.innerHTML=likely()+`<div class="card"><div class="controls">
+      <input type="search" id="pq" placeholder="Player or team (e.g. LAL)" value="${esc(S.q)}" aria-label="Find a player">
+      <select id="pg" aria-label="Game"><option value="ALL">Every game</option>${games.map(([id,l])=>`<option value="${esc(id)}"${S.game===id?' selected':''}>${esc(l)}</option>`).join('')}</select>
+      <div class="chips" role="group" aria-label="Stat">${STATS.map(k=>`<button type="button" data-stat="${k}" aria-pressed="${s===k}">${esc(k==='pra'?'P+R+A':SL[k])}</button>`).join('')}</div></div>
+    <div class="plh" style="margin-top:10px">${th('name','Player','')}${th('proj',esc(SL[s].replace('Points + rebounds + assists','P+R+A')),'')}${th('min','Minutes','')}<span class="xs">Usual range</span><span class="xs">Over the middle</span><span class="xs"></span><span class="xs">Last 10 avg</span></div>
+    ${L.map(p=>{const mu=p.mu[s],a=quant(s,mu,.25),b=quant(s,mu,.75),last=(p.log||[]).slice(0,10),avg=last.length?last.reduce((x,r)=>x+logVal(r,s),0)/last.length:null,open=S.player===pid(p);
+      return `<div class="prow${open?' open':''}" data-p="${esc(pid(p))}" tabindex="0" role="button" aria-expanded="${open}"><span><span class="nm">${esc(p.n)}</span>${p.st?' '+statusPill(p.st):''}<span class="sub">${esc(p.t)} ${p.home?'vs':'at'} ${esc(p.o)} · ${esc(p.pos||'')}</span></span><span class="num"><b>${f1(mu)}</b></span><span class="num">${f0(p.min)}</span><span class="xs num">${a}–${b}</span><span class="xs num">${pc(1-cdf(s,mu,Math.floor(quant(s,mu,.5))))}</span><span class="xs"></span><span class="xs num">${f1(avg)}</span></div>${open?playerCard(p):''}`}).join('')||'<p class="muted" style="padding:10px">No player matches.</p>'}
+    <p class="fine" style="margin-top:8px">Players expected to play 12 minutes or more. A projection is his minutes tonight times his rate per minute, adjusted for both teams’ pace${s==='pts'?' and the other team’s defense':''}. Over the middle: the chance of beating the middle of his range. A player on the injury list is projected for a game he plays; his card says how likely he is to sit.</p></div>`;
+}
+
+/* ---------- teams ---------- */
+function renderTeams(){
+  const L=Object.entries(T).sort((a,b)=>a[1].rank-b[1].rank);
+  const mx=Math.max(...L.map(([,x])=>Math.abs(x.r)));
+  const bar=v=>`<span class="rbar" aria-hidden="true"><i class="${v>=0?'p':'n'}" style="${v>=0?'left:50%':'right:50%'};width:${(Math.abs(v)/mx*50).toFixed(1)}%"></i></span>`;
+  $('#teams').innerHTML=`<div class="card"><div class="gh"><h2>Power rankings</h2><span class="when">points better than an average team on a neutral floor</span></div>
+    <div class="scroll"><table class="teams"><thead><tr><th class="l">Team</th><th>Rating</th><th class="xs"></th><th>Scores</th><th>Allows</th><th class="xs">Pace</th><th>This season</th><th class="xs">Last season</th><th class="xs">Roster since</th><th class="l xs">Most valuable</th></tr></thead><tbody>
+    ${L.map(([t,x])=>`<tr><td class="l"><b>${x.rank}. ${esc(x.name)}</b> <span class="muted">${esc(t)}</span></td><td class="num">${sg(x.r)}</td><td class="xs">${bar(x.r)}</td><td class="num">${f1(x.off)}</td><td class="num">${f1(x.def)}</td><td class="num xs">${f1(x.pace)}</td><td class="num">${esc(x.rec)}</td><td class="num xs">${esc(x.last)}</td><td class="num xs">${sg(x.roster)}</td><td class="l xs">${x.top&&x.top[0]?esc(x.top[0].n)+` <span class="num muted">${f1(x.top[0].worth)}</span>`:'–'}</td></tr>`).join('')}</tbody></table></div>
+    <p class="fine" style="margin-top:8px">Rating: point margins adjusted for the opponents, recent games counting most (this season and last). Scores and allows: points a game against an average opponent. Pace: possessions against the league’s (100 is average). Roster since: what today’s healthy roster is worth, in points, next to the lineups behind the rating (trades, signings, players back from injury). Most valuable: the player the team would miss most, in points.</p></div>`;
+}
+
+/* ---------- how it works ---------- */
+function calChart(){
+  const B=TEST.calibration;const W=innerWidth<620?340:560,H=200,pl=34,pr=10,pt=10,pb=30;
+  const x=v=>pl+(W-pl-pr)*(v-50)/50,y=v=>pt+(H-pt-pb)*(1-(v-50)/50);
+  const dots=B.map(b=>`<circle cx="${x(b.said).toFixed(1)}" cy="${y(b.won).toFixed(1)}" r="${Math.max(3.5,Math.min(9,Math.sqrt(b.games)/5)).toFixed(1)}" fill="var(--seq-3)" stroke="var(--surface)" stroke-width="2" tabindex="0" data-tip="Said ${b.said}%, won ${b.won}% (${b.games.toLocaleString()} games)"></circle>`).join('');
+  return `<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Chance given against how often the pick won">
+    ${[50,60,70,80,90,100].map(v=>`<line class="grid" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"></line><text x="${pl-6}" y="${y(v)+4}" text-anchor="end">${v}%</text><text x="${x(v)}" y="${H-10}" text-anchor="middle">${v}%</text>`).join('')}
+    <line class="ref" x1="${x(50)}" y1="${y(50)}" x2="${x(100)}" y2="${y(100)}" stroke-dasharray="4 4"></line>${dots}</svg></div><p class="fine">Across: the chance the pick was given. Up: how often it won. On the dashed line is exactly right.</p>`;
+}
+function recordCard(){
+  const R=REC,all=wl(R),miss=missOf(R),since=D.record&&D.record.since?new Date(D.record.since).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'America/Chicago'}):null;
+  if(D.record&&D.record.broken)return `<div class="card"><h2>Our record</h2><p class="muted">The record file can’t be read right now; it is left as it is until it is repaired.</p></div>`;
+  return `<div class="card"><div class="gh"><h2>Our record</h2><span class="when">${since?'Picks on record since '+esc(since):'Starting with the first game'}</span></div>
+    <div class="prose"><p>The numbers above are a test on past seasons. This is the live record: each pick as this page showed it at its last refresh before tip-off, graded when the game ends. A saved pick can’t be changed once its game starts.</p></div>
+    ${all.f?`<div class="kv" style="margin-top:10px"><div><b>${wlText(all)}</b><span>winners picked (${pc(all.w/all.f)})</span></div><div><b>${f1(miss)}</b><span>average miss on the final margin, in points</span></div><div><b>${all.f}</b><span>games graded. A season is 1,230, so a few weeks is a small sample</span></div></div>
+    <details style="margin-top:10px"><summary class="fine" style="cursor:pointer">Every pick, newest first</summary>${resTable(R.slice().reverse())}</details>`:`<p class="muted" style="margin-top:8px">No pick has been graded yet. The picks are saved before each tip-off; the record starts with the first final.</p>`}</div>`;
+}
+function playersTest(){
+  const t=P.test;if(!t)return'';
+  const BANDS=[[10,25,'xs'],[25,50,''],[50,75,''],[75,90,'xs']];
+  const cell=(s,lo,cls)=>{const b=(t[s].bands||[]).find(x=>x.from===lo);return b?`<td class="num${cls?' '+cls:''}">${Number(b.said).toFixed(1)}% → ${Number(b.happened).toFixed(1)}%</td>`:`<td class="${cls}">–</td>`};
+  const rows=['pts','reb','ast','tpm','pra'].filter(s=>t[s]).map(s=>`<tr><td class="l">${esc(SL[s])}</td><td class="num xs">${f1(t[s].mean)}</td><td class="num">${f1(t[s].mae)}</td>${BANDS.map(([lo,,cls])=>cell(s,lo,cls)).join('')}</tr>`).join('');
+  return `<div class="card"><div class="gh"><h2>The player test</h2><span class="when">${(P.test_seasons||[]).map(seasonName).join(' and ')} seasons, ${t.pts?t.pts.n.toLocaleString():''} player-games</span></div>
+    <div class="scroll"><table class="ptest"><thead><tr><th class="l">Stat</th><th class="xs">Average</th><th><span class="xs">Average </span>miss</th>${BANDS.map(([lo,hi,cls],i)=>`<th${cls?` class="${cls}"`:''}>${i===0||i===1?'<span class="xs">Said </span>':''}${lo}–${hi}%</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="fine" style="margin-top:8px">Every player-game of the last two seasons, projected with only what was known before it: his rates and minutes from earlier games, the minutes handed out over the players who dressed. The chance of each round mark, grouped: when we said 50 to 75%, how often it happened. The spreads were fitted on the two seasons before.</p></div>`;
+}
+function renderMethod(){
+  const t=TEST,byS=t.by_season;
+  $('#method').innerHTML=`<div class="kpis"><div class="kpi"><b>${pct1(t.win_pct)}%</b><span>winners picked, ${seasonName(t.first)} to ${seasonName(t.last)} (${t.games.toLocaleString()} regular-season games)</span></div>
+    <div class="kpi"><b>${Number(t.mae).toFixed(2)}</b><span>points, the average miss on the final margin</span></div>
+    <div class="kpi"><b>${pct1(t.results_only.win_pct)}%</b><span>with team results and home court alone</span></div>
+    <div class="kpi"><b>${pct1(t.home_pct)}%</b><span>always picking the home team</span></div></div>
+    <div class="card prose"><h2>How a pick is made</h2>
+      <p>A game’s projected margin is a sum of factors, each in points toward the home team. <b>Team strength</b>: every team’s point margins, adjusted for who they played, recent games counting most (a game’s weight halves every ${Math.round(M.params.tau*Math.LN2)} days, so last season still counts in the fall). <b>Home court</b>: fitted the same way. <b>Who is playing</b>: every player has a value, his box score per minute added up the way Hollinger’s Game Score does it, over about the last season and a half and shrunk toward a fringe player’s; a lineup is its players’ values weighted by their minutes. Tonight’s lineup against the lineups behind a team’s results moves the margin by ${C.lineup.toFixed(0)} points for each point of game score per minute: a star sitting, a trade, a signing, a player back from injury. <b>Back-to-backs</b> and <b>altitude</b> as fitted. <b>News</b>, researched for each game, counted as written.</p>
+      <p>The margin becomes a win chance on a ${M.sd.toFixed(1)}-point spread of outcomes, the width that made the chances come true in testing. The projected total comes from both teams’ scoring and defense.</p>
+      <p>Each season of the test was picked with ratings and player values from earlier games only, and with the weights fitted on the seasons before it. What the test cannot see: it knows which players dressed for old games, while a live pick goes on the injury report, where a questionable player is counted by how often his status sits. The first weeks of a season are the hardest: in testing, the first 50 games of a season were picked about 62% right, against 68% after the first month.</p>
+      <p>Nothing here comes from a sportsbook. There are no lines, prices or odds anywhere in the numbers.</p></div>
+    <div class="two"><div class="card"><div class="gh"><h2>By season</h2></div><div class="scroll"><table><thead><tr><th class="l">Season</th><th>Games</th><th>Winners</th><th>Average miss</th></tr></thead><tbody>${byS.map(b=>`<tr><td class="l">${seasonName(b.season)}</td><td class="num">${b.games.toLocaleString()}</td><td class="num">${pct1(b.win_pct)}%</td><td class="num">${Number(b.mae).toFixed(2)}</td></tr>`).join('')}</tbody></table></div></div>
+      <div class="card"><div class="gh"><h2>Were the chances right?</h2></div>${calChart()}</div></div>
+    ${recordCard()}${playersTest()}
+    <div class="card prose"><h2>Sources</h2><p>Box scores, schedules and rosters: hoopR (the SportsDataverse), built from ESPN, updated every morning. Injuries: ESPN’s NBA injury list, read at each refresh. News: researched for each game from team sites and news outlets, never from a sportsbook.</p></div>`;
+}
+
+/* ---------- page ---------- */
+function renderHead(){
+  const age=D.live.inj_ts?(Date.parse(D.built)-Date.parse(D.live.inj_ts))/36e5:null;
+  const inj=D.live.inj_ts==null?'<span class="badge"><i style="background:var(--warn)"></i>No injury list in this build</span>':`<span class="badge"><i${age>6?' style="background:var(--warn)"':''}></i>${D.live.inj_n} injury listings</span>`;
+  $('#fresh').innerHTML=`<span class="badge"><i></i>Built ${esc(D.asof)}</span>`+inj+(D.news_meta&&D.news_meta.at?`<span class="badge"><i></i>News ${esc(new Date(D.news_meta.at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'');
+  $('#wk').textContent=D.label+' season';
+  $('#foot').innerHTML=`Matchup Edge NBA, ${esc(D.label)}. Stats-only picks for information and entertainment. Built ${esc(D.made)}.`;
+}
+function render(){renderHead();renderGames();renderPlayers();renderTeams();renderMethod()}
+function show(tab){S.tab=tab;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));document.querySelectorAll('section.tab').forEach(s=>s.hidden=s.id!==tab)}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-tab]');if(t){show(t.dataset.tab);return}
+  const d=e.target.closest('[data-day]');if(d){S.day=d.dataset.day;renderGames();return}
+  const j=e.target.closest('[data-jump]');if(j){const el=document.getElementById(j.dataset.jump);if(el){S.day=S.day;el.scrollIntoView({behavior:'smooth',block:'start'})}return}
+  const st=e.target.closest('[data-stat]');if(st){S.stat=st.dataset.stat;store.set('stat',S.stat);renderPlayers();return}
+  const o=e.target.closest('[data-open]');if(o){S.player=o.dataset.open;S.game='ALL';S.q='';show('players');renderPlayers();const r=document.querySelector(`.prow[data-p="${CSS.escape(S.player)}"]`);if(r)r.scrollIntoView({block:'center'});return}
+  const pr=e.target.closest('.prow');if(pr){S.player=S.player===pr.dataset.p?null:pr.dataset.p;renderPlayers();return}
+  const ps=e.target.closest('[data-ps]');if(ps){const k=ps.dataset.ps;S.psort=[k,S.psort[0]===k?-S.psort[1]:(k==='name'?1:-1)];renderPlayers();return}
+  if(e.target.id==='resetw'){S.W=DEFW();store.set('w',S.W);renderGames();return}
+});
+document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.prow,[data-ps]')){e.preventDefault();e.target.click()}});
+document.addEventListener('input',e=>{
+  const w=e.target.dataset&&e.target.dataset.w;if(w){S.W[w]=+e.target.value;store.set('w',S.W);const o=document.getElementById('wo-'+w);if(o)o.textContent=S.W[w]+'%';
+    const open=document.activeElement&&document.activeElement.id;renderGames();const el=document.getElementById(open);if(el)el.focus();return}
+  if(e.target.id==='pq'){S.q=e.target.value;renderPlayers();const el=$('#pq');el.focus();el.setSelectionRange(el.value.length,el.value.length);return}
+  if(e.target.id==='pg'){S.game=e.target.value;renderPlayers();return}
+  if(e.target.id==='yn'){const [k1,k2,s]=e.target.dataset.num.split('|'),v=parseFloat(e.target.value);if(isFinite(v)&&v>=0){S.num[k1+'|'+k2+'|'+s]=v;const sel=e.target.selectionStart;renderPlayers();const el=$('#yn');if(el){el.focus();try{el.setSelectionRange(sel,sel)}catch(_){}}}}
+});
+document.addEventListener('toggle',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){e.target.open?S.open.add(k):S.open.delete(k);store.set('open',[...S.open])}},true);
+const tip=$('#tip');
+document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-tip]');if(!t){tip.hidden=true;return}tip.textContent=t.dataset.tip;tip.hidden=false});
+document.addEventListener('mousemove',e=>{if(!tip.hidden){tip.style.left=Math.min(innerWidth-270,e.clientX+12)+'px';tip.style.top=(e.clientY+14)+'px'}});
+render();
+window.MatchupEdge={data:D,calc,atLeast,cdf};
+})();
+</script>

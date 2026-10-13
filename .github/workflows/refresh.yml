@@ -1,12 +1,13 @@
 # Refreshes the site through the day, every day, and publishes it to GitHub Pages (the gh-pages branch).
 #
-# The site is the stats-only one in analytics/. One refresh is analytics/run.py: download, the injury list and
-# forecasts, a refit when new results are in, the build, the browser check, and the picks record. Nothing here reads a
-# sportsbook and no secret is used.
+# The site is the stats-only one in analytics/: the NFL page (index.html) and the NBA page (nba.html). One refresh is
+# analytics/run.py: download, the injury lists and forecasts, a refit when new results are in, the build, the browser
+# check, and the picks record, for the NFL and then the NBA. Nothing here reads a sportsbook and no secret is used.
 #
 # analytics/due.py decides what each scheduled run does, in Central time, from what the site last published: a refresh
 # about every hour from 6 AM to 10 PM, every half hour in the three hours before an NFL kickoff, and nothing when the
-# site was refreshed recently (such a run ends in seconds). A push (new code, or the news file) always refreshes.
+# site was refreshed recently (such a run ends in seconds). The half-hour cadence also runs before NBA tip-offs. A push
+# (new code, or the news file) always refreshes.
 #
 # GitHub's scheduler can't be relied on: since late August 2026 it has dropped scheduled runs, or started them hours
 # late, for many repositories. The schedule below and tick.yml stay for whenever GitHub does start them; the working
@@ -54,10 +55,12 @@ jobs:
         run: |
           # beside the page, the published site keeps a note of what the last refresh was (state.json) and the injury
           # list and forecasts as last read (live.json: used again if ESPN or the weather service fails this time)
-          rm -f analytics/prev_state.json analytics/prev_live.json
+          # (and the NBA page, published again as it is when this refresh can't build or check a new one)
+          rm -f analytics/prev_state.json analytics/prev_live.json analytics/prev_nba.html
           if git fetch --quiet --depth=1 origin gh-pages; then
             git show FETCH_HEAD:state.json > analytics/prev_state.json 2>/dev/null || rm -f analytics/prev_state.json
             git show FETCH_HEAD:live.json > analytics/prev_live.json 2>/dev/null || rm -f analytics/prev_live.json
+            git show FETCH_HEAD:nba.html > analytics/prev_nba.html 2>/dev/null || rm -f analytics/prev_nba.html
           fi
 
       - name: Is a refresh due
@@ -129,7 +132,7 @@ jobs:
         run: |
           git config user.name "matchup-edge-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in data/an_picks.json analytics/model.json analytics/cache; do
+          for f in data/an_picks.json analytics/model.json analytics/cache data/an_picks_nba.json analytics/nba_model.json; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then
@@ -155,6 +158,9 @@ jobs:
           cp analytics/out/site.html site/artifact.html     # the same page without a document head, for a claude.ai copy
           cp analytics/out/summary.md site/summary.md       # the week's picks as a table
           cp analytics/out/state.json site/state.json       # what this refresh was: due.py reads it at the next run
+          # the NBA page: this refresh's when it was built and passed its check, otherwise the one already published
+          if [ -f analytics/out/nba.html ]; then cp analytics/out/nba.html site/nba.html
+          elif [ -f analytics/prev_nba.html ]; then cp analytics/prev_nba.html site/nba.html; echo "::warning::The NBA page was not rebuilt this time; the one already published stays."; fi
           if [ -f "$RUNNER_TEMP/live.json" ]; then cp "$RUNNER_TEMP/live.json" site/live.json; fi   # the injury list and forecasts as read
           touch site/.nojekyll
           if [ -n "$SITE_DOMAIN" ]; then echo "$SITE_DOMAIN" > site/CNAME; fi

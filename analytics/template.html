@@ -64,6 +64,11 @@ td.l,th.l{text-align:left}
 .brand h1{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,9.5vw,46px);line-height:.9;text-transform:uppercase;letter-spacing:.01em;margin:0}
 .brand h1 span{color:var(--accent)}
 .brand p{color:var(--ink-2);margin-top:6px;max-width:60ch}
+/* the two sports are two pages of one site: index.html (NFL) and nba.html */
+.sport{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--surface);margin-bottom:8px}
+.sport a{font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:2px 12px;border-radius:999px}
+.sport a:hover{color:var(--ink)}
+.sport a[aria-current=page]{background:var(--ink);color:var(--bg)}
 .fresh{display:flex;flex-wrap:wrap;gap:6px}
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
 .badge i{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
@@ -256,6 +261,7 @@ footer{color:var(--muted);font-size:12px;max-width:80ch}
 <div class="wrap">
   <header class="top">
     <div class="brand">
+      <nav class="sport" aria-label="Sport"><a href="./" aria-current="page">NFL</a><a href="nba.html">NBA</a></nav>
       <h1>Matchup <span>Edge</span></h1>
       <p>NFL picks and player projections built from stats alone: team strength, quarterbacks, who is out, home field and the news. No sportsbooks, no odds.</p>
     </div>

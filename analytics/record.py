@@ -39,10 +39,10 @@ def load(path=None):
     return d
 
 
-def write(rec, path=None):
+def write(rec, path=None, note=None):
     path = path or PATH
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
-    rec["note"] = NOTE
+    rec["note"] = note or NOTE
     rec["games"] = dict(sorted(rec["games"].items(), key=lambda kv: (kv[1].get("ko", ""), kv[0])))
     tmp = path + ".part"
     with open(tmp, "w") as f:   # one game a line: a refresh that changes one pick changes one line
