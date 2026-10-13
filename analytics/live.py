@@ -62,9 +62,10 @@ def get_json(url, accept="application/json", tries=3, timeout=40):
 
 def injuries(url=ESPN_INJURIES):
     """ESPN's injury list (the NFL's, or the NBA's from the same kind of page) as rows of [ESPN athlete id, name, team,
-    status, detail]. The detail is the injury itself (knee sprain, left): ESPN's written notes about a player are not
-    copied. The NFL list holds each team's 25 newest entries, and many are players ESPN now calls active: those rows are
-    kept, because they say a player is off the report."""
+    status, detail, when the entry was posted, expected return date]. The detail is the injury itself (knee sprain,
+    left), or "Rest": ESPN's written notes about a player are not copied. The NFL list holds each team's 25 newest
+    entries, and many are players ESPN now calls active: those rows are kept, because they say a player is off the
+    report."""
     j = get_json(url)
     rows = []
     for t in j.get("injuries") or []:
@@ -79,7 +80,7 @@ def injuries(url=ESPN_INJURIES):
                     parts.append(str(x))
             detail = " ".join(parts)
             rows.append([m.group(1) if m else "", str(a.get("displayName") or ""), str((a.get("team") or {}).get("abbreviation") or t.get("displayName") or ""),
-                         str(i.get("status") or ""), detail[:60]])
+                         str(i.get("status") or ""), detail[:60], str(i.get("date") or "")[:25], str(d.get("returnDate") or "")[:25]])
     return rows
 
 

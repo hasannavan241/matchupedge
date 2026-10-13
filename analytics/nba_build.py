@@ -64,29 +64,55 @@ def plan(S, now):
     return up[up.cdate.isin(dates)].sort_values(["tip", "game_id"]), [str(d) for d in dates]
 
 
-def sit_chance(status):
+ONE_GAME = ("rest", "not injury related")   # one-game designations, for the team's next game
+
+
+def posted_day(ts):
+    """The Central date of an ISO time ("2026-10-12T21:47Z"), or None."""
+    try:
+        t = pd.Timestamp(str(ts))
+        return (t.tz_localize("UTC") if t.tzinfo is None else t).tz_convert("America/Chicago").date()
+    except Exception:
+        return None
+
+
+def sit_chance(status, detail="", posted=None, day=None, today=None):
+    """How likely a listed player is to sit in a game on `day` (a Central date), as of `today`.
+
+    Out and suspended count for any game. The game-time statuses (doubtful, questionable, day-to-day, probable) are
+    about a team's next game or two: they count for games today and tomorrow, not for one further off (in the week
+    before a season, ESPN's list is full of preseason knocks), and not when the listing was last posted more than
+    five days before the game. A rest day, or an absence ESPN calls not injury related, is for one game: it counts
+    only for a game on the day it was posted or the next."""
     s = str(status or "").strip().lower()
-    for k, v in SIT.items():
-        if s.startswith(k):
-            return v
-    return 0.0
+    f = next((v for k, v in SIT.items() if s.startswith(k)), 0.0)
+    if f and any(w in str(detail or "").lower() for w in ONE_GAME):
+        p = posted_day(posted) if posted else None
+        if p is None or day is None or not 0 <= (day - p).days <= 1:
+            return 0.0
+    if 0 < f < 1 and day is not None and today is not None and (day - today).days > 1:
+        return 0.0
+    if 0 < f < 1 and posted and day is not None:
+        p = posted_day(posted)
+        if p is not None and (day - p).days > 5:   # a game-time status not updated in five days is left over
+            return 0.0
+    return f
 
 
 def injuries(live):
-    """{athlete id: (status, detail, chance he sits)} from ESPN's list."""
+    """{athlete id: (status, detail, when posted)} from ESPN's list: the players listed with a status that can sit."""
     out = {}
     for r in (live or {}).get("nbaInj") or []:
         try:
             aid = int(r[0])
         except (TypeError, ValueError):
             continue
-        f = sit_chance(r[3])
-        if f > 0:
-            out[aid] = (str(r[3]), str(r[4] if len(r) > 4 else ""), f)
+        if sit_chance(r[3]) > 0:
+            out[aid] = (str(r[3]), str(r[4] if len(r) > 4 else ""), str(r[5]) if len(r) > 5 and r[5] else None)
     return out
 
 
-def team_lineup(ids, vstate, rstate, today, inj, names, pos, lg):
+def team_lineup(ids, vstate, rstate, today, inj, names, pos, lg, day=None):
     """Tonight's lineup for a team: every rostered player's value and expected minutes, the chance he sits, and the
     team's minutes handed out over the players available (see nba_players.allocate).
 
@@ -97,7 +123,10 @@ def team_lineup(ids, vstate, rstate, today, inj, names, pos, lg):
     for aid in ids:
         v, em = nm.value_now(vstate.get(aid), today)
         rates, em2, ng = npl.rate_now(rstate.get(aid), today, lg)
-        st, det, f = inj.get(aid, ("", "", 0.0))
+        st, det, posted = inj.get(aid, ("", "", None))
+        f = sit_chance(st, det, posted, day or today, today)
+        if f == 0:   # a listing that doesn't count for this game (an old rest day) isn't shown either
+            st, det = "", ""
         rows.append({"id": aid, "n": names.get(aid, str(aid)), "pos": pos.get(aid, ""), "v": float(v), "em": float(em), "f": f, "st": st, "det": det,
                      "ng": int(ng), "rates": rates})
     if not rows:
@@ -199,15 +228,17 @@ def build_data():
     docs = news.get("docs") if isinstance(news.get("docs"), dict) else {}
     import build as nflb   # the NFL build's news cleaning: no sportsbook links, no talk of a betting line
     rest = nm.rest_table(S)
-    teams_today = sorted(set(games.home_id) | set(games.away_id))
-    lineups = {}
-    for t in set(teams_today):
-        lineups[int(t)] = team_lineup(roster.get(int(t), []), vstate, rstate, today, inj, names, pos, lg)
+    lineups = {}   # (team, Central date): a team with games on both days has a lineup for each
+
+    def lineup(t, day):
+        if (int(t), day) not in lineups:
+            lineups[(int(t), day)] = team_lineup(roster.get(int(t), []), vstate, rstate, today, inj, names, pos, lg, day)
+        return lineups[(int(t), day)]
     out_games, players = [], []
     for g in games.itertuples():
         h, a = int(g.home_id), int(g.away_id)
         ih, ia = R.ix.get(h), R.ix.get(a)
-        lh, la = lineups[h], lineups[a]
+        lh, la = lineup(h, g.cdate), lineup(a, g.cdate)
         neu = int(g.neutral)
         x = {"strength": float(rt["r"][ih] - rt["r"][ia]) if ih is not None and ia is not None else 0.0,
              "home": (1 - neu) * rt["home"],
@@ -254,10 +285,11 @@ def build_data():
         l = int(((d.home_id == t) & (d.home_score < d.away_score)).sum() + ((d.away_id == t) & (d.away_score < d.home_score)).sum())
         return f"{w}-{l}"
     order = sorted(R.teams, key=lambda t: -rt["r"][R.ix[t]])
+    first_day = pd.Timestamp(dates[0]).date() if dates else today   # the teams table: as of the first game day shown
     teams = {}
     for rank, t in enumerate(order, 1):
         i = R.ix[t]
-        L = lineups.get(int(t)) or team_lineup(roster.get(int(t), []), vstate, rstate, today, inj, names, pos, lg)
+        L = lineup(t, first_day)
         top = [{"n": r["n"], "pos": r["pos"], "min": r_(r["min_full"], 1), "worth": r_(C["lineup"] * r["worth"], 2), "st": r["st"], "f": r["f"]}
                for r in sorted(L[0], key=lambda r: -r["worth"])[:5]] if L[0] else []
         teams[abbr[t]] = {"name": NAMES.get(abbr[t], abbr[t]), "rank": rank, "r": r_(rt["r"][i], 2), "off": r_(rt["mu"] + rt["off"][i], 1),

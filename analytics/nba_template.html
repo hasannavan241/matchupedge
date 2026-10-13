@@ -176,7 +176,7 @@ function gameCard(g){
       <div class="sections">
         <div class="sec">${rotation(g,0)}</div>
         <div class="sec">${rotation(g,1)}</div>
-        <div class="sec wide"><p class="fine">Minutes: each player’s recent minutes, the team’s 240 handed out in that order to the players available tonight. Worth: the points of margin the team loses if he sits (his minutes go to the others). ${esc(lineupNote(g))} A listed player is counted by how often his status sits: ${Object.entries(M.sit).map(([k,v])=>k+' '+pc(v)).join(', ')}.</p></div>
+        <div class="sec wide"><p class="fine">Minutes: each player’s recent minutes, the team’s 240 handed out in that order to the players available tonight. Worth: the points of margin the team loses if he sits (his minutes go to the others). ${esc(lineupNote(g))} A listed player is counted by how often his status sits: ${Object.entries(M.sit).map(([k,v])=>k+' '+pc(v)).join(', ')}. The game-time statuses (all but out and suspended) count for games today and tomorrow, and a rest day only for the game it was given for.</p></div>
         <div class="sec"><h3>${esc(nm(g.away))}</h3><p>${teamFacts(g.away)}</p><p class="fine">Rest: ${rest(0)}. Last season: ${esc(A.last||'–')}.</p></div>
         <div class="sec"><h3>${esc(nm(g.home))}</h3><p>${teamFacts(g.home)}</p><p class="fine">Rest: ${rest(1)}. Last season: ${esc(H.last||'–')}.</p></div>
         <div class="sec wide"><h3>Head to head</h3><p>${h2h}</p><p class="fine">The total: ${f1(r.t)} points, from both teams’ scoring and defense over the same games as their ratings.</p></div>
