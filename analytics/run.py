@@ -16,6 +16,7 @@ AN_SLIM=1 deletes a finished season's play-by-play once it is rolled up, so only
 """
 import datetime as dt, glob, hashlib, json, os, subprocess, sys, time, traceback
 
+import due
 import nfl_data as nd
 
 OUT = os.path.join(nd.HERE, "out")
@@ -35,6 +36,8 @@ def slim():
 def main():
     steps, errors, state = [], [], {}
     started = dt.datetime.now(dt.timezone.utc)
+    # what this build is made from in the repository (code and news): a clock run that finds it changed refreshes at once
+    state["inputs"] = due.inputs()
 
     def step(name, fn, fatal):
         t = time.time()

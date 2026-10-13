@@ -78,7 +78,9 @@ branch, which GitHub Pages serves. It starts on a push to `main` that touches `a
 `pipeline/props_core.py` or `data/news.json`, when asked for by hand, and from the clock: `clock.yml` is a chain
 of runs that each wait half an hour and ask for the next, because GitHub's own scheduler drops runs. `due.py`
 decides what a clock run does: a refresh about every hour from 6 AM to 10 PM Central, every half hour in the
-three hours before an NFL kickoff, nothing overnight. No secrets are used.
+three hours before an NFL kickoff, nothing overnight, and a refresh at once when the news file or the site's code
+differs from what the last refresh was built from (`state.json` keeps a fingerprint of them as `inputs`). That last
+rule catches a push whose own run was replaced while it waited behind a refresh already under way. No secrets are used.
 
 Each refresh:
 

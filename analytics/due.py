@@ -11,16 +11,19 @@ tick.yml whenever GitHub does start those. This script decides, in Central time 
     skip      outside the refresh hours (6 AM through the 10 PM hour), or the site was refreshed too recently.
               Nothing is downloaded and nothing is published; the run ends in a few seconds.
     refresh   due 50 minutes after the last refresh, or 25 minutes after it in the three hours before an NFL kickoff
-              (inactive lists come out 90 minutes before a game: the last refresh before kickoff has them).
+              (inactive lists come out 90 minutes before a game: the last refresh before kickoff has them);
+              or at once when the news file or the site's code differs from what the last refresh was built from.
 
 With clock.yml's 30-minute wait that is a refresh about every hour, and every half hour before kickoffs. A run started
-by a push (new code, or the news file) or by hand with mode "now" never skips.
+by a push (new code, or the news file) or by hand with mode "now" never skips. The rule about changed files is for the
+push whose run waited behind a refresh already under way and was then replaced by a clock run (GitHub keeps one
+waiting run per group): on 2026-10-11 that kept Sunday's 11:22 AM news off the site until 11:53.
 
 Reads ME_EVENT (schedule, push, workflow_dispatch), ME_WANT (what a run started by hand asked for: "tick" or "auto" for
 "what a scheduled run would do", anything else for "now") and ME_NOW (an ISO time, for tests). Prints "mode=<mode>"
 (also to $GITHUB_OUTPUT, with the month for the download cache) and a line saying why.
 """
-import datetime as dt, json, os, sys
+import datetime as dt, hashlib, json, os, subprocess, sys
 
 try:
     from zoneinfo import ZoneInfo
@@ -32,6 +35,27 @@ FIRST_HOUR, LAST_HOUR = 6, 22      # scheduled refreshes run from 6:00 AM to 10:
 GAP = 50                           # minutes between scheduled refreshes
 GAP_NEAR = 25                      # and in the NEAR_HOURS before an NFL kickoff
 NEAR_HOURS = 3
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+INPUTS = ("analytics", "pipeline/props_core.py", "data/news.json")   # what a build is made from in the repository
+
+
+def inputs(rev="HEAD", root=ROOT):
+    """A short fingerprint of what a build is made from in the repository: the site's code and the researched news, as
+    committed at `rev`. Left out: the fitted model and its cache (a refresh commits those itself after a refit) and
+    notes. None when git can't say, and then no refresh is started on its account."""
+    try:
+        r = subprocess.run(["git", "-C", root, "ls-tree", "-r", rev, "--", *INPUTS], capture_output=True, text=True, timeout=30)
+    except Exception:
+        return None
+    if r.returncode != 0 or not r.stdout.strip():
+        return None
+    keep = []
+    for line in r.stdout.splitlines():
+        meta, _, path = line.partition("\t")
+        if path == "analytics/model.json" or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
+            continue
+        keep.append(f"{meta.split()[-1]} {path}")
+    return hashlib.sha1("\n".join(sorted(keep)).encode()).hexdigest()[:12]
 
 
 def parse(ts):
@@ -49,8 +73,9 @@ def gap_at(now, kickoffs=None):
     return GAP_NEAR if any(0 < (k - now).total_seconds() <= NEAR_HOURS * 3600 for k in kickoffs) else GAP
 
 
-def decide(now, event="schedule", want="tick", built_at=None, kickoffs=None):
-    """(mode, why) for a run at `now` (an aware datetime)."""
+def decide(now, event="schedule", want="tick", built_at=None, kickoffs=None, changed=False):
+    """(mode, why) for a run at `now` (an aware datetime). changed: the news file or the code differs from what the
+    last refresh was built from."""
     now = now.astimezone(CT)
     f = lambda t: f"{t.astimezone(CT):%a %-I:%M %p}"
     scheduled = event == "schedule" or (event == "workflow_dispatch" and want in ("tick", "auto"))
@@ -60,6 +85,8 @@ def decide(now, event="schedule", want="tick", built_at=None, kickoffs=None):
         return "skip", f"outside the refresh hours ({FIRST_HOUR} AM to {LAST_HOUR - 11} PM Central)"
     if built_at is None:
         return "refresh", "no record of the last refresh"
+    if changed:
+        return "refresh", f"the news or the site's code changed since the last refresh ({f(built_at)})"
     gap, age = gap_at(now, kickoffs), (now - built_at).total_seconds() / 60
     if 0 <= age < gap:
         return "skip", f"refreshed {age:.0f} min ago ({f(built_at)}); the next is due {gap} min after it"
@@ -67,7 +94,8 @@ def decide(now, event="schedule", want="tick", built_at=None, kickoffs=None):
 
 
 def read_state(path):
-    """(when the site was last built, the kickoffs of the games on it) from a published state.json, old or new."""
+    """(when the site was last built, the kickoffs of the games on it) from a published state.json, old or new.
+    published_inputs() reads the fingerprint of what it was built from."""
     state = {}
     if path and os.path.exists(path):
         try:
@@ -83,12 +111,23 @@ def read_state(path):
     return built, kos
 
 
+def published_inputs(path):
+    """The fingerprint of what the last refresh was built from (state.json "inputs"), or None."""
+    try:
+        v = json.load(open(path)).get("inputs") if path and os.path.exists(path) else None
+    except Exception:
+        return None
+    return v if isinstance(v, str) and v else None
+
+
 if __name__ == "__main__":
     now = (parse(os.environ["ME_NOW"]) if os.environ.get("ME_NOW") else None) or dt.datetime.now(dt.timezone.utc)
     event, want = os.environ.get("ME_EVENT") or "schedule", (os.environ.get("ME_WANT") or "tick").strip().lower()
     try:
-        built, kos = read_state(sys.argv[1] if len(sys.argv) > 1 else None)
-        mode, why = decide(now, event, want, built, kos)
+        path = sys.argv[1] if len(sys.argv) > 1 else None
+        built, kos = read_state(path)
+        was, now_inputs = published_inputs(path), inputs()
+        mode, why = decide(now, event, want, built, kos, changed=bool(was and now_inputs and was != now_inputs))
     except Exception as e:   # whatever went wrong reading the last refresh, the hours rule still holds
         mode, why = decide(now, event, want, None, None)
         why += f" (the last refresh could not be read: {e.__class__.__name__})"

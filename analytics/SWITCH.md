@@ -58,6 +58,6 @@ should be cancelled only once the owner is happy with the new site.
 
 - Move `pipeline/props_core.py` into `analytics/` and delete the rest of `pipeline/`, `data/picks.json`,
   `data/results.json`, `data/props_picks.json` and both props backtests.
-- A push whose refresh is waiting behind a running one can be replaced by a clock run that then finds nothing
-  due, which delays that push's refresh by up to 50 minutes. Fix: have `due.py` also refresh when the code or
-  the news file changed since the last build (keep a hash of them in `state.json`).
+- Done on 2026-10-13: a push whose refresh was waiting behind a running one could be replaced by a clock run that
+  then found nothing due (on Oct 11 that held Sunday's 11:22 AM news until 11:53). `due.py` now also refreshes
+  when the code or the news file differs from what the last build used (`inputs` in `state.json`).
