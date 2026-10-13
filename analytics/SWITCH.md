@@ -28,8 +28,8 @@ should be cancelled only once the owner is happy with the new site.
 
 ## What is different on the published site
 
-- It carries `index.html`, `artifact.html`, `summary.md`, `state.json` and `live.json`. It no longer carries
-  `summary.txt`, `props.json` or `results.json`.
+- It carries `index.html`, `artifact.html`, `summary.md`, `state.json` and `live.json`, and since 2026-10-13
+  `nba.html`, the NBA page. It no longer carries `summary.txt`, `props.json` or `results.json`.
 - `state.json` changed shape: `at` (when the refresh started), `built`, `kickoffs`, `steps`, `errors`,
   `fingerprint`, and `made` and `ts` so that an old page left open in a browser offers Reload.
 - The page's data still carries `nfl.games`, `nba` and `epl`, which the old news research prompt read. The new
@@ -46,8 +46,13 @@ should be cancelled only once the owner is happy with the new site.
   quarterback changes no points (the site counts those itself), scores only returns from a long absence, new
   players, coaching changes and concrete drama or motivation, uses no sportsbook or odds site as a source, and
   sends the owner nothing. It still saves to the "scout" collection of that claude.ai page's database.
-- **"Matchup Edge: news to website"** is unchanged: it writes `data/news.json`, which the build reads. Do not
-  save its form in the browser (see the project notes).
+  Changed again 2026-10-13: it also reads the NBA page (`nba.html` on `gh-pages`) and researches each NBA game
+  once on its game day (documents `nba_<game id>`, impact at most 2 points a team; injuries count 0 because the site
+  reads ESPN's NBA list itself). It reads what is saved with a query of the last five days instead of a list of
+  300, which the collection outgrows once the NBA's documents come in.
+- **"Matchup Edge: news to website"** is unchanged: it writes `data/news.json`, which both builds read (it copies
+  every document from the last seven days, the NBA's too). Do not save its form in the browser (see the project
+  notes).
 
 ## Still the owner's to do
 
