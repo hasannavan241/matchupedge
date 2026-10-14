@@ -2095,8 +2095,62 @@
    ],
    "summary": "Inactives are in. Dallas (2-2) gets All-Pro guard Tyler Smith back for his season debut but lost cornerback Joey Porter Jr. to an illness just before kickoff, with Cobie Durant and DeMarvion Overshown also out. Winless Tampa Bay (0-4) starts rookie Jalon Daniels again without Baker Mayfield and Antoine Winfield Jr.; rookie edge Rueben Bain Jr. returns."
   },
+  "nfl_2026_06_HOU_JAX": {
+   "at": "2026-10-14T16:05:59Z",
+   "game": "HOU @ JAX",
+   "items": [
+    {
+     "at": "2026-10-12T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thefantasyfootballers.com/news/642184/david-montgomery-considered-week-to-week/",
+     "team": "HOU",
+     "text": "RB David Montgomery (groin) is week-to-week per DeMeco Ryans and likely to miss the game; Woody Marks is expected to lead the backfield.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-12T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thefantasyfootballers.com/news/642184/david-montgomery-considered-week-to-week/",
+     "team": "HOU",
+     "text": "Beat Tennessee 26-3 in Week 5; Montgomery left in the second quarter and did not return.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.jaguars.com/news/london-quick-hits-it-s-about-us",
+     "team": "JAX",
+     "text": "Second straight London game after a 19-17 win over the Eagles; 4-1 and leading the AFC South, with an NFL-best +6 turnover differential entering Week 5.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.jaguars.com/news/london-quick-hits-it-s-about-us",
+     "team": "JAX",
+     "text": "S Eric Murray (concussion) was doubtful and CB Jaylon Jones (hamstring) out for the Week 5 game against Philadelphia.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "David Montgomery considered week-to-week (The Fantasy Footballers)",
+     "u": "https://www.thefantasyfootballers.com/news/642184/david-montgomery-considered-week-to-week/"
+    },
+    {
+     "t": "London Quick Hits: \"It's about us\" (Jaguars.com)",
+     "u": "https://www.jaguars.com/news/london-quick-hits-it-s-about-us"
+    }
+   ],
+   "summary": "An AFC South game in London. Jacksonville is 4-1 and leads the division after a 19-17 London win over Philadelphia, and leads the NFL in turnover margin. Houston beat Tennessee 26-3 but lost RB David Montgomery to a groin injury, so Woody Marks should lead the backfield."
+  },
   "nfl_2026_06_SEA_DEN": {
-   "at": "2026-10-13T16:24:00Z",
+   "at": "2026-10-14T16:05:59Z",
    "game": "SEA @ DEN",
    "items": [
     {
@@ -2118,11 +2172,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-12T12:00:00Z",
+     "at": "2026-10-13T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/jaxon-smith-njigba-among-9-220919432.html",
+     "src": "https://www.seahawks.com/news/week-6-injury-report-seahawks-at-broncos",
      "team": "SEA",
-     "text": "WR Irv Charles (knee) was a full participant and is set to debut after five weeks on IR; RB Zach Charbonnet (PUP) was limited.",
+     "text": "WR Irv Charles (knee), activated from IR, was a full participant and is on track to debut; RB Zach Charbonnet (PUP) is unlikely to play.",
      "total": 0,
      "type": "return"
     },
@@ -2136,11 +2190,11 @@
      "type": "other"
     },
     {
-     "at": "2026-10-12T12:00:00Z",
+     "at": "2026-10-13T12:00:00Z",
      "impact": 0,
-     "src": "https://www.denverbroncos.com/news/injuryreport/injury-report-cb-riley-moss-listed-as-limited-participant-on-initial-practice-report-ahead-of-week-6-game-vs-seahawks",
+     "src": "https://www.seahawks.com/news/week-6-injury-report-seahawks-at-broncos",
      "team": "DEN",
-     "text": "CB Pat Surtain II (ankle) and S Talanoa Hufanga (ankle) did not practice; CB Riley Moss (ribs) was limited after missing Week 5.",
+     "text": "CB Pat Surtain II (ankle) and S Talanoa Hufanga (ankle) again did not practice Tuesday; CB Riley Moss (ribs) was limited.",
      "total": 0,
      "type": "injury"
     },
@@ -2166,6 +2220,10 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Week 6 Injury Report: Seahawks at Broncos (Seahawks.com)",
+     "u": "https://www.seahawks.com/news/week-6-injury-report-seahawks-at-broncos"
+    },
+    {
      "t": "Surprising Quarterback Injury Emerges Days Before Seahawks-Broncos Game (Heavy)",
      "u": "https://heavy.com/sports/nfl/seattle-seahawks/seahawks-broncos-injury-news-report-drew-lock-jsn/"
     },
@@ -2190,12 +2248,12 @@
      "u": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers"
     }
    ],
-   "summary": "Both teams are 3-2 on a short week. Sam Darnold remains Seattle's starter after a turnover-filled 32-29 loss to San Francisco; Jaxon Smith-Njigba (ankle) was limited and WR Irv Charles is back from IR. Denver may again be without Pat Surtain II and Talanoa Hufanga, though Riley Moss returned to limited work."
+   "summary": "Both teams are 3-2 on a short week. Sam Darnold remains Seattle's starter after a turnover-filled 32-29 loss to San Francisco; Jaxon Smith-Njigba (ankle) was limited and WR Irv Charles is set to debut off IR. Denver's Pat Surtain II and Talanoa Hufanga missed practice again, while Riley Moss was limited."
   }
  },
  "meta": {
-  "at": "2026-10-13T16:25:00Z",
-  "games": 1,
-  "note": "Refreshed SEA @ DEN (TNF); no NBA games within 16 hours."
+  "at": "2026-10-14T16:12:00Z",
+  "games": 2,
+  "note": "Refreshed SEA @ DEN (TNF), added HOU @ JAX (London); no NBA games within 16 hours."
  }
 }
