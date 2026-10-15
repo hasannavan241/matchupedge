@@ -292,6 +292,12 @@ def features(G, Q, S, first=2009, upto=None, with_upcoming=True, T=None):
             if EP is not None:
                 row["epa_m"] = ((EP[2][hi] + EP[3][ai]) - (EP[2][ai] + EP[3][hi])) * 65.0
             for side, team, qid in (("h", g.home, g.home_qb_id), ("a", g.away, g.away_qb_id)):
+                # a finished game: the quarterback who took most of the team's dropbacks, not the schedule file's listed
+                # starter, which goes stale (it kept Drew Lock as Seattle's starter for weeks after Sam Darnold had the
+                # job back, and Marcus Mariota over Jayden Daniels for most of 2024). An upcoming game: the listing,
+                # which build.py replaces with ESPN's depth chart before the pick is made.
+                if g.result == g.result:
+                    qid = QB.primary.get((g.game_id, team), qid)
                 if not isinstance(qid, str):
                     qid = QB.last_primary(team, ref)
                 v, n = qv(qid)

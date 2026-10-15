@@ -65,8 +65,30 @@ def statuses(R, cur, espn_inj, nflv_inj, week):
     return inj, R2
 
 
-def prepare_week(season, week, plan_games, espn_inj):
-    """History, the latest rosters and injuries, and who is expected to play: (state dict). plan_games: [{id, away, home}]."""
+def depth_order(cur, inj, depth):
+    """{team: [gsis ids]}: each team's quarterbacks in ESPN's depth-chart order, keeping only those on its latest
+    roster with an active status, from depth = {team: [ESPN athlete ids]} (nflverse team abbreviations)."""
+    if not depth:
+        return {}
+    e2g = pc.espn_map(cur)
+    on = {}
+    for g_, t_, s_, pos in zip(cur.gsis_id, cur.team.replace(nd.FR), cur.status, cur.position):
+        if isinstance(g_, str) and pos == "QB" and s_ == "ACT":
+            on[g_] = t_
+    out = {}
+    for team, ids in depth.items():
+        order = [e2g.get(str(i)) for i in ids]
+        order = [g_ for g_ in order if g_ and on.get(g_) == team]
+        if order:
+            out[team] = order
+    return out
+
+
+def prepare_week(season, week, plan_games, espn_inj, depth=None):
+    """History, the latest rosters and injuries, and who is expected to play: (state dict). plan_games: [{id, away, home}];
+    depth: {team: [ESPN athlete ids]}, each team's quarterbacks in ESPN's depth-chart order (the starter first), which
+    names the expected starter when it is given. Without it the schedule file's listed quarterback is used, and that
+    listing is known to go stale (see live.py)."""
     p = paths(season)
     G, P, X, R = pc.prepare(p["stats"], p["snaps"], p["rosters"], p["games"])
     dates = dict(zip(G.game_id, G.gameday))
@@ -88,15 +110,28 @@ def prepare_week(season, week, plan_games, espn_inj):
         d = d[d.gd == d.gd.max()].sort_values(["pass_att", "pid"])
         return d.pid.iloc[-1] if d.pass_att.iloc[-1] > 0 else None
 
+    order = depth_order(cur, inj, depth)
+    qsrc = {}
+
+    def starter(team, listed):
+        """The expected starter: the first quarterback on ESPN's depth chart who is not ruled out; else the schedule
+        file's listed one, else whoever threw most in the team's latest game."""
+        for q_ in order.get(team, []):
+            if not pc.is_out(inj.get(q_, ("", ""))[0]):
+                if q_ != (listed if isinstance(listed, str) else None):
+                    qsrc[team] = {"listed": listed if isinstance(listed, str) else None}
+                return q_
+        return listed if isinstance(listed, str) else last_passer(team)
+
     games = []
     for g in plan_games:
         if g["id"] in gi.index:
             row = gi.loc[g["id"]]
             games.append({"id": g["id"], "away": g["away"], "home": g["home"],
-                          "qb_away": row.away_qb_id if isinstance(row.away_qb_id, str) else last_passer(g["away"]),
-                          "qb_home": row.home_qb_id if isinstance(row.home_qb_id, str) else last_passer(g["home"])})
+                          "qb_away": starter(g["away"], row.away_qb_id), "qb_home": starter(g["home"], row.home_qb_id)})
     extra, outs, qbs, _ = pc.live_rows(P, cur, games, inj, season, dates, None)
-    return {"G": G, "P": P, "X": X, "R": R, "R2": R2, "cur": cur, "inj": inj, "games": games, "extra": extra, "outs": outs, "qbs": qbs, "dates": dates, "season": season, "week": week}
+    return {"G": G, "P": P, "X": X, "R": R, "R2": R2, "cur": cur, "inj": inj, "games": games, "extra": extra, "outs": outs, "qbs": qbs, "dates": dates,
+            "season": season, "week": week, "qb_order": order, "qb_src": qsrc}
 
 
 def log_row(x, neutral):

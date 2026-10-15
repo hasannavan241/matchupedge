@@ -176,7 +176,9 @@ def build_data():
     proj = pd.read_csv(cache) if os.path.exists(cache) else pd.DataFrame(columns=["game_id", "pm", "pt"])
     npl.write_games(proj)
     # who is expected to play, and each team's starter (the listed one unless he is ruled out)
-    st = npl.prepare_week(season, week, plan, espn_inj) if plan else None
+    depth = {ESPN_TEAM.get(k, k): v for k, v in (live.get("nflQb") or {}).items()}   # ESPN's depth-chart order at quarterback
+    st = npl.prepare_week(season, week, plan, espn_inj, depth) if plan else None
+    qb_order = st["qb_order"] if st else {}
     inj = st["inj"] if st else {}
     cur = st["cur"] if st else pd.DataFrame(columns=["gsis_id", "team", "status", "position", "full_name"])
     # each player's latest roster row; one older than his team's latest week means he is no longer with it
@@ -233,7 +235,9 @@ def build_data():
             if p_sit > 0:   # the next man up: for part of the game when the starter is questionable, all of it when he is out
                 pool = cur[(cur.team.replace(nd.FR) == team) & (cur.position == "QB") & (cur.status == "ACT") & (cur.gsis_id != qid)].gsis_id
                 pool = [q for q in pool if not npl.pc.is_out(inj.get(q, ("", ""))[0])]
-                best = max(pool, key=lambda q: QB.value(q, gref, gbase)[1], default=None)
+                # the next man up: the next on ESPN's depth chart, else the one with the most plays behind him
+                nxt = [q for q in qb_order.get(team, []) if q != qid and q in set(pool)]
+                best = nxt[0] if nxt else max(pool, key=lambda q: QB.value(q, gref, gbase)[1], default=None)
                 if best:
                     bk_id, bk_v = best, QB.value(best, gref, gbase)[0]
                 if p_sit >= 1:   # ruled out and still listed (the player step normally replaces him before this): the backup starts

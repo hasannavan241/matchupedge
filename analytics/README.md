@@ -18,7 +18,7 @@ python run.py
 | Step | File | What it does | If it fails |
 |---|---|---|---|
 | download | `nfl_data.py` | Schedules, results, play-by-play, player stats, snap counts, rosters (nflverse, all on GitHub). Finished seasons are downloaded and rolled up once. | The refresh stops. |
-| live inputs | `live.py` | ESPN's injury list and the National Weather Service forecast for outdoor games. Writes `live.json`. | Goes on with the last good copy (injuries up to 36 hours old, a forecast 24), or without. The page says which. |
+| live inputs | `live.py` | ESPN's injury list, ESPN's depth charts (who starts at quarterback) and the National Weather Service forecast for outdoor games. Writes `live.json`. | Goes on with the last good copy (injuries up to 36 hours old, a forecast 24, depth charts 7 days), or without. The page says which. |
 | model | `nfl_model.py refit` | Refits the weights when new results are fully in (play-by-play, snap counts and player stats), or three days after them. A fit whose main weights jump is thrown away. | Goes on with `model.json` as it is. |
 | grade | `record.py` | Final scores for the picks already saved. | Goes on. |
 | build | `build.py` | `out/data.json`, then the page: `out/index.html` (the website) and `out/site.html` (the same page without a document head). | The refresh stops. |

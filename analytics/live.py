@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""The live inputs that are not in the stats files: who is hurt (ESPN's NFL and NBA injury lists) and the game-time
-forecast at outdoor NFL stadiums (the National Weather Service). Writes live.json for build.py and nba_build.py.
+"""The live inputs that are not in the stats files: who is hurt (ESPN's NFL and NBA injury lists), who starts at
+quarterback (ESPN's NFL depth charts) and the game-time forecast at outdoor NFL stadiums (the National Weather
+Service). Writes live.json for build.py and nba_build.py.
 
     python3 live.py
 
 No sportsbook is read here or anywhere else on the site: no lines, no prices, no odds.
 
 A source that fails does not stop the refresh. The last good copy is used while it is fresh enough (AN_LIVE_PREV, else
-the live.json already there): an injury list for 36 hours, a forecast for 24. The pages say when the injury list was
-read and warn when that is over six hours before the build; live.json itself keeps when each forecast was read (wxAt).
+the live.json already there): an injury list for 36 hours, a forecast for 24, the depth charts for 7 days. The pages
+say when the injury list was read and warn when that is over six hours before the build; live.json itself keeps when
+each forecast was read (wxAt).
+
+Why the depth charts: nflverse's schedule file names each team's quarterback for the coming games, but that listing
+goes stale (it kept Drew Lock as Seattle's starter for weeks after Sam Darnold had the job back, in 2026; Marcus
+Mariota over Jayden Daniels for most of 2024). ESPN's depth chart is kept by hand and names the starter when he is
+healthy; an injured starter stays first on it, and the injury list says whether he sits.
 """
 import datetime as dt, json, math, os, re, sys, time
 import urllib.error, urllib.request
@@ -20,8 +27,11 @@ PREV = os.environ.get("AN_LIVE_PREV") or LIVE
 AGENT = "MatchupEdge (github.com/hasannavan241/matchupedge)"   # the weather service asks callers to say who they are
 ESPN_INJURIES = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
 ESPN_NBA_INJURIES = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
+ESPN_TEAMS = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=40"
+ESPN_DEPTH = "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/{season}/teams/{team}/depthcharts"
 NWS = "https://api.weather.gov"
-KEEP_INJ_HOURS, KEEP_WX_HOURS = 36, 24
+KEEP_INJ_HOURS, KEEP_WX_HOURS, KEEP_QB_HOURS = 36, 24, 7 * 24
+MIN_DEPTH_TEAMS = 24   # fewer teams' depth charts than this is a broken answer; the last good copy is kept instead
 MIN_LISTED = 20   # fewer rows than this in season is a broken answer, not a healthy league
 MIN_NBA_LISTED = 5   # the NBA's list is shorter (15-man rosters), but never this short from October to June
 # outdoor stadiums by home team (latitude, longitude); domes and retractable roofs are left out
@@ -84,6 +94,39 @@ def injuries(url=ESPN_INJURIES):
     return rows
 
 
+def depth_qbs(season):
+    """ESPN's depth-chart order at quarterback for every team: {ESPN team abbreviation: [ESPN athlete ids, the starter
+    first]}. A team whose chart can't be read is left out; the caller decides whether enough came back."""
+    j = get_json(ESPN_TEAMS, tries=2, timeout=30)
+    teams = []
+    for s in j.get("sports") or []:
+        for lg in s.get("leagues") or []:
+            for t in lg.get("teams") or []:
+                t = t.get("team") or {}
+                if t.get("id") and t.get("abbreviation"):
+                    teams.append((str(t["id"]), str(t["abbreviation"])))
+    out, failed = {}, []
+    for tid, abbr in teams:
+        try:
+            d = get_json(ESPN_DEPTH.format(season=season, team=tid), tries=2, timeout=30)
+            ids = []
+            for grp in d.get("items") or []:
+                qb = (grp.get("positions") or {}).get("qb")
+                if not qb:
+                    continue
+                for a in sorted(qb.get("athletes") or [], key=lambda a: int(a.get("rank") or 99)):
+                    m = re.search(r"/athletes/(\d+)", str((a.get("athlete") or {}).get("$ref") or ""))
+                    if m and m.group(1) not in ids:
+                        ids.append(m.group(1))
+            if ids:
+                out[abbr] = ids
+            else:
+                failed.append(abbr)
+        except Exception as e:
+            failed.append(f"{abbr} ({e.__class__.__name__})")
+    return out, failed
+
+
 def listed(rows):
     """The rows that are injury listings: everything but the players ESPN calls active."""
     return [r for r in rows if str(r[3]).strip().lower() not in ("active", "probable", "")]
@@ -128,7 +171,7 @@ def main(plan=None, now=None):
         except Exception:
             old = {}
     old_inj_at = old.get("injAt") or old.get("ts")
-    out = {"ts": iso(now), "nflInj": [], "injAt": None, "nbaInj": [], "nbaInjAt": None, "wx": {}, "wxAt": {}, "errors": []}
+    out = {"ts": iso(now), "nflInj": [], "injAt": None, "nbaInj": [], "nbaInjAt": None, "nflQb": {}, "nflQbAt": None, "wx": {}, "wxAt": {}, "errors": []}
 
     try:
         rows = injuries()
@@ -153,6 +196,20 @@ def main(plan=None, now=None):
             out["nbaInj"], out["nbaInjAt"] = old["nbaInj"], old["nbaInjAt"]
             out["errors"].append(f"nba injuries kept from {old['nbaInjAt']}")
 
+    season = int(plan[0]["id"][:4]) if plan else nd.current_season()
+    try:
+        qbs, failed = depth_qbs(season)
+        if len(qbs) < MIN_DEPTH_TEAMS:
+            raise RuntimeError(f"only {len(qbs)} teams' depth charts came back" + (": " + ", ".join(failed[:6]) if failed else ""))
+        out["nflQb"], out["nflQbAt"] = qbs, iso(now)
+        if failed:
+            out["errors"].append("depth charts not read for " + ", ".join(failed))
+    except Exception as e:
+        out["errors"].append(f"depth charts: {e}")
+        if old.get("nflQb") and fresh(old.get("nflQbAt"), KEEP_QB_HOURS, now):
+            out["nflQb"], out["nflQbAt"] = old["nflQb"], old["nflQbAt"]
+            out["errors"].append(f"depth charts kept from {old['nflQbAt']}")
+
     old_wx, old_at = old.get("wx") or {}, old.get("wxAt") or {}
     failed_in_a_row = 0
     for g in outdoor_games(plan):
@@ -174,11 +231,12 @@ def main(plan=None, now=None):
     os.makedirs(os.path.dirname(LIVE) or ".", exist_ok=True)
     c = lambda v: json.dumps(v, separators=(",", ":"))
     with open(LIVE, "w") as f:   # one player a line, so a copy kept in the repository changes only where the list did
-        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "nbaInjAt", "errors", "wx", "wxAt"))
+        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "nbaInjAt", "nflQbAt", "errors", "wx", "wxAt", "nflQb"))
                 + "".join(f",\n{c(k)}:[\n" + ",\n".join(c(r) for r in out[k]) + "\n]" for k in ("nflInj", "nbaInj")) + "}\n")
     kept = sum(1 for e in out["errors"] if "kept" in e)
     print(f"live: {len(listed(out['nflInj']))} NFL injury listings (read {out['injAt'] or 'never'}), {len(listed(out['nbaInj']))} NBA "
-          f"(read {out['nbaInjAt'] or 'never'}), forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, {len(out['errors']) - kept} failed")
+          f"(read {out['nbaInjAt'] or 'never'}), depth charts for {len(out['nflQb'])} teams (read {out['nflQbAt'] or 'never'}), "
+          f"forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, {len(out['errors']) - kept} failed")
     for e in out["errors"][:12]:
         print("  ", e)
     return out

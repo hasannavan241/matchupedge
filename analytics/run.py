@@ -84,9 +84,11 @@ def main():
         import live
         o = live.main()
         n, nn = len(live.listed(o["nflInj"])), len(live.listed(o["nbaInj"]))
-        state["live"] = {"inj_n": n, "inj_at": o["injAt"], "nba_inj_n": nn, "nba_inj_at": o["nbaInjAt"], "wx_n": len(o["wx"]), "errors": o["errors"]}
+        nq = len(o.get("nflQb") or {})
+        state["live"] = {"inj_n": n, "inj_at": o["injAt"], "nba_inj_n": nn, "nba_inj_at": o["nbaInjAt"], "qb_n": nq, "qb_at": o.get("nflQbAt"),
+                         "wx_n": len(o["wx"]), "errors": o["errors"]}
         errors.extend("live " + e for e in o["errors"] if "kept" not in e)
-        return f"{n} NFL injury listings, {nn} NBA, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
+        return f"{n} NFL injury listings, {nn} NBA, depth charts for {nq} teams, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
 
     def s_refit():
         import nfl_model as nm

@@ -775,7 +775,7 @@ function renderMethod(){
     <div class="card"><h2>Milestone chances, tested</h2><p class="fine" style="margin:6px 0 10px">Every milestone for every player, grouped by the chance we gave it.</p>
       <div class="scroll"><table><thead><tr><th>Said</th><th>Happened</th><th>Cases</th><th class="l">0% → 100%</th></tr></thead><tbody>${pcal}</tbody></table></div></div></div>`:''}
   <div class="card prose"><h2>Where the numbers come from</h2>
-    <p>Schedules, results, play-by-play, player stats, snap counts and rosters: nflverse. Tracking stats (separation, time to throw, yards over expected): NFL Next Gen Stats. Charting (pressures, drops, yards after contact): Pro Football Reference. Injuries: ESPN’s list${D.live.inj_ts?', read '+esc(new Date(D.live.inj_ts).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))+' CT':''}. Forecasts: the National Weather Service. News: researched twice a day, with sources on each game.</p>
+    <p>Schedules, results, play-by-play, player stats, snap counts and rosters: nflverse. Tracking stats (separation, time to throw, yards over expected): NFL Next Gen Stats. Charting (pressures, drops, yards after contact): Pro Football Reference. Starting quarterbacks: ESPN’s depth charts. Injuries: ESPN’s list${D.live.inj_ts?', read '+esc(new Date(D.live.inj_ts).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))+' CT':''}. Forecasts: the National Weather Service. News: researched twice a day, with sources on each game.</p>
     <p>EPA (expected points added) is how much a play changed the points a team could expect on that drive. Success rate is the share of plays that gained enough to keep a drive on schedule.</p></div>`;
 }
 
@@ -832,7 +832,7 @@ const warnB=t=>`<span class="badge" style="background:var(--warn-soft);color:var
 const injAge=D.live.inj_ts?(new Date(D.built)-new Date(D.live.inj_ts))/36e5:null;   /* hours between the injury list and this build */
 const injB=!D.live.inj_n?(D.games.length?warnB('No injury list in this build'):''):injAge!=null&&injAge>6?warnB('Injuries as of '+esc(new Date(D.live.inj_ts).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))+' CT'):`<span class="badge"><i></i>${D.live.inj_n} injury listings</span>`;
 $('#fresh').innerHTML=(D.preview?warnB('Preview'):'')+`<span class="badge"><i></i>Built ${esc(D.asof)}</span>`+injB+(D.news_meta&&D.news_meta.at?`<span class="badge"><i></i>News ${esc(new Date(D.news_meta.at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'');
-$('#foot').textContent='Projections are estimates from past results and can be wrong. NFL only for now; the NBA is next, before its season opens. Stats from nflverse, NFL Next Gen Stats and Pro Football Reference; injuries from ESPN; forecasts from the National Weather Service.';
+$('#foot').textContent='Projections are estimates from past results and can be wrong. NFL only for now; the NBA is next, before its season opens. Stats from nflverse, NFL Next Gen Stats and Pro Football Reference; starting quarterbacks and injuries from ESPN; forecasts from the National Weather Service.';
 const first=(location.hash||'').slice(1),want=['games','players','teams','method'].includes(first)?first:store.get('tab','games');
 setTab(['games','players','teams','method'].includes(want)?want:'games');
 window.MatchupEdge={calc,pOver,quant,pAtLeast,state:S,data:D};
