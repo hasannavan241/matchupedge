@@ -2229,7 +2229,7 @@
    "summary": "Caleb Williams practiced fully Thursday for the first real time since tearing his hamstring in Week 2 and is trending toward starting after three missed games, though he says he is not fully healed. Atlanta's Michael Penix Jr. (ribs) was full and is in line to start. Chicago's LB T.J. Edwards and DE Dayo Odeyingbo again sat out."
   },
   "nfl_2026_06_DAL_GB": {
-   "at": "2026-10-15T16:06:57Z",
+   "at": "2026-10-16T16:20:00Z",
    "game": "DAL @ GB",
    "items": [
     {
@@ -2237,16 +2237,16 @@
      "impact": 0,
      "src": "https://www.newsweek.com/sports/nfl/packers-get-micah-parsons-update-before-matchup-against-his-former-cowboys-team-12557576",
      "team": "GB",
-     "text": "Edge Micah Parsons (torn ACL, Week 15 of 2025) isn't expected to practice this week; Week 7 against Detroit is his next realistic chance to play.",
+     "text": "Edge Micah Parsons (torn ACL) isn't expected to practice this week; Week 7 is his next realistic chance to play.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-04T12:00:00Z",
+     "at": "2026-10-14T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/edgerrin-cooper-achilles-done-for-the-day",
+     "src": "https://www.packers.com/news/packers-cowboys-injury-report-oct-14-2026",
      "team": "GB",
-     "text": "LB Edgerrin Cooper hurt his Achilles in Week 4 against Tampa Bay and is on a reserve list.",
+     "text": "DT Javon Hargrave (Achilles), CB Keisean Nixon (groin) and CB Benjamin St-Juste (hamstring) did not practice Wednesday.",
      "total": 0,
      "type": "injury"
     },
@@ -2260,20 +2260,20 @@
      "type": "other"
     },
     {
-     "at": "2026-10-12T12:00:00Z",
+     "at": "2026-10-14T12:00:00Z",
      "impact": 0,
-     "src": "https://www.dallascowboys.com/news/demarvion-overshown-hopeful-he-can-return-sunday-vs-packers",
+     "src": "https://www.yardbarker.com/nfl/articles/demarvion_overshown_provides_injury_update_ahead_of_packers_matchup/s1_17615_44424173",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring) has missed four games and hopes to return Sunday; Brian Schottenheimer calls his status TBD.",
+     "text": "LB DeMarvion Overshown (hamstring), out four games, hopes to return but did not practice Wednesday; rookie Jaishawn Barham has worn the green dot.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-12T12:00:00Z",
+     "at": "2026-10-14T12:00:00Z",
      "impact": 0,
-     "src": "https://www.dallascowboys.com/news/demarvion-overshown-hopeful-he-can-return-sunday-vs-packers",
+     "src": "https://www.packers.com/news/packers-cowboys-injury-report-oct-14-2026",
      "team": "DAL",
-     "text": "CB Joey Porter Jr. was ruled out of Week 5 with a sudden illness and is questionable.",
+     "text": "CB Joey Porter Jr. (ankle) was limited Wednesday; CB Cobie Durant (hamstring) did not practice.",
      "total": 0,
      "type": "injury"
     }
@@ -2281,57 +2281,48 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Packers-Cowboys Injury Report | Oct. 14, 2026 (Packers.com)",
+     "u": "https://www.packers.com/news/packers-cowboys-injury-report-oct-14-2026"
+    },
+    {
+     "t": "DeMarvion Overshown provides injury update ahead of Packers matchup (Athlon Sports via Yardbarker)",
+     "u": "https://www.yardbarker.com/nfl/articles/demarvion_overshown_provides_injury_update_ahead_of_packers_matchup/s1_17615_44424173"
+    },
+    {
      "t": "Packers get Micah Parsons update before matchup against his former Cowboys team (Newsweek)",
      "u": "https://www.newsweek.com/sports/nfl/packers-get-micah-parsons-update-before-matchup-against-his-former-cowboys-team-12557576"
-    },
-    {
-     "t": "DeMarvion Overshown hopeful he can return Sunday vs. Packers (DallasCowboys.com)",
-     "u": "https://www.dallascowboys.com/news/demarvion-overshown-hopeful-he-can-return-sunday-vs-packers"
-    },
-    {
-     "t": "Edgerrin Cooper (Achilles) done for the day (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-04/edgerrin-cooper-achilles-done-for-the-day"
     }
    ],
-   "summary": "Micah Parsons is not expected to face his former team: he is still working back from a torn ACL and Week 7 is his likeliest return. Green Bay is 3-2 after a 31-7 rout of Chicago but is without LB Edgerrin Cooper (Achilles). Dallas LB DeMarvion Overshown hopes to return after missing four games."
+   "summary": "Micah Parsons is not expected to face his former team while he works back from a torn ACL. Green Bay (3-2) routed Chicago 31-7 but is thin on the defensive line, with Javon Hargrave out and Keisean Nixon among those who missed Wednesday practice. Dallas (2-3) has allowed the second-most yards in the league, and LB DeMarvion Overshown's return is uncertain after he sat out Wednesday."
   },
   "nfl_2026_06_HOU_JAX": {
-   "at": "2026-10-15T16:06:57Z",
+   "at": "2026-10-16T16:20:00Z",
    "game": "HOU @ JAX",
    "items": [
     {
      "at": "2026-10-14T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.thefantasyfootballers.com/news/642304/woody-marks-lead-role-awaits-sans-montgomery/",
+     "impact": 0.2,
+     "src": "https://www.thefantasyfootballers.com/news/642423/marvin-harrison-jr-will-make-texans-debut-sunday/",
      "team": "HOU",
-     "text": "RB David Montgomery (groin) did not practice Wednesday and is on track to miss the game; Woody Marks (56 of 66 snaps in Week 5) leads the backfield.",
+     "text": "WR Marvin Harrison Jr., traded from Arizona Monday, will make his Texans debut; snaps may be limited while he learns the playbook.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-15T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thefantasyfootballers.com/news/642423/marvin-harrison-jr-will-make-texans-debut-sunday/",
+     "team": "HOU",
+     "text": "RB David Montgomery (groin) missed Wednesday and Thursday practice and is ruled out; Woody Marks leads the backfield.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-12T12:00:00Z",
+     "at": "2026-10-15T12:00:00Z",
      "impact": 0,
-     "src": "https://www.thefantasyfootballers.com/news/642184/david-montgomery-considered-week-to-week/",
+     "src": "https://www.thefantasyfootballers.com/news/642423/marvin-harrison-jr-will-make-texans-debut-sunday/",
      "team": "HOU",
-     "text": "Beat Tennessee 26-3 in Week 5; Montgomery left in the second quarter and did not return.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.jaguars.com/news/london-quick-hits-it-s-about-us",
-     "team": "JAX",
-     "text": "Second straight London game after a 19-17 win over the Eagles; 4-1 and leading the AFC South, with an NFL-best +6 turnover differential entering Week 5.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-13T12:00:00Z",
-     "impact": 0,
-     "src": "https://abcnews.com/Sports/wireStory/jaguars-lt-anton-harrison-arthroscopic-knee-surgery-miss-137231103",
-     "team": "JAX",
-     "text": "LT Anton Harrison (right knee) is out and will have arthroscopic surgery; Walker Little, with 39 career starts, takes over at left tackle.",
+     "text": "WR Tank Dell (knee) is ruled out and will not make his season debut in London.",
      "total": 0,
      "type": "injury"
     },
@@ -2340,40 +2331,40 @@
      "impact": 0,
      "src": "https://abcnews.com/Sports/wireStory/jaguars-lt-anton-harrison-arthroscopic-knee-surgery-miss-137231103",
      "team": "JAX",
-     "text": "LS Ross Matiscik hurt his shoulder against Philadelphia; veteran Jacob Bobenmoyer was signed and flew to London.",
+     "text": "LT Anton Harrison (right knee) is out after arthroscopic surgery; Walker Little, with 39 career starts, takes over at left tackle.",
      "total": 0,
-     "type": "other"
+     "type": "injury"
     },
     {
      "at": "2026-10-10T12:00:00Z",
      "impact": 0,
      "src": "https://www.jaguars.com/news/london-quick-hits-it-s-about-us",
      "team": "JAX",
-     "text": "S Eric Murray (concussion) was doubtful and CB Jaylon Jones (hamstring) out for the Week 5 game against Philadelphia.",
+     "text": "Second straight London game after a 19-17 win over the Eagles; 4-1 and leading the AFC South.",
      "total": 0,
-     "type": "injury"
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Woody Marks: Lead role awaits sans Montgomery (The Fantasy Footballers)",
-     "u": "https://www.thefantasyfootballers.com/news/642304/woody-marks-lead-role-awaits-sans-montgomery/"
+     "t": "Marvin Harrison Jr.: Will make Texans debut Sunday (The Fantasy Footballers)",
+     "u": "https://www.thefantasyfootballers.com/news/642423/marvin-harrison-jr-will-make-texans-debut-sunday/"
     },
     {
-     "t": "Jaguars LT Anton Harrison to have arthroscopic knee surgery and will miss weeks, maybe months (AP via ABC News)",
+     "t": "David Montgomery: Sitting out Wednesday's practice (The Fantasy Footballers)",
+     "u": "https://www.thefantasyfootballers.com/news/642413/david-montgomery-sitting-out-wednesdays-practice/"
+    },
+    {
+     "t": "Jaguars LT Anton Harrison to have arthroscopic knee surgery (AP via ABC News)",
      "u": "https://abcnews.com/Sports/wireStory/jaguars-lt-anton-harrison-arthroscopic-knee-surgery-miss-137231103"
-    },
-    {
-     "t": "David Montgomery considered week-to-week (The Fantasy Footballers)",
-     "u": "https://www.thefantasyfootballers.com/news/642184/david-montgomery-considered-week-to-week/"
     },
     {
      "t": "London Quick Hits: \"It's about us\" (Jaguars.com)",
      "u": "https://www.jaguars.com/news/london-quick-hits-it-s-about-us"
     }
    ],
-   "summary": "An AFC South game in London. Jacksonville (4-1) leads the division after a 19-17 win over Philadelphia but loses LT Anton Harrison to knee surgery, so Walker Little starts. Houston (1-4) beat Tennessee 26-3, but RB David Montgomery (groin) is set to miss the game, leaving Woody Marks as the lead back."
+   "summary": "An AFC South game in London. Jacksonville (4-1) leads the division but has lost LT Anton Harrison to knee surgery, so Walker Little starts. Houston (1-4) beat Tennessee 26-3 and adds WR Marvin Harrison Jr., traded from Arizona this week, though his snaps may be limited. RB David Montgomery (groin) and WR Tank Dell (knee) are ruled out."
   },
   "nfl_2026_06_LAC_KC": {
    "at": "2026-10-15T23:08:50Z",
@@ -2726,11 +2717,65 @@
     }
    ],
    "summary": "Winless Tennessee keeps Cam Ward at quarterback but will likely be without RB Tyjae Spears, leaving Tony Pollard to carry the run game. Indianapolis is getting healthier: Daniel Jones and Josh Downs were full, Jalen Travis returned to practice, and WR Darius Slayton is set for his Colts debut."
+  },
+  "nfl_2026_06_WAS_SF": {
+   "at": "2026-10-16T16:20:00Z",
+   "game": "WAS @ SF",
+   "items": [
+    {
+     "at": "2026-10-09T12:00:00Z",
+     "impact": 0.5,
+     "src": "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/nick-bosa-injury-return-commanders/1970068/",
+     "team": "SF",
+     "text": "DE Nick Bosa (calf), out three games, called a Week 6 return \"pretty darn likely\"; Kyle Shanahan is optimistic but it is not confirmed.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-13T12:00:00Z",
+     "impact": 0,
+     "src": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders",
+     "team": "SF",
+     "text": "LB Dre Greenlaw is suspended for the game for headbutting a Seahawks player; his appeal was rejected Tuesday.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders",
+     "team": "SF",
+     "text": "WR Deebo Samuel (hamstring, hurt in Week 5) is expected to miss the game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders",
+     "team": "WAS",
+     "text": "CB Trey Amos, WR Stefon Diggs (hamstring) and S Nick Cross are questionable; DE Javontae Jean-Baptiste has a pectoral injury.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "San Francisco 49ers lose two key pieces vs. Washington Commanders (Roundtable)",
+     "u": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders"
+    },
+    {
+     "t": "49ers star DE Nick Bosa eyeing Week 6 return vs. Commanders after calf injury (NBC Sports Bay Area)",
+     "u": "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/nick-bosa-injury-return-commanders/1970068/"
+    }
+   ],
+   "summary": "Monday night at Levi's Stadium. San Francisco is unbeaten but undermanned: LB Dre Greenlaw is suspended and WR Deebo Samuel (hamstring) is expected to miss, while DE Nick Bosa hopes to return from a calf injury after missing three games. Washington, coming off a tie with the Giants, has CB Trey Amos, WR Stefon Diggs and S Nick Cross questionable."
   }
  },
  "meta": {
-  "at": "2026-10-15T23:10:00Z",
-  "games": 11,
-  "note": "Week 6 NFL: SEA-DEN inactives plus Thursday practice reports for 10 Sunday games; no NBA games within 16h."
+  "at": "2026-10-16T16:22:00Z",
+  "games": 3,
+  "note": "Week 6 NFL: refreshed HOU-JAX and DAL-GB, first look at WAS-SF; no NBA games within 16h."
  }
 }
