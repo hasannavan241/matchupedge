@@ -14,7 +14,8 @@ What happens when a step fails:
 
 The NBA steps (nba download, nba model, nba grade, nba build, nba check, nba save picks) never stop the refresh: the
 NFL page is published either way. When the NBA page could not be built or failed its check, out/nba.html is not
-there and the workflow publishes the NBA page from the last refresh again.
+there and the workflow publishes the NBA page from the last refresh again. The Premier League steps (epl download,
+epl model, epl grade, epl build, epl check, epl save picks) work the same way for epl.html.
 
 Prints one line per step and writes out/state.json (what this refresh was) and out/summary.md (the picks, as a table).
 AN_SLIM=1 deletes a finished season's play-by-play once it is rolled up, so only the roll-ups are kept between runs.
@@ -85,10 +86,12 @@ def main():
         o = live.main()
         n, nn = len(live.listed(o["nflInj"])), len(live.listed(o["nbaInj"]))
         nq = len(o.get("nflQb") or {})
+        ne = len(o.get("epl") or {})
         state["live"] = {"inj_n": n, "inj_at": o["injAt"], "nba_inj_n": nn, "nba_inj_at": o["nbaInjAt"], "qb_n": nq, "qb_at": o.get("nflQbAt"),
-                         "wx_n": len(o["wx"]), "errors": o["errors"]}
+                         "wx_n": len(o["wx"]), "epl_dates": ne, "epl_at": o.get("eplAt"), "errors": o["errors"]}
         errors.extend("live " + e for e in o["errors"] if "kept" not in e)
-        return f"{n} NFL injury listings, {nn} NBA, depth charts for {nq} teams, {len(o['wx'])} forecasts" + (f", {len(o['errors'])} notes" if o["errors"] else "")
+        return (f"{n} NFL injury listings, {nn} NBA, depth charts for {nq} teams, {len(o['wx'])} forecasts, EPL scoreboard for {ne} dates"
+                + (f", {len(o['errors'])} notes" if o["errors"] else ""))
 
     def s_refit():
         import nfl_model as nm
@@ -209,8 +212,86 @@ def main():
         state["nba"]["record"] = s
         return f"{n} picks saved or changed; {s['saved']} on record, {s['won']}-{s['lost']} graded"
 
+    # ---- the Premier League page: nothing here stops the refresh either ----
+    epl = {}
+    EPL_FILES = ("epl.html", "epl_data.json")
+
+    def epl_drop():
+        for f in EPL_FILES:
+            try:
+                os.remove(os.path.join(OUT, f))
+            except FileNotFoundError:
+                pass
+
+    def s_epl_fetch():
+        import epl_data as ed
+        epl_drop()
+        season = ed.fetch()
+        old = ed.stale()
+        if old:
+            raise RuntimeError("could not download " + ", ".join(old) + ", and there is no copy here")
+        kept = [os.path.basename(f) for f, age in nd.MISSED if str(f).startswith(ed.DIR) and age is not None]
+        if kept:
+            errors.append("epl download: not fetched this time, the copy here used: " + ", ".join(kept))
+        epl["data"] = season
+        return f"season {ed.label(season)}" + (f", {len(kept)} files from an earlier download" if kept else "")
+
+    def s_epl_refit():
+        if "data" not in epl:
+            return "skipped: no EPL data this run"
+        import epl_data as ed, epl_model as epm
+        did, line = epm.refit(live=ed.load_live())
+        epl["refit"] = did
+        if "thrown away" in line:
+            errors.append("epl model: " + line)
+        return line
+
+    def s_epl_grade():
+        if "data" not in epl:
+            return "skipped: no EPL data this run"
+        import epl_record as epr
+        return f"{epr.grade()} newly graded"
+
+    def s_epl_build():
+        if "data" not in epl:
+            return "skipped: no EPL data this run; the site keeps the EPL page it has"
+        import epl_build as epb
+        try:
+            d = epb.build_data()
+            epb.write_site()
+        except BaseException:
+            epl_drop()
+            raise
+        fp = epb.fingerprint(d)
+        epl["built"] = True
+        state["epl"] = {"season": d["season"], "dates": d["dates"], "games": len(d["games"]), "src": d["live"]["src"],
+                        "kickoffs": [g["ko"] for g in d["games"]],   # due.py refreshes more often before these
+                        "fingerprint": fp}
+        return f"{len(d['games'])} matches on {', '.join(d['dates']) or 'no dates'} from the {d['live']['src']} schedule (picks {fp['games']})"
+
+    def s_epl_check():
+        if not epl.get("built"):
+            return "skipped: no EPL page this run"
+        r = subprocess.run([sys.executable, os.path.join(nd.HERE, "check_epl.py")], capture_output=True, text=True)
+        out = (r.stdout + r.stderr).strip()
+        if r.returncode != 0:
+            epl_drop()
+            raise RuntimeError(out[-1500:] or "the EPL page check failed")
+        epl["checked"] = True
+        return out.splitlines()[-1] if out else "ok"
+
+    def s_epl_save():
+        if not epl.get("checked"):
+            return "skipped: the EPL page is not published this run"
+        import epl_record as epr
+        n = epr.save()
+        s = epr.summary()
+        state["epl"]["record"] = s
+        return f"{n} picks saved or changed; {s['saved']} on record, {s['won']}-{s['lost']} graded"
+
     step("download", s_fetch, True)
     step("nba download", s_nba_fetch, False)
+    step("epl download", s_epl_fetch, False)
     step("live inputs", s_live, False)
     step("model", s_refit, False)
     step("grade", s_grade, False)
@@ -226,6 +307,14 @@ def main():
     else:
         nba["checked"] = nba.get("built")
     step("nba save picks", s_nba_save, False)
+    step("epl model", s_epl_refit, False)
+    step("epl grade", s_epl_grade, False)
+    step("epl build", s_epl_build, False)
+    if "--no-check" not in sys.argv:
+        step("epl check", s_epl_check, False)
+    else:
+        epl["checked"] = epl.get("built")
+    step("epl save picks", s_epl_save, False)
     finish(True)
     print(f"refresh done in {state['took']}s" + (f" with {len(errors)} notes" if errors else ""))
 

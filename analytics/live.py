@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """The live inputs that are not in the stats files: who is hurt (ESPN's NFL and NBA injury lists), who starts at
-quarterback (ESPN's NFL depth charts) and the game-time forecast at outdoor NFL stadiums (the National Weather
-Service). Writes live.json for build.py and nba_build.py.
+quarterback (ESPN's NFL depth charts), the game-time forecast at outdoor NFL stadiums (the National Weather
+Service), and the Premier League's scoreboard (ESPN: kickoff times, results and shots on target for this season's
+matches, which the stats files carry weeks late). Writes live.json for build.py, nba_build.py and epl_build.py.
 
     python3 live.py
 
@@ -30,6 +31,9 @@ ESPN_NBA_INJURIES = "https://site.api.espn.com/apis/site/v2/sports/basketball/nb
 ESPN_TEAMS = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams?limit=40"
 ESPN_DEPTH = "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/{season}/teams/{team}/depthcharts"
 NWS = "https://api.weather.gov"
+ESPN_EPL = "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates={d}"
+EPL_AHEAD_DAYS = 16     # match dates fetched ahead of today
+EPL_REFRESH_DAYS = 2    # a past date whose matches are all final is fetched again only this many days after it
 KEEP_INJ_HOURS, KEEP_WX_HOURS, KEEP_QB_HOURS = 36, 24, 7 * 24
 MIN_DEPTH_TEAMS = 24   # fewer teams' depth charts than this is a broken answer; the last good copy is kept instead
 MIN_LISTED = 20   # fewer rows than this in season is a broken answer, not a healthy league
@@ -127,6 +131,69 @@ def depth_qbs(season):
     return out, failed
 
 
+def espn_epl(old, now, fixture_dates=()):
+    """ESPN's Premier League scoreboard, one list of rows a match date: {date: [[event id, kickoff (ISO), home, away,
+    state (pre/in/post), home goals, away goals, home shots on target, away, home shots, away, venue, home abbreviation,
+    away abbreviation]]}, for this season's match dates up to EPL_AHEAD_DAYS from today. A date whose matches were all
+    final in the last copy, and that is more than EPL_REFRESH_DAYS old, is kept from that copy rather than fetched
+    again (so a run fetches a few dates, not a season's). The match dates come from ESPN's own calendar in the first
+    answer, with openfootball's fixture dates added. Returns (rows by date, dates fetched, errors)."""
+    today = now.date()
+    season_start = dt.date(today.year if today.month >= 8 else today.year - 1, 7, 15)
+    kept = {k: v for k, v in ((old or {}).get("epl") or {}).items() if str(k) >= str(season_start)}
+    first = get_json(ESPN_EPL.format(d=today.strftime("%Y%m%d")), tries=2, timeout=30)
+    dates = set()
+    for lg in first.get("leagues") or []:
+        for c in lg.get("calendar") or []:
+            try:
+                dates.add(when(str(c)[:19] + "+00:00").date() if "T" in str(c) else dt.date.fromisoformat(str(c)[:10]))
+            except Exception:
+                pass
+    for d in fixture_dates:
+        try:
+            dates.add(dt.date.fromisoformat(str(d)[:10]))
+        except Exception:
+            pass
+    dates = sorted(d for d in dates if season_start <= d <= today + dt.timedelta(days=EPL_AHEAD_DAYS))
+
+    def rows_of(j):
+        out = []
+        for e in j.get("events") or []:
+            try:
+                c = (e.get("competitions") or [{}])[0]
+                side = lambda s: next((x for x in c.get("competitors") or [] if x.get("homeAway") == s), {})
+                h, a = side("home"), side("away")
+                st = ((e.get("status") or {}).get("type") or {})
+                state = str(st.get("state") or ("post" if st.get("completed") else "pre"))
+                stat = lambda t, k: next((float(x.get("displayValue")) for x in t.get("statistics") or [] if x.get("name") == k and str(x.get("displayValue", "")).replace(".", "").isdigit()), None)
+                num = lambda v: int(v) if str(v).lstrip("-").isdigit() else None
+                tn = lambda t: str((t.get("team") or {}).get("displayName") or (t.get("team") or {}).get("name") or "")
+                ab = lambda t: str((t.get("team") or {}).get("abbreviation") or "")
+                done = bool(st.get("completed"))
+                out.append([str(e.get("id")), str(e.get("date") or "")[:20], tn(h), tn(a), state, num(h.get("score")) if done else None,
+                            num(a.get("score")) if done else None, stat(h, "shotsOnTarget"), stat(a, "shotsOnTarget"), stat(h, "totalShots"), stat(a, "totalShots"),
+                            str(((c.get("venue") or {}).get("fullName")) or "")[:60], ab(h), ab(a)])
+            except Exception:
+                continue
+        return out
+    out, fetched, errors = {}, [], []
+    for d in dates:
+        k = d.isoformat()
+        was = kept.get(k)
+        if was is not None and all(r[4] == "post" for r in was) and (today - d).days > EPL_REFRESH_DAYS:
+            out[k] = was
+            continue
+        try:
+            j = first if d == today else get_json(ESPN_EPL.format(d=d.strftime("%Y%m%d")), tries=2, timeout=30)
+            out[k] = rows_of(j)
+            fetched.append(k)
+        except Exception as e:
+            errors.append(f"epl {k}: {e}")
+            if was is not None:
+                out[k] = was
+    return out, fetched, errors
+
+
 def listed(rows):
     """The rows that are injury listings: everything but the players ESPN calls active."""
     return [r for r in rows if str(r[3]).strip().lower() not in ("active", "probable", "")]
@@ -171,7 +238,8 @@ def main(plan=None, now=None):
         except Exception:
             old = {}
     old_inj_at = old.get("injAt") or old.get("ts")
-    out = {"ts": iso(now), "nflInj": [], "injAt": None, "nbaInj": [], "nbaInjAt": None, "nflQb": {}, "nflQbAt": None, "wx": {}, "wxAt": {}, "errors": []}
+    out = {"ts": iso(now), "nflInj": [], "injAt": None, "nbaInj": [], "nbaInjAt": None, "nflQb": {}, "nflQbAt": None, "wx": {}, "wxAt": {},
+           "epl": {}, "eplAt": None, "errors": []}
 
     try:
         rows = injuries()
@@ -228,15 +296,38 @@ def main(plan=None, now=None):
             if gid in old_wx and fresh(at, KEEP_WX_HOURS, now):
                 out["wx"][gid], out["wxAt"][gid] = old_wx[gid], at
 
+    # the Premier League: this season's match dates on ESPN's scoreboard (kickoffs, results, shots on target)
+    try:
+        fixture_dates = []
+        try:
+            import epl_data as ed
+            F = ed.fixtures(ed.current_season(now.date()))
+            fixture_dates = [str(d.date()) for d in F.date] if len(F) else []
+        except Exception:
+            pass
+        rows, fetched, errs = espn_epl(old, now, fixture_dates)
+        if not rows:
+            raise RuntimeError("no match dates came back")
+        out["epl"], out["eplAt"] = rows, iso(now)
+        out["eplFetched"] = len(fetched)
+        out["errors"].extend(errs[:6])
+    except Exception as e:
+        out["errors"].append(f"epl scoreboard: {e}")
+        if old.get("epl"):   # the last copy, however old: a build without it has no kickoff times for this season
+            out["epl"], out["eplAt"] = old["epl"], old.get("eplAt")
+            out["errors"].append(f"epl scoreboard kept from {old.get('eplAt')}")
+
     os.makedirs(os.path.dirname(LIVE) or ".", exist_ok=True)
     c = lambda v: json.dumps(v, separators=(",", ":"))
     with open(LIVE, "w") as f:   # one player a line, so a copy kept in the repository changes only where the list did
-        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "nbaInjAt", "nflQbAt", "errors", "wx", "wxAt", "nflQb"))
-                + "".join(f",\n{c(k)}:[\n" + ",\n".join(c(r) for r in out[k]) + "\n]" for k in ("nflInj", "nbaInj")) + "}\n")
+        f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "nbaInjAt", "nflQbAt", "eplAt", "errors", "wx", "wxAt", "nflQb"))
+                + "".join(f",\n{c(k)}:[\n" + ",\n".join(c(r) for r in out[k]) + "\n]" for k in ("nflInj", "nbaInj"))
+                + ",\n\"epl\":{" + ",\n".join(f"{c(k)}:{c(v)}" for k, v in sorted(out["epl"].items())) + "}}\n")
     kept = sum(1 for e in out["errors"] if "kept" in e)
     print(f"live: {len(listed(out['nflInj']))} NFL injury listings (read {out['injAt'] or 'never'}), {len(listed(out['nbaInj']))} NBA "
           f"(read {out['nbaInjAt'] or 'never'}), depth charts for {len(out['nflQb'])} teams (read {out['nflQbAt'] or 'never'}), "
-          f"forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, {len(out['errors']) - kept} failed")
+          f"forecasts for {len(out['wx'])} of {len(outdoor_games(plan))} outdoor games, EPL scoreboard for {len(out['epl'])} dates "
+          f"({out.get('eplFetched', 0)} fetched; read {out['eplAt'] or 'never'}), {len(out['errors']) - kept} failed")
     for e in out["errors"][:12]:
         print("  ", e)
     return out

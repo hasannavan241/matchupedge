@@ -1,9 +1,10 @@
 # The analytics site
 
-Matchup Edge, built from stats alone: NFL and NBA game picks, player projections and team stats with no
-sportsbook anywhere. No lines, prices or odds are read, on the pages or behind them. It replaced the odds-based
-site (`pipeline/`) on 2026-10-06; `SWITCH.md` says what changed and how to undo it. The NBA page (`nba.html`,
-linked from the NFL page's header) was added on 2026-10-13, before the 2026-27 season.
+Matchup Edge, built from stats alone: NFL, NBA and Premier League game picks, player projections (NFL and NBA)
+and team stats with no sportsbook anywhere. No lines, prices or odds are read, on the pages or behind them. It
+replaced the odds-based site (`pipeline/`) on 2026-10-06; `SWITCH.md` says what changed and how to undo it. The NBA
+page (`nba.html`) was added on 2026-10-13, before the 2026-27 season, and the Premier League page (`epl.html`) on
+2026-10-17; the three pages link to each other from the switch above the title.
 
 ## One refresh
 
@@ -30,10 +31,16 @@ python run.py
 | nba build | `nba_build.py` | `out/nba_data.json` and `out/nba.html`: the next two days with games. | The site keeps the NBA page it has. |
 | nba check | `check_nba.py` | The same browser check for the NBA page. | `out/nba.html` is deleted, so it is never published; the site keeps the NBA page it has. |
 | nba save picks | `nba_record.py` | Saves each NBA pick for games that have not tipped off. | Goes on. |
+| epl download | `epl_data.py` | The history file (football-data.co.uk's results and shots on target, mirrored on GitHub; Premier League and Championship since 2000) and openfootball's fixture list. This season's latest results, shots on target and kickoff times come from ESPN's scoreboard, read by the live-inputs step (`live.json` "epl"). | No EPL build this time: the site keeps the EPL page it has. |
+| epl model | `epl_model.py refit` | Refits when new finals are in (about 45 seconds). A fit whose rating weights jump by a quarter is thrown away. | Goes on with `epl_model.json` as it is. |
+| epl grade | `epl_record.py` | Finals for the EPL picks already saved (from ESPN's scoreboard). | Goes on. |
+| epl build | `epl_build.py` | `out/epl_data.json` and `out/epl.html`: the next round of matches, the table and the teams. | The site keeps the EPL page it has. |
+| epl check | `check_epl.py` | The same browser check for the EPL page. | `out/epl.html` is deleted; the site keeps the EPL page it has. |
+| epl save picks | `epl_record.py` | Saves each EPL pick for matches that have not kicked off. | Goes on. |
 
-Nothing in the NBA steps stops the refresh: the NFL page is published either way. It also writes
-`out/state.json` (what the refresh was, step by step; the NBA's under `nba`) and `out/summary.md` (the NFL picks
-as a table).
+Nothing in the NBA or EPL steps stops the refresh: the NFL page is published either way. It also writes
+`out/state.json` (what the refresh was, step by step; the NBA's under `nba`, the Premier League's under `epl`) and
+`out/summary.md` (the NFL picks as a table).
 
 ## The record
 
@@ -43,7 +50,8 @@ never after. Once the final score is in, it is graded. The page shows the record
 week's finished games on the Games tab.
 
 The job on GitHub commits that file after every refresh, so the time each pick was last changed is public
-before the game is played. The NBA's record is `../data/an_picks_nba.json`, kept the same way.
+before the game is played. The NBA's record is `../data/an_picks_nba.json` and the Premier League's
+`../data/an_picks_epl.json`, kept the same way (an EPL pick is one of the three results, so a draw can be the pick).
 
 ## The model, in one paragraph
 
@@ -65,6 +73,20 @@ weights from earlier seasons only (67.3% of winners, against 64.7% from results 
 projections are minutes times rates per minute, adjusted for pace (and, for points, the other team's defense),
 with a negative binomial spread fitted on two seasons and tested on the next two (`nba_players.json`).
 
+The Premier League model, in one paragraph: a match's projected margin, in goals toward the home side, is a goals
+rating (goal difference adjusted for the opponents, ridge regression over three seasons, a match's weight halving
+every 253 days) plus a shots-on-target rating built the same way, home advantage (fitted year by year), a promoted
+team's first season, the second league match in three days, and researched news (injuries and suspensions count
+here, since no injury list is read for this league; at most 0.6 goals a club). The projected total comes from each
+side's attack and defence in goals and in shots on target. Margin and total give each side's expected goals, and two
+Poisson distributions with Dixon and Coles' low-score correction (rho fitted) give the chances of a home win, a draw
+and an away win; the pick is the likeliest of the three. Tested walk-forward from 2010-11 with weights from earlier
+seasons only: 53.8% of results picked right over 6,083 matches (44.7% for always the home side, 53.4% for the goals
+rating and home advantage alone), log loss 0.975; for reference only, the closing odds on the same matches would
+have scored 54.6% and 0.964 (never used on the site). Tested and left out: recent form (worth nothing), Elo and all
+shots (within noise of shots on target), the Championship's results for promoted teams (no better than the flat
+promoted factor).
+
 ## Files
 
 - `nfl_data.py` downloads and play-by-play roll-ups. `_data/` is the download folder (not in the repository).
@@ -79,6 +101,10 @@ with a negative binomial spread fitted on two seasons and tested on the next two
   `nba_players.py` the NBA player projections and their test (`nba_players.json`; refit by hand with
   `python nba_players.py test`), `nba_build.py` the NBA page from `nba_template.html` (it shares the NFL page's
   fonts and styles), `nba_record.py` the saved NBA picks, `check_nba.py` its browser check.
+- `epl_data.py` the Premier League downloads and the one match table (history, openfootball, ESPN rows from
+  `live.json`), `epl_model.py` the ratings, fit, Dixon-Coles chances and walk-forward test (`epl_model.json`),
+  `epl_build.py` the page from `epl_template.html` (it shares the NFL page's fonts and styles), `epl_record.py` the
+  saved EPL picks, `check_epl.py` its browser check.
 - `run.py` one whole refresh.
 - `due.py` whether a scheduled run should refresh now (about hourly; every half hour before kickoffs and tip-offs).
 - `SWITCH.md` what the switch from the odds-based site changed, and how to undo it.
@@ -89,7 +115,8 @@ with a negative binomial spread fitted on two seasons and tested on the next two
 - `AN_DATA` the download folder (default `_data/`).
 - `AN_LIVE`, `AN_LIVE_PREV` where `live.json` is written, and the last good copy to fall back on.
 - `AN_NEWS` the researched news (default `../data/news.json`).
-- `AN_PICKS` the record (default `../data/an_picks.json`); `AN_PICKS_NBA` the NBA's (default `../data/an_picks_nba.json`).
+- `AN_PICKS` the record (default `../data/an_picks.json`); `AN_PICKS_NBA` the NBA's (default `../data/an_picks_nba.json`);
+  `AN_PICKS_EPL` the Premier League's (default `../data/an_picks_epl.json`).
 - `AN_SLIM=1` delete a finished season's play-by-play once it is rolled up.
 - `AN_PREVIEW=1` title the page "Matchup Edge Analytics" and show a Preview badge.
 - `ME_NOW` an ISO time to build as of (tests).
@@ -101,18 +128,18 @@ branch, which GitHub Pages serves. It starts on a push to `main` that touches `a
 `pipeline/props_core.py` or `data/news.json`, when asked for by hand, and from the clock: `clock.yml` is a chain
 of runs that each wait half an hour and ask for the next, because GitHub's own scheduler drops runs. `due.py`
 decides what a clock run does: a refresh about every hour from 6 AM to 10 PM Central, every half hour in the
-three hours before an NFL kickoff or an NBA tip-off, nothing overnight, and a refresh at once when the news file or the site's code
+three hours before an NFL kickoff, an NBA tip-off or a Premier League kickoff, nothing overnight, and a refresh at once when the news file or the site's code
 differs from what the last refresh was built from (`state.json` keeps a fingerprint of them as `inputs`). That last
 rule catches a push whose own run was replaced while it waited behind a refresh already under way. No secrets are used.
 
 Each refresh:
 
-- commits `data/an_picks.json` and `data/an_picks_nba.json` to `main` when a pick moved or a game was graded,
-  and `model.json`, `cache/` and `nba_model.json` after a refit;
-- publishes `index.html`, `nba.html` (this refresh's, or the one already published when the NBA page could not be
-  built or failed its check), `artifact.html` (the NFL page without a document head), `summary.md` (the week's
-  picks as a table), `state.json` (what the refresh was) and `live.json` (the injury lists and forecasts as read:
-  the next refresh falls back on it if ESPN or the weather service fails);
+- commits `data/an_picks.json`, `data/an_picks_nba.json` and `data/an_picks_epl.json` to `main` when a pick moved
+  or a game was graded, and `model.json`, `cache/`, `nba_model.json` and `epl_model.json` after a refit;
+- publishes `index.html`, `nba.html` and `epl.html` (this refresh's, or the one already published when that page
+  could not be built or failed its check), `artifact.html` (the NFL page without a document head), `summary.md`
+  (the week's picks as a table), `state.json` (what the refresh was) and `live.json` (the injury lists, forecasts
+  and the EPL scoreboard as read: the next refresh falls back on it if ESPN or the weather service fails);
 - posts its step-by-step result as a notice on the run: `gh api repos/<owner>/<repo>/check-runs/<job id>/annotations`.
   Run logs can't be downloaded from a chat session, so the notice and `state.json` on `gh-pages` are how to see
   what a run did.

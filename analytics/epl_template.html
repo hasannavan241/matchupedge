@@ -1,0 +1,316 @@
+<title>Matchup Edge Premier League</title>
+<!--SHARED_HEAD-->
+<style>
+/* Premier League additions to the shared styles */
+.board tr.dayrow{cursor:default}
+.board tr.dayrow th{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--muted);text-align:left;padding-top:16px}
+.board tbody:first-of-type tr.dayrow th{padding-top:8px}
+.board tbody tr.dayrow:hover th{background:none}
+.nw{white-space:nowrap}
+.split3{display:flex;height:8px;gap:2px;min-width:90px}
+.split3 i{display:block;height:100%}
+.split3 .h{background:var(--home);border-radius:4px 0 0 4px}
+.split3 .d{background:var(--dim)}
+.split3 .a{background:var(--away);border-radius:0 4px 4px 0}
+.sw.d{background:var(--dim)}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
+.three>div{border:1px solid var(--line);border-radius:8px;padding:6px 8px;text-align:center}
+.three>div b{display:block;font-family:var(--f-mono);font-size:17px}
+.three>div span{font-size:11px;color:var(--muted)}
+.three>div.on{border-color:var(--accent);background:var(--accent-soft)}
+.form{font-family:var(--f-mono);letter-spacing:.12em}
+.form .W{color:var(--good)}.form .L{color:var(--crit)}.form .D{color:var(--muted)}
+.ltab td,.ltab th{padding:6px 5px}
+@media (max-width:640px){.ltab .xs{display:none}.ltab td,.ltab th{padding:6px 3px;font-size:12px}}
+.scoregrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;font-size:13px;font-family:var(--f-mono);margin-top:6px;max-width:520px}
+.scoregrid span{text-align:center;padding:5px 0;border-radius:6px;border:1px solid var(--line);background:var(--surface)}
+.scoregrid span small{display:block;font-size:11px;color:var(--muted)}
+.scoregrid span.hi{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+.scoregrid span.hi small{color:var(--accent)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <nav class="sport" aria-label="Sport"><a href="./">NFL</a><a href="nba.html">NBA</a><a href="epl.html" aria-current="page">EPL</a></nav>
+      <h1>Matchup <span>Edge</span></h1>
+      <p>Premier League picks built from stats alone: goals and shots on target adjusted for the opponents, home advantage, promotion, fixture congestion and the news. No sportsbooks, no odds.</p>
+    </div>
+    <div class="fresh" id="fresh"></div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="games" aria-selected="true">Matches</button>
+    <button role="tab" data-tab="teams" aria-selected="false">Table</button>
+    <button role="tab" data-tab="method" aria-selected="false">How it works</button>
+    <span class="wk" id="wk"></span>
+  </nav>
+
+  <section class="tab" id="games"></section>
+  <section class="tab" id="teams" hidden></section>
+  <section class="tab" id="method" hidden></section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const DATA=/*DATA*/null;
+(function(){
+'use strict';
+const D=DATA,M=D.model,C=M.coef,T=D.teams;
+const $=s=>document.querySelector(s),MINUS='−';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\/[^\s"<>]+$/i.test(String(u||''))?String(u):'';
+const f1=v=>v==null||!isFinite(v)?'–':(Math.round(v*10)/10).toFixed(1);
+const f2=v=>v==null||!isFinite(v)?'–':(Math.round(v*100)/100).toFixed(2);
+const sg=(v,d=2)=>{if(v==null||!isFinite(v))return'–';const s=Math.abs(v).toFixed(d);return +s===0?s:(v>0?'+':MINUS)+s};
+const pc=p=>p==null||!isFinite(p)?'–':Math.round(p*100)+'%';
+const ord=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])};
+const store={get(k,d){try{const v=localStorage.getItem('meepl1.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('meepl1.'+k,JSON.stringify(v))}catch(e){}}};
+const pct1=v=>Number(v).toFixed(1);
+const seasonName=y=>y+'-'+String(y+1).slice(2);
+const dayName=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric',timeZone:'UTC'});
+const shortDate=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'});
+const monthYear=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',year:'numeric',timeZone:'UTC'});
+
+/* ---------- maths: two Poisson distributions with Dixon and Coles' low-score correction (epl_model.dc_probs) ---------- */
+const MAXG=M.max_goals||10;
+function dcMatrix(lh,la,rho){
+  const fact=[1];for(let i=1;i<=MAXG;i++)fact[i]=fact[i-1]*i;
+  const ph=[],pa=[];for(let k=0;k<=MAXG;k++){ph[k]=Math.exp(-lh)*Math.pow(lh,k)/fact[k];pa[k]=Math.exp(-la)*Math.pow(la,k)/fact[k]}
+  const P=[];let s=0;
+  for(let i=0;i<=MAXG;i++){P[i]=[];for(let j=0;j<=MAXG;j++){let v=ph[i]*pa[j];
+    if(i===0&&j===0)v*=1-lh*la*rho;else if(i===1&&j===0)v*=1+la*rho;else if(i===0&&j===1)v*=1+lh*rho;else if(i===1&&j===1)v*=1-rho;
+    v=Math.max(v,1e-12);P[i][j]=v;s+=v}}
+  for(let i=0;i<=MAXG;i++)for(let j=0;j<=MAXG;j++)P[i][j]/=s;
+  return P}
+function outcomes(P){let h=0,d=0,a=0;for(let i=0;i<=MAXG;i++)for(let j=0;j<=MAXG;j++){if(i>j)h+=P[i][j];else if(i===j)d+=P[i][j];else a+=P[i][j]}return{h,d,a}}
+function modeScore(P){let best=[0,0];for(let i=0;i<=MAXG;i++)for(let j=0;j<=MAXG;j++)if(P[i][j]>P[best[0]][best[1]])best=[i,j];return best}
+const lam=(m,t)=>[Math.min(6,Math.max(.1,(t+m)/2)),Math.min(6,Math.max(.1,(t-m)/2))];
+
+/* ---------- the factors ---------- */
+const TEST=M.test;
+const FACTORS=[
+  {k:'r_gd',label:'Goals rating',max:200,def:100,tag:'held',note:'Each team’s goal difference adjusted for who they played, recent matches counting most (a match’s weight halves every '+Math.round(M.params.tau*Math.LN2)+' days, over the last three seasons). On its own, with home advantage, it picks '+pct1(TEST.results_only.win_pct)+'% of results right.'},
+  {k:'r_sot',label:'Shots on target',max:200,def:100,tag:'held',note:'The same rating built on shots on target for and against: shots say more about a team than the goals that happened to go in. With it the test rises to '+pct1(TEST.win_pct)+'%.'},
+  {k:'hfa',label:'Home advantage',max:200,def:100,tag:'held',note:'Worth about '+(C.hfa*M.hfa+C.const).toFixed(2)+' goals to the home team lately (it collapsed in the empty stadiums of 2020-21 and has come back since).'},
+  {k:'promo',label:'Promoted team',max:200,def:100,tag:'weak',note:'A team in its first season back in the Premier League did about '+Math.abs(C.promo).toFixed(2)+' goals a match worse than its rating said.'},
+  {k:'cong',label:'Fixture congestion',max:200,def:100,tag:'weak',note:'A team playing its second league match in three days did about '+Math.abs(C.cong).toFixed(2)+' goals '+(C.cong>0?'better':'worse')+' than expected; the old odds-based site found the market missed this too. Small, and rare outside the Christmas fixtures.'},
+  {k:'news',label:'News',max:100,def:100,tag:'none',tagText:'Can’t be tested',note:'Researched items the stats can’t see: injuries and suspensions (no injury list is published for this league the way ESPN’s are for the NFL and NBA), a manager sacked, a European match three days earlier. Counted as written, at most '+M.news_cap+' goals a team.'}
+];
+const TAGS={held:['✓','Held up in testing'],weak:['~','Small'],none:['–','No signal']};
+const DEFW=()=>Object.fromEntries(FACTORS.map(f=>[f.k,f.def]));
+const S={tab:'games',W:Object.assign(DEFW(),store.get('w',{})),open:new Set(store.get('open',[])),day:'ALL'};
+FACTORS.forEach(f=>{if(!(S.W[f.k]>=0&&S.W[f.k]<=f.max))S.W[f.k]=f.def});
+const changed=()=>FACTORS.some(f=>S.W[f.k]!==f.def);
+
+function calc(g){
+  const x=g.x,w=k=>S.W[k]/100;
+  /* the intercept of the fit is folded into home advantage: both are "what the home side gets for being at home" */
+  const full={r_gd:C.r_gd*x.r_gd,r_sot:C.r_sot*x.r_sot,hfa:C.hfa*x.hfa+C.const,promo:C.promo*x.promo,cong:C.cong*x.cong,news:x.news||0};
+  const c={};let m=0;FACTORS.forEach(f=>{c[f.k]=w(f.k)*full[f.k];m+=c[f.k]});
+  const t=g.t,[lh,la]=lam(m,t),P=dcMatrix(lh,la,M.rho),o=outcomes(P),mode=modeScore(P);
+  const side=o.h>=Math.max(o.d,o.a)?'home':o.d>=o.a?'draw':'away';
+  const p=side==='home'?o.h:side==='draw'?o.d:o.a,team=side==='home'?g.home:side==='away'?g.away:'Draw';
+  return{c,full,m,t,lh,la,o,P,mode,side,p,team,other:side==='home'?g.away:g.home};
+}
+const confWord=p=>p<.4?'a toss-up':p<.5?'a lean':p<.6?'a solid favorite':p<.72?'a strong favorite':'a heavy favorite';
+const byT=(g,m)=>Math.abs(m)<.05?'dead even':`${m>0?T[g.home]?T[g.home].abbr:g.home:T[g.away]?T[g.away].abbr:g.away} by ${Math.abs(m).toFixed(2)}`;
+const ab=t=>(T[t]&&T[t].abbr)||t;
+const formHTML=s=>s?`<span class="form">${String(s).split('').map(c=>`<span class="${c}">${c}</span>`).join('')}</span>`:'–';
+
+/* ---------- matches ---------- */
+function whyText(g,r){
+  const tm=r.side==='draw'?null:r.team,op=r.side==='draw'?null:r.other,sign=r.side==='away'?-1:1;
+  const ph={
+    r_gd:v=>`${v>0?g.home:g.away} have the better results (${Math.abs(v).toFixed(2)} goals)`,
+    r_sot:v=>`${v>0?g.home:g.away} create and allow the better shots (${Math.abs(v).toFixed(2)})`,
+    hfa:v=>`home advantage (${Math.abs(v).toFixed(2)})`,
+    promo:v=>`${v>0?g.away:g.home} are newly promoted (${Math.abs(v).toFixed(2)})`,
+    cong:v=>`${v>0?g.home:g.away} are on their second match in three days (${Math.abs(v).toFixed(2)})`,
+    news:v=>`the news favors ${v>0?g.home:g.away} (${Math.abs(v).toFixed(2)})`};
+  const parts=FACTORS.map(f=>({k:f.k,v:r.c[f.k]})).filter(p=>Math.abs(p.v)>=.08).sort((a,b)=>Math.abs(b.v)-Math.abs(a.v));
+  const list=a=>a.length>1?a.slice(0,-1).join(', ')+' and '+a[a.length-1]:a[0];
+  let s;
+  if(r.side==='draw')s=`A draw is the single most likely result (${pc(r.o.d)}): the two sides come out within ${Math.abs(r.m).toFixed(2)} goals and the match projects low-scoring (${f1(r.t)} goals).`;
+  else s=`${tm} ${pc(r.p)}, a draw ${pc(r.o.d)}, ${op} ${pc(r.side==='home'?r.o.a:r.o.h)}: ${byT(g,r.m)} goals on paper.`;
+  const pro=parts.filter(p=>sign*p.v>0).slice(0,3).map(p=>ph[p.k](p.v)),con=parts.filter(p=>sign*p.v<0).slice(0,2).map(p=>ph[p.k](p.v));
+  if(r.side!=='draw'){if(pro.length)s+=` For ${tm}: ${list(pro)}.`;if(con.length)s+=` For ${op}: ${list(con)}.`}
+  else{const all=parts.slice(0,3).map(p=>ph[p.k](p.v));if(all.length)s+=` What there is: ${list(all)}.`}
+  return s;
+}
+function tug(g,r){
+  const rows=FACTORS.map(f=>({f,v:r.c[f.k],full:r.full[f.k]})).filter(o=>Math.abs(o.full)>=.01||S.W[o.f.k]!==o.f.def);
+  const mx=Math.max(.6,Math.abs(r.m),...rows.map(o=>Math.abs(o.v)));
+  const bar=v=>Math.abs(v)<.005?'':`<i class="${v>0?'h':'a'}" style="${v>0?'left':'right'}:50%;width:${(Math.abs(v)/mx*50).toFixed(1)}%"></i>`;
+  const val=v=>Math.abs(v)<.005?'0':`${v>0?ab(g.home):ab(g.away)} +${Math.abs(v).toFixed(2)}`;
+  return `<div class="tug" role="img" aria-label="What goes into the pick, in goals toward each team">
+    <div class="tax" aria-hidden="true"><span><b class="sw a"></b>◀ ${esc(g.away)}</span><span>${esc(g.home)} ▶<b class="sw h"></b></span></div>
+    ${rows.map(o=>{const off=S.W[o.f.k]===0;return `<div class="trow${off?' off':''}" data-tip="${esc(o.f.label+': '+(off?`not counted (it would be ${val(o.full)} at full weight)`:val(o.v)+(S.W[o.f.k]!==100?` at ${S.W[o.f.k]}% weight`:'')))}"><span class="tl">${esc(o.f.label)}</span><span class="tb">${bar(o.v)}</span><span class="tv num">${esc(val(o.v))}</span></div>`}).join('')}
+    <div class="trow sum"><span class="tl">Projected margin</span><span class="tb">${bar(r.m)}</span><span class="tv num">${esc(byT(g,r.m))}</span></div></div>`;
+}
+function scoreGrid(g,r){
+  const P=r.P,cells=[];let shown=0;
+  const top=[];for(let i=0;i<=5;i++)for(let j=0;j<=5;j++)top.push([i,j,P[i][j]]);
+  top.sort((a,b)=>b[2]-a[2]);
+  const best=new Set(top.slice(0,3).map(x=>x[0]+'-'+x[1]));
+  for(const [i,j,p] of top.slice(0,6)){cells.push(`<span class="${best.has(i+'-'+j)?'hi':''}" data-tip="${esc(g.home)} ${i}, ${esc(g.away)} ${j}">${i}–${j} <small>${pc(p)}</small></span>`)}
+  return `<div class="scoregrid" role="img" aria-label="The likeliest scorelines">${cells.join('')}</div>`;
+}
+function newsBlock(g){
+  const d=D.news['epl_'+g.id];if(!d)return `<div class="sec wide"><h3>News</h3><p class="muted">No news research for this match yet. It is researched in the days before kickoff.</p></div>`;
+  const items=(d.items||[]).slice(0,30).map(it=>{const u=safeUrl(it.src),counted=M.news_types.includes(it.type)&&Math.abs(it.impact||0)>=.005;
+    return `<li><span class="nt">${esc(it.type||'')}</span> ${esc(String(it.text||'').slice(0,260))}${counted?` <b class="num">${esc(it.team)} ${sg(it.impact)}</b>`:''}${u?` <a href="${esc(u)}" target="_blank" rel="noopener">source</a>`:''}</li>`}).join('');
+  return `<div class="sec wide"><h3>News</h3><p>${esc(String(d.summary||'').slice(0,700))}</p><details><summary class="fine" style="cursor:pointer">All ${(d.items||[]).length} items, with sources</summary><ul class="news" style="margin-top:8px">${items}</ul></details></div>`;
+}
+function teamFacts(t){const x=T[t];if(!x)return'';const rec=x.p!=null?`${x.w}-${x.d}-${x.l}, ${x.pts} points${x.pos?', '+ord(x.pos)+' in the table':''}`:'no league matches yet this season';
+  return `${esc(rec)} · ${x.rank?ord(x.rank)+' in our ratings ('+sg(x.str)+' goals)':''}${x.att!=null?` · scores ${f2(x.att)}, allows ${f2(x.def)} a match against an average side`:''}${x.sot_for!=null?` · ${f1(x.sot_for)} shots on target a match for, ${f1(x.sot_against)} against`:''}`}
+function gameCard(g){
+  const r=calc(g),A=T[g.away]||{},H=T[g.home]||{},k='g-'+g.id;
+  const rest=i=>{const d=g.rest[i];return d==null?'first league match on record':d>21?'first league match in a while':d<=3?`${d} days since the last league match (congested)`:`${d} days since the last league match`};
+  const h2h=g.h2h.length?g.h2h.map(m=>`<span class="nw">${esc(monthYear(m[0]))}: ${esc(ab(m[1]))} ${m[3]}–${m[4]} ${esc(ab(m[2]))}</span>`).join(' · '):'No recent meetings';
+  const mode=r.mode;
+  return `<article class="card" id="${k}" data-g="${esc(g.id)}">
+    <div class="gh"><h2>${esc(g.home)} v ${esc(g.away)}</h2><span class="when">${esc(g.day)} ${esc(g.ct)} CT (${esc(g.uk)} UK)${g.venue?' · '+esc(g.venue):''}</span></div>
+    <div class="gtop"><div>
+      <div class="teamline"><span class="nm"><i class="sw h"></i><b>${esc(ab(g.home))}</b><span>${H.p!=null?esc(`${H.w}-${H.d}-${H.l}`)+' · ':''}${H.rank?ord(H.rank)+' in our ratings':''}</span></span><span class="sc num">${f1(r.lh)}</span></div>
+      <div class="teamline"><span class="nm"><i class="sw a"></i><b>${esc(ab(g.away))}</b><span>${A.p!=null?esc(`${A.w}-${A.d}-${A.l}`)+' · ':''}${A.rank?ord(A.rank)+' in our ratings':''}</span></span><span class="sc num">${f1(r.la)}</span></div>
+      <div class="pickbox"><span class="k">Our pick</span><b>${esc(r.team)} ${pc(r.p)}</b> <span class="conf">${confWord(r.p)}</span>
+        <div class="split3" style="margin-top:8px" role="img" aria-label="${esc(g.home)} ${pc(r.o.h)}, draw ${pc(r.o.d)}, ${esc(g.away)} ${pc(r.o.a)}"><i class="h" style="width:${(r.o.h*100).toFixed(1)}%"></i><i class="d" style="width:${(r.o.d*100).toFixed(1)}%"></i><i class="a" style="width:${(r.o.a*100).toFixed(1)}%"></i></div>
+        <div class="three"><div class="${r.side==='home'?'on':''}"><b>${pc(r.o.h)}</b><span>${esc(g.home)}</span></div><div class="${r.side==='draw'?'on':''}"><b>${pc(r.o.d)}</b><span>Draw</span></div><div class="${r.side==='away'?'on':''}"><b>${pc(r.o.a)}</b><span>${esc(g.away)}</span></div></div>
+        <div class="fine" style="margin-top:6px">Expected goals ${f1(r.lh)}–${f1(r.la)} · likeliest score ${mode[0]}–${mode[1]} (${pc(r.P[mode[0]][mode[1]])}) · ${f1(r.t)} goals in all</div></div>
+      <p class="why">${esc(whyText(g,r))}</p></div>
+      <div>${tug(g,r)}<p class="fine" style="margin-top:8px">Each bar is goals toward that team. They add up to the projected margin; the margin and the projected total give each side’s expected goals, and two Poisson distributions (with a correction for low scores) give the three chances.</p></div></div>
+    <details class="more" data-k="${k}"${S.open.has(k)?' open':''}><summary>Scorelines, the two sides, head to head and news</summary>
+      <div class="sections">
+        <div class="sec wide"><h3>Likeliest scorelines</h3>${scoreGrid(g,r)}<p class="fine" style="margin-top:6px">Home goals first. The six most likely results of the ${(MAXG+1)*(MAXG+1)} the model prices.</p></div>
+        <div class="sec"><h3>${esc(g.home)}</h3><p>${teamFacts(g.home)}</p><p class="fine">Form: ${formHTML(H.last5)} · home ${esc(H.home_rec||'–')} · ${rest(1)}.${H.promoted?' Promoted this season.':''}</p></div>
+        <div class="sec"><h3>${esc(g.away)}</h3><p>${teamFacts(g.away)}</p><p class="fine">Form: ${formHTML(A.last5)} · away ${esc(A.away_rec||'–')} · ${rest(0)}.${A.promoted?' Promoted this season.':''}</p></div>
+        <div class="sec wide"><h3>Head to head</h3><p>${h2h}</p><p class="fine">Records are wins-draws-losses. Form is the last five league matches, newest last; it is shown, not counted: in testing it added nothing once the ratings were in.</p></div>
+        ${newsBlock(g)}
+      </div></details></article>`;
+}
+function mixPanel(){
+  return `<details class="card mix" data-k="mix"${S.open.has('mix')?' open':''}><summary><b>What counts in a pick</b><span class="muted">${changed()?'Your mix. ':'Each factor counts for what it has been worth in '+M.fit_games.toLocaleString()+' Premier League matches since 2008. '}Move a slider to change it.</span>${changed()?'<button type="button" class="btn" id="resetw">Back to the tested weights</button>':''}</summary>
+    <div class="wgrid">${FACTORS.map(f=>{const [ic,lab]=TAGS[f.tag];return `<div class="w"><label for="w-${f.k}"><span>${esc(f.label)} <span class="tag t-${f.tag}"><i aria-hidden="true">${ic}</i>${esc(f.tagText||lab)}</span></span><output id="wo-${f.k}" class="num">${S.W[f.k]}%</output></label>
+      <input type="range" id="w-${f.k}" data-w="${f.k}" min="0" max="${f.max}" step="5" value="${S.W[f.k]}"><small>${esc(f.note)}</small></div>`}).join('')}</div></details>`;
+}
+function board(){
+  const days=D.dates;if(S.day!=='ALL'&&!days.includes(S.day))S.day='ALL';
+  const L=D.games.map(g=>({g,r:calc(g)})).filter(o=>S.day==='ALL'||o.g.date===S.day);
+  const groups=days.filter(d=>S.day==='ALL'||d===S.day).map(d=>({d,L:L.filter(o=>o.g.date===d)})).filter(x=>x.L.length);
+  const chips=`<div class="chips" role="group" aria-label="Day">${[['ALL','All']].concat(days.map(d=>[d,dayName(d).split(',')[0]])).map(([k,l])=>`<button type="button" data-day="${esc(k)}" aria-pressed="${S.day===k}">${esc(l)}</button>`).join('')}</div>`;
+  const rows=o=>{const {g,r}=o;return `<tr data-jump="g-${esc(g.id)}"><td class="l">${esc(g.home)} v ${esc(g.away)}<span class="sub">${esc(g.ct)} CT · ${esc(g.uk)} UK</span></td><td class="l pick"><b>${esc(r.team)}</b></td><td class="num">${pc(r.p)}</td>
+      <td class="xs"><div class="split3" role="img" aria-label="${esc(g.home)} ${pc(r.o.h)}, draw ${pc(r.o.d)}, ${esc(g.away)} ${pc(r.o.a)}"><i class="h" style="width:${(r.o.h*100).toFixed(1)}%"></i><i class="d" style="width:${(r.o.d*100).toFixed(1)}%"></i><i class="a" style="width:${(r.o.a*100).toFixed(1)}%"></i></div></td>
+      <td class="num xs">${pc(r.o.d)}</td><td class="num">${f1(r.lh)}–${f1(r.la)}</td></tr>`};
+  return `<div class="card board"><div class="gh"><h2>The picks</h2><span class="when">${D.games.length} matches · tap a row for the reasons</span></div>
+    ${days.length>1?`<div class="filters"><span class="fg"><span class="k">Day</span>${chips}</span></div>`:''}
+    <div class="scroll"><table><thead><tr><th class="l">Match <span class="xs">(home first)</span></th><th class="l">Pick</th><th>Chance</th><th class="xs"><span style="display:inline-flex;gap:8px"><span><b class="sw h"></b> home</span><span><b class="sw d"></b> draw</span><span><b class="sw a"></b> away</span></span></th><th class="xs">Draw</th><th>Expected <span class="xs">goals</span></th></tr></thead>
+    ${groups.map(x=>`<tbody><tr class="dayrow"><th colspan="6" scope="colgroup">${esc(dayName(x.d))}</th></tr>${x.L.map(rows).join('')}</tbody>`).join('')}</table></div></div>`;
+}
+/* the record: a row is season, date, away, home, pick, chance, margin, away goals, home goals, hit, kickoff */
+const REC=(D.record&&D.record.live)||[];
+const wl=rows=>{const f=rows.filter(r=>r[7]!=null),w=f.filter(r=>r[9]===1).length;return{w,l:f.length-w,f:f.length}};
+const wlText=x=>x.f?`${x.w} of ${x.f} right`:'no finals yet';
+const hitMark=r=>r[7]==null?'<span class="pill p-q">Pending</span>':r[9]===1?'<span class="pill p-ok"><i aria-hidden="true">✓</i>Right</span>':'<span class="pill p-out"><i aria-hidden="true">✕</i>Wrong</span>';
+const finalOf=r=>r[7]==null?'':`${esc(r[3])} ${r[8]}–${r[7]} ${esc(r[2])}`;
+const resTable=rows=>`<div class="scroll"><table class="res"><thead><tr><th class="l">Match</th><th class="l">Our pick</th><th>Chance</th><th class="xs">Final</th><th class="l">Result</th></tr></thead><tbody>${rows.map(r=>`<tr><td class="l">${esc(r[3])} v ${esc(r[2])}<span class="fin-s">${finalOf(r)||'no final yet'}</span></td><td class="l pick"><b>${esc(r[4])}</b></td><td class="num">${pc(r[5])}</td><td class="num xs">${finalOf(r)||'–'}</td><td class="l">${hitMark(r)}</td></tr>`).join('')}</tbody></table></div>`;
+function resultsCard(){
+  const R=REC.filter(r=>r[0]===D.season);
+  const latest=(D.results||[]);
+  if(!R.length&&!latest.length)return'';
+  let s='';
+  if(R.length){const days=[...new Set(R.map(r=>r[1]))].sort(),last=days[days.length-1],cur=R.filter(r=>r[1]===last),c=wl(cur),all=wl(R);
+    s+=`<div class="card"><div class="gh"><h2>How the picks did</h2><span class="when">${esc(dayName(last))}: ${wlText(c)}${all.f>c.f?` · this season: ${wlText(all)}`:''}</span></div>${resTable(cur)}
+      <p class="fine" style="margin-top:8px">Each pick is the one this page showed at its last refresh before kickoff. Finals come in at the next refresh. The full record is under How it works.</p></div>`}
+  if(latest.length){const days=[...new Set(latest.map(r=>r[0]))];
+    s+=`<div class="card"><div class="gh"><h2>Latest results</h2><span class="when">${days.map(d=>esc(dayName(d).split(',').slice(0,2).join(','))).join(' and ')}</span></div>
+      <div class="scroll"><table class="res"><tbody>${latest.map(r=>`<tr><td class="l">${esc(r[1])} <b class="num">${r[3]}–${r[4]}</b> ${esc(r[2])}</td><td class="num xs muted">${esc(shortDate(r[0]).replace(/,.*/,''))}</td></tr>`).join('')}</tbody></table></div></div>`}
+  return s;
+}
+function renderGames(){
+  const el=$('#games');
+  if(!D.games.length){el.innerHTML='<div class="card"><h2>No matches to project</h2><p class="muted">The next matches appear here once they are on the schedule.</p></div>'+resultsCard();return}
+  const L=D.games.filter(g=>S.day==='ALL'||g.date===S.day);
+  el.innerHTML=mixPanel()+board()+resultsCard()+`<div class="games">${L.map(gameCard).join('')}</div>`;
+}
+
+/* ---------- the table and the teams ---------- */
+function renderTeams(){
+  const tbl=(D.table||[]).map(t=>[t,T[t]]).filter(x=>x[1]);
+  const byR=Object.entries(T).filter(([,x])=>x.str!=null).sort((a,b)=>a[1].rank-b[1].rank);
+  const mx=Math.max(.5,...byR.map(([,x])=>Math.abs(x.str)));
+  const bar=v=>`<span class="rbar" aria-hidden="true"><i class="${v>=0?'p':'n'}" style="${v>=0?'left:50%':'right:50%'};width:${(Math.abs(v)/mx*50).toFixed(1)}%"></i></span>`;
+  $('#teams').innerHTML=`${tbl.length?`<div class="card"><div class="gh"><h2>The table</h2><span class="when">${esc(D.label)} Premier League, from the matches played</span></div>
+    <div class="scroll"><table class="ltab"><thead><tr><th class="l">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th class="xs">GF</th><th class="xs">GA</th><th>GD</th><th>Pts</th><th class="l xs">Form</th><th class="xs">Our rank</th></tr></thead><tbody>
+    ${tbl.map(([t,x])=>`<tr><td class="l"><b>${x.pos}. ${esc(t)}</b>${x.promoted?' <span class="pill p-q">Promoted</span>':''}</td><td class="num">${x.p}</td><td class="num">${x.w}</td><td class="num">${x.d}</td><td class="num">${x.l}</td><td class="num xs">${x.gf}</td><td class="num xs">${x.ga}</td><td class="num">${sg(x.gd,0)}</td><td class="num"><b>${x.pts}</b></td><td class="l xs">${formHTML(x.last5)}</td><td class="num xs">${x.rank?ord(x.rank):'–'}</td></tr>`).join('')}</tbody></table></div></div>`:''}
+    <div class="card"><div class="gh"><h2>Power rankings</h2><span class="when">goals better than an average Premier League side on a neutral ground</span></div>
+    <div class="scroll"><table class="teams ltab"><thead><tr><th class="l">Team</th><th>Rating</th><th class="xs"></th><th>Scores</th><th>Allows</th><th class="xs">SOT for</th><th class="xs">SOT against</th><th class="xs">Home</th><th class="xs">Away</th><th>Table</th></tr></thead><tbody>
+    ${byR.map(([t,x])=>`<tr><td class="l"><b>${x.rank}. ${esc(t)}</b> <span class="muted">${esc(x.abbr)}</span></td><td class="num">${sg(x.str)}</td><td class="xs">${bar(x.str)}</td><td class="num">${f2(x.att)}</td><td class="num">${f2(x.def)}</td><td class="num xs">${f1(x.satt)}</td><td class="num xs">${f1(x.sdef)}</td><td class="num xs">${esc(x.home_rec||'–')}</td><td class="num xs">${esc(x.away_rec||'–')}</td><td class="num">${x.pos?ord(x.pos):'–'}</td></tr>`).join('')}</tbody></table></div>
+    <p class="fine" style="margin-top:8px">Rating: the goals and shots-on-target ratings weighted as the model weights them, in goals a match against an average side on a neutral ground; recent matches count most, over about the last three seasons. Scores and allows: goals a match against an average side. SOT: shots on target a match the rating expects for and against. Home and away: this season’s records, wins-draws-losses.</p></div>`;
+}
+
+/* ---------- how it works ---------- */
+function calChart(){
+  const B=TEST.calibration;const W=innerWidth<620?340:560,H=200,pl=34,pr=10,pt=10,pb=30;
+  const x=v=>pl+(W-pl-pr)*(v-30)/70,y=v=>pt+(H-pt-pb)*(1-(v-30)/70);
+  const dots=B.map(b=>`<circle cx="${x(b.said).toFixed(1)}" cy="${y(b.won).toFixed(1)}" r="${Math.max(3.5,Math.min(9,Math.sqrt(b.games)/5)).toFixed(1)}" fill="var(--seq-3)" stroke="var(--surface)" stroke-width="2" tabindex="0" data-tip="Said ${b.said}%, right ${b.won}% (${b.games.toLocaleString()} matches)"></circle>`).join('');
+  return `<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Chance given against how often the pick was right">
+    ${[30,40,50,60,70,80,90,100].map(v=>`<line class="grid" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"></line><text x="${pl-6}" y="${y(v)+4}" text-anchor="end">${v}%</text><text x="${x(v)}" y="${H-10}" text-anchor="middle">${v}%</text>`).join('')}
+    <line class="ref" x1="${x(30)}" y1="${y(30)}" x2="${x(100)}" y2="${y(100)}" stroke-dasharray="4 4"></line>${dots}</svg></div><p class="fine">Across: the chance the pick was given. Up: how often it was right. On the dashed line is exactly right. Soccer picks sit lower than the NFL’s or the NBA’s because a draw is always in play: a 45% pick is a good one here.</p>`;
+}
+function recordCard(){
+  const R=REC,all=wl(R),since=D.record&&D.record.since?new Date(D.record.since).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'America/Chicago'}):null;
+  if(D.record&&D.record.broken)return `<div class="card"><h2>Our record</h2><p class="muted">The record file can’t be read right now; it is left as it is until it is repaired.</p></div>`;
+  const miss=(()=>{const g=R.filter(r=>r[7]!=null);return g.length?g.reduce((s,r)=>s+Math.abs((r[8]-r[7])-r[6]),0)/g.length:null})();
+  return `<div class="card"><div class="gh"><h2>Our record</h2><span class="when">${since?'Picks on record since '+esc(since):'Starting with the first match'}</span></div>
+    <div class="prose"><p>The numbers above are a test on past seasons. This is the live record: each pick as this page showed it at its last refresh before kickoff, graded when the match ends. A saved pick can’t be changed once its match starts. A pick is the likeliest of the three results, so a draw can be the pick.</p></div>
+    ${all.f?`<div class="kv" style="margin-top:10px"><div><b>${wlText(all)}</b><span>results picked right (${pc(all.w/all.f)})</span></div><div><b>${f2(miss)}</b><span>average miss on the goal difference</span></div><div><b>${all.f}</b><span>matches graded. A season is 380, so a few weeks is a small sample</span></div></div>
+    <details style="margin-top:10px"><summary class="fine" style="cursor:pointer">Every pick, newest first</summary>${resTable(R.slice().reverse())}</details>`:`<p class="muted" style="margin-top:8px">No pick has been graded yet. The picks are saved before each kickoff; the record starts with the first final.</p>`}</div>`;
+}
+function renderMethod(){
+  const t=TEST,byS=t.by_season;
+  $('#method').innerHTML=`<div class="kpis"><div class="kpi"><b>${pct1(t.win_pct)}%</b><span>results picked right, ${seasonName(t.first)} to ${seasonName(t.last)} (${t.games.toLocaleString()} matches: home win, draw or away win)</span></div>
+    <div class="kpi"><b>${Number(t.mae).toFixed(2)}</b><span>goals, the average miss on the final goal difference</span></div>
+    <div class="kpi"><b>${pct1(t.results_only.win_pct)}%</b><span>with the goals rating and home advantage alone</span></div>
+    <div class="kpi"><b>${pct1(t.home_pct)}%</b><span>always picking the home team (${pct1(t.draw_pct)}% of matches were drawn)</span></div></div>
+    <div class="card prose"><h2>How a pick is made</h2>
+      <p>A match’s projected margin is a sum of factors, each in goals toward the home team. <b>Goals rating</b>: every team’s goal difference, adjusted for who they played, recent matches counting most (a match’s weight halves every ${Math.round(M.params.tau*Math.LN2)} days, over about three seasons). <b>Shots on target</b>: the same rating built on shots on target for and against, which say more about a team than the goals that went in. <b>Home advantage</b>, fitted year by year. <b>Promoted</b> teams and <b>fixture congestion</b> (the second league match in three days) as fitted. <b>News</b>, researched for each match, counted as written: injuries and suspensions count here, since no injury list is published for this league.</p>
+      <p>The projected total comes from each side’s attack and defence, in goals and in shots on target. Margin and total give each side’s expected goals, and two Poisson distributions, with Dixon and Coles’ correction for low scores (rho ${M.rho}), give the chances of a home win, a draw and an away win. The pick is the likeliest of the three; the draw is rarely likeliest, but it can be.</p>
+      <p>Each season of the test was picked with ratings from earlier matches only and weights fitted on the seasons before it. Tested and left out: recent form (worth nothing once the ratings are in), Elo ratings and all shots (within noise of the shots on target), and the Championship’s results for promoted teams (no better than a flat “promoted” factor).</p>
+      <p>Nothing here comes from a sportsbook. There are no lines, prices or odds anywhere in the numbers.</p></div>
+    <div class="two"><div class="card"><div class="gh"><h2>By season</h2></div><div class="scroll"><table><thead><tr><th class="l">Season</th><th>Matches</th><th>Right</th><th>Average miss</th></tr></thead><tbody>${byS.map(b=>`<tr><td class="l">${seasonName(b.season)}</td><td class="num">${b.games.toLocaleString()}</td><td class="num">${pct1(b.win_pct)}%</td><td class="num">${Number(b.mae).toFixed(2)}</td></tr>`).join('')}</tbody></table></div></div>
+      <div class="card"><div class="gh"><h2>Were the chances right?</h2></div>${calChart()}${t.draw_calibration&&t.draw_calibration.length?`<p class="fine" style="margin-top:6px">Draws: ${t.draw_calibration.map(b=>`said ${b.said}%, drew ${b.drew}%`).join('; ')}.</p>`:''}</div></div>
+    ${recordCard()}
+    <div class="card prose"><h2>Sources</h2><p>Results, shots and shots on target: football-data.co.uk’s match files (mirrored on GitHub), with ESPN’s scoreboard for this season’s latest matches and kickoff times. Fixtures: openfootball. News: researched for each match from club sites and news outlets, never from a sportsbook.</p></div>`;
+}
+
+/* ---------- page ---------- */
+function renderHead(){
+  const age=D.live.espn_at?(Date.parse(D.built)-Date.parse(D.live.espn_at))/36e5:null;
+  const src=D.live.src==='espn'?`<span class="badge"><i${age>12?' style="background:var(--warn)"':''}></i>Scoreboard ${esc(new Date(D.live.espn_at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'<span class="badge"><i style="background:var(--warn)"></i>Fixture list only: no scoreboard in this build</span>';
+  $('#fresh').innerHTML=`<span class="badge"><i></i>Built ${esc(D.asof)}</span>`+src+(D.news_meta&&D.news_meta.at?`<span class="badge"><i></i>News ${esc(new Date(D.news_meta.at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'');
+  $('#wk').textContent=D.label+' season';
+  $('#foot').innerHTML=`Matchup Edge Premier League, ${esc(D.label)}. Stats-only picks for information and entertainment. Built ${esc(D.made)}.`;
+}
+function render(){renderHead();renderGames();renderTeams();renderMethod()}
+function show(tab){S.tab=tab;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));document.querySelectorAll('section.tab').forEach(s=>s.hidden=s.id!==tab)}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-tab]');if(t){show(t.dataset.tab);return}
+  const d=e.target.closest('[data-day]');if(d){S.day=d.dataset.day;renderGames();return}
+  const j=e.target.closest('[data-jump]');if(j){const el=document.getElementById(j.dataset.jump);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return}
+  if(e.target.id==='resetw'){S.W=DEFW();store.set('w',S.W);renderGames();return}
+});
+document.addEventListener('input',e=>{
+  const w=e.target.dataset&&e.target.dataset.w;if(w){S.W[w]=+e.target.value;store.set('w',S.W);const o=document.getElementById('wo-'+w);if(o)o.textContent=S.W[w]+'%';
+    const open=document.activeElement&&document.activeElement.id;renderGames();const el=document.getElementById(open);if(el)el.focus();return}
+});
+document.addEventListener('toggle',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){e.target.open?S.open.add(k):S.open.delete(k);store.set('open',[...S.open])}},true);
+const tip=$('#tip');
+document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-tip]');if(!t){tip.hidden=true;return}tip.textContent=t.dataset.tip;tip.hidden=false});
+document.addEventListener('mousemove',e=>{if(!tip.hidden){tip.style.left=Math.min(innerWidth-270,e.clientX+12)+'px';tip.style.top=(e.clientY+14)+'px'}});
+render();
+window.MatchupEdge={data:D,calc,dcMatrix,outcomes};
+})();
+</script>

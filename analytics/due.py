@@ -10,8 +10,8 @@ tick.yml whenever GitHub does start those. This script decides, in Central time 
 
     skip      outside the refresh hours (6 AM through the 10 PM hour), or the site was refreshed too recently.
               Nothing is downloaded and nothing is published; the run ends in a few seconds.
-    refresh   due 50 minutes after the last refresh, or 25 minutes after it in the three hours before an NFL kickoff
-              or an NBA tip-off (NFL inactive lists come out 90 minutes before a game, and NBA injury reports change
+    refresh   due 50 minutes after the last refresh, or 25 minutes after it in the three hours before an NFL kickoff,
+              an NBA tip-off or a Premier League kickoff (NFL inactive lists come out 90 minutes before a game, and NBA injury reports change
               through the afternoon: the last refresh before the start has them);
               or at once when the news file or the site's code differs from what the last refresh was built from.
 
@@ -53,7 +53,7 @@ def inputs(rev="HEAD", root=ROOT):
     keep = []
     for line in r.stdout.splitlines():
         meta, _, path = line.partition("\t")
-        if path in ("analytics/model.json", "analytics/nba_model.json") or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
+        if path in ("analytics/model.json", "analytics/nba_model.json", "analytics/epl_model.json") or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
             continue
         keep.append(f"{meta.split()[-1]} {path}")
     return hashlib.sha1("\n".join(sorted(keep)).encode()).hexdigest()[:12]
@@ -95,7 +95,7 @@ def decide(now, event="schedule", want="tick", built_at=None, kickoffs=None, cha
 
 
 def read_state(path):
-    """(when the site was last built, the starts of the games on it: NFL kickoffs and NBA tip-offs) from a published
+    """(when the site was last built, the starts of the games on it: NFL kickoffs, NBA tip-offs and Premier League kickoffs) from a published
     state.json, old or new. published_inputs() reads the fingerprint of what it was built from."""
     state = {}
     if path and os.path.exists(path):
@@ -111,6 +111,8 @@ def read_state(path):
     kos = [t for t in map(parse, kos) if t] if isinstance(kos, list) else None
     nba = state.get("nba") if isinstance(state.get("nba"), dict) else {}
     tips = [t for t in map(parse, nba.get("tips")) if t] if isinstance(nba.get("tips"), list) else []
+    epl = state.get("epl") if isinstance(state.get("epl"), dict) else {}
+    tips += [t for t in map(parse, epl.get("kickoffs")) if t] if isinstance(epl.get("kickoffs"), list) else []
     if tips:
         kos = (kos or []) + tips
     return built, kos
