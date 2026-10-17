@@ -1,0 +1,13 @@
+{"note":"Matchup Edge: the pick the site showed for each Premier League match at its last refresh before kickoff. pick: the home team, the away team or Draw. m: projected margin in goals, positive toward the home team. t: projected total goals. p: the chance given to the pick; ph, pd, pa: the three chances. date: the match date (UK). at: when the pick was last changed. res: final score and whether the pick won.",
+"games":{
+"401878771":{"at":"2026-10-17T10:10:55Z","away":"Chelsea","date":"2026-10-17","home":"Everton","ko":"2026-10-17T11:30:00Z","m":0.08,"p":0.382,"pa":0.346,"pd":0.272,"ph":0.382,"pick":"Everton","season":2026,"t":2.79},
+"401878770":{"at":"2026-10-17T10:10:55Z","away":"Hull City","date":"2026-10-17","home":"Fulham","ko":"2026-10-17T14:00:00Z","m":0.23,"p":0.415,"pa":0.306,"pd":0.279,"ph":0.415,"pick":"Fulham","season":2026,"t":2.64},
+"401879259":{"at":"2026-10-17T10:10:55Z","away":"Ipswich","date":"2026-10-17","home":"Man City","ko":"2026-10-17T14:00:00Z","m":1.94,"p":0.793,"pa":0.058,"pd":0.15,"ph":0.793,"pick":"Man City","season":2026,"t":3.06},
+"401879262":{"at":"2026-10-17T10:10:55Z","away":"Liverpool","date":"2026-10-17","home":"Brentford","ko":"2026-10-17T14:00:00Z","m":-0.03,"p":0.374,"pa":0.374,"pd":0.266,"ph":0.36,"pick":"Liverpool","season":2026,"t":2.91},
+"401879258":{"at":"2026-10-17T10:10:55Z","away":"Aston Villa","date":"2026-10-17","home":"Newcastle","ko":"2026-10-17T16:30:00Z","m":0.27,"p":0.428,"pa":0.308,"pd":0.263,"ph":0.428,"pick":"Newcastle","season":2026,"t":2.9},
+"401879260":{"at":"2026-10-17T10:10:55Z","away":"Man United","date":"2026-10-18","home":"Leeds","ko":"2026-10-18T13:00:00Z","m":-0.02,"p":0.369,"pa":0.369,"pd":0.271,"ph":0.359,"pick":"Man United","season":2026,"t":2.81},
+"401879261":{"at":"2026-10-17T10:10:55Z","away":"Crystal Palace","date":"2026-10-18","home":"Brighton","ko":"2026-10-18T13:00:00Z","m":0.87,"p":0.57,"pa":0.185,"pd":0.245,"ph":0.57,"pick":"Brighton","season":2026,"t":2.77},
+"401879263":{"at":"2026-10-17T10:10:55Z","away":"Sunderland","date":"2026-10-18","home":"Bournemouth","ko":"2026-10-18T13:00:00Z","m":0.58,"p":0.5,"pa":0.233,"pd":0.267,"ph":0.5,"pick":"Bournemouth","season":2026,"t":2.65},
+"401878769":{"at":"2026-10-17T10:10:55Z","away":"Arsenal","date":"2026-10-18","home":"Nottm Forest","ko":"2026-10-18T15:30:00Z","m":-0.62,"p":0.508,"pa":0.508,"pd":0.267,"ph":0.225,"pick":"Arsenal","season":2026,"t":2.62},
+"401879257":{"at":"2026-10-17T10:10:55Z","away":"Coventry","date":"2026-10-19","home":"Tottenham","ko":"2026-10-19T19:00:00Z","m":0.43,"p":0.464,"pa":0.265,"pd":0.271,"ph":0.464,"pick":"Tottenham","season":2026,"t":2.69}
+}}
