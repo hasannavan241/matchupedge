@@ -68,31 +68,40 @@
    "summary": "Champions Arsenal come off a 3-0 Champions League win over Lille without William Saliba and Piero Hincapie, with Martin Zubimendi a late call. Forest, 15th under Oliver Glasner after a 3-1 loss at Palace, had no midweek game; Morgan Gibbs-White has a minor muscle injury, and Savona and Igor Jesus are out."
   },
   "epl_401879257": {
-   "at": "2026-10-17T16:12:31Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "Tottenham v Coventry",
    "items": [
     {
-     "at": "2026-10-15T12:00:00Z",
+     "at": "2026-10-16T12:00:00Z",
      "impact": -0.08,
-     "src": "https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html",
+     "src": "https://premierleague.com/en/news/4737644/predicted-line-ups-for-matchweek-7",
      "team": "Tottenham",
      "text": "Rodrigo Bentancur suspended after a red card at Old Trafford.",
      "total": 0,
      "type": "suspension"
     },
     {
-     "at": "2026-10-15T12:00:00Z",
-     "impact": 0.12,
-     "src": "https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html",
+     "at": "2026-10-18T12:00:00Z",
+     "impact": -0.15,
+     "src": "https://www.tottenhamhotspur.com/news/1178784/spurs-vs-coventry-every-word-of-roberto-de-zerbis-pre-match-press-conference",
      "team": "Tottenham",
-     "text": "James Maddison, back from a fractured shoulder, could start; Kulusevski in contention; Porro hoped to start.",
+     "text": "Pedro Porro (thigh) not fit, Savio (muscle) out for some weeks, Lucas Bergvall (knee) out about two weeks, per De Zerbi.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0.12,
+     "src": "https://www.tottenhamhotspur.com/news/1178784/spurs-vs-coventry-every-word-of-roberto-de-zerbis-pre-match-press-conference",
+     "team": "Tottenham",
+     "text": "James Maddison, back from a fractured shoulder, could make his first league start since April 2025; Kulusevski cleared for the bench.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-15T12:00:00Z",
+     "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html",
+     "src": "https://premierleague.com/en/news/4737644/predicted-line-ups-for-matchweek-7",
      "team": "Tottenham",
      "text": "Still looking for a first Premier League win of the season.",
      "total": 0,
@@ -103,7 +112,7 @@
      "impact": -0.04,
      "src": "https://www.aol.com/articles/lampard-coventrys-momentum-sakamoto-tottenham-144711000.html",
      "team": "Coventry",
-     "text": "Josh Eccles (ankle) and Luke Woolfenden out; Kaine Kesler-Hayden back in training and available.",
+     "text": "Josh Eccles (ankle) and Luke Woolfenden out; Kaine Kesler-Hayden back and available.",
      "total": 0,
      "type": "injury"
     }
@@ -111,15 +120,23 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Tottenham XI vs Coventry: Confirmed team news and injury latest",
-     "u": "https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html"
+     "t": "Spurs vs Coventry: every word of Roberto De Zerbi's pre-match press conference",
+     "u": "https://www.tottenhamhotspur.com/news/1178784/spurs-vs-coventry-every-word-of-roberto-de-zerbis-pre-match-press-conference"
+    },
+    {
+     "t": "Predicted line-ups for remaining Matchweek 7 fixtures",
+     "u": "https://premierleague.com/en/news/4737644/predicted-line-ups-for-matchweek-7"
     },
     {
      "t": "Lampard on Coventry's momentum, Sakamoto and Tottenham",
      "u": "https://www.aol.com/articles/lampard-coventrys-momentum-sakamoto-tottenham-144711000.html"
+    },
+    {
+     "t": "Coventry City travel to Tottenham with Lampard upbeat",
+     "u": "https://coventrycitynews.co.uk/news/coventry-city-tottenham-preview-lampard-team-news"
     }
    ],
-   "summary": "Roberto De Zerbi's Spurs are still without a league win and lose Rodrigo Bentancur to suspension, but James Maddison could start and Dejan Kulusevski is in contention after nearly 18 months out. Promoted Coventry arrive on two straight league wins, including 4-1 against Newcastle, with Kaine Kesler-Hayden back. Spurs had a Marbella camp instead of a midweek game."
+   "summary": "Roberto De Zerbi's Spurs are still without a league win and are short: Rodrigo Bentancur is suspended and Pedro Porro, Savio and Lucas Bergvall are injured. James Maddison could start and Dejan Kulusevski is on the bench after more than 500 days out. Promoted Coventry arrive on two straight league wins, with Kaine Kesler-Hayden back and Taiwo Awoniyi free after suspension."
   },
   "epl_401879258": {
    "at": "2026-10-17T16:12:31Z",
@@ -666,1549 +683,8 @@
    ],
    "summary": "Buffalo (3-1), off a 29-26 home loss to New England, is short-handed: D.J. Moore, Dee Alford and Landon Jackson are inactive, and Ed Oliver and Joshua Palmer were already ruled out, though Christian Benford returns. The Rams (2-2) are nearly whole: Aaron Donald and Colby Parkinson are back and Quentin Lake is active."
   },
-  "nfl_2026_05_CHI_GB": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "CHI @ GB",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.packers.com/news/packers-list-three-questionable-two-doubtful-vs-bears-week-5-injury-report",
-     "team": "CHI",
-     "text": "OL Joe Thuney, Darnell Wright and Jonah Jackson and RB D'Andre Swift practiced fully Friday, carry no game status and are expected to play.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chicagobears.com/news/injury-update-bears-rb-kyle-monangai-ruled-out-qb-caleb-williams-questionable-for-packers-game",
-     "team": "CHI",
-     "text": "RB Kyle Monangai (thumb/toe) is out and week-to-week, Ben Johnson said; LB Keyshaun Elliott (quad) is also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.packers.com/news/packers-list-three-questionable-two-doubtful-vs-bears-week-5-injury-report",
-     "team": "GB",
-     "text": "G Aaron Banks (knee/toe) and C/G Jacob Monk (quad) are doubtful; C/G Jager Burton and DTs Javon Hargrave and Anthony Campbell are questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
-     "team": "GB",
-     "text": "RB Josh Jacobs is on the commissioner's exempt list and unavailable.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
-     "team": "GB",
-     "text": "WR Jayden Reed (neck) is expected to need season-ending surgery.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.packers.com/news/packers-list-three-questionable-two-doubtful-vs-bears-week-5-injury-report",
-     "team": "GB",
-     "text": "WR Savion Williams (ankle) is out; he remains on injured reserve in his 21-day return window.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "CHI",
-     "text": "LB Noah Sewell was activated from the PUP list Saturday for his season debut; DB Kyler Gordon and DL Shemar Turner were not activated.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "CHI",
-     "text": "RB Zavier Scott was elevated from the practice squad with Kyle Monangai out.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "GB",
-     "text": "Backup RB Chris Brooks (ankle) went on injured reserve Saturday; Pierre Strong is set for his first game since 2024.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.shawlocal.com/bears/2026/10/11/chicago-bears-qb-caleb-williams-inactive-against-packers-in-week-5/",
-     "team": "CHI",
-     "text": "Tyson Bagent starts at QB: Caleb Williams (hamstring) is inactive for a third straight game and is not the emergency quarterback.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.shawlocal.com/bears/2026/10/11/chicago-bears-qb-caleb-williams-inactive-against-packers-in-week-5/",
-     "team": "CHI",
-     "text": "Also inactive: LT Ozzy Trapilo (not yet activated after a patellar tendon injury), RB Kyle Monangai, LB Keyshaun Elliott, DE Jamree Kromah.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.shawlocal.com/bears/2026/10/11/chicago-bears-qb-caleb-williams-inactive-against-packers-in-week-5/",
-     "team": "GB",
-     "text": "Inactive: G Aaron Banks, OL Jacob Monk, OL Donovan Jennings and DT Anthony Campbell, so the interior line is short-handed.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Bears' final Week 5 injury report: Caleb Williams finally practices & is questionable (Bear Goggles On)",
-     "u": "https://beargoggleson.com/bears-final-week-5-injury-report-caleb-williams-finally-practices-is-questionable"
-    },
-    {
-     "t": "Packers list three questionable, two doubtful vs. Bears (Packers.com)",
-     "u": "https://www.packers.com/news/packers-list-three-questionable-two-doubtful-vs-bears-week-5-injury-report"
-    },
-    {
-     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
-     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
-    },
-    {
-     "t": "Injury Update: Bears RB Kyle Monangai ruled out, QB Caleb Williams questionable for Packers game",
-     "u": "https://www.chicagobears.com/news/injury-update-bears-rb-kyle-monangai-ruled-out-qb-caleb-williams-questionable-for-packers-game"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "No Caleb Williams mystery: Packers to face Bears backup QB Tyson Bagent (Packers Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/no-caleb-williams-mystery-packers-171712232.html"
-    },
-    {
-     "t": "Chicago Bears QB Caleb Williams inactive against Packers in Week 5 (Shaw Local)",
-     "u": "https://www.shawlocal.com/bears/2026/10/11/chicago-bears-qb-caleb-williams-inactive-against-packers-in-week-5/"
-    }
-   ],
-   "summary": "Inactives are in. Caleb Williams (hamstring) sits for a third straight game and Tyson Bagent starts for Chicago, which also holds out left tackle Ozzy Trapilo and running back Kyle Monangai. Green Bay is missing guard Aaron Banks and lineman Jacob Monk up front, has Josh Jacobs unavailable and put backup Chris Brooks on injured reserve."
-  },
-  "nfl_2026_05_CIN_MIA": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "CIN @ MIA",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.bengals.com/news/bengals-dolphins-week-5-2026-injury-report",
-     "team": "CIN",
-     "text": "DT B.J. Hill (Achilles), who missed the last three games, carries no game status on the final report and is set to return.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.bengals.com/news/bengals-dolphins-week-5-2026-injury-report",
-     "team": "CIN",
-     "text": "S Kyle Dugger (quad) is out again; S Bryan Cook (ankle), WR Colbie Young (knee) and LB Swayze Bozeman (groin) are questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5",
-     "team": "CIN",
-     "text": "Bengals are 2-2 after back-to-back fourth-quarter losses; they ran for only 23 yards against Jacksonville.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5",
-     "team": "MIA",
-     "text": "RB De'Von Achane tore an ACL in Week 3 and is out for the season; Ollie Gordon II ran for 100 yards on nine carries against Minnesota.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5",
-     "team": "MIA",
-     "text": "Dolphins are 0-4 and 30th in total offense (267.5 yards a game); Malik Willis threw for 85 yards in a 15-10 loss to Minnesota.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "CIN",
-     "text": "S Russ Yeast was elevated from the practice squad with Kyle Dugger out and Bryan Cook questionable.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "MIA",
-     "text": "WR Caleb Douglas, TE Justin Joly, edge Rob Beal Jr. and CBs Reese Taylor and Storm Duck (knee, downgraded Saturday) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "MIA",
-     "text": "DL Kenneth Grant was activated off injured reserve Saturday and is eligible to play.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "MIA",
-     "text": "Miami cut QB Brady Cook and elevated RB Carlos Washington and edge Rodney McGraw; RB Jaylen Wright is questionable.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.fox19.com/2026/10/11/jamarr-chase-tee-higgins-active-week-5-game-against-dolphins/",
-     "team": "CIN",
-     "text": "WRs Ja'Marr Chase (concussion) and Tee Higgins (groin) are active after being listed as questionable; S Bryan Cook (ankle) is active too.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bengals-vs-dolphins-inactive-players-154211524.html",
-     "team": "MIA",
-     "text": "Inactive: WR Caleb Douglas, TE Justin Joly, edge Robert Beal Jr., CB Reese Taylor, G DJ Campbell, T Chukwuebuka Godrick and RB Kaytron Allen.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bengals-vs-dolphins-inactive-players-154211524.html",
-     "team": "MIA",
-     "text": "RB Jaylen Wright, listed as questionable, is not on the inactive list; newly claimed RB Kaytron Allen is held out.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "NFL Week 5 injury report: final game statuses (CBS Sports)",
-     "u": "https://cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out"
-    },
-    {
-     "t": "Week 5 Injury Report (Bengals.com)",
-     "u": "https://www.bengals.com/news/bengals-dolphins-week-5-2026-injury-report"
-    },
-    {
-     "t": "6 Things to Know About the Dolphins Heading Into Week 5 (Athlon Sports)",
-     "u": "https://athlonsports.com/nfl/cincinnati-bengals/6-things-about-dolphins-heading-week-5"
-    },
-    {
-     "t": "NFL news roundup: Friday, Oct. 9",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-9"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Ja'Marr Chase, Tee Higgins active for week 5 game against Dolphins (FOX19)",
-     "u": "https://www.fox19.com/2026/10/11/jamarr-chase-tee-higgins-active-week-5-game-against-dolphins/"
-    },
-    {
-     "t": "Bengals vs. Dolphins inactive players in Week 5 (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/bengals-vs-dolphins-inactive-players-154211524.html"
-    }
-   ],
-   "summary": "Inactives are in. Ja'Marr Chase (concussion) and Tee Higgins (groin) are both active for Cincinnati (2-2), as is safety Bryan Cook; safety Kyle Dugger is out. Miami is 0-4 under first-year coach Jeff Hafley, has lost De'Von Achane for the season and sits receiver Caleb Douglas, tight end Justin Joly and newly claimed back Kaytron Allen."
-  },
-  "nfl_2026_05_CLE_NYJ": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "CLE @ NYJ",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/browns-vs-jets-injury-report-222821121.html",
-     "team": "CLE",
-     "text": "DTs Mason Graham (knee/ankle), Mike Hall Jr. (ankle) and Kalia Davis (quad) are all out, leaving Cleveland without three interior linemen.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/browns-vs-jets-injury-report-222821121.html",
-     "team": "CLE",
-     "text": "G Teven Jenkins (back), WR Tylan Wallace (knee), TE Carsen Ryan (calf) and backup QB Dillon Gabriel (back) are also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-08T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-thursday-10-07-20268",
-     "team": "CLE",
-     "text": "C Elgton Jenkins (concussion) and S Grant Delpit practiced fully Thursday and are not among the seven Browns ruled out.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.amny.com/sports/jets-browns-prew5-10-7-26/",
-     "team": "CLE",
-     "text": "Browns have won three straight; Deshaun Watson threw for 268 yards in the 27-24 win over Pittsburgh.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/browns-vs-jets-injury-report-222821121.html",
-     "team": "NYJ",
-     "text": "RB Breece Hall (quad), WR Adonai Mitchell (finger), OL Dylan Parham (knee) and LB Kiko Mauigoa (quad) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/browns-vs-jets-injury-report-222821121.html",
-     "team": "NYJ",
-     "text": "TE Mason Taylor (thumb) practiced fully all week, is not on the final status list and is set to return after missing two games.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.amny.com/sports/jets-browns-prew5-10-7-26/",
-     "team": "NYJ",
-     "text": "Jets have lost three straight after a 1-0 start; Geno Smith went 8-of-15 for 119 yards in a 23-12 loss to Chicago.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "CLE",
-     "text": "DTs Sam Kamara and Chris Williams were elevated from the practice squad to cover the three missing interior linemen.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "NYJ",
-     "text": "WR Tim Patrick (groin) was activated off injured reserve Saturday; WR Jamaal Pritchett was cut and LB Jaden Keller elevated.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newyorkjets.com/news/jets-vs-browns-game-inactives-10-11-2026",
-     "team": "NYJ",
-     "text": "Edges Will McDonald IV (calf) and Kingsley Enagbare (knee), both questionable, are not on the inactive list; WR Tim Patrick makes his Jets debut.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newyorkjets.com/news/jets-vs-browns-game-inactives-10-11-2026",
-     "team": "NYJ",
-     "text": "Inactive: RB Breece Hall, WR Adonai Mitchell, OL Dylan Parham, LB Kiko Mauigoa, edge Nate Lynn and CB Nahshon Wright.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newyorkjets.com/news/jets-vs-browns-game-inactives-10-11-2026",
-     "team": "CLE",
-     "text": "Inactive: DTs Mason Graham and Mike Hall Jr., G Teven Jenkins, WR Tylan Wallace, TE Carsen Ryan and C Parker Brailsford.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Browns vs. Jets injury report: 11 ruled out, 3 questionable for Week 5 (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/browns-vs-jets-injury-report-222821121.html"
-    },
-    {
-     "t": "Jets vs. Browns Week 5 Injury Report - Thursday (NewYorkJets.com)",
-     "u": "https://www.newyorkjets.com/news/jets-injury-report-week-5-vs-browns-thursday-10-07-20268"
-    },
-    {
-     "t": "Jets still searching for identity in Week 5 meeting vs. Browns (amNewYork)",
-     "u": "https://www.amny.com/sports/jets-browns-prew5-10-7-26/"
-    },
-    {
-     "t": "NFL Week 5 injury report: final game statuses (CBS Sports)",
-     "u": "https://cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "New York Jets vs. Cleveland Browns Game Inactives - October 11, 2026 (NewYorkJets.com)",
-     "u": "https://www.newyorkjets.com/news/jets-vs-browns-game-inactives-10-11-2026"
-    }
-   ],
-   "summary": "Inactives are in. Cleveland, winner of three straight, sits defensive tackles Mason Graham and Mike Hall Jr., guard Teven Jenkins and receiver Tylan Wallace. The Jets, who have lost three in a row, are again without Breece Hall, Adonai Mitchell and Dylan Parham, but edges Will McDonald IV and Kingsley Enagbare are not on the inactive list and receiver Tim Patrick makes his Jets debut."
-  },
-  "nfl_2026_05_DEN_LAC": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "DEN @ LAC",
-   "items": [
-    {
-     "at": "2026-10-08T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.denverbroncos.com/news/we-ll-do-what-s-best-for-the-team-hc-sean-payton-to-reassume-play-calling-responsibilities-in-broncos-week-5-game-vs-chargers",
-     "team": "DEN",
-     "text": "Sean Payton is taking back offensive play-calling from coordinator Davis Webb; Denver ranks 27th in both scoring and total offense.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers",
-     "team": "DEN",
-     "text": "CBs Patrick Surtain II (ankle) and Riley Moss (ribs), both hurt in Week 4, are ruled out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers",
-     "team": "DEN",
-     "text": "WR Pat Bryant (ankle) was placed on injured reserve Friday; WR Lil'Jordan Humphrey was promoted to the active roster.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers",
-     "team": "DEN",
-     "text": "OLB Dondrea Tillman (hamstring), who missed Week 4, practiced fully and has no game status.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-08T12:00:00Z",
-     "impact": 0,
-     "src": "https://denversports.com/nfl/denver-broncos/broncos-surtain-moss-bryant",
-     "team": "DEN",
-     "text": "RB Jonah Coleman (ankle) is on short-term injured reserve.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newsweek.com/sports/nfl/broncos-hit-with-double-crucial-injury-losses-before-chargers-game-12531806",
-     "team": "DEN",
-     "text": "Broncos lost 24-14 to San Francisco in Week 4.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos",
-     "team": "LAC",
-     "text": "S Derwin James (hamstring), CB Donte Jackson (hamstring) and WR Quentin Johnston (chest) are out; WR Ladd McConkey (foot) is questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos",
-     "team": "LAC",
-     "text": "TE David Njoku (fibula) is on IR for an extended absence; TE Charlie Kolar (forearm) is questionable.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "DEN",
-     "text": "DBs Brent Austin and Sean Fresch Jr. were elevated from the practice squad with both starting cornerbacks out.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "LAC",
-     "text": "LT Rashawn Slater (ankle surgery) and OL Trevor Penning (concussion) are on IR; T Joe Alt (neck) and G Kayode Awosika are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "LAC",
-     "text": "OL Branson Taylor and FB/DL Scott Matlock were activated off IR and OL Daniel Brunskill elevated; WR Theo Wease Jr. was signed.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "LAC",
-     "text": "Backup QB Trey Lance was placed on injured reserve Saturday; Justin Herbert starts.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/mcconkey-foot-not-expected-to-play-vs-broncos",
-     "team": "LAC",
-     "text": "WR Ladd McConkey (foot), listed as questionable, is not expected to play, ESPN reported Sunday; WR Quentin Johnston is already out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "HC Sean Payton to reassume play-calling responsibilities in Broncos' Week 5 game vs. Chargers (DenverBroncos.com)",
-     "u": "https://www.denverbroncos.com/news/we-ll-do-what-s-best-for-the-team-hc-sean-payton-to-reassume-play-calling-responsibilities-in-broncos-week-5-game-vs-chargers"
-    },
-    {
-     "t": "Injury Report: CBs Pat Surtain II, Riley Moss ruled out for Broncos' Week 5 game vs. Chargers (DenverBroncos.com)",
-     "u": "https://www.denverbroncos.com/news/injuryreport/injury-report-cbs-pat-surtain-ii-riley-moss-ruled-out-for-broncos-week-5-game-vs-chargers"
-    },
-    {
-     "t": "Broncos without Surtain, Moss and Bryant for second-straight day (Denver Sports)",
-     "u": "https://denversports.com/nfl/denver-broncos/broncos-surtain-moss-bryant"
-    },
-    {
-     "t": "Broncos Hit With Double Crucial Injury Losses Before Chargers Game (Newsweek)",
-     "u": "https://www.newsweek.com/sports/nfl/broncos-hit-with-double-crucial-injury-losses-before-chargers-game-12531806"
-    },
-    {
-     "t": "Chargers-Broncos Injury Report Week 5 (Chargers.com)",
-     "u": "https://www.chargers.com/news/injury-report-mcconkey-johnston-alt-week-5-broncos"
-    },
-    {
-     "t": "Rashawn Slater Injury Update",
-     "u": "https://www.chargers.com/news/rashawn-slater-injury-update"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "McConkey (foot) not expected to play vs. Broncos (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/mcconkey-foot-not-expected-to-play-vs-broncos"
-    }
-   ],
-   "summary": "Both teams are badly short-handed. Denver ruled out its top two cornerbacks, Patrick Surtain II and Riley Moss, and put receiver Pat Bryant on injured reserve, while Sean Payton takes back the offensive play-calling. The winless Chargers have Rashawn Slater and Trevor Penning on injured reserve and Joe Alt and Derwin James out, and receiver Ladd McConkey (foot) is not expected to play."
-  },
-  "nfl_2026_05_DET_ARI": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "DET @ ARI",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.detroitlions.com/news/lions-at-cardinals-injury-report-oct-9-branch-mays-williams",
-     "team": "DET",
-     "text": "DB Brian Branch (Achilles) and C Cade Mays (wrist) are ruled out and will not return before the bye; CB Rock Ya-Sin and OL Ben Bartch are also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.detroitlions.com/news/lions-at-cardinals-injury-report-oct-9-branch-mays-williams",
-     "team": "DET",
-     "text": "DL Tyleik Williams (foot) is questionable after a full Friday practice; edge DJ Wonnum (back) has no game status.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
-     "team": "DET",
-     "text": "RB Isiah Pacheco (back) is on injured reserve; Jacob Saylors and Sione Vaki may split his work.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.azcardinals.com/news/paris-johnson-jr-out-for-season-as-offensive-line-shuffles-again",
-     "team": "ARI",
-     "text": "LT Paris Johnson Jr. tore his left biceps against the Giants and is out for the season; rookie seventh-rounder Jayden Williams will start.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.azcardinals.com/news/injury-report-week-5-vs-lions",
-     "team": "ARI",
-     "text": "RB Jeremiyah Love (ankle) practiced fully Friday and will play; DL Walter Nolen III (calf) is questionable but trending well, Mike LaFleur said.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-update-jeremiyah-love-injury-before-detroit-lions-game",
-     "team": "ARI",
-     "text": "Cardinals are 1-3 and have lost three straight since their opening win.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "ARI",
-     "text": "RG Isaiah Adams (ankle) went on IR Saturday and S Andrew Wingard (knee) is out; Jon Gaines II starts at right guard. CB Art Green was elevated.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "DET",
-     "text": "DB Jalen Mills was elevated from the practice squad with Brian Branch and Rock Ya-Sin out.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-trade-partner-marvin-harrison-jr-finally-revealed",
-     "team": "ARI",
-     "text": "WR Marvin Harrison Jr. will be inactive: Arizona is trading the 2024 No. 4 pick, with Houston the expected destination and the deal due next week.",
-     "total": 0,
-     "type": "loss"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Lions vs. Cardinals Week 5 injury report and game designations: Friday, Oct. 9 (DetroitLions.com)",
-     "u": "https://www.detroitlions.com/news/lions-at-cardinals-injury-report-oct-9-branch-mays-williams"
-    },
-    {
-     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
-     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
-    },
-    {
-     "t": "Paris Johnson Jr. Out For Season As Offensive Line Shuffles Again (AZCardinals.com)",
-     "u": "https://www.azcardinals.com/news/paris-johnson-jr-out-for-season-as-offensive-line-shuffles-again"
-    },
-    {
-     "t": "Injury Report: Week 5 vs Lions (AZCardinals.com)",
-     "u": "https://www.azcardinals.com/news/injury-report-week-5-vs-lions"
-    },
-    {
-     "t": "Cardinals Update Jeremiyah Love Injury Before Lions Game (SI)",
-     "u": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-update-jeremiyah-love-injury-before-detroit-lions-game"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "NFL Network: Cardinals finalizing trade of WR Marvin Harrison Jr. (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-network-cardinals-finalizing-trade-of-wr-marvin-harrison-jr"
-    },
-    {
-     "t": "Cardinals' Trade Partner for Marvin Harrison Jr. Finally Becoming Clear (SI Cardinals)",
-     "u": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-trade-partner-marvin-harrison-jr-finally-revealed"
-    }
-   ],
-   "summary": "Arizona (1-3) is trading receiver Marvin Harrison Jr., who will be inactive; Houston is the expected destination, with the deal due next week. The Cardinals have lost three straight, lost left tackle Paris Johnson Jr. for the season and put right guard Isaiah Adams on injured reserve. Detroit waits until after its bye for Brian Branch and center Cade Mays; Rock Ya-Sin and Ben Bartch are also out."
-  },
-  "nfl_2026_05_HOU_TEN": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "HOU @ TEN",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans",
-     "team": "HOU",
-     "text": "WR Tank Dell (knee) is out; he did not practice Friday and was not activated from injured reserve.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans",
-     "team": "HOU",
-     "text": "DE Will Anderson Jr. (ankle) and LB Azeez Al-Shaair (groin) carry no game status and are set to play.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-fantasy-football-lamar-jackson-saquon-barkley-jamarr-chase-120206335.html",
-     "team": "HOU",
-     "text": "Head coach DeMeco Ryans is taking over defensive play-calling from coordinator Matt Burke after the 0-4 start.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans",
-     "team": "TEN",
-     "text": "DT Jeffery Simmons (back), DL John Franklin-Myers (back) and RB Tony Pollard (foot) carry no game status.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-131447698.html",
-     "team": "",
-     "text": "Both teams are 0-4 and have lost close games late; the loser falls to 0-5.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "HOU",
-     "text": "T Braden Smith (foot) did not travel and is out; OL Aireontae Ersery, Ed Ingram and Blake Fisher (all illness) are questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "HOU",
-     "text": "DT Kayden McDonald and S M.J. Stewart were activated to the 53-man roster; LB Kenneth Murray and CB Bryce Hall were elevated.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "TEN",
-     "text": "S Amani Hooker (concussion) and CB Joshua Williams (pec, downgraded Saturday) are out; WR Carnell Tate is questionable but expected to play.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "TEN",
-     "text": "RB Kalel Mullings and DB Isaiah Oliver were elevated from the practice squad.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/texans-inactives-week-5-vs-tennessee-titans",
-     "team": "HOU",
-     "text": "OL Aireontae Ersery, Ed Ingram and Blake Fisher (all illness, questionable) are not on Houston's seven-man inactive list.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-trade-partner-marvin-harrison-jr-finally-revealed",
-     "team": "HOU",
-     "text": "Houston is the expected destination for Cardinals WR Marvin Harrison Jr.; the trade is not due to be done until next week, so he does not play.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-153440409.html",
-     "team": "TEN",
-     "text": "Inactive: S Amani Hooker (concussion), TE David Martin-Robinson (hamstring), CB Jaylon Jones and RBs Michael Carter and Nick Singleton.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-153440409.html",
-     "team": "TEN",
-     "text": "WR Carnell Tate, listed as questionable, is not on the inactive list.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Week 5 Injury Report: Texans at Titans (HoustonTexans.com)",
-     "u": "https://www.houstontexans.com/news/week-5-injury-report-texans-at-titans"
-    },
-    {
-     "t": "NFL news, live updates, Oct. 7 (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-fantasy-football-lamar-jackson-saquon-barkley-jamarr-chase-120206335.html"
-    },
-    {
-     "t": "NFL Week 5 injury report: final game statuses (CBS Sports)",
-     "u": "https://cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out"
-    },
-    {
-     "t": "Tennessee Titans vs. Houston Texans: 6 things to know about Week 5 (Titans Wire via Yahoo)",
-     "u": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-131447698.html"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Texans Inactives: Week 5 vs. Tennessee Titans (HoustonTexans.com)",
-     "u": "https://www.houstontexans.com/news/texans-inactives-week-5-vs-tennessee-titans"
-    },
-    {
-     "t": "Tennessee Titans vs. Houston Texans Week 5 inactives (Titans Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/tennessee-titans-vs-houston-texans-153440409.html"
-    },
-    {
-     "t": "Cardinals' Trade Partner for Marvin Harrison Jr. Finally Becoming Clear (SI Cardinals)",
-     "u": "https://www.si.com/nfl/cardinals/onsi/arizona-cardinals-trade-partner-marvin-harrison-jr-finally-revealed"
-    }
-   ],
-   "summary": "Both teams are 0-4, so one gets its first win. Houston coach DeMeco Ryans takes over the defensive play-calling, and the three linemen who were ill are not on the inactive list. The Texans are also the expected landing spot for Arizona receiver Marvin Harrison Jr., a trade not due to be completed until next week. Tennessee sits safety Amani Hooker; receiver Carnell Tate is available."
-  },
-  "nfl_2026_05_IND_PIT": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "IND @ PIT",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.steelers.com/news/week-5-injury-report-colts",
-     "team": "IND",
-     "text": "C Tanor Bortolini (ankle) and LB Akeem Davis-Gaither (knee) practiced fully Friday and carry no game status.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-fantasy-football-lamar-jackson-saquon-barkley-jamarr-chase-120206335.html",
-     "team": "IND",
-     "text": "Colts are reportedly adding DE Carl Lawson to the practice squad after injuries to Arden Key and Micheal Clemons.",
-     "total": 0,
-     "type": "add"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.archyde.com/colts-and-steelers-meet-in-week-5-with-identical-2-2-records/",
-     "team": "IND",
-     "text": "Colts beat Washington 30-13 in London in Week 4; Jonathan Taylor ran for 95 yards and two touchdowns.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.archyde.com/colts-and-steelers-meet-in-week-5-with-identical-2-2-records/",
-     "team": "PIT",
-     "text": "Steelers lost 27-24 to Cleveland in Week 4; Aaron Rodgers has 999 yards, 7 TD and 4 INT and has been sacked 13 times.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "IND",
-     "text": "DE Arden Key (hamstring) went on IR Saturday; WRs Ashton Dulin and Darius Slayton (knee, downgraded) and LB Jaylon Carlies are out; WR Alec Pierce is on IR.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "PIT",
-     "text": "WR Michael Pittman Jr. (foot) went on IR Saturday and misses at least four games; CB Jamel Dean (ankle) is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "PIT",
-     "text": "DB Doneiko Slaughter was signed to the active roster; RB Lew Nichols III and WR Brandon Smith were elevated.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/colts-vs-steelers-inactives-whos-153534697.html",
-     "team": "IND",
-     "text": "WR Keenan Allen (groin) is active; WRs Ashton Dulin and Darius Slayton and LB Jaylon Carlies are inactive. WR Nick Westbrook-Ikhine was elevated.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://steelersdepot.com/2026/10/steelers-vs-colts-inactives-for-week-5/",
-     "team": "PIT",
-     "text": "RB Rico Dowdle (toe) is inactive for a third straight game, along with CBs Jamel Dean (ankle) and Terell Smith.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://steelersdepot.com/2026/10/steelers-vs-colts-inactives-for-week-5/",
-     "team": "PIT",
-     "text": "CB Jalen Ramsey (broken wrist) and DL Yahya Black, both questionable, are not on the inactive list.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Week 5 Injury Report (Colts) (Steelers.com)",
-     "u": "https://www.steelers.com/news/week-5-injury-report-colts"
-    },
-    {
-     "t": "NFL news, live updates, Oct. 7 (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-fantasy-football-lamar-jackson-saquon-barkley-jamarr-chase-120206335.html"
-    },
-    {
-     "t": "Colts and Steelers meet in Week 5 with identical 2-2 records (Archyde)",
-     "u": "https://www.archyde.com/colts-and-steelers-meet-in-week-5-with-identical-2-2-records/"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Steelers Vs Colts: Inactives For Week 5 (Steelers Depot)",
-     "u": "https://steelersdepot.com/2026/10/steelers-vs-colts-inactives-for-week-5/"
-    },
-    {
-     "t": "Colts vs. Steelers inactives: Who's in, who's out for Week 5 game (Colts Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/colts-vs-steelers-inactives-whos-153534697.html"
-    }
-   ],
-   "summary": "Inactives are in for two 2-2 teams. Pittsburgh sits running back Rico Dowdle (toe) for a third straight game and cornerback Jamel Dean, with Michael Pittman Jr. on injured reserve; Jalen Ramsey is not on the inactive list. The Colts have Keenan Allen active but are without receivers Alec Pierce, Ashton Dulin and Darius Slayton and edge Arden Key."
-  },
-  "nfl_2026_05_LV_NE": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "LV @ NE",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
-     "team": "LV",
-     "text": "WRs Jalen Nailor (concussion) and Dont'e Thornton (hamstring) and G Trey Zuhn (knee) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
-     "team": "LV",
-     "text": "TE Brock Bowers (knee) and G/C Jackson Powers-Johnson (groin, missed Week 4) carry no game status and play.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://raiders.com/news/game-preview-las-vegas-raiders-at-new-england-patriots-nfl-week-5-101126",
-     "team": "LV",
-     "text": "Raiders are 3-1 and have scored at least 26 points in every game; their first loss came in Week 4 against Kansas City.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html",
-     "team": "NE",
-     "text": "WR A.J. Brown (high-ankle sprain) is on IR and cannot return before Week 6.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders",
-     "team": "NE",
-     "text": "QB Drake Maye (right shoulder) has no game status; he had 269 yards, 3 TD passes and 54 rushing yards in the Week 4 win at Buffalo.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "LV",
-     "text": "RB Roman Hemby and WR Deven Thompkins were elevated from the practice squad, cover for the questionable Ashton Jeanty and two absent receivers.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "NE",
-     "text": "CBs Christian Gonzalez, Carlton Davis, Karon Prunty and Channing Canada are out; WR Mack Hollins and FB Reggie Gilliam went on IR Saturday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "NE",
-     "text": "CB Kindle Vildor was signed and S Brenden Schooler activated off the non-football injury list; LB K.J. Britt and S Elliott Davison were elevated.",
-     "total": 0,
-     "type": "add"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/raiders-inactives-week-5-vs-154051485.html",
-     "team": "LV",
-     "text": "RB Ashton Jeanty (ankle/foot) is active after being listed as questionable and missing Friday's practice.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.patriots.com/news/inactives-analysis-patriots-rb-rhamondre-stevenson-dt-christian-barmore-active-for-sunday-s-game-vs-raiders",
-     "team": "NE",
-     "text": "All seven questionable Patriots are active: RB Rhamondre Stevenson, DT Christian Barmore, RT Morgan Moses, LBs Elliss and Jones, CB Woods, S Woodson.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.patriots.com/news/inactives-analysis-patriots-rb-rhamondre-stevenson-dt-christian-barmore-active-for-sunday-s-game-vs-raiders",
-     "team": "NE",
-     "text": "Inactive: CBs Christian Gonzalez (shoulder), Carlton Davis (neck), Channing Canada and Karon Prunty, plus OT Dametrious Crownover.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Week 5 Injury Report: Patriots vs. Raiders (Patriots.com)",
-     "u": "https://www.patriots.com/news/week-5-injury-report-patriots-vs-raiders"
-    },
-    {
-     "t": "Game Preview: Raiders at Patriots (Raiders.com)",
-     "u": "https://raiders.com/news/game-preview-las-vegas-raiders-at-new-england-patriots-nfl-week-5-101126"
-    },
-    {
-     "t": "2026 NFL Week 5 Injury Report (NBC Sports via Yahoo)",
-     "u": "https://sports.yahoo.com/articles/2026-nfl-week-5-injury-202606270.html"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Inactives Analysis: Patriots RB Rhamondre Stevenson, DT Christian Barmore active vs. Raiders (Patriots.com)",
-     "u": "https://www.patriots.com/news/inactives-analysis-patriots-rb-rhamondre-stevenson-dt-christian-barmore-active-for-sunday-s-game-vs-raiders"
-    },
-    {
-     "t": "Raiders inactives Week 5 vs Patriots: Ashton Jeanty will play (Raiders Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/raiders-inactives-week-5-vs-154051485.html"
-    }
-   ],
-   "summary": "Inactives are in. New England (2-2) plays without four cornerbacks, including Christian Gonzalez and Carlton Davis, but all seven questionable players are active, among them Rhamondre Stevenson, Christian Barmore and Morgan Moses. Las Vegas (3-1) has running back Ashton Jeanty active despite foot and ankle injuries; receivers Jalen Nailor and Dont'e Thornton are out."
-  },
-  "nfl_2026_05_MIN_NO": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "MIN @ NO",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vikings.com/news/saints-injury-report-week-5-2026-nfl-season",
-     "team": "MIN",
-     "text": "LT Christian Darrisaw (concussion) is out and RT Brian O'Neill (knee) is questionable; LG Donovan Jackson (torn meniscus) is on injured reserve.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vikings.com/news/saints-injury-report-week-5-2026-nfl-season",
-     "team": "NO",
-     "text": "QB Tyler Shough (left, non-throwing hand) carries no game status and starts.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vikings.com/news/saints-injury-report-week-5-2026-nfl-season",
-     "team": "NO",
-     "text": "RB Alvin Kamara (back) is questionable; LB Kaden Elliss (calf), edge Anfernee Jennings (knee) and G Jeremiah Wright (concussion) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vikings.com/news/saints-injury-report-week-5-2026-nfl-season",
-     "team": "NO",
-     "text": "WR Chris Olave returned to full practice Friday and has no game status; edge Carl Granderson (ankle) also carries none.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/",
-     "team": "NO",
-     "text": "Saints are 1-3 after losing to Atlanta on Monday night.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "MIN",
-     "text": "C Michael Jurgens and TE Ben Yurosek were activated off injured reserve Saturday; CB Chuck Demmings is out and RB Jordan Mason is on IR.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "NO",
-     "text": "LB Jaylan Ford and DB Lorenzo Styles Jr. were activated off injured reserve; WR Cedric Tillman and OT Easton Kilty were elevated.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/justin-jefferson-ankle-active-for-week-5",
-     "team": "MIN",
-     "text": "WR Justin Jefferson (ankle) is active and starts after missing two games.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sundayguardianlive.com/sports/minnesota-vikings-official-inactives-vs-saints-jordan-addison-and-odell-beckham-jr-ruled-out-as-justin-jefferson-starts-nfl-week-5-latest-update-303677/",
-     "team": "MIN",
-     "text": "Inactive: WR Jordan Addison (hamstring), WR Odell Beckham Jr., LT Christian Darrisaw, S Jakobe Thomas, CB Chuck Demmings, DL Elijah Williams.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/orleans-saints-inactive-players-week-153234628.html",
-     "team": "NO",
-     "text": "Inactive: DL Vernon Broughton and Nathan Shepherd (both illness) and S Mike Reid, along with LB Kaden Elliss, edge Anfernee Jennings, G Jeremiah Wright.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/orleans-saints-inactive-players-week-153234628.html",
-     "team": "NO",
-     "text": "RB Alvin Kamara (back), listed as questionable, is not on the inactive list.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Updated Vikings at Saints Injury Report for Week 5 (Vikings.com)",
-     "u": "https://www.vikings.com/news/saints-injury-report-week-5-2026-nfl-season"
-    },
-    {
-     "t": "Saints, Vikings both dealing with key injuries Wednesday ahead of Week 5 matchup (Crescent City Sports)",
-     "u": "https://crescentcitysports.com/saints-vikings-both-dealing-with-key-injuries-wednesday-ahead-of-week-5-matchup/"
-    },
-    {
-     "t": "Fowler: Vikings to test Jefferson (ankle) on Sat.",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-09/fowler-vikings-to-test-jefferson-ankle-on-sat"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Justin Jefferson (ankle) active for Week 5 (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/justin-jefferson-ankle-active-for-week-5"
-    },
-    {
-     "t": "Vikings Official Inactives vs Saints (Sunday Guardian)",
-     "u": "https://sundayguardianlive.com/sports/minnesota-vikings-official-inactives-vs-saints-jordan-addison-and-odell-beckham-jr-ruled-out-as-justin-jefferson-starts-nfl-week-5-latest-update-303677/"
-    },
-    {
-     "t": "New Orleans Saints inactive players for Week 5 vs. Minnesota Vikings (Saints Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/orleans-saints-inactive-players-week-153234628.html"
-    }
-   ],
-   "summary": "Inactives are in. Justin Jefferson (ankle) is active for unbeaten Minnesota (4-0) after missing two games, but Jordan Addison (hamstring) and Odell Beckham Jr. are inactive and left tackle Christian Darrisaw is out. New Orleans (1-3) starts Tyler Shough and sits linebacker Kaden Elliss, edge Anfernee Jennings and two defensive linemen who are ill."
-  },
-  "nfl_2026_05_NYG_WAS": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "NYG @ WAS",
-   "items": [
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders",
-     "team": "NYG",
-     "text": "QB Jaxson Dart (knee) needs surgery and is out for the regular season; Jameis Winston starts. J.J. McCarthy, acquired from Minnesota, may be the backup.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo",
-     "team": "NYG",
-     "text": "WR Malik Nabers (knee) and LT Andrew Thomas (groin) carry no game status and play; OLB Brian Burns is on injured reserve.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders",
-     "team": "NYG",
-     "text": "Giants are 3-1 after beating Arizona 36-24; CB Deonte Banks, back from a calf injury, was named NFC Defensive Player of the Week.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo",
-     "team": "WAS",
-     "text": "QB Jayden Daniels (left elbow) has no game status and starts after Marcus Mariota started the last two games.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out",
-     "team": "WAS",
-     "text": "WR Stefon Diggs (hamstring) is out; WR Terry McLaurin (hamstring) is questionable, and Dan Quinn said he looked really good Friday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo",
-     "team": "WAS",
-     "text": "DE Charles Omenihu and safeties Nick Cross, Percy Butler and Tyler Owens are out, as is backup QB Marcus Mariota (knee).",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo",
-     "team": "WAS",
-     "text": "G Sam Cosmi (concussion), LB Frankie Luvu (groin) and TE Chig Okonkwo (hamstring) carry no game status.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders",
-     "team": "WAS",
-     "text": "Commanders are 1-3 after a 30-13 loss to Indianapolis in London.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "NYG",
-     "text": "DL Chauncey Golston (neck) did not travel and S Jason Pinnock (concussion) is out; WR Dalen Cambre and LB Trace Ford were elevated.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "WAS",
-     "text": "DE Deatrich Wise was activated off the PUP list Saturday for his first game of the season, with Charles Omenihu out.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "WAS",
-     "text": "RB Jeremy McNichols (quad) and CB Trey Amos (ankle) were downgraded to out Saturday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "WAS",
-     "text": "LB Austin Keys was signed to the active roster; WR Van Jefferson and S Darren Hall were elevated from the practice squad.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/giants-commanders-week-5-inactives-154219936.html",
-     "team": "WAS",
-     "text": "WR Terry McLaurin (hamstring), listed as questionable, is active.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/giants-commanders-week-5-inactives-154219936.html",
-     "team": "NYG",
-     "text": "J.J. McCarthy is the No. 2 quarterback behind Jameis Winston; Jake Haener is the emergency third QB. RB Devin Singletary is inactive.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/giants-commanders-week-5-inactives-154219936.html",
-     "team": "WAS",
-     "text": "Inactive: WR Stefon Diggs, DE Charles Omenihu, safeties Nick Cross (illness), Percy Butler and Tyler Owens, QB Marcus Mariota, G Tanoa Togiai.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Week 5 Tracker: Latest news, notes & roster moves (Giants.com)",
-     "u": "https://www.giants.com/news/week-5-tracker-latest-news-notes-roster-moves-washington-commanders"
-    },
-    {
-     "t": "Giants vs. Commanders Week 5 Injury Report (Giants.com)",
-     "u": "https://www.giants.com/news/giants-vs-commanders-week-5-injury-report-malik-nabers-andrew-thomas-cam-skattebo"
-    },
-    {
-     "t": "NFL Week 5 injury report: final game statuses (CBS Sports)",
-     "u": "https://cbssports.com/nfl/news/nfl-week-5-injury-report-eagles-saquon-barkley-devonta-smith-out"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Giants-Commanders Week 5 inactives: J.J. McCarthy will be QB2 for New York (Giants Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/giants-commanders-week-5-inactives-154219936.html"
-    }
-   ],
-   "summary": "Inactives are in. Washington (1-3) gets Jayden Daniels back from a left elbow injury and has Terry McLaurin (hamstring) active, but Stefon Diggs, Charles Omenihu and three safeties are out; end Deatrich Wise was activated for his season debut. The Giants (3-1) start Jameis Winston with J.J. McCarthy as the backup and sit only safety Jason Pinnock among regulars."
-  },
-  "nfl_2026_05_SF_SEA": {
-   "at": "2026-10-11T16:07:32Z",
-   "game": "SF @ SEA",
-   "items": [
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-opens-sam-142333803.html",
-     "team": "SEA",
-     "text": "QB Sam Darnold is back as the starter, not Drew Lock: he played the full Week 4 win over the Chargers (13-of-22, 168 yds, 2 TD, 1 INT).",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.49erswebzone.com/articles/204022-49ers-seahawks-injury-report-questionable/",
-     "team": "SEA",
-     "text": "DT Leonard Williams (ankle) practiced fully Friday and has no game status.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.49erswebzone.com/articles/204022-49ers-seahawks-injury-report-questionable/",
-     "team": "SF",
-     "text": "DE Nick Bosa (knee, calf) is out for a third straight game; FB Kyle Juszczyk, S Marques Sigle and DT James Thompson are also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.49erswebzone.com/articles/204022-49ers-seahawks-injury-report-questionable/",
-     "team": "SF",
-     "text": "WR Mike Evans (ribs) is off the final report after a limited Friday practice and is set to play; CB Upton Stout (shoulder) is questionable.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "SF",
-     "text": "DE Mykel Williams (ACL rehab) was activated off PUP Saturday and taken off the injury report; he makes his season debut with Nick Bosa out.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "SF",
-     "text": "DL Ogbo Okoronkwo re-signed to the practice squad and was elevated with TE Jack Stoll; LB Matt Judon was cut.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "SEA",
-     "text": "RB Zach Charbonnet (knee, PUP), LB Chazz Surratt (calf) and WR Irvin Charles (knee, downgraded) are out; CB Julian Neal went on IR.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "SEA",
-     "text": "CB Trevon Diggs was signed to the active roster from the practice squad Saturday, taking the place of the injured Julian Neal.",
-     "total": 0,
-     "type": "add"
-    },
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-9",
-     "team": "SEA",
-     "text": "RB George Holani (ribs/knee) is questionable.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Seahawks' Mike Macdonald Opens up on Sam Darnold After Beating Chargers (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-opens-sam-142333803.html"
-    },
-    {
-     "t": "49ers vs. Seahawks final injury report: Stout, Williams questionable for Week 5 (49ers Webzone)",
-     "u": "https://www.49erswebzone.com/articles/204022-49ers-seahawks-injury-report-questionable/"
-    },
-    {
-     "t": "NFL news roundup: Friday, Oct. 9",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-9"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    }
-   ],
-   "summary": "San Francisco is without Nick Bosa for a third straight game, plus Kyle Juszczyk, Marques Sigle and James Thompson, but edge Mykel Williams was activated Saturday for his season debut and Mike Evans is set to play. Seattle starts Sam Darnold, not Drew Lock, has Leonard Williams cleared, put Julian Neal on injured reserve and promoted cornerback Trevon Diggs."
-  },
   "nfl_2026_06_ARI_LA": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "ARI @ LA",
    "items": [
     {
@@ -2223,18 +699,18 @@
     {
      "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nfl/cardinals/onsi/injury-report-arizona-cardinals-officially-rule-3-out-4-questionable-los-angeles-rams",
+     "src": "https://www.therams.com/news/rams-injury-report-week-6-2026-vs-cardinals-trent-mcduffie-and-kam-curl-questionable",
      "team": "ARI",
-     "text": "RB Jeremiyah Love (ankle), S Andrew Wingard and S Wydett Williams out; S Budda Baker and LB Zaven Collins questionable.",
+     "text": "Out: RB Jeremiyah Love (ankle), S Andrew Wingard, S Wydett Williams Jr.; S Budda Baker questionable.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-15T12:00:00Z",
+     "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.ajc.com/news/2026/10/rams-lineman-alaric-jackson-has-suspension-reduced-to-1-game-for-punching-bills-chubb/",
+     "src": "https://www.therams.com/news/rams-injury-report-week-6-2026-vs-cardinals-trent-mcduffie-and-kam-curl-questionable",
      "team": "LA",
-     "text": "LT Alaric Jackson suspended one game (cut from two on appeal); CB Trent McDuffie and S Kamren Curl questionable.",
+     "text": "LT Alaric Jackson suspended one game; CB Trent McDuffie (groin) and S Kamren Curl (ankle) questionable after missing Friday practice.",
      "total": 0,
      "type": "injury"
     }
@@ -2242,30 +718,30 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Mike LaFleur on possible QB change: Jacoby Brissett was not the problem",
+     "t": "Rams injury report: McDuffie and Curl questionable",
+     "u": "https://www.therams.com/news/rams-injury-report-week-6-2026-vs-cardinals-trent-mcduffie-and-kam-curl-questionable"
+    },
+    {
+     "t": "Mike LaFleur on possible QB change",
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/mike-lafleur-on-possible-qb-change-after-latest-loss-jacoby-brissett-was-not-the-problem"
     },
     {
-     "t": "Cardinals officially rule 3 out, 4 questionable vs. Rams",
-     "u": "https://www.si.com/nfl/cardinals/onsi/injury-report-arizona-cardinals-officially-rule-3-out-4-questionable-los-angeles-rams"
-    },
-    {
-     "t": "Rams lineman Alaric Jackson has suspension reduced to 1 game",
-     "u": "https://www.ajc.com/news/2026/10/rams-lineman-alaric-jackson-has-suspension-reduced-to-1-game-for-punching-bills-chubb/"
+     "t": "Minor NFL transactions 10/17/26",
+     "u": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26"
     }
    ],
-   "summary": "Mike LaFleur faces the Rams, his former team, with Arizona at 1-4 and on a four-game skid; he keeps Jacoby Brissett at quarterback. The Cardinals are without RB Jeremiyah Love and recently traded Marvin Harrison Jr. The Rams lose LT Alaric Jackson to a one-game suspension, and CB Trent McDuffie and S Kamren Curl are questionable."
+   "summary": "Mike LaFleur faces the Rams, his former team, with Arizona at 1-4 and on a four-game skid; he keeps Jacoby Brissett at quarterback. The Cardinals are without RB Jeremiyah Love and two safeties. The Rams lose LT Alaric Jackson to a one-game suspension, and CB Trent McDuffie and S Kamren Curl are questionable after sitting out Friday."
   },
   "nfl_2026_06_BAL_CLE": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "BAL @ CLE",
    "items": [
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-out-sunday-vs-browns-tyler-huntley-to-start-again",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/ravens-announce-week-6-inactives-vs-browns",
      "team": "BAL",
-     "text": "QB Lamar Jackson (ankle) is out for the second straight game; Tyler Huntley starts.",
+     "text": "QB Lamar Jackson (ankle) is inactive for a second straight game; Tyler Huntley starts.",
      "total": 0,
      "type": "other"
     },
@@ -2274,25 +750,25 @@
      "impact": 0.2,
      "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
      "team": "BAL",
-     "text": "WR Ja'Kobi Lane (wrist), out four games on IR, has been activated and is good to go.",
+     "text": "WR Ja'Kobi Lane (wrist), out four games on IR, was activated and is not among the inactives.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.baltimoreravens.com/news/lamar-jackson-injury-report-ravens-browns-sidelined-matt-hibner-broderick-washington",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/ravens-announce-week-6-inactives-vs-browns",
      "team": "BAL",
-     "text": "Out: C Cam Jurgens (concussion), DT Broderick Washington, TE Matthew Hibner; G Andrew Vorhees and G Emery Jones Jr. questionable.",
+     "text": "Inactive: C Cam Jurgens, G Andrew Vorhees, DE Broderick Washington, TE Matthew Hibner, WR Elijah Sarratt, S K'Von Wallace.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/browns-ravens-injury-report-big-221746940.html",
+     "src": "https://www.news5cleveland.com/sports/browns/browns-dt-mason-graham-could-play-against-ravens-who-rule-out-qb-lamar-jackson",
      "team": "CLE",
-     "text": "Questionable: DT Mason Graham, RB Quinshon Judkins, LB Carson Schwesinger; out: QB Dillon Gabriel, G Teven Jenkins, DT Mike Hall Jr.",
+     "text": "DT Mason Graham, RB Quinshon Judkins, LB Carson Schwesinger questionable after practicing Friday; out: QB Dillon Gabriel, G Teven Jenkins, DT Mike Hall Jr.",
      "total": 0,
      "type": "injury"
     }
@@ -2300,30 +776,22 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Ravens QB Lamar Jackson (ankle) out Sunday vs. Browns; Tyler Huntley to start again",
-     "u": "https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-out-sunday-vs-browns-tyler-huntley-to-start-again"
+     "t": "Ravens announce Week 6 inactives vs. Browns",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/ravens-announce-week-6-inactives-vs-browns"
     },
     {
-     "t": "Fowler: Ja'Kobi Lane (wrist) 'good to go' for Week 6",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-17/fowler-jakobi-lane-wrist-good-to-go-for-week-6"
+     "t": "Browns DT Mason Graham could play against Ravens, who rule out QB Lamar Jackson",
+     "u": "https://www.news5cleveland.com/sports/browns/browns-dt-mason-graham-could-play-against-ravens-who-rule-out-qb-lamar-jackson"
     },
     {
-     "t": "Lamar Jackson and Three Other Ravens Ruled Out vs. Browns",
-     "u": "https://www.baltimoreravens.com/news/lamar-jackson-injury-report-ravens-browns-sidelined-matt-hibner-broderick-washington"
-    },
-    {
-     "t": "Browns, Ravens injury report: Big players out, hope for other starters in Week 6",
-     "u": "https://sports.yahoo.com/articles/browns-ravens-injury-report-big-221746940.html"
-    },
-    {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
+     "t": "NFL news roundup: Saturday, Oct. 17",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     }
    ],
-   "summary": "A game for first place in the AFC North. Lamar Jackson is out again, so Tyler Huntley makes his second straight start, and newly acquired C Cam Jurgens is out with a concussion. Rookie WR Ja'Kobi Lane is activated off injured reserve. Cleveland has Mason Graham, Quinshon Judkins and Carson Schwesinger questionable and Dillon Gabriel out."
+   "summary": "A game for first place in the AFC North. Lamar Jackson is inactive again, so Tyler Huntley starts, and C Cam Jurgens and G Andrew Vorhees are also out. Rookie WR Ja'Kobi Lane is active after four games on IR. Cleveland hoped to have Mason Graham, Quinshon Judkins and Carson Schwesinger back after each practiced Friday; Dillon Gabriel is out."
   },
   "nfl_2026_06_BUF_LV": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "BUF @ LV",
    "items": [
     {
@@ -2338,9 +806,9 @@
     {
      "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://raiders.com/news/las-vegas-raiders-buffalo-bills-week-6-injury-report-2026",
+     "src": "https://www.raiders.com/news/las-vegas-raiders-buffalo-bills-week-6-injury-report-2026",
      "team": "LV",
-     "text": "Out: DT Tonka Hemingway, TE Carter Runyon, WR Dont'e Thornton Jr.; RB Ashton Jeanty and WR Jalen Nailor cleared.",
+     "text": "Out: DT Tonka Hemingway, TE Carter Runyon, WR Dont'e Thornton Jr.; TE Brock Bowers and WR Jalen Nailor full in practice.",
      "total": 0,
      "type": "injury"
     },
@@ -2361,133 +829,106 @@
      "u": "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-raiders-week-6"
     },
     {
-     "t": "Raiders-Bills Week 6 Injury Report",
-     "u": "https://raiders.com/news/las-vegas-raiders-buffalo-bills-week-6-injury-report-2026"
+     "t": "Raiders-Bills Week 6 injury report",
+     "u": "https://www.raiders.com/news/las-vegas-raiders-buffalo-bills-week-6-injury-report-2026"
     },
     {
      "t": "Kubiak: Kirk Cousins remains the starter",
      "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-12/kubiak-kirk-cousins-remains-the-starter"
+    },
+    {
+     "t": "Massive injury update on Oliver, Moore",
+     "u": "https://heavy.com/sports/nfl/buffalo-bills/massive-injury-update-oliver-moore/"
     }
    ],
-   "summary": "Buffalo (4-1) comes off a Monday-night win with DJ Moore, Josh Palmer, Ed Oliver and Dee Alford questionable after each missed last week; Joe Brady says they play if ready. Las Vegas has Ashton Jeanty and Brock Bowers healthy and Kirk Cousins starting, but DT Tonka Hemingway and WR Dont'e Thornton Jr. are out."
+   "summary": "Buffalo (4-1) heads into its bye week with DJ Moore, Josh Palmer, Ed Oliver and Dee Alford questionable after each missed last week; Oliver was back at practice Friday and Moore worked in a non-contact jersey. Las Vegas has Ashton Jeanty and Brock Bowers healthy and Kirk Cousins starting, but DT Tonka Hemingway and WR Dont'e Thornton Jr. are out."
   },
   "nfl_2026_06_CAR_PHI": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "CAR @ PHI",
    "items": [
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.philadelphiaeagles.com/news/panthers-vs-eagles-injury-report-2026-nfl-week-6-saquon-barkley-devonta-smith",
+     "src": "https://www.phillyvoice.com/eagles-panthers-week-6-inactives-analysis-2026-jalen-hurts-saquon-barkley/",
      "team": "PHI",
-     "text": "QB Jalen Hurts (calf blood clot) out with no timetable; Tanner McKee starts. QB Joe Milton III signed for depth.",
+     "text": "QB Jalen Hurts (calf blood clot) on IR, eligible after Week 9; Tanner McKee starts.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.philadelphiaeagles.com/news/panthers-vs-eagles-injury-report-2026-nfl-week-6-saquon-barkley-devonta-smith",
+     "src": "https://www.phillyvoice.com/eagles-panthers-week-6-inactives-analysis-2026-jalen-hurts-saquon-barkley/",
      "team": "PHI",
-     "text": "RB Saquon Barkley, Edge Jalyx Hunt and DB Michael Carter II out; WR DeVonta Smith has no designation.",
+     "text": "Inactive: RB Saquon Barkley, Edge Jalyx Hunt, Edge A.J. Epenesa, S Michael Carter; G Landon Dickerson on IR. WR Hollywood Brown a healthy scratch.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.panthers.com/news/week-6-friday-injury-report-aj-dillon-out-many-questionables",
-     "team": "CAR",
-     "text": "RT Monroe Freeling doubtful, RB AJ Dillon out; Jaelan Phillips, Taylor Moton and Damien Lewis questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
-     "team": "PHI",
-     "text": "Downgraded to out: G Landon Dickerson, TE Grant Calcaterra, TE Eli Stowers, CB Jakorian Bennett. Hurts placed on IR.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0.2,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/freeling-out-for-week-6-moton-active",
      "team": "CAR",
-     "text": "RT Taylor Moton (blood clot) activated from the non-football injury list; questionable for his season debut.",
+     "text": "RT Taylor Moton (blood clots) is active for his season debut and should start in place of the inactive Monroe Freeling.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-17T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0.1,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/freeling-out-for-week-6-moton-active",
      "team": "CAR",
-     "text": "DT Tershawn Wharton (neck) activated from PUP; questionable.",
+     "text": "DT Tershawn Wharton (neck surgery), activated from PUP, is active.",
      "total": 0,
      "type": "return"
+    },
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/freeling-out-for-week-6-moton-active",
+     "team": "CAR",
+     "text": "Inactive: RT Monroe Freeling, RB AJ Dillon, TE Ja'Tavion Sanders.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Panthers vs. Eagles Injury Report",
-     "u": "https://www.philadelphiaeagles.com/news/panthers-vs-eagles-injury-report-2026-nfl-week-6-saquon-barkley-devonta-smith"
+     "t": "Eagles-Panthers Week 6 inactives analysis",
+     "u": "https://www.phillyvoice.com/eagles-panthers-week-6-inactives-analysis-2026-jalen-hurts-saquon-barkley/"
     },
     {
-     "t": "Eagles' Landon Dickerson questionable for Week 6",
-     "u": "https://www.cbssports.com/fantasy/football/news/eagles-landon-dickerson-questionable-for-week-6/"
+     "t": "Freeling out for Week 6; Moton active",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/freeling-out-for-week-6-moton-active"
     },
     {
-     "t": "Week 6 Friday injury report: AJ Dillon out, many questionables",
-     "u": "https://www.panthers.com/news/week-6-friday-injury-report-aj-dillon-out-many-questionables"
-    },
-    {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
+     "t": "NFL news roundup: Saturday, Oct. 17",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     }
    ],
-   "summary": "Tanner McKee starts with Jalen Hurts on IR for at least four weeks with a calf blood clot, and Saquon Barkley misses a second straight game. G Landon Dickerson, TEs Grant Calcaterra and Eli Stowers and CB Jakorian Bennett were downgraded to out. Carolina gets RT Taylor Moton and DT Tershawn Wharton back for their season debuts, both questionable, with Monroe Freeling doubtful."
+   "summary": "Tanner McKee starts with Jalen Hurts on IR, and Saquon Barkley misses a second straight game; WR Hollywood Brown is a healthy scratch. Philadelphia is also without G Landon Dickerson and Edge Jalyx Hunt. Carolina gets RT Taylor Moton and DT Tershawn Wharton back for their season debuts, with Moton replacing the inactive Monroe Freeling at right tackle."
   },
   "nfl_2026_06_CHI_ATL": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "CHI @ ATL",
    "items": [
     {
-     "at": "2026-10-17T12:00:00Z",
+     "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
+     "src": "https://www.chicagobears.com/news/injury-update-caleb-williams-questionable-for-sunday-s-game-vs-falcons",
      "team": "CHI",
-     "text": "QB Caleb Williams (hamstring), out three games, is expected to start Sunday, per reports; Tyson Bagent is the fallback.",
+     "text": "QB Caleb Williams (hamstring) questionable after full Friday practice; expected to start if he passes a stress test. Tyson Bagent is the fallback.",
      "total": 0,
      "type": "other"
     },
     {
      "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-week-6-injury-report-2026-season",
+     "src": "https://www.chicagobears.com/news/injury-update-caleb-williams-questionable-for-sunday-s-game-vs-falcons",
      "team": "CHI",
-     "text": "Out: LB T.J. Edwards, LB Keyshaun Elliott, DL Dayo Odeyingbo, RB Kyle Monangai; DE Montez Sweat suspended two games.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/bears-qb-caleb-williams-hamstring-questionable-to-play-falcons",
-     "team": "ATL",
-     "text": "QB Michael Penix Jr. (ribs) has no designation and starts.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.ajc.com/sports/2026/10/falcons-injured-penix-trending-toward-starting-bears/",
-     "team": "ATL",
-     "text": "CB C.J. Henderson out, so rookie Avieon Terrell may start; OLB Za'Darius Smith (neck) questionable.",
+     "text": "Out: LB T.J. Edwards, LB Keyshaun Elliott, DL Dayo Odeyingbo, RB Kyle Monangai; DE Montez Sweat suspended. CB Tyrique Stevenson questionable.",
      "total": 0,
      "type": "injury"
     },
@@ -2496,38 +937,52 @@
      "impact": 0.3,
      "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
      "team": "CHI",
-     "text": "CB Kyler Gordon activated from PUP after missing the first five games; expected to debut but likely eased in.",
+     "text": "CB Kyler Gordon, who missed the first five games, practiced fully all week and is in line for his season debut; likely eased in.",
      "total": 0,
      "type": "return"
+    },
+    {
+     "at": "2026-10-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.ajc.com/sports/2026/10/falcons-injured-penix-trending-toward-starting-bears/",
+     "team": "ATL",
+     "text": "QB Michael Penix Jr. (ribs) has no designation and starts.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-week-6-injury-report-2026-season",
+     "team": "ATL",
+     "text": "CB C.J. Henderson out, so rookie Avieon Terrell may start; OLB Za'Darius Smith (neck) questionable.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Sunday starts a crucial 5-day test for Bears coach Ben Johnson and his QB",
-     "u": "https://chicago.suntimes.com/bears/2026/10/17/bears-falcons-ben-johnson-caleb-williams-5-day-test-coach-quarterback-nfl"
-    },
-    {
-     "t": "NFL Week 6 injury report: Player statuses for all 14 games",
-     "u": "https://www.nfl.com/news/nfl-week-6-injury-report-2026-season"
-    },
-    {
-     "t": "Bears QB Caleb Williams (hamstring) questionable to play vs. Falcons",
-     "u": "https://www.nfl.com/news/bears-qb-caleb-williams-hamstring-questionable-to-play-falcons"
+     "t": "Injury update: Caleb Williams questionable for Sunday's game vs. Falcons",
+     "u": "https://www.chicagobears.com/news/injury-update-caleb-williams-questionable-for-sunday-s-game-vs-falcons"
     },
     {
      "t": "Falcons' injured Penix trending toward starting vs. Bears",
      "u": "https://www.ajc.com/sports/2026/10/falcons-injured-penix-trending-toward-starting-bears/"
     },
     {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
+     "t": "NFL Week 6 injury report",
+     "u": "https://www.nfl.com/news/nfl-week-6-injury-report-2026-season"
+    },
+    {
+     "t": "NFL news roundup: Saturday, Oct. 17",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     }
    ],
-   "summary": "Caleb Williams is expected to start after missing three games with a hamstring injury he admits isn't fully healed, and CB Kyler Gordon is activated from PUP for his season debut. Michael Penix Jr. starts for Atlanta, which loses CB C.J. Henderson. Chicago is thin up front with Montez Sweat suspended and Dayo Odeyingbo now on IR."
+   "summary": "Caleb Williams, questionable after three missed games with a hamstring injury, practiced fully Friday and is expected to start if he passes a final test; Tyson Bagent is the fallback. CB Kyler Gordon may make his season debut. Chicago is thin in the front seven with Montez Sweat suspended and Odeyingbo and T.J. Edwards out. Michael Penix Jr. starts for Atlanta without CB C.J. Henderson."
   },
   "nfl_2026_06_DAL_GB": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "DAL @ GB",
    "items": [
     {
@@ -2535,7 +990,7 @@
      "impact": 0,
      "src": "https://www.packers.com/news/packers-list-five-questionable-rule-out-four-vs-cowboys-week-6-injury-report-2026",
      "team": "GB",
-     "text": "DT Javon Hargrave (torn Achilles) is out for the season; DT Jonathan Ford out and DT Jordon Riley doubtful.",
+     "text": "DT Javon Hargrave (Achilles) and WR Jayden Reed (neck) are out for the season; DT Jonathan Ford on IR, DT Jordon Riley doubtful.",
      "total": 0,
      "type": "loss"
     },
@@ -2549,29 +1004,20 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-17T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-injury-report-rules-out-starting-cornerback-for-packers-game",
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
      "team": "DAL",
-     "text": "CB Cobie Durant and T Drew Shelton out; LB DeMarvion Overshown questionable but called a long shot; CB Joey Porter Jr. questionable.",
+     "text": "Out: CB Cobie Durant, T Drew Shelton, LB DeMarvion Overshown (did not travel); CB Joey Porter Jr. questionable.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": "2026-10-17T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
-     "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring) ruled out and did not travel.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
+     "src": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26",
      "team": "GB",
-     "text": "WR Skyy Moore (high ankle) to IR; WR Savion Williams activated from IR.",
+     "text": "WR Skyy Moore to IR; WR Savion Williams activated. C Jacob Monk and CB Brandon Cisse questionable.",
      "total": 0,
      "type": "injury"
     }
@@ -2587,15 +1033,15 @@
      "u": "https://www.newsweek.com/sports/nfl/micah-parsons-gives-blunt-response-over-missing-cowboys-revenge-game-12569581"
     },
     {
-     "t": "Cowboys injury report rules out starting cornerback for Packers game",
-     "u": "https://www.si.com/nfl/cowboys/onsi/cowboys-injury-report-rules-out-starting-cornerback-for-packers-game"
+     "t": "NFL news roundup: Saturday, Oct. 17",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     },
     {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
+     "t": "Minor NFL transactions 10/17/26",
+     "u": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26"
     }
    ],
-   "summary": "Micah Parsons stays on PUP and misses the game against his former team. Green Bay (3-2) lost DT Javon Hargrave to a season-ending Achilles tear and put WR Skyy Moore on IR, though Savion Williams is activated. Dallas (2-3) had ten days after losing to Tampa Bay; CB Cobie Durant and LB DeMarvion Overshown are out."
+   "summary": "Micah Parsons stays on PUP and misses the game against his former team. Green Bay (3-2) lost DT Javon Hargrave to a season-ending Achilles tear and WR Jayden Reed for the season, though Savion Williams is activated. Dallas (2-3) had ten days after losing to Tampa Bay; CB Cobie Durant and LB DeMarvion Overshown are out."
   },
   "nfl_2026_06_HOU_JAX": {
    "at": "2026-10-17T23:05:00Z",
@@ -2673,7 +1119,7 @@
    "summary": "An AFC South game at Wembley. Jacksonville (4-1) plays its second straight London game without LT Anton Harrison, so Walker Little starts. Houston (1-4) gives Marvin Harrison Jr. his debut after the trade from Arizona, though DeMeco Ryans says he won't play every snap. RB David Montgomery, S Jalen Pitre and WR Tank Dell did not travel."
   },
   "nfl_2026_06_LAC_KC": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "LAC @ KC",
    "items": [
     {
@@ -2681,7 +1127,7 @@
      "impact": 0,
      "src": "https://www.chiefs.com/news/week-6-injury-report-chargers-vs-chiefs-2026",
      "team": "LAC",
-     "text": "Out: T Joe Alt, S Derwin James, CB Donte Jackson, WR Tre' Harris, G Kayode Awosika; WR Ladd McConkey cleared.",
+     "text": "Out: T Joe Alt, S Derwin James, CB Donte Jackson, WR Tre' Harris, G Kayode Awosika; LB Daiyan Henley questionable.",
      "total": 0,
      "type": "injury"
     },
@@ -2699,9 +1145,18 @@
      "impact": 0,
      "src": "https://www.chiefs.com/news/week-6-injury-report-chargers-vs-chiefs-2026",
      "team": "KC",
-     "text": "WR Rashee Rice and LT Josh Simmons out; CB L'Jarius Sneed questionable; Mahomes full all week.",
+     "text": "WR Rashee Rice and LT Josh Simmons out; CB L'Jarius Sneed (knee) questionable.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26",
+     "team": "LAC",
+     "text": "WR KeAndre Lambert-Smith activated from IR; WR Marquez Valdes-Scantling released.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
@@ -2711,67 +1166,84 @@
      "u": "https://www.chiefs.com/news/week-6-injury-report-chargers-vs-chiefs-2026"
     },
     {
-     "t": "Ahead of Chiefs matchup, wounded, winless Chargers share lengthy injury report",
+     "t": "Wounded, winless Chargers share lengthy injury report",
      "u": "https://www.kctv5.com/2026/10/14/ahead-chiefs-matchup-wounded-winless-chargers-share-lengthy-injury-report/"
+    },
+    {
+     "t": "Minor NFL transactions 10/17/26",
+     "u": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26"
     }
    ],
-   "summary": "Unbeaten Kansas City comes off its bye with Patrick Mahomes practicing fully, but Rashee Rice and LT Josh Simmons are out. The winless Chargers are battered: Joe Alt, Derwin James, Donte Jackson and Tre' Harris are ruled out, and C Tyler Biadasz and T Rashawn Slater are on injured reserve, though Ladd McConkey is cleared."
+   "summary": "Unbeaten Kansas City comes off its bye with Patrick Mahomes off the injury report, but Rashee Rice and LT Josh Simmons are out. The winless Chargers are battered: Joe Alt, Derwin James, Donte Jackson and Tre' Harris are out, and C Tyler Biadasz is lost for the season. They activated WR KeAndre Lambert-Smith from IR Saturday."
   },
   "nfl_2026_06_NO_NYG": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "NO @ NYG",
    "items": [
     {
-     "at": "2026-10-12T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.giants.com/news/week-6-tracker-latest-news-notes-roster-moves-new-orleans-saints-nfl",
+     "src": "https://www.ksla.com/2026/10/18/admonished-saints-roll-into-new-york-find-old-friend-jameis-winston-waiting/",
      "team": "NYG",
      "text": "QB Jaxson Dart is out for the season; Jameis Winston starts against his former team.",
      "total": 0,
-     "type": "injury"
+     "type": "other"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.giants.com/news/week-6-tracker-latest-news-notes-roster-moves-new-orleans-saints-nfl",
+     "src": "https://sports.yahoo.com/articles/ny-giants-orleans-saints-inactives-154217385.html",
      "team": "NYG",
-     "text": "T Andrew Thomas, OLB Abdul Carter and T Jermaine Eluemunor questionable; CB Colton Hood, S Tyler Nubin, TE Theo Johnson out.",
+     "text": "T Andrew Thomas and OLB Abdul Carter active; RT Jermaine Eluemunor, CB Colton Hood, S Tyler Nubin and TE Theo Johnson inactive.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-16",
+     "src": "https://sports.yahoo.com/articles/ny-giants-orleans-saints-inactives-154217385.html",
      "team": "NO",
-     "text": "LBs Kaden Elliss and Anfernee Jennings out; RB Alvin Kamara, WR Chris Olave and DT Nathan Shepherd questionable.",
+     "text": "Inactive: LB Kaden Elliss, Edge Anfernee Jennings, DL Nathan Shepherd. RB Alvin Kamara and WR Chris Olave not on the inactive list.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/ny-giants-orleans-saints-inactives-154217385.html",
+     "team": "NO",
+     "text": "QB Tyler Shough plays despite reportedly having two broken bones in his non-throwing hand.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Giants Week 6 Tracker: latest news, notes, roster moves",
-     "u": "https://www.giants.com/news/week-6-tracker-latest-news-notes-roster-moves-new-orleans-saints-nfl"
+     "t": "Giants vs. Saints inactives",
+     "u": "https://sports.yahoo.com/articles/ny-giants-orleans-saints-inactives-154217385.html"
     },
     {
-     "t": "NFL news roundup: Latest league updates from Friday, Oct. 16",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-16"
+     "t": "Admonished Saints roll into New York, find old friend Jameis Winston waiting",
+     "u": "https://www.ksla.com/2026/10/18/admonished-saints-roll-into-new-york-find-old-friend-jameis-winston-waiting/"
+    },
+    {
+     "t": "Giants Week 6 Tracker",
+     "u": "https://www.giants.com/news/week-6-tracker-latest-news-notes-roster-moves-new-orleans-saints-nfl"
     }
    ],
-   "summary": "Jameis Winston makes a fourth straight start for the Giants against his former team, with Jaxson Dart out for the season. Andrew Thomas, Abdul Carter and Jermaine Eluemunor are questionable after limited Friday practices. New Orleans, 1-4, has Alvin Kamara and Chris Olave questionable and rules out LBs Kaden Elliss and Anfernee Jennings."
+   "summary": "Jameis Winston makes a fourth straight start for the Giants against his former team, with Jaxson Dart out for the season. LT Andrew Thomas and OLB Abdul Carter are active, but RT Jermaine Eluemunor is inactive. New Orleans, 1-4 and publicly criticised by owner Gayle Benson, has Tyler Shough starting despite a reported hand fracture; LBs Kaden Elliss and Anfernee Jennings and DL Nathan Shepherd are out."
   },
   "nfl_2026_06_NYJ_NE": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "NYJ @ NE",
    "items": [
     {
      "at": "2026-10-17T12:00:00Z",
      "impact": 0.4,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
+     "src": "https://bleacherreport.com/articles/25511374-aj-brown-updates-status-patriots-vs-jets-return-timeline-amid-ankle-injury-recovery",
      "team": "NE",
-     "text": "WR A.J. Brown (ankle), out four games on IR, was activated Saturday and is expected to play, per Adam Schefter.",
+     "text": "WR A.J. Brown (high ankle), out four games on IR, was activated Saturday and is expected to play.",
      "total": 0,
      "type": "return"
     },
@@ -2780,16 +1252,16 @@
      "impact": 0,
      "src": "https://www.patriots.com/news/injury-report-analysis-christian-gonzalez-expected-to-play-a-j-brown-officially-questionable-for-sunday-s-game-vs-jets",
      "team": "NE",
-     "text": "CB Christian Gonzalez (shoulder) is off the report after missing two games.",
+     "text": "CB Christian Gonzalez (shoulder) is expected to play after missing two games.",
      "total": 0,
      "type": "other"
     },
     {
      "at": "2026-10-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.patriots.com/news/week-6-injury-report-patriots-vs-jets",
+     "src": "https://www.patriots.com/news/injury-report-analysis-christian-gonzalez-expected-to-play-a-j-brown-officially-questionable-for-sunday-s-game-vs-jets",
      "team": "NE",
-     "text": "CB Carlton Davis III out; LT Will Campbell, RB TreVeyon Henderson and S Craig Woodson questionable.",
+     "text": "CB Carlton Davis III out; LT Will Campbell (knee) and RB TreVeyon Henderson questionable. Caleb Lomu starts at LT if Campbell sits.",
      "total": 0,
      "type": "injury"
     },
@@ -2798,91 +1270,69 @@
      "impact": 0,
      "src": "https://www.newsweek.com/sports/nfl/jets-rule-out-2-key-offensive-players-for-week-6-clash-vs-patriots-12580041",
      "team": "NYJ",
-     "text": "Out: RB Breece Hall, WR Adonai Mitchell, Edge Joseph Ossai, G Dylan Parham; TE Kenyon Sadiq questionable.",
+     "text": "Out: RB Breece Hall, WR Adonai Mitchell, Edge Joseph Ossai, G Dylan Parham.",
      "total": 0,
      "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
-     "team": "NYJ",
-     "text": "WR Omar Cooper Jr. activated from injured reserve.",
-     "total": 0,
-     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Patriots' A.J. Brown expected to return in Week 6",
-     "u": "https://www.yardbarker.com/nfl/articles/patriots_aj_brown_expected_to_return_in_week_6/s1_13132_44439420"
+     "t": "A.J. Brown updates status for Patriots vs. Jets",
+     "u": "https://bleacherreport.com/articles/25511374-aj-brown-updates-status-patriots-vs-jets-return-timeline-amid-ankle-injury-recovery"
     },
     {
-     "t": "Injury Report Analysis: Christian Gonzalez expected to play, A.J. Brown officially questionable",
+     "t": "Injury Report Analysis: Christian Gonzalez expected to play, A.J. Brown questionable",
      "u": "https://www.patriots.com/news/injury-report-analysis-christian-gonzalez-expected-to-play-a-j-brown-officially-questionable-for-sunday-s-game-vs-jets"
     },
     {
-     "t": "Week 6 Injury Report: Patriots vs. Jets",
-     "u": "https://www.patriots.com/news/week-6-injury-report-patriots-vs-jets"
-    },
-    {
-     "t": "Jets Rule Out 2 Key Offensive Players for Week 6 Clash vs Patriots",
+     "t": "Jets rule out 2 key offensive players for Week 6",
      "u": "https://www.newsweek.com/sports/nfl/jets-rule-out-2-key-offensive-players-for-week-6-clash-vs-patriots-12580041"
     },
     {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
+     "t": "NFL news roundup: Saturday, Oct. 17",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     }
    ],
-   "summary": "New England activated A.J. Brown from injured reserve after four missed games, and CB Christian Gonzalez is back. CB Carlton Davis III is out and rookie LT Will Campbell is questionable. The Jets again rule out Breece Hall, Adonai Mitchell, Joseph Ossai and Dylan Parham, leaving Braelon Allen to carry the run game."
+   "summary": "New England activated A.J. Brown from injured reserve after four missed games, and he is expected to play; CB Christian Gonzalez is back too. CB Carlton Davis III is out and rookie LT Will Campbell was questionable with a knee sprain. The Jets are without Breece Hall, Adonai Mitchell, Joseph Ossai and Dylan Parham, leaving Braelon Allen to carry the run game."
   },
   "nfl_2026_06_PIT_TB": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "PIT @ TB",
    "items": [
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.buccaneers.com/news/buccaneers-steelers-injury-report-oct-16-week-6-2026",
+     "src": "https://athlonsports.com/nfl/pittsburgh-steelers/steelers-at-buccaneers-week-6-inactives-whos-in-whos-out",
      "team": "TB",
-     "text": "QB Baker Mayfield (thumb) ruled out; undrafted rookie Jalon Daniels starts.",
+     "text": "QB Baker Mayfield (thumb) inactive; undrafted rookie Jalon Daniels makes his third start, with Easton Stick elevated as backup.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.buccaneers.com/news/buccaneers-steelers-injury-report-oct-16-week-6-2026",
+     "src": "https://athlonsports.com/nfl/pittsburgh-steelers/steelers-at-buccaneers-week-6-inactives-whos-in-whos-out",
      "team": "TB",
-     "text": "S Antoine Winfield Jr. out; CB Benjamin Morrison doubtful; RB Sean Tucker a possible game-time decision.",
+     "text": "Inactive: S Antoine Winfield Jr., CB Benjamin Morrison, RB Sean Tucker, G Luke Haggard.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-17T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0.3,
-     "src": "https://sports.yahoo.com/articles/steelers-week-6-injury-report-002928718.html",
+     "src": "https://www.steelers.com/news/steelers-inactives-for-week-6-at-buccaneers",
      "team": "PIT",
-     "text": "RB Rico Dowdle (toe), out three games, is questionable after full practices Thursday and Friday.",
+     "text": "RB Rico Dowdle (toe) is active after missing three games.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.steelers.com/news/week-6-injury-report-buccaneers-x2319",
+     "src": "https://www.steelers.com/news/steelers-inactives-for-week-6-at-buccaneers",
      "team": "PIT",
-     "text": "WR D.K. Metcalf (illness), CBs Jalen Ramsey and Jamel Dean, DT Keeanu Benton questionable; WR Roman Wilson out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
-     "team": "PIT",
-     "text": "WR D.K. Metcalf (illness) removed from the report; TE Pat Freiermuth (calf) added as questionable; WR Roman Wilson to IR.",
+     "text": "WR Ben Skowronek and CB Sean Murphy-Bunting inactive; WR Roman Wilson on IR. CBs Jalen Ramsey and Jamel Dean active.",
      "total": 0,
      "type": "injury"
     }
@@ -2890,23 +1340,19 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Steelers inactives for Week 6 at Buccaneers",
+     "u": "https://www.steelers.com/news/steelers-inactives-for-week-6-at-buccaneers"
+    },
+    {
+     "t": "Steelers at Buccaneers Week 6 inactives",
+     "u": "https://athlonsports.com/nfl/pittsburgh-steelers/steelers-at-buccaneers-week-6-inactives-whos-in-whos-out"
+    },
+    {
      "t": "Buccaneers-Steelers injury report, Oct. 16",
      "u": "https://www.buccaneers.com/news/buccaneers-steelers-injury-report-oct-16-week-6-2026"
-    },
-    {
-     "t": "Steelers Week 6 injury report",
-     "u": "https://sports.yahoo.com/articles/steelers-week-6-injury-report-002928718.html"
-    },
-    {
-     "t": "Week 6 Injury Report: Buccaneers",
-     "u": "https://www.steelers.com/news/week-6-injury-report-buccaneers-x2319"
-    },
-    {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     }
    ],
-   "summary": "Baker Mayfield is out with a thumb injury, so undrafted rookie Jalon Daniels starts again for Tampa Bay, which is also without S Antoine Winfield Jr. Pittsburgh may get RB Rico Dowdle back after three missed games, and D.K. Metcalf is off the injury report, but TE Pat Freiermuth, Jalen Ramsey and Jamel Dean are questionable."
+   "summary": "Baker Mayfield is inactive with a thumb injury, so undrafted rookie Jalon Daniels makes his third start for Tampa Bay, which is also without S Antoine Winfield Jr., CB Benjamin Morrison and RB Sean Tucker. Pittsburgh gets RB Rico Dowdle back after three missed games, and CBs Jalen Ramsey and Jamel Dean are active."
   },
   "nfl_2026_06_SEA_DEN": {
    "at": "2026-10-15T23:08:50Z",
@@ -3019,7 +1465,7 @@
    "summary": "Both 3-2 teams lost to the unbeaten 49ers in the last two weeks. Sam Darnold starts for Seattle and Jaxon Smith-Njigba is active. Denver is without CB Pat Surtain II and S Talanoa Hufanga, though CB Riley Moss is active, and has trailed in the fourth quarter of every game."
   },
   "nfl_2026_06_TEN_IND": {
-   "at": "2026-10-17T23:05:00Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "TEN @ IND",
    "items": [
     {
@@ -3032,66 +1478,57 @@
      "type": "other"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-18T12:00:00Z",
      "impact": 0,
-     "src": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-friday-of-colts-week-x9332",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/colts-scratch-tyler-warren-groin-for-week-6",
+     "team": "IND",
+     "text": "TE Tyler Warren (groin) is inactive; LB Jaylon Carlies and WR Ashton Dulin out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/tyjae-spears-knee-active-for-titans",
      "team": "TEN",
-     "text": "Out: S Kevin Winston Jr., DL Jordan Elliott; RB Tyjae Spears and CB Joshua Williams questionable. S Amani Hooker cleared.",
+     "text": "RB Tyjae Spears (knee) is active. Out: S Kevin Winston Jr., DL Jordan Elliott.",
      "total": 0,
      "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.colts.com/news/colts-rule-out-lb-jaylon-carlies-wr-ashton-dulin-ahead-for-week-6",
-     "team": "IND",
-     "text": "TE Tyler Warren (groin, hurt Friday) and TE Will Mallory questionable; LB Jaylon Carlies and WR Ashton Dulin out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
-     "team": "IND",
-     "text": "TE Will Mallory (thumb) activated from IR, questionable tag removed. Titans CB Joshua Williams activated with no designation.",
-     "total": 0,
-     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
+     "t": "Colts scratch Tyler Warren (groin) for Week 6",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/colts-scratch-tyler-warren-groin-for-week-6"
+    },
+    {
+     "t": "Tyjae Spears (knee) active for Titans",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-18/tyjae-spears-knee-active-for-titans"
+    },
+    {
      "t": "Titans called to bench Cam Ward before Colts game",
      "u": "https://heavy.com/sports/nfl/indianapolis-colts/titans-called-bench-cam-ward-before-colts-game-week-6/"
     },
     {
-     "t": "Quick Hits on the Titans From Friday of Colts Week",
-     "u": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-friday-of-colts-week-x9332"
-    },
-    {
-     "t": "Colts rule out LB Jaylon Carlies, WR Ashton Dulin ahead of Week 6",
+     "t": "Colts rule out LB Jaylon Carlies, WR Ashton Dulin",
      "u": "https://www.colts.com/news/colts-rule-out-lb-jaylon-carlies-wr-ashton-dulin-ahead-for-week-6"
-    },
-    {
-     "t": "NFL news roundup: latest league updates from Saturday, Oct. 17",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
     }
    ],
-   "summary": "Winless Tennessee sticks with Cam Ward after a 26-3 loss to Houston, with RB Tyjae Spears questionable and S Kevin Winston Jr. out. Indianapolis has Daniel Jones off the injury list, but TE Tyler Warren hurt his groin Friday and is questionable, and LB Jaylon Carlies is out again."
+   "summary": "Winless Tennessee sticks with Cam Ward after a 26-3 loss to Houston, and RB Tyjae Spears is active, though S Kevin Winston Jr. is out. Indianapolis scratched TE Tyler Warren with the groin injury he picked up Friday, and LB Jaylon Carlies misses another game. Daniel Jones starts for the Colts."
   },
   "nfl_2026_06_WAS_SF": {
-   "at": "2026-10-17T16:12:31Z",
+   "at": "2026-10-18T16:09:40Z",
    "game": "WAS @ SF",
    "items": [
     {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://www.49erswebzone.com/articles/204225-injury-updates-shanahan-shares-several/",
+     "at": "2026-10-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/nick-bosa-mike-evans-questionable-152033885.html",
      "team": "SF",
-     "text": "DE Nick Bosa (calf), out three games, missed Thursday and Friday practice; Shanahan is \"hoping he can go.\"",
+     "text": "Out: DE Nick Bosa (knee/calf), WR Deebo Samuel, S Marques Sigle, LB Garrett Wallow. WR Mike Evans (ribs/calf) questionable.",
      "total": 0,
-     "type": "return"
+     "type": "injury"
     },
     {
      "at": "2026-10-13T12:00:00Z",
@@ -3103,20 +1540,11 @@
      "type": "loss"
     },
     {
-     "at": "2026-10-16T12:00:00Z",
+     "at": "2026-10-17T12:00:00Z",
      "impact": 0,
-     "src": "https://www.49erswebzone.com/articles/204254-commanders-injury-players-fridays-practice/",
-     "team": "SF",
-     "text": "WR Deebo Samuel (hamstring) expected to miss several weeks; WR Mike Evans (ribs) missed Thursday and Friday practice.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.commanders.com/news/commanders-vs-49ers-week-6-injury-report-2026",
+     "src": "https://commanders.com/news/game-status-commanders-49ers-week-6",
      "team": "WAS",
-     "text": "WR Terry McLaurin (hamstring) sat Friday; WR Stefon Diggs limited after missing a game; RB Jacory Croskey-Merritt did not practice.",
+     "text": "Out: RB Jacory Croskey-Merritt, DE Charles Omenihu, OLB Javontae Jean-Baptiste. WR Stefon Diggs questionable; WR Terry McLaurin cleared.",
      "total": 0,
      "type": "injury"
     }
@@ -3124,28 +1552,28 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Shanahan shares news on Nick Bosa, Mike Evans, Deebo Samuel",
-     "u": "https://www.49erswebzone.com/articles/204225-injury-updates-shanahan-shares-several/"
+     "t": "Nick Bosa out, Mike Evans questionable for 49ers' Week 6 matchup",
+     "u": "https://sports.yahoo.com/articles/nick-bosa-mike-evans-questionable-152033885.html"
     },
     {
-     "t": "San Francisco 49ers lose two key pieces vs. Washington Commanders",
+     "t": "Game status: Jacory Croskey-Merritt ruled out vs. 49ers",
+     "u": "https://commanders.com/news/game-status-commanders-49ers-week-6"
+    },
+    {
+     "t": "Commanders' Terry McLaurin: Good to go",
+     "u": "https://www.cbssports.com/fantasy/football/news/commanders-terry-mclaurin-good-to-go-against-san-francisco/"
+    },
+    {
+     "t": "49ers lose two key pieces vs. Commanders",
      "u": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders"
-    },
-    {
-     "t": "49ers vs. Commanders injury report: 7 players miss Friday's practice",
-     "u": "https://www.49erswebzone.com/articles/204254-commanders-injury-players-fridays-practice/"
-    },
-    {
-     "t": "Commanders vs. 49ers Week 6 injury report",
-     "u": "https://www.commanders.com/news/commanders-vs-49ers-week-6-injury-report-2026"
     }
    ],
-   "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: LB Dre Greenlaw is suspended, Deebo Samuel is expected to miss weeks, and Nick Bosa and Mike Evans sat out Thursday and Friday practice. Washington, 1-3-1, has Jayden Daniels practicing fully but Terry McLaurin sat Friday; Stefon Diggs returned to practice."
+   "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa is ruled out again, Deebo Samuel is out for weeks, LB Dre Greenlaw is suspended and Mike Evans is questionable. Washington, 1-3-1, has Jayden Daniels and Terry McLaurin cleared, and Stefon Diggs is questionable, but leading rusher Jacory Croskey-Merritt is out."
   }
  },
  "meta": {
-  "at": "2026-10-17T23:20:00Z",
-  "games": 12,
-  "note": "Saturday roster moves for 12 NFL Week 6 Sunday games; no NBA games due, EPL still fresh."
+  "at": "2026-10-18T16:10:00Z",
+  "games": 13,
+  "note": "Sunday inactives for 1 PM games, latest news for later NFL games, MNF and Spurs v Coventry; no NBA games due."
  }
 }
