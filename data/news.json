@@ -410,149 +410,6 @@
    ],
    "summary": "Both clubs won in the Europa League on Thursday, Bournemouth 3-0 at home to Sturm Graz and Sunderland 2-1 away in Portugal, and both have made slow league starts. Bournemouth are without Alex Scott for a month, though Kluivert and Adli are back. Sunderland lose Thomas Meunier, Wilson Isidor is a day-to-day doubt, and Brobbey and Diarra return."
   },
-  "nfl_2026_05_BAL_ATL": {
-   "at": "2026-10-11T23:05:37Z",
-   "game": "BAL @ ATL",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-out-falcons-tyler-huntley-start",
-     "team": "BAL",
-     "text": "QB Lamar Jackson (ankle) is ruled out after not practicing all week; Tyler Huntley makes his 12th Ravens start. No long-term injury is reported.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/ljax-headlines-ravens-week-5-inactives-for-snf",
-     "team": "BAL",
-     "text": "Inactive: QB Lamar Jackson (ankle), OLB Trey Hendrickson (finger), new C Cam Jurgens (concussion) and G Andrew Vorhees (foot).",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/ravens-falcons-score-live-updates-inactives-highlights-stats-where-to-watch-week-5-sunday-night-football-225358129.html",
-     "team": "BAL",
-     "text": "WR Zay Flowers (foot) and CB Marlon Humphrey (hamstring/calf), both listed as questionable, are active.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-07T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.baltimoreravens.com/news/lamar-jackson-not-at-first-practice-following-ankle-injury-ravens-falcons-week-5",
-     "team": "BAL",
-     "text": "TE Durham Smythe (torn Achilles) went on IR, with Nick Vannett signed to the roster in his place.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "BAL",
-     "text": "OT Chuma Edoga and G Kyle Hergel were elevated from the practice squad with Cam Jurgens out and Andrew Vorhees questionable.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.atlantafalcons.com/news/week-5-nfl-power-rankings-roundup-falcons-on-the-move-after-mnf-win",
-     "team": "ATL",
-     "text": "Falcons are 2-2: QB Michael Penix Jr. missed the first two games coming off an ACL injury, and the offense has scored 80 points in two games since.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/falcons-release-week-5-inactives-vs-ravens",
-     "team": "ATL",
-     "text": "Inactive: DE Za'Darius Smith (concussion/neck) and LB Christian Harris; LB Yasir Abdullah went on IR Saturday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/ravens-falcons-score-live-updates-inactives-highlights-stats-where-to-watch-week-5-sunday-night-football-225358129.html",
-     "team": "ATL",
-     "text": "LT Jake Matthews (groin), DE Samson Ebukam and LB Divine Deablo, all listed as questionable, are active.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10",
-     "team": "ATL",
-     "text": "S Jammie Robinson was signed to the active roster; DE Drake Jackson and LB Bralen Trice were elevated.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Lamar Jackson Not at Practice, But Other Ravens Return (BaltimoreRavens.com)",
-     "u": "https://www.baltimoreravens.com/news/lamar-jackson-injury-report-ravens-falcons-zay-flowers-ronnie-stanley-trey-hendrickson"
-    },
-    {
-     "t": "Falcons injury report: ILB Divine Deablo, DE Samson Ebukam added to report (AtlantaFalcons.com)",
-     "u": "https://www.atlantafalcons.com/news/falcons-injury-report-ilb-divine-deablo-de-samson-ebukam-added-to-report"
-    },
-    {
-     "t": "Lamar Jackson Not Practicing Following Ankle Injury (BaltimoreRavens.com)",
-     "u": "https://www.baltimoreravens.com/news/lamar-jackson-not-at-first-practice-following-ankle-injury-ravens-falcons-week-5"
-    },
-    {
-     "t": "Jesse Minter and Vega Ioane Share Reactions to Cam Jurgens Trade (BaltimoreRavens.com)",
-     "u": "https://www.baltimoreravens.com/news/reaction-cam-jurgens-trade-ravens-eagles-jesse-minter-vega-ioane-roquan-smith-kyle-hamilton-atlanta-homecoming"
-    },
-    {
-     "t": "Week 5 NFL Power Rankings Roundup: Falcons on the move after MNF win (AtlantaFalcons.com)",
-     "u": "https://www.atlantafalcons.com/news/week-5-nfl-power-rankings-roundup-falcons-on-the-move-after-mnf-win"
-    },
-    {
-     "t": "Ravens QB Lamar Jackson (ankle) out vs. Falcons; Tyler Huntley to start",
-     "u": "https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-out-falcons-tyler-huntley-start"
-    },
-    {
-     "t": "NFL news roundup: Friday, Oct. 9",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-9"
-    },
-    {
-     "t": "NFL news roundup: Latest league updates from Saturday, Oct. 10 (NFL.com)",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-10"
-    },
-    {
-     "t": "Ravens' Zay Flowers: Expected to play Sunday night (CBS Sports)",
-     "u": "https://www.cbssports.com/fantasy/football/news/ravens-zay-flowers-expected-to-play-sunday-night-641827/"
-    },
-    {
-     "t": "LJax headlines Ravens' Week 5 inactives for SNF (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/ljax-headlines-ravens-week-5-inactives-for-snf"
-    },
-    {
-     "t": "Falcons release Week 5 inactives vs. Ravens (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-11/falcons-release-week-5-inactives-vs-ravens"
-    },
-    {
-     "t": "Ravens vs. Falcons live updates, inactives (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/nfl/live/ravens-falcons-score-live-updates-inactives-highlights-stats-where-to-watch-week-5-sunday-night-football-225358129.html"
-    },
-    {
-     "t": "NFL Week 5 injuries to monitor for Sunday's games (NFL.com)",
-     "u": "https://www.nfl.com/news/week-5-injuries-sunday-pregame-2026-nfl-season"
-    }
-   ],
-   "summary": "Baltimore (3-1) is without Lamar Jackson (ankle); Tyler Huntley starts. Trey Hendrickson, new center Cam Jurgens and guard Andrew Vorhees are also inactive, but Zay Flowers and Marlon Humphrey are active. Atlanta (2-2) sits edge Za'Darius Smith, while left tackle Jake Matthews is active and Michael Penix Jr. has the offense rolling."
-  },
   "nfl_2026_05_BUF_LA": {
    "at": "2026-10-12T23:10:00Z",
    "game": "BUF @ LA",
@@ -982,9 +839,27 @@
    "summary": "Caleb Williams, questionable after three missed games with a hamstring injury, practiced fully Friday and is expected to start if he passes a final test; Tyson Bagent is the fallback. CB Kyler Gordon may make his season debut. Chicago is thin in the front seven with Montez Sweat suspended and Odeyingbo and T.J. Edwards out. Michael Penix Jr. starts for Atlanta without CB C.J. Henderson."
   },
   "nfl_2026_06_DAL_GB": {
-   "at": "2026-10-18T16:09:40Z",
+   "at": "2026-10-18T23:10:00Z",
    "game": "DAL @ GB",
    "items": [
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-week-6-inactives-reveals-joey-porter-jr-s-status-vs-packers",
+     "team": "DAL",
+     "text": "Inactive: LB DeMarvion Overshown, CB Cobie Durant, T Drew Shelton, OLB James Houston. CB Joey Porter Jr. (ankle) is active.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-week-6-inactives-reveals-joey-porter-jr-s-status-vs-packers",
+     "team": "GB",
+     "text": "Inactive: CB Benjamin St.-Juste, G Aaron Banks, G Jager Burton, OT Donovan Jennings. C Jacob Monk and CB Brandon Cisse are active.",
+     "total": 0,
+     "type": "injury"
+    },
     {
      "at": "2026-10-16T12:00:00Z",
      "impact": 0,
@@ -1002,28 +877,18 @@
      "text": "Edge Micah Parsons remains on PUP after his ACL tear and won't face his former team.",
      "total": 0,
      "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17",
-     "team": "DAL",
-     "text": "Out: CB Cobie Durant, T Drew Shelton, LB DeMarvion Overshown (did not travel); CB Joey Porter Jr. questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26",
-     "team": "GB",
-     "text": "WR Skyy Moore to IR; WR Savion Williams activated. C Jacob Monk and CB Brandon Cisse questionable.",
-     "total": 0,
-     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Cowboys Week 6 Inactives Reveals Joey Porter Jr.'s Status vs. Packers",
+     "u": "https://www.si.com/nfl/cowboys/onsi/cowboys-week-6-inactives-reveals-joey-porter-jr-s-status-vs-packers"
+    },
+    {
+     "t": "Cowboys vs. Packers live updates, inactives: Sunday Night Football Week 6",
+     "u": "https://sports.yahoo.com/nfl/live/cowboys-packers-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-sunday-night-football-225854327.html"
+    },
     {
      "t": "Packers list five questionable, rule out four vs. Cowboys",
      "u": "https://www.packers.com/news/packers-list-five-questionable-rule-out-four-vs-cowboys-week-6-injury-report-2026"
@@ -1031,17 +896,9 @@
     {
      "t": "Micah Parsons gives blunt response over missing Cowboys revenge game",
      "u": "https://www.newsweek.com/sports/nfl/micah-parsons-gives-blunt-response-over-missing-cowboys-revenge-game-12569581"
-    },
-    {
-     "t": "NFL news roundup: Saturday, Oct. 17",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-oct-17"
-    },
-    {
-     "t": "Minor NFL transactions 10/17/26",
-     "u": "https://www.profootballrumors.com/2026/10/minor-nfl-transactions-10-17-26"
     }
    ],
-   "summary": "Micah Parsons stays on PUP and misses the game against his former team. Green Bay (3-2) lost DT Javon Hargrave to a season-ending Achilles tear and WR Jayden Reed for the season, though Savion Williams is activated. Dallas (2-3) had ten days after losing to Tampa Bay; CB Cobie Durant and LB DeMarvion Overshown are out."
+   "summary": "Dak Prescott and Jordan Love start at Lambeau. Joey Porter Jr. is active for Dallas, but LB DeMarvion Overshown, CB Cobie Durant and T Drew Shelton sit. Green Bay is without Micah Parsons, still on PUP, and DT Javon Hargrave, and G Aaron Banks is inactive."
   },
   "nfl_2026_06_HOU_JAX": {
    "at": "2026-10-17T23:05:00Z",
@@ -1518,7 +1375,7 @@
    "summary": "Winless Tennessee sticks with Cam Ward after a 26-3 loss to Houston, and RB Tyjae Spears is active, though S Kevin Winston Jr. is out. Indianapolis scratched TE Tyler Warren with the groin injury he picked up Friday, and LB Jaylon Carlies misses another game. Daniel Jones starts for the Colts."
   },
   "nfl_2026_06_WAS_SF": {
-   "at": "2026-10-18T16:09:40Z",
+   "at": "2026-10-18T23:10:00Z",
    "game": "WAS @ SF",
    "items": [
     {
@@ -1526,7 +1383,7 @@
      "impact": 0,
      "src": "https://sports.yahoo.com/articles/nick-bosa-mike-evans-questionable-152033885.html",
      "team": "SF",
-     "text": "Out: DE Nick Bosa (knee/calf), WR Deebo Samuel, S Marques Sigle, LB Garrett Wallow. WR Mike Evans (ribs/calf) questionable.",
+     "text": "Out: DE Nick Bosa, WR Deebo Samuel (hamstring), S Marques Sigle, LB Garrett Wallow. WR Mike Evans questionable with new Achilles soreness.",
      "total": 0,
      "type": "injury"
     },
@@ -1566,14 +1423,18 @@
     {
      "t": "49ers lose two key pieces vs. Commanders",
      "u": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders"
+    },
+    {
+     "t": "49ers' Mike Evans battling Achilles soreness ahead of MNF game vs. Commanders",
+     "u": "https://clutchpoints.com/nfl/san-francisco-49ers/49ers-news-mike-evans-battling-achilles-soreness-mnf-game-commanders"
     }
    ],
    "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa is ruled out again, Deebo Samuel is out for weeks, LB Dre Greenlaw is suspended and Mike Evans is questionable. Washington, 1-3-1, has Jayden Daniels and Terry McLaurin cleared, and Stefon Diggs is questionable, but leading rusher Jacory Croskey-Merritt is out."
   }
  },
  "meta": {
-  "at": "2026-10-18T16:10:00Z",
-  "games": 13,
-  "note": "Sunday inactives for 1 PM games, latest news for later NFL games, MNF and Spurs v Coventry; no NBA games due."
+  "at": "2026-10-18T23:11:00Z",
+  "games": 2,
+  "note": "DAL @ GB inactives and WAS @ SF injury refresh; no NBA due, EPL Spurs doc still fresh"
  }
 }
