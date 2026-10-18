@@ -1,0 +1,229 @@
+{
+ "inputs": "fcbb62ba95f7",
+ "live": {
+  "inj_n": 246,
+  "inj_at": "2026-10-18T00:24:07Z",
+  "nba_inj_n": 89,
+  "nba_inj_at": "2026-10-18T00:24:07Z",
+  "qb_n": 32,
+  "qb_at": "2026-10-18T00:24:07Z",
+  "wx_n": 8,
+  "epl_dates": 29,
+  "epl_at": "2026-10-18T00:24:07Z",
+  "errors": []
+ },
+ "refit": false,
+ "season": 2026,
+ "week": 6,
+ "games": 13,
+ "players": 242,
+ "built": "2026-10-18T00:24:12Z",
+ "kickoffs": [
+  "2026-10-18T13:30:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T17:00:00Z",
+  "2026-10-18T20:05:00Z",
+  "2026-10-18T20:25:00Z",
+  "2026-10-18T20:25:00Z",
+  "2026-10-19T00:20:00Z",
+  "2026-10-20T00:15:00Z"
+ ],
+ "made": "2026-10-17 19:24 CT",
+ "ts": "2026-10-18T00:24:12Z",
+ "fingerprint": {
+  "games": "8c915eec27e5",
+  "players": "c5f0271c741e"
+ },
+ "record": {
+  "saved": 29,
+  "graded": 15,
+  "won": 8,
+  "lost": 7
+ },
+ "nba": {
+  "season": 2027,
+  "dates": [
+   "2026-10-20",
+   "2026-10-21"
+  ],
+  "games": 14,
+  "players": 246,
+  "tips": [
+   "2026-10-20T19:00:00Z",
+   "2026-10-20T23:00:00Z",
+   "2026-10-21T01:30:00Z",
+   "2026-10-21T23:00:00Z",
+   "2026-10-21T23:00:00Z",
+   "2026-10-21T23:30:00Z",
+   "2026-10-21T23:30:00Z",
+   "2026-10-21T23:30:00Z",
+   "2026-10-22T00:00:00Z",
+   "2026-10-22T00:00:00Z",
+   "2026-10-22T00:30:00Z",
+   "2026-10-22T02:00:00Z",
+   "2026-10-22T02:00:00Z",
+   "2026-10-22T02:30:00Z"
+  ],
+  "inj_n": 89,
+  "fingerprint": {
+   "games": "2d89be305787",
+   "players": "5715b94af0de"
+  },
+  "record": {
+   "saved": 14,
+   "graded": 0,
+   "won": 0,
+   "lost": 0
+  }
+ },
+ "epl": {
+  "season": 2026,
+  "dates": [
+   "2026-10-18",
+   "2026-10-19"
+  ],
+  "games": 5,
+  "src": "espn",
+  "kickoffs": [
+   "2026-10-18T13:00:00Z",
+   "2026-10-18T13:00:00Z",
+   "2026-10-18T13:00:00Z",
+   "2026-10-18T15:30:00Z",
+   "2026-10-19T19:00:00Z"
+  ],
+  "fingerprint": {
+   "games": "c471d7c25879"
+  },
+  "record": {
+   "saved": 10,
+   "graded": 5,
+   "won": 3,
+   "lost": 2
+  }
+ },
+ "ok": true,
+ "at": "2026-10-18T00:24:00Z",
+ "took": 99,
+ "steps": [
+  [
+   "download",
+   2.4,
+   "season 2026",
+   true
+  ],
+  [
+   "nba download",
+   3.2,
+   "season 2027",
+   true
+  ],
+  [
+   "epl download",
+   0.7,
+   "season 2026-27",
+   true
+  ],
+  [
+   "live inputs",
+   5.0,
+   "246 NFL injury listings, 89 NBA, depth charts for 32 teams, 8 forecasts, EPL scoreboard for 29 dates",
+   true
+  ],
+  [
+   "model",
+   0.1,
+   "model is current: fitted on 3642 games through 2026_06_SEA_DEN",
+   true
+  ],
+  [
+   "grade",
+   0.1,
+   "0 newly graded",
+   true
+  ],
+  [
+   "build",
+   50.0,
+   "season 2026 week 6: 13 games, 242 players (picks 8c915eec27e5, players c5f0271c741e)",
+   true
+  ],
+  [
+   "check",
+   12.3,
+   "page ok",
+   true
+  ],
+  [
+   "save picks",
+   0.0,
+   "0 picks saved or changed; 29 on record, 8-7 graded",
+   true
+  ],
+  [
+   "nba model",
+   0.1,
+   "model is current: fitted on 15479 games through 2026-06-13",
+   true
+  ],
+  [
+   "nba grade",
+   0.1,
+   "0 newly graded",
+   true
+  ],
+  [
+   "nba build",
+   9.5,
+   "14 games on 2026-10-20 and 2026-10-21, 246 players, 89 listed injured (picks 2d89be305787, players 5715b94af0de)",
+   true
+  ],
+  [
+   "nba check",
+   7.7,
+   "nba page ok",
+   true
+  ],
+  [
+   "nba save picks",
+   0.0,
+   "0 picks saved or changed; 14 on record, 0-0 graded",
+   true
+  ],
+  [
+   "epl model",
+   1.2,
+   "model is current: fitted on 24055 matches through 2026-10-17",
+   true
+  ],
+  [
+   "epl grade",
+   0.0,
+   "0 newly graded",
+   true
+  ],
+  [
+   "epl build",
+   1.6,
+   "5 matches on 2026-10-18, 2026-10-19 from the espn schedule (picks c471d7c25879)",
+   true
+  ],
+  [
+   "epl check",
+   4.7,
+   "epl page ok",
+   true
+  ],
+  [
+   "epl save picks",
+   0.0,
+   "0 picks saved or changed; 10 on record, 3-2 graded",
+   true
+  ]
+ ],
+ "errors": []
+}

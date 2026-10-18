@@ -1,0 +1,574 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light dark"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Matchup Edge Premier League</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a stats desk. A header with data freshness, four tabs (Games, Players, Teams, How it works). Games: a board of
+   every pick above one card per game; each card leads with the pick and a tug-of-war of the factors behind it, and the
+   research opens in place. Players: a filterable list; a row opens the player's projection, milestones and games. */
+:root{
+  --bg:#eef2ef; --surface:#ffffff; --surface-2:#f5f8f6; --ink:#13201b; --ink-2:#3b4943; --muted:#56655e; --line:#d9e1dc;
+  --accent:#0f6b4f; --accent-soft:#e0efe8; --accent-ink:#ffffff; --track:#e3e9e5;
+  --seq-1:#cfe6dc; --seq-2:#8fc7b0; --seq-3:#0f6b4f; --dim:#b4c0ba;
+  --away:#2a78d6; --home:#eb6834;
+  --good:#0f7a4f; --good-soft:#dcf0e5; --warn:#8a5d00; --warn-soft:#f5ebd3; --serious:#a8480f; --serious-soft:#fbe6d8; --crit:#b3372a; --crit-soft:#f8e4e0;
+  --shadow:0 10px 28px rgba(19,32,27,.14);
+  --f-display:"Saira Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1210; --surface:#131c18; --surface-2:#101814; --ink:#e3ebe7; --ink-2:#c3cec8; --muted:#93a39b; --line:#24332c;
+  --accent:#4fc79a; --accent-soft:#16302a; --accent-ink:#0c1210; --track:#1f2b26;
+  --seq-1:#1d3b31; --seq-2:#2f7a60; --seq-3:#4fc79a; --dim:#3d4c45;
+  --away:#3987e5; --home:#d95926;
+  --good:#4fd197; --good-soft:#12301f; --warn:#e2b44a; --warn-soft:#33290f; --serious:#f09a62; --serious-soft:#38210f; --crit:#ff806d; --crit-soft:#35191a;
+  --shadow:0 10px 28px rgba(0,0,0,.5); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1210; --surface:#131c18; --surface-2:#101814; --ink:#e3ebe7; --ink-2:#c3cec8; --muted:#93a39b; --line:#24332c;
+  --accent:#4fc79a; --accent-soft:#16302a; --accent-ink:#0c1210; --track:#1f2b26;
+  --seq-1:#1d3b31; --seq-2:#2f7a60; --seq-3:#4fc79a; --dim:#3d4c45;
+  --away:#3987e5; --home:#d95926;
+  --good:#4fd197; --good-soft:#12301f; --warn:#e2b44a; --warn-soft:#33290f; --serious:#f09a62; --serious-soft:#38210f; --crit:#ff806d; --crit-soft:#35191a;
+  --shadow:0 10px 28px rgba(0,0,0,.5); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:14px}
+@media (min-width:720px){.wrap{padding-inline:24px}}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent);font-weight:600}
+p{margin:0}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.k{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fine{font-size:12px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;min-width:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:24px;letter-spacing:.03em;text-transform:uppercase;margin:0;text-wrap:balance;line-height:1.05}
+h3{font-size:13px;font-weight:700;margin:0;text-wrap:balance}
+.btn{border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:13px}
+.btn:hover{border-color:var(--muted)}
+select,input[type=search],input[type=number]{border:1px solid var(--line);background:var(--surface-2);border-radius:6px;padding:6px 8px;min-width:0}
+.scroll{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 8px;text-align:right;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+th{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+tbody tr:last-child td{border-bottom:0}
+td.l,th.l{text-align:left}
+
+/* header and tabs */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 18px}
+.brand h1{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,9.5vw,46px);line-height:.9;text-transform:uppercase;letter-spacing:.01em;margin:0}
+.brand h1 span{color:var(--accent)}
+.brand p{color:var(--ink-2);margin-top:6px;max-width:60ch}
+/* the two sports are two pages of one site: index.html (NFL) and nba.html */
+.sport{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--surface);margin-bottom:8px}
+.sport a{font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:2px 12px;border-radius:999px}
+.sport a:hover{color:var(--ink)}
+.sport a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.fresh{display:flex;flex-wrap:wrap;gap:6px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--ink);overflow-x:auto}
+.tabs button{font-family:var(--f-display);font-weight:600;font-size:19px;letter-spacing:.04em;text-transform:uppercase;border:0;background:none;padding:6px 14px 5px;cursor:pointer;color:var(--muted);border-radius:6px 6px 0 0;white-space:nowrap}
+@media (max-width:480px){.tabs{gap:0}.tabs button{font-size:15px;padding:6px 7px 5px;letter-spacing:.01em}.tabs .wk{display:none}}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.tabs .wk{margin-left:auto;align-self:center;font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap;padding-left:10px}
+section.tab{display:flex;flex-direction:column;gap:14px}
+
+/* the mix */
+details.mix summary{cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;list-style:none}
+details.mix summary::-webkit-details-marker{display:none}
+details.mix summary::before{content:"+";font-family:var(--f-mono);font-weight:600;color:var(--accent)}
+details.mix[open] summary::before{content:"−"}
+details.mix summary b{font-size:14px}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px 22px;margin-top:14px}
+.w label{display:flex;justify-content:space-between;gap:8px;font-weight:600;font-size:13px}
+.w input[type=range]{width:100%;accent-color:var(--accent);margin:4px 0 2px}
+.w small{display:block;color:var(--muted);font-size:12px;line-height:1.4}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.tag i{font-style:normal}
+.t-held{background:var(--good-soft);color:var(--good)}
+.t-weak{background:var(--warn-soft);color:var(--warn)}
+.t-none{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+
+/* the board */
+.board td.pick b{font-family:var(--f-display);font-size:18px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.board tr{cursor:pointer}
+.board td .sub{display:block;color:var(--muted);font-size:12px}
+.board .sm{display:none}
+@media (max-width:640px){.board .xs{display:none}.board .sm{display:inline}.board th,.board td{padding:7px 5px}}
+.board tbody tr:hover td{background:var(--surface-2)}
+.res td.pick b{font-family:var(--f-display);font-size:17px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.res td:first-child{white-space:nowrap}
+.res .fin-s{display:none}
+@media (max-width:640px){.res .xs{display:none}.res .fin-s{display:block;color:var(--muted);font-size:12px;font-family:var(--f-mono)}.res th,.res td{padding:7px 5px}}
+.narrow{max-width:620px}
+.split{display:flex;height:8px;gap:2px;min-width:90px}
+.split i{display:block;height:100%}
+.split .a{background:var(--away);border-radius:4px 0 0 4px}
+.split .h{background:var(--home);border-radius:0 4px 4px 0}
+
+/* game cards */
+.games{display:flex;flex-direction:column;gap:14px}
+.gh{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 14px;margin-bottom:10px}
+.gh .when{font-size:12px;color:var(--muted);font-weight:600}
+.gtop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px 26px;align-items:start}
+@media (max-width:820px){.gtop{grid-template-columns:minmax(0,1fr)}}
+.teamline{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--line)}
+.teamline:last-of-type{border-bottom:0}
+.teamline .nm{display:flex;align-items:baseline;gap:8px;min-width:0}
+.teamline .nm b{font-family:var(--f-display);font-size:26px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.teamline .nm span{color:var(--muted);font-size:12px;white-space:nowrap}
+.teamline .sc{font-family:var(--f-display);font-size:26px;font-weight:600;line-height:1}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none}
+.sw.a{background:var(--away)} .sw.h{background:var(--home)}
+.pickbox{margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--accent-soft)}
+.pickbox b{font-family:var(--f-display);font-size:28px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.pickbox .conf{font-weight:600;color:var(--ink-2)}
+.why{margin-top:10px;color:var(--ink-2);max-width:62ch}
+.tug{display:flex;flex-direction:column;gap:5px}
+.trow{display:grid;grid-template-columns:128px minmax(0,1fr) 92px;gap:10px;align-items:center}
+@media (max-width:480px){.trow{grid-template-columns:100px minmax(0,1fr) 82px;gap:8px}}
+.trow .tl{font-size:12.5px;font-weight:600;min-width:0}
+.trow .tv{font-size:12px;text-align:right;white-space:nowrap}
+.tb{position:relative;height:16px}
+.tb::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--muted);opacity:.55}
+.tb i{position:absolute;top:3px;height:10px}
+.tb i.h{background:var(--home);border-radius:0 4px 4px 0}
+.tb i.a{background:var(--away);border-radius:4px 0 0 4px}
+.trow.off .tl,.trow.off .tv{color:var(--muted);font-weight:500}
+.trow.sum{border-top:1px solid var(--line);padding-top:6px;margin-top:2px}
+.trow.sum .tl,.trow.sum .tv{font-weight:700}
+.tax{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:var(--ink-2)}
+.tax span{display:inline-flex;align-items:center;gap:6px}
+details.more{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}
+details.more>summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:13px}
+.sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 26px;margin-top:12px}
+@media (max-width:820px){.sections{grid-template-columns:minmax(0,1fr)}}
+.sec{min-width:0;display:flex;flex-direction:column;gap:8px}
+.sec.wide{grid-column:1/-1}
+.sec h4{margin:6px 0 0;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sec p{color:var(--ink-2);max-width:68ch}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.p-out{background:var(--crit-soft);color:var(--crit)} .p-dbt{background:var(--serious-soft);color:var(--serious)} .p-q{background:var(--warn-soft);color:var(--warn)} .p-ok{background:var(--good-soft);color:var(--good)}
+.plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.plist li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;font-size:13px}
+.plist li .pv{margin-left:auto;font-size:12px}
+.plist li.off{color:var(--muted)}
+.l5{display:inline-flex;gap:3px}
+.l5 i{font-style:normal;font-family:var(--f-mono);font-size:11px;font-weight:600;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.l5 i.W{background:var(--good-soft);color:var(--good);border-color:transparent}
+.news li{margin-bottom:6px;max-width:80ch}
+.news{margin:0;padding-left:18px;color:var(--ink-2)}
+.nt{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* players */
+.controls{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.controls input[type=search]{flex:1 1 180px}
+.chips{display:inline-flex;gap:4px;flex-wrap:wrap}
+.chips button{border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:4px 11px;font-size:12px;font-weight:600;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.likely{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 22px}
+@media (max-width:820px){.likely{grid-template-columns:minmax(0,1fr)}}
+.likely ol{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.likely li{display:grid;grid-template-columns:minmax(0,1fr) 64px 38px;gap:8px;align-items:center;font-size:13px}
+.likely li button{all:unset;cursor:pointer;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.likely li button:hover{color:var(--accent)}
+.likely li button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.meter{height:8px;background:var(--seq-1);border-radius:4px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--seq-3);border-radius:4px 0 0 4px}
+.plh,.prow{display:grid;grid-template-columns:minmax(0,1fr) 124px 92px 196px 76px 58px 82px;gap:0 10px;align-items:center;padding:8px;border-bottom:1px solid var(--line)}
+.plh{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.plh>span,.prow>span{text-align:right;min-width:0}
+.plh>span:first-child,.prow>span:first-child{text-align:left}
+@media (max-width:820px){.plh,.prow{grid-template-columns:minmax(0,1fr) 108px 52px}.plh .xs,.prow .xs{display:none}}
+.prow{cursor:pointer}
+.prow:hover,.prow.open{background:var(--surface-2)}
+.prow .nm{font-weight:700}
+.prow .sub{color:var(--muted);font-size:12px;display:block}
+.pc{padding:14px 12px;display:flex;flex-direction:column;gap:14px;background:var(--surface-2);border-bottom:1px solid var(--line);min-width:0}
+.pc>*{min-width:0}
+.pcgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px 26px;align-items:start}
+@media (max-width:820px){.pcgrid{grid-template-columns:minmax(0,1fr)}}
+.big{font-family:var(--f-display);font-size:42px;font-weight:700;line-height:1}
+.big small{font-family:var(--f-body);font-size:13px;font-weight:600;color:var(--muted);margin-left:6px}
+.range{position:relative;height:22px;margin:6px 0 2px}
+.range .r90,.range .r50{position:absolute;top:7px;height:8px;border-radius:4px}
+.range .r90{background:var(--seq-1)} .range .r50{background:var(--seq-2)}
+.range .dot{position:absolute;top:4px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--seq-3);border:2px solid var(--surface-2)}
+.range .mark{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--ink)}
+.rax{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.ms{display:grid;grid-template-columns:auto minmax(0,1fr) 40px;gap:6px 10px;align-items:center;font-size:13px}
+.ms .lab{font-weight:600;white-space:nowrap}
+.you{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:10px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.you input{width:92px;font-family:var(--f-mono);font-weight:600}
+.you .ans{font-weight:700}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--f-body);font-size:11px;fill:var(--muted)}
+.chart .bar{fill:var(--dim)} .chart .bar.hit{fill:var(--seq-3)}
+.chart .bar:hover,.chart .bar:focus{opacity:.8;outline:none}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .ref{stroke:var(--ink);stroke-width:1.5}
+.chart .reft{fill:var(--ink);font-weight:600}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px 14px}
+.kv div{min-width:0}
+.kv b{display:block;font-family:var(--f-mono);font-size:15px;font-weight:600}
+.kv span{font-size:11.5px;color:var(--muted);line-height:1.3;display:block}
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;font-weight:500;padding:6px 9px;border-radius:6px;max-width:260px;box-shadow:var(--shadow);line-height:1.35}
+
+/* teams */
+.rbar{position:relative;height:10px;width:110px;display:inline-block;vertical-align:middle}
+.rbar::before{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted);opacity:.55}
+.rbar i{position:absolute;top:0;height:10px;background:var(--seq-3)}
+.rbar i.p{border-radius:0 4px 4px 0} .rbar i.n{border-radius:4px 0 0 4px;background:var(--dim)}
+.sort{cursor:pointer;user-select:none;white-space:nowrap}
+.sort:hover{color:var(--ink)}
+.sort:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sort[data-dir]{color:var(--ink)}
+.sort[data-dir]::after{content:" ▾";color:var(--accent)}
+.sort[data-dir=asc]::after{content:" ▴"}
+.filters{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin-bottom:10px}
+.filters .fg{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}
+.filters .k{margin:0}
+.filters input.numin{width:76px}
+.filters .clr{border:0;background:none;color:var(--accent);font-weight:600;font-size:12px;cursor:pointer;padding:4px 2px}
+.rk{font-size:11px;color:var(--muted);margin-left:4px}
+tr.tsel td{background:var(--accent-soft)}
+.teams td,.teams th{padding:7px 6px}
+
+/* method */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.kpi{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.kpi b{font-family:var(--f-display);font-size:38px;font-weight:700;line-height:1}
+.kpi span{font-size:12px;color:var(--muted);line-height:1.4}
+@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.prose{display:flex;flex-direction:column;gap:10px}
+.prose p{max-width:70ch;color:var(--ink-2)}
+.dumb{position:relative;height:12px;width:150px;display:inline-block;vertical-align:middle}
+.dumb::before{content:"";position:absolute;left:0;right:0;top:5px;height:2px;background:var(--track)}
+.dumb i{position:absolute;top:1px;width:10px;height:10px;margin-left:-5px;border-radius:50%;border:2px solid var(--surface)}
+.dumb i.s{background:var(--dim)} .dumb i.w{background:var(--seq-3)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+footer{color:var(--muted);font-size:12px;max-width:80ch}
+@media (prefers-reduced-motion:no-preference){.tb i,.meter i{transition:width .25s ease,left .25s ease}}
+</style>
+<style>
+/* Premier League additions to the shared styles */
+.board tr.dayrow{cursor:default}
+.board tr.dayrow th{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--muted);text-align:left;padding-top:16px}
+.board tbody:first-of-type tr.dayrow th{padding-top:8px}
+.board tbody tr.dayrow:hover th{background:none}
+.nw{white-space:nowrap}
+.split3{display:flex;height:8px;gap:2px;min-width:90px}
+.split3 i{display:block;height:100%}
+.split3 .h{background:var(--home);border-radius:4px 0 0 4px}
+.split3 .d{background:var(--dim)}
+.split3 .a{background:var(--away);border-radius:0 4px 4px 0}
+.sw.d{background:var(--dim)}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
+.three>div{border:1px solid var(--line);border-radius:8px;padding:6px 8px;text-align:center}
+.three>div b{display:block;font-family:var(--f-mono);font-size:17px}
+.three>div span{font-size:11px;color:var(--muted)}
+.three>div.on{border-color:var(--accent);background:var(--accent-soft)}
+.form{font-family:var(--f-mono);letter-spacing:.12em}
+.form .W{color:var(--good)}.form .L{color:var(--crit)}.form .D{color:var(--muted)}
+.ltab td,.ltab th{padding:6px 5px}
+@media (max-width:640px){.ltab .xs{display:none}.ltab td,.ltab th{padding:6px 3px;font-size:12px}}
+.scoregrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;font-size:13px;font-family:var(--f-mono);margin-top:6px;max-width:520px}
+.scoregrid span{text-align:center;padding:5px 0;border-radius:6px;border:1px solid var(--line);background:var(--surface)}
+.scoregrid span small{display:block;font-size:11px;color:var(--muted)}
+.scoregrid span.hi{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+.scoregrid span.hi small{color:var(--accent)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <nav class="sport" aria-label="Sport"><a href="./">NFL</a><a href="nba.html">NBA</a><a href="epl.html" aria-current="page">EPL</a></nav>
+      <h1>Matchup <span>Edge</span></h1>
+      <p>Premier League picks built from stats alone: goals and shots on target adjusted for the opponents, home advantage, promotion, fixture congestion and the news. No sportsbooks, no odds.</p>
+    </div>
+    <div class="fresh" id="fresh"></div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="games" aria-selected="true">Matches</button>
+    <button role="tab" data-tab="teams" aria-selected="false">Table</button>
+    <button role="tab" data-tab="method" aria-selected="false">How it works</button>
+    <span class="wk" id="wk"></span>
+  </nav>
+
+  <section class="tab" id="games"></section>
+  <section class="tab" id="teams" hidden></section>
+  <section class="tab" id="method" hidden></section>
+
+  <footer id="foot"></footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const DATA={"sport":"epl","asof":"Sat Oct 17, 7:25 PM CT","built":"2026-10-18T00:25:33Z","made":"2026-10-17 19:25 CT","season":2026,"label":"2026-27","dates":["2026-10-18","2026-10-19"],"model":{"coef":{"r_gd":0.6429366533382322,"r_sot":0.1431697428886917,"hfa":0.555999114771494,"promo":-0.10328063546272219,"cong":0.18627355374401286,"const":0.14132510993529568},"coef_t":{"att_g":0.22889159478058263,"def_g":0.09733952844003482,"att_s":0.15554393646576287,"def_s":0.10109248343600967,"promo_t":0.06713574737244266,"const":2.7387407996834336},"rho":-0.07,"hfa":0.246,"test":{"first":2010,"last":2026,"games":6145,"wins":3300,"win_pct":53.7,"mae":1.287,"mae_total":1.317,"logloss":0.975,"rps":0.1987,"home_pct":44.7,"draw_pct":24.3,"draws_picked":1,"by_season":[{"season":2010,"games":380,"wins":189,"win_pct":49.7,"mae":1.27},{"season":2011,"games":380,"wins":192,"win_pct":50.5,"mae":1.33},{"season":2012,"games":380,"wins":199,"win_pct":52.4,"mae":1.14},{"season":2013,"games":380,"wins":230,"win_pct":60.5,"mae":1.31},{"season":2014,"games":380,"wins":202,"win_pct":53.2,"mae":1.18},{"season":2015,"games":380,"wins":176,"win_pct":46.3,"mae":1.25},{"season":2016,"games":380,"wins":222,"win_pct":58.4,"mae":1.31},{"season":2017,"games":380,"wins":209,"win_pct":55.0,"mae":1.27},{"season":2018,"games":380,"wins":229,"win_pct":60.3,"mae":1.27},{"season":2019,"games":380,"wins":205,"win_pct":53.9,"mae":1.3},{"season":2020,"games":380,"wins":190,"win_pct":50.0,"mae":1.37},{"season":2021,"games":380,"wins":208,"win_pct":54.7,"mae":1.34},{"season":2022,"games":380,"wins":202,"win_pct":53.2,"mae":1.35},{"season":2023,"games":380,"wins":227,"win_pct":59.7,"mae":1.36},{"season":2024,"games":380,"wins":201,"win_pct":52.9,"mae":1.32},{"season":2025,"games":380,"wins":189,"win_pct":49.7,"mae":1.21},{"season":2026,"games":65,"wins":30,"win_pct":46.2,"mae":1.25}],"calibration":[{"from":30,"to":40,"games":940,"said":37.8,"won":41.0},{"from":40,"to":45,"games":1068,"said":42.5,"won":40.1},{"from":45,"to":50,"games":1032,"said":47.5,"won":48.1},{"from":50,"to":55,"games":849,"said":52.3,"won":53.5},{"from":55,"to":60,"games":640,"said":57.3,"won":58.3},{"from":60,"to":70,"games":916,"said":64.7,"won":66.9},{"from":70,"to":80,"games":515,"said":74.2,"won":76.5},{"from":80,"to":100,"games":185,"said":84.3,"won":84.9}],"draw_calibration":[{"from":15,"to":18,"games":222,"said":16.7,"drew":12.2},{"from":20,"to":23,"games":700,"said":21.7,"drew":18.7},{"from":24,"to":27,"games":1964,"said":25.8,"drew":26.0},{"from":27,"to":30,"games":2105,"said":28.3,"drew":27.4},{"from":30,"to":33,"games":390,"said":31.0,"drew":31.5}],"results_only":{"win_pct":53.2,"logloss":0.9796}},"params":{"tau":365.0,"window":1100,"lam":4.0,"w_champ":0.0,"congest_days":3,"max_goals":10},"news_cap":0.6,"fit_games":6905,"max_goals":10,"news_types":["injury","suspension","add","return","coach","drama","motivation","other"]},"games":[{"id":"401879263","date":"2026-10-18","day":"Sun","uk":"2:00 PM","ct":"8:00 AM","ko":"2026-10-18T13:00:00Z","home":"Bournemouth","away":"Sunderland","habbr":"BOU","aabbr":"SUN","venue":"Vitality Stadium","x":{"r_gd":0.2808,"r_sot":0.7975,"hfa":0.2464,"promo":0.0,"cong":0.0,"att_g":-0.1105,"def_g":-0.1086,"att_s":0.1295,"def_s":-0.6815,"promo_t":0.0,"news":0.07},"m":0.643,"t":2.654,"lh":1.649,"la":1.006,"ph":0.516,"pd":0.2616,"pa":0.2225,"pick":"Bournemouth","p":0.516,"rest":[8,8],"h2h":[["2026-02-28","Bournemouth","Sunderland",1,1],["2025-11-29","Sunderland","Bournemouth",3,2],["2017-04-29","Sunderland","Bournemouth",0,1],["2016-11-05","Bournemouth","Sunderland",1,2],["2016-01-23","Sunderland","Bournemouth",1,1],["2015-09-19","Bournemouth","Sunderland",2,0]]},{"id":"401879261","date":"2026-10-18","day":"Sun","uk":"2:00 PM","ct":"8:00 AM","ko":"2026-10-18T13:00:00Z","home":"Brighton","away":"Crystal Palace","habbr":"BHA","aabbr":"CRY","venue":"American Express Stadium","x":{"r_gd":0.6279,"r_sot":1.2794,"hfa":0.2464,"promo":0.0,"cong":0.0,"att_g":0.214,"def_g":-0.2237,"att_s":0.4984,"def_s":-0.5941,"promo_t":0.0,"news":0.15},"m":1.015,"t":2.783,"lh":1.899,"la":0.884,"ph":0.605,"pd":0.2328,"pa":0.1622,"pick":"Brighton","p":0.605,"rest":[7,8],"h2h":[["2026-02-08","Brighton","Crystal Palace",0,1],["2025-11-09","Crystal Palace","Brighton",0,0],["2025-04-05","Crystal Palace","Brighton",2,1],["2024-12-15","Brighton","Crystal Palace",1,3],["2024-02-03","Brighton","Crystal Palace",4,1],["2023-12-21","Crystal Palace","Brighton",1,1]]},{"id":"401879260","date":"2026-10-18","day":"Sun","uk":"2:00 PM","ct":"8:00 AM","ko":"2026-10-18T13:00:00Z","home":"Leeds","away":"Man United","habbr":"LEE","aabbr":"MUN","venue":"Elland Road","x":{"r_gd":-0.1551,"r_sot":-1.4571,"hfa":0.2464,"promo":0.0,"cong":0.0,"att_g":0.2028,"def_g":-0.3227,"att_s":0.8135,"def_s":-0.5931,"promo_t":0.0,"news":0.22},"m":0.19,"t":2.82,"lh":1.505,"la":1.315,"ph":0.4094,"pd":0.267,"pa":0.3236,"pick":"Leeds","p":0.4094,"rest":[8,8],"h2h":[["2026-04-13","Man United","Leeds",1,2],["2026-01-04","Leeds","Man United",1,1],["2023-02-12","Leeds","Man United",0,2],["2023-02-08","Man United","Leeds",2,2],["2022-02-20","Leeds","Man United",2,4],["2021-08-14","Man United","Leeds",5,1]]},{"id":"401878769","date":"2026-10-18","day":"Sun","uk":"4:30 PM","ct":"10:30 AM","ko":"2026-10-18T15:30:00Z","home":"Nottm Forest","away":"Arsenal","habbr":"NFO","aabbr":"ARS","venue":"The City Ground","x":{"r_gd":-0.9394,"r_sot":-2.0894,"hfa":0.2464,"promo":0.0,"cong":0.0,"att_g":0.3326,"def_g":-0.7704,"att_s":0.5199,"def_s":-1.8886,"promo_t":0.0,"news":0.19},"m":-0.435,"t":2.63,"lh":1.098,"la":1.532,"ph":0.2635,"pd":0.2719,"pa":0.4646,"pick":"Arsenal","p":0.4646,"rest":[8,7],"h2h":[["2026-01-17","Nottm Forest","Arsenal",0,0],["2025-09-13","Arsenal","Nottm Forest",3,0],["2025-02-26","Nottm Forest","Arsenal",0,0],["2024-11-23","Arsenal","Nottm Forest",3,0],["2024-01-30","Nottm Forest","Arsenal",1,2],["2023-08-12","Arsenal","Nottm Forest",2,1]]},{"id":"401879257","date":"2026-10-19","day":"Mon","uk":"8:00 PM","ct":"2:00 PM","ko":"2026-10-19T19:00:00Z","home":"Tottenham","away":"Coventry","habbr":"TOT","aabbr":"COV","venue":"Tottenham Hotspur Stadium","x":{"r_gd":0.0412,"r_sot":0.2533,"hfa":0.2464,"promo":-1.0,"cong":0.0,"att_g":-0.2921,"def_g":0.1671,"att_s":-0.1872,"def_s":-0.279,"promo_t":1.0,"news":0.08},"m":0.524,"t":2.698,"lh":1.611,"la":1.087,"ph":0.4872,"pd":0.2646,"pa":0.2482,"pick":"Tottenham","p":0.4872,"rest":[7,9],"h2h":[["2001-03-17","Tottenham","Coventry",3,0],["2000-10-14","Coventry","Tottenham",2,1]]}],"teams":{"Man City":{"abbr":"MCI","rank":1,"str":1.011,"r_gd":1.113,"r_sot":2.063,"att":2.12,"def":1.0,"satt":5.56,"sdef":3.5,"promoted":0,"pos":1,"p":7,"w":7,"d":0,"l":0,"gf":19,"ga":7,"gd":12,"pts":21,"last5":"WWWWW","home_rec":"4-0-0","away_rec":"3-0-0","sot_for":5.29,"sot_against":4.14},"Arsenal":{"abbr":"ARS","rank":2,"str":0.979,"r_gd":1.021,"r_sot":2.249,"att":1.84,"def":0.82,"satt":5.03,"sdef":2.78,"promoted":0,"pos":2,"p":6,"w":5,"d":0,"l":1,"gf":10,"ga":5,"gd":5,"pts":15,"last5":"WWWLW","home_rec":"3-0-0","away_rec":"2-0-1","sot_for":5.0,"sot_against":3.17},"Liverpool":{"abbr":"LIV","rank":3,"str":0.529,"r_gd":0.516,"r_sot":1.379,"att":1.77,"def":1.25,"satt":5.25,"sdef":3.87,"promoted":0,"pos":5,"p":7,"w":3,"d":3,"l":1,"gf":9,"ga":8,"gd":1,"pts":12,"last5":"WDWLW","home_rec":"0-2-1","away_rec":"3-1-0","sot_for":5.0,"sot_against":3.43},"Brighton":{"abbr":"BHA","rank":4,"str":0.512,"r_gd":0.533,"r_sot":1.186,"att":1.74,"def":1.21,"satt":5.05,"sdef":3.86,"promoted":0,"pos":3,"p":6,"w":4,"d":1,"l":1,"gf":18,"ga":5,"gd":13,"pts":13,"last5":"LDWWW","home_rec":"2-1-0","away_rec":"2-0-1","sot_for":5.5,"sot_against":3.67},"Man United":{"abbr":"MUN","rank":5,"str":0.424,"r_gd":0.34,"r_sot":1.432,"att":1.67,"def":1.33,"satt":5.4,"sdef":3.97,"promoted":0,"pos":14,"p":6,"w":1,"d":3,"l":2,"gf":9,"ga":9,"gd":0,"pts":6,"last5":"WDLDD","home_rec":"1-1-1","away_rec":"0-2-1","sot_for":5.33,"sot_against":4.33},"Chelsea":{"abbr":"CHE","rank":6,"str":0.332,"r_gd":0.379,"r_sot":0.615,"att":1.8,"def":1.42,"satt":5.02,"sdef":4.4,"promoted":0,"pos":4,"p":7,"w":4,"d":1,"l":2,"gf":17,"ga":13,"gd":4,"pts":13,"last5":"LDLWW","home_rec":"2-1-0","away_rec":"2-0-2","sot_for":5.57,"sot_against":5.86},"Bournemouth":{"abbr":"BOU","rank":7,"str":0.205,"r_gd":0.139,"r_sot":0.804,"att":1.54,"def":1.4,"satt":4.95,"sdef":4.15,"promoted":0,"pos":19,"p":6,"w":0,"d":3,"l":3,"gf":7,"ga":13,"gd":-6,"pts":3,"last5":"DDDLL","home_rec":"0-2-1","away_rec":"0-1-2","sot_for":5.0,"sot_against":4.33},"Brentford":{"abbr":"BRE","rank":8,"str":0.159,"r_gd":0.302,"r_sot":-0.246,"att":1.62,"def":1.32,"satt":4.32,"sdef":4.57,"promoted":0,"pos":6,"p":7,"w":2,"d":4,"l":1,"gf":13,"ga":8,"gd":5,"pts":10,"last5":"DDWDL","home_rec":"2-1-1","away_rec":"0-3-0","sot_for":4.14,"sot_against":5.0},"Aston Villa":{"abbr":"AVL","rank":9,"str":0.152,"r_gd":0.197,"r_sot":0.178,"att":1.53,"def":1.34,"satt":4.51,"sdef":4.33,"promoted":0,"pos":12,"p":7,"w":2,"d":2,"l":3,"gf":7,"ga":11,"gd":-4,"pts":8,"last5":"DLWDW","home_rec":"0-1-2","away_rec":"2-1-1","sot_for":3.14,"sot_against":4.43},"Leeds":{"abbr":"LEE","rank":10,"str":0.115,"r_gd":0.185,"r_sot":-0.025,"att":1.42,"def":1.23,"satt":4.24,"sdef":4.27,"promoted":0,"pos":8,"p":6,"w":2,"d":3,"l":1,"gf":8,"ga":5,"gd":3,"pts":9,"last5":"DDWDL","home_rec":"1-2-0","away_rec":"1-1-1","sot_for":3.83,"sot_against":4.5},"Newcastle":{"abbr":"NEW","rank":11,"str":0.077,"r_gd":0.099,"r_sot":0.091,"att":1.6,"def":1.5,"satt":4.66,"sdef":4.57,"promoted":0,"pos":11,"p":7,"w":2,"d":2,"l":3,"gf":10,"ga":14,"gd":-4,"pts":8,"last5":"DLWLL","home_rec":"1-2-1","away_rec":"1-0-2","sot_for":3.57,"sot_against":5.29},"Nottm Forest":{"abbr":"NFO","rank":12,"str":0.075,"r_gd":0.082,"r_sot":0.16,"att":1.38,"def":1.29,"satt":4.32,"sdef":4.16,"promoted":0,"pos":17,"p":6,"w":1,"d":2,"l":3,"gf":5,"ga":8,"gd":-3,"pts":5,"last5":"DDWLL","home_rec":"0-1-2","away_rec":"1-1-1","sot_for":3.83,"sot_against":3.67},"Everton":{"abbr":"EVE","rank":13,"str":0.043,"r_gd":0.06,"r_sot":0.032,"att":1.27,"def":1.21,"satt":4.29,"sdef":4.25,"promoted":0,"pos":7,"p":7,"w":2,"d":4,"l":1,"gf":8,"ga":7,"gd":1,"pts":10,"last5":"DDWDL","home_rec":"2-1-1","away_rec":"0-3-0","sot_for":5.0,"sot_against":4.29},"Fulham":{"abbr":"FUL","rank":14,"str":0.022,"r_gd":-0.025,"r_sot":0.266,"att":1.3,"def":1.32,"satt":4.27,"sdef":4.0,"promoted":0,"pos":16,"p":7,"w":1,"d":2,"l":4,"gf":7,"ga":10,"gd":-3,"pts":5,"last5":"LDDLW","home_rec":"1-1-2","away_rec":"0-1-2","sot_for":4.71,"sot_against":4.14},"Hull City":{"abbr":"HUL","rank":15,"str":0.005,"r_gd":0.155,"r_sot":-0.662,"att":1.3,"def":1.15,"satt":3.91,"sdef":4.57,"promoted":1,"pos":9,"p":7,"w":2,"d":3,"l":2,"gf":8,"ga":7,"gd":1,"pts":9,"last5":"DDLDL","home_rec":"1-2-0","away_rec":"1-1-2","sot_for":3.43,"sot_against":4.86},"Crystal Palace":{"abbr":"CRY","rank":16,"str":-0.075,"r_gd":-0.095,"r_sot":-0.093,"att":1.36,"def":1.45,"satt":4.28,"sdef":4.37,"promoted":0,"pos":13,"p":6,"w":2,"d":1,"l":3,"gf":9,"ga":12,"gd":-3,"pts":7,"last5":"LWLDW","home_rec":"1-0-2","away_rec":"1-1-1","sot_for":4.17,"sot_against":5.67},"Sunderland":{"abbr":"SUN","rank":17,"str":-0.09,"r_gd":-0.141,"r_sot":0.007,"att":1.24,"def":1.38,"satt":4.01,"sdef":4.0,"promoted":0,"pos":18,"p":6,"w":1,"d":1,"l":4,"gf":6,"ga":12,"gd":-6,"pts":4,"last5":"WDLLL","home_rec":"1-0-2","away_rec":"0-1-2","sot_for":4.67,"sot_against":3.33},"Tottenham":{"abbr":"TOT","rank":18,"str":-0.11,"r_gd":-0.209,"r_sot":0.173,"att":1.31,"def":1.52,"satt":4.34,"sdef":4.17,"promoted":0,"pos":20,"p":6,"w":0,"d":3,"l":3,"gf":3,"ga":9,"gd":-6,"pts":3,"last5":"LDDLD","home_rec":"0-1-2","away_rec":"0-2-1","sot_for":3.67,"sot_against":4.17},"Coventry":{"abbr":"COV","rank":19,"str":-0.172,"r_gd":-0.25,"r_sot":-0.081,"att":1.28,"def":1.53,"satt":4.3,"sdef":4.38,"promoted":1,"pos":15,"p":6,"w":2,"d":0,"l":4,"gf":5,"ga":11,"gd":-6,"pts":6,"last5":"LLLWW","home_rec":"1-0-2","away_rec":"1-0-2","sot_for":3.67,"sot_against":4.67},"Ipswich":{"abbr":"IPS","rank":20,"str":-0.482,"r_gd":-0.545,"r_sot":-0.917,"att":1.39,"def":1.94,"satt":4.23,"sdef":5.15,"promoted":1,"pos":10,"p":7,"w":3,"d":0,"l":4,"gf":11,"ga":15,"gd":-4,"pts":9,"last5":"LWLWL","home_rec":"2-0-1","away_rec":"1-0-3","sot_for":4.43,"sot_against":5.57}},"table":["Man City","Arsenal","Brighton","Chelsea","Liverpool","Brentford","Everton","Leeds","Hull City","Ipswich","Newcastle","Aston Villa","Crystal Palace","Man United","Coventry","Fulham","Nottm Forest","Sunderland","Bournemouth","Tottenham"],"results":[["2026-10-12","Coventry","Newcastle",4,1],["2026-10-17","Fulham","Hull City",1,0],["2026-10-17","Man City","Ipswich",3,2],["2026-10-17","Brentford","Liverpool",1,2],["2026-10-17","Everton","Chelsea",0,2],["2026-10-17","Newcastle","Aston Villa",0,1]],"record":{"live":[[2026,"2026-10-17","Chelsea","Everton","Everton",0.382,0.08,2,0,0,"2026-10-17T11:30:00Z"],[2026,"2026-10-17","Liverpool","Brentford","Liverpool",0.374,-0.03,2,1,1,"2026-10-17T14:00:00Z"],[2026,"2026-10-17","Hull City","Fulham","Fulham",0.415,0.23,0,1,1,"2026-10-17T14:00:00Z"],[2026,"2026-10-17","Ipswich","Man City","Man City",0.793,1.94,2,3,1,"2026-10-17T14:00:00Z"],[2026,"2026-10-17","Aston Villa","Newcastle","Newcastle",0.451,0.37,1,0,0,"2026-10-17T16:30:00Z"]],"since":"2026-10-17T11:30:00Z"},"live":{"src":"espn","espn_at":"2026-10-18T00:24:07Z","espn_dates":29,"history_to":"2026-10-17"},"news":{"epl_401878769":{"at":"2026-10-17T16:12:31Z","game":"Nottm Forest v Arsenal","items":[{"at":"2026-10-16T12:00:00Z","impact":-0.18,"src":"https://www.aol.co.uk/articles/every-word-mikel-arteta-said-135825000.html","team":"Arsenal","text":"William Saliba (back) out with no return date; Piero Hincapie (ankle) and Christos Tzolis also out.","total":0,"type":"injury"},{"at":"2026-10-16T12:00:00Z","impact":-0.06,"src":"https://www.aol.co.uk/articles/every-word-mikel-arteta-said-135825000.html","team":"Arsenal","text":"Martin Zubimendi is a doubt; decision after Saturday training.","total":0,"type":"injury"},{"at":"2026-10-16T12:00:00Z","impact":-0.05,"src":"https://www.espn.com/soccer/story/_/id/50195024/nottingham-forest-vs-arsenal-2026-27-premier-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups","team":"Arsenal","text":"Champions League in midweek: beat Lille 3-0.","total":0,"type":"other"},{"at":"2026-10-16T12:00:00Z","impact":-0.15,"src":"https://sports.yahoo.com/articles/nottingham-forest-oliver-glasner-confirms-143721205.html","team":"Nottm Forest","text":"Morgan Gibbs-White (minor muscle injury) is a late call; Nicolo Savona and Igor Jesus ruled out.","total":0,"type":"injury"},{"at":"2026-10-16T12:00:00Z","impact":0.05,"src":"https://sports.yahoo.com/articles/nottingham-forest-oliver-glasner-confirms-143721205.html","team":"Nottm Forest","text":"Nikola Milenkovic back in training after more than a month out and could make the squad.","total":0,"type":"return"}],"lg":"epl","sources":[{"t":"Every word Mikel Arteta said on injuries","u":"https://www.aol.co.uk/articles/every-word-mikel-arteta-said-135825000.html"},{"t":"Nottingham Forest vs Arsenal: TV channel, team news, referee, predicted line-ups","u":"https://www.espn.com/soccer/story/_/id/50195024/nottingham-forest-vs-arsenal-2026-27-premier-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups"},{"t":"Nottingham Forest: Oliver Glasner confirms Morgan Gibbs-White injury latest","u":"https://sports.yahoo.com/articles/nottingham-forest-oliver-glasner-confirms-143721205.html"}],"summary":"Champions Arsenal come off a 3-0 Champions League win over Lille without William Saliba and Piero Hincapie, with Martin Zubimendi a late call. Forest, 15th under Oliver Glasner after a 3-1 loss at Palace, had no midweek game; Morgan Gibbs-White has a minor muscle injury, and Savona and Igor Jesus are out."},"epl_401879257":{"at":"2026-10-17T16:12:31Z","game":"Tottenham v Coventry","items":[{"at":"2026-10-15T12:00:00Z","impact":-0.08,"src":"https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html","team":"Tottenham","text":"Rodrigo Bentancur suspended after a red card at Old Trafford.","total":0,"type":"suspension"},{"at":"2026-10-15T12:00:00Z","impact":0.12,"src":"https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html","team":"Tottenham","text":"James Maddison, back from a fractured shoulder, could start; Kulusevski in contention; Porro hoped to start.","total":0,"type":"return"},{"at":"2026-10-15T12:00:00Z","impact":0,"src":"https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html","team":"Tottenham","text":"Still looking for a first Premier League win of the season.","total":0,"type":"motivation"},{"at":"2026-10-15T12:00:00Z","impact":-0.04,"src":"https://www.aol.com/articles/lampard-coventrys-momentum-sakamoto-tottenham-144711000.html","team":"Coventry","text":"Josh Eccles (ankle) and Luke Woolfenden out; Kaine Kesler-Hayden back in training and available.","total":0,"type":"injury"}],"lg":"epl","sources":[{"t":"Tottenham XI vs Coventry: Confirmed team news and injury latest","u":"https://sports.yahoo.com/articles/tottenham-xi-vs-coventry-confirmed-131642556.html"},{"t":"Lampard on Coventry's momentum, Sakamoto and Tottenham","u":"https://www.aol.com/articles/lampard-coventrys-momentum-sakamoto-tottenham-144711000.html"}],"summary":"Roberto De Zerbi's Spurs are still without a league win and lose Rodrigo Bentancur to suspension, but James Maddison could start and Dejan Kulusevski is in contention after nearly 18 months out. Promoted Coventry arrive on two straight league wins, including 4-1 against Newcastle, with Kaine Kesler-Hayden back. Spurs had a Marbella camp instead of a midweek game."},"epl_401879260":{"at":"2026-10-17T16:12:31Z","game":"Leeds v Man United","items":[{"at":"2026-10-17T12:00:00Z","impact":-0.08,"src":"https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794","team":"Man United","text":"Patrick Dorgu (hamstring, from Denmark duty) out for weeks; Ugarte out long-term.","total":0,"type":"injury"},{"at":"2026-10-17T12:00:00Z","impact":-0.1,"src":"https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794","team":"Man United","text":"Luke Shaw, Kobbie Mainoo and Noussair Mazraoui are doubts.","total":0,"type":"injury"},{"at":"2026-10-17T12:00:00Z","impact":-0.07,"src":"https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794","team":"Man United","text":"Played Atletico Madrid in the Champions League in midweek.","total":0,"type":"other"},{"at":"2026-10-16T12:00:00Z","impact":-0.03,"src":"https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-daniel-farke-manchester-united-dan-james-joe-rodon-9290425","team":"Leeds","text":"Dan James (back) has \"a chance\"; Joe Rodon still out with a hamstring injury since August.","total":0,"type":"injury"},{"at":"2026-10-17T12:00:00Z","impact":0,"src":"https://www.yorkshirepost.co.uk/sport/football/leeds-united/leeds-united-v-manchester-united-gloves-are-off-as-fans-dream-of-ending-54-year-record-9293370","team":"","text":"Roses derby; Leeds chase back-to-back league wins over United for the first time since 1972.","total":0,"type":"drama"}],"lg":"epl","sources":[{"t":"Leeds United & Man United final injury news","u":"https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794"},{"t":"Leeds United boost as Daniel Farke provides team news for Manchester United clash","u":"https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-daniel-farke-manchester-united-dan-james-joe-rodon-9290425"},{"t":"Leeds United v Manchester United: Gloves are off","u":"https://www.yorkshirepost.co.uk/sport/football/leeds-united/leeds-united-v-manchester-united-gloves-are-off-as-fans-dream-of-ending-54-year-record-9293370"}],"summary":"A Roses derby at Elland Road. Leeds lost their unbeaten league record at Arsenal last week but have Harry Wilson and Bahoya back, with Dan James a chance. Michael Carrick's United are five games without a win, played Atletico Madrid in the Champions League in midweek, and lose Patrick Dorgu for weeks, with Shaw, Mainoo and Mazraoui doubts."},"epl_401879261":{"at":"2026-10-17T16:12:31Z","game":"Brighton v Crystal Palace","items":[{"at":"2026-10-16T12:00:00Z","impact":-0.08,"src":"https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026","team":"Crystal Palace","text":"Axel Disasi is suspended.","total":0,"type":"suspension"},{"at":"2026-10-16T12:00:00Z","impact":-0.08,"src":"https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026","team":"Crystal Palace","text":"GK Dean Henderson is a doubt until training; Chilwell being assessed; Mateta and Tomiyasu in contention.","total":0,"type":"injury"},{"at":"2026-10-15T12:00:00Z","impact":-0.07,"src":"https://www.skysports.com/football/news/13599626/lyon-3-2-crystal-palace-pierre-sage-suffers-defeat-to-former-side-as-eagles-comeback-falls-short-in-europa-league","team":"Crystal Palace","text":"Europa League on Thursday: lost 3-2 at Lyon.","total":0,"type":"other"},{"at":"2026-10-15T12:00:00Z","impact":-0.04,"src":"https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026","team":"Brighton","text":"Conference League on Thursday: beat Kauno Zalgiris 4-0 with no new injuries.","total":0,"type":"other"},{"at":"2026-10-16T12:00:00Z","impact":-0.04,"src":"https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026","team":"Brighton","text":"Mitoma, Minteh and Wieffer still out (long absences); Pascal Struijk is a doubt.","total":0,"type":"injury"},{"at":"2026-10-16T12:00:00Z","impact":0,"src":"https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026","team":"","text":"M23 derby; Palace have won Brighton's last two home league meetings.","total":0,"type":"drama"}],"lg":"epl","sources":[{"t":"Brighton v Crystal Palace match preview: team news","u":"https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026"},{"t":"Lyon 3-2 Crystal Palace: Pierre Sage suffers defeat to former side","u":"https://www.skysports.com/football/news/13599626/lyon-3-2-crystal-palace-pierre-sage-suffers-defeat-to-former-side-as-eagles-comeback-falls-short-in-europa-league"}],"summary":"An M23 derby. Brighton are unbeaten in six and chasing a fourth straight league win, but Palace have won three of the last four league meetings. Both played in Europe on Thursday: Brighton beat Kauno Zalgiris 4-0, Palace lost 3-2 at Lyon. Palace have Axel Disasi suspended and Dean Henderson a doubt; Brighton remain without Mitoma and Minteh."},"epl_401879263":{"at":"2026-10-17T16:12:31Z","game":"Bournemouth v Sunderland","items":[{"at":"2026-10-11T12:00:00Z","impact":-0.1,"src":"https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-injury-latest-as-key-quartet-set-to-miss-sunderland-test-9280565","team":"Bournemouth","text":"Alex Scott (thigh, hurt on England duty) out for four or five weeks; Kroupi and Araujo remain out after surgery.","total":0,"type":"injury"},{"at":"2026-10-16T12:00:00Z","impact":-0.05,"src":"https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-consistency-sunderland-clash-9291327","team":"Bournemouth","text":"Europa League on Thursday: beat Sturm Graz 3-0. Kluivert and Adli came on and are available.","total":0,"type":"other"},{"at":"2026-10-16T12:00:00Z","impact":-0.15,"src":"https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-news-bournemouth-premier-league-9291022","team":"Sunderland","text":"Thomas Meunier (hamstring) ruled out; Wilson Isidor (minor injury) did not travel to Portugal and is day to day.","total":0,"type":"injury"},{"at":"2026-10-16T12:00:00Z","impact":-0.07,"src":"https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-news-bournemouth-premier-league-9291022","team":"Sunderland","text":"Europa League on Thursday: won 2-1 away at Torreense in Portugal. Brobbey and Diarra are back and ready.","total":0,"type":"other"}],"lg":"epl","sources":[{"t":"Bournemouth injury latest as key quartet set to miss Sunderland test","u":"https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-injury-latest-as-key-quartet-set-to-miss-sunderland-test-9280565"},{"t":"Bournemouth boss demands consistency ahead of Sunderland clash","u":"https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-consistency-sunderland-clash-9291327"},{"t":"Regis Le Bris issues early Sunderland injury update ahead of Bournemouth clash","u":"https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-news-bournemouth-premier-league-9291022"}],"summary":"Both clubs won in the Europa League on Thursday, Bournemouth 3-0 at home to Sturm Graz and Sunderland 2-1 away in Portugal, and both have made slow league starts. Bournemouth are without Alex Scott for a month, though Kluivert and Adli are back. Sunderland lose Thomas Meunier, Wilson Isidor is a day-to-day doubt, and Brobbey and Diarra return."}},"news_meta":{"at":"2026-10-17T16:12:31Z"}};
+(function(){
+'use strict';
+const D=DATA,M=D.model,C=M.coef,T=D.teams;
+const $=s=>document.querySelector(s),MINUS='−';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl=u=>/^https?:\/\/[^\s"<>]+$/i.test(String(u||''))?String(u):'';
+const f1=v=>v==null||!isFinite(v)?'–':(Math.round(v*10)/10).toFixed(1);
+const f2=v=>v==null||!isFinite(v)?'–':(Math.round(v*100)/100).toFixed(2);
+const sg=(v,d=2)=>{if(v==null||!isFinite(v))return'–';const s=Math.abs(v).toFixed(d);return +s===0?s:(v>0?'+':MINUS)+s};
+const pc=p=>p==null||!isFinite(p)?'–':Math.round(p*100)+'%';
+const ord=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])};
+const store={get(k,d){try{const v=localStorage.getItem('meepl1.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('meepl1.'+k,JSON.stringify(v))}catch(e){}}};
+const pct1=v=>Number(v).toFixed(1);
+const seasonName=y=>y+'-'+String(y+1).slice(2);
+const dayName=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric',timeZone:'UTC'});
+const shortDate=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'});
+const monthYear=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-US',{month:'short',year:'numeric',timeZone:'UTC'});
+
+/* ---------- maths: two Poisson distributions with Dixon and Coles' low-score correction (epl_model.dc_probs) ---------- */
+const MAXG=M.max_goals||10;
+function dcMatrix(lh,la,rho){
+  const fact=[1];for(let i=1;i<=MAXG;i++)fact[i]=fact[i-1]*i;
+  const ph=[],pa=[];for(let k=0;k<=MAXG;k++){ph[k]=Math.exp(-lh)*Math.pow(lh,k)/fact[k];pa[k]=Math.exp(-la)*Math.pow(la,k)/fact[k]}
+  const P=[];let s=0;
+  for(let i=0;i<=MAXG;i++){P[i]=[];for(let j=0;j<=MAXG;j++){let v=ph[i]*pa[j];
+    if(i===0&&j===0)v*=1-lh*la*rho;else if(i===1&&j===0)v*=1+la*rho;else if(i===0&&j===1)v*=1+lh*rho;else if(i===1&&j===1)v*=1-rho;
+    v=Math.max(v,1e-12);P[i][j]=v;s+=v}}
+  for(let i=0;i<=MAXG;i++)for(let j=0;j<=MAXG;j++)P[i][j]/=s;
+  return P}
+function outcomes(P){let h=0,d=0,a=0;for(let i=0;i<=MAXG;i++)for(let j=0;j<=MAXG;j++){if(i>j)h+=P[i][j];else if(i===j)d+=P[i][j];else a+=P[i][j]}return{h,d,a}}
+function modeScore(P){let best=[0,0];for(let i=0;i<=MAXG;i++)for(let j=0;j<=MAXG;j++)if(P[i][j]>P[best[0]][best[1]])best=[i,j];return best}
+const lam=(m,t)=>[Math.min(6,Math.max(.1,(t+m)/2)),Math.min(6,Math.max(.1,(t-m)/2))];
+
+/* ---------- the factors ---------- */
+const TEST=M.test;
+const FACTORS=[
+  {k:'r_gd',label:'Goals rating',max:200,def:100,tag:'held',note:'Each team’s goal difference adjusted for who they played, recent matches counting most (a match’s weight halves every '+Math.round(M.params.tau*Math.LN2)+' days, over the last three seasons). On its own, with home advantage, it picks '+pct1(TEST.results_only.win_pct)+'% of results right.'},
+  {k:'r_sot',label:'Shots on target',max:200,def:100,tag:'held',note:'The same rating built on shots on target for and against: shots say more about a team than the goals that happened to go in. With it the test rises to '+pct1(TEST.win_pct)+'%.'},
+  {k:'hfa',label:'Home advantage',max:200,def:100,tag:'held',note:'Worth about '+(C.hfa*M.hfa+C.const).toFixed(2)+' goals to the home team lately (it collapsed in the empty stadiums of 2020-21 and has come back since).'},
+  {k:'promo',label:'Promoted team',max:200,def:100,tag:'weak',note:'A team in its first season back in the Premier League did about '+Math.abs(C.promo).toFixed(2)+' goals a match worse than its rating said.'},
+  {k:'cong',label:'Fixture congestion',max:200,def:100,tag:'weak',note:'A team playing its second league match in three days did about '+Math.abs(C.cong).toFixed(2)+' goals '+(C.cong>0?'better':'worse')+' than expected; the old odds-based site found the market missed this too. Small, and rare outside the Christmas fixtures.'},
+  {k:'news',label:'News',max:100,def:100,tag:'none',tagText:'Can’t be tested',note:'Researched items the stats can’t see: injuries and suspensions (no injury list is published for this league the way ESPN’s are for the NFL and NBA), a manager sacked, a European match three days earlier. Counted as written, at most '+M.news_cap+' goals a team.'}
+];
+const TAGS={held:['✓','Held up in testing'],weak:['~','Small'],none:['–','No signal']};
+const DEFW=()=>Object.fromEntries(FACTORS.map(f=>[f.k,f.def]));
+const S={tab:'games',W:Object.assign(DEFW(),store.get('w',{})),open:new Set(store.get('open',[])),day:'ALL'};
+FACTORS.forEach(f=>{if(!(S.W[f.k]>=0&&S.W[f.k]<=f.max))S.W[f.k]=f.def});
+const changed=()=>FACTORS.some(f=>S.W[f.k]!==f.def);
+
+function calc(g){
+  const x=g.x,w=k=>S.W[k]/100;
+  /* the intercept of the fit is folded into home advantage: both are "what the home side gets for being at home" */
+  const full={r_gd:C.r_gd*x.r_gd,r_sot:C.r_sot*x.r_sot,hfa:C.hfa*x.hfa+C.const,promo:C.promo*x.promo,cong:C.cong*x.cong,news:x.news||0};
+  const c={};let m=0;FACTORS.forEach(f=>{c[f.k]=w(f.k)*full[f.k];m+=c[f.k]});
+  const t=g.t,[lh,la]=lam(m,t),P=dcMatrix(lh,la,M.rho),o=outcomes(P),mode=modeScore(P);
+  const side=o.h>=Math.max(o.d,o.a)?'home':o.d>=o.a?'draw':'away';
+  const p=side==='home'?o.h:side==='draw'?o.d:o.a,team=side==='home'?g.home:side==='away'?g.away:'Draw';
+  return{c,full,m,t,lh,la,o,P,mode,side,p,team,other:side==='home'?g.away:g.home};
+}
+const confWord=p=>p<.4?'a toss-up':p<.5?'a lean':p<.6?'a solid favorite':p<.72?'a strong favorite':'a heavy favorite';
+const byT=(g,m)=>Math.abs(m)<.05?'dead even':`${m>0?T[g.home]?T[g.home].abbr:g.home:T[g.away]?T[g.away].abbr:g.away} by ${Math.abs(m).toFixed(2)}`;
+const ab=t=>(T[t]&&T[t].abbr)||t;
+const formHTML=s=>s?`<span class="form">${String(s).split('').map(c=>`<span class="${c}">${c}</span>`).join('')}</span>`:'–';
+
+/* ---------- matches ---------- */
+function whyText(g,r){
+  const tm=r.side==='draw'?null:r.team,op=r.side==='draw'?null:r.other,sign=r.side==='away'?-1:1;
+  const ph={
+    r_gd:v=>`${v>0?g.home:g.away} have the better results (${Math.abs(v).toFixed(2)} goals)`,
+    r_sot:v=>`${v>0?g.home:g.away} create and allow the better shots (${Math.abs(v).toFixed(2)})`,
+    hfa:v=>`home advantage (${Math.abs(v).toFixed(2)})`,
+    promo:v=>`${v>0?g.away:g.home} are newly promoted (${Math.abs(v).toFixed(2)})`,
+    cong:v=>`${v>0?g.home:g.away} are on their second match in three days (${Math.abs(v).toFixed(2)})`,
+    news:v=>`the news favors ${v>0?g.home:g.away} (${Math.abs(v).toFixed(2)})`};
+  const parts=FACTORS.map(f=>({k:f.k,v:r.c[f.k]})).filter(p=>Math.abs(p.v)>=.08).sort((a,b)=>Math.abs(b.v)-Math.abs(a.v));
+  const list=a=>a.length>1?a.slice(0,-1).join(', ')+' and '+a[a.length-1]:a[0];
+  let s;
+  if(r.side==='draw')s=`A draw is the single most likely result (${pc(r.o.d)}): the two sides come out within ${Math.abs(r.m).toFixed(2)} goals and the match projects low-scoring (${f1(r.t)} goals).`;
+  else s=`${tm} ${pc(r.p)}, a draw ${pc(r.o.d)}, ${op} ${pc(r.side==='home'?r.o.a:r.o.h)}: ${byT(g,r.m)} goals on paper.`;
+  const pro=parts.filter(p=>sign*p.v>0).slice(0,3).map(p=>ph[p.k](p.v)),con=parts.filter(p=>sign*p.v<0).slice(0,2).map(p=>ph[p.k](p.v));
+  if(r.side!=='draw'){if(pro.length)s+=` For ${tm}: ${list(pro)}.`;if(con.length)s+=` For ${op}: ${list(con)}.`}
+  else{const all=parts.slice(0,3).map(p=>ph[p.k](p.v));if(all.length)s+=` What there is: ${list(all)}.`}
+  return s;
+}
+function tug(g,r){
+  const rows=FACTORS.map(f=>({f,v:r.c[f.k],full:r.full[f.k]})).filter(o=>Math.abs(o.full)>=.01||S.W[o.f.k]!==o.f.def);
+  const mx=Math.max(.6,Math.abs(r.m),...rows.map(o=>Math.abs(o.v)));
+  const bar=v=>Math.abs(v)<.005?'':`<i class="${v>0?'h':'a'}" style="${v>0?'left':'right'}:50%;width:${(Math.abs(v)/mx*50).toFixed(1)}%"></i>`;
+  const val=v=>Math.abs(v)<.005?'0':`${v>0?ab(g.home):ab(g.away)} +${Math.abs(v).toFixed(2)}`;
+  return `<div class="tug" role="img" aria-label="What goes into the pick, in goals toward each team">
+    <div class="tax" aria-hidden="true"><span><b class="sw a"></b>◀ ${esc(g.away)}</span><span>${esc(g.home)} ▶<b class="sw h"></b></span></div>
+    ${rows.map(o=>{const off=S.W[o.f.k]===0;return `<div class="trow${off?' off':''}" data-tip="${esc(o.f.label+': '+(off?`not counted (it would be ${val(o.full)} at full weight)`:val(o.v)+(S.W[o.f.k]!==100?` at ${S.W[o.f.k]}% weight`:'')))}"><span class="tl">${esc(o.f.label)}</span><span class="tb">${bar(o.v)}</span><span class="tv num">${esc(val(o.v))}</span></div>`}).join('')}
+    <div class="trow sum"><span class="tl">Projected margin</span><span class="tb">${bar(r.m)}</span><span class="tv num">${esc(byT(g,r.m))}</span></div></div>`;
+}
+function scoreGrid(g,r){
+  const P=r.P,cells=[];let shown=0;
+  const top=[];for(let i=0;i<=5;i++)for(let j=0;j<=5;j++)top.push([i,j,P[i][j]]);
+  top.sort((a,b)=>b[2]-a[2]);
+  const best=new Set(top.slice(0,3).map(x=>x[0]+'-'+x[1]));
+  for(const [i,j,p] of top.slice(0,6)){cells.push(`<span class="${best.has(i+'-'+j)?'hi':''}" data-tip="${esc(g.home)} ${i}, ${esc(g.away)} ${j}">${i}–${j} <small>${pc(p)}</small></span>`)}
+  return `<div class="scoregrid" role="img" aria-label="The likeliest scorelines">${cells.join('')}</div>`;
+}
+function newsBlock(g){
+  const d=D.news['epl_'+g.id];if(!d)return `<div class="sec wide"><h3>News</h3><p class="muted">No news research for this match yet. It is researched in the days before kickoff.</p></div>`;
+  const items=(d.items||[]).slice(0,30).map(it=>{const u=safeUrl(it.src),counted=M.news_types.includes(it.type)&&Math.abs(it.impact||0)>=.005;
+    return `<li><span class="nt">${esc(it.type||'')}</span> ${esc(String(it.text||'').slice(0,260))}${counted?` <b class="num">${esc(it.team)} ${sg(it.impact)}</b>`:''}${u?` <a href="${esc(u)}" target="_blank" rel="noopener">source</a>`:''}</li>`}).join('');
+  return `<div class="sec wide"><h3>News</h3><p>${esc(String(d.summary||'').slice(0,700))}</p><details><summary class="fine" style="cursor:pointer">All ${(d.items||[]).length} items, with sources</summary><ul class="news" style="margin-top:8px">${items}</ul></details></div>`;
+}
+function teamFacts(t){const x=T[t];if(!x)return'';const rec=x.p!=null?`${x.w}-${x.d}-${x.l}, ${x.pts} points${x.pos?', '+ord(x.pos)+' in the table':''}`:'no league matches yet this season';
+  return `${esc(rec)} · ${x.rank?ord(x.rank)+' in our ratings ('+sg(x.str)+' goals)':''}${x.att!=null?` · scores ${f2(x.att)}, allows ${f2(x.def)} a match against an average side`:''}${x.sot_for!=null?` · ${f1(x.sot_for)} shots on target a match for, ${f1(x.sot_against)} against`:''}`}
+function gameCard(g){
+  const r=calc(g),A=T[g.away]||{},H=T[g.home]||{},k='g-'+g.id;
+  const rest=i=>{const d=g.rest[i];return d==null?'first league match on record':d>21?'first league match in a while':d<=3?`${d} days since the last league match (congested)`:`${d} days since the last league match`};
+  const h2h=g.h2h.length?g.h2h.map(m=>`<span class="nw">${esc(monthYear(m[0]))}: ${esc(ab(m[1]))} ${m[3]}–${m[4]} ${esc(ab(m[2]))}</span>`).join(' · '):'No recent meetings';
+  const mode=r.mode;
+  return `<article class="card" id="${k}" data-g="${esc(g.id)}">
+    <div class="gh"><h2>${esc(g.home)} v ${esc(g.away)}</h2><span class="when">${esc(g.day)} ${esc(g.ct)} CT (${esc(g.uk)} UK)${g.venue?' · '+esc(g.venue):''}</span></div>
+    <div class="gtop"><div>
+      <div class="teamline"><span class="nm"><i class="sw h"></i><b>${esc(ab(g.home))}</b><span>${H.p!=null?esc(`${H.w}-${H.d}-${H.l}`)+' · ':''}${H.rank?ord(H.rank)+' in our ratings':''}</span></span><span class="sc num">${f1(r.lh)}</span></div>
+      <div class="teamline"><span class="nm"><i class="sw a"></i><b>${esc(ab(g.away))}</b><span>${A.p!=null?esc(`${A.w}-${A.d}-${A.l}`)+' · ':''}${A.rank?ord(A.rank)+' in our ratings':''}</span></span><span class="sc num">${f1(r.la)}</span></div>
+      <div class="pickbox"><span class="k">Our pick</span><b>${esc(r.team)} ${pc(r.p)}</b> <span class="conf">${confWord(r.p)}</span>
+        <div class="split3" style="margin-top:8px" role="img" aria-label="${esc(g.home)} ${pc(r.o.h)}, draw ${pc(r.o.d)}, ${esc(g.away)} ${pc(r.o.a)}"><i class="h" style="width:${(r.o.h*100).toFixed(1)}%"></i><i class="d" style="width:${(r.o.d*100).toFixed(1)}%"></i><i class="a" style="width:${(r.o.a*100).toFixed(1)}%"></i></div>
+        <div class="three"><div class="${r.side==='home'?'on':''}"><b>${pc(r.o.h)}</b><span>${esc(g.home)}</span></div><div class="${r.side==='draw'?'on':''}"><b>${pc(r.o.d)}</b><span>Draw</span></div><div class="${r.side==='away'?'on':''}"><b>${pc(r.o.a)}</b><span>${esc(g.away)}</span></div></div>
+        <div class="fine" style="margin-top:6px">Expected goals ${f1(r.lh)}–${f1(r.la)} · likeliest score ${mode[0]}–${mode[1]} (${pc(r.P[mode[0]][mode[1]])}) · ${f1(r.t)} goals in all</div></div>
+      <p class="why">${esc(whyText(g,r))}</p></div>
+      <div>${tug(g,r)}<p class="fine" style="margin-top:8px">Each bar is goals toward that team. They add up to the projected margin; the margin and the projected total give each side’s expected goals, and two Poisson distributions (with a correction for low scores) give the three chances.</p></div></div>
+    <details class="more" data-k="${k}"${S.open.has(k)?' open':''}><summary>Scorelines, the two sides, head to head and news</summary>
+      <div class="sections">
+        <div class="sec wide"><h3>Likeliest scorelines</h3>${scoreGrid(g,r)}<p class="fine" style="margin-top:6px">Home goals first. The six most likely results of the ${(MAXG+1)*(MAXG+1)} the model prices.</p></div>
+        <div class="sec"><h3>${esc(g.home)}</h3><p>${teamFacts(g.home)}</p><p class="fine">Form: ${formHTML(H.last5)} · home ${esc(H.home_rec||'–')} · ${rest(1)}.${H.promoted?' Promoted this season.':''}</p></div>
+        <div class="sec"><h3>${esc(g.away)}</h3><p>${teamFacts(g.away)}</p><p class="fine">Form: ${formHTML(A.last5)} · away ${esc(A.away_rec||'–')} · ${rest(0)}.${A.promoted?' Promoted this season.':''}</p></div>
+        <div class="sec wide"><h3>Head to head</h3><p>${h2h}</p><p class="fine">Records are wins-draws-losses. Form is the last five league matches, newest last; it is shown, not counted: in testing it added nothing once the ratings were in.</p></div>
+        ${newsBlock(g)}
+      </div></details></article>`;
+}
+function mixPanel(){
+  return `<details class="card mix" data-k="mix"${S.open.has('mix')?' open':''}><summary><b>What counts in a pick</b><span class="muted">${changed()?'Your mix. ':'Each factor counts for what it has been worth in '+M.fit_games.toLocaleString()+' Premier League matches since 2008. '}Move a slider to change it.</span>${changed()?'<button type="button" class="btn" id="resetw">Back to the tested weights</button>':''}</summary>
+    <div class="wgrid">${FACTORS.map(f=>{const [ic,lab]=TAGS[f.tag];return `<div class="w"><label for="w-${f.k}"><span>${esc(f.label)} <span class="tag t-${f.tag}"><i aria-hidden="true">${ic}</i>${esc(f.tagText||lab)}</span></span><output id="wo-${f.k}" class="num">${S.W[f.k]}%</output></label>
+      <input type="range" id="w-${f.k}" data-w="${f.k}" min="0" max="${f.max}" step="5" value="${S.W[f.k]}"><small>${esc(f.note)}</small></div>`}).join('')}</div></details>`;
+}
+function board(){
+  const days=D.dates;if(S.day!=='ALL'&&!days.includes(S.day))S.day='ALL';
+  const L=D.games.map(g=>({g,r:calc(g)})).filter(o=>S.day==='ALL'||o.g.date===S.day);
+  const groups=days.filter(d=>S.day==='ALL'||d===S.day).map(d=>({d,L:L.filter(o=>o.g.date===d)})).filter(x=>x.L.length);
+  const chips=`<div class="chips" role="group" aria-label="Day">${[['ALL','All']].concat(days.map(d=>[d,dayName(d).split(',')[0]])).map(([k,l])=>`<button type="button" data-day="${esc(k)}" aria-pressed="${S.day===k}">${esc(l)}</button>`).join('')}</div>`;
+  const rows=o=>{const {g,r}=o;return `<tr data-jump="g-${esc(g.id)}"><td class="l">${esc(g.home)} v ${esc(g.away)}<span class="sub">${esc(g.ct)} CT · ${esc(g.uk)} UK</span></td><td class="l pick"><b>${esc(r.team)}</b></td><td class="num">${pc(r.p)}</td>
+      <td class="xs"><div class="split3" role="img" aria-label="${esc(g.home)} ${pc(r.o.h)}, draw ${pc(r.o.d)}, ${esc(g.away)} ${pc(r.o.a)}"><i class="h" style="width:${(r.o.h*100).toFixed(1)}%"></i><i class="d" style="width:${(r.o.d*100).toFixed(1)}%"></i><i class="a" style="width:${(r.o.a*100).toFixed(1)}%"></i></div></td>
+      <td class="num xs">${pc(r.o.d)}</td><td class="num">${f1(r.lh)}–${f1(r.la)}</td></tr>`};
+  return `<div class="card board"><div class="gh"><h2>The picks</h2><span class="when">${D.games.length} matches · tap a row for the reasons</span></div>
+    ${days.length>1?`<div class="filters"><span class="fg"><span class="k">Day</span>${chips}</span></div>`:''}
+    <div class="scroll"><table><thead><tr><th class="l">Match <span class="xs">(home first)</span></th><th class="l">Pick</th><th>Chance</th><th class="xs"><span style="display:inline-flex;gap:8px"><span><b class="sw h"></b> home</span><span><b class="sw d"></b> draw</span><span><b class="sw a"></b> away</span></span></th><th class="xs">Draw</th><th>Expected <span class="xs">goals</span></th></tr></thead>
+    ${groups.map(x=>`<tbody><tr class="dayrow"><th colspan="6" scope="colgroup">${esc(dayName(x.d))}</th></tr>${x.L.map(rows).join('')}</tbody>`).join('')}</table></div></div>`;
+}
+/* the record: a row is season, date, away, home, pick, chance, margin, away goals, home goals, hit, kickoff */
+const REC=(D.record&&D.record.live)||[];
+const wl=rows=>{const f=rows.filter(r=>r[7]!=null),w=f.filter(r=>r[9]===1).length;return{w,l:f.length-w,f:f.length}};
+const wlText=x=>x.f?`${x.w} of ${x.f} right`:'no finals yet';
+const hitMark=r=>r[7]==null?'<span class="pill p-q">Pending</span>':r[9]===1?'<span class="pill p-ok"><i aria-hidden="true">✓</i>Right</span>':'<span class="pill p-out"><i aria-hidden="true">✕</i>Wrong</span>';
+const finalOf=r=>r[7]==null?'':`${esc(r[3])} ${r[8]}–${r[7]} ${esc(r[2])}`;
+const resTable=rows=>`<div class="scroll"><table class="res"><thead><tr><th class="l">Match</th><th class="l">Our pick</th><th>Chance</th><th class="xs">Final</th><th class="l">Result</th></tr></thead><tbody>${rows.map(r=>`<tr><td class="l">${esc(r[3])} v ${esc(r[2])}<span class="fin-s">${finalOf(r)||'no final yet'}</span></td><td class="l pick"><b>${esc(r[4])}</b></td><td class="num">${pc(r[5])}</td><td class="num xs">${finalOf(r)||'–'}</td><td class="l">${hitMark(r)}</td></tr>`).join('')}</tbody></table></div>`;
+function resultsCard(){
+  const R=REC.filter(r=>r[0]===D.season);
+  const latest=(D.results||[]);
+  if(!R.length&&!latest.length)return'';
+  let s='';
+  if(R.length){const days=[...new Set(R.map(r=>r[1]))].sort(),last=days[days.length-1],cur=R.filter(r=>r[1]===last),c=wl(cur),all=wl(R);
+    s+=`<div class="card"><div class="gh"><h2>How the picks did</h2><span class="when">${esc(dayName(last))}: ${wlText(c)}${all.f>c.f?` · this season: ${wlText(all)}`:''}</span></div>${resTable(cur)}
+      <p class="fine" style="margin-top:8px">Each pick is the one this page showed at its last refresh before kickoff. Finals come in at the next refresh. The full record is under How it works.</p></div>`}
+  if(latest.length){const days=[...new Set(latest.map(r=>r[0]))];
+    s+=`<div class="card"><div class="gh"><h2>Latest results</h2><span class="when">${days.map(d=>esc(dayName(d).split(',').slice(0,2).join(','))).join(' and ')}</span></div>
+      <div class="scroll"><table class="res"><tbody>${latest.map(r=>`<tr><td class="l">${esc(r[1])} <b class="num">${r[3]}–${r[4]}</b> ${esc(r[2])}</td><td class="num xs muted">${esc(shortDate(r[0]).replace(/,.*/,''))}</td></tr>`).join('')}</tbody></table></div></div>`}
+  return s;
+}
+function renderGames(){
+  const el=$('#games');
+  if(!D.games.length){el.innerHTML='<div class="card"><h2>No matches to project</h2><p class="muted">The next matches appear here once they are on the schedule.</p></div>'+resultsCard();return}
+  const L=D.games.filter(g=>S.day==='ALL'||g.date===S.day);
+  el.innerHTML=mixPanel()+board()+resultsCard()+`<div class="games">${L.map(gameCard).join('')}</div>`;
+}
+
+/* ---------- the table and the teams ---------- */
+function renderTeams(){
+  const tbl=(D.table||[]).map(t=>[t,T[t]]).filter(x=>x[1]);
+  const byR=Object.entries(T).filter(([,x])=>x.str!=null).sort((a,b)=>a[1].rank-b[1].rank);
+  const mx=Math.max(.5,...byR.map(([,x])=>Math.abs(x.str)));
+  const bar=v=>`<span class="rbar" aria-hidden="true"><i class="${v>=0?'p':'n'}" style="${v>=0?'left:50%':'right:50%'};width:${(Math.abs(v)/mx*50).toFixed(1)}%"></i></span>`;
+  $('#teams').innerHTML=`${tbl.length?`<div class="card"><div class="gh"><h2>The table</h2><span class="when">${esc(D.label)} Premier League, from the matches played</span></div>
+    <div class="scroll"><table class="ltab"><thead><tr><th class="l">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th class="xs">GF</th><th class="xs">GA</th><th>GD</th><th>Pts</th><th class="l xs">Form</th><th class="xs">Our rank</th></tr></thead><tbody>
+    ${tbl.map(([t,x])=>`<tr><td class="l"><b>${x.pos}. ${esc(t)}</b>${x.promoted?' <span class="pill p-q">Promoted</span>':''}</td><td class="num">${x.p}</td><td class="num">${x.w}</td><td class="num">${x.d}</td><td class="num">${x.l}</td><td class="num xs">${x.gf}</td><td class="num xs">${x.ga}</td><td class="num">${sg(x.gd,0)}</td><td class="num"><b>${x.pts}</b></td><td class="l xs">${formHTML(x.last5)}</td><td class="num xs">${x.rank?ord(x.rank):'–'}</td></tr>`).join('')}</tbody></table></div></div>`:''}
+    <div class="card"><div class="gh"><h2>Power rankings</h2><span class="when">goals better than an average Premier League side on a neutral ground</span></div>
+    <div class="scroll"><table class="teams ltab"><thead><tr><th class="l">Team</th><th>Rating</th><th class="xs"></th><th>Scores</th><th>Allows</th><th class="xs">SOT for</th><th class="xs">SOT against</th><th class="xs">Home</th><th class="xs">Away</th><th>Table</th></tr></thead><tbody>
+    ${byR.map(([t,x])=>`<tr><td class="l"><b>${x.rank}. ${esc(t)}</b> <span class="muted">${esc(x.abbr)}</span></td><td class="num">${sg(x.str)}</td><td class="xs">${bar(x.str)}</td><td class="num">${f2(x.att)}</td><td class="num">${f2(x.def)}</td><td class="num xs">${f1(x.satt)}</td><td class="num xs">${f1(x.sdef)}</td><td class="num xs">${esc(x.home_rec||'–')}</td><td class="num xs">${esc(x.away_rec||'–')}</td><td class="num">${x.pos?ord(x.pos):'–'}</td></tr>`).join('')}</tbody></table></div>
+    <p class="fine" style="margin-top:8px">Rating: the goals and shots-on-target ratings weighted as the model weights them, in goals a match against an average side on a neutral ground; recent matches count most, over about the last three seasons. Scores and allows: goals a match against an average side. SOT: shots on target a match the rating expects for and against. Home and away: this season’s records, wins-draws-losses.</p></div>`;
+}
+
+/* ---------- how it works ---------- */
+function calChart(){
+  const B=TEST.calibration;const W=innerWidth<620?340:560,H=200,pl=34,pr=10,pt=10,pb=30;
+  const x=v=>pl+(W-pl-pr)*(v-30)/70,y=v=>pt+(H-pt-pb)*(1-(v-30)/70);
+  const dots=B.map(b=>`<circle cx="${x(b.said).toFixed(1)}" cy="${y(b.won).toFixed(1)}" r="${Math.max(3.5,Math.min(9,Math.sqrt(b.games)/5)).toFixed(1)}" fill="var(--seq-3)" stroke="var(--surface)" stroke-width="2" tabindex="0" data-tip="Said ${b.said}%, right ${b.won}% (${b.games.toLocaleString()} matches)"></circle>`).join('');
+  return `<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Chance given against how often the pick was right">
+    ${[30,40,50,60,70,80,90,100].map(v=>`<line class="grid" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"></line><text x="${pl-6}" y="${y(v)+4}" text-anchor="end">${v}%</text><text x="${x(v)}" y="${H-10}" text-anchor="middle">${v}%</text>`).join('')}
+    <line class="ref" x1="${x(30)}" y1="${y(30)}" x2="${x(100)}" y2="${y(100)}" stroke-dasharray="4 4"></line>${dots}</svg></div><p class="fine">Across: the chance the pick was given. Up: how often it was right. On the dashed line is exactly right. Soccer picks sit lower than the NFL’s or the NBA’s because a draw is always in play: a 45% pick is a good one here.</p>`;
+}
+function recordCard(){
+  const R=REC,all=wl(R),since=D.record&&D.record.since?new Date(D.record.since).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'America/Chicago'}):null;
+  if(D.record&&D.record.broken)return `<div class="card"><h2>Our record</h2><p class="muted">The record file can’t be read right now; it is left as it is until it is repaired.</p></div>`;
+  const miss=(()=>{const g=R.filter(r=>r[7]!=null);return g.length?g.reduce((s,r)=>s+Math.abs((r[8]-r[7])-r[6]),0)/g.length:null})();
+  return `<div class="card"><div class="gh"><h2>Our record</h2><span class="when">${since?'Picks on record since '+esc(since):'Starting with the first match'}</span></div>
+    <div class="prose"><p>The numbers above are a test on past seasons. This is the live record: each pick as this page showed it at its last refresh before kickoff, graded when the match ends. A saved pick can’t be changed once its match starts. A pick is the likeliest of the three results, so a draw can be the pick.</p></div>
+    ${all.f?`<div class="kv" style="margin-top:10px"><div><b>${wlText(all)}</b><span>results picked right (${pc(all.w/all.f)})</span></div><div><b>${f2(miss)}</b><span>average miss on the goal difference</span></div><div><b>${all.f}</b><span>matches graded. A season is 380, so a few weeks is a small sample</span></div></div>
+    <details style="margin-top:10px"><summary class="fine" style="cursor:pointer">Every pick, newest first</summary>${resTable(R.slice().reverse())}</details>`:`<p class="muted" style="margin-top:8px">No pick has been graded yet. The picks are saved before each kickoff; the record starts with the first final.</p>`}</div>`;
+}
+function renderMethod(){
+  const t=TEST,byS=t.by_season;
+  $('#method').innerHTML=`<div class="kpis"><div class="kpi"><b>${pct1(t.win_pct)}%</b><span>results picked right, ${seasonName(t.first)} to ${seasonName(t.last)} (${t.games.toLocaleString()} matches: home win, draw or away win)</span></div>
+    <div class="kpi"><b>${Number(t.mae).toFixed(2)}</b><span>goals, the average miss on the final goal difference</span></div>
+    <div class="kpi"><b>${pct1(t.results_only.win_pct)}%</b><span>with the goals rating and home advantage alone</span></div>
+    <div class="kpi"><b>${pct1(t.home_pct)}%</b><span>always picking the home team (${pct1(t.draw_pct)}% of matches were drawn)</span></div></div>
+    <div class="card prose"><h2>How a pick is made</h2>
+      <p>A match’s projected margin is a sum of factors, each in goals toward the home team. <b>Goals rating</b>: every team’s goal difference, adjusted for who they played, recent matches counting most (a match’s weight halves every ${Math.round(M.params.tau*Math.LN2)} days, over about three seasons). <b>Shots on target</b>: the same rating built on shots on target for and against, which say more about a team than the goals that went in. <b>Home advantage</b>, fitted year by year. <b>Promoted</b> teams and <b>fixture congestion</b> (the second league match in three days) as fitted. <b>News</b>, researched for each match, counted as written: injuries and suspensions count here, since no injury list is published for this league.</p>
+      <p>The projected total comes from each side’s attack and defence, in goals and in shots on target. Margin and total give each side’s expected goals, and two Poisson distributions, with Dixon and Coles’ correction for low scores (rho ${M.rho}), give the chances of a home win, a draw and an away win. The pick is the likeliest of the three; the draw is rarely likeliest, but it can be.</p>
+      <p>Each season of the test was picked with ratings from earlier matches only and weights fitted on the seasons before it. Tested and left out: recent form (worth nothing once the ratings are in), Elo ratings and all shots (within noise of the shots on target), and the Championship’s results for promoted teams (no better than a flat “promoted” factor).</p>
+      <p>Nothing here comes from a sportsbook. There are no lines, prices or odds anywhere in the numbers.</p></div>
+    <div class="two"><div class="card"><div class="gh"><h2>By season</h2></div><div class="scroll"><table><thead><tr><th class="l">Season</th><th>Matches</th><th>Right</th><th>Average miss</th></tr></thead><tbody>${byS.map(b=>`<tr><td class="l">${seasonName(b.season)}</td><td class="num">${b.games.toLocaleString()}</td><td class="num">${pct1(b.win_pct)}%</td><td class="num">${Number(b.mae).toFixed(2)}</td></tr>`).join('')}</tbody></table></div></div>
+      <div class="card"><div class="gh"><h2>Were the chances right?</h2></div>${calChart()}${t.draw_calibration&&t.draw_calibration.length?`<p class="fine" style="margin-top:6px">Draws: ${t.draw_calibration.map(b=>`said ${b.said}%, drew ${b.drew}%`).join('; ')}.</p>`:''}</div></div>
+    ${recordCard()}
+    <div class="card prose"><h2>Sources</h2><p>Results, shots and shots on target: football-data.co.uk’s match files (mirrored on GitHub), with ESPN’s scoreboard for this season’s latest matches and kickoff times. Fixtures: openfootball. News: researched for each match from club sites and news outlets, never from a sportsbook.</p></div>`;
+}
+
+/* ---------- page ---------- */
+function renderHead(){
+  const age=D.live.espn_at?(Date.parse(D.built)-Date.parse(D.live.espn_at))/36e5:null;
+  const src=D.live.src==='espn'?`<span class="badge"><i${age>12?' style="background:var(--warn)"':''}></i>Scoreboard ${esc(new Date(D.live.espn_at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'<span class="badge"><i style="background:var(--warn)"></i>Fixture list only: no scoreboard in this build</span>';
+  $('#fresh').innerHTML=`<span class="badge"><i></i>Built ${esc(D.asof)}</span>`+src+(D.news_meta&&D.news_meta.at?`<span class="badge"><i></i>News ${esc(new Date(D.news_meta.at).toLocaleString('en-US',{weekday:'short',hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}))} CT</span>`:'');
+  $('#wk').textContent=D.label+' season';
+  $('#foot').innerHTML=`Matchup Edge Premier League, ${esc(D.label)}. Stats-only picks for information and entertainment. Built ${esc(D.made)}.`;
+}
+function render(){renderHead();renderGames();renderTeams();renderMethod()}
+function show(tab){S.tab=tab;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));document.querySelectorAll('section.tab').forEach(s=>s.hidden=s.id!==tab)}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-tab]');if(t){show(t.dataset.tab);return}
+  const d=e.target.closest('[data-day]');if(d){S.day=d.dataset.day;renderGames();return}
+  const j=e.target.closest('[data-jump]');if(j){const el=document.getElementById(j.dataset.jump);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return}
+  if(e.target.id==='resetw'){S.W=DEFW();store.set('w',S.W);renderGames();return}
+});
+document.addEventListener('input',e=>{
+  const w=e.target.dataset&&e.target.dataset.w;if(w){S.W[w]=+e.target.value;store.set('w',S.W);const o=document.getElementById('wo-'+w);if(o)o.textContent=S.W[w]+'%';
+    const open=document.activeElement&&document.activeElement.id;renderGames();const el=document.getElementById(open);if(el)el.focus();return}
+});
+document.addEventListener('toggle',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){e.target.open?S.open.add(k):S.open.delete(k);store.set('open',[...S.open])}},true);
+const tip=$('#tip');
+document.addEventListener('mouseover',e=>{const t=e.target.closest('[data-tip]');if(!t){tip.hidden=true;return}tip.textContent=t.dataset.tip;tip.hidden=false});
+document.addEventListener('mousemove',e=>{if(!tip.hidden){tip.style.left=Math.min(innerWidth-270,e.clientX+12)+'px';tip.style.top=(e.clientY+14)+'px'}});
+render();
+window.MatchupEdge={data:D,calc,dcMatrix,outcomes};
+})();
+</script>
+</body></html>
