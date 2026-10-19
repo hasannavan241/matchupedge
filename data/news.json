@@ -410,136 +410,6 @@
    ],
    "summary": "Both clubs won in the Europa League on Thursday, Bournemouth 3-0 at home to Sturm Graz and Sunderland 2-1 away in Portugal, and both have made slow league starts. Bournemouth are without Alex Scott for a month, though Kluivert and Adli are back. Sunderland lose Thomas Meunier, Wilson Isidor is a day-to-day doubt, and Brobbey and Diarra return."
   },
-  "nfl_2026_05_BUF_LA": {
-   "at": "2026-10-12T23:10:00Z",
-   "game": "BUF @ LA",
-   "items": [
-    {
-     "at": "2026-10-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bills-friday-injury-report-key-232952986.html",
-     "team": "BUF",
-     "text": "Bills lost 29-26 at home to New England in Week 4; WR Keon Coleman (ankle) and edge Bradley Chubb (thumb) practiced fully Friday.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bills-vs-rams-injury-buffalo-153046210.html",
-     "team": "LA",
-     "text": "Edge Myles Garrett (knee) has been on injured reserve since Sept. 13 and will not play.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-08T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/rams-injury-report-multiple-key-000154030.html",
-     "team": "LA",
-     "text": "TE Terrance Ferguson (ankle) is on injured reserve.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-rams-week-5",
-     "team": "BUF",
-     "text": "DL Ed Oliver (knee) and WR Joshua Palmer (shoulder, hurt in Friday's practice) are ruled out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-12T22:52:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/rams-bills-inactives-quentin-lake-225241119.html",
-     "team": "BUF",
-     "text": "Inactive: WR D.J. Moore (shoulder), CB Dee Alford (ankle) and DL Landon Jackson (knee); Keon Coleman and Khalil Shakir take bigger roles.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-rams-week-5",
-     "team": "BUF",
-     "text": "CB Christian Benford (toe), who missed Week 4, is good to go and expected to start, with Maxwell Hairston opposite; WR Skyler Bell makes his debut.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.therams.com/news/rams-injury-report-week-5-2026-vs-bills-aaron-donald-colby-parkinson-and-jaylen-watson-good-to-go-for-monday-night-football",
-     "team": "LA",
-     "text": "DE Aaron Donald (back), TE Colby Parkinson and CB Jaylen Watson carry no game status; Donald and Parkinson each missed only Week 4.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-12T22:52:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/rams-bills-inactives-quentin-lake-225241119.html",
-     "team": "LA",
-     "text": "S Quentin Lake (hip), questionable all week, is active.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Rams-Bills inactives: Quentin Lake active, Buffalo's top WR out (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/rams-bills-inactives-quentin-lake-225241119.html"
-    },
-    {
-     "t": "Bills at Rams: Thursday injury reports for both teams (Bills Wire via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/bills-rams-thursday-injury-reports-114528249.html"
-    },
-    {
-     "t": "Rams Injury Report: Multiple Key Players Limited Ahead of Bills Matchup (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/rams-injury-report-multiple-key-000154030.html"
-    },
-    {
-     "t": "Rams injury updates: Jaylen Watson, Aaron Donald, Terrance Ferguson (TheRams.com)",
-     "u": "https://www.therams.com/news/rams-injury-updates-bills-week-5-2026-jaylen-watson-aaron-donald-terrance-ferguson-monday-night-football"
-    },
-    {
-     "t": "Bills vs. Rams injury update: Buffalo loses multiple starters, Aaron Donald status unclear (Democrat and Chronicle via Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/bills-vs-rams-injury-buffalo-153046210.html"
-    },
-    {
-     "t": "First Look: Rams host Bills on Monday Night Football in Week 5 (TheRams.com)",
-     "u": "https://www.therams.com/news/first-look-rams-host-bills-on-monday-night-football-in-week-5-2026"
-    },
-    {
-     "t": "Bills Friday injury report: Key veterans still not practicing on both sides of the ball",
-     "u": "https://sports.yahoo.com/articles/bills-friday-injury-report-key-232952986.html"
-    },
-    {
-     "t": "Rams-Bills injury report: Aaron Donald improving, 2 starters still DNP",
-     "u": "https://sports.yahoo.com/articles/rams-bills-injury-report-aaron-230736828.html"
-    },
-    {
-     "t": "Buffalo Bills injury report vs. Rams (BuffaloBills.com)",
-     "u": "https://www.buffalobills.com/news/buffalo-bills-injury-report-vs-rams-week-5"
-    },
-    {
-     "t": "Rams Injury Report, Week 5 vs. Bills (TheRams.com)",
-     "u": "https://www.therams.com/news/rams-injury-report-week-5-2026-vs-bills-aaron-donald-colby-parkinson-and-jaylen-watson-good-to-go-for-monday-night-football"
-    },
-    {
-     "t": "Bills' Final Week 5 Injury Report: DJ Moore Practices Saturday, Two Ruled Out for MNF (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/bills-final-week-5-injury-160314435.html"
-    },
-    {
-     "t": "DJ Moore questionable, Ed Oliver out for Bills on Monday night (PFT)",
-     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dj-moore-questionable-ed-oliver-out-for-bills-on-monday-night"
-    }
-   ],
-   "summary": "Buffalo (3-1), off a 29-26 home loss to New England, is short-handed: D.J. Moore, Dee Alford and Landon Jackson are inactive, and Ed Oliver and Joshua Palmer were already ruled out, though Christian Benford returns. The Rams (2-2) are nearly whole: Aaron Donald and Colby Parkinson are back and Quentin Lake is active."
-  },
   "nfl_2026_06_ARI_LA": {
    "at": "2026-10-18T16:09:40Z",
    "game": "ARI @ LA",
@@ -1375,15 +1245,15 @@
    "summary": "Winless Tennessee sticks with Cam Ward after a 26-3 loss to Houston, and RB Tyjae Spears is active, though S Kevin Winston Jr. is out. Indianapolis scratched TE Tyler Warren with the groin injury he picked up Friday, and LB Jaylon Carlies misses another game. Daniel Jones starts for the Colts."
   },
   "nfl_2026_06_WAS_SF": {
-   "at": "2026-10-19T16:15:00Z",
+   "at": "2026-10-19T23:08:00Z",
    "game": "WAS @ SF",
    "items": [
     {
-     "at": "2026-10-17T12:00:00Z",
+     "at": "2026-10-19T22:48:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/nick-bosa-mike-evans-questionable-152033885.html",
+     "src": "https://www.49ers.com/news/mike-evans-active-kirk-out-vs-commanders-inactives-week-6-wasvssf",
      "team": "SF",
-     "text": "Out: DE Nick Bosa (4th straight game), WR Deebo Samuel (hamstring), S Marques Sigle, LB Garret Wallow. WR Mike Evans, WR Christian Kirk questionable.",
+     "text": "Inactive: DE Nick Bosa (4th straight game), WR Deebo Samuel, WR Christian Kirk (calf), S Marques Sigle, LB Garret Wallow. WR Mike Evans is active.",
      "total": 0,
      "type": "injury"
     },
@@ -1397,52 +1267,53 @@
      "type": "loss"
     },
     {
-     "at": "2026-10-17T12:00:00Z",
+     "at": "2026-10-19T22:48:00Z",
      "impact": 0,
-     "src": "https://commanders.com/news/game-status-commanders-49ers-week-6",
+     "src": "https://www.49ers.com/news/mike-evans-active-kirk-out-vs-commanders-inactives-week-6-wasvssf",
+     "team": "SF",
+     "text": "FB Kyle Juszczyk is active and returns after missing Week 5.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-19T22:48:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/nfl/live/49ers-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-224910492.html",
      "team": "WAS",
-     "text": "Out: RB Jacory Croskey-Merritt, DE Charles Omenihu, OLB Javontae Jean-Baptiste. WR Stefon Diggs questionable; WR Terry McLaurin cleared.",
+     "text": "Out: RB Jacory Croskey-Merritt (IR). Inactive: DE Charles Omenihu, CBs Fabian Moreau and Isaac Yiadom. WR Stefon Diggs is active.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.49erswebzone.com/articles/204279-commanders-injury-report-juszczyk-return/",
-     "team": "SF",
-     "text": "FB Kyle Juszczyk practiced all week and is set to return.",
+     "at": "2026-10-19T22:48:00Z",
+     "impact": 0.3,
+     "src": "https://sports.yahoo.com/nfl/live/49ers-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-224910492.html",
+     "team": "WAS",
+     "text": "S Nick Cross, questionable with an illness after missing three games, is not on the inactive list and is set to play.",
      "total": 0,
-     "type": "other"
+     "type": "return"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Nick Bosa out, Mike Evans questionable for 49ers' Week 6 matchup",
-     "u": "https://sports.yahoo.com/articles/nick-bosa-mike-evans-questionable-152033885.html"
+     "t": "Mike Evans Active, Kirk OUT vs. Commanders; Inactives Week 6 #WASvsSF",
+     "u": "https://www.49ers.com/news/mike-evans-active-kirk-out-vs-commanders-inactives-week-6-wasvssf"
+    },
+    {
+     "t": "Commanders vs. 49ers live updates, inactives: Mike Evans, Stefon Diggs active for Monday Night Football",
+     "u": "https://sports.yahoo.com/nfl/live/49ers-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-224910492.html"
     },
     {
      "t": "Game status: Jacory Croskey-Merritt ruled out vs. 49ers",
      "u": "https://commanders.com/news/game-status-commanders-49ers-week-6"
     },
     {
-     "t": "Commanders' Terry McLaurin: Good to go",
-     "u": "https://www.cbssports.com/fantasy/football/news/commanders-terry-mclaurin-good-to-go-against-san-francisco/"
-    },
-    {
      "t": "49ers lose two key pieces vs. Commanders",
      "u": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders"
-    },
-    {
-     "t": "49ers' Mike Evans battling Achilles soreness ahead of MNF game vs. Commanders",
-     "u": "https://clutchpoints.com/nfl/san-francisco-49ers/49ers-news-mike-evans-battling-achilles-soreness-mnf-game-commanders"
-    },
-    {
-     "t": "49ers vs. Commanders final injury report: Nick Bosa ruled out, Kyle Juszczyk set to return",
-     "u": "https://www.49erswebzone.com/articles/204279-commanders-injury-report-juszczyk-return/"
     }
    ],
-   "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa is ruled out again, Deebo Samuel is out for weeks, LB Dre Greenlaw is suspended and Mike Evans is questionable. Washington, 1-3-1, has Jayden Daniels and Terry McLaurin cleared, and Stefon Diggs is questionable, but leading rusher Jacory Croskey-Merritt is out."
+   "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa, Deebo Samuel, Christian Kirk and Marques Sigle are inactive and LB Dre Greenlaw is suspended, though Mike Evans is active and Kyle Juszczyk returns. Washington, 1-3-1, has Stefon Diggs active and S Nick Cross back in the lineup, but leading rusher Jacory Croskey-Merritt is out."
   },
   "nfl_2026_07_NE_CHI": {
    "at": "2026-10-19T16:15:00Z",
@@ -1491,8 +1362,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-19T16:16:00Z",
-  "games": 3,
-  "note": "WAS @ SF and Spurs v Coventry refreshed; NE @ CHI added; no NBA games due"
+  "at": "2026-10-19T23:09:00Z",
+  "games": 1,
+  "note": "WAS @ SF refreshed with inactives; nothing else due"
  }
 }
