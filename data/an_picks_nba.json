@@ -1,7 +1,7 @@
 {"note":"Matchup Edge: the pick the site showed for each NBA game at its last refresh before tip-off. m: projected margin, positive toward the home team. p: the chance given to the pick. t: projected total. date: the game's date (Central). at: when the pick was last changed. res: final score and whether the pick won.",
 "games":{
 "401909088":{"at":"2026-10-19T22:26:09Z","away":"BOS","date":"2026-10-20","home":"DET","ko":"2026-10-20T19:00:00Z","m":0.9,"p":0.532,"pick":"DET","season":2027,"t":218.0},
-"401909089":{"at":"2026-10-19T11:22:47Z","away":"PHI","date":"2026-10-20","home":"NY","ko":"2026-10-20T23:00:00Z","m":3.2,"p":0.608,"pick":"NY","season":2027,"t":224.6},
+"401909089":{"at":"2026-10-19T22:56:29Z","away":"PHI","date":"2026-10-20","home":"NY","ko":"2026-10-20T23:00:00Z","m":3.5,"p":0.618,"pick":"NY","season":2027,"t":224.6},
 "401909090":{"at":"2026-10-19T22:26:09Z","away":"OKC","date":"2026-10-20","home":"SA","ko":"2026-10-21T01:30:00Z","m":-0.8,"p":0.526,"pick":"OKC","season":2027,"t":226.1},
 "401909834":{"at":"2026-10-15T11:21:16Z","away":"ATL","date":"2026-10-21","home":"ORL","ko":"2026-10-21T23:00:00Z","m":4.6,"p":0.654,"pick":"ORL","season":2027,"t":229.5},
 "401909835":{"at":"2026-10-15T11:21:16Z","away":"MIL","date":"2026-10-21","home":"WSH","ko":"2026-10-21T23:00:00Z","m":3.2,"p":0.609,"pick":"WSH","season":2027,"t":233.5},
