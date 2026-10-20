@@ -67,6 +67,23 @@
    ],
    "summary": "Champions Arsenal come off a 3-0 Champions League win over Lille without William Saliba and Piero Hincapie, with Martin Zubimendi a late call. Forest, 15th under Oliver Glasner after a 3-1 loss at Palace, had no midweek game; Morgan Gibbs-White has a minor muscle injury, and Savona and Igor Jesus are out."
   },
+  "epl_401879253": {
+   "at": "2026-10-20T23:05:41Z",
+   "game": "Ipswich v Nottm Forest",
+   "items": [],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Ipswich Town vs Nottingham Forest - Sky Sports",
+     "u": "https://www.skysports.com/football/ipswich-town-vs-nottingham-forest/559520"
+    },
+    {
+     "t": "Manchester City 3 Town 2",
+     "u": "https://www.itfc.co.uk/news/2026/october/17/manchester-city-v-Ipswich-town-match-report/"
+    }
+   ],
+   "summary": "Friday night at Portman Road. Ipswich come in off a 3-2 defeat at Man City after beating Fulham, but have lost four of their last six in all competitions. Forest have lost two league games in a row, to Crystal Palace and Arsenal. No confirmed injury or suspension news yet; the managers speak before the match."
+  },
   "epl_401879257": {
    "at": "2026-10-19T16:15:00Z",
    "game": "Tottenham v Coventry",
@@ -1488,8 +1505,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-20T16:06:00Z",
-  "games": 4,
-  "note": "NE @ CHI refreshed; NBA openers BOS@DET, PHI@NY, OKC@SA added; no EPL due"
+  "at": "2026-10-20T23:06:00Z",
+  "games": 1,
+  "note": "Ipswich v Nottm Forest added (no confirmed team news yet); NE @ CHI and OKC @ SA not yet due"
  }
 }
