@@ -410,6 +410,110 @@
    ],
    "summary": "Both clubs won in the Europa League on Thursday, Bournemouth 3-0 at home to Sturm Graz and Sunderland 2-1 away in Portugal, and both have made slow league starts. Bournemouth are without Alex Scott for a month, though Kluivert and Adli are back. Sunderland lose Thomas Meunier, Wilson Isidor is a day-to-day doubt, and Brobbey and Diarra return."
   },
+  "nba_401909088": {
+   "at": "2026-10-20T16:05:28Z",
+   "game": "BOS @ DET",
+   "items": [
+    {
+     "at": "2026-10-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbssports.com/nba/news/pistons-host-new-look-celtics-in-marquee-season-opener/",
+     "team": "BOS",
+     "text": "Jayson Tatum fully recovered from his Achilles tear and expected to play with no restriction mentioned.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/boston-celtics/celtics-jayson-tatum-update-season-opener/",
+     "team": "BOS",
+     "text": "Devin Carter (mononucleosis) out for the opener.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/detroit-pistons/injury-report-season-opener-vs-celtics/",
+     "team": "DET",
+     "text": "Taurean Prince questionable for personal reasons; two-way players Isaac Jones and Ugonna Onyenso out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Celtics Get Encouraging Jayson Tatum Update Ahead of Season Opener",
+     "u": "https://heavy.com/sports/nba/boston-celtics/celtics-jayson-tatum-update-season-opener/"
+    },
+    {
+     "t": "Detroit Pistons Announce Injury Report for Season Opener vs. Boston Celtics",
+     "u": "https://heavy.com/sports/nba/detroit-pistons/injury-report-season-opener-vs-celtics/"
+    },
+    {
+     "t": "Pistons host new-look Celtics in marquee season opener",
+     "u": "https://www.cbssports.com/nba/news/pistons-host-new-look-celtics-in-marquee-season-opener/"
+    }
+   ],
+   "summary": "Season opener in Detroit. Jayson Tatum is back and described as fully healthy after his Achilles tear, leading a reshaped Celtics side with Paul George and Mitchell Robinson in their debuts. The Pistons are healthy around Cade Cunningham, with only Taurean Prince doubtful for personal reasons."
+  },
+  "nba_401909089": {
+   "at": "2026-10-20T16:05:28Z",
+   "game": "PHI @ NY",
+   "items": [
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.inquirer.com/sixers/sixers-lebron-james-nick-nurse-jaylen-brown-tyrese-maxey-joel-embiid-20261019.html",
+     "team": "PHI",
+     "text": "Anfernee Simons (hamstring) uncertain; Dean Wade (ankle) has missed practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.inquirer.com/sixers/sixers-lebron-james-nick-nurse-jaylen-brown-tyrese-maxey-joel-embiid-20261019.html",
+     "team": "PHI",
+     "text": "Nick Nurse: Joel Embiid is ready to go; the starting five is healthy.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Sixers admit 'it's hard to know' what to expect from their big five entering season opener",
+     "u": "https://www.inquirer.com/sixers/sixers-lebron-james-nick-nurse-jaylen-brown-tyrese-maxey-joel-embiid-20261019.html"
+    }
+   ],
+   "summary": "Opening night at the Garden as the defending champion Knicks get their rings. The Sixers debut a new big five with LeBron James and Jaylen Brown beside Maxey, Embiid and Edgecombe; Nick Nurse says Embiid is ready to go. Anfernee Simons (hamstring) and Dean Wade (ankle) are in doubt."
+  },
+  "nba_401909090": {
+   "at": "2026-10-20T16:05:28Z",
+   "game": "OKC @ SA",
+   "items": [
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.sportingnews.com/us/nba/san-antonio-spurs/news/why-tobias-harris-isnt-playing-spurs-thunder-opening-night/d9b091e3c91a12ffe683b8a7",
+     "team": "SA",
+     "text": "Tobias Harris (left calf strain) out; Mitch Johnson says he is still ramping up.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Why Tobias Harris isn't playing for Spurs vs. Thunder on Opening Night",
+     "u": "https://www.sportingnews.com/us/nba/san-antonio-spurs/news/why-tobias-harris-isnt-playing-spurs-thunder-opening-night/d9b091e3c91a12ffe683b8a7"
+    }
+   ],
+   "summary": "A rematch of last spring's West finals opens the season in San Antonio. The Spurs are without Tobias Harris (calf), so Mitch Johnson may go small with Fox, Harper and Castle together. Oklahoma City arrives with its core around Shai Gilgeous-Alexander intact."
+  },
   "nfl_2026_06_ARI_LA": {
    "at": "2026-10-18T16:09:40Z",
    "game": "ARI @ LA",
@@ -1316,54 +1420,76 @@
    "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa, Deebo Samuel, Christian Kirk and Marques Sigle are inactive and LB Dre Greenlaw is suspended, though Mike Evans is active and Kyle Juszczyk returns. Washington, 1-3-1, has Stefon Diggs active and S Nick Cross back in the lineup, but leading rusher Jacory Croskey-Merritt is out."
   },
   "nfl_2026_07_NE_CHI": {
-   "at": "2026-10-19T16:15:00Z",
+   "at": "2026-10-20T16:05:28Z",
    "game": "NE @ CHI",
    "items": [
     {
      "at": "2026-10-13T12:00:00Z",
      "impact": 0,
-     "src": "https://www.fox32chicago.com/sports/bears-montez-sweat-suspended-for-2-games-for-violating-nfl-policy",
+     "src": "https://www.si.com/nfl/bears/onsi/bears-montez-sweat-replacement-active-roster-suspension",
      "team": "CHI",
-     "text": "DE Montez Sweat serves the second game of a two-game PED suspension; eligible to return Oct. 23.",
+     "text": "DE Montez Sweat serves the second game of a two-game PED suspension; eligible to return after Thursday.",
      "total": 0,
      "type": "loss"
     },
     {
-     "at": "2026-10-14T12:00:00Z",
+     "at": "2026-10-19T12:00:00Z",
      "impact": 0,
-     "src": "https://chicago.suntimes.com/bears/2026/10/14/bears-coach-ben-johnson-disappointed-in-de-montez-sweats-suspension-and-now-dayo-odeyingbo-is-out-too",
+     "src": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7",
      "team": "CHI",
-     "text": "DE Dayo Odeyingbo (quad) hurt at Green Bay; timeline unclear.",
+     "text": "DE Dayo Odeyingbo (quad) expected to miss time; RG Jonah Jackson (hip) and RB Kyle Monangai unlikely for Thursday.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-13T12:00:00Z",
+     "at": "2026-10-14T12:00:00Z",
      "impact": 0,
-     "src": "https://chicago.suntimes.com/bears/2026/10/14/bears-coach-ben-johnson-disappointed-in-de-montez-sweats-suspension-and-now-dayo-odeyingbo-is-out-too",
+     "src": "https://www.si.com/nfl/bears/onsi/dayo-odeyingbo-injury-update-ben-johnson-bears-precarious-spot-edge-rusher",
      "team": "CHI",
-     "text": "DL Shemar Turner activated from PUP and in line for snaps in place of Sweat.",
+     "text": "DL Shemar Turner, activated from PUP after a torn ACL, in line for snaps in place of Sweat.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7",
+     "team": "NE",
+     "text": "OL Alijah Vera-Tucker (hamstring), Morgan Moses (ankle) and Ben Brown (knee) hurt; Vrabel unsure they make it back on a short week.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7",
+     "team": "NE",
+     "text": "WR Romeo Doubs (shoulder), Drake Maye's top target by volume, is out.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Bears' Montez Sweat suspended for 2 games for violating NFL policy",
-     "u": "https://www.fox32chicago.com/sports/bears-montez-sweat-suspended-for-2-games-for-violating-nfl-policy"
+     "t": "Bears Facing Patriots Roster With Even Worse Injury Luck This Week on 'TNF'",
+     "u": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7"
     },
     {
-     "t": "Bears coach Ben Johnson 'disappointed' in DE Montez Sweat's suspension, and now Dayo Odeyingbo is out, too",
-     "u": "https://chicago.suntimes.com/bears/2026/10/14/bears-coach-ben-johnson-disappointed-in-de-montez-sweats-suspension-and-now-dayo-odeyingbo-is-out-too"
+     "t": "Bears Add Montez Sweat Replacement to Active Roster After Suspension",
+     "u": "https://www.si.com/nfl/bears/onsi/bears-montez-sweat-replacement-active-roster-suspension"
+    },
+    {
+     "t": "Dayo Odeyingbo Injury Update From Ben Johnson Puts Bears in Precarious Spot at Edge Rusher",
+     "u": "https://www.si.com/nfl/bears/onsi/dayo-odeyingbo-injury-update-ben-johnson-bears-precarious-spot-edge-rusher"
     }
    ],
-   "summary": "Thursday night in Chicago on a short week. Both teams won on Sunday: the Bears beat Atlanta in Caleb Williams' return, and New England beat the Jets. Chicago's pass rush is thin: Montez Sweat serves the second game of a PED suspension and Dayo Odeyingbo is hurt, so 2025 second-rounder Shemar Turner, just off the PUP list, steps in."
+   "summary": "Thursday night in Chicago on a short week after wins for both. The Bears' edge group is thin: Montez Sweat serves the last game of his suspension and Dayo Odeyingbo (quad) is hurt, so Shemar Turner, just off PUP, gets snaps. New England's line is banged up, with Vera-Tucker, Moses and Brown hurt, and Romeo Doubs is out."
   }
  },
  "meta": {
-  "at": "2026-10-19T23:09:00Z",
-  "games": 1,
-  "note": "WAS @ SF refreshed with inactives; nothing else due"
+  "at": "2026-10-20T16:06:00Z",
+  "games": 4,
+  "note": "NE @ CHI refreshed; NBA openers BOS@DET, PHI@NY, OKC@SA added; no EPL due"
  }
 }
