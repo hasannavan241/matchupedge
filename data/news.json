@@ -1,5 +1,55 @@
 {
  "docs": {
+  "epl_401878768": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "Arsenal v Everton",
+   "items": [
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
+     "team": "Arsenal",
+     "text": "Piero Hincapie out until November with an ankle injury from the warm-down after the Leeds win.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
+     "team": "Arsenal",
+     "text": "Christos Tzolis (hamstring) out for another couple of weeks.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
+     "team": "Arsenal",
+     "text": "William Saliba still out with a long-term back injury; possible return late November.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
+     "team": "Arsenal",
+     "text": "Played Bayern Munich away in the Champions League on Wednesday night.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Arsenal injury, suspension list and return dates vs. Bayern Munich",
+     "u": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html"
+    }
+   ],
+   "summary": "Second-placed Arsenal host eighth-placed Everton three days after a Champions League trip to Bayern Munich. Arsenal remain without William Saliba (back) and have lost Piero Hincapie (ankle) and Christos Tzolis (hamstring) until November. No confirmed Everton team news yet; the managers speak later in the week."
+  },
   "epl_401878769": {
    "at": "2026-10-17T16:12:31Z",
    "game": "Nottm Forest v Arsenal",
@@ -83,6 +133,105 @@
     }
    ],
    "summary": "Friday night at Portman Road. Ipswich come in off a 3-2 defeat at Man City after beating Fulham, but have lost four of their last six in all competitions. Forest have lost two league games in a row, to Crystal Palace and Arsenal. No confirmed injury or suspension news yet; the managers speak before the match."
+  },
+  "epl_401879255": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "Coventry v Fulham",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thescore.com/epl/event/98340",
+     "team": "",
+     "text": "17th v 18th, a point apart near the relegation zone.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Fulham @ Coventry City on October 24, 2026 - theScore",
+     "u": "https://www.thescore.com/epl/event/98340"
+    }
+   ],
+   "summary": "An early relegation six-pointer: promoted Coventry, 17th, host Fulham, 18th, one point behind. Coventry lost at Spurs last time out. Neither club played in midweek. No confirmed team news yet for either side; the managers speak before the match."
+  },
+  "epl_401879256": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "Aston Villa v Man City",
+   "items": [
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html",
+     "team": "Man City",
+     "text": "Antoine Semenyo out for about eight weeks with a knee injury picked up last weekend.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html",
+     "team": "Aston Villa",
+     "text": "Right-back Aaron Wan-Bissaka out for at least a month with a hamstring injury.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-13T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.sportsmole.co.uk/football/aston-villa/injury-news/news/more-than-one-month-emery-reveals-aston-villa-injury-blow-ahead-of-fenerbahce-game_606820.html",
+     "team": "Aston Villa",
+     "text": "Left-back Matteo Ruggeri out for more than a month with a hamstring injury.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html",
+     "team": "Aston Villa",
+     "text": "Johan Manzambi a doubt with a knock; Emery says it does not look serious.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html",
+     "team": "Aston Villa",
+     "text": "Played Viking FK in the Champions League on Wednesday night before Saturday's early kickoff.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html",
+     "team": "Man City",
+     "text": "Played AEK Athens in the Champions League on Tuesday.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Antoine Semenyo injury: Games Man City star will miss as Enzo Maresca confirms major blow",
+     "u": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html"
+    },
+    {
+     "t": "Aston Villa injury, suspension list and return dates vs. Viking FK",
+     "u": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html"
+    },
+    {
+     "t": "Aston Villa injury news: Emery reveals key player out for 'more than one month'",
+     "u": "https://www.sportsmole.co.uk/football/aston-villa/injury-news/news/more-than-one-month-emery-reveals-aston-villa-injury-blow-ahead-of-fenerbahce-game_606820.html"
+    }
+   ],
+   "summary": "Unbeaten leaders City, seven wins from seven, visit 12th-placed Villa in an early kickoff. Both played in the Champions League this week, Villa on Wednesday night. Villa's full-backs are depleted with Wan-Bissaka and Ruggeri out, and Manzambi carries a knock. City lose Antoine Semenyo for about eight weeks with a knee injury."
   },
   "epl_401879257": {
    "at": "2026-10-19T16:15:00Z",
@@ -530,6 +679,366 @@
     }
    ],
    "summary": "A rematch of last spring's West finals opens the season in San Antonio. The Spurs are without Tobias Harris (calf), so Mitch Johnson may go small with Fox, Harper and Castle together. Oklahoma City arrives with its core around Shai Gilgeous-Alexander intact."
+  },
+  "nba_401909091": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "MIN @ MIA",
+   "items": [
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://bolavip.com/en/nba/bam-adebayo-provides-major-injury-update-ahead-of-heat-vs-timberwolves-2026-nba-season-opener",
+     "team": "MIA",
+     "text": "Bam Adebayo (right groin tightness) missed two preseason games; says he expects to play.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-08-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.yardbarker.com/nba/articles/giannis_miami_heat_debut_to_feature_anthony_edwards/s1_16619_44165485",
+     "team": "MIA",
+     "text": "Giannis Antetokounmpo makes his Heat debut.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-08-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.yardbarker.com/nba/articles/giannis_miami_heat_debut_to_feature_anthony_edwards/s1_16619_44165485",
+     "team": "MIN",
+     "text": "LaMelo Ball makes his Timberwolves debut.",
+     "total": 0,
+     "type": "add"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Bam Adebayo provides major injury update ahead of Heat vs Timberwolves season opener",
+     "u": "https://bolavip.com/en/nba/bam-adebayo-provides-major-injury-update-ahead-of-heat-vs-timberwolves-2026-nba-season-opener"
+    },
+    {
+     "t": "Giannis' Miami Heat debut to feature Anthony Edwards",
+     "u": "https://www.yardbarker.com/nba/articles/giannis_miami_heat_debut_to_feature_anthony_edwards/s1_16619_44165485"
+    }
+   ],
+   "summary": "Giannis Antetokounmpo makes his Heat debut and LaMelo Ball his Timberwolves debut. Bam Adebayo missed the last two preseason games with groin tightness but expects to play. Minnesota is without Donte DiVincenzo (Achilles)."
+  },
+  "nba_401909092": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "GS @ LAL",
+   "items": [
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steph-curry-play-warriors-season-123220210.html",
+     "team": "GS",
+     "text": "Stephen Curry (right ankle sprain) practiced fully Oct 19; Warriors expect him to play.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steph-curry-play-warriors-season-123220210.html",
+     "team": "GS",
+     "text": "Brandin Podziemski (lower back) and Charles Bassey (knee) missed practice.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Steph Curry to play in Warriors' season opener vs. Lakers after tweaking ankle",
+     "u": "https://sports.yahoo.com/articles/steph-curry-play-warriors-season-123220210.html"
+    }
+   ],
+   "summary": "Stephen Curry sprained his right ankle in practice on Oct 18 but practiced fully the next day and is expected to play. Golden State is thin, with Jimmy Butler, Kristaps Porzingis and Moses Moody out and Brandin Podziemski (back) doubtful. Luka Doncic and Austin Reaves lead the Lakers."
+  },
+  "nba_401909834": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "ATL @ ORL",
+   "items": [],
+   "lg": "nba",
+   "sources": [],
+   "summary": "Opening night in Orlando. Paolo Banchero and Franz Wagner lead the Magic alongside Desmond Bane, while Atlanta leans on Jalen Johnson. No new game-day injury news was found beyond the listed absences of Anthony Black and Jonathan Isaac."
+  },
+  "nba_401909835": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "MIL @ WSH",
+   "items": [
+    {
+     "at": "2026-10-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://bleacherreport.com/articles/25512306-aj-dybantsa-injured-latest-wizards-stars-timeline-return-ahead-nba-season-opener",
+     "team": "WSH",
+     "text": "No. 1 pick AJ Dybantsa sprained his left ankle in the preseason finale; listed out for the opener.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "AJ Dybantsa injured: latest on Wizards star's timeline ahead of NBA season opener",
+     "u": "https://bleacherreport.com/articles/25512306-aj-dybantsa-injured-latest-wizards-stars-timeline-return-ahead-nba-season-opener"
+    }
+   ],
+   "summary": "Washington opens at home after a 17-65 season, with Anthony Davis and Trae Young leading the way. No. 1 pick AJ Dybantsa sprained his left ankle in the preseason finale and is listed out. No Bucks injury news was found."
+  },
+  "nba_401909836": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "CHA @ BKN",
+   "items": [],
+   "lg": "nba",
+   "sources": [],
+   "summary": "Opening night in Brooklyn. Charlotte is short-handed, with Kon Knueppel, Coby White and Grant Williams listed out. Julius Randle and Michael Porter Jr. lead the Nets. No new game-day news was found."
+  },
+  "nba_401909837": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "CHI @ TOR",
+   "items": [
+    {
+     "at": "2026-10-15T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.stadiumrant.com/nic-claxton-injury-update-bulls-opening-night/",
+     "team": "CHI",
+     "text": "Nic Claxton (hamstring, hurt in camp) out; Zach Collins (quad) has no return date.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Nic Claxton injury update ahead of Bulls opening night",
+     "u": "https://www.stadiumrant.com/nic-claxton-injury-update-bulls-opening-night/"
+    }
+   ],
+   "summary": "Toronto opens at home with Kawhi Leonard, Scottie Barnes and RJ Barrett. Chicago's frontcourt is thin: Nic Claxton (hamstring) is out and several Bulls are day-to-day. No late scratches were found."
+  },
+  "nba_401909838": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "UTAH @ MEM",
+   "items": [
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0.5,
+     "src": "https://www.953thescore.com/2026/10/20/moving-on-from-ja-morant-grizzlies-host-jazz-in-season-opener/",
+     "team": "UTAH",
+     "text": "No. 2 pick Darryn Peterson expected to start at point guard in his NBA debut.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.953thescore.com/2026/10/20/moving-on-from-ja-morant-grizzlies-host-jazz-in-season-opener/",
+     "team": "MEM",
+     "text": "No. 3 pick Cameron Boozer (Duke) on the roster for his NBA debut; role not yet reported.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.fox13now.com/sports/utah-jazz/jaren-jackson-jr-returns-to-memphis-as-jazz-open-nba-season",
+     "team": "UTAH",
+     "text": "Jaren Jackson Jr. returns to Memphis, back from left-knee surgery; no minutes limit reported.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Moving on from Ja Morant, Grizzlies host Jazz in season opener",
+     "u": "https://www.953thescore.com/2026/10/20/moving-on-from-ja-morant-grizzlies-host-jazz-in-season-opener/"
+    },
+    {
+     "t": "Jaren Jackson Jr. returns to Memphis as Jazz open NBA season",
+     "u": "https://www.fox13now.com/sports/utah-jazz/jaren-jackson-jr-returns-to-memphis-as-jazz-open-nba-season"
+    }
+   ],
+   "summary": "Memphis starts over after trading Morant, Bane and Jaren Jackson Jr., with Ty Jerome at point guard. Jackson returns to Memphis with Utah after knee surgery. No. 2 pick Darryn Peterson is expected to start for the Jazz; No. 3 pick Cameron Boozer debuts for Memphis."
+  },
+  "nba_401909839": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "IND @ NO",
+   "items": [
+    {
+     "at": "2026-10-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://roundtable.io/sports/nba/pacers/news/tyrese-haliburton-ruled-out-with-ankle-injury-mri-brings-encouraging-news",
+     "team": "IND",
+     "text": "Tyrese Haliburton back from his Achilles tear; says no minutes restriction. An ankle tweak in preseason checked out fine.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Tyrese Haliburton ruled out with ankle injury, MRI brings encouraging news",
+     "u": "https://roundtable.io/sports/nba/pacers/news/tyrese-haliburton-ruled-out-with-ankle-injury-mri-brings-encouraging-news"
+    }
+   ],
+   "summary": "Tyrese Haliburton plays his first regular-season game since tearing his Achilles in the 2025 Finals and says he has no restrictions. Indiana is without Aaron Nesmith and T.J. McConnell. New Orleans opens at home with Zion Williamson and Trey Murphy III."
+  },
+  "nba_401909840": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "DAL @ HOU",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcdfw.com/news/sports/dallas-mavericks/the-return-of-kyrie-irving-houston-rockets-host-dallas-mavs-in-season-opener/4093665/",
+     "team": "DAL",
+     "text": "Dusty May (ex-Michigan) makes his NBA head-coaching debut; Masai Ujiri now runs the front office.",
+     "total": 0,
+     "type": "coach"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcdfw.com/news/sports/dallas-mavericks/the-return-of-kyrie-irving-houston-rockets-host-dallas-mavs-in-season-opener/4093665/",
+     "team": "DAL",
+     "text": "Kyrie Irving plays his first game since his ACL tear; no minutes restriction reported.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcdfw.com/news/sports/dallas-mavericks/the-return-of-kyrie-irving-houston-rockets-host-dallas-mavs-in-season-opener/4093665/",
+     "team": "DAL",
+     "text": "Dereck Lively II (foot) and Santi Aldama (knee) are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Rockets vs. Mavericks season opener brings Kyrie Irving back",
+     "u": "https://www.nbcdfw.com/news/sports/dallas-mavericks/the-return-of-kyrie-irving-houston-rockets-host-dallas-mavs-in-season-opener/4093665/"
+    }
+   ],
+   "summary": "Kyrie Irving returns after missing all of last season with a torn ACL, and Dusty May makes his NBA head-coaching debut for Dallas. The Mavericks are without Dereck Lively II and Santi Aldama. Houston, with Kevin Durant and Alperen Sengun, reports no injuries."
+  },
+  "nba_401909841": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "PHX @ POR",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/portland-trail-blazers/injury-report-season-opener-vs-suns/",
+     "team": "POR",
+     "text": "Deni Avdija questionable (right ankle soreness); Shaedon Sharpe out until March after meniscus surgery.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/portland-trail-blazers/injury-report-season-opener-vs-suns/",
+     "team": "POR",
+     "text": "Damian Lillard cleared after missing all of last season with a torn Achilles.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/trailblazers/onsi/previewing-the-blazers-season-opener-against-the-phoenix-suns",
+     "team": "POR",
+     "text": "Micah Nori coaches his first game as Portland head coach; plans a 10-man rotation.",
+     "total": 0,
+     "type": "coach"
+    },
+    {
+     "at": "2026-10-15T12:00:00Z",
+     "impact": 0,
+     "src": "https://arizonasports.com/?p=3635246",
+     "team": "PHX",
+     "text": "Luke Kennard (sore left knee) missed the preseason finale awaiting an MRI.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Portland Trail Blazers Announce Injury Report for Season Opener vs. Suns",
+     "u": "https://heavy.com/sports/nba/portland-trail-blazers/injury-report-season-opener-vs-suns/"
+    },
+    {
+     "t": "Previewing the Blazers' Season Opener Against the Phoenix Suns",
+     "u": "https://www.si.com/nba/trailblazers/onsi/previewing-the-blazers-season-opener-against-the-phoenix-suns"
+    },
+    {
+     "t": "Luke Kennard to miss Suns' final preseason game",
+     "u": "https://arizonasports.com/?p=3635246"
+    }
+   ],
+   "summary": "Damian Lillard returns from a torn Achilles and Ja Morant debuts for Portland under first-year coach Micah Nori. Deni Avdija (ankle) is questionable and Shaedon Sharpe is out until March. Phoenix is without Mark Williams, and Luke Kennard (knee) is uncertain."
+  },
+  "nba_401909842": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "SAC @ LAC",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0.4,
+     "src": "https://www.si.com/nba/clippers/onsi/clippers-injury-report-kings-short-handed-season-opener-01m5faepq4e5",
+     "team": "SAC",
+     "text": "No. 7 pick Darius Acuff Jr. projected to start in his NBA debut.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.si.com/nba/clippers/onsi/clippers-injury-report-kings-short-handed-season-opener-01m5faepq4e5",
+     "team": "LAC",
+     "text": "No. 5 pick Keaton Wagler expected to get significant bench minutes in his debut.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/kings/onsi/kings-injury-report-every-injury-and-status-vs-clippers-for-opening-night",
+     "team": "SAC",
+     "text": "Malik Monk questionable (left ankle soreness); Ben Simmons out for the season with a torn Achilles.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/kings/onsi/kings-injury-report-every-injury-and-status-vs-clippers-for-opening-night",
+     "team": "LAC",
+     "text": "Out: Bradley Beal, Brandon Ingram (heel surgery), Max Strus, Jordan Miller, Yanic Konan Niederhauser.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Kings Injury Report: Every Injury and Status vs. Clippers for Opening Night",
+     "u": "https://www.si.com/nba/kings/onsi/kings-injury-report-every-injury-and-status-vs-clippers-for-opening-night"
+    },
+    {
+     "t": "Clippers Injury Report vs. Kings: LA Is Short-Handed in Season Opener",
+     "u": "https://www.si.com/nba/clippers/onsi/clippers-injury-report-kings-short-handed-season-opener-01m5faepq4e5"
+    }
+   ],
+   "summary": "The Clippers open short-handed, without Bradley Beal, Brandon Ingram, Max Strus and Jordan Miller. Sacramento lost Ben Simmons to a torn Achilles days before the opener, and Malik Monk (ankle) is questionable. Rookies Darius Acuff Jr. (Kings) and Keaton Wagler (Clippers) are expected to play real minutes."
   },
   "nfl_2026_06_ARI_LA": {
    "at": "2026-10-18T16:09:40Z",
@@ -1437,51 +1946,51 @@
    "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa, Deebo Samuel, Christian Kirk and Marques Sigle are inactive and LB Dre Greenlaw is suspended, though Mike Evans is active and Kyle Juszczyk returns. Washington, 1-3-1, has Stefon Diggs active and S Nick Cross back in the lineup, but leading rusher Jacory Croskey-Merritt is out."
   },
   "nfl_2026_07_NE_CHI": {
-   "at": "2026-10-20T16:05:28Z",
+   "at": "2026-10-21T16:10:10Z",
    "game": "NE @ CHI",
    "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears",
+     "team": "NE",
+     "text": "G Alijah Vera-Tucker (hamstring) and OL Ben Brown (knee) did not practice Mon or Tue.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears",
+     "team": "NE",
+     "text": "WR A.J. Brown (ankle) and T Morgan Moses (foot) limited; CB Carlton Davis (neck) up to limited Tuesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears",
+     "team": "NE",
+     "text": "WR Romeo Doubs (shoulder), Drake Maye's top target by volume, placed on injured reserve.",
+     "total": 0,
+     "type": "loss"
+    },
     {
      "at": "2026-10-13T12:00:00Z",
      "impact": 0,
      "src": "https://www.si.com/nfl/bears/onsi/bears-montez-sweat-replacement-active-roster-suspension",
      "team": "CHI",
-     "text": "DE Montez Sweat serves the second game of a two-game PED suspension; eligible to return after Thursday.",
+     "text": "DE Montez Sweat serves the second game of a two-game PED suspension.",
      "total": 0,
-     "type": "loss"
+     "type": "suspension"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7",
+     "src": "https://sports.yahoo.com/articles/bear-den-good-injury-news-100000473.html",
      "team": "CHI",
-     "text": "DE Dayo Odeyingbo (quad) expected to miss time; RG Jonah Jackson (hip) and RB Kyle Monangai unlikely for Thursday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-14T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/bears/onsi/dayo-odeyingbo-injury-update-ben-johnson-bears-precarious-spot-edge-rusher",
-     "team": "CHI",
-     "text": "DL Shemar Turner, activated from PUP after a torn ACL, in line for snaps in place of Sweat.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7",
-     "team": "NE",
-     "text": "OL Alijah Vera-Tucker (hamstring), Morgan Moses (ankle) and Ben Brown (knee) hurt; Vrabel unsure they make it back on a short week.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7",
-     "team": "NE",
-     "text": "WR Romeo Doubs (shoulder), Drake Maye's top target by volume, is out.",
+     "text": "RB Kyle Monangai, LB T.J. Edwards and LB Jack Sanborn (concussion) did not practice; RG Jonah Jackson up to limited.",
      "total": 0,
      "type": "injury"
     }
@@ -1489,24 +1998,95 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Bears Facing Patriots Roster With Even Worse Injury Luck This Week on 'TNF'",
-     "u": "https://www.si.com/nfl/bears/onsi/bears-patriots-nfl-week-7"
+     "t": "Week 7 Injury Report: Patriots at Bears",
+     "u": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears"
+    },
+    {
+     "t": "The Bear's Den: Some good injury news for Bears ahead of New England Patriots game",
+     "u": "https://sports.yahoo.com/articles/bear-den-good-injury-news-100000473.html"
     },
     {
      "t": "Bears Add Montez Sweat Replacement to Active Roster After Suspension",
      "u": "https://www.si.com/nfl/bears/onsi/bears-montez-sweat-replacement-active-roster-suspension"
-    },
-    {
-     "t": "Dayo Odeyingbo Injury Update From Ben Johnson Puts Bears in Precarious Spot at Edge Rusher",
-     "u": "https://www.si.com/nfl/bears/onsi/dayo-odeyingbo-injury-update-ben-johnson-bears-precarious-spot-edge-rusher"
     }
    ],
-   "summary": "Thursday night in Chicago on a short week after wins for both. The Bears' edge group is thin: Montez Sweat serves the last game of his suspension and Dayo Odeyingbo (quad) is hurt, so Shemar Turner, just off PUP, gets snaps. New England's line is banged up, with Vera-Tucker, Moses and Brown hurt, and Romeo Doubs is out."
+   "summary": "Thursday night in Chicago on a short week. Drake Maye (shoulder) practiced fully and Caleb Williams is healthy again after his Week 2 hamstring injury. New England's line is hurting, with Vera-Tucker and Ben Brown not practicing, and Romeo Doubs is on IR. Chicago's edge group is thin with Sweat suspended and Odeyingbo on IR; Monangai and T.J. Edwards did not practice."
+  },
+  "nfl_2026_07_PIT_NO": {
+   "at": "2026-10-21T16:10:10Z",
+   "game": "PIT @ NO",
+   "items": [
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html",
+     "team": "",
+     "text": "Played at Stade de France, Paris; NFL says prep continues as scheduled despite protests in France.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html",
+     "team": "NO",
+     "text": "QB Tyler Shough reportedly has two broken bones in his non-throwing left hand; not on the injury report.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html",
+     "team": "NO",
+     "text": "G Cesar Ruiz, CBs Kool-Aid McKinstry, Quincy Riley and Martin Emerson Jr. all left the Giants win injured.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/jordyn-tyson-play-paris-saints-134348208.html",
+     "team": "NO",
+     "text": "Rookie WR Jordyn Tyson (hamstring) reportedly won't practice this week.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steelers-wide-receiver-crisis-takes-211500438.html",
+     "team": "PIT",
+     "text": "WRs Michael Pittman Jr. (foot) and Roman Wilson (finger) on IR; Ben Skowronek (calf) missed last game.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Five things to know about the New Orleans Saints in Paris, Wednesday October 21",
+     "u": "https://www.neworleanssaints.com/news/five-things-to-know-about-the-new-orleans-saints-in-paris-week-7-for-wednesday-october-21"
+    },
+    {
+     "t": "Is the Saints-Steelers Paris Game Still On? Answering 5 Questions Saints Fans Are Asking",
+     "u": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html"
+    },
+    {
+     "t": "Will Jordyn Tyson play in Paris? Saints GM Mickey Loomis shares update",
+     "u": "https://sports.yahoo.com/articles/jordyn-tyson-play-paris-saints-134348208.html"
+    },
+    {
+     "t": "Steelers' wide receiver crisis takes an unexpected turn",
+     "u": "https://sports.yahoo.com/articles/steelers-wide-receiver-crisis-takes-211500438.html"
+    }
+   ],
+   "summary": "A Saints home game played at Stade de France in Paris; the NFL says preparations continue despite protests in France. Tyler Shough starts for New Orleans despite a reported break in his non-throwing hand, and several Saints defensive backs left last week's win hurt. Pittsburgh, on a two-game win streak, is short at receiver with Pittman and Roman Wilson on IR."
   }
  },
  "meta": {
-  "at": "2026-10-20T23:06:00Z",
-  "games": 1,
-  "note": "Ipswich v Nottm Forest added (no confirmed team news yet); NE @ CHI and OKC @ SA not yet due"
+  "at": "2026-10-21T16:12:00Z",
+  "games": 16,
+  "note": "NBA opening night (11 games), NE @ CHI and PIT @ NO (Paris), plus Villa v City, Arsenal v Everton, Coventry v Fulham"
  }
 }
