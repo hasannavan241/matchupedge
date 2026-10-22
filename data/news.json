@@ -1,5 +1,100 @@
 {
  "docs": {
+  "epl_401878765": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "Liverpool v Brighton",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.12,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Liverpool",
+     "text": "Dominik Szoboszlai (hamstring) needs more time, says Iraola.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.07,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Liverpool",
+     "text": "Jeremie Frimpong has a new hamstring injury, unlikely back before the international break.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Liverpool",
+     "text": "Alexander Isak and Cody Gakpo back in the side and played against Brentford.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "FPL GW8 injuries: Saka, Semenyo, Szoboszlai",
+     "u": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764"
+    }
+   ],
+   "summary": "Liverpool host Brighton after a 4-3 European win over Villarreal. Dominik Szoboszlai needs more time with his hamstring and Jeremie Frimpong has a new hamstring injury, but Isak and Gakpo are back. No fresh Brighton team news yet."
+  },
+  "epl_401878766": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "Hull City v Brentford",
+   "items": [
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": -0.12,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates",
+     "team": "Brentford",
+     "text": "Vitaly Janelt (one match) and Yehor Yarmolyuk (three matches) suspended after red cards.",
+     "total": 0,
+     "type": "suspension"
+    },
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates",
+     "team": "Brentford",
+     "text": "Out: Antoni Milambo (knee), Josh Dasilva (hamstring), Kaye Furo (knee); Collins and Jensen progressing.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates",
+     "team": "Brentford",
+     "text": "Jannik Schuster back in the squad; Andrews says he's \"back to himself, more or less\".",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.brentfordfc.com/en/news/article/first-team-hull-city-v-brentford-premier-league-sky-sports-october-2026",
+     "team": "",
+     "text": "Kickoff moved to Sunday 2pm for live TV.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "FPL Gameweek 8 team news: Thursday live injury updates",
+     "u": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates"
+    },
+    {
+     "t": "Hull City v Brentford moved for Sky Sports",
+     "u": "https://www.brentfordfc.com/en/news/article/first-team-hull-city-v-brentford-premier-league-sky-sports-october-2026"
+    }
+   ],
+   "summary": "Moved to Sunday for Sky. Brentford are missing two midfielders through suspension after red cards last time out, Vitaly Janelt for one match and Yehor Yarmolyuk for three, but Jannik Schuster is back in the squad. Neither club played in midweek."
+  },
   "epl_401878767": {
    "at": "2026-10-21T23:12:27Z",
    "game": "Chelsea v Tottenham",
@@ -81,38 +176,47 @@
    "summary": "London derby at Stamford Bridge. Chelsea are without goalkeeper Emi Martinez (broken jaw), so Mike Penders deputises, and Reece James is out again after knee surgery; Malo Gusto should be back. Spurs got their first league win against Coventry but Rodrigo Bentancur is suspended and Udogie, Savio, Bergvall and Mudryk are injured. Neither club played in Europe midweek."
   },
   "epl_401878768": {
-   "at": "2026-10-21T16:10:10Z",
+   "at": "2026-10-22T16:08:43Z",
    "game": "Arsenal v Everton",
    "items": [
     {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
      "team": "Arsenal",
-     "text": "Piero Hincapie out until November with an ankle injury from the warm-down after the Leeds win.",
+     "text": "Bukayo Saka forced off inside 10 minutes at Bayern with an apparent quad injury; no diagnosis yet.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.04,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Arsenal",
+     "text": "Piero Hincapie (ankle) back in individual grass training and could return for Everton.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
      "impact": -0.05,
      "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
      "team": "Arsenal",
-     "text": "Christos Tzolis (hamstring) out for another couple of weeks.",
+     "text": "Christos Tzolis (hamstring) still out.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
      "impact": 0,
-     "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
      "team": "Arsenal",
-     "text": "William Saliba still out with a long-term back injury; possible return late November.",
+     "text": "William Saliba still out with a long-term back injury; another scan this week.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
      "impact": -0.1,
      "src": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html",
      "team": "Arsenal",
@@ -124,11 +228,15 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Arsenal injury, suspension list and return dates vs. Bayern Munich",
+     "t": "FPL GW8 injuries: Saka, Semenyo, Szoboszlai",
+     "u": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764"
+    },
+    {
+     "t": "Arsenal injury list vs Bayern",
      "u": "https://www.sportsmole.co.uk/football/arsenal/champions-league/injuries-and-suspensions/hincapie-tzolis-saliba-latest-arsenal-injury-suspension-list-vs-bayern_607215.html"
     }
    ],
-   "summary": "Second-placed Arsenal host eighth-placed Everton three days after a Champions League trip to Bayern Munich. Arsenal remain without William Saliba (back) and have lost Piero Hincapie (ankle) and Christos Tzolis (hamstring) until November. No confirmed Everton team news yet; the managers speak later in the week."
+   "summary": "Second-placed Arsenal host Everton three days after a Champions League trip to Bayern Munich, where Bukayo Saka limped off early with a thigh problem. Piero Hincapie is back training and could return, while William Saliba and Christos Tzolis remain out. No fresh Everton team news yet; Arteta speaks on Friday."
   },
   "epl_401878769": {
    "at": "2026-10-17T16:12:31Z",
@@ -197,6 +305,56 @@
    ],
    "summary": "Champions Arsenal come off a 3-0 Champions League win over Lille without William Saliba and Piero Hincapie, with Martin Zubimendi a late call. Forest, 15th under Oliver Glasner after a 3-1 loss at Palace, had no midweek game; Morgan Gibbs-White has a minor muscle injury, and Savona and Igor Jesus are out."
   },
+  "epl_401879252": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "Man United v Bournemouth",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.12,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Man United",
+     "text": "Striker Benjamin Sesko could be out until the new year.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Man United",
+     "text": "Luke Shaw out at least one more match; Kobbie Mainoo about 10 days away.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.04,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Bournemouth",
+     "text": "Alex Scott out at least two more weeks, per Marco Rose.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Bournemouth",
+     "text": "Played in the Europa League on Thursday, three days before this match.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "FPL GW8 injuries: Saka, Semenyo, Szoboszlai",
+     "u": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764"
+    }
+   ],
+   "summary": "Bournemouth travel to Old Trafford three days after a Thursday Europa League match and still without Alex Scott. Michael Carrick is missing Benjamin Sesko, possibly until the new year, plus Luke Shaw and Kobbie Mainoo."
+  },
   "epl_401879253": {
    "at": "2026-10-21T23:12:27Z",
    "game": "Ipswich v Nottm Forest",
@@ -242,12 +400,53 @@
    ],
    "summary": "Friday night at Portman Road. Ipswich come off a 3-2 defeat at Man City; Sasa Lukic should be back and Abdul Fatawu has served his ban, but Jack Taylor is still out. Forest have lost two league games in a row; Oliver Glasner says Morgan Gibbs-White and Nikola Milenkovic are ready, but striker Igor Jesus (calf) and Nicolo Savona cannot play."
   },
+  "epl_401879254": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "Crystal Palace v Newcastle",
+   "items": [
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": -0.07,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Crystal Palace",
+     "text": "Played in the Europa League on Thursday, three days before this match.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Newcastle",
+     "text": "Anthony Elanga back in training and nearing a return.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "FPL GW8 injuries: Saka, Semenyo, Szoboszlai",
+     "u": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764"
+    }
+   ],
+   "summary": "Crystal Palace host Newcastle three days after a Thursday Europa League match. Newcastle have no midweek game and Anthony Elanga is back in training and nearing a return. No fresh team news yet from either manager."
+  },
   "epl_401879255": {
-   "at": "2026-10-21T16:10:10Z",
+   "at": "2026-10-22T16:08:43Z",
    "game": "Coventry v Fulham",
    "items": [
     {
-     "at": "2026-10-21T12:00:00Z",
+     "at": "2026-10-22T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates",
+     "team": "Coventry",
+     "text": "Out: Luke Woolfenden (knee), Josh Eccles (ankle), Amenda (calf) and Wright (quad), per Lampard.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
      "impact": 0,
      "src": "https://www.thescore.com/epl/event/98340",
      "team": "",
@@ -259,45 +458,67 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Fulham @ Coventry City on October 24, 2026 - theScore",
+     "t": "FPL Gameweek 8 team news: Thursday live injury updates",
+     "u": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates"
+    },
+    {
+     "t": "Fulham @ Coventry City",
      "u": "https://www.thescore.com/epl/event/98340"
     }
    ],
-   "summary": "An early relegation six-pointer: promoted Coventry, 17th, host Fulham, 18th, one point behind. Coventry lost at Spurs last time out. Neither club played in midweek. No confirmed team news yet for either side; the managers speak before the match."
+   "summary": "An early relegation six-pointer: promoted Coventry, 17th, host Fulham, 18th and a point behind. Frank Lampard is without Woolfenden, Amenda, Eccles and Wright, with Eccles not yet back on the grass. Neither club played in midweek; no fresh Fulham team news."
   },
   "epl_401879256": {
-   "at": "2026-10-21T16:10:10Z",
+   "at": "2026-10-22T16:08:43Z",
    "game": "Aston Villa v Man City",
    "items": [
     {
      "at": "2026-10-19T12:00:00Z",
      "impact": -0.1,
-     "src": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html",
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
      "team": "Man City",
-     "text": "Antoine Semenyo out for about eight weeks with a knee injury picked up last weekend.",
+     "text": "Antoine Semenyo out until mid-December with a knee injury.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html",
-     "team": "Aston Villa",
-     "text": "Right-back Aaron Wan-Bissaka out for at least a month with a hamstring injury.",
+     "at": "2026-10-22T12:00:00Z",
+     "impact": -0.04,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates",
+     "team": "Man City",
+     "text": "Nico O'Reilly (back), Matheus Nunes and Mateo Kovacic are doubts; Maresca waiting on Thursday's session.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-13T12:00:00Z",
+     "at": "2026-10-20T12:00:00Z",
      "impact": -0.05,
-     "src": "https://www.sportsmole.co.uk/football/aston-villa/injury-news/news/more-than-one-month-emery-reveals-aston-villa-injury-blow-ahead-of-fenerbahce-game_606820.html",
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates",
+     "team": "Man City",
+     "text": "Played AEK Athens in Europe on Tuesday, a 5-1 win; Haaland rested on the bench and fit to start.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
      "team": "Aston Villa",
-     "text": "Left-back Matteo Ruggeri out for more than a month with a hamstring injury.",
+     "text": "Right-back Aaron Wan-Bissaka out for three to four weeks.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764",
+     "team": "Aston Villa",
+     "text": "Left-back Matteo Ruggeri out for about two months.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
      "impact": -0.05,
      "src": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html",
      "team": "Aston Villa",
@@ -306,20 +527,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
      "impact": -0.1,
      "src": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html",
      "team": "Aston Villa",
-     "text": "Played Viking FK in the Champions League on Wednesday night before Saturday's early kickoff.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": -0.05,
-     "src": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html",
-     "team": "Man City",
-     "text": "Played AEK Athens in the Champions League on Tuesday.",
+     "text": "Played Viking FK in the Champions League on Wednesday night before the early Saturday kickoff.",
      "total": 0,
      "type": "other"
     }
@@ -327,19 +539,19 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Antoine Semenyo injury: Games Man City star will miss as Enzo Maresca confirms major blow",
-     "u": "https://www.sportsmole.co.uk/football/man-city/injury-news/news/man-city-games-semenyo-will-miss-as-maresca-confirms-major-injury-blow_607235.html"
+     "t": "FPL Gameweek 8 team news: Thursday live injury updates",
+     "u": "https://www.fantasyfootballscout.co.uk/2026/10/22/fpl-gameweek-8-team-news-thursdays-live-injury-updates"
     },
     {
-     "t": "Aston Villa injury, suspension list and return dates vs. Viking FK",
+     "t": "FPL GW8 injuries: Saka, Semenyo, Szoboszlai",
+     "u": "https://www.rotowire.com/soccer/article/fpl-gw8-injury-updates-bukayo-saka-antoine-semenyo-dominik-szoboszlai-best-replacements-142764"
+    },
+    {
+     "t": "Villa injury list vs Viking",
      "u": "https://www.sportsmole.co.uk/football/aston-villa/champions-league/injuries-and-suspensions/manzambi-wan-bissaka-latest-aston-villa-injury-suspension-list-vs-viking_607189.html"
-    },
-    {
-     "t": "Aston Villa injury news: Emery reveals key player out for 'more than one month'",
-     "u": "https://www.sportsmole.co.uk/football/aston-villa/injury-news/news/more-than-one-month-emery-reveals-aston-villa-injury-blow-ahead-of-fenerbahce-game_606820.html"
     }
    ],
-   "summary": "Unbeaten leaders City, seven wins from seven, visit 12th-placed Villa in an early kickoff. Both played in the Champions League this week, Villa on Wednesday night. Villa's full-backs are depleted with Wan-Bissaka and Ruggeri out, and Manzambi carries a knock. City lose Antoine Semenyo for about eight weeks with a knee injury."
+   "summary": "Unbeaten leaders City visit Villa in Saturday's early kickoff after both played in Europe this week. Erling Haaland is fit to start, but City lose Antoine Semenyo until mid-December and wait on Nunes, Kovacic and O'Reilly. Villa are short at full-back with Wan-Bissaka and Ruggeri out for weeks."
   },
   "epl_401879257": {
    "at": "2026-10-19T16:15:00Z",
@@ -864,6 +1076,50 @@
     }
    ],
    "summary": "Stephen Curry sprained his right ankle in practice on Oct 18 but practiced fully the next day and is expected to play. Golden State is thin, with Jimmy Butler, Kristaps Porzingis and Moses Moody out and Brandin Podziemski (back) doubtful. Luka Doncic and Austin Reaves lead the Lakers."
+  },
+  "nba_401909093": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "CLE @ PHI",
+   "items": [
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": 0,
+     "src": "https://fadeawayworld.net/nba/philadelphia-76ers/sixers-vs-cavaliers-prediction-preview-injury-report-team-advantages-and-x-factors",
+     "team": "CLE",
+     "text": "C Jarrett Allen (knee) questionable; Khalifa Diop and Nae'Qwan Tomlin out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": 0,
+     "src": "https://lastwordonsports.com/basketball/2026/10/22/76ers-vs-cavaliers/",
+     "team": "PHI",
+     "text": "Dean Wade (ankle) questionable; Dominick Barlow, Tacko Fall out, Ariel Hukporti (Achilles) out for the season.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Sixers vs. Cavaliers preview and injury report",
+     "u": "https://fadeawayworld.net/nba/philadelphia-76ers/sixers-vs-cavaliers-prediction-preview-injury-report-team-advantages-and-x-factors"
+    },
+    {
+     "t": "76ers vs. Cavaliers preview",
+     "u": "https://lastwordonsports.com/basketball/2026/10/22/76ers-vs-cavaliers/"
+    }
+   ],
+   "summary": "LeBron James and Jaylen Brown make their home debuts for Philadelphia against Cleveland. Jarrett Allen (knee) is questionable for the Cavaliers, who are without Nae'Qwan Tomlin and Khalifa Diop. Philadelphia lists Dean Wade questionable and is without Barlow, Fall and Hukporti; Embiid's workload is being managed but has no stated limit."
+  },
+  "nba_401909094": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "DEN @ OKC",
+   "items": [],
+   "lg": "nba",
+   "sources": [],
+   "summary": "Nikola Jokic and Denver visit Shai Gilgeous-Alexander's Thunder in a heavyweight early-season meeting. No new team news beyond the injury list: Julian Strawther is out and Spencer Jones day-to-day for Denver; Oklahoma City is without Nikola Topic, Thomas Sorber and Otega Oweh."
   },
   "nba_401909834": {
    "at": "2026-10-21T16:10:10Z",
@@ -2304,6 +2560,82 @@
    ],
    "summary": "The 5-0 Vikings come off their bye almost whole: nobody missed Wednesday's practice, Darrisaw, Hockenson and Addison were full, and RB Jordan Mason practiced fully as his return window from IR opened. Indianapolis is likely without CB Sauce Gardner, who is expected to miss some time, and TE Tyler Warren also sat Wednesday."
   },
+  "nfl_2026_07_KC_SEA": {
+   "at": "2026-10-22T16:08:43Z",
+   "game": "KC @ SEA",
+   "items": [
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
+     "team": "KC",
+     "text": "WR Rashee Rice (hamstring/knee) and OL Jaylon Moore (concussion) missed Wednesday practice; TE Travis Kelce (ankle) limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/kansas-city-chiefs-first-injury-231906556.html",
+     "team": "KC",
+     "text": "T Josh Simmons absent from practice for personal reasons.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
+     "team": "SEA",
+     "text": "G Anthony Bradford back at practice off injured reserve; Macdonald says he plays if the week goes well.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
+     "team": "SEA",
+     "text": "RB Zach Charbonnet practiced fully and has a real chance to come off the PUP list for his season debut.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
+     "team": "SEA",
+     "text": "LBs Drake Thomas, Chazz Surratt and Connor O'Toole did not practice; WR Rashid Shaheed limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.newsweek.com/sports/nfl/seahawks-could-get-major-offensive-boost-for-week-7-vs-chiefs-12569586",
+     "team": "",
+     "text": "RB Kenneth Walker faces the Seahawks for the first time since leaving for Kansas City.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 7 Injury Report: Chiefs vs. Seahawks",
+     "u": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026"
+    },
+    {
+     "t": "Week 7 Injury Report: Chiefs at Seahawks",
+     "u": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks"
+    },
+    {
+     "t": "Chiefs first injury report for Week 7",
+     "u": "https://sports.yahoo.com/articles/kansas-city-chiefs-first-injury-231906556.html"
+    }
+   ],
+   "summary": "Kenneth Walker returns to Seattle with Kansas City. The Chiefs' receiving corps is uncertain: Rashee Rice missed Wednesday practice and Travis Kelce was limited, and T Josh Simmons is away for personal reasons. Seattle may get G Anthony Bradford back from injured reserve and RB Zach Charbonnet off the PUP list."
+  },
   "nfl_2026_07_LA_LV": {
    "at": "2026-10-21T23:12:27Z",
    "game": "LA @ LV",
@@ -2399,51 +2731,60 @@
    "summary": "The 0-5 Dolphins visit the 2-4 Jets. Malik Willis (throwing-hand thumb) practiced fully Wednesday and Jeff Hafley expects him to be good to go. The Jets may get WR Adonai Mitchell and G Dylan Parham back, both limited, while RB Breece Hall (quad, out since Week 3) sat but is not ruled out. Miami's WR Caleb Douglas is also practicing again."
   },
   "nfl_2026_07_NE_CHI": {
-   "at": "2026-10-21T23:12:27Z",
+   "at": "2026-10-22T16:08:43Z",
    "game": "NE @ CHI",
    "items": [
     {
      "at": "2026-10-21T12:00:00Z",
      "impact": 0,
-     "src": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears",
+     "src": "https://heavy.com/sports/nfl/new-england-patriots/bears-injury-report-week-7-out-questionable/",
      "team": "NE",
-     "text": "Ruled out: G Alijah Vera-Tucker (hamstring), OL Ben Brown (knee), CB Carlton Davis (neck); T Morgan Moses questionable.",
+     "text": "Out: G Alijah Vera-Tucker, OL Ben Brown, CBs Carlton Davis, Karon Prunty, Channing Canada; T Morgan Moses, S Kevin Byard questionable.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nfl/new-england-patriots/bears-injury-report-week-7-out-questionable/",
+     "team": "NE",
+     "text": "Walter Rouse (first NFL start) and Matt Pryor start at guard; rookie Caleb Lomu at RT if Moses sits.",
+     "total": 0,
+     "type": "other"
     },
     {
      "at": "2026-10-19T12:00:00Z",
      "impact": 0,
      "src": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-7-145620221.html",
      "team": "NE",
-     "text": "WR Romeo Doubs (shoulder), Drake Maye's top target by volume, on injured reserve for at least four games.",
+     "text": "WR Romeo Doubs (shoulder), Maye's top target by volume, on injured reserve.",
      "total": 0,
      "type": "loss"
     },
     {
      "at": "2026-10-21T12:00:00Z",
      "impact": 0,
-     "src": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears",
+     "src": "https://heavy.com/sports/nfl/new-england-patriots/bears-injury-report-week-7-out-questionable/",
      "team": "CHI",
-     "text": "Ruled out: RB Kyle Monangai (third straight game) and LB Jack Sanborn (concussion); LB T.J. Edwards doubtful.",
+     "text": "Out: RB Kyle Monangai and LB Jack Sanborn (concussion); LB T.J. Edwards doubtful, CB Tyrique Stevenson questionable.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-13T12:00:00Z",
+     "at": null,
      "impact": 0,
      "src": "https://www.si.com/nfl/bears/onsi/bears-montez-sweat-replacement-active-roster-suspension",
      "team": "CHI",
-     "text": "DE Montez Sweat serves the second game of a two-game PED suspension.",
+     "text": "DE Montez Sweat serves the second game of a two-game suspension.",
      "total": 0,
      "type": "suspension"
     },
     {
      "at": "2026-10-21T12:00:00Z",
      "impact": 0,
-     "src": "https://www.chicagobears.com/news/injury-update-bears-rg-jonah-jackson-set-to-play-vs-patriots",
+     "src": "https://sports.yahoo.com/articles/bears-patriots-injury-report-final-191205750.html",
      "team": "CHI",
-     "text": "RG Jonah Jackson (hip/quad) practiced fully and carries no designation: he will play.",
+     "text": "RG Jonah Jackson (hip/quad) practiced fully and was removed from the report: he will play.",
      "total": 0,
      "type": "other"
     }
@@ -2451,23 +2792,15 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Week 7 Injury Report: Patriots at Bears",
-     "u": "https://www.patriots.com/news/week-7-injury-report-patriots-at-bears"
+     "t": "Patriots rule out 5 vs. Bears: full Week 7 injury report",
+     "u": "https://heavy.com/sports/nfl/new-england-patriots/bears-injury-report-week-7-out-questionable/"
     },
     {
-     "t": "Injury Update: Bears RG Jonah Jackson set to play vs. Patriots",
-     "u": "https://www.chicagobears.com/news/injury-update-bears-rg-jonah-jackson-set-to-play-vs-patriots"
-    },
-    {
-     "t": "NFL news, live updates: Week 7",
-     "u": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-7-145620221.html"
-    },
-    {
-     "t": "Bears Add Montez Sweat Replacement to Active Roster After Suspension",
-     "u": "https://www.si.com/nfl/bears/onsi/bears-montez-sweat-replacement-active-roster-suspension"
+     "t": "Bears-Patriots injury report: final game designations",
+     "u": "https://sports.yahoo.com/articles/bears-patriots-injury-report-final-191205750.html"
     }
    ],
-   "summary": "Thursday night in Chicago on a short week. Drake Maye practiced fully all week and A.J. Brown has no designation. New England rules out G Alijah Vera-Tucker, OL Ben Brown and CB Carlton Davis, and Romeo Doubs is on IR. Chicago is without RB Kyle Monangai and LB Jack Sanborn, T.J. Edwards is doubtful and Montez Sweat is suspended, but RG Jonah Jackson will play."
+   "summary": "Thursday night in Chicago on a short week. Drake Maye and A.J. Brown carry no designation. New England is thin on the line and at corner: Vera-Tucker, Ben Brown, Carlton Davis and two backup corners are out, so Walter Rouse makes his first start at guard. Chicago is without Monangai and Sanborn, Edwards is doubtful and Montez Sweat is suspended, but RG Jonah Jackson plays."
   },
   "nfl_2026_07_NYG_HOU": {
    "at": "2026-10-21T23:12:27Z",
@@ -2537,38 +2870,29 @@
    "summary": "John Harbaugh named J.J. McCarthy the starter over Jameis Winston after he nearly rallied the Giants against New Orleans. New York's tackles are a worry, with Andrew Thomas and Jermaine Eluemunor not practicing, and the Giants released RB Najee Harris. Houston gets WR Tank Dell back at full practice but RB David Montgomery and several defenders sat Wednesday."
   },
   "nfl_2026_07_PIT_NO": {
-   "at": "2026-10-21T16:10:10Z",
+   "at": "2026-10-22T16:08:43Z",
    "game": "PIT @ NO",
    "items": [
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": null,
      "impact": 0,
      "src": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html",
      "team": "",
-     "text": "Played at Stade de France, Paris; NFL says prep continues as scheduled despite protests in France.",
+     "text": "Played at Stade de France, Paris, as a Saints home game.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html",
-     "team": "NO",
-     "text": "QB Tyler Shough reportedly has two broken bones in his non-throwing left hand; not on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html",
-     "team": "NO",
-     "text": "G Cesar Ruiz, CBs Kool-Aid McKinstry, Quincy Riley and Martin Emerson Jr. all left the Giants win injured.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
      "at": "2026-10-21T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.neworleanssaints.com/news/injury-report-pittsburgh-steelers-vs-new-orleans-saints-2026-nfl-week-7-wednesday",
+     "team": "NO",
+     "text": "QB Tyler Shough (left hand) practiced fully; G Cesar Ruiz (knee) and K Daniel Carlson (personal) did not practice; Kamara limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
      "impact": 0,
      "src": "https://sports.yahoo.com/articles/jordyn-tyson-play-paris-saints-134348208.html",
      "team": "NO",
@@ -2577,35 +2901,49 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-20T12:00:00Z",
+     "at": "2026-10-21T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/steelers-wide-receiver-crisis-takes-211500438.html",
+     "src": "https://www.steelers.com/news/week-7-injury-report-saints",
      "team": "PIT",
-     "text": "WRs Michael Pittman Jr. (foot) and Roman Wilson (finger) on IR; Ben Skowronek (calf) missed last game.",
+     "text": "WRs Michael Pittman Jr. and Roman Wilson on IR; WR Ben Skowronek (calf) and CB Jalen Ramsey (wrist) missed Wednesday practice.",
      "total": 0,
      "type": "loss"
+    },
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steelers-rb-picks-injury-ahead-154531994.html",
+     "team": "PIT",
+     "text": "RB Rico Dowdle has a new knee injury and was limited; his status depends on late-week practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-21T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://www.steelers.com/news/week-7-injury-report-saints",
+     "team": "PIT",
+     "text": "S DeShon Elliott practiced fully with his window open to return from injured reserve; not yet activated.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Five things to know about the New Orleans Saints in Paris, Wednesday October 21",
-     "u": "https://www.neworleanssaints.com/news/five-things-to-know-about-the-new-orleans-saints-in-paris-week-7-for-wednesday-october-21"
+     "t": "Week 7 Injury Report (Saints)",
+     "u": "https://www.steelers.com/news/week-7-injury-report-saints"
     },
     {
-     "t": "Is the Saints-Steelers Paris Game Still On? Answering 5 Questions Saints Fans Are Asking",
-     "u": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html"
+     "t": "Saints Wednesday Injury Report: Week 7 vs. Pittsburgh",
+     "u": "https://www.neworleanssaints.com/news/injury-report-pittsburgh-steelers-vs-new-orleans-saints-2026-nfl-week-7-wednesday"
     },
     {
-     "t": "Will Jordyn Tyson play in Paris? Saints GM Mickey Loomis shares update",
-     "u": "https://sports.yahoo.com/articles/jordyn-tyson-play-paris-saints-134348208.html"
-    },
-    {
-     "t": "Steelers' wide receiver crisis takes an unexpected turn",
-     "u": "https://sports.yahoo.com/articles/steelers-wide-receiver-crisis-takes-211500438.html"
+     "t": "Steelers RB picks up a new injury ahead of Paris game",
+     "u": "https://sports.yahoo.com/articles/steelers-rb-picks-injury-ahead-154531994.html"
     }
    ],
-   "summary": "A Saints home game played at Stade de France in Paris; the NFL says preparations continue despite protests in France. Tyler Shough starts for New Orleans despite a reported break in his non-throwing hand, and several Saints defensive backs left last week's win hurt. Pittsburgh, on a two-game win streak, is short at receiver with Pittman and Roman Wilson on IR."
+   "summary": "A Saints home game at Stade de France in Paris. Tyler Shough practiced fully despite a reported broken left hand and starts for New Orleans; Kamara was limited and G Cesar Ruiz did not practice. Pittsburgh is short at receiver with Pittman and Roman Wilson on IR, and RB Rico Dowdle picked up a new knee injury, while S DeShon Elliott practiced fully off injured reserve."
   },
   "nfl_2026_07_SF_ATL": {
    "at": "2026-10-21T23:12:27Z",
@@ -2729,8 +3067,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-21T23:14:00Z",
-  "games": 13,
-  "note": "11 NFL Week 7 games (Wednesday practice reports) and 2 EPL matches; NBA not due."
+  "at": "2026-10-22T16:09:30Z",
+  "games": 12,
+  "note": "3 NFL, 2 NBA, 7 EPL; GW8 team news from press-conference roundups, NFL Wednesday reports"
  }
 }
