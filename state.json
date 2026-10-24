@@ -1,0 +1,228 @@
+{
+ "inputs": "3b713ed9618e",
+ "live": {
+  "inj_n": 199,
+  "inj_at": "2026-10-24T22:09:08Z",
+  "nba_inj_n": 85,
+  "nba_inj_at": "2026-10-24T22:09:08Z",
+  "qb_n": 32,
+  "qb_at": "2026-10-24T22:09:08Z",
+  "wx_n": 6,
+  "epl_dates": 30,
+  "epl_at": "2026-10-24T22:09:08Z",
+  "errors": []
+ },
+ "refit": false,
+ "season": 2026,
+ "week": 7,
+ "games": 13,
+ "players": 237,
+ "built": "2026-10-24T22:09:14Z",
+ "kickoffs": [
+  "2026-10-25T13:30:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T17:00:00Z",
+  "2026-10-25T20:05:00Z",
+  "2026-10-25T20:25:00Z",
+  "2026-10-25T20:25:00Z",
+  "2026-10-26T00:20:00Z",
+  "2026-10-27T00:15:00Z"
+ ],
+ "made": "2026-10-24 17:09 CT",
+ "ts": "2026-10-24T22:09:14Z",
+ "fingerprint": {
+  "games": "097a7753bf8f",
+  "players": "326c01b5bead"
+ },
+ "record": {
+  "saved": 43,
+  "graded": 29,
+  "won": 17,
+  "lost": 12
+ },
+ "nba": {
+  "season": 2027,
+  "dates": [
+   "2026-10-24",
+   "2026-10-25"
+  ],
+  "games": 14,
+  "players": 255,
+  "tips": [
+   "2026-10-24T23:30:00Z",
+   "2026-10-24T23:30:00Z",
+   "2026-10-25T00:00:00Z",
+   "2026-10-25T00:00:00Z",
+   "2026-10-25T00:30:00Z",
+   "2026-10-25T01:00:00Z",
+   "2026-10-25T02:00:00Z",
+   "2026-10-25T21:00:00Z",
+   "2026-10-25T22:00:00Z",
+   "2026-10-25T23:00:00Z",
+   "2026-10-25T23:00:00Z",
+   "2026-10-25T23:00:00Z",
+   "2026-10-25T23:30:00Z",
+   "2026-10-26T01:00:00Z"
+  ],
+  "inj_n": 85,
+  "fingerprint": {
+   "games": "05d68d76ddcf",
+   "players": "57d8fe477bf7"
+  },
+  "record": {
+   "saved": 43,
+   "graded": 28,
+   "won": 16,
+   "lost": 12
+  }
+ },
+ "epl": {
+  "season": 2026,
+  "dates": [
+   "2026-10-25"
+  ],
+  "games": 5,
+  "src": "espn",
+  "kickoffs": [
+   "2026-10-25T14:00:00Z",
+   "2026-10-25T14:00:00Z",
+   "2026-10-25T14:00:00Z",
+   "2026-10-25T14:00:00Z",
+   "2026-10-25T16:30:00Z"
+  ],
+  "fingerprint": {
+   "games": "81d11ec8a719"
+  },
+  "record": {
+   "saved": 20,
+   "graded": 15,
+   "won": 9,
+   "lost": 6
+  }
+ },
+ "ok": true,
+ "at": "2026-10-24T22:09:01Z",
+ "took": 98,
+ "steps": [
+  [
+   "download",
+   2.7,
+   "season 2026",
+   true
+  ],
+  [
+   "nba download",
+   4.1,
+   "season 2027",
+   true
+  ],
+  [
+   "epl download",
+   0.3,
+   "season 2026-27",
+   true
+  ],
+  [
+   "live inputs",
+   5.2,
+   "199 NFL injury listings, 85 NBA, depth charts for 32 teams, 6 forecasts, EPL scoreboard for 30 dates",
+   true
+  ],
+  [
+   "model",
+   0.1,
+   "model is current: fitted on 3656 games through 2026_07_NE_CHI",
+   true
+  ],
+  [
+   "grade",
+   0.1,
+   "0 newly graded",
+   true
+  ],
+  [
+   "build",
+   48.1,
+   "season 2026 week 7: 13 games, 237 players (picks 097a7753bf8f, players 326c01b5bead)",
+   true
+  ],
+  [
+   "check",
+   12.9,
+   "page ok",
+   true
+  ],
+  [
+   "save picks",
+   0.0,
+   "0 picks saved or changed; 43 on record, 17-12 graded",
+   true
+  ],
+  [
+   "nba model",
+   0.1,
+   "model is current: fitted on 15507 games through 2026-10-23",
+   true
+  ],
+  [
+   "nba grade",
+   0.1,
+   "0 newly graded",
+   true
+  ],
+  [
+   "nba build",
+   9.4,
+   "14 games on 2026-10-24 and 2026-10-25, 255 players, 85 listed injured (picks 05d68d76ddcf, players 57d8fe477bf7)",
+   true
+  ],
+  [
+   "nba check",
+   7.8,
+   "nba page ok",
+   true
+  ],
+  [
+   "nba save picks",
+   0.0,
+   "1 picks saved or changed; 43 on record, 16-12 graded",
+   true
+  ],
+  [
+   "epl model",
+   1.2,
+   "model is current: fitted on 24065 matches through 2026-10-24",
+   true
+  ],
+  [
+   "epl grade",
+   0.0,
+   "0 newly graded",
+   true
+  ],
+  [
+   "epl build",
+   1.5,
+   "5 matches on 2026-10-25 from the espn schedule (picks 81d11ec8a719)",
+   true
+  ],
+  [
+   "epl check",
+   4.4,
+   "epl page ok",
+   true
+  ],
+  [
+   "epl save picks",
+   0.0,
+   "0 picks saved or changed; 20 on record, 9-6 graded",
+   true
+  ]
+ ],
+ "errors": []
+}
