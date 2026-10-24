@@ -95,9 +95,18 @@
    "summary": "Struggling Sunderland, after four straight league defeats, host seventh-placed Leeds three days after a Europa League draw in Poznan. Kevin Danso is banned and Dan Ballard out, but Brian Brobbey should be ready. Leeds have three major doubts in Calvert-Lewin, Stach and Okafor, plus Joe Rodon; Dan James is in contention."
   },
   "epl_401878765": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "Liverpool v Brighton",
    "items": [
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/liverpool-vs-brighton-facing-postponement-155000628.html",
+     "team": "",
+     "text": "Storm Boelo: the Safety Advisory Group decides on the day whether the match goes ahead.",
+     "total": 0,
+     "type": "other"
+    },
     {
      "at": "2026-10-23T12:00:00Z",
      "impact": -0.12,
@@ -113,15 +122,6 @@
      "src": "https://www.liverpoolfc.com/news/andoni-iraola-on-jeremie-frimpong-and-dominik-szoboszlai-injuries",
      "team": "Liverpool",
      "text": "Jeremie Frimpong out with a new hamstring injury.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=LIV",
-     "team": "Liverpool",
-     "text": "Victor Munoz (knee) doubtful; Iraola says it will be difficult.",
      "total": 0,
      "type": "injury"
     },
@@ -151,6 +151,15 @@
      "text": "Played Jablonec in the Conference League in midweek.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": -0.04,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/23/fpl-gameweek-8-team-news-fridays-live-injury-updates-3",
+     "team": "Liverpool",
+     "text": "Victor Munoz (knock) missed Villarreal; Iraola: 'difficult'. Ekitike, Bradley and Leoni also out.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "epl",
@@ -166,49 +175,66 @@
     {
      "t": "Iraola on Frimpong and Szoboszlai injuries (Liverpool FC)",
      "u": "https://www.liverpoolfc.com/news/andoni-iraola-on-jeremie-frimpong-and-dominik-szoboszlai-injuries"
+    },
+    {
+     "t": "sports.yahoo.com",
+     "u": "https://sports.yahoo.com/articles/liverpool-vs-brighton-facing-postponement-155000628.html"
+    },
+    {
+     "t": "www.fantasyfootballscout.co.uk",
+     "u": "https://www.fantasyfootballscout.co.uk/2026/10/23/fpl-gameweek-8-team-news-fridays-live-injury-updates-3"
     }
    ],
-   "summary": "Liverpool host Brighton after a 4-3 Champions League win over Villarreal. Iraola confirms Szoboszlai is out with a recurring hamstring problem, Frimpong is out and Victor Munoz is unlikely. Brighton, fresh from a 5-0 win over Palace and a Conference League game, are without Wieffer and Minteh, and Struijk is a doubt."
+   "summary": "Storm Boelo puts the match in doubt, with a safety decision due on the day. Liverpool, after a 4-3 Champions League win over Villarreal, are without Szoboszlai, Frimpong and Ekitike, and Victor Munoz is unlikely. Brighton, fresh from a 5-0 win over Palace and a Conference League game, miss Wieffer and Minteh, and Struijk is being assessed."
   },
   "epl_401878766": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "Hull City v Brentford",
    "items": [
     {
-     "at": "2026-10-21T12:00:00Z",
+     "at": "2026-10-22T12:00:00Z",
      "impact": -0.12,
-     "src": "https://www.footballdream.in/blog/hull-city-vs-brentford-gw8-premier-league-2026-27",
+     "src": "https://www.brentfordfc.com/en/news/match-previews-hull-city-v-brentford-premier-league-25-10-2026",
      "team": "Brentford",
-     "text": "Vitaly Janelt and Yehor Yarmolyuk suspended after red cards.",
+     "text": "Vitaly Janelt (one match) and Yehor Yarmolyuk (three) suspended after red cards against Liverpool.",
      "total": 0,
      "type": "suspension"
     },
     {
      "at": "2026-10-22T12:00:00Z",
      "impact": 0,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=BRE",
+     "src": "https://www.brentfordfc.com/en/news/match-previews-hull-city-v-brentford-premier-league-25-10-2026",
      "team": "Brentford",
-     "text": "Out: Josh Dasilva (hamstring), Antoni Milambo, Kaye Furo; Jannik Schuster available.",
+     "text": "Out: Josh Dasilva, Antoni Milambo, Kaye Furo. Jannik Schuster back.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-23T12:00:00Z",
+     "at": "2026-10-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=HUL",
+     "src": "https://www.yorkshirepost.co.uk/sport/football/sergej-jakirovic-wants-to-see-hull-citys-training-ground-reaction-against-brentford-9307349",
      "team": "Hull City",
-     "text": "Vaz trained fully; Cho and Gourna-Douath back in team training.",
+     "text": "Cho, Gourna-Douath and Morita are options after training; Vaz fine.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-10-23T12:00:00Z",
+     "at": "2026-10-24T12:00:00Z",
      "impact": -0.03,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=HUL",
+     "src": "https://www.yorkshirepost.co.uk/sport/football/sergej-jakirovic-wants-to-see-hull-citys-training-ground-reaction-against-brentford-9307349",
      "team": "Hull City",
-     "text": "Nobel Mendy (groin) out, doing individual work only.",
+     "text": "Nobel Mendy (groin) and keeper Butland out; Ansah awaiting a scan.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.yorkshirepost.co.uk/sport/football/sergej-jakirovic-wants-to-see-hull-citys-training-ground-reaction-against-brentford-9307349",
+     "team": "Hull City",
+     "text": "Jakirovic called the Fulham loss their worst under him and plans a few changes.",
+     "total": 0,
+     "type": "motivation"
     },
     {
      "at": null,
@@ -223,18 +249,22 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "RotoWire: Hull City team news",
-     "u": "https://www.rotowire.com/soccer/team.php?league=EPL&team=HUL"
+     "t": "www.brentfordfc.com",
+     "u": "https://www.brentfordfc.com/en/news/match-previews-hull-city-v-brentford-premier-league-25-10-2026"
     },
     {
-     "t": "RotoWire: Brentford team news",
-     "u": "https://www.rotowire.com/soccer/team.php?league=EPL&team=BRE"
+     "t": "www.yorkshirepost.co.uk",
+     "u": "https://www.yorkshirepost.co.uk/sport/football/sergej-jakirovic-wants-to-see-hull-citys-training-ground-reaction-against-brentford-9307349"
+    },
+    {
+     "t": "www.brentfordfc.com",
+     "u": "https://www.brentfordfc.com/en/news/article/first-team-hull-city-v-brentford-premier-league-sky-sports-october-2026"
     }
    ],
-   "summary": "Moved to Sunday for TV. Brentford are without suspended midfielders Vitaly Janelt and Yehor Yarmolyuk, plus Dasilva, Milambo and Furo, but Schuster is available. Hull's Vaz trained fully and Cho and Gourna-Douath are back in team training, while Nobel Mendy is out."
+   "summary": "Moved to Sunday for TV. Hull come off a 1-0 loss at Fulham that Jakirovic called their worst under him, and he promises changes, with Cho, Gourna-Douath and Morita available. Brentford are without suspended midfielders Vitaly Janelt and Yehor Yarmolyuk, plus Dasilva, Milambo and Furo, but Schuster is back."
   },
   "epl_401878767": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "Chelsea v Tottenham",
    "items": [
     {
@@ -394,75 +424,8 @@
    ],
    "summary": "Arsenal host Everton three days after a 2-2 draw at Bayern Munich, where Bukayo Saka went off early with a quad injury; Arteta said it does not look good, and Arsenal fear a long absence. Piero Hincapie is available again, while Saliba and Tzolis stay out. For Everton, Moyes says Norgaard is available but short of full fitness."
   },
-  "epl_401878769": {
-   "at": "2026-10-17T16:12:31Z",
-   "game": "Nottm Forest v Arsenal",
-   "items": [
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.18,
-     "src": "https://www.aol.co.uk/articles/every-word-mikel-arteta-said-135825000.html",
-     "team": "Arsenal",
-     "text": "William Saliba (back) out with no return date; Piero Hincapie (ankle) and Christos Tzolis also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.06,
-     "src": "https://www.aol.co.uk/articles/every-word-mikel-arteta-said-135825000.html",
-     "team": "Arsenal",
-     "text": "Martin Zubimendi is a doubt; decision after Saturday training.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.05,
-     "src": "https://www.espn.com/soccer/story/_/id/50195024/nottingham-forest-vs-arsenal-2026-27-premier-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups",
-     "team": "Arsenal",
-     "text": "Champions League in midweek: beat Lille 3-0.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.15,
-     "src": "https://sports.yahoo.com/articles/nottingham-forest-oliver-glasner-confirms-143721205.html",
-     "team": "Nottm Forest",
-     "text": "Morgan Gibbs-White (minor muscle injury) is a late call; Nicolo Savona and Igor Jesus ruled out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0.05,
-     "src": "https://sports.yahoo.com/articles/nottingham-forest-oliver-glasner-confirms-143721205.html",
-     "team": "Nottm Forest",
-     "text": "Nikola Milenkovic back in training after more than a month out and could make the squad.",
-     "total": 0,
-     "type": "return"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Every word Mikel Arteta said on injuries",
-     "u": "https://www.aol.co.uk/articles/every-word-mikel-arteta-said-135825000.html"
-    },
-    {
-     "t": "Nottingham Forest vs Arsenal: TV channel, team news, referee, predicted line-ups",
-     "u": "https://www.espn.com/soccer/story/_/id/50195024/nottingham-forest-vs-arsenal-2026-27-premier-league-tv-channel-how-watch-kickoff-live-stream-referee-injury-predicted-lineups"
-    },
-    {
-     "t": "Nottingham Forest: Oliver Glasner confirms Morgan Gibbs-White injury latest",
-     "u": "https://sports.yahoo.com/articles/nottingham-forest-oliver-glasner-confirms-143721205.html"
-    }
-   ],
-   "summary": "Champions Arsenal come off a 3-0 Champions League win over Lille without William Saliba and Piero Hincapie, with Martin Zubimendi a late call. Forest, 15th under Oliver Glasner after a 3-1 loss at Palace, had no midweek game; Morgan Gibbs-White has a minor muscle injury, and Savona and Igor Jesus are out."
-  },
   "epl_401879252": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "Man United v Bournemouth",
    "items": [
     {
@@ -485,24 +448,6 @@
     },
     {
      "at": "2026-10-23T12:00:00Z",
-     "impact": -0.07,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=MUN",
-     "team": "Man United",
-     "text": "Lisandro Martinez (thigh) and Rashford (hip) missed Como and are doubts.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": -0.05,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=MUN",
-     "team": "Man United",
-     "text": "After the 4-1 loss to Como, Cunha (off at half-time) was reportedly in a dressing-room dispute.",
-     "total": 0,
-     "type": "drama"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
      "impact": -0.09,
      "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=BOU",
      "team": "Bournemouth",
@@ -518,6 +463,51 @@
      "text": "Beat AC Milan in the Europa League on Thursday, three days before.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": -0.07,
+     "src": "https://www.espn.com/soccer/story/_/id/50265207/michael-carrick-man-united-injury-updates-rashford-mainoo-martinez",
+     "team": "Man United",
+     "text": "Lisandro Martinez (thigh) racing to be fit and Rashford (hip) a doubt; Dorgu and Ugarte out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.skysports.com/football/news/13602371/man-utd-boss-michael-carrick-remaining-in-charge-vs-bournemouth-amid-growing-concerns-at-old-trafford",
+     "team": "Man United",
+     "text": "Carrick in charge against Bournemouth after seven games without a win; his future beyond it undecided.",
+     "total": 0,
+     "type": "coach"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://www.skysports.com/football/news/13602371/man-utd-boss-michael-carrick-remaining-in-charge-vs-bournemouth-amid-growing-concerns-at-old-trafford",
+     "team": "Man United",
+     "text": "Fernandes put tactics 'on the manager and staff'; Martinez said the squad isn't strong enough.",
+     "total": 0,
+     "type": "drama"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.espn.com/soccer/story/_/id/50265207/michael-carrick-man-united-injury-updates-rashford-mainoo-martinez",
+     "team": "Man United",
+     "text": "Leny Yoro back from suspension; Ayden Heaven back after illness.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/man-united-vs-bournemouth-liverpool-193000660.html",
+     "team": "",
+     "text": "Storm Boelo: match due on, pending an inspection of conditions on the day.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "epl",
@@ -529,9 +519,21 @@
     {
      "t": "RotoWire: Bournemouth team news",
      "u": "https://www.rotowire.com/soccer/team.php?league=EPL&team=BOU"
+    },
+    {
+     "t": "www.espn.com",
+     "u": "https://www.espn.com/soccer/story/_/id/50265207/michael-carrick-man-united-injury-updates-rashford-mainoo-martinez"
+    },
+    {
+     "t": "www.skysports.com",
+     "u": "https://www.skysports.com/football/news/13602371/man-utd-boss-michael-carrick-remaining-in-charge-vs-bournemouth-amid-growing-concerns-at-old-trafford"
+    },
+    {
+     "t": "sports.yahoo.com",
+     "u": "https://sports.yahoo.com/articles/man-united-vs-bournemouth-liverpool-193000660.html"
     }
    ],
-   "summary": "United come off a 4-1 Champions League defeat to Como, after which Cunha was reportedly in a dressing-room dispute. Sesko may be out until the new year, Shaw and Mainoo are out, and Martinez and Rashford are doubts. Bournemouth beat AC Milan on Thursday but lost Toth to a hamstring injury and remain without Alex Scott."
+   "summary": "Michael Carrick stays in charge for this game after a seven-game winless run and a 4-1 loss at Como, with Bruno Fernandes and Lisandro Martinez publicly critical. Sesko, Shaw and Mainoo are out, Martinez and Rashford are doubts, and Yoro returns from suspension. Bournemouth beat AC Milan on Thursday but lose Toth for weeks. Storm Boelo could affect the match."
   },
   "epl_401879253": {
    "at": "2026-10-23T16:13:44Z",
@@ -597,17 +599,26 @@
    "summary": "Friday night at Portman Road. Ipswich, 10th, are without Sasa Lukic (groin), but Abdul Fatawu is available again after his ban. Forest are 19th after three straight league defeats and without a home league goal; Glasner says only striker Igor Jesus and Nicolo Savona are unavailable, so Delap leads the line."
   },
   "epl_401879254": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "Crystal Palace v Newcastle",
    "items": [
     {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=CRY",
+     "at": "2026-10-23T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://beinsports.com/en-au/football/premier-league/articles/jaissle-warns-newcastle-that-palace-wants-reaction-2026-10-23",
      "team": "Crystal Palace",
-     "text": "Striker Strand Larsen went off late at Besiktas and is a doubt.",
+     "text": "Striker Strand Larsen likely to miss out with an ankle injury from Besiktas.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0.12,
+     "src": "https://beinsports.com/en-au/football/premier-league/articles/jaissle-warns-newcastle-that-palace-wants-reaction-2026-10-23",
+     "team": "Crystal Palace",
+     "text": "Jean-Philippe Mateta back from a long hamstring absence; scored at Besiktas and could start.",
+     "total": 0,
+     "type": "return"
     },
     {
      "at": "2026-10-21T12:00:00Z",
@@ -615,6 +626,15 @@
      "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=CRY",
      "team": "Crystal Palace",
      "text": "Takehiro Tomiyasu out until the international break; Dean Henderson (foot) a doubt.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://readnewcastle.com/2026/10/24/jaissle-newcastle-crystal-palace-selhurst-park-preview",
+     "team": "Crystal Palace",
+     "text": "Ben Chilwell injured and Chadi Riad sidelined.",
      "total": 0,
      "type": "injury"
     },
@@ -629,21 +649,30 @@
     },
     {
      "at": "2026-10-23T12:00:00Z",
-     "impact": -0.06,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=NEW",
-     "team": "Newcastle",
-     "text": "Tino Livramento (knee) out; Jacob Ramsey (thigh) unlikely.",
+     "impact": 0,
+     "src": "https://beinsports.com/en-au/football/premier-league/articles/jaissle-warns-newcastle-that-palace-wants-reaction-2026-10-23",
+     "team": "Crystal Palace",
+     "text": "Pierre Sage reportedly under pressure after the 5-0 loss to Brighton.",
      "total": 0,
-     "type": "injury"
+     "type": "coach"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0.1,
+     "src": "https://readnewcastle.com/2026/10/24/jaissle-newcastle-crystal-palace-selhurst-park-preview",
+     "team": "Newcastle",
+     "text": "Captain Dan Burn and Joelinton back in contention, Jaissle says.",
+     "total": 0,
+     "type": "return"
     },
     {
      "at": "2026-10-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.rotowire.com/soccer/team.php?league=EPL&team=NEW",
+     "impact": -0.06,
+     "src": "https://www.fantasyfootballscout.co.uk/2026/10/23/fpl-gameweek-8-team-news-fridays-live-injury-updates-3",
      "team": "Newcastle",
-     "text": "Anthony Elanga (hamstring) hoped to make the squad but cannot play 90 minutes.",
+     "text": "Tino Livramento and Ewen Jaouen out; Jacob Ramsey (thigh) 'step by step'. Elanga could make the squad.",
      "total": 0,
-     "type": "return"
+     "type": "injury"
     }
    ],
    "lg": "epl",
@@ -653,15 +682,19 @@
      "u": "https://www.rotowire.com/soccer/team.php?league=EPL&team=CRY"
     },
     {
-     "t": "RotoWire: Newcastle team news",
-     "u": "https://www.rotowire.com/soccer/team.php?league=EPL&team=NEW"
+     "t": "beinsports.com",
+     "u": "https://beinsports.com/en-au/football/premier-league/articles/jaissle-warns-newcastle-that-palace-wants-reaction-2026-10-23"
     },
     {
-     "t": "Besiktas aim to pile on misery as Palace lick their wounds (Daily Sabah)",
-     "u": "https://www.dailysabah.com/sports/football/besiktas-aim-to-pile-on-misery-as-palace-lick-their-europa-wounds"
+     "t": "readnewcastle.com",
+     "u": "https://readnewcastle.com/2026/10/24/jaissle-newcastle-crystal-palace-selhurst-park-preview"
+    },
+    {
+     "t": "www.fantasyfootballscout.co.uk",
+     "u": "https://www.fantasyfootballscout.co.uk/2026/10/23/fpl-gameweek-8-team-news-fridays-live-injury-updates-3"
     }
    ],
-   "summary": "Palace host Newcastle three days after a 2-2 Europa League draw at Besiktas, where striker Strand Larsen went off injured. Tomiyasu is out until the international break and keeper Dean Henderson is a doubt. Newcastle's Elanga should be back in the squad but not for 90 minutes; Livramento is out and Jacob Ramsey unlikely."
+   "summary": "Palace host Newcastle three days after a 2-2 Europa League draw at Besiktas, where Strand Larsen hurt his ankle; Mateta, back from a long hamstring layoff, scored there and leads the line. Chilwell, Riad and Tomiyasu are out, and Pierre Sage is under pressure. Newcastle, beaten in two straight league games, get Dan Burn and Joelinton back; Livramento is out."
   },
   "epl_401879255": {
    "at": "2026-10-23T16:13:44Z",
@@ -868,278 +901,6 @@
     }
    ],
    "summary": "Roberto De Zerbi's Spurs are still without a league win and are short: Rodrigo Bentancur is suspended and Pedro Porro, Savio and Lucas Bergvall are injured. James Maddison could start and Dejan Kulusevski is on the bench after more than 500 days out. Promoted Coventry arrive on two straight league wins, with Kaine Kesler-Hayden back and Taiwo Awoniyi free after suspension."
-  },
-  "epl_401879258": {
-   "at": "2026-10-17T16:12:31Z",
-   "game": "Newcastle v Aston Villa",
-   "items": [
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.expressandstar.com/sport/aston-villa-team-news-surprise-omission-as-unai-emery-makes-four-changes-9293988",
-     "team": "Aston Villa",
-     "text": "Champions League win over Fenerbahce on Wednesday; Emery makes four changes, McGinn on the bench, Garnacho and Abraham not in the squad.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.12,
-     "src": "https://www.themag.co.uk/2026/10/official-aston-villa-injury-update-ahead-of-newcastle-united-game/",
-     "team": "Aston Villa",
-     "text": "Amadou Onana, Ian Maatsen and Matteo Ruggeri are ruled out, per Emery.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.birminghamworld.uk/sport/aston-villa-signing-eager-to-prove-his-worth-after-injury-hit-start-9292619",
-     "team": "Aston Villa",
-     "text": "Leon Goretzka is fully fit after a knee injury and made his debut off the bench Wednesday.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-15T12:00:00Z",
-     "impact": -0.1,
-     "src": "https://www.themag.co.uk/2026/10/official-newcastle-united-injury-update-ahead-of-aston-villa-game/",
-     "team": "Newcastle",
-     "text": "Anthony Elanga is out for many weeks and Tino Livramento is out; Jacob Ramsey is progressing but out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.shieldsgazette.com/sport/football/newcastle-united/newcastle-united-team-news-aston-villa-joelinton-9293987",
-     "team": "Newcastle",
-     "text": "Joelinton returns to start and captain; the only change from the Coventry defeat. Dan Burn is on the bench.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Aston Villa team news: Surprise omission as Unai Emery makes four changes",
-     "u": "https://www.expressandstar.com/sport/aston-villa-team-news-surprise-omission-as-unai-emery-makes-four-changes-9293988"
-    },
-    {
-     "t": "Official Aston Villa injury update ahead of Newcastle United game",
-     "u": "https://www.themag.co.uk/2026/10/official-aston-villa-injury-update-ahead-of-newcastle-united-game/"
-    },
-    {
-     "t": "Aston Villa signing eager to prove his worth after injury-hit start",
-     "u": "https://www.birminghamworld.uk/sport/aston-villa-signing-eager-to-prove-his-worth-after-injury-hit-start-9292619"
-    },
-    {
-     "t": "Official Newcastle United injury update ahead of Aston Villa game",
-     "u": "https://www.themag.co.uk/2026/10/official-newcastle-united-injury-update-ahead-of-aston-villa-game/"
-    },
-    {
-     "t": "Matthias Jaissle overlooks Newcastle United pair as key man recalled v Aston Villa",
-     "u": "https://www.shieldsgazette.com/sport/football/newcastle-united/newcastle-united-team-news-aston-villa-joelinton-9293987"
-    }
-   ],
-   "summary": "Newcastle return home after a 4-1 defeat at Coventry, with Joelinton back to captain the side and Elanga and Livramento still out. Villa beat Fenerbahce 6-0 in the Champions League on Wednesday, and Emery makes four changes, benching John McGinn. Villa have won only one of six league games and are without Onana, Maatsen and Ruggeri."
-  },
-  "epl_401879260": {
-   "at": "2026-10-17T16:12:31Z",
-   "game": "Leeds v Man United",
-   "items": [
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794",
-     "team": "Man United",
-     "text": "Patrick Dorgu (hamstring, from Denmark duty) out for weeks; Ugarte out long-term.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": -0.1,
-     "src": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794",
-     "team": "Man United",
-     "text": "Luke Shaw, Kobbie Mainoo and Noussair Mazraoui are doubts.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": -0.07,
-     "src": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794",
-     "team": "Man United",
-     "text": "Played Atletico Madrid in the Champions League in midweek.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.03,
-     "src": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-daniel-farke-manchester-united-dan-james-joe-rodon-9290425",
-     "team": "Leeds",
-     "text": "Dan James (back) has \"a chance\"; Joe Rodon still out with a hamstring injury since August.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.yorkshirepost.co.uk/sport/football/leeds-united/leeds-united-v-manchester-united-gloves-are-off-as-fans-dream-of-ending-54-year-record-9293370",
-     "team": "",
-     "text": "Roses derby; Leeds chase back-to-back league wins over United for the first time since 1972.",
-     "total": 0,
-     "type": "drama"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Leeds United & Man United final injury news",
-     "u": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-man-united-joe-rodon-dan-james-lisandro-martinez-9293794"
-    },
-    {
-     "t": "Leeds United boost as Daniel Farke provides team news for Manchester United clash",
-     "u": "https://www.yorkshireeveningpost.co.uk/sport/football/leeds-united/leeds-united-daniel-farke-manchester-united-dan-james-joe-rodon-9290425"
-    },
-    {
-     "t": "Leeds United v Manchester United: Gloves are off",
-     "u": "https://www.yorkshirepost.co.uk/sport/football/leeds-united/leeds-united-v-manchester-united-gloves-are-off-as-fans-dream-of-ending-54-year-record-9293370"
-    }
-   ],
-   "summary": "A Roses derby at Elland Road. Leeds lost their unbeaten league record at Arsenal last week but have Harry Wilson and Bahoya back, with Dan James a chance. Michael Carrick's United are five games without a win, played Atletico Madrid in the Champions League in midweek, and lose Patrick Dorgu for weeks, with Shaw, Mainoo and Mazraoui doubts."
-  },
-  "epl_401879261": {
-   "at": "2026-10-17T16:12:31Z",
-   "game": "Brighton v Crystal Palace",
-   "items": [
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
-     "team": "Crystal Palace",
-     "text": "Axel Disasi is suspended.",
-     "total": 0,
-     "type": "suspension"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
-     "team": "Crystal Palace",
-     "text": "GK Dean Henderson is a doubt until training; Chilwell being assessed; Mateta and Tomiyasu in contention.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-15T12:00:00Z",
-     "impact": -0.07,
-     "src": "https://www.skysports.com/football/news/13599626/lyon-3-2-crystal-palace-pierre-sage-suffers-defeat-to-former-side-as-eagles-comeback-falls-short-in-europa-league",
-     "team": "Crystal Palace",
-     "text": "Europa League on Thursday: lost 3-2 at Lyon.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-15T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
-     "team": "Brighton",
-     "text": "Conference League on Thursday: beat Kauno Zalgiris 4-0 with no new injuries.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
-     "team": "Brighton",
-     "text": "Mitoma, Minteh and Wieffer still out (long absences); Pascal Struijk is a doubt.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026",
-     "team": "",
-     "text": "M23 derby; Palace have won Brighton's last two home league meetings.",
-     "total": 0,
-     "type": "drama"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Brighton v Crystal Palace match preview: team news",
-     "u": "https://www.brightonandhovealbion.com/media-article/mft-match-preview-bha-crystal-palace-pl-october-2026"
-    },
-    {
-     "t": "Lyon 3-2 Crystal Palace: Pierre Sage suffers defeat to former side",
-     "u": "https://www.skysports.com/football/news/13599626/lyon-3-2-crystal-palace-pierre-sage-suffers-defeat-to-former-side-as-eagles-comeback-falls-short-in-europa-league"
-    }
-   ],
-   "summary": "An M23 derby. Brighton are unbeaten in six and chasing a fourth straight league win, but Palace have won three of the last four league meetings. Both played in Europe on Thursday: Brighton beat Kauno Zalgiris 4-0, Palace lost 3-2 at Lyon. Palace have Axel Disasi suspended and Dean Henderson a doubt; Brighton remain without Mitoma and Minteh."
-  },
-  "epl_401879263": {
-   "at": "2026-10-17T16:12:31Z",
-   "game": "Bournemouth v Sunderland",
-   "items": [
-    {
-     "at": "2026-10-11T12:00:00Z",
-     "impact": -0.1,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-injury-latest-as-key-quartet-set-to-miss-sunderland-test-9280565",
-     "team": "Bournemouth",
-     "text": "Alex Scott (thigh, hurt on England duty) out for four or five weeks; Kroupi and Araujo remain out after surgery.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.05,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-consistency-sunderland-clash-9291327",
-     "team": "Bournemouth",
-     "text": "Europa League on Thursday: beat Sturm Graz 3-0. Kluivert and Adli came on and are available.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.15,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-news-bournemouth-premier-league-9291022",
-     "team": "Sunderland",
-     "text": "Thomas Meunier (hamstring) ruled out; Wilson Isidor (minor injury) did not travel to Portugal and is day to day.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.07,
-     "src": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-news-bournemouth-premier-league-9291022",
-     "team": "Sunderland",
-     "text": "Europa League on Thursday: won 2-1 away at Torreense in Portugal. Brobbey and Diarra are back and ready.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Bournemouth injury latest as key quartet set to miss Sunderland test",
-     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-injury-latest-as-key-quartet-set-to-miss-sunderland-test-9280565"
-    },
-    {
-     "t": "Bournemouth boss demands consistency ahead of Sunderland clash",
-     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/bournemouth-consistency-sunderland-clash-9291327"
-    },
-    {
-     "t": "Regis Le Bris issues early Sunderland injury update ahead of Bournemouth clash",
-     "u": "https://www.sunderlandecho.com/sport/football/sunderland-afc/sunderland-news-bournemouth-premier-league-9291022"
-    }
-   ],
-   "summary": "Both clubs won in the Europa League on Thursday, Bournemouth 3-0 at home to Sturm Graz and Sunderland 2-1 away in Portugal, and both have made slow league starts. Bournemouth are without Alex Scott for a month, though Kluivert and Adli are back. Sunderland lose Thomas Meunier, Wilson Isidor is a day-to-day doubt, and Brobbey and Diarra return."
   },
   "nba_401909088": {
    "at": "2026-10-20T16:05:28Z",
@@ -2165,6 +1926,319 @@
    ],
    "summary": "A revamped Portland won its opener by 41 under first-year coach Micah Nori, with Damian Lillard scoring 25 in his first game in about 18 months and Ja Morant at point guard. The Blazers are without Shaedon Sharpe and Branden Carlson. Sacramento is missing Ben Simmons, Maxime Raynaud and Dylan Cardwell; Malik Monk is probable."
   },
+  "nba_401909853": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "MIA @ CHA",
+   "items": [
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://1070thezone.iheart.com/content/2026-10-24-heat-vs-hornets-injury-report-oct-24/",
+     "team": "CHA",
+     "text": "Knueppel (hamstring), Coby White (calf), Grant Williams (hamstring) and Boswell (knee) day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://1070thezone.iheart.com/content/2026-10-24-heat-vs-hornets-injury-report-oct-24/",
+     "team": "MIA",
+     "text": "No Heat injuries listed.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "1070thezone.iheart.com",
+     "u": "https://1070thezone.iheart.com/content/2026-10-24-heat-vs-hornets-injury-report-oct-24/"
+    }
+   ],
+   "summary": "Charlotte hosts Miami, which lists no injuries. The Hornets have four day-to-day players: Kon Knueppel and Grant Williams, both coming back from offseason hamstring injuries, Coby White (calf) and Kylan Boswell (knee). No final calls were reported before tip-off."
+  },
+  "nba_401909854": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "BKN @ CLE",
+   "items": [
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable",
+     "team": "CLE",
+     "text": "Khalifa Diop (left knee management) and Nae'Qwan Tomlin (low back stress reaction) out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable",
+     "team": "BKN",
+     "text": "Tyler Bilodeau (right shoulder sprain) out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "www.talkbasket.net",
+     "u": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable"
+    }
+   ],
+   "summary": "Cleveland hosts Brooklyn with its core healthy; reserves Khalifa Diop (knee management) and Nae'Qwan Tomlin (back stress reaction) are out. Brooklyn rules out Tyler Bilodeau with a shoulder sprain."
+  },
+  "nba_401909855": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "MIL @ PHI",
+   "items": [
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsphiladelphia.com/nba/philadelphia-76ers/sixers-news/sixers-injury-updates-lebron-james-dean-wade-sixers-vs-bucks/760999/",
+     "team": "PHI",
+     "text": "LeBron James questionable (low back/sciatica management); team managing his workload.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-22T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsphiladelphia.com/nba/philadelphia-76ers/sixers-news/sixers-injury-updates-lebron-james-dean-wade-sixers-vs-bucks/760999/",
+     "team": "PHI",
+     "text": "Embiid said he expects to rest one game of the Bucks-Pistons back-to-back; not on the injury report.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsphiladelphia.com/nba/philadelphia-76ers/sixers-news/sixers-injury-updates-lebron-james-dean-wade-sixers-vs-bucks/760999/",
+     "team": "PHI",
+     "text": "Dean Wade (left ankle sprain) questionable; has not made his regular-season debut.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "www.nbcsportsphiladelphia.com",
+     "u": "https://www.nbcsportsphiladelphia.com/nba/philadelphia-76ers/sixers-news/sixers-injury-updates-lebron-james-dean-wade-sixers-vs-bucks/760999/"
+    }
+   ],
+   "summary": "Milwaukee visits Philadelphia on the first night of a Sixers back-to-back. LeBron James is questionable with low back and sciatica management, and Joel Embiid said he expects to sit one of the two games, tonight or Sunday against Detroit. Dean Wade (ankle) is questionable; the Bucks listed no injuries."
+  },
+  "nba_401909856": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "HOU @ ATL",
+   "items": [
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://deadspin.com/rockets-hawks-vie-to-remain-undefeated-in-new-season",
+     "team": "HOU",
+     "text": "Fred VanVleet to be rested for load management on the second night of a back-to-back.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://deadspin.com/rockets-hawks-vie-to-remain-undefeated-in-new-season",
+     "team": "HOU",
+     "text": "Steven Adams (right calf) was questionable Friday and played about nine minutes.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://deadspin.com/rockets-hawks-vie-to-remain-undefeated-in-new-season",
+     "team": "ATL",
+     "text": "Hawks' home opener; both teams 2-0.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "deadspin.com",
+     "u": "https://deadspin.com/rockets-hawks-vie-to-remain-undefeated-in-new-season"
+    }
+   ],
+   "summary": "Two 2-0 teams meet in Atlanta's home opener. Houston will rest Fred VanVleet on the second night of a back-to-back after Friday's win over San Antonio; Steven Adams (calf) played about nine minutes Friday. Atlanta is without Mouhamed Gueye and Henri Veesaar."
+  },
+  "nba_401909857": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "WSH @ CHI",
+   "items": [
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/preview-wizards-play-bulls-saturday-014356628.html",
+     "team": "WSH",
+     "text": "Jamir Watkins and Tristan Vukcevic out; AJ Dybantsa day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/preview-wizards-play-bulls-saturday-014356628.html",
+     "team": "CHI",
+     "text": "Nic Claxton out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "sports.yahoo.com",
+     "u": "https://sports.yahoo.com/articles/preview-wizards-play-bulls-saturday-014356628.html"
+    }
+   ],
+   "summary": "Washington opens a three-game road trip in Chicago. The Wizards are without Jamir Watkins and Tristan Vukcevic, and rookie AJ Dybantsa is day-to-day; the Bulls are without Nic Claxton."
+  },
+  "nba_401909858": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "SA @ DAL",
+   "items": [
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/spurs-vs-mavericks-watch-game-182025160.html",
+     "team": "SA",
+     "text": "Tobias Harris (left calf strain) and Jayden Quaintance (knee) inactive.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://ticket760.iheart.com/content/2026-10-24-spurs-vs-mavericks-injury-report-oct-24/",
+     "team": "DAL",
+     "text": "Inactive: Santi Aldama, Tarik Biberovic, Jett Howard, Dereck Lively, Caleb Martin. Cooper Flagg (shoulder) listed.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "sports.yahoo.com",
+     "u": "https://sports.yahoo.com/articles/spurs-vs-mavericks-watch-game-182025160.html"
+    },
+    {
+     "t": "ticket760.iheart.com",
+     "u": "https://ticket760.iheart.com/content/2026-10-24-spurs-vs-mavericks-injury-report-oct-24/"
+    }
+   ],
+   "summary": "San Antonio visits Dallas on the second night of a back-to-back after a loss at Houston, without Tobias Harris (calf) and Jayden Quaintance. Dallas is without Cooper Flagg (shoulder), Dereck Lively, Santi Aldama, Caleb Martin, Jett Howard and Tarik Biberovic; Kyrie Irving is on his way back from ACL surgery."
+  },
+  "nba_401909859": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "NO @ DEN",
+   "items": [
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.yardbarker.com/nba/articles/pelicans_nuggets_limp_into_first_of_two_meetings_in_five_days/s1_17045_44467875",
+     "team": "NO",
+     "text": "Yves Missi may miss the game with a left knee injury suffered Friday at Utah.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable",
+     "team": "DEN",
+     "text": "Cam Johnson, Spencer Jones and Julian Strawther out; Alpha Diallo (wrist) questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.yardbarker.com/nba/articles/pelicans_nuggets_limp_into_first_of_two_meetings_in_five_days/s1_17045_44467875",
+     "team": "NO",
+     "text": "0-2 under Jamahl Mosley after a 120-119 loss at Utah in which they blew a late lead.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "www.yardbarker.com",
+     "u": "https://www.yardbarker.com/nba/articles/pelicans_nuggets_limp_into_first_of_two_meetings_in_five_days/s1_17045_44467875"
+    },
+    {
+     "t": "www.talkbasket.net",
+     "u": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable"
+    }
+   ],
+   "summary": "New Orleans, 0-2 under Jamahl Mosley after blowing a late lead at Utah on Friday, visits Denver; Yves Missi may miss the game with a knee injury from that loss. Denver is without Cameron Johnson, Spencer Jones and Julian Strawther, and Alpha Diallo is questionable."
+  },
+  "nba_401909860": {
+   "at": "2026-10-24T16:12:20Z",
+   "game": "GS @ PHX",
+   "items": [
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steph-curry-brandin-podziemski-not-002339342.html",
+     "team": "GS",
+     "text": "Stephen Curry says he will probably not play on the second night of a back-to-back.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steph-curry-brandin-podziemski-not-002339342.html",
+     "team": "GS",
+     "text": "Brandin Podziemski out (aggravated lower back); Butler and Moody out with knees.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/steph-curry-brandin-podziemski-not-002339342.html",
+     "team": "GS",
+     "text": "Kristaps Porzingis has been away from the team; no reason given.",
+     "total": 0,
+     "type": "drama"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable",
+     "team": "PHX",
+     "text": "Oso Ighodaro (oblique) doubtful, Luke Kennard (knee) questionable, Mark Williams (shoulder surgery) out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "sports.yahoo.com",
+     "u": "https://sports.yahoo.com/articles/steph-curry-brandin-podziemski-not-002339342.html"
+    },
+    {
+     "t": "www.talkbasket.net",
+     "u": "https://www.talkbasket.net/225345-nba-injury-report-for-saturday-october-24-lebron-james-questionable"
+    }
+   ],
+   "summary": "Golden State, 0-2 after Memphis closed Friday's game on a 17-0 run, visits Phoenix on the second night of a back-to-back. Stephen Curry said he will probably not play, Brandin Podziemski is out with his back, Butler and Moody are rehabbing knees and Porzingis has been away from the team. Phoenix lists Ighodaro doubtful, Kennard questionable and Mark Williams out."
+  },
   "nfl_2026_06_ARI_LA": {
    "at": "2026-10-18T16:09:40Z",
    "game": "ARI @ LA",
@@ -2961,7 +3035,7 @@
    "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa, Deebo Samuel, Christian Kirk and Marques Sigle are inactive and LB Dre Greenlaw is suspended, though Mike Evans is active and Kyle Juszczyk returns. Washington, 1-3-1, has Stefon Diggs active and S Nick Cross back in the lineup, but leading rusher Jacory Croskey-Merritt is out."
   },
   "nfl_2026_07_CIN_BAL": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "CIN @ BAL",
    "items": [
     {
@@ -2969,7 +3043,7 @@
      "impact": 0,
      "src": "https://www.baltimoreravens.com/news/lamar-jackson-injury-report-ravens-bengals-jaylinn-hawkins-tavius-robinson-2026",
      "team": "BAL",
-     "text": "QB Lamar Jackson (ankle, missed two games) questionable; Tyler Huntley starts if he cannot go.",
+     "text": "QB Lamar Jackson (ankle, two games missed) questionable; no starter named Friday. Tyler Huntley starts if he cannot go.",
      "total": 0,
      "type": "other"
     },
@@ -3007,10 +3081,10 @@
      "u": "https://www.baltimoreravens.com/news/lamar-jackson-injury-report-ravens-bengals-jaylinn-hawkins-tavius-robinson-2026"
     }
    ],
-   "summary": "AFC North game in Baltimore. Lamar Jackson (ankle) is questionable but says he is heading in the right direction; Tyler Huntley would make a third straight start otherwise. The 4-2 Ravens lose sack leader Tavius Robinson for the season and S Jaylinn Hawkins is out. Cincinnati comes off its bye with no injury designations."
+   "summary": "AFC North game in Baltimore. Lamar Jackson (high ankle sprain, two games missed) is questionable after a good amount of work Friday, and the Ravens have not named a starter; Tyler Huntley would make a third straight start otherwise. Baltimore loses sack leader Tavius Robinson for the season and S Jaylinn Hawkins. Cincinnati comes off its bye with no injury designations."
   },
   "nfl_2026_07_CLE_TEN": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "CLE @ TEN",
    "items": [
     {
@@ -3030,6 +3104,15 @@
      "text": "WR Calvin Ridley (hip) and RB Tyjae Spears (knee) questionable; S Tony Adams and Kevin Winston too.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-week-7-injury-report-2026-season",
+     "team": "CLE",
+     "text": "Backup QB Dillon Gabriel (back) and DT Khalil Davis out; RB Dylan Sampson questionable with his IR window open.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
@@ -3041,12 +3124,16 @@
     {
      "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
+    },
+    {
+     "t": "www.nfl.com",
+     "u": "https://www.nfl.com/news/nfl-week-7-injury-report-2026-season"
     }
    ],
-   "summary": "The 4-2 Browns, tied atop the AFC North, visit Tennessee with Deshaun Watson at QB. LB Quincy Williams, S Grant Delpit and CB Denzel Ward, added Friday with a hand injury, are questionable; DT Mike Hall is out. Tennessee lists WR Calvin Ridley (hip) and RB Tyjae Spears as questionable."
+   "summary": "The 4-2 Browns, tied atop the AFC North, visit Tennessee with Deshaun Watson at QB; backup Dillon Gabriel (back) is out. CB Denzel Ward and S Grant Delpit are questionable, and DTs Mike Hall and Khalil Davis and G Teven Jenkins are out. Tennessee lists WR Calvin Ridley (hip) and RB Tyjae Spears as questionable."
   },
   "nfl_2026_07_DAL_PHI": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "DAL @ PHI",
    "items": [
     {
@@ -3068,15 +3155,6 @@
      "type": "return"
     },
     {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcphiladelphia.com/news/local/eagles-injury-update-saquon-barkley-returns-but-other-key-eagles-missing/4483692/",
-     "team": "PHI",
-     "text": "RB Saquon Barkley back at practice after two missed games; DeVonta Smith, Goedert, Nolan Smith not seen Thursday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
      "at": "2026-10-19T12:00:00Z",
      "impact": 0,
      "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/nick-sirianni-eagles-sticking-with-sean-mannion-as-play-caller/759833/",
@@ -3087,30 +3165,39 @@
     },
     {
      "at": "2026-10-20T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.dallascowboys.com/news/cowboys-injury-roundup-overshown-durant-trending-toward-return-vs-eagles",
-     "team": "DAL",
-     "text": "LB DeMarvion Overshown expected back after missing five games (hamstring).",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-20T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.dallascowboys.com/news/cowboys-injury-roundup-overshown-durant-trending-toward-return-vs-eagles",
-     "team": "DAL",
-     "text": "CB Cobie Durant trending toward a return after missing four games (hamstring).",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-20T12:00:00Z",
      "impact": 0,
      "src": "https://www.dallascowboys.com/news/cowboys-injury-roundup-overshown-durant-trending-toward-return-vs-eagles",
      "team": "DAL",
      "text": "LB Dee Winters (Achilles strain) out for a stretch; S Jalen Thompson (IR) not eligible yet.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt",
+     "team": "PHI",
+     "text": "Friday: Barkley limited; DeVonta Smith, Goedert, Jonathan Greenard, Nolan Smith and Wicks did not practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt",
+     "team": "DAL",
+     "text": "LB DeMarvion Overshown (hamstring, five games missed) full practice Thursday and Friday; may be on a snap count.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt",
+     "team": "DAL",
+     "text": "CB Cobie Durant (hamstring, four games missed) full practice Friday.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "nfl",
@@ -3132,14 +3219,14 @@
      "u": "https://www.dallascowboys.com/news/cowboys-injury-roundup-overshown-durant-trending-toward-return-vs-eagles"
     },
     {
-     "t": "Eagles open practice windows for Dickerson (Field Level Media)",
-     "u": "https://fieldlevelmedia.com/news/eagles-open-practice-windows-for-lg-landon-dickerson-3-others/"
+     "t": "www.philadelphiaeagles.com",
+     "u": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt"
     }
    ],
-   "summary": "Two 2-4 NFC East teams on Monday night. Jalen Hurts is on IR, expected out for the season with blood clots in his lungs, so Tanner McKee starts for an Eagles team on a four-game skid. Saquon Barkley is back practicing. Dallas expects LB DeMarvion Overshown and CB Cobie Durant back from hamstring injuries."
+   "summary": "Two 2-4 NFC East teams on Monday night. Jalen Hurts is on IR with blood clots in his lungs, so Tanner McKee starts for an Eagles team on a four-game skid. Saquon Barkley is limited, while DeVonta Smith, Goedert, Greenard and Nolan Smith did not practice Friday. Dallas gets LB DeMarvion Overshown back after five missed games and CB Cobie Durant practiced fully."
   },
   "nfl_2026_07_DEN_ARI": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "DEN @ ARI",
    "items": [
     {
@@ -3172,9 +3259,9 @@
     {
      "at": "2026-10-23T12:00:00Z",
      "impact": 0,
-     "src": "https://arizonasports.com/nfl/arizona-cardinals/cardinals-rookie-qb-carson-beck-dealing-with-back-spasms",
+     "src": "https://www.azcardinals.com/news/injury-report-week-7-vs-broncos",
      "team": "ARI",
-     "text": "Jacoby Brissett starts; rookie QB Carson Beck (back spasms) questionable and likely inactive.",
+     "text": "Jacoby Brissett expected to start; rookie QB Carson Beck (back spasms) missed Thursday and Friday, questionable.",
      "total": 0,
      "type": "other"
     }
@@ -3186,18 +3273,18 @@
      "u": "https://nfl.com/news/nfl-week-7-injury-report-2026-season"
     },
     {
-     "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
+     "t": "www.denvergazette.com",
+     "u": "https://www.denvergazette.com/2026/10/22/broncos-missing-talanoa-hufanga-other-key-players-at-practice/"
     },
     {
-     "t": "Cardinals rookie QB Carson Beck dealing with back spasms",
-     "u": "https://arizonasports.com/nfl/arizona-cardinals/cardinals-rookie-qb-carson-beck-dealing-with-back-spasms"
+     "t": "www.azcardinals.com",
+     "u": "https://www.azcardinals.com/news/injury-report-week-7-vs-broncos"
     }
    ],
    "summary": "The 4-2 Broncos visit Arizona with edge Jonathon Cooper back from suspension and Pat Surtain questionable; Hufanga and Jonah Elliss are out. Arizona, off an upset of the Rams, again rules out RB Jeremiyah Love. Jacoby Brissett starts, with rookie Carson Beck dealing with back spasms."
   },
   "nfl_2026_07_GB_DET": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "GB @ DET",
    "items": [
     {
@@ -3251,7 +3338,7 @@
    "summary": "NFC North game in Detroit. Jordan Love will play, and Josh Jacobs, back from six weeks on the commissioner's exempt list, is on track to start. LB Zaire Franklin is out. The 3-2 Lions come off their bye with S Brian Branch (Achilles) and C Cade Mays questionable as they near returns."
   },
   "nfl_2026_07_IND_MIN": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "IND @ MIN",
    "items": [
     {
@@ -3291,59 +3378,18 @@
     {
      "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
+    },
+    {
+     "t": "www.nfl.com",
+     "u": "https://www.nfl.com/news/colts-fire-gm-chris-ballard"
     }
    ],
    "summary": "The 5-0 Vikings come off their bye almost fully healthy, with RB Jordan Mason questionable but 'looking positive' to return from IR. The 2-4 Colts, who fired GM Chris Ballard, rule out CB Sauce Gardner, TE Tyler Warren and WR Anthony Gould; Daniel Jones stays at QB."
   },
   "nfl_2026_07_KC_SEA": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "KC @ SEA",
    "items": [
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.thefantasyfootballers.com/news/643335/zach-charbonnet-may-debut-sunday-night/",
-     "team": "SEA",
-     "text": "RB Zach Charbonnet activated from PUP after three full practices; Macdonald gives him a good chance to play.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
-     "team": "SEA",
-     "text": "G Anthony Bradford (IR) full practice Thursday; still has to be activated.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
-     "team": "SEA",
-     "text": "LB Drake Thomas (ankle) missed Wed/Thu; DeMarcus Lawrence and Uchenna Nwosu limited.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
-     "team": "KC",
-     "text": "WR Rashee Rice (hamstring) and RT Jaylon Moore (concussion) missed Wed/Thu practice.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
-     "team": "KC",
-     "text": "TE Travis Kelce (ankle) and CB L'Jarius Sneed (knee) limited; Mahomes full.",
-     "total": 0,
-     "type": "injury"
-    },
     {
      "at": null,
      "impact": 0,
@@ -3352,6 +3398,51 @@
      "text": "RB Kenneth Walker faces the Seahawks for the first time since leaving for Kansas City.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
+     "team": "KC",
+     "text": "Out: WR Rashee Rice (hamstring), RT Jaylon Moore (concussion), RB Brashard Smith. CB L'Jarius Sneed questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
+     "team": "KC",
+     "text": "TE Travis Kelce (ankle) limited all week but has no designation; expected to play.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
+     "team": "SEA",
+     "text": "RB Zach Charbonnet ruled out (knee) despite his PUP activation; LBs Drake Thomas and Chazz Surratt out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
+     "team": "SEA",
+     "text": "G Anthony Bradford (IR) will play, Macdonald says; needs a Saturday roster move.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-release-trevon-diggs",
+     "team": "SEA",
+     "text": "CB Trevon Diggs released Friday after one tackle in three games.",
+     "total": 0,
+     "type": "loss"
     }
    ],
    "lg": "nfl",
@@ -3361,18 +3452,22 @@
      "u": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026"
     },
     {
-     "t": "Zach Charbonnet may debut Sunday night (Fantasy Footballers)",
-     "u": "https://www.thefantasyfootballers.com/news/643335/zach-charbonnet-may-debut-sunday-night/"
-    },
-    {
      "t": "Seahawks could get major offensive boost (Newsweek)",
      "u": "https://www.newsweek.com/sports/nfl/seahawks-could-get-major-offensive-boost-for-week-7-vs-chiefs-12569586"
+    },
+    {
+     "t": "www.seahawks.com",
+     "u": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks"
+    },
+    {
+     "t": "www.nbcsports.com",
+     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-release-trevon-diggs"
     }
    ],
-   "summary": "Kenneth Walker returns to Seattle with Kansas City. The Chiefs' WR Rashee Rice and RT Jaylon Moore missed Wednesday and Thursday practice, and Kelce and Sneed were limited. Seattle activated RB Zach Charbonnet from PUP for a likely season debut, and G Anthony Bradford practiced fully with his IR window open."
+   "summary": "Kenneth Walker returns to Seattle with Kansas City. The Chiefs rule out WR Rashee Rice and RT Jaylon Moore; Travis Kelce has no designation and Sneed is questionable. Seattle rules out RB Zach Charbonnet despite his PUP activation, plus LBs Drake Thomas and Chazz Surratt; G Anthony Bradford will play off IR, and CB Trevon Diggs was released."
   },
   "nfl_2026_07_LA_LV": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "LA @ LV",
    "items": [
     {
@@ -3406,10 +3501,6 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "NFL Week 7 injury report: Player statuses for all 14 games",
-     "u": "https://nfl.com/news/nfl-week-7-injury-report-2026-season"
-    },
-    {
      "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
     },
@@ -3421,7 +3512,7 @@
    "summary": "The 2-4 Rams, losers of three of four, visit Las Vegas. Puka Nacua (calf) is questionable after sitting out Friday, CB Trent McDuffie is questionable and LB Nate Landman is out; Adams, Garrett and Kobie Turner are on IR. The Raiders have Brock Bowers and Kolton Miller healthy; Kirk Cousins starts."
   },
   "nfl_2026_07_MIA_NYJ": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "MIA @ NYJ",
    "items": [
     {
@@ -3459,6 +3550,15 @@
      "text": "CB Reese Taylor out; LB Robert Beal Jr. doubtful, LB Willie Gay questionable.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-week-7-injury-report-2026-season",
+     "team": "MIA",
+     "text": "EDGE Robert Beal Jr. doubtful; S Kyle Louis questionable with his IR window open.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
@@ -3470,6 +3570,14 @@
     {
      "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
+    },
+    {
+     "t": "www.newyorkjets.com",
+     "u": "https://www.newyorkjets.com/news/jets-injury-report-week-7-vs-dolphins-thursday-10-22-2026"
+    },
+    {
+     "t": "www.nfl.com",
+     "u": "https://www.nfl.com/news/nfl-week-7-injury-report-2026-season"
     }
    ],
    "summary": "The 0-5 Dolphins visit the 2-4 Jets with Malik Willis at QB. Breece Hall (quad, out since Week 3) is questionable, and WR Adonai Mitchell has no designation and will play. The Jets rule out edge Joseph Ossai and LB Kiko Mauigoa; Miami is without CB Reese Taylor."
@@ -3546,7 +3654,7 @@
    "summary": "Thursday night in Chicago. Drake Maye starts, and all five questionable Patriots are active, Christian Gonzalez and Morgan Moses included, but CBs Carlton Davis, Prunty and Canada and RG Ben Brown are out and Vera-Tucker went to IR, so Walter Rouse and Matt Pryor start at guard. Chicago is without Monangai, Sanborn and T.J. Edwards, and Montez Sweat is suspended."
   },
   "nfl_2026_07_NYG_HOU": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "NYG @ HOU",
    "items": [
     {
@@ -3584,6 +3692,15 @@
      "text": "Out: RB David Montgomery (groin), S Jalen Pitre, S Reed Blankenship, OT Blake Fisher.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://clutchpoints.com/nfl/new-york-giants/giants-news-new-york-activating-paulson-adebo-from-ir-ahead-of-week-7-vs-texans",
+     "team": "NYG",
+     "text": "CB Paulson Adebo (knee, IR since Sept. 18) to be activated Saturday, per ESPN; could step into a starting role.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "nfl",
@@ -3599,12 +3716,16 @@
     {
      "t": "Giants Week 7 tracker",
      "u": "https://www.giants.com/news/week-7-tracker-latest-news-notes-roster-moves-houston-texans-jameis-winston-jj-mccarthy"
+    },
+    {
+     "t": "clutchpoints.com",
+     "u": "https://clutchpoints.com/nfl/new-york-giants/giants-news-new-york-activating-paulson-adebo-from-ir-ahead-of-week-7-vs-texans"
     }
    ],
-   "summary": "J.J. McCarthy starts for the 3-2-1 Giants, who lose LB Tremaine Edmunds for the season and are without CB Greg Newsome. Houston has won two straight after an 0-4 start; Tank Dell is questionable for his first game since December 2024, while RB David Montgomery and safeties Pitre and Blankenship are out."
+   "summary": "J.J. McCarthy starts for the 3-2-1 Giants, who lose LB Tremaine Edmunds for the season and CB Greg Newsome, but CB Paulson Adebo is being activated from IR and could start. Houston has won two straight after an 0-4 start; Tank Dell plays for the first time since December 2024, while RB David Montgomery and safeties Pitre and Blankenship are out."
   },
   "nfl_2026_07_PIT_NO": {
-   "at": "2026-10-23T16:13:44Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "PIT @ NO",
    "items": [
     {
@@ -3653,13 +3774,31 @@
      "type": "loss"
     },
     {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://www.steelers.com/news/week-7-injury-report-saints",
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://steelersdepot.com/2026/10/steelers-elevate-two-players-ahead-of-saints-game",
      "team": "PIT",
-     "text": "S DeShon Elliott (knee, IR) practiced fully all week; activation decision after Saturday practice.",
+     "text": "S DeShon Elliott activated from injured reserve on Saturday; expected to make his season debut.",
      "total": 0,
      "type": "return"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://steelersdepot.com/2026/10/steelers-elevate-two-players-ahead-of-saints-game",
+     "team": "PIT",
+     "text": "WRs Brandon Smith and Brandon Johnson elevated from the practice squad.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-10-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://neworleanssaints.com/news/saints-roster-moves-week-7-elevations-steelers-2026",
+     "team": "NO",
+     "text": "T Easton Kilty and WR Cedric Tillman elevated from the practice squad.",
+     "total": 0,
+     "type": "add"
     }
    ],
    "lg": "nfl",
@@ -3675,12 +3814,20 @@
     {
      "t": "Saints-Steelers Paris game (Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/saints-steelers-paris-game-still-190000087.html"
+    },
+    {
+     "t": "steelersdepot.com",
+     "u": "https://steelersdepot.com/2026/10/steelers-elevate-two-players-ahead-of-saints-game"
+    },
+    {
+     "t": "neworleanssaints.com",
+     "u": "https://neworleanssaints.com/news/saints-roster-moves-week-7-elevations-steelers-2026"
     }
    ],
-   "summary": "A Saints home game at Stade de France in Paris. Tyler Shough starts for New Orleans despite multiple broken bones in his non-throwing hand; Kamara was limited but carries no designation. Pittsburgh rules out CB Brandin Echols and WR Ben Skowronek and put DL Sebastian Joseph-Day on IR, while S DeShon Elliott could be activated from IR after Saturday's practice."
+   "summary": "Saints home game at Stade de France in Paris. Tyler Shough starts for New Orleans despite broken bones in his non-throwing hand. Pittsburgh activated S DeShon Elliott from injured reserve for his season debut, but is without CB Brandin Echols, WR Ben Skowronek and IR receivers Pittman and Roman Wilson; RB Rico Dowdle is questionable."
   },
   "nfl_2026_07_SF_ATL": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "SF @ ATL",
    "items": [
     {
@@ -3691,15 +3838,6 @@
      "text": "Ruled out: DE Nick Bosa (calf), WR Mike Evans (Achilles/ribs), WR Deebo Samuel (hamstring), S Marques Sigle and LBs Gifford and Wallow.",
      "total": 0,
      "type": "injury"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0.1,
-     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23",
-     "team": "SF",
-     "text": "WR Christian Kirk (calf, out since the offseason) questionable; could make his 49ers debut.",
-     "total": 0,
-     "type": "return"
     },
     {
      "at": "2026-10-23T12:00:00Z",
@@ -3718,6 +3856,24 @@
      "text": "Third straight home loss; Stefanski: 'That's on me and our staff.'",
      "total": 0,
      "type": "drama"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0.1,
+     "src": "https://www.espn.com/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return",
+     "team": "SF",
+     "text": "WR Christian Kirk (calf, out since July) set to make his 49ers debut, Shanahan says; questionable tag procedural.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0.15,
+     "src": "https://www.atlantafalcons.com/news/falcons-injury-report-brian-robinson-divine-deablo-out-vs-49ers",
+     "team": "ATL",
+     "text": "CB AJ Terrell (groin, IR, four games missed) full practice Friday; questionable, needs Saturday activation.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "nfl",
@@ -3727,18 +3883,26 @@
      "u": "https://nfl.com/news/nfl-week-7-injury-report-2026-season"
     },
     {
-     "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
-     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
-    },
-    {
      "t": "49ers vs. Falcons final injury report",
      "u": "https://www.49erswebzone.com/articles/204483-49ers-falcons-final-injury-report/"
+    },
+    {
+     "t": "www.ajc.com",
+     "u": "https://www.ajc.com/sports/2026/10/another-falcons-disaster-in-loss-to-bears/"
+    },
+    {
+     "t": "www.espn.com",
+     "u": "https://www.espn.com/nfl/story/_/id/50260609/49ers-wr-evans-de-bosa-wr-samuel-vs-atlanta-wr-kirk-return"
+    },
+    {
+     "t": "www.atlantafalcons.com",
+     "u": "https://www.atlantafalcons.com/news/falcons-injury-report-brian-robinson-divine-deablo-out-vs-49ers"
     }
    ],
-   "summary": "The 6-0 49ers visit Atlanta before their bye without six ruled-out players, among them Nick Bosa, Mike Evans and Deebo Samuel. Christian Kirk is questionable for a possible 49ers debut. The 2-4 Falcons, after a third straight home loss, rule out Deablo, Bowman and RB Brian Robinson; AJ Terrell is questionable as he nears a return from IR."
+   "summary": "The 6-0 49ers visit Atlanta before their bye without Nick Bosa, Mike Evans and Deebo Samuel, among six ruled out. Shanahan says Christian Kirk's questionable tag is procedural and he is set to debut. The 2-4 Falcons, after a third straight home loss, rule out Deablo, Bowman and RB Brian Robinson; CB AJ Terrell, out four games, practiced fully and is questionable."
   },
   "nfl_2026_07_TB_CAR": {
-   "at": "2026-10-23T23:07:16Z",
+   "at": "2026-10-24T16:12:20Z",
    "game": "TB @ CAR",
    "items": [
     {
@@ -3767,14 +3931,19 @@
      "text": "OLBs Jaelan Phillips (hamstring) and Thomas Incoom (calf) ruled out; CBs Horn and Mike Jackson on IR.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-week-7-injury-report-2026-season",
+     "team": "CAR",
+     "text": "LB Bam Martin-Scott (IR window opened Oct 21) questionable; OT Monroe Freeling questionable.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
-    {
-     "t": "NFL Week 7 injury report: Player statuses for all 14 games",
-     "u": "https://nfl.com/news/nfl-week-7-injury-report-2026-season"
-    },
     {
      "t": "NFL news roundup: latest league updates from Friday, Oct. 23",
      "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-oct-23"
@@ -3782,14 +3951,18 @@
     {
      "t": "Buccaneers-Panthers Injury Report Oct. 23",
      "u": "https://www.buccaneers.com/news/buccaneers-panthers-injury-report-oct-23-week-7-2026"
+    },
+    {
+     "t": "www.nfl.com",
+     "u": "https://www.nfl.com/news/nfl-week-7-injury-report-2026-season"
     }
    ],
    "summary": "The 1-5 Buccaneers visit NFC South leader Carolina with Baker Mayfield back: he is listed questionable with his thumb, but Todd Bowles says he will play after three missed games. Egbuka, Goedeke and Winfield are ruled out. Carolina is without edge rushers Jaelan Phillips and Thomas Incoom."
   }
  },
  "meta": {
-  "at": "2026-10-23T23:10:00Z",
-  "games": 12,
-  "note": "Friday NFL game statuses (Mayfield will play, Lamar questionable, Jacobs on track), Chelsea-Spurs and Sunderland-Leeds press conferences"
+  "at": "2026-10-24T16:13:00Z",
+  "games": 26,
+  "note": "NFL Week 7 Saturday moves, tonight's NBA slate, EPL GW8 team news and Storm Boelo watch."
  }
 }
