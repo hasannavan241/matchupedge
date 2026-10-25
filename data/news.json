@@ -2560,68 +2560,6 @@
    ],
    "summary": "The rebuilt Grizzlies, 2-0 after trading Ja Morant, visit the 0-2 Kings. No. 3 pick Cameron Boozer starts for Memphis, which is without Zach Edey. Sacramento has lost Ben Simmons for the season and Keegan Murray is questionable."
   },
-  "nfl_2026_06_DAL_GB": {
-   "at": "2026-10-18T23:10:00Z",
-   "game": "DAL @ GB",
-   "items": [
-    {
-     "at": "2026-10-18T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-week-6-inactives-reveals-joey-porter-jr-s-status-vs-packers",
-     "team": "DAL",
-     "text": "Inactive: LB DeMarvion Overshown, CB Cobie Durant, T Drew Shelton, OLB James Houston. CB Joey Porter Jr. (ankle) is active.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-18T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-week-6-inactives-reveals-joey-porter-jr-s-status-vs-packers",
-     "team": "GB",
-     "text": "Inactive: CB Benjamin St.-Juste, G Aaron Banks, G Jager Burton, OT Donovan Jennings. C Jacob Monk and CB Brandon Cisse are active.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.packers.com/news/packers-list-five-questionable-rule-out-four-vs-cowboys-week-6-injury-report-2026",
-     "team": "GB",
-     "text": "DT Javon Hargrave (Achilles) and WR Jayden Reed (neck) are out for the season; DT Jonathan Ford on IR, DT Jordon Riley doubtful.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-14T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.newsweek.com/sports/nfl/micah-parsons-gives-blunt-response-over-missing-cowboys-revenge-game-12569581",
-     "team": "GB",
-     "text": "Edge Micah Parsons remains on PUP after his ACL tear and won't face his former team.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Cowboys Week 6 Inactives Reveals Joey Porter Jr.'s Status vs. Packers",
-     "u": "https://www.si.com/nfl/cowboys/onsi/cowboys-week-6-inactives-reveals-joey-porter-jr-s-status-vs-packers"
-    },
-    {
-     "t": "Cowboys vs. Packers live updates, inactives: Sunday Night Football Week 6",
-     "u": "https://sports.yahoo.com/nfl/live/cowboys-packers-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-sunday-night-football-225854327.html"
-    },
-    {
-     "t": "Packers list five questionable, rule out four vs. Cowboys",
-     "u": "https://www.packers.com/news/packers-list-five-questionable-rule-out-four-vs-cowboys-week-6-injury-report-2026"
-    },
-    {
-     "t": "Micah Parsons gives blunt response over missing Cowboys revenge game",
-     "u": "https://www.newsweek.com/sports/nfl/micah-parsons-gives-blunt-response-over-missing-cowboys-revenge-game-12569581"
-    }
-   ],
-   "summary": "Dak Prescott and Jordan Love start at Lambeau. Joey Porter Jr. is active for Dallas, but LB DeMarvion Overshown, CB Cobie Durant and T Drew Shelton sit. Green Bay is without Micah Parsons, still on PUP, and DT Javon Hargrave, and G Aaron Banks is inactive."
-  },
   "nfl_2026_06_WAS_SF": {
    "at": "2026-10-19T23:08:00Z",
    "game": "WAS @ SF",
@@ -2830,7 +2768,7 @@
    "summary": "The 4-2 Browns, tied atop the AFC North, visit Tennessee with Deshaun Watson at QB and RB Dylan Sampson back from IR. CB Denzel Ward is active; DT Mike Hall is inactive. Tennessee is without WR Calvin Ridley and RB Tyjae Spears, both inactive."
   },
   "nfl_2026_07_DAL_PHI": {
-   "at": "2026-10-25T16:09:05Z",
+   "at": "2026-10-25T23:04:51Z",
    "game": "DAL @ PHI",
    "items": [
     {
@@ -2843,11 +2781,11 @@
      "type": "other"
     },
     {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.nbcphiladelphia.com/news/local/eagles-injury-update-saquon-barkley-returns-but-other-key-eagles-missing/4483692/",
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "PHI",
-     "text": "G Landon Dickerson (knee, IR since Sept 14) practicing with his window open; not yet activated.",
+     "text": "G Landon Dickerson (knee, IR since Sept 14) listed questionable on the final report, a possible return.",
      "total": 0,
      "type": "return"
     },
@@ -2861,38 +2799,38 @@
      "type": "coach"
     },
     {
-     "at": "2026-10-20T12:00:00Z",
+     "at": "2026-10-25T12:00:00Z",
      "impact": 0,
-     "src": "https://www.dallascowboys.com/news/cowboys-injury-roundup-overshown-durant-trending-toward-return-vs-eagles",
+     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "LB Dee Winters (Achilles strain) out for a stretch; S Jalen Thompson (IR) not eligible yet.",
+     "text": "Out: LB Dee Winters, T Drew Shelton, WR KaVontae Turpin. S P.J. Locke and OLB Marist Liufau questionable.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-23T12:00:00Z",
+     "at": "2026-10-25T12:00:00Z",
      "impact": 0,
-     "src": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt",
+     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "PHI",
-     "text": "Friday: Barkley limited; DeVonta Smith, Goedert, Jonathan Greenard, Nolan Smith and Wicks did not practice.",
+     "text": "Out: DeVonta Smith, Dontayvion Wicks, Nolan Smith, CB Michael Carter. Barkley and Greenard questionable; Goedert no designation.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-23T12:00:00Z",
+     "at": "2026-10-25T12:00:00Z",
      "impact": 0.3,
-     "src": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt",
+     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, five games missed) full practice Thursday and Friday; may be on a snap count.",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) has no game designation and is expected back.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-23T12:00:00Z",
+     "at": "2026-10-25T12:00:00Z",
      "impact": 0.3,
-     "src": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt",
+     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "CB Cobie Durant (hamstring, four games missed) full practice Friday.",
+     "text": "CB Cobie Durant (hamstring, out since Week 2) has no designation; Dallas expects him back.",
      "total": 0,
      "type": "return"
     }
@@ -2918,9 +2856,13 @@
     {
      "t": "www.philadelphiaeagles.com",
      "u": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt"
+    },
+    {
+     "t": "Cowboys-Eagles final injury update has 7 ruled out (Cowboys Wire)",
+     "u": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html"
     }
    ],
-   "summary": "Two 2-4 NFC East teams on Monday night. Jalen Hurts is on IR with blood clots in his lungs, so Tanner McKee starts for an Eagles team on a four-game skid. Saquon Barkley is limited, while DeVonta Smith, Goedert, Greenard and Nolan Smith did not practice Friday. Dallas gets LB DeMarvion Overshown back after five missed games and CB Cobie Durant practiced fully."
+   "summary": "Two 2-4 NFC East teams meet on Monday night. With Jalen Hurts out for the season, Tanner McKee starts for an Eagles team on a four-game skid and without WRs DeVonta Smith and Dontayvion Wicks; Saquon Barkley is questionable. Dallas expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
   },
   "nfl_2026_07_DEN_ARI": {
    "at": "2026-10-25T16:09:05Z",
@@ -3092,7 +3034,7 @@
    "summary": "The 5-0 Vikings come off their bye almost fully healthy, with RB Jordan Mason questionable but 'looking positive' to return from IR. The 2-4 Colts, who fired GM Chris Ballard, rule out CB Sauce Gardner, TE Tyler Warren and WR Anthony Gould; Daniel Jones stays at QB."
   },
   "nfl_2026_07_KC_SEA": {
-   "at": "2026-10-25T16:09:05Z",
+   "at": "2026-10-25T23:04:51Z",
    "game": "KC @ SEA",
    "items": [
     {
@@ -3121,6 +3063,15 @@
      "text": "TE Travis Kelce (ankle) limited all week but has no designation; expected to play.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://12thmanrising.com/seahawks-chiefs-week-7-inactives-injury-updates-prediction-storylines-more",
+     "team": "SEA",
+     "text": "S Nick Emmanwori questionable; LB Connor O'Toole also listed among Seattle's expected inactives.",
+     "total": 0,
+     "type": "injury"
     },
     {
      "at": "2026-10-23T12:00:00Z",
@@ -3167,9 +3118,13 @@
     {
      "t": "www.nbcsports.com",
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-release-trevon-diggs"
+    },
+    {
+     "t": "Seahawks vs. Chiefs Week 7: Inactives, injury updates (12th Man Rising)",
+     "u": "https://12thmanrising.com/seahawks-chiefs-week-7-inactives-injury-updates-prediction-storylines-more"
     }
    ],
-   "summary": "Kenneth Walker returns to Seattle with Kansas City. The Chiefs rule out WR Rashee Rice and RT Jaylon Moore; Travis Kelce has no designation and Sneed is questionable. Seattle rules out RB Zach Charbonnet despite his PUP activation, plus LBs Drake Thomas and Chazz Surratt; G Anthony Bradford will play off IR, and CB Trevon Diggs was released."
+   "summary": "Kenneth Walker faces his old team as Kansas City visits Seattle. The Chiefs are without WR Rashee Rice and RT Jaylon Moore, with Travis Kelce expected to play. Seattle rules out RB Zach Charbonnet and LBs Drake Thomas and Chazz Surratt, but G Anthony Bradford returns from IR."
   },
   "nfl_2026_07_LA_LV": {
    "at": "2026-10-25T16:09:05Z",
@@ -3686,8 +3641,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-25T16:09:30Z",
-  "games": 20,
-  "note": "NFL Week 7 Sunday inactives (Breece Hall, Ridley, Spears out), Sunderland v Leeds lineups, 7 NBA games"
+  "at": "2026-10-25T23:05:30Z",
+  "games": 2,
+  "note": "Refreshed KC @ SEA and DAL @ PHI with final injury reports; official KC-SEA inactives not yet found."
  }
 }
