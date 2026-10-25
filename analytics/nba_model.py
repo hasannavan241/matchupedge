@@ -52,8 +52,19 @@ def minutes_expected(em, gap, p=P):
     return min((n * base + p["em_k"] * p["em_prior"]) / (n + p["em_k"]), p["em_cap"])
 
 
-def minutes_update(em, m, p=P):
-    return (m, m, 1) if em is None else (em[0] + p["em_a"] * (m - em[0]), em[1] + p["em_long"] * (m - em[1]), em[2] + 1)
+def minutes_update(em, m, p=P, gap=None):
+    """gap: days since his previous game. After a break of em_gap+ days (the off-season) the short average restarts
+    from the long one, so that the first weeks of a season rest on his usual minutes and this season's games, not on
+    the last weeks of the season before (rested starters, long nights for the bench). Without it, game 1 used the long
+    average and games 2 to 7 the short one still full of April: over 2024-25 and 2025-26 the minutes miss in a
+    player's second and third games fell from 6.17 to 5.67 with the restart, and his points miss from 4.84 to 4.69;
+    nothing changes once a season is under way. The player projections pass the gap; the game model's own loop does
+    not yet (its weights were fitted without it)."""
+    if em is None:
+        return (m, m, 1)
+    if gap is not None and gap > p["em_gap"]:
+        em = (em[1], em[1], em[2])
+    return (em[0] + p["em_a"] * (m - em[0]), em[1] + p["em_long"] * (m - em[1]), em[2] + 1)
 
 
 def game_score(B):

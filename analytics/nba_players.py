@@ -9,8 +9,9 @@ for points, the other team's defense):
 
     rate      his box score per minute, recent games counting more (weight halving every 83 days), shrunk toward the
               league's rate with 75 minutes of it
-    minutes   his recent minutes in the games he played; the team's 240 minutes are handed out in that order to the
-              players available tonight, and spread over them when injuries leave the team short
+    minutes   his recent minutes in the games he played (after the off-season, starting over from his usual minutes
+              rather than the last weeks of the season before); the team's 240 minutes are handed out in that order
+              to the players available tonight, and spread over them when injuries leave the team short
     pace      each team's possessions a game (recent games counting more), against the league's
     defense   points the other team allows a possession, against the league's
 
@@ -62,9 +63,9 @@ def rates(B, p=P):
         NG[i] = ng
         Ss += X[i]
         Sm += mins[i]
-        ld = day[i]
+        gap, ld = day[i] - ld, day[i]
         ng += 1
-        Em = nm.minutes_update(Em, mins[i])
+        Em = nm.minutes_update(Em, mins[i], gap=gap)   # after the off-season his short minutes average restarts (see nba_model)
     if last is not None:
         now[last] = (Ss.copy(), Sm, Em, ld, ng)
     B["EM"], B["NG"] = np.clip(EM, 1, None), NG
