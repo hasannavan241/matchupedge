@@ -78,6 +78,24 @@ PRIOR_SHARE = {"tgt": {"QB": 0.0, "RB": 0.05, "WR": 0.07, "TE": 0.05}, "car": {"
 # come out level with the projection (3.87 a game against 3.88) where it used to project 2.28.
 QB_GAME = 0.5
 QB_CAR_K = 1.5
+# The back who steps up when the lead back is out. Shares are re-normalised over the players who are active, so a
+# missing lead back's carries flow to everyone left in proportion to their usual roles. In practice they concentrate on
+# the next back: over 2022-2026, in the 397 running-back games where the back who had led the team's carries the game
+# before was absent, the backs left were projected 13% too few carries (17% too few rushing yards), and the top back
+# among them 9% (12%). A back who had already led the carries the game before, with the lead still out, had 60% of
+# the team's carries that game against a re-normalised share of 51% (33 games; projected 13.7 carries, 15.0 ran). His
+# last game's share alone over-shoots (16.1), so his share is a blend of the recency-weighted one and the last game's
+# (LEAD_BLEND of the last game's), and only upward. The case behind it: Ollie Gordon (MIA), 17, 9 and 18 carries in
+# the three games after De'Von Achane went on the reserve list, projected for 9.9 in the fourth.
+LEAD_SHARE = 0.35    # a back led his team's carries in a game when he had this share of them
+LEAD_BLEND = 0.5
+RB_ABSORB = 1.0      # how much of the share a missing lead back leaves behind goes to the backs alone (the rest to everyone)
+# A back promoted a few games ago. The recency-weighted share (half-life HL_USE games) still carries his games as a
+# backup for a month: a back who had led his team's carries in each of his last two games with a weighted share under
+# 45% ran 12.7 a game against 11.2 projected (334 games, 2022-2026; under 30%: 9.5 against 8.2, 67 games). Moving
+# LED2_BLEND of the way toward the last two games' average share was the best fit in both groups (mean miss 4.45
+# carries against 4.54, and 4.63 against 4.75); further than that over-shoots, since a share from two games is noisy.
+LED2_BLEND = 0.25
 
 
 def qb_rush_weight(pos, starter, starts):
@@ -266,6 +284,11 @@ def player_features(P, X, pos_means):
     P["s_car_q"] = P.s_car.where(full)
     P["u_s_car_q"] = _ewm_prev(P, "pid", ["s_car_q"], HL_USE)["s_car_q"]
     P["n_car_q"] = full.astype(int).groupby(P.pid).cumsum() - full.astype(int)
+    # the back's carry share in his last game, and whether the back who led the team's carries in its previous game is
+    # absent from this one (lead_back_out)
+    P["l_s_car"] = P.groupby("pid", sort=False).s_car.shift()
+    P["l2_s_car"] = P.groupby("pid", sort=False).s_car.shift(2)
+    P = lead_back_out(P)
     sums = _ewm_prev(P, "pid", ["tgt", "rec", "rec_yds", "rec_td", "rush_att", "rush_yds", "rush_td", "pass_att", "pass_cmp", "pass_yds", "pass_td",
                                   "pass_int"], HL_EFF, how="sum")
     rates = {"catch": ("rec", "tgt"), "ypt": ("rec_yds", "tgt"), "rectd": ("rec_td", "tgt"), "ypc": ("rush_yds", "rush_att"),
@@ -277,6 +300,23 @@ def player_features(P, X, pos_means):
         P["r_" + r] = (sums[a].fillna(0) + SHRINK[r] * prior) / (n + SHRINK[r])
         P["n_" + r] = n
     P["games_before"] = P.groupby("pid").cumcount()
+    return P
+
+
+def lead_back_out(P):
+    """Marks each team-game where the running back who led the team's carries in its previous game (LEAD_SHARE of them
+    or more) has no row in this one: lead_out (1 or 0) on every row of the team-game. P is sorted by game date and has
+    one row per active player (the live week's rows are those expected to play)."""
+    tg = P[["game_id", "team", "gameday"]].drop_duplicates().sort_values(["team", "gameday", "game_id"])
+    tg["prev_gid"] = tg.groupby("team").game_id.shift()
+    rb = P[(P.pos == "RB") & (P.s_car >= LEAD_SHARE)].sort_values("s_car").groupby(["game_id", "team"]).tail(1)
+    lead = dict(zip(zip(rb.game_id, rb.team), rb.pid))
+    present = P.groupby(["game_id", "team"]).pid.apply(set).to_dict()
+    out = {}
+    for g_, t_, pg in zip(tg.game_id, tg.team, tg.prev_gid):
+        lp = lead.get((pg, t_)) if pg == pg else None
+        out[(g_, t_)] = int(lp is not None and lp not in present.get((g_, t_), set()))
+    P["lead_out"] = [out.get((g_, t_), 0) for g_, t_ in zip(P.game_id, P.team)]
     return P
 
 
@@ -311,10 +351,33 @@ def raw_projection(P, X, DF, qb_car=None):
         st = (P.pos == "QB") & (P.starter == 1)
         n = P.n_car_q.fillna(0)
         P.loc[st, "sh_car"] = ((n * P.u_s_car_q.fillna(0) + QB_CAR_K * qb_car) / (n + QB_CAR_K))[st]
+    if LEAD_BLEND:
+        # the lead back is out: the top back left moves toward his last game's share (see LEAD_BLEND), upward only
+        rbs = P[(P.pos == "RB") & (P.lead_out == 1) & P.sh_car.notna()]
+        top = rbs.sort_values("sh_car").groupby(["game_id", "team"]).tail(1).index
+        up = P.loc[top, "l_s_car"].fillna(0) > P.loc[top, "sh_car"]
+        top = top[up.values]
+        P.loc[top, "sh_car"] = (1 - LEAD_BLEND) * P.loc[top, "sh_car"] + LEAD_BLEND * P.loc[top, "l_s_car"]
+    if LED2_BLEND:
+        # a back promoted a few games ago: led the carries in each of his last two games, above his weighted share
+        # (see LED2_BLEND); not the back the rule above has just moved
+        two = (P.pos == "RB") & (P.lead_out != 1) & (P.l_s_car >= LEAD_SHARE) & (P.l2_s_car >= LEAD_SHARE)
+        last2 = (P.l_s_car + P.l2_s_car) / 2
+        two &= last2 > P.sh_car
+        P.loc[two, "sh_car"] = ((1 - LED2_BLEND) * P.sh_car + LED2_BLEND * last2)[two]
     g = P.groupby(["game_id", "team"])
     for c in ("sh_tgt", "sh_car"):
         tot = g[c].transform("sum")
         P[c + "_n"] = P[c] / tot.replace(0, np.nan)
+        if c == "sh_car" and RB_ABSORB:
+            # the lead back is out: the carries he leaves behind go to the backs, not to everyone in proportion (the
+            # quarterback's and receivers' carries are by design and don't grow when a back is missing)
+            isrb = (P.pos == "RB").astype(float)
+            rb_tot = g.apply(lambda d: (d.sh_car * (d.pos == "RB")).sum()).reindex(pd.MultiIndex.from_arrays([P.game_id, P.team])).values
+            missing = (1 - tot).clip(lower=0)
+            lo = (P.lead_out == 1) & (rb_tot > 0)
+            absorb = P.sh_car + RB_ABSORB * missing * P.sh_car * isrb / np.where(rb_tot > 0, rb_tot, 1)
+            P.loc[lo, c + "_n"] = (absorb / (tot + RB_ABSORB * missing))[lo]
         # renormalising: never more than 1.7x or less than 0.7x the player's own share
         P[c + "_n"] = np.minimum(np.maximum(P[c + "_n"], 0.7 * P[c]), 1.7 * P[c] + 0.02)
     tgt = P.sh_tgt_n * P.v_t_tgt
