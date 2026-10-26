@@ -843,77 +843,6 @@
    ],
    "summary": "Unbeaten leaders City visit Villa in Saturday's early kickoff, both after European games this week. Maresca says Haaland is the only one of his doubts fully available; O'Reilly, Nunes and Kovacic depended on Friday training and Semenyo is out until December. Villa are short at full-back and Manzambi faces a late fitness test."
   },
-  "epl_401879257": {
-   "at": "2026-10-19T16:15:00Z",
-   "game": "Tottenham v Coventry",
-   "items": [
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": -0.08,
-     "src": "https://premierleague.com/en/news/4737644/predicted-line-ups-for-matchweek-7",
-     "team": "Tottenham",
-     "text": "Rodrigo Bentancur suspended after a red card at Old Trafford.",
-     "total": 0,
-     "type": "suspension"
-    },
-    {
-     "at": "2026-10-18T12:00:00Z",
-     "impact": -0.15,
-     "src": "https://www.tottenhamhotspur.com/news/1178784/spurs-vs-coventry-every-word-of-roberto-de-zerbis-pre-match-press-conference",
-     "team": "Tottenham",
-     "text": "Pedro Porro (thigh) not fit, Savio (muscle) out for some weeks, Lucas Bergvall (knee) out about two weeks, per De Zerbi.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-18T12:00:00Z",
-     "impact": 0.12,
-     "src": "https://www.tottenhamhotspur.com/news/1178784/spurs-vs-coventry-every-word-of-roberto-de-zerbis-pre-match-press-conference",
-     "team": "Tottenham",
-     "text": "James Maddison, back from a fractured shoulder, could make his first league start since April 2025; Kulusevski cleared for the bench.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://premierleague.com/en/news/4737644/predicted-line-ups-for-matchweek-7",
-     "team": "Tottenham",
-     "text": "Still looking for a first Premier League win of the season.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-15T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://www.aol.com/articles/lampard-coventrys-momentum-sakamoto-tottenham-144711000.html",
-     "team": "Coventry",
-     "text": "Josh Eccles (ankle) and Luke Woolfenden out; Kaine Kesler-Hayden back and available.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Spurs vs Coventry: every word of Roberto De Zerbi's pre-match press conference",
-     "u": "https://www.tottenhamhotspur.com/news/1178784/spurs-vs-coventry-every-word-of-roberto-de-zerbis-pre-match-press-conference"
-    },
-    {
-     "t": "Predicted line-ups for remaining Matchweek 7 fixtures",
-     "u": "https://premierleague.com/en/news/4737644/predicted-line-ups-for-matchweek-7"
-    },
-    {
-     "t": "Lampard on Coventry's momentum, Sakamoto and Tottenham",
-     "u": "https://www.aol.com/articles/lampard-coventrys-momentum-sakamoto-tottenham-144711000.html"
-    },
-    {
-     "t": "Coventry City travel to Tottenham with Lampard upbeat",
-     "u": "https://coventrycitynews.co.uk/news/coventry-city-tottenham-preview-lampard-team-news"
-    }
-   ],
-   "summary": "Roberto De Zerbi's Spurs are still without a league win and are short: Rodrigo Bentancur is suspended and Pedro Porro, Savio and Lucas Bergvall are injured. James Maddison could start and Dejan Kulusevski is on the bench after more than 500 days out. Promoted Coventry arrive on two straight league wins, with Kaine Kesler-Hayden back and Taiwo Awoniyi free after suspension."
-  },
   "nba_401909088": {
    "at": "2026-10-20T16:05:28Z",
    "game": "BOS @ DET",
@@ -2560,6 +2489,297 @@
    ],
    "summary": "The rebuilt Grizzlies, 2-0 after trading Ja Morant, visit the 0-2 Kings. No. 3 pick Cameron Boozer starts for Memphis, which is without Zach Edey. Sacramento has lost Ben Simmons for the season and Keegan Murray is questionable."
   },
+  "nba_401909868": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "WSH @ CHA",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/charlotte-hornets/naz-reid-injury-update-wizards",
+     "team": "CHA",
+     "text": "Out: Kon Knueppel (hamstring), Coby White (calf), Grant Williams (hamstring). Naz Reid probable (illness).",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "WSH",
+     "text": "No. 1 pick AJ Dybantsa (ankle) ruled out again; Tristan Vukcevic and Jamir Watkins also out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Is Naz Reid playing tonight? Hornets issue late injury update (Heavy)",
+     "u": "https://heavy.com/sports/nba/charlotte-hornets/naz-reid-injury-update-wizards"
+    },
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Charlotte is short on the wing without Kon Knueppel, Coby White and Grant Williams, and Naz Reid was added as probable with an illness. Washington still has No. 1 pick AJ Dybantsa out with an ankle injury, so his debut waits."
+  },
+  "nba_401909869": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "MIN @ CLE",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://wncoam.iheart.com/content/2026-10-26-timberwolves-vs-cavaliers-injury-report-oct-26/",
+     "team": "MIN",
+     "text": "Donte DiVincenzo (Achilles) out, expected back in the spring.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://wncoam.iheart.com/content/2026-10-26-timberwolves-vs-cavaliers-injury-report-oct-26/",
+     "team": "CLE",
+     "text": "Reserves Nae'Qwan Tomlin (back) and Khalifa Diop (knee) out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Timberwolves vs. Cavaliers injury report, Oct. 26 (Fox Sports 1340 WNCO)",
+     "u": "https://wncoam.iheart.com/content/2026-10-26-timberwolves-vs-cavaliers-injury-report-oct-26/"
+    },
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Cleveland is close to full strength, missing only reserves Nae'Qwan Tomlin and Khalifa Diop. Minnesota remains without Donte DiVincenzo, out long-term with an Achilles injury."
+  },
+  "nba_401909870": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "CHI @ BOS",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/boston-celtics/celtics-injury-report-ahead-bulls-game/",
+     "team": "CHI",
+     "text": "Nic Claxton (hamstring) out; Patrick Williams (adductor) and Noa Essengue (head) questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/boston-celtics/celtics-injury-report-ahead-bulls-game/",
+     "team": "BOS",
+     "text": "Devin Carter out recovering from mononucleosis; rest of roster available.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Celtics announce injury report ahead of Bulls game (Heavy)",
+     "u": "https://heavy.com/sports/nba/boston-celtics/celtics-injury-report-ahead-bulls-game/"
+    },
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Boston has everyone but Devin Carter (mononucleosis), with Tatum, Derrick White, Paul George, Jordan Walsh and Mitchell Robinson expected to start. Chicago is without Nic Claxton, with Patrick Williams and Noa Essengue questionable."
+  },
+  "nba_401909871": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "DAL @ MIA",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "DAL",
+     "text": "Out: Cooper Flagg (shoulder), Naji Marshall (illness), Santi Aldama (knee), Dereck Lively II (foot), Caleb Martin (thumb).",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "MIA",
+     "text": "Heat list no injuries.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Dallas is badly depleted, listing Cooper Flagg (shoulder), Naji Marshall, Santi Aldama, Dereck Lively II and Caleb Martin as out, leaving Kyrie Irving to carry the load. Miami reports no injuries."
+  },
+  "nba_401909872": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "IND @ MIL",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "IND",
+     "text": "Ivica Zubac (ankle) day-to-day; T.J. McConnell, Ben Sheppard and Johnny Furphy out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Indiana is without T.J. McConnell, Ben Sheppard and Johnny Furphy, and Ivica Zubac is day-to-day with an ankle injury. Milwaukee lists no injuries."
+  },
+  "nba_401909873": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "PHX @ OKC",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "OKC",
+     "text": "Jalen Williams (ankle) out until about Nov. 2; Cason Wallace and Jaylin Williams day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "PHX",
+     "text": "C Mark Williams (shoulder) out until about February; Oso Ighodaro day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Oklahoma City is without Jalen Williams (ankle, into November), with Cason Wallace and Jaylin Williams day-to-day. Phoenix is missing center Mark Williams long-term with a shoulder injury."
+  },
+  "nba_401909874": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "ATL @ HOU",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "HOU",
+     "text": "Steven Adams (calf) out; Marcus Smart (forearm) day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "ATL",
+     "text": "Mouhamed Gueye (foot) and Henri Veesaar (knee) out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Houston is without Steven Adams (calf) and Marcus Smart is day-to-day with a forearm injury. Atlanta's regular rotation is intact, missing only Mouhamed Gueye and Henri Veesaar."
+  },
+  "nba_401909875": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "MEM @ UTAH",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "MEM",
+     "text": "Zach Edey (ankle) and Karim Lopez (knee) listed out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "UTAH",
+     "text": "Jusuf Nurkic (foot) out until about Nov. 4; Trey Alexander also out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Memphis lists Zach Edey (ankle) and rookie Karim Lopez (knee) as out. Utah is without center Jusuf Nurkic, sidelined into November with a foot injury."
+  },
+  "nba_401909876": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "GS @ DEN",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "GS",
+     "text": "Out: Jimmy Butler III (knee), Kristaps Porzingis (illness), Moses Moody (knee). Gui Santos day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://hoopsnightly.com/injuries",
+     "team": "DEN",
+     "text": "Cameron Johnson (ankle) day-to-day; Spencer Jones and Julian Strawther out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA injury report 2026-27 (Hoops Nightly)",
+     "u": "https://hoopsnightly.com/injuries"
+    }
+   ],
+   "summary": "Golden State is thin up front without Jimmy Butler, Kristaps Porzingis and Moses Moody, all out into December or January. Denver has Jokic and Murray, with Cameron Johnson day-to-day with an ankle injury."
+  },
   "nfl_2026_06_WAS_SF": {
    "at": "2026-10-19T23:08:00Z",
    "game": "WAS @ SF",
@@ -2768,60 +2988,51 @@
    "summary": "The 4-2 Browns, tied atop the AFC North, visit Tennessee with Deshaun Watson at QB and RB Dylan Sampson back from IR. CB Denzel Ward is active; DT Mike Hall is inactive. Tennessee is without WR Calvin Ridley and RB Tyjae Spears, both inactive."
   },
   "nfl_2026_07_DAL_PHI": {
-   "at": "2026-10-25T23:04:51Z",
+   "at": "2026-10-26T16:08:08Z",
    "game": "DAL @ PHI",
    "items": [
     {
-     "at": "2026-10-19T12:00:00Z",
+     "at": "2026-10-17T12:00:00Z",
      "impact": 0,
-     "src": "https://abc30.com/post/jalen-hurts-season-blood-clots-discovered-eagles-qbs-lungs-nfl-network-espn-say/19955107/",
+     "src": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/",
      "team": "PHI",
-     "text": "QB Jalen Hurts (IR, blood clots) expected out for the season; Tanner McKee starts.",
+     "text": "QB Jalen Hurts (IR, blood clots) likely out for the season; Tanner McKee makes his second straight start.",
      "total": 0,
      "type": "other"
     },
     {
      "at": "2026-10-25T12:00:00Z",
      "impact": 0.2,
-     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
+     "src": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/",
      "team": "PHI",
-     "text": "G Landon Dickerson (knee, IR since Sept 14) listed questionable on the final report, a possible return.",
+     "text": "G Landon Dickerson (IR since mid-September) questionable; must be activated from IR by Monday afternoon to play.",
      "total": 0,
      "type": "return"
+    },
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/",
+     "team": "PHI",
+     "text": "Out: WRs DeVonta Smith and Dontayvion Wicks, LB Nolan Smith, CB Michael Carter II. Barkley, Hunt and Greenard questionable.",
+     "total": 0,
+     "type": "injury"
     },
     {
      "at": "2026-10-19T12:00:00Z",
      "impact": 0,
      "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/nick-sirianni-eagles-sticking-with-sean-mannion-as-play-caller/759833/",
      "team": "PHI",
-     "text": "Sirianni keeps OC Sean Mannion as play-caller despite the struggling offense.",
+     "text": "Sirianni keeps OC Sean Mannion as play-caller but says \"everything is on the table\" after 58 points in four losses.",
      "total": 0,
      "type": "coach"
     },
     {
      "at": "2026-10-25T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
-     "team": "DAL",
-     "text": "Out: LB Dee Winters, T Drew Shelton, WR KaVontae Turpin. S P.J. Locke and OLB Marist Liufau questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-25T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
-     "team": "PHI",
-     "text": "Out: DeVonta Smith, Dontayvion Wicks, Nolan Smith, CB Michael Carter. Barkley and Greenard questionable; Goedert no designation.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-25T12:00:00Z",
      "impact": 0.3,
      "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) has no game designation and is expected back.",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) expected back.",
      "total": 0,
      "type": "return"
     },
@@ -2830,13 +3041,34 @@
      "impact": 0.3,
      "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "CB Cobie Durant (hamstring, out since Week 2) has no designation; Dallas expects him back.",
+     "text": "CB Cobie Durant (hamstring, out since Week 2) expected back.",
      "total": 0,
      "type": "return"
+    },
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
+     "team": "DAL",
+     "text": "Out: LB Dee Winters, T Drew Shelton, WR KaVontae Turpin. S P.J. Locke and LB Marist Liufau questionable.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Eagles vs. Cowboys: Tanner McKee starts as Eagles try to end a four-game skid (Northeast Times)",
+     "u": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/"
+    },
+    {
+     "t": "Eagles still trying to salvage NFC East crown without Hurts (AP)",
+     "u": "https://www.timesleader.com/sports/1763456/eagles-still-trying-to-salvage-nfc-east-crown-without-hurts-as-they-host-cowboys-on-monday-night"
+    },
+    {
+     "t": "Cowboys-Eagles final injury update has 7 ruled out (Cowboys Wire)",
+     "u": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html"
+    },
     {
      "t": "Jalen Hurts out for season after blood clots (ABC30)",
      "u": "https://abc30.com/post/jalen-hurts-season-blood-clots-discovered-eagles-qbs-lungs-nfl-network-espn-say/19955107/"
@@ -2844,25 +3076,9 @@
     {
      "t": "Sirianni sticking with Mannion as play-caller (NBC Sports Philadelphia)",
      "u": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/nick-sirianni-eagles-sticking-with-sean-mannion-as-play-caller/759833/"
-    },
-    {
-     "t": "Eagles injury update: Barkley returns (NBC10)",
-     "u": "https://www.nbcphiladelphia.com/news/local/eagles-injury-update-saquon-barkley-returns-but-other-key-eagles-missing/4483692/"
-    },
-    {
-     "t": "Cowboys injury roundup: Overshown, Durant trending toward return",
-     "u": "https://www.dallascowboys.com/news/cowboys-injury-roundup-overshown-durant-trending-toward-return-vs-eagles"
-    },
-    {
-     "t": "www.philadelphiaeagles.com",
-     "u": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-injury-report-2026-nfl-week-7-saquon-barkley-jalyx-hunt"
-    },
-    {
-     "t": "Cowboys-Eagles final injury update has 7 ruled out (Cowboys Wire)",
-     "u": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html"
     }
    ],
-   "summary": "Two 2-4 NFC East teams meet on Monday night. With Jalen Hurts out for the season, Tanner McKee starts for an Eagles team on a four-game skid and without WRs DeVonta Smith and Dontayvion Wicks; Saquon Barkley is questionable. Dallas expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
+   "summary": "Two 2-4 NFC East teams meet on Monday night. Tanner McKee makes his second start for an Eagles team on a four-game skid, its first since 2020, without Jalen Hurts, DeVonta Smith and Dontayvion Wicks; Saquon Barkley is questionable. Dallas has lost two straight but expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
   },
   "nfl_2026_07_DEN_ARI": {
    "at": "2026-10-25T16:09:05Z",
@@ -3638,11 +3854,86 @@
     }
    ],
    "summary": "The 1-5 Buccaneers visit NFC South leader Carolina with Baker Mayfield back: he is listed questionable with his thumb, but Todd Bowles says he will play after three missed games. Egbuka, Goedeke and Winfield are ruled out. Carolina is without edge rushers Jaelan Phillips and Thomas Incoom."
+  },
+  "nfl_2026_08_CAR_GB": {
+   "at": "2026-10-26T16:08:08Z",
+   "game": "CAR @ GB",
+   "items": [
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://atozsports.com/nfl/carolina-panthers-news/panthers-winners-losers-week-7-buccaneers-dave-canales-ejiro-evero-bryce-young/",
+     "team": "CAR",
+     "text": "Bryce Young was benched for Kenny Pickett during the Week 7 loss; no Week 8 starter announced yet.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/carolina-panthers-tough-injury-loss-030308403.html",
+     "team": "CAR",
+     "text": "RT Taylor Moton fractured his fibula and will be out a while; rookie Monroe Freeling steps in.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nfl/carolina-panthers/ejiro-evero-on-notice/",
+     "team": "CAR",
+     "text": "DC Ejiro Evero under fire after 40+ allowed again; Canales backs him, no change announced.",
+     "total": 0,
+     "type": "coach"
+    },
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.espn.com/nfl/recap?gameId=401873020",
+     "team": "GB",
+     "text": "C Sean Rhyan (ankle) and backup C Jacob Monk (quad) hurt at Detroit; John Williams finished at center.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://wisportsheroics.com/packers-zaire-frankling-fracture-leg-news/",
+     "team": "GB",
+     "text": "LB Zaire Franklin has a hairline leg fracture; team not expected to put him on IR.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Carolina Panthers have tough injury update after loss (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/carolina-panthers-tough-injury-loss-030308403.html"
+    },
+    {
+     "t": "Panthers coach put on notice after Week 7 loss (Heavy)",
+     "u": "https://heavy.com/sports/nfl/carolina-panthers/ejiro-evero-on-notice/"
+    },
+    {
+     "t": "2 winners and 7 losers from the Panthers loss to the Buccaneers (A to Z Sports)",
+     "u": "https://atozsports.com/nfl/carolina-panthers-news/panthers-winners-losers-week-7-buccaneers-dave-canales-ejiro-evero-bryce-young/"
+    },
+    {
+     "t": "Lions 20-17 Packers game recap (ESPN)",
+     "u": "https://www.espn.com/nfl/recap?gameId=401873020"
+    },
+    {
+     "t": "Packers star defender reveals fracture in his leg (WI Sports Heroics)",
+     "u": "https://wisportsheroics.com/packers-zaire-frankling-fracture-leg-news/"
+    }
+   ],
+   "summary": "Carolina (3-3) comes off a 43-13 home loss to Tampa Bay in which Bryce Young was pulled for Kenny Pickett and RT Taylor Moton fractured his fibula. Green Bay lost 20-17 at Detroit on a last-second field goal and may be thin at center after Sean Rhyan and Jacob Monk were hurt; LB Zaire Franklin has a hairline leg fracture."
   }
  },
  "meta": {
-  "at": "2026-10-25T23:05:30Z",
-  "games": 2,
-  "note": "Refreshed KC @ SEA and DAL @ PHI with final injury reports; official KC-SEA inactives not yet found."
+  "at": "2026-10-26T16:20:00Z",
+  "games": 11,
+  "note": "MNF DAL@PHI refreshed, CAR@GB added (Young benched in Wk7), 9 NBA games for Oct 26; no EPL due."
  }
 }
