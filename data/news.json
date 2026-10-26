@@ -2780,77 +2780,6 @@
    ],
    "summary": "Golden State is thin up front without Jimmy Butler, Kristaps Porzingis and Moses Moody, all out into December or January. Denver has Jokic and Murray, with Cameron Johnson day-to-day with an ankle injury."
   },
-  "nfl_2026_06_WAS_SF": {
-   "at": "2026-10-19T23:08:00Z",
-   "game": "WAS @ SF",
-   "items": [
-    {
-     "at": "2026-10-19T22:48:00Z",
-     "impact": 0,
-     "src": "https://www.49ers.com/news/mike-evans-active-kirk-out-vs-commanders-inactives-week-6-wasvssf",
-     "team": "SF",
-     "text": "Inactive: DE Nick Bosa (4th straight game), WR Deebo Samuel, WR Christian Kirk (calf), S Marques Sigle, LB Garret Wallow. WR Mike Evans is active.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-13T12:00:00Z",
-     "impact": 0,
-     "src": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders",
-     "team": "SF",
-     "text": "LB Dre Greenlaw is suspended for the game; his appeal was rejected.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-10-19T22:48:00Z",
-     "impact": 0,
-     "src": "https://www.49ers.com/news/mike-evans-active-kirk-out-vs-commanders-inactives-week-6-wasvssf",
-     "team": "SF",
-     "text": "FB Kyle Juszczyk is active and returns after missing Week 5.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-19T22:48:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/49ers-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-224910492.html",
-     "team": "WAS",
-     "text": "Out: RB Jacory Croskey-Merritt (IR). Inactive: DE Charles Omenihu, CBs Fabian Moreau and Isaac Yiadom. WR Stefon Diggs is active.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-19T22:48:00Z",
-     "impact": 0.3,
-     "src": "https://sports.yahoo.com/nfl/live/49ers-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-224910492.html",
-     "team": "WAS",
-     "text": "S Nick Cross, questionable with an illness after missing three games, is not on the inactive list and is set to play.",
-     "total": 0,
-     "type": "return"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Mike Evans Active, Kirk OUT vs. Commanders; Inactives Week 6 #WASvsSF",
-     "u": "https://www.49ers.com/news/mike-evans-active-kirk-out-vs-commanders-inactives-week-6-wasvssf"
-    },
-    {
-     "t": "Commanders vs. 49ers live updates, inactives: Mike Evans, Stefon Diggs active for Monday Night Football",
-     "u": "https://sports.yahoo.com/nfl/live/49ers-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-6-224910492.html"
-    },
-    {
-     "t": "Game status: Jacory Croskey-Merritt ruled out vs. 49ers",
-     "u": "https://commanders.com/news/game-status-commanders-49ers-week-6"
-    },
-    {
-     "t": "49ers lose two key pieces vs. Commanders",
-     "u": "https://roundtable.io/sports/nfl/commanders/players/san-francisco-49ers-lose-two-key-pieces-vs-washington-commanders"
-    }
-   ],
-   "summary": "Monday night at Levi's Stadium. Unbeaten San Francisco is short: Nick Bosa, Deebo Samuel, Christian Kirk and Marques Sigle are inactive and LB Dre Greenlaw is suspended, though Mike Evans is active and Kyle Juszczyk returns. Washington, 1-3-1, has Stefon Diggs active and S Nick Cross back in the lineup, but leading rusher Jacory Croskey-Merritt is out."
-  },
   "nfl_2026_07_CIN_BAL": {
    "at": "2026-10-25T16:05:06Z",
    "game": "CIN @ BAL",
@@ -2988,7 +2917,7 @@
    "summary": "The 4-2 Browns, tied atop the AFC North, visit Tennessee with Deshaun Watson at QB and RB Dylan Sampson back from IR. CB Denzel Ward is active; DT Mike Hall is inactive. Tennessee is without WR Calvin Ridley and RB Tyjae Spears, both inactive."
   },
   "nfl_2026_07_DAL_PHI": {
-   "at": "2026-10-26T16:08:08Z",
+   "at": "2026-10-26T23:08:00Z",
    "game": "DAL @ PHI",
    "items": [
     {
@@ -3001,20 +2930,29 @@
      "type": "other"
     },
     {
-     "at": "2026-10-25T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/",
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0.5,
+     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/",
      "team": "PHI",
-     "text": "G Landon Dickerson (IR since mid-September) questionable; must be activated from IR by Monday afternoon to play.",
+     "text": "G Landon Dickerson activated from IR after five missed games and is active; TEs Eli Stowers and Grant Calcaterra also activated.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-25T12:00:00Z",
+     "at": "2026-10-26T12:00:00Z",
      "impact": 0,
-     "src": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/",
+     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/",
      "team": "PHI",
-     "text": "Out: WRs DeVonta Smith and Dontayvion Wicks, LB Nolan Smith, CB Michael Carter II. Barkley, Hunt and Greenard questionable.",
+     "text": "RB Saquon Barkley (hamstring) active after missing two games; LBs Jalyx Hunt and Jonathan Greenard also active.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/",
+     "team": "PHI",
+     "text": "Inactive: WRs DeVonta Smith and Dontayvion Wicks, OLB Nolan Smith, CB Michael Carter II.",
      "total": 0,
      "type": "injury"
     },
@@ -3032,7 +2970,7 @@
      "impact": 0.3,
      "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) expected back.",
+     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) expected back; not on the inactive list.",
      "total": 0,
      "type": "return"
     },
@@ -3041,16 +2979,16 @@
      "impact": 0.3,
      "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
      "team": "DAL",
-     "text": "CB Cobie Durant (hamstring, out since Week 2) expected back.",
+     "text": "CB Cobie Durant (hamstring, out since Week 2) expected back; not on the inactive list.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-25T12:00:00Z",
+     "at": "2026-10-26T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
+     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-cant-catch-break-with-week-7-inactives-vs-eagles",
      "team": "DAL",
-     "text": "Out: LB Dee Winters, T Drew Shelton, WR KaVontae Turpin. S P.J. Locke and LB Marist Liufau questionable.",
+     "text": "Inactive: LB Dee Winters, T Drew Shelton, WR KaVontae Turpin. S P.J. Locke and LB Marist Liufau ruled out.",
      "total": 0,
      "type": "injury"
     }
@@ -3058,27 +2996,27 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Eagles vs. Cowboys: Tanner McKee starts as Eagles try to end a four-game skid (Northeast Times)",
-     "u": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/"
+     "t": "Eagles inactives: Saquon Barkley makes return vs. Cowboys (NBC Sports Philadelphia)",
+     "u": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/"
     },
     {
-     "t": "Eagles still trying to salvage NFC East crown without Hurts (AP)",
-     "u": "https://www.timesleader.com/sports/1763456/eagles-still-trying-to-salvage-nfc-east-crown-without-hurts-as-they-host-cowboys-on-monday-night"
+     "t": "Cowboys Can't Catch a Break With Week 7 Inactives vs. Eagles (Cowboys On SI)",
+     "u": "https://www.si.com/nfl/cowboys/onsi/cowboys-cant-catch-break-with-week-7-inactives-vs-eagles"
+    },
+    {
+     "t": "Eagles vs. Cowboys: Tanner McKee starts as Eagles try to end a four-game skid (Northeast Times)",
+     "u": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/"
     },
     {
      "t": "Cowboys-Eagles final injury update has 7 ruled out (Cowboys Wire)",
      "u": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html"
     },
     {
-     "t": "Jalen Hurts out for season after blood clots (ABC30)",
-     "u": "https://abc30.com/post/jalen-hurts-season-blood-clots-discovered-eagles-qbs-lungs-nfl-network-espn-say/19955107/"
-    },
-    {
      "t": "Sirianni sticking with Mannion as play-caller (NBC Sports Philadelphia)",
      "u": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/nick-sirianni-eagles-sticking-with-sean-mannion-as-play-caller/759833/"
     }
    ],
-   "summary": "Two 2-4 NFC East teams meet on Monday night. Tanner McKee makes his second start for an Eagles team on a four-game skid, its first since 2020, without Jalen Hurts, DeVonta Smith and Dontayvion Wicks; Saquon Barkley is questionable. Dallas has lost two straight but expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
+   "summary": "Two 2-4 NFC East teams meet on Monday night. Tanner McKee starts again for an Eagles team on a four-game skid without Jalen Hurts, DeVonta Smith and Dontayvion Wicks, but Saquon Barkley and G Landon Dickerson (off IR) are active. Dallas, trying to avoid a third straight loss, expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
   },
   "nfl_2026_07_DEN_ARI": {
    "at": "2026-10-25T16:09:05Z",
@@ -3932,8 +3870,8 @@
   }
  },
  "meta": {
-  "at": "2026-10-26T16:20:00Z",
-  "games": 11,
-  "note": "MNF DAL@PHI refreshed, CAR@GB added (Young benched in Wk7), 9 NBA games for Oct 26; no EPL due."
+  "at": "2026-10-26T23:09:00Z",
+  "games": 1,
+  "note": "MNF DAL@PHI refreshed with inactives (Barkley, Dickerson active); nothing else due."
  }
 }
