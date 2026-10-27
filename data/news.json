@@ -843,110 +843,6 @@
    ],
    "summary": "Unbeaten leaders City visit Villa in Saturday's early kickoff, both after European games this week. Maresca says Haaland is the only one of his doubts fully available; O'Reilly, Nunes and Kovacic depended on Friday training and Semenyo is out until December. Villa are short at full-back and Manzambi faces a late fitness test."
   },
-  "nba_401909088": {
-   "at": "2026-10-20T16:05:28Z",
-   "game": "BOS @ DET",
-   "items": [
-    {
-     "at": "2026-10-18T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.cbssports.com/nba/news/pistons-host-new-look-celtics-in-marquee-season-opener/",
-     "team": "BOS",
-     "text": "Jayson Tatum fully recovered from his Achilles tear and expected to play with no restriction mentioned.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/boston-celtics/celtics-jayson-tatum-update-season-opener/",
-     "team": "BOS",
-     "text": "Devin Carter (mononucleosis) out for the opener.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/detroit-pistons/injury-report-season-opener-vs-celtics/",
-     "team": "DET",
-     "text": "Taurean Prince questionable for personal reasons; two-way players Isaac Jones and Ugonna Onyenso out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Celtics Get Encouraging Jayson Tatum Update Ahead of Season Opener",
-     "u": "https://heavy.com/sports/nba/boston-celtics/celtics-jayson-tatum-update-season-opener/"
-    },
-    {
-     "t": "Detroit Pistons Announce Injury Report for Season Opener vs. Boston Celtics",
-     "u": "https://heavy.com/sports/nba/detroit-pistons/injury-report-season-opener-vs-celtics/"
-    },
-    {
-     "t": "Pistons host new-look Celtics in marquee season opener",
-     "u": "https://www.cbssports.com/nba/news/pistons-host-new-look-celtics-in-marquee-season-opener/"
-    }
-   ],
-   "summary": "Season opener in Detroit. Jayson Tatum is back and described as fully healthy after his Achilles tear, leading a reshaped Celtics side with Paul George and Mitchell Robinson in their debuts. The Pistons are healthy around Cade Cunningham, with only Taurean Prince doubtful for personal reasons."
-  },
-  "nba_401909089": {
-   "at": "2026-10-20T16:05:28Z",
-   "game": "PHI @ NY",
-   "items": [
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.inquirer.com/sixers/sixers-lebron-james-nick-nurse-jaylen-brown-tyrese-maxey-joel-embiid-20261019.html",
-     "team": "PHI",
-     "text": "Anfernee Simons (hamstring) uncertain; Dean Wade (ankle) has missed practice.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.inquirer.com/sixers/sixers-lebron-james-nick-nurse-jaylen-brown-tyrese-maxey-joel-embiid-20261019.html",
-     "team": "PHI",
-     "text": "Nick Nurse: Joel Embiid is ready to go; the starting five is healthy.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Sixers admit 'it's hard to know' what to expect from their big five entering season opener",
-     "u": "https://www.inquirer.com/sixers/sixers-lebron-james-nick-nurse-jaylen-brown-tyrese-maxey-joel-embiid-20261019.html"
-    }
-   ],
-   "summary": "Opening night at the Garden as the defending champion Knicks get their rings. The Sixers debut a new big five with LeBron James and Jaylen Brown beside Maxey, Embiid and Edgecombe; Nick Nurse says Embiid is ready to go. Anfernee Simons (hamstring) and Dean Wade (ankle) are in doubt."
-  },
-  "nba_401909090": {
-   "at": "2026-10-20T16:05:28Z",
-   "game": "OKC @ SA",
-   "items": [
-    {
-     "at": "2026-10-20T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.sportingnews.com/us/nba/san-antonio-spurs/news/why-tobias-harris-isnt-playing-spurs-thunder-opening-night/d9b091e3c91a12ffe683b8a7",
-     "team": "SA",
-     "text": "Tobias Harris (left calf strain) out; Mitch Johnson says he is still ramping up.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Why Tobias Harris isn't playing for Spurs vs. Thunder on Opening Night",
-     "u": "https://www.sportingnews.com/us/nba/san-antonio-spurs/news/why-tobias-harris-isnt-playing-spurs-thunder-opening-night/d9b091e3c91a12ffe683b8a7"
-    }
-   ],
-   "summary": "A rematch of last spring's West finals opens the season in San Antonio. The Spurs are without Tobias Harris (calf), so Mitch Johnson may go small with Fox, Harper and Castle together. Oklahoma City arrives with its core around Shai Gilgeous-Alexander intact."
-  },
   "nba_401909091": {
    "at": "2026-10-21T16:10:10Z",
    "game": "MIN @ MIA",
@@ -2780,6 +2676,145 @@
    ],
    "summary": "Golden State is thin up front without Jimmy Butler, Kristaps Porzingis and Moses Moody, all out into December or January. Denver has Jokic and Murray, with Cameron Johnson day-to-day with an ankle injury."
   },
+  "nba_401909877": {
+   "at": "2026-10-27T16:18:21Z",
+   "game": "BKN @ BOS",
+   "items": [
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbssports.com/nba/news/celtics-host-winless-nets-with-jayson-tatums-status-in-doubt/",
+     "team": "BOS",
+     "text": "Jayson Tatum's status unclear on the back-to-back after leaving Monday's win late; no designation, decision near tip-off.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Celtics host winless Nets with Jayson Tatum's status in doubt (CBS Sports / FLM)",
+     "u": "https://www.cbssports.com/nba/news/celtics-host-winless-nets-with-jayson-tatums-status-in-doubt/"
+    },
+    {
+     "t": "Celtics Get Jayson Tatum Update Ahead of Nets Game (Heavy)",
+     "u": "https://heavy.com/sports/nba/boston-celtics/jayson-tatum-nets-status-decision-celtics/"
+    }
+   ],
+   "summary": "Winless Brooklyn visits Boston on the second night of a back-to-back for the Celtics. Jayson Tatum, averaging 24 points after missing most of last season with a ruptured Achilles, left Monday's 134-99 win over Chicago late and Joe Mazzulla would not commit to him playing; no official designation yet."
+  },
+  "nba_401909878": {
+   "at": "2026-10-27T16:18:21Z",
+   "game": "DET @ NY",
+   "items": [
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": 0,
+     "src": "https://detroitsportsnation.com/pistons-injury-report-jalen-duren-out-knicks/gkaplan/detroit-pistons/10/27/2026/502850/",
+     "team": "DET",
+     "text": "C Jalen Duren out with a right hamstring strain; to be re-evaluated in two weeks. Paul Reed had 19 and 11 in his place.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/detroit-pistons/positive-injury-update-thompson-joe-jalen-duren-news-knicks-game/",
+     "team": "DET",
+     "text": "Ausar Thompson (right ankle) and Isaiah Joe (right hip) questionable; both were at shootaround.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/knicks-major-break-two-eastern-181428236.html",
+     "team": "NY",
+     "text": "Knicks are 0-3 under Mike Brown, who has voiced frustration with the team's physicality.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Pistons Injury Report Reveals Troubling News Ahead of Knicks Game (Detroit Sports Nation)",
+     "u": "https://detroitsportsnation.com/pistons-injury-report-jalen-duren-out-knicks/gkaplan/detroit-pistons/10/27/2026/502850/"
+    },
+    {
+     "t": "Detroit Pistons Get Positive Injury Update After Jalen Duren News For Knicks Game (Heavy)",
+     "u": "https://heavy.com/sports/nba/detroit-pistons/positive-injury-update-thompson-joe-jalen-duren-news-knicks-game/"
+    },
+    {
+     "t": "Knicks Get Major Break as Two Eastern Conference Stars Sidelined (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/knicks-major-break-two-eastern-181428236.html"
+    }
+   ],
+   "summary": "Unbeaten Detroit (3-0) finishes its road trip at Madison Square Garden against a Knicks team still looking for its first win (0-3). The Pistons are without C Jalen Duren (hamstring, re-evaluated in two weeks); Ausar Thompson (ankle) and Isaiah Joe (hip) are questionable but took part in shootaround."
+  },
+  "nba_401909879": {
+   "at": "2026-10-27T16:18:21Z",
+   "game": "SAC @ SA",
+   "items": [
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/spurs-vs-kings-watch-game-180303464.html",
+     "team": "SAC",
+     "text": "Keegan Murray (left ankle), Maxime Raynaud (right knee sprain) and Dylan Cardwell (left calf) out; Ben Simmons still out after Achilles surgery.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/spurs-vs-kings-watch-game-180303464.html",
+     "team": "SA",
+     "text": "Tobias Harris (left calf strain) and Jayden Quaintance (knee surgery) out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Spurs vs. Kings: How to watch the game, who's starting, who's out (Yahoo Sports / Express-News)",
+     "u": "https://sports.yahoo.com/articles/spurs-vs-kings-watch-game-180303464.html"
+    },
+    {
+     "t": "Spurs embrace goal of progress as they host winless Kings (Field Level Media)",
+     "u": "https://fieldlevelmedia.com/nba/spurs-embrace-goal-of-progress-as-they-host-winless-kings/"
+    }
+   ],
+   "summary": "Winless Sacramento visits San Antonio, which won 122-106 at Dallas on Saturday behind 23 points from Victor Wembanyama. The Kings are short up front without Keegan Murray (ankle), Maxime Raynaud (knee) and Dylan Cardwell (calf); the Spurs miss Tobias Harris (calf)."
+  },
+  "nba_401909880": {
+   "at": "2026-10-27T16:18:21Z",
+   "game": "POR @ LAL",
+   "items": [
+    {
+     "at": "2026-10-27T01:42:00Z",
+     "impact": 0,
+     "src": "https://www.cbssports.com/nba/news/luka-doncic-leads-undefeated-lakers-against-trail-blazers/",
+     "team": "",
+     "text": "Doncic is averaging 34.3 points through three games; Portland coach Micah Nori calls depth the Blazers' strength.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Luka Doncic leads undefeated Lakers against Trail Blazers (CBS Sports / FLM)",
+     "u": "https://www.cbssports.com/nba/news/luka-doncic-leads-undefeated-lakers-against-trail-blazers/"
+    },
+    {
+     "t": "Luka Doncic, unbeaten Lakers host improved Trail Blazers (Yardbarker)",
+     "u": "https://www.yardbarker.com/nba/articles/luka_doncic_unbeaten_lakers_host_improved_trail_blazers/s1_17045_44478034"
+    }
+   ],
+   "summary": "Two unbeaten teams meet in Los Angeles: the Lakers come off a 132-123 comeback win at Utah in which Luka Doncic scored 52, and Portland (2-0) has won with depth, seven players in double figures against Sacramento. No new injuries reported for either side beyond the ESPN list."
+  },
   "nfl_2026_07_CIN_BAL": {
    "at": "2026-10-25T16:05:06Z",
    "game": "CIN @ BAL",
@@ -3794,24 +3829,24 @@
    "summary": "The 1-5 Buccaneers visit NFC South leader Carolina with Baker Mayfield back: he is listed questionable with his thumb, but Todd Bowles says he will play after three missed games. Egbuka, Goedeke and Winfield are ruled out. Carolina is without edge rushers Jaelan Phillips and Thomas Incoom."
   },
   "nfl_2026_08_CAR_GB": {
-   "at": "2026-10-26T16:08:08Z",
+   "at": "2026-10-27T16:18:21Z",
    "game": "CAR @ GB",
    "items": [
     {
-     "at": "2026-10-25T12:00:00Z",
+     "at": "2026-10-26T12:00:00Z",
      "impact": 0,
-     "src": "https://atozsports.com/nfl/carolina-panthers-news/panthers-winners-losers-week-7-buccaneers-dave-canales-ejiro-evero-bryce-young/",
+     "src": "https://athlonsports.com/nfl/carolina-panthers/4-overreactions-to-panthers-loss-to-bucs-in-week-7-including-benching-bryce-young",
      "team": "CAR",
-     "text": "Bryce Young was benched for Kenny Pickett during the Week 7 loss; no Week 8 starter announced yet.",
+     "text": "Bryce Young was pulled late in the Week 7 loss for Kenny Pickett; no change of starter announced for Thursday.",
      "total": 0,
      "type": "other"
     },
     {
      "at": "2026-10-26T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/carolina-panthers-tough-injury-loss-030308403.html",
+     "src": "https://athlonsports.com/nfl/carolina-panthers/4-overreactions-to-panthers-loss-to-bucs-in-week-7-including-benching-bryce-young",
      "team": "CAR",
-     "text": "RT Taylor Moton fractured his fibula and will be out a while; rookie Monroe Freeling steps in.",
+     "text": "RT Taylor Moton fractured his fibula; rookie Monroe Freeling steps in. CBs Jaycee Horn and Mike Jackson remain out.",
      "total": 0,
      "type": "injury"
     },
@@ -3829,7 +3864,7 @@
      "impact": 0,
      "src": "https://www.espn.com/nfl/recap?gameId=401873020",
      "team": "GB",
-     "text": "C Sean Rhyan (ankle) and backup C Jacob Monk (quad) hurt at Detroit; John Williams finished at center.",
+     "text": "C Sean Rhyan (ankle) out and backup C Jacob Monk (quad) on IR; John Williams finished at center at Detroit.",
      "total": 0,
      "type": "injury"
     },
@@ -3838,7 +3873,7 @@
      "impact": 0,
      "src": "https://wisportsheroics.com/packers-zaire-frankling-fracture-leg-news/",
      "team": "GB",
-     "text": "LB Zaire Franklin has a hairline leg fracture; team not expected to put him on IR.",
+     "text": "LB Zaire Franklin has a hairline leg fracture and is doubtful for Thursday.",
      "total": 0,
      "type": "injury"
     }
@@ -3846,16 +3881,16 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "4 Overreactions to Panthers' Loss to Bucs in Week 7 (Athlon Sports)",
+     "u": "https://athlonsports.com/nfl/carolina-panthers/4-overreactions-to-panthers-loss-to-bucs-in-week-7-including-benching-bryce-young"
+    },
+    {
      "t": "Carolina Panthers have tough injury update after loss (Yahoo Sports)",
      "u": "https://sports.yahoo.com/articles/carolina-panthers-tough-injury-loss-030308403.html"
     },
     {
      "t": "Panthers coach put on notice after Week 7 loss (Heavy)",
      "u": "https://heavy.com/sports/nfl/carolina-panthers/ejiro-evero-on-notice/"
-    },
-    {
-     "t": "2 winners and 7 losers from the Panthers loss to the Buccaneers (A to Z Sports)",
-     "u": "https://atozsports.com/nfl/carolina-panthers-news/panthers-winners-losers-week-7-buccaneers-dave-canales-ejiro-evero-bryce-young/"
     },
     {
      "t": "Lions 20-17 Packers game recap (ESPN)",
@@ -3866,12 +3901,12 @@
      "u": "https://wisportsheroics.com/packers-zaire-frankling-fracture-leg-news/"
     }
    ],
-   "summary": "Carolina (3-3) comes off a 43-13 home loss to Tampa Bay in which Bryce Young was pulled for Kenny Pickett and RT Taylor Moton fractured his fibula. Green Bay lost 20-17 at Detroit on a last-second field goal and may be thin at center after Sean Rhyan and Jacob Monk were hurt; LB Zaire Franklin has a hairline leg fracture."
+   "summary": "Carolina (3-3) travels for Thursday night after a 43-13 home loss to Tampa Bay in which Bryce Young was pulled late for Kenny Pickett and RT Taylor Moton fractured his fibula. No starter change has been announced. Green Bay lost 20-17 at Detroit and is thin at center with Sean Rhyan and Jacob Monk hurt; LB Zaire Franklin has a hairline leg fracture."
   }
  },
  "meta": {
-  "at": "2026-10-26T23:09:00Z",
-  "games": 1,
-  "note": "MNF DAL@PHI refreshed with inactives (Barkley, Dickerson active); nothing else due."
+  "at": "2026-10-27T16:18:21Z",
+  "games": 5,
+  "note": "1 NFL, 4 NBA researched; no EPL due"
  }
 }
