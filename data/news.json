@@ -1,5 +1,59 @@
 {
  "docs": {
+  "epl_401878761": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "Tottenham v Crystal Palace",
+   "items": [
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://starting11.com/fixtures/tottenham-vs-crystal-palace",
+     "team": "Tottenham",
+     "text": "Pedro Porro (muscle) a doubt; Adarabioyo and Robertson also listed doubtful",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": 0,
+     "src": "https://starting11.com/fixtures/tottenham-vs-crystal-palace",
+     "team": "Tottenham",
+     "text": "Reported out: Udogie, Simons, Bergvall, Odobert (knee), Savio (muscle), Mudryk (ankle); how long each has been out is unverified",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": -0.12,
+     "src": "https://starting11.com/fixtures/tottenham-vs-crystal-palace",
+     "team": "Crystal Palace",
+     "text": "Goalkeeper Dean Henderson (foot) and Ismaila Sarr (groin) doubtful; Larsen and Timber also doubts",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://futboltotal.futbol/partido/fulham-vs-crystal-palace-carabao-cup-2026-10-28",
+     "team": "Crystal Palace",
+     "text": "Played Fulham away in the Carabao Cup last 16 on Wed 28 Oct, three days before this game",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Tottenham vs Crystal Palace - team news and predicted XIs (Starting11, updated 27 Oct 2026)",
+     "u": "https://starting11.com/fixtures/tottenham-vs-crystal-palace"
+    },
+    {
+     "t": "Fulham vs Crystal Palace, Carabao Cup 2026-10-28",
+     "u": "https://futboltotal.futbol/partido/fulham-vs-crystal-palace-carabao-cup-2026-10-28"
+    }
+   ],
+   "summary": "Tottenham host Crystal Palace with a long injury list: Udogie, Simons, Bergvall, Odobert, Savio and Mudryk are reported out, and Porro is a doubt. Palace played Fulham in the Carabao Cup last 16 on Wednesday, three days before this game. Their own doubts include goalkeeper Henderson and forward Sarr."
+  },
   "epl_401878763": {
    "at": "2026-10-28T16:12:02Z",
    "game": "Hull City v Ipswich",
@@ -749,6 +803,60 @@
     }
    ],
    "summary": "Brentford drew 1-1 at Hull and played a League Cup tie at Sunderland on Wednesday; Mikkel Damsgaard is fit. Forest, beaten at home by Coventry, are still without striker Igor Jesus."
+  },
+  "epl_401879250": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "Aston Villa v Fulham",
+   "items": [
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://starting11.com/fixtures/aston-villa-vs-fulham",
+     "team": "Aston Villa",
+     "text": "Reported out: Wan-Bissaka, Ruggeri (muscle), Onana (knee), Manzambi (calf), Cisse (hip); how long each has been out is unverified",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": -0.03,
+     "src": "https://starting11.com/fixtures/aston-villa-vs-fulham",
+     "team": "Aston Villa",
+     "text": "Ian Maatsen (ankle) doubtful; Hemmings (knee) also a doubt",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": -0.03,
+     "src": "https://starting11.com/fixtures/aston-villa-vs-fulham",
+     "team": "Fulham",
+     "text": "Larsson (groin) doubtful",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://futboltotal.futbol/partido/fulham-vs-crystal-palace-carabao-cup-2026-10-28",
+     "team": "Fulham",
+     "text": "Hosted Crystal Palace in the Carabao Cup last 16 on Wed 28 Oct, three days before this game",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Aston Villa vs Fulham - team news and predicted XIs (Starting11, updated 27 Oct 2026)",
+     "u": "https://starting11.com/fixtures/aston-villa-vs-fulham"
+    },
+    {
+     "t": "Fulham vs Crystal Palace, Carabao Cup 2026-10-28",
+     "u": "https://futboltotal.futbol/partido/fulham-vs-crystal-palace-carabao-cup-2026-10-28"
+    }
+   ],
+   "summary": "Aston Villa host Fulham without Wan-Bissaka, Ruggeri, Onana, Manzambi and Cisse, who are reported out. Maatsen is a doubt. Fulham played Crystal Palace in the Carabao Cup last 16 on Wednesday, and Larsson is a doubt with a groin problem."
   },
   "epl_401879251": {
    "at": "2026-10-28T16:12:02Z",
@@ -4208,25 +4316,207 @@
    ],
    "summary": "The 1-5 Buccaneers visit NFC South leader Carolina with Baker Mayfield back: he is listed questionable with his thumb, but Todd Bowles says he will play after three missed games. Egbuka, Goedeke and Winfield are ruled out. Carolina is without edge rushers Jaelan Phillips and Thomas Incoom."
   },
-  "nfl_2026_08_CAR_GB": {
-   "at": "2026-10-28T16:12:02Z",
-   "game": "CAR @ GB",
+  "nfl_2026_08_ARI_DAL": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "ARI @ DAL",
    "items": [
     {
-     "at": "2026-10-27T12:00:00Z",
+     "at": "2026-10-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.packers.com/news/packers-panthers-injury-report-oct-27-2026",
-     "team": "CAR",
-     "text": "Bryce Young (knee) was full in practice Mon and Tue after being pulled for Kenny Pickett in Week 7; no change of starter announced.",
+     "src": "https://heavy.com/sports/nfl/arizona-cardinals/mike-lafleur-call-cardinals-starting-quarterback/",
+     "team": "ARI",
+     "text": "Mike LaFleur confirmed Jacoby Brissett stays the starter for Week 8 despite calls to play rookie Carson Beck.",
      "total": 0,
      "type": "other"
     },
     {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nfl/arizona-cardinals/cardinals-reveal-jeremiyah-love-update-cowboys/",
+     "team": "ARI",
+     "text": "RB Jeremiyah Love (ankle), out the last two games, was set to return to practice Wednesday; game status undecided.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.dallascowboys.com/news/updates-october-2026",
+     "team": "DAL",
+     "text": "OLB Marist Liufau and S P.J. Locke, designated to return from IR, could be activated for Arizona; two roster spots needed.",
+     "total": 0,
+     "type": "return"
+    },
+    {
      "at": "2026-10-27T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nfl/packers/onsi/packers-panthers-tuesday-injury-report-time-near-for-micah-parsons",
+     "src": "https://www.dallascowboys.com/news/updates-october-2026",
+     "team": "DAL",
+     "text": "Javonte Williams ran for a career-high 155 yards and Prescott threw 3 TDs in the 38-21 MNF win over the Eagles.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Mike LaFleur Makes Decisive Call on Cardinals' Week 8 Starting Quarterback (Heavy)",
+     "u": "https://heavy.com/sports/nfl/arizona-cardinals/mike-lafleur-call-cardinals-starting-quarterback/"
+    },
+    {
+     "t": "Cardinals Coach Reveals Key Jeremiyah Love Update Ahead of Cowboys Game (Heavy)",
+     "u": "https://heavy.com/sports/nfl/arizona-cardinals/cardinals-reveal-jeremiyah-love-update-cowboys/"
+    },
+    {
+     "t": "Jeremiyah Love (ankle) to practice Wednesday (NBC Sports)",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-26/jeremiyah-love-ankle-to-practice-wednesday"
+    },
+    {
+     "t": "Updates: Schotty explains his extra 'motivation' (dallascowboys.com)",
+     "u": "https://www.dallascowboys.com/news/updates-october-2026"
+    }
+   ],
+   "summary": "Arizona (2-5) visits Dallas after a 30-16 loss to Denver; Mike LaFleur is sticking with Jacoby Brissett at quarterback over rookie Carson Beck. RB Jeremiyah Love was set to return to practice after missing two games. Dallas comes off a 38-21 Monday night win over the Eagles and may activate OLB Marist Liufau and S P.J. Locke from IR."
+  },
+  "nfl_2026_08_ATL_TB": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "ATL @ TB",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://africa.espn.com/nfl/team/injuries/_/name/atl/2032",
+     "team": "ATL",
+     "text": "RB Brian Robinson Jr. (hamstring) did not practice Wednesday after being ruled out in Week 7.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/injuries/league/2026/reg7",
+     "team": "TB",
+     "text": "QB Baker Mayfield was listed questionable with a thumb injury on the Week 7 report; watch his practice status.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/injuries/league/2026/reg7",
+     "team": "TB",
+     "text": "WR Emeka Egbuka (concussion, foot) and T Luke Goedeke (calf) were ruled out for Week 7.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Atlanta Falcons Injuries - ESPN",
+     "u": "https://africa.espn.com/nfl/team/injuries/_/name/atl/2032"
+    },
+    {
+     "t": "Official NFL Injury Report - Week 7 of the 2026 Season | NFL.com",
+     "u": "https://www.nfl.com/injuries/league/2026/reg7"
+    }
+   ],
+   "summary": "Divisional meeting with both sides carrying injury questions. Atlanta's lead back Brian Robinson Jr. sat out Wednesday practice with a hamstring issue after missing Week 7. Tampa Bay listed Baker Mayfield with a thumb injury last week and played Week 7 without WR Emeka Egbuka and RT Luke Goedeke. No QB change found for either team."
+  },
+  "nfl_2026_08_BAL_BUF": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "BAL @ BUF",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-28/lamar-jackson-ankle-logs-full-practice-wednesday",
+     "team": "BAL",
+     "text": "Lamar Jackson (ankle) logged a full practice Wednesday after missing three straight games; Tyler Huntley starts if he can't go.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/bills-vs-ravens-injury-buffalo-184729406.html",
+     "team": "BAL",
+     "text": "Rookie RG Vega Ioane (knee) left Week 7 early; OLB Tavius Robinson out for the season; S Jaylinn Hawkins (knee) missed Week 7.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.baltimoreravens.com/news/jesse-minter-discusses-ravens-leadership-lamar-jackson-status-to-be-updated-wednesday-for-week-8-buffalo-bills",
+     "team": "BAL",
+     "text": "Minter called for more leadership after the collapse vs CIN; run game struggling (Henry 2.6 ypc) amid constant O-line changes.",
+     "total": 0,
+     "type": "drama"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/bills-vs-ravens-injury-buffalo-184729406.html",
+     "team": "BUF",
+     "text": "S C.J. Gardner-Johnson suspended one game without pay for spitting at a Raiders player; misses Baltimore game.",
+     "total": 0,
+     "type": "suspension"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nfl/buffalo-bills/injury-updates-ed-oliver-dj-moore/",
+     "team": "BUF",
+     "text": "DT Ed Oliver (knee) and WR D.J. Moore (shoulder) back at practice after two missed games; Moore still in a non-contact jersey.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Lamar Jackson (ankle) logs full practice Wednesday (NBC Sports)",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-28/lamar-jackson-ankle-logs-full-practice-wednesday"
+    },
+    {
+     "t": "Lamar Jackson Wednesday Injury Updates Send Bills Mixed Signals on QB's Week 8 Status (Bills On SI)",
+     "u": "https://www.si.com/nfl/bills/onsi/week-8-lamar-jackson-wednesday-injury-updates-send-bills-mixed-signals"
+    },
+    {
+     "t": "Jesse Minter Calls for More Team Leadership in Tough Moments (baltimoreravens.com)",
+     "u": "https://www.baltimoreravens.com/news/jesse-minter-discusses-ravens-leadership-lamar-jackson-status-to-be-updated-wednesday-for-week-8-buffalo-bills"
+    },
+    {
+     "t": "Bills vs. Ravens injury update: Buffalo gets healthier, Lamar Jackson still sidelined (Yahoo Sports / Democrat and Chronicle)",
+     "u": "https://sports.yahoo.com/articles/bills-vs-ravens-injury-buffalo-184729406.html"
+    },
+    {
+     "t": "Bills Give Injury Updates on Ed Oliver & D.J. Moore Before Ravens Game (Heavy)",
+     "u": "https://heavy.com/sports/nfl/buffalo-bills/injury-updates-ed-oliver-dj-moore/"
+    }
+   ],
+   "summary": "Baltimore (4-3) comes off a loss at Cincinnati in which it allowed 35 unanswered points. Lamar Jackson, out the last three games with a high ankle sprain, was reported as a full practice participant Wednesday. Buffalo (5-1) is without suspended safety C.J. Gardner-Johnson, while Ed Oliver and D.J. Moore returned to practice after two missed games."
+  },
+  "nfl_2026_08_CAR_GB": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "CAR @ GB",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.packers.com/news/packers-list-four-questionable-rule-out-three-vs-panthers-week-8-injury-report",
      "team": "CAR",
-     "text": "Both starting tackles, Taylor Moton and Ikem Ekwonu, are on IR; Rasheed Walker fills in. Phillips, Lewis and CB Evans did not practice.",
+     "text": "Bryce Young (knee) was full in practice all week after being pulled for Kenny Pickett in Week 7 and carries no game designation; no starter change.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/packers/onsi/packers-panthers-final-injury-report-is-it-finally-kevin-zeitler-s-time",
+     "team": "CAR",
+     "text": "Ruled out: OLB Jaelan Phillips, LG Damien Lewis, CB Akayleb Evans, OL Simpkins. Both starting tackles Moton and Ekwonu are on IR.",
      "total": 0,
      "type": "injury"
     },
@@ -4249,20 +4539,20 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-27T12:00:00Z",
+     "at": "2026-10-28T12:00:00Z",
      "impact": 0,
-     "src": "https://www.packers.com/news/packers-panthers-injury-report-oct-27-2026",
+     "src": "https://www.si.com/nfl/packers/onsi/packers-panthers-final-injury-report-is-it-finally-kevin-zeitler-s-time",
      "team": "GB",
-     "text": "C Sean Rhyan (high ankle) expected out several weeks; starting center undecided. G Travis Glover and WR Matthew Golden did not practice.",
+     "text": "C Sean Rhyan and RG Travis Glover ruled out; John Williams likely at center. WR Golden, DTs Wyatt and Campbell, edge Cox questionable.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-10-27T12:00:00Z",
+     "at": "2026-10-28T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nfl/packers/onsi/packers-panthers-tuesday-injury-report-time-near-for-micah-parsons",
+     "src": "https://www.si.com/nfl/packers/onsi/packers-panthers-final-injury-report-is-it-finally-kevin-zeitler-s-time",
      "team": "GB",
-     "text": "Veteran G Kevin Zeitler, used only on special teams so far, could make his offensive debut if Glover can't go.",
+     "text": "Veteran G Kevin Zeitler (213 career starts) could make his first Packers start at right guard; Mekhi Becton is another option.",
      "total": 0,
      "type": "other"
     }
@@ -4270,32 +4560,386 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Packers-Panthers Injury Report, Oct. 27, 2026 (packers.com)",
-     "u": "https://www.packers.com/news/packers-panthers-injury-report-oct-27-2026"
+     "t": "Packers list four questionable, rule out three vs. Panthers (packers.com)",
+     "u": "https://www.packers.com/news/packers-list-four-questionable-rule-out-three-vs-panthers-week-8-injury-report"
+    },
+    {
+     "t": "Packers-Panthers Final Injury Report: Is It Finally Kevin Zeitler's Time? (Packers On SI)",
+     "u": "https://www.si.com/nfl/packers/onsi/packers-panthers-final-injury-report-is-it-finally-kevin-zeitler-s-time"
     },
     {
      "t": "Packers-Panthers Tuesday Injury Report: Time Near for Micah Parsons, Kevin Zeitler? (Packers On SI)",
      "u": "https://www.si.com/nfl/packers/onsi/packers-panthers-tuesday-injury-report-time-near-for-micah-parsons"
     },
     {
-     "t": "Young (knee) listed as full participant Monday (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-26/young-knee-listed-as-full-participant-monday"
+     "t": "Packers-Panthers Injury Report, Oct. 27, 2026 (packers.com)",
+     "u": "https://www.packers.com/news/packers-panthers-injury-report-oct-27-2026"
     },
     {
-     "t": "4 Overreactions to Panthers' Loss to Bucs in Week 7 (Athlon Sports)",
-     "u": "https://athlonsports.com/nfl/carolina-panthers/4-overreactions-to-panthers-loss-to-bucs-in-week-7-including-benching-bryce-young"
+     "t": "Panthers estimate four starters out of practice, including OLB Jaelan Phillips (PFT)",
+     "u": "https://nbcsports.com/nfl/profootballtalk/rumor-mill/news/panthers-estimate-four-starters-out-of-practice-including-olb-jaelan-phillips"
     },
     {
      "t": "Panthers coach put on notice after Week 7 loss (Heavy)",
      "u": "https://heavy.com/sports/nfl/carolina-panthers/ejiro-evero-on-notice/"
     }
    ],
-   "summary": "Carolina (3-3) visits Green Bay on a short week after a 43-13 loss to Tampa Bay in which Bryce Young was pulled late; Young (knee) has practiced fully and no starter change has been announced. Both teams are thin up front: Carolina has both starting tackles on IR, Green Bay is without center Sean Rhyan, and Micah Parsons was not activated this week."
+   "summary": "Carolina (3-3) visits Green Bay on a short week after a 43-13 loss to Tampa Bay in which Bryce Young was pulled late; Young was full in practice all week and has no game designation. Carolina rules out Phillips, Lewis and Evans with both starting tackles on IR. Green Bay is without C Sean Rhyan, G Travis Glover and LB Zaire Franklin, and Micah Parsons was not activated."
+  },
+  "nfl_2026_08_CLE_PIT": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "CLE @ PIT",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://bvmsports.com/2026/10/28/steelers-browns-week-8-injury-report-latest-updates/",
+     "team": "CLE",
+     "text": "Jared Verse, Tytus Howard and Elgton Jenkins did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://bvmsports.com/2026/10/28/steelers-browns-week-8-injury-report-latest-updates/",
+     "team": "PIT",
+     "text": "CB Jalen Ramsey, Brandin Echols and Doneiko Slaughter did not practice Wednesday; Alex Highsmith was limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.baltimoreravens.com/news/browns-steelers-play-for-division-lead-week-8-jaylen-warren-huge-season-deshaun-watson-another-clutch-drive-against-titan-jamarr-chase-fiery-halftime-speech",
+     "team": "PIT",
+     "text": "Mike McCarthy on avoiding a sweep after the Week 3 loss: \"We need to beat them.\"",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Steelers and Browns to Square Off for Division Lead in Week 8",
+     "u": "https://www.baltimoreravens.com/news/browns-steelers-play-for-division-lead-week-8-jaylen-warren-huge-season-deshaun-watson-another-clutch-drive-against-titan-jamarr-chase-fiery-halftime-speech"
+    },
+    {
+     "t": "Browns HC Todd Monken noncommittal on QB plan for Week 8 vs. the Steelers",
+     "u": "https://sports.yahoo.com/articles/browns-hc-todd-monken-noncommittal-174258945.html"
+    },
+    {
+     "t": "Steelers-Browns Week 8 Injury Report: Latest Updates",
+     "u": "https://bvmsports.com/2026/10/28/steelers-browns-week-8-injury-report-latest-updates/"
+    }
+   ],
+   "summary": "Both teams are 5-2, and first place in the AFC North is at stake. Deshaun Watson starts for Cleveland after a 308-yard game, and every Browns win this season has come by four points or less. Pittsburgh has won three straight and wants to avoid a season sweep after losing 27-24 in Week 3."
+  },
+  "nfl_2026_08_IND_JAX": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "IND @ JAX",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/liam-coen-colts-traded-away-two-good-players-right-before-we-play-them-cant-deny-that",
+     "team": "IND",
+     "text": "Colts traded DT DeForest Buckner days before the game, per Jaguars HC Liam Coen.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-27T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-27/fire-sale-colts-send-quenton-nelson-to-sea",
+     "team": "IND",
+     "text": "G Quenton Nelson traded to Seattle for 2027 3rd- and 2028 5th-round picks.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-20T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/colts-trade-quenton-nelson-days-183548410.html",
+     "team": "IND",
+     "text": "Colts fired GM Chris Ballard about a week earlier; assistant GM Ed Dodds now runs personnel as the team rebuilds.",
+     "total": 0,
+     "type": "drama"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Liam Coen: Colts traded away two good players right before we play them, can't deny that",
+     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/liam-coen-colts-traded-away-two-good-players-right-before-we-play-them-cant-deny-that"
+    },
+    {
+     "t": "Fire sale? Colts send Quenton Nelson to SEA",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-10-27/fire-sale-colts-send-quenton-nelson-to-sea"
+    },
+    {
+     "t": "Colts trade Quenton Nelson days before facing Jacksonville Jaguars",
+     "u": "https://sports.yahoo.com/articles/colts-trade-quenton-nelson-days-183548410.html"
+    }
+   ],
+   "summary": "The 2-5 Colts are selling. They traded eight-time Pro Bowl guard Quenton Nelson to Seattle and also moved DeForest Buckner, about a week after firing GM Chris Ballard. Jaguars coach Liam Coen said the trades make his team's job 'a little easier.' Jacksonville, at 4-2, leads the AFC South going into the home game."
+  },
+  "nfl_2026_08_KC_DEN": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "KC @ DEN",
+   "items": [
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/injuries/league/2026/reg7",
+     "team": "KC",
+     "text": "WR Rashee Rice (hamstring, knee) and T Jaylon Moore (concussion) were ruled out for Week 7.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/injuries/league/2026/reg7",
+     "team": "DEN",
+     "text": "S Talanoa Hufanga and LB Jonah Elliss (both ankle) were out in Week 7; CB Pat Surtain II (ankle) was questionable.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Official NFL Injury Report - Week 7 of the 2026 Season | NFL.com",
+     "u": "https://www.nfl.com/injuries/league/2026/reg7"
+    }
+   ],
+   "summary": "AFC West rematch of the Monday night season opener. Kansas City played Week 7 without WR Rashee Rice (hamstring, knee) and T Jaylon Moore (concussion). Denver was missing S Talanoa Hufanga and LB Jonah Elliss with ankle injuries. Mahomes and Nix are expected to start."
+  },
+  "nfl_2026_08_LAC_LA": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "LAC @ LA",
+   "items": [
+    {
+     "at": "2026-10-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.kctv5.com/2026/10/14/ahead-chiefs-matchup-wounded-winless-chargers-share-lengthy-injury-report/",
+     "team": "LAC",
+     "text": "Injury-hit Chargers: Slater on IR after ankle surgery; Joe Alt (neck), Derwin James (hamstring) and several WRs were on the mid-October report.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://roundtable.io/sports/nfl/rams/news/rams-myles-garrett-week-8-practice-return-is-real-possibility",
+     "team": "LA",
+     "text": "McVay called opening Myles Garrett's (knee, IR) practice window a 'possibility'; a return this week is not confirmed.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/injuries/league/2026/reg7",
+     "team": "LA",
+     "text": "LB Nate Landman (concussion) was out in Week 7; CB Trent McDuffie (groin) was questionable.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Ahead of Chiefs matchup, wounded, winless Chargers share lengthy injury report",
+     "u": "https://www.kctv5.com/2026/10/14/ahead-chiefs-matchup-wounded-winless-chargers-share-lengthy-injury-report/"
+    },
+    {
+     "t": "Rams: Myles Garrett Week 8 practice return is real possibility",
+     "u": "https://roundtable.io/sports/nfl/rams/news/rams-myles-garrett-week-8-practice-return-is-real-possibility"
+    },
+    {
+     "t": "Official NFL Injury Report - Week 7 of the 2026 Season | NFL.com",
+     "u": "https://www.nfl.com/injuries/league/2026/reg7"
+    }
+   ],
+   "summary": "The Chargers come off their bye after a winless start through five weeks, with heavy injuries on the offensive line and at receiver; RT Rashawn Slater is on IR after ankle surgery. For the Rams, Sean McVay called opening Myles Garrett's 21-day practice window a possibility, but no return is confirmed."
+  },
+  "nfl_2026_08_LV_NYJ": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "LV @ NYJ",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0.15,
+     "src": "https://www.newyorkjets.com/news/stock-report-jets-rb-room-nearing-full-strength-mason-taylor-becoming-weapon-10-28-2026",
+     "team": "NYJ",
+     "text": "RB Breece Hall (quad, missed 4 games) was limited Wednesday and could return this week; Glenn says Allen's role won't change.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-10-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/raiders-klint-kubiak-sticking-with-kirk-cousins-as-starting-qb-for-week-8-game-vs-jets",
+     "team": "LV",
+     "text": "Raiders weighed a QB change after their 4th straight loss; Kubiak keeps Cousins as starter and says Mendoza won't play this week.",
+     "total": 0,
+     "type": "drama"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Raiders' Klint Kubiak sticking with Kirk Cousins as starting QB for Week 8 game vs. Jets",
+     "u": "https://www.nfl.com/news/raiders-klint-kubiak-sticking-with-kirk-cousins-as-starting-qb-for-week-8-game-vs-jets"
+    },
+    {
+     "t": "Stock Report: Jets RB room nearing full strength, Mason Taylor becoming weapon",
+     "u": "https://www.newyorkjets.com/news/stock-report-jets-rb-room-nearing-full-strength-mason-taylor-becoming-weapon-10-28-2026"
+    }
+   ],
+   "summary": "Las Vegas has lost four straight to fall to 3-4. Klint Kubiak is sticking with Kirk Cousins, who leads the NFL with 16 TD passes, and said No. 1 pick Fernando Mendoza will not play this week. The 2-5 Jets could get Breece Hall back after four missed games with a quad injury. Braelon Allen has played well in his place."
+  },
+  "nfl_2026_08_MIN_DET": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "MIN @ DET",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.vikings.com/news/lions-injury-report-week-8-2026-nfl-season",
+     "team": "DET",
+     "text": "Jahmyr Gibbs (shoulder) and Amon-Ra St. Brown (ankle) did not practice Wednesday; game status due Friday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.vikings.com/news/lions-injury-report-week-8-2026-nfl-season",
+     "team": "MIN",
+     "text": "RB Aaron Jones Sr. (knee, left Week 7) and LG Joe Huber (knee) did not practice Wednesday; RT Brian O'Neill was limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.vikings.com/news/lions-injury-report-week-8-2026-nfl-season",
+     "team": "MIN",
+     "text": "Huber has filled in at left guard for Donovan Jackson, who had surgery for a torn meniscus after Week 4.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Initial Vikings at Lions Injury Report for Week 8 of 2026",
+     "u": "https://www.vikings.com/news/lions-injury-report-week-8-2026-nfl-season"
+    }
+   ],
+   "summary": "Kyler Murray stays at quarterback for Minnesota, with no change reported. Both offenses opened the week banged up: Aaron Jones and guard Joe Huber missed Wednesday practice for the Vikings, and Detroit held out Jahmyr Gibbs and Amon-Ra St. Brown. Statuses will be set on Friday."
+  },
+  "nfl_2026_08_NE_MIA": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "NE @ MIA",
+   "items": [
+    {
+     "at": "2026-10-23T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/injuries/league/2026/reg7",
+     "team": "NE",
+     "text": "G Alijah Vera-Tucker (hamstring), C Ben Brown (knee) and CB Carlton Davis III (neck) were out in Week 7.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-09-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbssports.com/nfl/news/devon-achane-knee-injury-dolphins-chiefs-2026/",
+     "team": "MIA",
+     "text": "RB De'Von Achane is out for the season with a torn ACL suffered in Week 3; Ollie Gordon II took over as lead back.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Official NFL Injury Report - Week 7 of the 2026 Season | NFL.com",
+     "u": "https://www.nfl.com/injuries/league/2026/reg7"
+    },
+    {
+     "t": "De'Von Achane knee injury - CBS Sports",
+     "u": "https://www.cbssports.com/nfl/news/devon-achane-knee-injury-dolphins-chiefs-2026/"
+    }
+   ],
+   "summary": "Miami keeps going without De'Von Achane, out for the season with a torn ACL since Week 3, and Malik Willis remains the starter. New England played Week 7 without G Alijah Vera-Tucker, C Ben Brown and CB Carlton Davis III, with RT Morgan Moses questionable."
+  },
+  "nfl_2026_08_TEN_CIN": {
+   "at": "2026-10-28T23:08:27Z",
+   "game": "TEN @ CIN",
+   "items": [
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/two-huge-losses-us-joe-213112633.html",
+     "team": "CIN",
+     "text": "TEs Erick All (torn ACL) and Tanner Hudson (torn pectoral) are lost for the season; Burrow says TE work goes by committee, Jack Endries up.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/bengals/onsi/bengals-injury-report-ja-marr-chase-s-status-revealed-to-open-titans-practices-01m61bsz0b3m",
+     "team": "CIN",
+     "text": "WR Ja'Marr Chase did not practice Wednesday (rest/ankle), called precautionary; S Kyle Dugger (quad) projected to miss again.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.bengals.com/news/bengals-titans-week-8-2026-injury-report",
+     "team": "TEN",
+     "text": "WR Carnell Tate (shoulder), RB Tyjae Spears (knee), DL Franklin-Myers (groin) did not practice Wed; WR Calvin Ridley (hip) limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-28T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.bengals.com/news/bengals-titans-week-8-2026-injury-report",
+     "team": "TEN",
+     "text": "LB Dorian Mausi (foot) designated for return from the reserve list and was a full practice participant Wednesday.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 8 Injury Report: Bengals vs. Titans (bengals.com)",
+     "u": "https://www.bengals.com/news/bengals-titans-week-8-2026-injury-report"
+    },
+    {
+     "t": "Bengals Injury Report: Ja'Marr Chase's Status Revealed to Open Titans Practices (Bengals On SI)",
+     "u": "https://www.si.com/nfl/bengals/onsi/bengals-injury-report-ja-marr-chase-s-status-revealed-to-open-titans-practices-01m61bsz0b3m"
+    },
+    {
+     "t": "'Two huge losses for us.' Joe Burrow addresses Bengals' TE injuries (Cincinnati Enquirer via Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/two-huge-losses-us-joe-213112633.html"
+    }
+   ],
+   "summary": "Cincinnati hosts Tennessee after routing Baltimore in Week 7, but lost tight ends Erick All (torn ACL) and Tanner Hudson (torn pectoral) for the season. Ja'Marr Chase sat out Wednesday with a rest/ankle designation, described as precautionary. Tennessee had rookie WR Carnell Tate, RB Tyjae Spears and DL John Franklin-Myers out of Wednesday practice."
   }
  },
  "meta": {
-  "at": "2026-10-28T16:12:02Z",
-  "games": 19,
-  "note": "1 NFL, 12 NBA, 6 EPL researched"
+  "at": "2026-10-28T23:15:00Z",
+  "games": 14,
+  "note": "12 NFL, 0 NBA, 2 EPL researched"
  }
 }
