@@ -53,7 +53,7 @@ def inputs(rev="HEAD", root=ROOT):
     keep = []
     for line in r.stdout.splitlines():
         meta, _, path = line.partition("\t")
-        if path in ("analytics/model.json", "analytics/nba_model.json", "analytics/epl_model.json") or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
+        if path in ("analytics/model.json", "analytics/nba_model.json", "analytics/epl_model.json", "analytics/epl_players.json") or path.startswith("analytics/cache/") or path.endswith((".md", ".gitignore")):
             continue
         keep.append(f"{meta.split()[-1]} {path}")
     return hashlib.sha1("\n".join(sorted(keep)).encode()).hexdigest()[:12]

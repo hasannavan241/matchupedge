@@ -236,6 +236,11 @@ def main():
         epl["data"] = season
         return f"season {ed.label(season)}" + (f", {len(kept)} files from an earlier download" if kept else "")
 
+    def s_epl_players():
+        # every player's match stats from ESPN's box scores (data/epl_players/): only matches not downloaded before
+        import epl_players as epp
+        return epp.fetch()
+
     def s_epl_refit():
         if "data" not in epl:
             return "skipped: no EPL data this run"
@@ -293,6 +298,7 @@ def main():
     step("nba download", s_nba_fetch, False)
     step("epl download", s_epl_fetch, False)
     step("live inputs", s_live, False)
+    step("epl players", s_epl_players, False)
     step("model", s_refit, False)
     step("grade", s_grade, False)
     step("build", s_build, True)

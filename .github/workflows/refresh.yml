@@ -134,11 +134,11 @@ jobs:
         run: |
           git config user.name "matchup-edge-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in data/an_picks.json analytics/model.json analytics/cache data/an_picks_nba.json analytics/nba_model.json data/an_picks_epl.json analytics/epl_model.json; do
+          for f in data/an_picks.json analytics/model.json analytics/cache data/an_picks_nba.json analytics/nba_model.json data/an_picks_epl.json analytics/epl_model.json data/epl_players; do
             if [ -e "$f" ]; then git add "$f"; fi
           done
           if git diff --cached --quiet; then
-            echo "Nothing to save: no pick moved and the model did not change."
+            echo "Nothing to save: no pick moved, the model did not change and no new EPL box scores came in."
           else
             git commit -m "Update the picks record"
             # Something else may have changed the branch while this run worked (a push from a chat session, the news
