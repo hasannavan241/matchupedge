@@ -686,12 +686,16 @@ def project(games, now=None, news=None, lineups=None, P=None, D=None):
                     continue   # not in any of the club's last three squads: injured, loaned out or dropped
                 status = news_status(doc, team, s_["name"], names)
                 starter = None
+                if not s_["apps"] and pid not in xi:
+                    continue   # never played a league minute (a third keeper, a youngster): nothing to project unless he starts
                 if lu:
                     if pid in xi:
                         starter, p_play = True, 1.0
                     elif pid in bench:
                         starter = False
                         p_play = sum(1 for e, t_, m, st in s_["squads"] if not st and m > 0) / max(1, sum(1 for e, t_, m, st in s_["squads"] if not st))
+                        if p_play < 0.15:
+                            continue   # a substitute who rarely comes on
                     else:
                         continue
                 else:
