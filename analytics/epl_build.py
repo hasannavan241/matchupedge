@@ -19,6 +19,7 @@ import nfl_data as nd
 import epl_data as ed
 import epl_model as em
 import epl_record as er
+import epl_players as ep
 
 HERE = nd.HERE
 OUT = os.path.join(HERE, "out")
@@ -147,6 +148,17 @@ def build_data():
         rec_["since"] = min((p.get("ko") for p in R_["games"].values() if p.get("ko")), default=None)
     except er.rc.Unreadable as e:
         rec_["broken"] = str(e)
+    # players: what each one is projected for if he plays (shots, shots on target, goals, assists, fouls; keepers' saves)
+    players_note = None
+    try:
+        lu = ep.load_lineups(now)
+        PL = ep.project([{k: g[k] for k in ("id", "home", "away", "lh", "la")} for g in games], now=now, news=news, lineups=lu)
+        for g in games:
+            if g["id"] in PL:
+                g["pl"] = PL[g["id"]]
+        players_note = ep.summary_for_page()
+    except Exception as e:   # the page goes out without the players rather than not at all
+        print(f"epl players: no projections this time ({e.__class__.__name__}: {e})")
     ids = {g["id"] for g in games}
     shown = {k: nflb.clean_news(v) for k, v in docs.items() if k.startswith("epl_") and k[4:] in ids and isinstance(v, dict)}
     news_at = max((str(v.get("at")) for v in shown.values() if v.get("at")), default=None)
@@ -160,7 +172,7 @@ def build_data():
                       "fit_games": model.get("fit_matches") or model["state"]["epl_games"], "max_goals": P["max_goals"], "news_types": list(NEWS_TYPES)},
             "games": games, "teams": teams, "table": [t for t in sorted(tbl, key=lambda t: tbl[t]["pos"])], "results": results,
             "record": rec_, "live": {"src": src, "espn_at": live.get("eplAt"), "espn_dates": len(live.get("epl") or {}), "history_to": str(H[H["div"] == "E0"].date.max().date())},
-            "news": shown, "news_meta": {"at": news_at} if news_at else None}
+            "news": shown, "news_meta": {"at": news_at} if news_at else None, "players": players_note}
     os.makedirs(OUT, exist_ok=True)
     json.dump(data, open(os.path.join(OUT, "epl_data.json"), "w"), separators=(",", ":"))
     return data

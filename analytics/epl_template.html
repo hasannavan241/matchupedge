@@ -27,6 +27,11 @@
 .scoregrid span small{display:block;font-size:11px;color:var(--muted)}
 .scoregrid span.hi{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
 .scoregrid span.hi small{color:var(--accent)}
+.ptab td.l{min-width:150px}
+.ptab .pos{color:var(--muted);font-size:11px;margin-left:4px}
+.ptab .nt{margin-left:4px}
+.ph{display:flex;align-items:center;gap:6px;margin:12px 0 2px;font-size:15px}
+.ph .sw{display:inline-block;width:10px;height:10px;border-radius:3px}
 </style>
 
 <div class="wrap">
@@ -164,6 +169,14 @@ function newsBlock(g){
     return `<li><span class="nt">${esc(it.type||'')}</span> ${esc(String(it.text||'').slice(0,260))}${counted?` <b class="num">${esc(it.team)} ${sg(it.impact)}</b>`:''}${u?` <a href="${esc(u)}" target="_blank" rel="noopener">source</a>`:''}</li>`}).join('');
   return `<div class="sec wide"><h3>News</h3><p>${esc(String(d.summary||'').slice(0,700))}</p><details><summary class="fine" style="cursor:pointer">All ${(d.items||[]).length} items, with sources</summary><ul class="news" style="margin-top:8px">${items}</ul></details></div>`;
 }
+function playersBlock(g){
+  const X=g.pl;if(!X)return '';
+  const side=(s,cls)=>{const t=X[s];if(!t)return '';const k=t.gk;
+    const gk=k?`<p class="fine" style="margin:2px 0 6px"><b>Keeper: ${esc(k.n)}</b>${!k.lu&&k.st<.6?' (likeliest to start)':''}${k.nw?` <span class="nt">${esc(k.nw)}</span>`:''} · faces ${f1(k.sot)} shots on target and concedes ${f1(k.ga)} · <b>${f1(k.sv)} saves</b> on average · ${[2,3,4,5].map(n=>`${n}+ saves ${pc(k.c['sv'+n])}`).join(' · ')}</p>`:'';
+    const rows=(t.players||[]).slice(0,11).map(p=>`<tr><td class="l"><span class="nw">${esc(p.n)}</span>${p.pos&&p.pos!=='U'?`<span class="pos">${esc(p.pos)}</span>`:''}${p.nw?`<span class="nt">${esc(p.nw)}</span>`:''}</td><td class="num">${p.lu?(p.st?'XI':'bench'):pc(p.pl)}</td><td class="num xs">${p.mn}</td><td class="num">${f1(p.sh)}</td><td class="num">${pc(p.c.sh2)}</td><td class="num">${f1(p.sot)}</td><td class="num">${pc(p.c.sot1)}</td><td class="num">${pc(p.c.g1)}</td><td class="num xs">${pc(p.c.a1)}</td><td class="num xs">${f1(p.fc)}</td></tr>`).join('');
+    return `<div class="ph"><i class="sw ${cls}"></i><b>${esc(t.team)}</b>${t.lineup?'<span class="muted fine">teamsheet in</span>':''}</div>${gk}${rows?`<div class="scroll"><table class="ltab ptab"><thead><tr><th class="l">Player</th><th>Plays</th><th class="xs">Min</th><th>Shots</th><th>2+</th><th>On target</th><th>1+</th><th>Goal</th><th class="xs">Assist</th><th class="xs">Fouls</th></tr></thead><tbody>${rows}</tbody></table></div>`:''}`};
+  return `<div class="sec wide"><h3>Players</h3><p class="fine">Each player’s projection <b>if he plays</b> (a player prop is void when he doesn’t). Plays: the chance he features, from his club’s last five matchdays and the news; XI or bench once the teamsheets are out, about an hour before kickoff. Shots and On target are averages; 2+ and 1+ are the chances of at least that many; Goal and Assist, of at least one. Min: his minutes if he plays.</p>${side('home','h')}${side('away','a')}</div>`;
+}
 function teamFacts(t){const x=T[t];if(!x)return'';const rec=x.p!=null?`${x.w}-${x.d}-${x.l}, ${x.pts} points${x.pos?', '+ord(x.pos)+' in the table':''}`:'no league matches yet this season';
   return `${esc(rec)} · ${x.rank?ord(x.rank)+' in our ratings ('+sg(x.str)+' goals)':''}${x.att!=null?` · scores ${f2(x.att)}, allows ${f2(x.def)} a match against an average side`:''}${x.sot_for!=null?` · ${f1(x.sot_for)} shots on target a match for, ${f1(x.sot_against)} against`:''}`}
 function gameCard(g){
@@ -182,11 +195,12 @@ function gameCard(g){
         <div class="fine" style="margin-top:6px">Expected goals ${f1(r.lh)}–${f1(r.la)} · likeliest score ${mode[0]}–${mode[1]} (${pc(r.P[mode[0]][mode[1]])}) · ${f1(r.t)} goals in all</div></div>
       <p class="why">${esc(whyText(g,r))}</p></div>
       <div>${tug(g,r)}<p class="fine" style="margin-top:8px">Each bar is goals toward that team. They add up to the projected margin; the margin and the projected total give each side’s expected goals, and two Poisson distributions (with a correction for low scores) give the three chances.</p></div></div>
-    <details class="more" data-k="${k}"${S.open.has(k)?' open':''}><summary>Scorelines, the two sides, head to head and news</summary>
+    <details class="more" data-k="${k}"${S.open.has(k)?' open':''}><summary>Scorelines, the two sides, players, head to head and news</summary>
       <div class="sections">
         <div class="sec wide"><h3>Likeliest scorelines</h3>${scoreGrid(g,r)}<p class="fine" style="margin-top:6px">Home goals first. The six most likely results of the ${(MAXG+1)*(MAXG+1)} the model prices.</p></div>
         <div class="sec"><h3>${esc(g.home)}</h3><p>${teamFacts(g.home)}</p><p class="fine">Form: ${formHTML(H.last5)} · home ${esc(H.home_rec||'–')} · ${rest(1)}.${H.promoted?' Promoted this season.':''}</p></div>
         <div class="sec"><h3>${esc(g.away)}</h3><p>${teamFacts(g.away)}</p><p class="fine">Form: ${formHTML(A.last5)} · away ${esc(A.away_rec||'–')} · ${rest(0)}.${A.promoted?' Promoted this season.':''}</p></div>
+        ${playersBlock(g)}
         <div class="sec wide"><h3>Head to head</h3><p>${h2h}</p><p class="fine">Records are wins-draws-losses. Form is the last five league matches, newest last; it is shown, not counted: in testing it added nothing once the ratings were in.</p></div>
         ${newsBlock(g)}
       </div></details></article>`;
@@ -269,6 +283,19 @@ function recordCard(){
     ${all.f?`<div class="kv" style="margin-top:10px"><div><b>${wlText(all)}</b><span>results picked right (${pc(all.w/all.f)})</span></div><div><b>${f2(miss)}</b><span>average miss on the goal difference</span></div><div><b>${all.f}</b><span>matches graded. A season is 380, so a few weeks is a small sample</span></div></div>
     <details style="margin-top:10px"><summary class="fine" style="cursor:pointer">Every pick, newest first</summary>${resTable(R.slice().reverse())}</details>`:`<p class="muted" style="margin-top:8px">No pick has been graded yet. The picks are saved before each kickoff; the record starts with the first final.</p>`}</div>`;
 }
+function playersMethod(){
+  const Q=D.players;if(!Q||!Q.stats)return '';
+  const NAMES={sh:'Shots',sot:'Shots on target',g:'Goals',a:'Assists',fc:'Fouls committed',fs:'Fouls won'};
+  const h=k=>(Q.stats[k]||{}).held||{};
+  const rows=Object.keys(NAMES).filter(k=>Q.stats[k]).map(k=>{const x=h(k);const ln=(x.lines||[]).slice(0,3).map(l=>`${l[0]}+: said ${pc(l[1])}, ${pc(l[3])} happened`).join('; ');
+    return `<tr><td class="l">${NAMES[k]}</td><td class="num">${f2(x.mean)}</td><td class="num">${f2(x.proj)}</td><td class="num">${x.ll!=null&&x.ll_prior!=null?(x.ll>=x.ll_prior?'better':'worse'):'–'}</td><td class="l xs fine">${esc(ln)}</td></tr>`}).join('');
+  const sv=(Q.saves||{}).held;
+  return `<div class="card prose"><h2>Player projections</h2>
+    <p>Every player’s match stats come from ESPN’s box scores, this season and last (${(Q.data&&Q.data.matches||0).toLocaleString()} matches). A player’s projection is his rate per 90 minutes, recent matches counting most (a match’s weight halves every ${Math.round(Q.half||240)} days) and pulled toward his position’s rate by ${Q.k} matches’ worth (more for goals and assists, which are mostly noise), times his minutes: as a starter or off the bench, from his recent appearances, once the teamsheets say which. It is then scaled by how many shots on target (or goals) the opponent allows against the league’s average, by home or away, and by how much the league is shooting lately against the last year. Counts are spread as in past matches. A goalkeeper’s saves are the shots on target his side is projected to face less the goals it is projected to concede.</p>
+    <p>Tested on every appearance from January 2026, each projected from what came before it. The settings were chosen on 2025-26 and held out on 2026-27 (${(Q.n&&Q.n.held||0).toLocaleString()} appearances), below. “Better” means the projections fit the outcomes better than a player’s position average in the same minutes.</p>
+    <div class="scroll"><table class="ltab"><thead><tr><th class="l">2026-27, held out</th><th>Average</th><th>Projected</th><th>Against position average</th><th class="l xs">Chances against what happened</th></tr></thead><tbody>${rows}</tbody></table></div>
+    ${sv?`<p class="fine" style="margin-top:6px">Goalkeepers (${sv.n} full matches in 2026-27): ${f2(sv.mean)} saves a match against ${f2(sv.proj)} projected; ${sv.lines.map(l=>`${l[0]}+ saves said ${pc(l[1])}, ${pc(l[2])} happened`).join('; ')}. The projection fits saves better than the keeper’s own last ten matches.</p>`:''}</div>`;
+}
 function renderMethod(){
   const t=TEST,byS=t.by_season;
   $('#method').innerHTML=`<div class="kpis"><div class="kpi"><b>${pct1(t.win_pct)}%</b><span>results picked right, ${seasonName(t.first)} to ${seasonName(t.last)} (${t.games.toLocaleString()} matches: home win, draw or away win)</span></div>
@@ -283,6 +310,7 @@ function renderMethod(){
     <div class="two"><div class="card"><div class="gh"><h2>By season</h2></div><div class="scroll"><table><thead><tr><th class="l">Season</th><th>Matches</th><th>Right</th><th>Average miss</th></tr></thead><tbody>${byS.map(b=>`<tr><td class="l">${seasonName(b.season)}</td><td class="num">${b.games.toLocaleString()}</td><td class="num">${pct1(b.win_pct)}%</td><td class="num">${Number(b.mae).toFixed(2)}</td></tr>`).join('')}</tbody></table></div></div>
       <div class="card"><div class="gh"><h2>Were the chances right?</h2></div>${calChart()}${t.draw_calibration&&t.draw_calibration.length?`<p class="fine" style="margin-top:6px">Draws: ${t.draw_calibration.map(b=>`said ${b.said}%, drew ${b.drew}%`).join('; ')}.</p>`:''}</div></div>
     ${recordCard()}
+    ${playersMethod()}
     <div class="card prose"><h2>Sources</h2><p>Results, shots and shots on target: football-data.co.uk’s match files (mirrored on GitHub), with ESPN’s scoreboard for this season’s latest matches and kickoff times. Fixtures: openfootball. News: researched for each match from club sites and news outlets, never from a sportsbook.</p></div>`;
 }
 

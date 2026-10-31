@@ -32,6 +32,7 @@ python run.py
 | nba check | `check_nba.py` | The same browser check for the NBA page. | `out/nba.html` is deleted, so it is never published; the site keeps the NBA page it has. |
 | nba save picks | `nba_record.py` | Saves each NBA pick for games that have not tipped off. | Goes on. |
 | epl download | `epl_data.py` | The history file (football-data.co.uk's results and shots on target, mirrored on GitHub; Premier League and Championship since 2000) and openfootball's fixture list. This season's latest results, shots on target and kickoff times come from ESPN's scoreboard, read by the live-inputs step (`live.json` "epl"). | No EPL build this time: the site keeps the EPL page it has. |
+| epl players | `epl_players.py` | Every player's match stats from ESPN's match summaries (this season and last; only matches not downloaded before) into `../data/epl_players/<season>.csv`, which the job commits, and the teamsheets of matches starting within 150 minutes. | Goes on with the files as they are, and without teamsheets. |
 | epl model | `epl_model.py refit` | Refits when new finals are in (about 45 seconds). A fit whose rating weights jump by a quarter is thrown away. | Goes on with `epl_model.json` as it is. |
 | epl grade | `epl_record.py` | Finals for the EPL picks already saved (from ESPN's scoreboard). | Goes on. |
 | epl build | `epl_build.py` | `out/epl_data.json` and `out/epl.html`: the next round of matches, the table and the teams. | The site keeps the EPL page it has. |
@@ -87,6 +88,16 @@ have scored 54.6% and 0.964 (never used on the site). Tested and left out: recen
 shots (within noise of shots on target), the Championship's results for promoted teams (no better than the flat
 promoted factor).
 
+Premier League players, in one paragraph: each player's rates per 90 minutes (shots, shots on target, goals, assists,
+fouls committed and won) from ESPN's box scores, recent matches counting most (weight halving every 240 days) and
+shrunk toward his position's rates (4 matches' worth; 15 for goals and 25 for assists), times his minutes as a starter
+or off the bench (XI or bench once the teamsheets are out), times what the opponent allows in shots on target (or
+goals) against the league's average, home or away, and the league's last 90 days against its last year. Negative
+binomial spreads (Poisson for goals and assists). Keepers: saves are the shots on target their side is projected to
+face less the goals the site's model expects it to concede, thinned binomially. Projections are for a player who
+plays. Tested on every appearance from January 2026, tuned on 2025-26 and held out on 2026-27: better than the position
+averages in the same minutes for every stat, and saves fit better than a keeper's own last ten matches.
+
 ## Files
 
 - `nfl_data.py` downloads and play-by-play roll-ups. `_data/` is the download folder (not in the repository).
@@ -105,6 +116,8 @@ promoted factor).
   `live.json`), `epl_model.py` the ratings, fit, Dixon-Coles chances and walk-forward test (`epl_model.json`),
   `epl_build.py` the page from `epl_template.html` (it shares the NFL page's fonts and styles), `epl_record.py` the
   saved EPL picks, `check_epl.py` its browser check.
+- `epl_players.py` the Premier League players: ESPN box scores (`fetch`), the projections on each match card, and their
+  walk-forward test (`python epl_players.py test` writes `epl_players.json`: the settings and the test the page shows).
 - `run.py` one whole refresh.
 - `due.py` whether a scheduled run should refresh now (about hourly; every half hour before kickoffs and tip-offs).
 - `SWITCH.md` what the switch from the odds-based site changed, and how to undo it.

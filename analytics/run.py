@@ -239,7 +239,12 @@ def main():
     def s_epl_players():
         # every player's match stats from ESPN's box scores (data/epl_players/): only matches not downloaded before
         import epl_players as epp
-        return epp.fetch()
+        line = epp.fetch()
+        try:
+            line += "; " + epp.fetch_lineups()
+        except Exception as e:
+            errors.append(f"epl lineups: {e.__class__.__name__}: {e}")
+        return line
 
     def s_epl_refit():
         if "data" not in epl:
