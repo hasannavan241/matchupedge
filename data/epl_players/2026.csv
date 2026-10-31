@@ -3439,3 +3439,43 @@ season,event,date,team,opp,home,pid,name,pos,starter,on,off,min,g,a,sh,sot,sv,ga
 2026,401879251,2026-10-31T15:00,Leeds,Bournemouth,0,265923,Melvin Bard,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
 2026,401879251,2026-10-31T15:00,Leeds,Bournemouth,0,274649,Jaka Bijol,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
 2026,401879251,2026-10-31T15:00,Leeds,Bournemouth,0,30116,Ilia Gruev,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,261047,Sandro Tonali,RM,1,0.0,90.0,90,0,0,1,0,0,0,1,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,266599,Mohammed Kudus,AM-R,1,0.0,90.0,90,0,1,3,0,0,0,0,4,2,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,282583,Jan Paul van Hecke,CD-R,1,0.0,90.0,90,1,0,5,2,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,296512,Micky van de Ven,CD-L,1,0.0,90.0,90,0,0,0,0,0,0,0,2,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,324393,Antonín Kinsky,G,1,0.0,90.0,90,0,0,0,0,1,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,346820,Mateus Fernandes,LM,1,0.0,90.0,90,0,0,3,0,0,0,2,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,325042,Mathys Tel,AM-L,1,0.0,88.0,88,0,0,4,0,0,0,1,2,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,104943,Andy Robertson,LB,1,0.0,77.0,77,0,0,2,2,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,303745,Omar Marmoush,AM,1,0.0,77.0,77,0,0,4,1,0,0,2,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,194115,Dominic Solanke,F,1,0.0,66.0,66,0,0,4,1,0,0,0,1,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,328050,Archie Gray,RB,1,0.0,45.0,45,1,0,1,1,0,0,1,0,0,1,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,268533,Pedro Porro,SUB,0,45.0,90.0,45,0,0,3,0,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,266696,Conor Gallagher,SUB,0,66.0,90.0,24,0,0,3,1,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,272695,Dejan Kulusevski,SUB,0,77.0,90.0,13,0,0,1,1,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,290076,Destiny Udogie,SUB,0,77.0,90.0,13,0,0,0,0,0,0,1,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,395939,Luca Williams-Barnett,SUB,0,88.0,90.0,2,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,126703,Martin Dúbravka,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,194450,James Maddison,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,233945,Marcos Senesi,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Tottenham,Crystal Palace,1,6327,Ben Davies,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,231718,Axel Disasi,CD,1,0.0,90.0,90,0,0,0,0,0,2,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,234172,Dean Henderson,G,1,0.0,90.0,90,0,0,0,0,7,2,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,272585,Chris Richards,CD-R,1,0.0,90.0,90,0,0,0,0,0,2,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,300853,Tyrick Mitchell,LM,1,0.0,90.0,90,0,0,0,0,0,2,2,2,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,386252,Jaydee Canvot,CD-L,1,0.0,90.0,90,0,0,0,0,0,2,1,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,219362,Daichi Kamada,CM-L,1,0.0,88.0,88,0,0,1,1,0,2,0,1,1,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,333419,Adam Wharton,CM-R,1,0.0,88.0,88,0,0,0,0,0,2,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,273495,Dwight McNeil,CF-R,1,0.0,77.0,77,0,0,1,0,0,2,1,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,276546,Óscar Mingueza,RM,1,0.0,60.0,60,0,0,0,0,0,1,4,2,0,1,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,297370,Yéremy Pino,CF-L,1,0.0,60.0,60,0,0,0,0,0,1,0,1,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,241187,Jean-Philippe Mateta,F,1,0.0,13.0,13,0,0,0,0,0,0,1,1,0,0,1,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,259486,Eddie Nketiah,SUB,0,60.0,90.0,30,0,0,0,0,0,1,1,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,332648,Anan Khalaili,SUB,0,60.0,90.0,30,0,0,0,0,0,1,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,315668,Darío Osorio,SUB,0,77.0,90.0,13,0,0,0,0,0,0,0,1,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,168421,Will Hughes,SUB,0,88.0,90.0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,197399,Jefferson Lerma,SUB,0,88.0,90.0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,195738,Walter Benítez,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,225426,Ben Chilwell,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,266628,Cheick Doucouré,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
+2026,401878761,2026-10-31T17:30,Crystal Palace,Tottenham,0,288924,Evann Guessand,SUB,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
