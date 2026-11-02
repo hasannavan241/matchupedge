@@ -137,7 +137,7 @@ def nfl(D, live, hours, within, now):
         if qb_change:
             receivers = [{"name": p["n"], "pos": p["p"], **{k: round(p["mu"][k], 1) for k in ("rec", "rec_yds") if p["mu"].get(k) is not None}}
                          for p in sorted(mates, key=lambda p: -((p.get("mu") or {}).get("rec_yds") or 0))[:4] if p.get("p") != "QB"]
-        res.append({"team": team, "game": f'{g.get("away")} at {g.get("home")}', "start": ct(when(g.get("ko"))),
+        res.append({"team": team, "game": f'{g.get("away")} at {g.get("home")}', "id": g["id"], "start": ct(when(g.get("ko"))),
                     "out": outs, "qb_change": qb_change, "receivers": receivers, "gainers": gain[:5], "unsure": unsure})
     return res
 
@@ -201,7 +201,7 @@ def nba(D, live, hours, within, now):
                      "worth": p.get("worth")} for p in hit]
             if not gain and not any((o["usual_min"] or 0) >= 12 for o in outs):
                 continue
-            res.append({"team": side, "game": f'{g.get("away")} at {g.get("home")}', "start": ct(when(g.get("tip"))),
+            res.append({"team": side, "game": f'{g.get("away")} at {g.get("home")}', "id": g.get("id"), "start": ct(when(g.get("tip"))),
                         "out": outs, "gainers": gain[:5], "unsure": unsure})
     return res
 
