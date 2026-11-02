@@ -104,7 +104,12 @@ averages in the same minutes for every stat, and saves fit better than a keeper'
 - `nfl_model.py` ratings, quarterback values, players out, the fit and its walk-forward test.
 - `nfl_players.py` player projections, milestone chances and their test.
 - `nfl_stats.py` team stats and ranks, unit ratings, player advanced stats.
-- `live.py` injuries and forecasts.
+- `live.py` injuries and forecasts. Each injury row also keeps the status the site saw before and when it changed
+  (`[..., was, since]`), so a player ruled out at the last minute can be told from one ruled out days before.
+- `gainers.py` the late scratches (out in the last few hours, not before) in games about to start, and the team-mates
+  whose targets, carries or minutes grow; `--refresh` asks GitHub for a refresh first. Read by the late-scratch alerts.
+- `chance.py` the site's chance over or under any number for an NFL or NBA player (`python chance.py nba "Name" pts
+  24.5`), with the pages' own maths. Neither script reads a sportsbook.
 - `build.py` the page's data and the page. `template.html` is the page; the build fills `const DATA=`.
 - `record.py` the saved picks.
 - `check.py` the browser check. `python check.py shots DIR` also saves screenshots of every tab.

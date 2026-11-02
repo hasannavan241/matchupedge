@@ -35,6 +35,7 @@ ESPN_EPL = "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboar
 EPL_AHEAD_DAYS = 16     # match dates fetched ahead of today
 EPL_REFRESH_DAYS = 2    # a past date whose matches are all final is fetched again only this many days after it
 KEEP_INJ_HOURS, KEEP_WX_HOURS, KEEP_QB_HOURS = 36, 24, 7 * 24
+STAMP_DAYS = 14   # a player who drops off ESPN's injury list is remembered this long (see stamp)
 MIN_DEPTH_TEAMS = 24   # fewer teams' depth charts than this is a broken answer; the last good copy is kept instead
 MIN_LISTED = 20   # fewer rows than this in season is a broken answer, not a healthy league
 MIN_NBA_LISTED = 5   # the NBA's list is shorter (15-man rosters), but never this short from October to June
@@ -199,6 +200,50 @@ def listed(rows):
     return [r for r in rows if str(r[3]).strip().lower() not in ("active", "probable", "")]
 
 
+def stamp(rows, prev_rows, prev_mem, now):
+    """Adds to each injury row what the site saw before it: the row becomes [..., was, since]. `was` is the status the
+    player had before his current one ("" when he was on no list, None when the site can't tell) and `since` is when
+    the site first saw the current one (that refresh's time).
+
+    ESPN's own time on an entry is when the entry was written, and on an NFL game day ESPN writes a new entry for every
+    player on the inactive list, those ruled out on Friday too. Comparing with the last refresh is how gainers.py tells
+    a player ruled out at the last minute from one ruled out days before. ESPN's NFL list holds only each team's 25
+    newest entries, so a player can drop off it and come back: those who dropped off are remembered for STAMP_DAYS.
+    Returns (rows, memory), memory = {ESPN athlete id: [status, was, since, last seen]} for the players off the list."""
+    t = iso(now)
+    started = bool(prev_mem) or any(len(r) >= 9 for r in prev_rows or [])
+    known = {str(k): list(v)[:4] for k, v in (prev_mem or {}).items() if k and len(v) >= 4}
+    for r in prev_rows or []:
+        if r and str(r[0]):
+            # rows from before this was added carry no history: only ESPN's time, and nothing on what came before
+            known[str(r[0])] = [r[3], r[7], r[8], t] if len(r) >= 9 else [r[3], None, (r[5] if len(r) > 5 else None) or None, t]
+    out, here = [], set()
+    for r in rows:
+        r = (list(r) + [None] * 7)[:7]
+        k = str(r[0] or "")
+        here.add(k)
+        if k and k in known:
+            st, was, since = known[k][:3]
+            same = str(st or "").strip().lower() == str(r[3] or "").strip().lower()
+            r += [was, since] if same else [st, t]
+        elif k and started:
+            r += ["", t]   # on no list before
+        else:
+            r += [None, r[5] or None]
+        out.append(r)
+    keep = now - dt.timedelta(days=STAMP_DAYS)
+    mem = {}
+    for k, v in known.items():
+        if k in here:
+            continue
+        try:
+            if when(v[3]) >= keep:
+                mem[k] = v
+        except (TypeError, ValueError):
+            pass
+    return out, mem
+
+
 def forecast(lat, lon, ko):
     """[strongest wind mph, average temperature F, highest chance of rain %, a few words] from half an hour before kickoff
     to three hours after it; None while the hourly forecast doesn't reach that far (about six days out)."""
@@ -239,17 +284,18 @@ def main(plan=None, now=None):
             old = {}
     old_inj_at = old.get("injAt") or old.get("ts")
     out = {"ts": iso(now), "nflInj": [], "injAt": None, "nbaInj": [], "nbaInjAt": None, "nflQb": {}, "nflQbAt": None, "wx": {}, "wxAt": {},
-           "epl": {}, "eplAt": None, "errors": []}
+           "epl": {}, "eplAt": None, "errors": [], "nflInjMem": {}, "nbaInjMem": {}}
 
     try:
         rows = injuries()
         if len(listed(rows)) < MIN_LISTED and plan:
             raise RuntimeError(f"only {len(listed(rows))} players listed")
-        out["nflInj"], out["injAt"] = rows, iso(now)
+        out["nflInj"], out["nflInjMem"] = stamp(rows, old.get("nflInj"), old.get("nflInjMem"), now)
+        out["injAt"] = iso(now)
     except Exception as e:
         out["errors"].append(f"injuries: {e}")
         if old.get("nflInj") and fresh(old_inj_at, KEEP_INJ_HOURS, now):
-            out["nflInj"], out["injAt"] = old["nflInj"], old_inj_at
+            out["nflInj"], out["injAt"], out["nflInjMem"] = old["nflInj"], old_inj_at, old.get("nflInjMem") or {}
             out["errors"].append(f"injuries kept from {old_inj_at}")
 
     try:
@@ -257,11 +303,12 @@ def main(plan=None, now=None):
         in_season = now.month >= 10 or now.month <= 6
         if len(listed(rows)) < MIN_NBA_LISTED and in_season:
             raise RuntimeError(f"only {len(listed(rows))} players listed")
-        out["nbaInj"], out["nbaInjAt"] = rows, iso(now)
+        out["nbaInj"], out["nbaInjMem"] = stamp(rows, old.get("nbaInj"), old.get("nbaInjMem"), now)
+        out["nbaInjAt"] = iso(now)
     except Exception as e:
         out["errors"].append(f"nba injuries: {e}")
         if old.get("nbaInj") and fresh(old.get("nbaInjAt"), KEEP_INJ_HOURS, now):
-            out["nbaInj"], out["nbaInjAt"] = old["nbaInj"], old["nbaInjAt"]
+            out["nbaInj"], out["nbaInjAt"], out["nbaInjMem"] = old["nbaInj"], old["nbaInjAt"], old.get("nbaInjMem") or {}
             out["errors"].append(f"nba injuries kept from {old['nbaInjAt']}")
 
     season = int(plan[0]["id"][:4]) if plan else nd.current_season()
@@ -322,6 +369,7 @@ def main(plan=None, now=None):
     with open(LIVE, "w") as f:   # one player a line, so a copy kept in the repository changes only where the list did
         f.write("{" + ",\n".join(f"{c(k)}:{c(out[k])}" for k in ("ts", "injAt", "nbaInjAt", "nflQbAt", "eplAt", "errors", "wx", "wxAt", "nflQb"))
                 + "".join(f",\n{c(k)}:[\n" + ",\n".join(c(r) for r in out[k]) + "\n]" for k in ("nflInj", "nbaInj"))
+                + "".join(f",\n{c(k)}:{{\n" + ",\n".join(f"{c(i)}:{c(v)}" for i, v in sorted(out[k].items())) + "\n}" for k in ("nflInjMem", "nbaInjMem"))
                 + ",\n\"epl\":{" + ",\n".join(f"{c(k)}:{c(v)}" for k, v in sorted(out["epl"].items())) + "}}\n")
     kept = sum(1 for e in out["errors"] if "kept" in e)
     print(f"live: {len(listed(out['nflInj']))} NFL injury listings (read {out['injAt'] or 'never'}), {len(listed(out['nbaInj']))} NBA "
