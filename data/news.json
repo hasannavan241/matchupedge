@@ -68,15 +68,15 @@
    "summary": "Tottenham, out of the relegation places after wins over Coventry and Chelsea, have James Maddison and Destiny Udogie available but Bentancur serves the last game of his ban. Palace won at Fulham in the Carabao Cup on Wednesday and are without Ismaila Sarr, though Mateta was rested and Henderson returns in goal."
   },
   "epl_401878762": {
-   "at": "2026-10-31T23:07:13Z",
+   "at": "2026-11-02T00:04:20Z",
    "game": "Newcastle v Everton",
    "items": [
     {
-     "at": "2026-10-31T09:33:00Z",
+     "at": "2026-11-01T20:00:00Z",
      "impact": -0.05,
-     "src": "https://www.sportsmole.co.uk/football/newcastle-united/preview/newcastle-vs-everton-prediction-team-news-lineups_608131.html",
+     "src": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-everton-injury-suspension-list-predicted-xis_608138.html",
      "team": "Newcastle",
-     "text": "Will Osula (twisted ankle, subbed off Thursday) a doubt; Wissa would lead the line.",
+     "text": "Will Osula (ankle) still a doubt; Yoane Wissa expected to lead the line.",
      "total": 0,
      "type": "injury"
     },
@@ -108,22 +108,22 @@
      "type": "other"
     },
     {
-     "at": "2026-10-29T12:00:00Z",
+     "at": "2026-11-01T20:00:00Z",
      "impact": -0.06,
-     "src": "https://www.espn.com/soccer/report/_/gameId/401921844",
+     "src": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-everton-injury-suspension-list-predicted-xis_608138.html",
      "team": "Everton",
-     "text": "Jack Grealish left out of the cup tie for a breach of club discipline; no guarantee he returns.",
+     "text": "Jack Grealish, dropped for the cup tie for a breach of club discipline, remains a doubt.",
      "total": 0,
      "type": "drama"
     },
     {
-     "at": "2026-10-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.evertonfc.com/news/2026/october/30/branthwaite-fitness-update-ahead-of-second-newcastle-clash/",
+     "at": "2026-11-01T20:00:00Z",
+     "impact": -0.04,
+     "src": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-everton-injury-suspension-list-predicted-xis_608138.html",
      "team": "Everton",
-     "text": "Jarrad Branthwaite expected back after missing two games with concussion.",
+     "text": "Jarrad Branthwaite (head) still listed as a doubt after concussion, though predicted to start.",
      "total": 0,
-     "type": "return"
+     "type": "injury"
     },
     {
      "at": "2026-10-29T12:00:00Z",
@@ -138,6 +138,10 @@
    "lg": "epl",
    "sources": [
     {
+     "t": "Team News: Newcastle vs. Everton injury, suspension list, predicted XIs",
+     "u": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-everton-injury-suspension-list-predicted-xis_608138.html"
+    },
+    {
      "t": "Everton: Branthwaite fitness update ahead of second Newcastle clash",
      "u": "https://www.evertonfc.com/news/2026/october/30/branthwaite-fitness-update-ahead-of-second-newcastle-clash/"
     },
@@ -150,7 +154,7 @@
      "u": "https://www.sportsmole.co.uk/football/newcastle-united/preview/newcastle-vs-everton-prediction-team-news-lineups_608131.html"
     }
    ],
-   "summary": "A rematch four days after Everton beat Newcastle 3-1 at home in the Carabao Cup. Matthias Jaissle's side may be without Will Osula, who twisted an ankle on Thursday, and Livramento and Jaouen are out. David Moyes expects Branthwaite back from concussion, but Jack Grealish, dropped for a breach of club discipline, is not guaranteed to return."
+   "summary": "A rematch four days after Everton won 3-1 at home in the Carabao Cup. Newcastle are without Livramento and Jaouen, with Osula, Miley and Fernandez-Pardo doubts. Everton have no confirmed absentees, but Jack Grealish (club discipline) and Jarrad Branthwaite (concussion) are doubts."
   },
   "epl_401878763": {
    "at": "2026-10-30T16:25:12Z",
@@ -2668,99 +2672,6 @@
    ],
    "summary": "Two 2-4 NFC East teams meet on Monday night. Tanner McKee starts again for an Eagles team on a four-game skid without Jalen Hurts, DeVonta Smith and Dontayvion Wicks, but Saquon Barkley and G Landon Dickerson (off IR) are active. Dallas, trying to avoid a third straight loss, expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
   },
-  "nfl_2026_07_KC_SEA": {
-   "at": "2026-10-25T23:04:51Z",
-   "game": "KC @ SEA",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.newsweek.com/sports/nfl/seahawks-could-get-major-offensive-boost-for-week-7-vs-chiefs-12569586",
-     "team": "",
-     "text": "RB Kenneth Walker faces the Seahawks for the first time since leaving for Kansas City.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
-     "team": "KC",
-     "text": "Out: WR Rashee Rice (hamstring), RT Jaylon Moore (concussion), RB Brashard Smith. CB L'Jarius Sneed questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
-     "team": "KC",
-     "text": "TE Travis Kelce (ankle) limited all week but has no designation; expected to play.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-25T12:00:00Z",
-     "impact": 0,
-     "src": "https://12thmanrising.com/seahawks-chiefs-week-7-inactives-injury-updates-prediction-storylines-more",
-     "team": "SEA",
-     "text": "S Nick Emmanwori questionable; LB Connor O'Toole also listed among Seattle's expected inactives.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
-     "team": "SEA",
-     "text": "RB Zach Charbonnet ruled out (knee) despite his PUP activation; LBs Drake Thomas and Chazz Surratt out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks",
-     "team": "SEA",
-     "text": "G Anthony Bradford (IR) will play, Macdonald says; needs a Saturday roster move.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-23T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-release-trevon-diggs",
-     "team": "SEA",
-     "text": "CB Trevon Diggs released Friday after one tackle in three games.",
-     "total": 0,
-     "type": "loss"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Week 7 injury report: Chiefs vs. Seahawks",
-     "u": "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026"
-    },
-    {
-     "t": "Seahawks could get major offensive boost (Newsweek)",
-     "u": "https://www.newsweek.com/sports/nfl/seahawks-could-get-major-offensive-boost-for-week-7-vs-chiefs-12569586"
-    },
-    {
-     "t": "www.seahawks.com",
-     "u": "https://www.seahawks.com/news/2026-week-7-injury-report-chiefs-at-seahawks"
-    },
-    {
-     "t": "www.nbcsports.com",
-     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-release-trevon-diggs"
-    },
-    {
-     "t": "Seahawks vs. Chiefs Week 7: Inactives, injury updates (12th Man Rising)",
-     "u": "https://12thmanrising.com/seahawks-chiefs-week-7-inactives-injury-updates-prediction-storylines-more"
-    }
-   ],
-   "summary": "Kenneth Walker faces his old team as Kansas City visits Seattle. The Chiefs are without WR Rashee Rice and RT Jaylon Moore, with Travis Kelce expected to play. Seattle rules out RB Zach Charbonnet and LBs Drake Thomas and Chazz Surratt, but G Anthony Bradford returns from IR."
-  },
   "nfl_2026_08_ARI_DAL": {
    "at": "2026-11-01T17:07:36Z",
    "game": "ARI @ DAL",
@@ -3034,7 +2945,7 @@
    "summary": "Carolina visits Green Bay on a short week after a 43-13 loss at Tampa Bay, with Bryce Young starting. The Panthers are without Phillips, Lewis, Evans and both starting tackles. Green Bay is missing C Sean Rhyan, G Travis Glover and LB Zaire Franklin; CB Keisean Nixon was added as questionable on game day, while WR Matthew Golden is trending toward playing."
   },
   "nfl_2026_08_CHI_SEA": {
-   "at": "2026-11-01T17:07:36Z",
+   "at": "2026-11-02T00:04:20Z",
    "game": "CHI @ SEA",
    "items": [
     {
@@ -3065,35 +2976,43 @@
      "type": "injury"
     },
     {
-     "at": "2026-10-31T12:00:00Z",
+     "at": "2026-10-31T22:10:00Z",
      "impact": 0,
-     "src": "https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks",
+     "src": "https://www.espn.com/nfl/story/_/id/50340383/seahawks-rbs-charbonnet-price-healthy-play-monday-night",
      "team": "SEA",
-     "text": "LT Charles Cross (ankle) and WR Rashid Shaheed (knee) ruled out; LB Uchenna Nwosu doubtful; G Anthony Bradford questionable.",
+     "text": "LT Charles Cross (high ankle sprain) and WR Rashid Shaheed out, Josh Jones starts at LT; LB Uchenna Nwosu doubtful.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": "2026-10-31T12:00:00Z",
      "impact": 0.3,
-     "src": "https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks",
+     "src": "https://www.seahawks.com/news/zach-charbonnet-is-back-other-seahawks-injury-updates-ahead-of-monday-night-s-game-vs-chicago",
      "team": "SEA",
-     "text": "RB Zach Charbonnet (ACL, missed all 7 games) has no game status; Mike Macdonald confirmed he will make his season debut.",
+     "text": "RB Zach Charbonnet (ACL) makes his season debut after missing all seven games, Mike Macdonald confirmed.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-10-31T12:00:00Z",
+     "at": "2026-10-31T22:10:00Z",
      "impact": 0,
-     "src": "https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks",
+     "src": "https://www.espn.com/nfl/story/_/id/50340383/seahawks-rbs-charbonnet-price-healthy-play-monday-night",
      "team": "SEA",
-     "text": "RB Jadarian Price (chest, IR) has no status but still needs a roster move by Monday to be activated.",
+     "text": "RB Jadarian Price (chest, IR, missed four games) is healthy, but still needs a roster move Monday to play.",
      "total": 0,
      "type": "return"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Zach Charbonnet Is Back & Other Seahawks Injury Updates",
+     "u": "https://www.seahawks.com/news/zach-charbonnet-is-back-other-seahawks-injury-updates-ahead-of-monday-night-s-game-vs-chicago"
+    },
+    {
+     "t": "Charbonnet, Price have no game designations for Monday",
+     "u": "https://www.espn.com/nfl/story/_/id/50340383/seahawks-rbs-charbonnet-price-healthy-play-monday-night"
+    },
     {
      "t": "Week 8 Injury Report: Bears at Seahawks",
      "u": "https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks"
@@ -3565,7 +3484,7 @@
    "summary": "New England (4-3) visits 1-5 Miami without A.J. Brown and TreVeyon Henderson, both downgraded to out on Saturday, and with Hollins and Doubs on IR. Drake Maye starts. Miami ruled out G/T Kadyn Proctor (concussion), De'Von Achane is out for the season, and Malik Willis starts."
   },
   "nfl_2026_08_PHI_WAS": {
-   "at": "2026-11-01T17:07:36Z",
+   "at": "2026-11-02T00:04:20Z",
    "game": "PHI @ WAS",
    "items": [
     {
@@ -3578,11 +3497,11 @@
      "type": "other"
     },
     {
-     "at": "2026-10-30T20:51:00Z",
+     "at": "2026-11-01T23:55:00Z",
      "impact": 0,
-     "src": "https://www.philadelphiaeagles.com/news/eagles-at-commanders-injury-report-2026-nfl-week-8-sunday-night-football-saquon-barkley-devonta-smith",
+     "src": "https://www.phillyvoice.com/eagles-commanders-week-8-inactives-analysis-devonta-smith-saquon-barkley-jihaad-campbell/",
      "team": "PHI",
-     "text": "Out: WRs DeVonta Smith and Dontayvion Wicks, LB Jihaad Campbell, WR Britain Covey, CB Jonathan Jones. Barkley limited Fri, set to play.",
+     "text": "Inactive: WRs DeVonta Smith and Dontayvion Wicks, LB Jihaad Campbell (Jeremiah Trotter starts), Britain Covey, CB Jonathan Jones, OL Jake Majors.",
      "total": 0,
      "type": "injury"
     },
@@ -3632,17 +3551,25 @@
      "type": "coach"
     },
     {
-     "at": "2026-10-30T12:00:00Z",
+     "at": "2026-11-01T23:50:00Z",
      "impact": 0,
-     "src": "https://www.commanders.com/news/game-status-commanders-eagles-week-8",
+     "src": "https://sports.yahoo.com/nfl/live/eagles-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-8-235000372.html",
      "team": "WAS",
-     "text": "DT Javon Kinlaw (knee) out; DT Daron Payne (foot, added Friday), DT Jer'Zhan Newton, TE John Bates, WR Treylon Burks questionable.",
+     "text": "DT Daron Payne out (foot, reported season-ending); Kinlaw out; Jer'Zhan Newton on IR; Brandon Coleman starts at LT for Laremy Tunsil.",
      "total": 0,
      "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Eagles-Commanders Week 8 inactives, with analysis",
+     "u": "https://www.phillyvoice.com/eagles-commanders-week-8-inactives-analysis-devonta-smith-saquon-barkley-jihaad-campbell/"
+    },
+    {
+     "t": "Eagles vs. Commanders live updates, inactives",
+     "u": "https://sports.yahoo.com/nfl/live/eagles-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-8-235000372.html"
+    },
     {
      "t": "Eagles at Commanders injury report",
      "u": "https://www.philadelphiaeagles.com/news/eagles-at-commanders-injury-report-2026-nfl-week-8-sunday-night-football-saquon-barkley-devonta-smith"
@@ -3672,7 +3599,7 @@
      "u": "https://www.commanders.com/news/game-status-commanders-eagles-week-8"
     }
    ],
-   "summary": "Philadelphia (2-5) brings a five-game losing streak and backup Tanner McKee. DeVonta Smith, Dontayvion Wicks, Jihaad Campbell, Britain Covey and Jonathan Jones are out, but Saquon Barkley was limited Friday and is set to play. Washington (1-4-1) is off its bye with Jayden Daniels, winless in eight starts, but without Terry McLaurin."
+   "summary": "Philadelphia (2-5) brings a five-game losing streak and backup Tanner McKee, and is without DeVonta Smith, Dontayvion Wicks and Jihaad Campbell. Washington (1-4-1), off its bye, has Jayden Daniels, winless in eight starts, but no Terry McLaurin, Laremy Tunsil or interior linemen Daron Payne and Javon Kinlaw."
   },
   "nfl_2026_08_TEN_CIN": {
    "at": "2026-11-01T17:07:36Z",
@@ -3743,8 +3670,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-01T17:07:36Z",
-  "games": 17,
-  "note": "NFL Week 8 Sunday/Monday refresh with final statuses; 4 NBA games Nov 1"
+  "at": "2026-11-02T00:04:20Z",
+  "games": 3,
+  "note": "PHI@WAS inactives, CHI@SEA RB returns, Newcastle v Everton team news"
  }
 }
