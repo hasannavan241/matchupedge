@@ -96,6 +96,21 @@ RB_ABSORB = 1.0      # how much of the share a missing lead back leaves behind g
 # LED2_BLEND of the way toward the last two games' average share was the best fit in both groups (mean miss 4.45
 # carries against 4.54, and 4.63 against 4.75); further than that over-shoots, since a share from two games is noisy.
 LED2_BLEND = 0.25
+# The usual lead back gone. The rule above fires only when the back who led the PREVIOUS game is missing. When the
+# lead back went down a game earlier (or the team had a bye), the back who stood in for him led that game, so nothing
+# fired and the missing lead's carries were spread over everyone left in proportion to their old roles. Over
+# 2022-2026, in the 211 games where a team's usual lead back (most carries over its last LEAD_LOOK games, with
+# LEAD_GONE_SHARE of its backs' carries) was missing and the old rule did not fire, the top back left was projected
+# for 11.9 carries and ran 13.0 (50.3 yards against 54.1). Treating those games like the old rule's (the top back moves
+# LEAD_GONE_BLEND of the way toward his last game's share, upward only, and the missing carries go to the backs) took
+# the log loss of his carry and rushing-yard milestones from 0.616 to 0.592 and his miss from 6.4 carries to 6.1 (root
+# mean square); over every back's games, 0.3225 to 0.3217. Windows of 3 and 4 games and a 35% share did a little
+# worse. The case behind it: Rachaad White (WAS), projected for 8.4 carries in week 8 of 2026 with Croskey-Merritt on
+# injured reserve since week 6 and a bye in week 7; he ran 11 times for 55 yards (10.2 carries with the rule).
+LEAD_GONE = 1         # also treat the team's usual lead back as out when he is missing (see lead_back_out)
+LEAD_LOOK = 5         # games back that define the usual lead back
+LEAD_GONE_SHARE = 0.4 # ...who must have had this share of the team's running-back carries over them
+LEAD_GONE_BLEND = 0.5 # how far the top back left moves toward his last game's share in that case
 
 
 def qb_rush_weight(pos, starter, starts):
@@ -305,17 +320,35 @@ def player_features(P, X, pos_means):
 
 def lead_back_out(P):
     """Marks each team-game where the running back who led the team's carries in its previous game (LEAD_SHARE of them
-    or more) has no row in this one: lead_out (1 or 0) on every row of the team-game. P is sorted by game date and has
+    or more) has no row in this one: lead_out (1 or 0) on every row of the team-game. With LEAD_GONE it also marks the
+    team-games where the team's usual lead back (most carries over its last LEAD_LOOK games, LEAD_GONE_SHARE of its
+    backs' carries or more) has no row, even if another back led the previous game. P is sorted by game date and has
     one row per active player (the live week's rows are those expected to play)."""
     tg = P[["game_id", "team", "gameday"]].drop_duplicates().sort_values(["team", "gameday", "game_id"])
-    tg["prev_gid"] = tg.groupby("team").game_id.shift()
     rb = P[(P.pos == "RB") & (P.s_car >= LEAD_SHARE)].sort_values("s_car").groupby(["game_id", "team"]).tail(1)
     lead = dict(zip(zip(rb.game_id, rb.team), rb.pid))
     present = P.groupby(["game_id", "team"]).pid.apply(set).to_dict()
+    car = {}
+    if LEAD_GONE:
+        c = P[(P.pos == "RB") & (P.rush_att > 0)]
+        for g_, t_, p_, n in zip(c.game_id, c.team, c.pid, c.rush_att):
+            car.setdefault((g_, t_), {})[p_] = n
     out = {}
-    for g_, t_, pg in zip(tg.game_id, tg.team, tg.prev_gid):
-        lp = lead.get((pg, t_)) if pg == pg else None
-        out[(g_, t_)] = int(lp is not None and lp not in present.get((g_, t_), set()))
+    for t_, d in tg.groupby("team", sort=False):
+        gids = list(d.game_id)
+        for i, g_ in enumerate(gids):
+            here = present.get((g_, t_), set())
+            lp = lead.get((gids[i - 1], t_)) if i else None
+            o = int(lp is not None and lp not in here)
+            if not o and LEAD_GONE and i:
+                tot = {}
+                for q in gids[max(0, i - LEAD_LOOK):i]:
+                    for p_, n in (car.get((q, t_)) or {}).items():
+                        tot[p_] = tot.get(p_, 0) + n
+                if tot:
+                    lp2, n = max(tot.items(), key=lambda kv: kv[1])
+                    o = 2 * int(n >= LEAD_GONE_SHARE * sum(tot.values()) and lp2 not in here)
+            out[(g_, t_)] = o
     P["lead_out"] = [out.get((g_, t_), 0) for g_, t_ in zip(P.game_id, P.team)]
     return P
 
@@ -351,17 +384,19 @@ def raw_projection(P, X, DF, qb_car=None):
         st = (P.pos == "QB") & (P.starter == 1)
         n = P.n_car_q.fillna(0)
         P.loc[st, "sh_car"] = ((n * P.u_s_car_q.fillna(0) + QB_CAR_K * qb_car) / (n + QB_CAR_K))[st]
-    if LEAD_BLEND:
-        # the lead back is out: the top back left moves toward his last game's share (see LEAD_BLEND), upward only
-        rbs = P[(P.pos == "RB") & (P.lead_out == 1) & P.sh_car.notna()]
+    if LEAD_BLEND or LEAD_GONE_BLEND:
+        # the lead back is out: the top back left moves toward his last game's share (see LEAD_BLEND), upward only.
+        # lead_out 1: the back who led the previous game is missing; 2: the usual lead back is (see LEAD_GONE)
+        rbs = P[(P.pos == "RB") & (P.lead_out >= 1) & P.sh_car.notna()]
         top = rbs.sort_values("sh_car").groupby(["game_id", "team"]).tail(1).index
         up = P.loc[top, "l_s_car"].fillna(0) > P.loc[top, "sh_car"]
         top = top[up.values]
-        P.loc[top, "sh_car"] = (1 - LEAD_BLEND) * P.loc[top, "sh_car"] + LEAD_BLEND * P.loc[top, "l_s_car"]
+        b = np.where(P.loc[top, "lead_out"] == 2, LEAD_GONE_BLEND, LEAD_BLEND)
+        P.loc[top, "sh_car"] = (1 - b) * P.loc[top, "sh_car"] + b * P.loc[top, "l_s_car"]
     if LED2_BLEND:
         # a back promoted a few games ago: led the carries in each of his last two games, above his weighted share
         # (see LED2_BLEND); not the back the rule above has just moved
-        two = (P.pos == "RB") & (P.lead_out != 1) & (P.l_s_car >= LEAD_SHARE) & (P.l2_s_car >= LEAD_SHARE)
+        two = (P.pos == "RB") & (P.lead_out < 1) & (P.l_s_car >= LEAD_SHARE) & (P.l2_s_car >= LEAD_SHARE)
         last2 = (P.l_s_car + P.l2_s_car) / 2
         two &= last2 > P.sh_car
         P.loc[two, "sh_car"] = ((1 - LED2_BLEND) * P.sh_car + LED2_BLEND * last2)[two]
@@ -375,7 +410,7 @@ def raw_projection(P, X, DF, qb_car=None):
             isrb = (P.pos == "RB").astype(float)
             rb_tot = g.apply(lambda d: (d.sh_car * (d.pos == "RB")).sum()).reindex(pd.MultiIndex.from_arrays([P.game_id, P.team])).values
             missing = (1 - tot).clip(lower=0)
-            lo = (P.lead_out == 1) & (rb_tot > 0)
+            lo = (P.lead_out >= 1) & (rb_tot > 0)
             absorb = P.sh_car + RB_ABSORB * missing * P.sh_car * isrb / np.where(rb_tot > 0, rb_tot, 1)
             P.loc[lo, c + "_n"] = (absorb / (tot + RB_ABSORB * missing))[lo]
         # renormalising: never more than 1.7x or less than 0.7x the player's own share
