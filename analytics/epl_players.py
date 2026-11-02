@@ -606,8 +606,8 @@ def faced(opp, own, opp_home, P, league):
 
 
 # ------------------------------------------------------------------------------------------ a build's projections
-OUT_RE = re.compile(r"\b(out|ruled out|suspend\w*|ban\b|banned|miss(es|ing)?\b|injured|surgery|sidelined|unavailable|not available|will not play|won't play|long-term|until)\b", re.I)
-DOUBT_RE = re.compile(r"\b(doubt\w*|unlikely|not yet confirmed|questionable|late (fitness )?test|racing|assessment|could be available|50%|uncertain|knock)\b", re.I)
+OUT_RE = re.compile(r"\b(out|ruled out|suspend\w*|ban\b|banned|miss(es|ing)?\b|injured|surgery|sidelined|unavailable|not available|will not play|won't play|long-term|until|too early)\b", re.I)
+DOUBT_RE = re.compile(r"\b(doubt\w*|unlikely|not yet confirmed|questionable|late (fitness )?test|racing|assessment|could be available|could return|50%|uncertain|knock)\b", re.I)
 BACK_RE = re.compile(r"\b(back|returns?|returning|available again|fit again|is fit|are fit|trained|in contention|expected to play)\b", re.I)
 
 
@@ -617,33 +617,44 @@ def fold(s):
     return "".join(c for c in unicodedata.normalize("NFKD", str(s)) if not unicodedata.combining(c)).lower()
 
 
+# An item often covers several players: "Madueke (ankle) a doubt; Rice, Calafiori and Tzolis trained and are on
+# course." Each player is read from the clause that names him (clauses end at a semicolon or a full stop), so the
+# doubt about one is not pinned on the others; before this, Rice, Calafiori and Tzolis were halved as doubts for
+# Liverpool v Arsenal (1 Nov 2026) and all three started, and "Frimpong out with a new muscle injury; ... doubts he is
+# back before the break" read as a doubt. The item's type (injury, suspension) speaks for its first clause only: in
+# "Osula a doubt; Wissa would lead the line", Wissa is not injured. Read this way, 17 of the 78 players the news named
+# that week changed status, all to what the item says (and "could return" now reads as a doubt, "too early" as out).
+CLAUSE_RE = re.compile(r";|\.(?=\s|$)")
+
+
 def news_status(doc, team, name, squad_names):
     """What the researched news says about a player for this match: "out", "doubt", "back" or None. A name counts when
-    the item names him in full, or by a surname of 4+ letters that no team-mate in the squad shares."""
+    the item names him in full, or by a surname of 4+ letters that no team-mate in the squad shares. Only the clauses
+    of an item that name him are read (see CLAUSE_RE)."""
     if not doc:
         return None
     full = fold(name)
     last = full.split()[-1] if full.split() else full
     unique = len(last) >= 4 and sum(1 for n in squad_names if fold(n).split()[-1:] == [last]) == 1
+    named = lambda low: full in low or (unique and re.search(r"\b" + re.escape(last) + r"\b", low))
     found = None
     for it in doc.get("items") or []:
         if not isinstance(it, dict) or it.get("team") != team:
             continue
-        txt = str(it.get("text") or "")
-        low = fold(txt)
-        hit = full in low or (unique and re.search(r"\b" + re.escape(last) + r"\b", low))
-        if not hit:
-            continue
+        parts = [p for p in CLAUSE_RE.split(str(it.get("text") or "")) if p.strip()]
         typ = str(it.get("type") or "")
-        if typ == "return" or (BACK_RE.search(txt) and not OUT_RE.search(txt)):
-            found = found or "back"
+        for i, txt in enumerate(parts):
+            if not named(fold(txt)):
+                continue
+            if typ == "return" or (BACK_RE.search(txt) and not OUT_RE.search(txt)):
+                found = found or "back"
+                if DOUBT_RE.search(txt):
+                    found = "doubt"
+                continue
             if DOUBT_RE.search(txt):
-                found = "doubt"
-            continue
-        if DOUBT_RE.search(txt):
-            found = "doubt" if found != "out" else found
-        elif OUT_RE.search(txt) or typ in ("injury", "suspension"):
-            found = "out"
+                found = "doubt" if found != "out" else found
+            elif OUT_RE.search(txt) or (i == 0 and typ in ("injury", "suspension")):
+                found = "out"
     return found
 
 
