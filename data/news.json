@@ -2819,108 +2819,6 @@
    ],
    "summary": "MIA: no key regulars ruled out. LAL: no key regulars ruled out. No other late news found before tip-off."
   },
-  "nfl_2026_07_DAL_PHI": {
-   "at": "2026-10-26T23:08:00Z",
-   "game": "DAL @ PHI",
-   "items": [
-    {
-     "at": "2026-10-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/",
-     "team": "PHI",
-     "text": "QB Jalen Hurts (IR, blood clots) likely out for the season; Tanner McKee makes his second straight start.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-10-26T12:00:00Z",
-     "impact": 0.5,
-     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/",
-     "team": "PHI",
-     "text": "G Landon Dickerson activated from IR after five missed games and is active; TEs Eli Stowers and Grant Calcaterra also activated.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-26T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/",
-     "team": "PHI",
-     "text": "RB Saquon Barkley (hamstring) active after missing two games; LBs Jalyx Hunt and Jonathan Greenard also active.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-26T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/",
-     "team": "PHI",
-     "text": "Inactive: WRs DeVonta Smith and Dontayvion Wicks, OLB Nolan Smith, CB Michael Carter II.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/nick-sirianni-eagles-sticking-with-sean-mannion-as-play-caller/759833/",
-     "team": "PHI",
-     "text": "Sirianni keeps OC Sean Mannion as play-caller but says \"everything is on the table\" after 58 points in four losses.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-10-25T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
-     "team": "DAL",
-     "text": "LB DeMarvion Overshown (hamstring, out since Week 1) expected back; not on the inactive list.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-25T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html",
-     "team": "DAL",
-     "text": "CB Cobie Durant (hamstring, out since Week 2) expected back; not on the inactive list.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-26T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/cowboys/onsi/cowboys-cant-catch-break-with-week-7-inactives-vs-eagles",
-     "team": "DAL",
-     "text": "Inactive: LB Dee Winters, T Drew Shelton, WR KaVontae Turpin. S P.J. Locke and LB Marist Liufau ruled out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Eagles inactives: Saquon Barkley makes return vs. Cowboys (NBC Sports Philadelphia)",
-     "u": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-week-7-inactives-vs-cowboys-2026-nfl-season/761627/"
-    },
-    {
-     "t": "Cowboys Can't Catch a Break With Week 7 Inactives vs. Eagles (Cowboys On SI)",
-     "u": "https://www.si.com/nfl/cowboys/onsi/cowboys-cant-catch-break-with-week-7-inactives-vs-eagles"
-    },
-    {
-     "t": "Eagles vs. Cowboys: Tanner McKee starts as Eagles try to end a four-game skid (Northeast Times)",
-     "u": "https://northeasttimes.com/2026/10/26/eagles-vs-cowboys-monday-night-football-preview-how-to-watch-week-7-2026/"
-    },
-    {
-     "t": "Cowboys-Eagles final injury update has 7 ruled out (Cowboys Wire)",
-     "u": "https://sports.yahoo.com/articles/cowboys-eagles-final-injury-7-122022258.html"
-    },
-    {
-     "t": "Sirianni sticking with Mannion as play-caller (NBC Sports Philadelphia)",
-     "u": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/nick-sirianni-eagles-sticking-with-sean-mannion-as-play-caller/759833/"
-    }
-   ],
-   "summary": "Two 2-4 NFC East teams meet on Monday night. Tanner McKee starts again for an Eagles team on a four-game skid without Jalen Hurts, DeVonta Smith and Dontayvion Wicks, but Saquon Barkley and G Landon Dickerson (off IR) are active. Dallas, trying to avoid a third straight loss, expects LB DeMarvion Overshown and CB Cobie Durant back from long absences."
-  },
   "nfl_2026_08_ARI_DAL": {
    "at": "2026-11-01T17:07:36Z",
    "game": "ARI @ DAL",
@@ -3194,7 +3092,7 @@
    "summary": "Carolina visits Green Bay on a short week after a 43-13 loss at Tampa Bay, with Bryce Young starting. The Panthers are without Phillips, Lewis, Evans and both starting tackles. Green Bay is missing C Sean Rhyan, G Travis Glover and LB Zaire Franklin; CB Keisean Nixon was added as questionable on game day, while WR Matthew Golden is trending toward playing."
   },
   "nfl_2026_08_CHI_SEA": {
-   "at": "2026-11-02T17:48:04Z",
+   "at": "2026-11-03T00:03:35Z",
    "game": "CHI @ SEA",
    "items": [
     {
@@ -3216,11 +3114,11 @@
      "type": "loss"
     },
     {
-     "at": "2026-10-29T12:00:00Z",
+     "at": "2026-11-02T23:45:00Z",
      "impact": 0,
-     "src": "https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks",
+     "src": "https://chicago.suntimes.com/bears/2026/11/02/bears-seahawks-inactives-malik-muhammad-out",
      "team": "CHI",
-     "text": "RB Kyle Monangai (thumb/toe) did not practice Thursday; CB Malik Muhammad limited.",
+     "text": "CB Malik Muhammad (toe) is inactive; RB Kyle Monangai also out.",
      "total": 0,
      "type": "injury"
     },
@@ -3243,11 +3141,11 @@
      "type": "return"
     },
     {
-     "at": "2026-10-30T17:25:00Z",
-     "impact": 0,
-     "src": "https://clutchpoints.com/nfl/seattle-seahawks/seahawks-news-leonard-williams-jadarian-price-injury-report-bears",
+     "at": "2026-11-02T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://sports.yahoo.com/articles/seahawks-activate-jadarian-price-injured-212152298.html",
      "team": "SEA",
-     "text": "RB Jadarian Price (chest, IR, missed four games) was limited in practice and is eligible to be activated.",
+     "text": "RB Jadarian Price activated from injured reserve after missing four games and will play.",
      "total": 0,
      "type": "return"
     },
@@ -3272,6 +3170,14 @@
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Bears-Seahawks inactives: CB Malik Muhammad ruled out",
+     "u": "https://chicago.suntimes.com/bears/2026/11/02/bears-seahawks-inactives-malik-muhammad-out"
+    },
+    {
+     "t": "Seahawks activate Jadarian Price from injured reserve ahead of MNF vs. Bears",
+     "u": "https://sports.yahoo.com/articles/seahawks-activate-jadarian-price-injured-212152298.html"
+    },
     {
      "t": "Nelson opens up on 'bittersweet' trade from Colts",
      "u": "https://www.nfl.com/news/quenton-nelson-bittersweet-trade-colts-next-chapter-seahawks"
@@ -3305,7 +3211,7 @@
      "u": "https://www.chicagobears.com/news/bears-embrace-stepping-into-national-spotlight"
     }
    ],
-   "summary": "Chicago (5-2) has won two straight since Caleb Williams returned and gets Montez Sweat back from suspension. Seattle (4-3) is without LT Charles Cross and WR Rashid Shaheed, with Uchenna Nwosu doubtful, but RB Zach Charbonnet makes his season debut and newly acquired guard Quenton Nelson bolsters a thin interior line."
+   "summary": "Chicago (5-2) has won two straight since Caleb Williams returned and gets Montez Sweat back, but CB Malik Muhammad is inactive. Seattle is without LT Charles Cross and WR Rashid Shaheed, yet RBs Zach Charbonnet and Jadarian Price return and new guard Quenton Nelson bolsters the interior line."
   },
   "nfl_2026_08_CLE_PIT": {
    "at": "2026-11-01T17:07:36Z",
@@ -3977,8 +3883,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-02T18:05:00Z",
-  "games": 18,
-  "note": "Ravens QB crisis (Lamar IR), Seahawks add Q. Nelson, Branthwaite back for Everton, 15 NBA games from injury list"
+  "at": "2026-11-03T00:06:00Z",
+  "games": 1,
+  "note": "CHI @ SEA refreshed with inactives; other games not due."
  }
 }
