@@ -42,7 +42,7 @@
    "summary": "Second-placed Man City visit the City Ground after a midweek Champions League trip to RB Leipzig, where Ruben Dias, Josko Gvardiol and Ayyoub Bouaddi were rested. Antoine Semenyo remains City's only major absentee. Forest hope Nico Dominguez is fit and expect Igor Jesus and Nicolo Savona to be available."
   },
   "epl_401878758": {
-   "at": "2026-11-04T17:07:43Z",
+   "at": "2026-11-05T17:06:53Z",
    "game": "Leeds v Tottenham",
    "items": [
     {
@@ -105,7 +105,7 @@
    "summary": "Leeds have gone five league games without a win but have a near-full squad, with Dominic Calvert-Lewin back after being rested in the Carabao Cup. Tottenham arrive on three straight league wins but without wingers Mykhaylo Mudryk and Savio, plus long-term absentees Xavi Simons and Wilson Odobert."
   },
   "epl_401878760": {
-   "at": "2026-11-04T17:07:43Z",
+   "at": "2026-11-05T17:06:53Z",
    "game": "Arsenal v Hull City",
    "items": [
     {
@@ -114,6 +114,15 @@
      "src": "https://thefalse9.com/2026/11/arsenal-predicted-lineup-hull-city-saliba-back-no-saka.html",
      "team": "Arsenal",
      "text": "Bukayo Saka (quad) has missed three games and is not expected to face Hull.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": -0.04,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/injury-news/injuries-and-suspensions/konsa-saka-latest-arsenal-injury-suspension-list-vs-hull_608457.html",
+     "team": "Arsenal",
+     "text": "Ezri Konsa a doubt after limping and coming off just past the hour in Prague; update due before Saturday.",
      "total": 0,
      "type": "injury"
     },
@@ -131,7 +140,7 @@
      "impact": -0.05,
      "src": "https://thesportsencounter.com/2026/11/04/william-saliba-arsenal-injury-return-konsa-slavia-prague-2026/",
      "team": "Arsenal",
-     "text": "Champions League away at Slavia Prague on Wednesday 4 November, three days before this match.",
+     "text": "Won 2-1 at Slavia Prague in the Champions League on Wednesday 4 November, three days before this match.",
      "total": 0,
      "type": "other"
     },
@@ -163,9 +172,17 @@
     {
      "t": "Saliba Returns, but Who Makes Way? Arteta Faces Arsenal's Biggest Defensive Selection Dilemma",
      "u": "https://thesportsencounter.com/2026/11/04/william-saliba-arsenal-injury-return-konsa-slavia-prague-2026/"
+    },
+    {
+     "t": "Arsenal injury, suspension list and return dates vs. Hull City",
+     "u": "https://www.sportsmole.co.uk/football/arsenal/injury-news/injuries-and-suspensions/konsa-saka-latest-arsenal-injury-suspension-list-vs-hull_608457.html"
+    },
+    {
+     "t": "Arsenal injury latest: Konsa, Saliba, Saka",
+     "u": "https://readarsenal.com/2026/11/05/arsenal-injury-latest-konsa-saliba-saka/"
     }
    ],
-   "summary": "League leaders Arsenal host Hull three days after a Champions League trip to Slavia Prague and without Bukayo Saka (quad). William Saliba is back in full training after about four months out, though a start may come later. Hull, 11th, are missing the suspended Matt Crooks and three injured midfielders."
+   "summary": "League leaders Arsenal host Hull three days after a 2-1 Champions League win at Slavia Prague, without Bukayo Saka (quad) and with Ezri Konsa a doubt. William Saliba is back in full training after about four months out. Hull, 11th, are missing the suspended Matt Crooks and three injured midfielders."
   },
   "epl_401878761": {
    "at": "2026-10-31T16:06:40Z",
@@ -378,7 +395,7 @@
    "summary": "Two promoted sides level on points, neither involved in midweek. Hull wait on goalkeeper Jack Butland but have Mendy, McBurnie and Coyle available; Targett, Ansah, Hughes, Matazo and Gyabi are out. Ipswich will decide on Sasa Lukic on Saturday, and O'Neil says the rest are fit."
   },
   "epl_401879241": {
-   "at": "2026-11-04T17:07:43Z",
+   "at": "2026-11-05T17:06:53Z",
    "game": "Fulham v Newcastle",
    "items": [
     {
@@ -389,6 +406,42 @@
      "text": "Matthias Jaissle now manages Newcastle after Eddie Howe left; Guimaraes, Gordon, Tonali and Trippier have all gone.",
      "total": 0,
      "type": "coach"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://newcastleunited.com/en/news/matthias-jaissles-team-news-update-joelinton-and-fernandez-pardo-latest-ahead-of-fulham-clash",
+     "team": "Newcastle",
+     "text": "Joelinton is out again with a muscle problem picked up against Everton, Matthias Jaissle confirmed.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://readnewcastle.com/2026/11/04/newcastle-united-suspension-news-ramsey-fulham/",
+     "team": "Newcastle",
+     "text": "Jacob Ramsey serves a one-match ban after his stoppage-time red card in the 1-0 home loss to Everton.",
+     "total": 0,
+     "type": "suspension"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://readnewcastle.com/2026/11/04/newcastle-united-suspension-news-ramsey-fulham/",
+     "team": "Newcastle",
+     "text": "Tino Livramento (knee) and Ewen Jaouen (hamstring) are ruled out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://newcastleunited.com/en/news/matthias-jaissles-team-news-update-joelinton-and-fernandez-pardo-latest-ahead-of-fulham-clash",
+     "team": "Newcastle",
+     "text": "Matias Fernandez-Pardo is training again after a heavy virus; Lewis Miley is improving. Both are doubts.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "epl",
@@ -396,9 +449,17 @@
     {
      "t": "I said the priority should have been to sit Eddie Howe and Bruno Guimaraes down",
      "u": "https://www.themag.co.uk/2026/11/i-said-the-priority-should-have-been-to-sit-eddie-howe-and-bruno-guimaraes-down-newcastle-united"
+    },
+    {
+     "t": "Matthias Jaissle's team news update: Joelinton and Fernandez-Pardo latest ahead of Fulham clash",
+     "u": "https://newcastleunited.com/en/news/matthias-jaissles-team-news-update-joelinton-and-fernandez-pardo-latest-ahead-of-fulham-clash"
+    },
+    {
+     "t": "Newcastle United suspension news: Ramsey to miss Fulham",
+     "u": "https://readnewcastle.com/2026/11/04/newcastle-united-suspension-news-ramsey-fulham/"
     }
    ],
-   "summary": "Newcastle are in a rebuilding season under Matthias Jaissle after Eddie Howe's departure and the sales of Bruno Guimaraes, Anthony Gordon, Sandro Tonali and Kieran Trippier. No pre-match team news from either club had been published yet; this will be refreshed after the press conferences."
+   "summary": "Rebuilding Newcastle, under Matthias Jaissle after Eddie Howe's exit, come off a 1-0 home loss to Everton and travel without Joelinton (muscle), the suspended Jacob Ramsey and Tino Livramento (knee). Matias Fernandez-Pardo and Lewis Miley are doubts. No Fulham team news had been published at the time of this update."
   },
   "epl_401879245": {
    "at": "2026-10-30T16:25:12Z",
@@ -1460,119 +1521,6 @@
     }
    ],
    "summary": "Denver opens NBA Cup play at Phoenix after Jokic's 200th career triple-double against New Orleans. Cameron Johnson is upgraded to questionable. Phoenix is without Mark Williams long-term and Oso Ighodaro is questionable."
-  },
-  "nba_401909893": {
-   "at": "2026-10-29T16:15:03Z",
-   "game": "CLE @ ATL",
-   "items": [
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.espn.com/nba/game/_/gameId/401909893",
-     "team": "ATL",
-     "text": "Mouhamed Gueye (foot) out, expected back around Nov 20; Henri Veesaar out for the season (knee).",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.espn.com/nba/game/_/gameId/401909893",
-     "team": "ATL",
-     "text": "Hawks have lost three straight and are 0-2 at home.",
-     "total": 0,
-     "type": "motivation"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Cavaliers vs. Hawks (Oct 29, 2026) - ESPN",
-     "u": "https://www.espn.com/nba/game/_/gameId/401909893"
-    }
-   ],
-   "summary": "Cleveland (3-1) arrives on a three-game winning streak with no injuries listed. Atlanta (2-3) has lost three straight and is 0-2 at home, and is without Mouhamed Gueye (foot) and Henri Veesaar (knee, out for the season)."
-  },
-  "nba_401909894": {
-   "at": "2026-10-29T16:15:03Z",
-   "game": "SAC @ NO",
-   "items": [
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.fubo.tv/news/nba/sacramento-kings-at-new-orleans-pelicans-where-to-watch-stream-info-tv-channel-and-live-updates-october-29-2026/",
-     "team": "SAC",
-     "text": "Keegan Murray (ankle) out, re-evaluated in 10-14 days; Simmons (Achilles), Cardwell and Raynaud also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.fubo.tv/news/nba/sacramento-kings-at-new-orleans-pelicans-where-to-watch-stream-info-tv-channel-and-live-updates-october-29-2026/",
-     "team": "NO",
-     "text": "Jordan Poole (ankle) and Yves Missi (knee) day-to-day after missing time against Denver.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/3-potential-landing-spots-jordan-231125304.html",
-     "team": "NO",
-     "text": "Poole reportedly told the Pelicans he is open to opportunities elsewhere, three games into the season.",
-     "total": 0,
-     "type": "drama"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Sacramento Kings at New Orleans Pelicans: where to watch (Oct 29, 2026)",
-     "u": "https://www.fubo.tv/news/nba/sacramento-kings-at-new-orleans-pelicans-where-to-watch-stream-info-tv-channel-and-live-updates-october-29-2026/"
-    },
-    {
-     "t": "3 Potential Landing Spots For Jordan Poole After Asking Pelicans For A Trade",
-     "u": "https://sports.yahoo.com/articles/3-potential-landing-spots-jordan-231125304.html"
-    }
-   ],
-   "summary": "Two 0-4 teams meet, so one losing streak ends. Sacramento is without Keegan Murray (ankle), Ben Simmons, Dylan Cardwell and Maxime Raynaud. New Orleans has Jordan Poole (ankle) and Yves Missi (knee) day-to-day, and Poole has reportedly told the team he is open to a move."
-  },
-  "nba_401909895": {
-   "at": "2026-10-29T16:15:03Z",
-   "game": "MEM @ POR",
-   "items": [
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.fubo.tv/news/nba/memphis-grizzlies-at-portland-trail-blazers-where-to-watch-stream-info-tv-channel-and-live-updates-october-29-2026/",
-     "team": "POR",
-     "text": "Shaedon Sharpe out for the season (torn meniscus).",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-28T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/memphis-grizzlies/grizzlies-ja-morant-trail-blazers/",
-     "team": "POR",
-     "text": "Ja Morant faces Memphis for the first time since the June trade.",
-     "total": 0,
-     "type": "motivation"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Memphis Grizzlies at Portland Trail Blazers: where to watch (Oct 29, 2026)",
-     "u": "https://www.fubo.tv/news/nba/memphis-grizzlies-at-portland-trail-blazers-where-to-watch-stream-info-tv-channel-and-live-updates-october-29-2026/"
-    },
-    {
-     "t": "Grizzlies Watch as Ja Morant Shines for Trail Blazers",
-     "u": "https://heavy.com/sports/nba/memphis-grizzlies/grizzlies-ja-morant-trail-blazers/"
-    }
-   ],
-   "summary": "Unbeaten teams meet: Memphis is 4-0 behind Ty Jerome's scoring and Portland 3-0. It is Ja Morant's first game against Memphis since the June trade that brought Jerami Grant to the Grizzlies. Portland is without Shaedon Sharpe, out for the season."
   },
   "nba_401909896": {
    "at": "2026-10-31T16:06:40Z",
@@ -2949,6 +2897,88 @@
    ],
    "summary": "Miami's Giannis Antetokounmpo is on Wednesday's injury report. The Clippers remain without Brandon Ingram and Bradley Beal."
   },
+  "nba_401909936": {
+   "at": "2026-11-05T17:06:53Z",
+   "game": "ORL @ PHX",
+   "items": [
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/multiple-key-injuries-could-define-140309537.html",
+     "team": "ORL",
+     "text": "Paolo Banchero (high right ankle sprain) and Jalen Suggs (right knee bone bruise) are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/multiple-key-injuries-could-define-140309537.html",
+     "team": "PHX",
+     "text": "Devin Booker left Wednesday's loss to Portland with an upper-body injury but returned; he is expected to play.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/multiple-key-injuries-could-define-140309537.html",
+     "team": "PHX",
+     "text": "Mark Williams is out; Jordan Goodwin (calf) is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Multiple Key Injuries Could Define Suns vs. Magic",
+     "u": "https://sports.yahoo.com/articles/multiple-key-injuries-could-define-140309537.html"
+    }
+   ],
+   "summary": "Orlando is again without Paolo Banchero (high ankle sprain) and Jalen Suggs (knee bone bruise). Phoenix is on the second night of a back-to-back after allowing 132 points to Portland; Devin Booker left that game in the third quarter with an upper-body issue but returned and is expected to play."
+  },
+  "nba_401909937": {
+   "at": "2026-11-05T17:06:53Z",
+   "game": "MIA @ GS",
+   "items": [
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/golden-state-warriors-release-injury-060049909.html",
+     "team": "GS",
+     "text": "Kristaps Porzingis is away from the team with POTS symptoms and is reportedly considering retirement.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/golden-state-warriors-release-injury-060049909.html",
+     "team": "GS",
+     "text": "Jimmy Butler and Moses Moody (knees) are out, expected back around January; Gui Santos (knee tendinitis) is out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/golden-state-warriors-release-injury-060049909.html",
+     "team": "GS",
+     "text": "Al Horford (rested) and Brandon Williams (quad) missed the Suns game and are available.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Golden State Warriors Release Injury Report Ahead of Miami Heat Matchup",
+     "u": "https://sports.yahoo.com/articles/golden-state-warriors-release-injury-060049909.html"
+    }
+   ],
+   "summary": "Golden State has won five straight and is 3-0 on its homestand despite missing Jimmy Butler and Moses Moody (knees, both targeting January) and Kristaps Porzingis, who is away from the team and reportedly weighing retirement. Miami, on the second night of a back-to-back, has won two of its last three after an 0-4 start."
+  },
   "nfl_2026_08_ARI_DAL": {
    "at": "2026-11-01T17:07:36Z",
    "game": "ARI @ DAL",
@@ -4017,7 +4047,7 @@
    "summary": "Both teams change quarterbacks. Arizona starts Gardner Minshew after benching Jacoby Brissett, who is being traded to Baltimore. Seattle loses Sam Darnold (quad) for the game and Drew Lock, managing an elbow injury, is expected to start ahead of Jalen Milroe. Arizona rookie RB Jeremiyah Love is on IR."
   },
   "nfl_2026_09_CIN_ATL": {
-   "at": "2026-11-04T17:07:43Z",
+   "at": "2026-11-05T17:06:53Z",
    "game": "CIN @ ATL",
    "items": [
     {
@@ -4031,12 +4061,12 @@
     },
     {
      "at": "2026-11-02T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/falcons-rule-two-players-week-185742480.html",
+     "impact": 0.4,
+     "src": "https://www.ajc.com/sports/2026/11/atlanta-falcons-branch-ebukam-injuries-bengals/",
      "team": "ATL",
-     "text": "DE James Pearce Jr. is eligible to return from an eight-game suspension; his activation has not been announced.",
+     "text": "Edge James Pearce Jr. will play for the first time this season after his eight-game suspension; snap count not yet set.",
      "total": 0,
-     "type": "other"
+     "type": "return"
     },
     {
      "at": "2026-11-04T12:00:00Z",
@@ -4055,6 +4085,15 @@
      "text": "Edge rusher Cashius Howell had wrist surgery and goes to injured reserve, out at least a month.",
      "total": 0,
      "type": "loss"
+    },
+    {
+     "at": "2026-11-02T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.ajc.com/sports/2026/11/atlanta-falcons-branch-ebukam-injuries-bengals/",
+     "team": "ATL",
+     "text": "LB Divine Deablo (forearm), RB Brian Robinson Jr. and S Billy Bowman Jr. (hamstrings) missed the Tampa Bay game.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
@@ -4070,9 +4109,13 @@
     {
      "t": "Bengals Get Massive DJ Turner News After Scary Injury",
      "u": "https://sports.yahoo.com/articles/bengals-massive-dj-turner-news-213326484.html"
+    },
+    {
+     "t": "Falcons injuries: Branch, Ebukam out vs. Bengals; Pearce to play",
+     "u": "https://www.ajc.com/sports/2026/11/atlanta-falcons-branch-ebukam-injuries-bengals/"
     }
    ],
-   "summary": "Joe Burrow and Michael Penix Jr. meet in Madrid. Atlanta has already ruled out WR Zachariah Branch and DE Samson Ebukam, while edge rusher James Pearce Jr. is eligible to come back from his eight-game suspension. Cincinnati's top corner DJ Turner (heel) was projected not to practice to open the week."
+   "summary": "Joe Burrow and Michael Penix Jr. meet in Madrid. Atlanta (3-5) gets edge rusher James Pearce Jr. back from his eight-game suspension but has ruled out WR Zachariah Branch and DE Samson Ebukam. Cincinnati (5-2) is watching top corner DJ Turner (heel) and safety Jordan Battle (hamstring)."
   },
   "nfl_2026_09_CLE_NO": {
    "at": "2026-11-05T00:08:23Z",
@@ -4328,7 +4371,7 @@
    "summary": "Houston, 2-5 and coming off its bye, is again without RB David Montgomery (groin), so Woody Marks leads the backfield; DeMeco Ryans calls Montgomery week to week. The Chargers remain without Rashawn Slater and Derwin James."
   },
   "nfl_2026_09_JAX_BAL": {
-   "at": "2026-11-05T00:08:23Z",
+   "at": "2026-11-05T17:06:53Z",
    "game": "JAX @ BAL",
    "items": [
     {
@@ -4384,6 +4427,24 @@
      "text": "RB Bhayshul Tuten (ankle/foot) a game-time decision and DE Travon Walker (rib) questionable; S Antonio Johnson back after one missed game.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.espn.com/nfl/story/_/id/50371730/rookie-joe-fagnano-start-thursday-night-vs-jaguars",
+     "team": "BAL",
+     "text": "Kicker Tyler Loop (groin) placed on IR; Jake Moody elevated from the practice squad to kick.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-11-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.baltimoreravens.com/news/joe-fagnano-ravens-quarterbacks-practice-report-tyler-huntley",
+     "team": "BAL",
+     "text": "Baltimore (4-4) is last in the AFC North and trying to snap a three-game losing streak.",
+     "total": 0,
+     "type": "motivation"
     }
    ],
    "lg": "nfl",
@@ -4411,6 +4472,14 @@
     {
      "t": "Final injury report: Antonio Johnson gives Jaguars a spark Ravens aren't ready for",
      "u": "https://blackandteal.com/final-injury-report-antonio-johnson-gives-jaguars-a-spark-ravens-aren-t-ready-for-thursday-night"
+    },
+    {
+     "t": "Rookie Joe Fagnano to start Thursday night vs. Jaguars, Jesse Minter says",
+     "u": "https://www.espn.com/nfl/story/_/id/50371730/rookie-joe-fagnano-start-thursday-night-vs-jaguars"
+    },
+    {
+     "t": "Banged Up Joe Fagnano Set to Start for Ravens vs. Jaguars",
+     "u": "https://www.baltimoreravens.com/news/joe-fagnano-ravens-quarterbacks-practice-report-tyler-huntley"
     }
    ],
    "summary": "Undrafted rookie Joe Fagnano starts for Baltimore with Lamar Jackson (thumb) and Tyler Huntley (toe) out; the Ravens are finalizing a trade for Jacoby Brissett, but he won't play Thursday. Safety Jaylinn Hawkins is out. Jacksonville gets safety Antonio Johnson back, while RB Bhayshul Tuten and DE Travon Walker are questionable."
@@ -4580,11 +4649,78 @@
     }
    ],
    "summary": "The Jets' top receiver Garrett Wilson is in the concussion protocol and missed Wednesday's practice, along with DT Harrison Phillips. Kansas City's Travis Kelce (ankle) and Rashee Rice (hamstring/knee) were limited, Patrick Mahomes was full, and rookie DT Peter Woods sat with a neck stinger."
+  },
+  "nfl_2026_09_TB_CHI": {
+   "at": "2026-11-05T17:06:53Z",
+   "game": "TB @ CHI",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-4-diaby-egbuka-roberts-did-not-participate",
+     "team": "TB",
+     "text": "WR Emeka Egbuka (foot) and OLB YaYa Diaby (knee) did not practice Wednesday; S Tykee Smith (ankle) limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-4-diaby-egbuka-roberts-did-not-participate",
+     "team": "TB",
+     "text": "QB Baker Mayfield (right thumb) was a full participant and is set to start.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-4-diaby-egbuka-roberts-did-not-participate",
+     "team": "CHI",
+     "text": "RB Kyle Monangai (toe), LT Theo Benedet (shoulder) and DL Grady Jarrett (groin) did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-10-29T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-bears-week-9",
+     "team": "CHI",
+     "text": "DL Jeffery Simmons, acquired from Tennessee on Oct. 29 for two first-round picks, anchors the Bears' front.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://beargoggleson.com/bears-vs-buccaneers-week-9-injury-updates-predictions-storylines-and-more",
+     "team": "CHI",
+     "text": "LT Braxton Jones (knee) is out for the season; TE Cole Kmet and DL Dayo Odeyingbo remain on IR.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Buccaneers-Bears Injury Report Nov. 4: Diaby, Egbuka, Roberts Did Not Participate",
+     "u": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-4-diaby-egbuka-roberts-did-not-participate"
+    },
+    {
+     "t": "2026 Game Preview: Tampa Bay Buccaneers-Chicago Bears, Week 9",
+     "u": "https://www.buccaneers.com/news/2026-game-preview-buccaneers-bears-week-9"
+    },
+    {
+     "t": "Bears vs. Buccaneers Week 9: Injury updates, storylines and more",
+     "u": "https://beargoggleson.com/bears-vs-buccaneers-week-9-injury-updates-predictions-storylines-and-more"
+    }
+   ],
+   "summary": "Chicago (6-2) has won three straight, Tampa Bay (3-5) two. Baker Mayfield (thumb) practiced fully, but WR Emeka Egbuka (foot) and edge YaYa Diaby (knee) sat out Wednesday. The Bears added DL Jeffery Simmons in a trade, while RB Kyle Monangai and LT Theo Benedet did not practice."
   }
  },
  "meta": {
-  "at": "2026-11-05T00:09:00Z",
-  "games": 13,
-  "note": "Week 9 NFL Sunday slate added, JAX@BAL refreshed (Brissett trade), Forest v City added; no NBA due."
+  "at": "2026-11-05T17:08:00Z",
+  "games": 8,
+  "note": "TB@CHI and two NBA games added; JAX@BAL, CIN@ATL (Pearce return) and three EPL matches refreshed."
  }
 }
