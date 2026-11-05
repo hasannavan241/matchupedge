@@ -1,5 +1,46 @@
 {
  "docs": {
+  "epl_401878757": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "Nottm Forest v Man City",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://sports.yahoo.com/articles/watch-nottingham-forest-vs-manchester-170400914.html",
+     "team": "Man City",
+     "text": "Played at RB Leipzig in the Champions League in midweek; Dias, Gvardiol and Bouaddi were benched there.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/watch-nottingham-forest-vs-manchester-170400914.html",
+     "team": "Man City",
+     "text": "Antoine Semenyo out for at least another month (long-term absence).",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/watch-nottingham-forest-vs-manchester-170400914.html",
+     "team": "Nottm Forest",
+     "text": "Nico Dominguez a doubt Forest hope is fit; Igor Jesus and Nicolo Savona expected to be available.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "How to watch Nottingham Forest vs Manchester City live: Stream, TV, team news",
+     "u": "https://sports.yahoo.com/articles/watch-nottingham-forest-vs-manchester-170400914.html"
+    }
+   ],
+   "summary": "Second-placed Man City visit the City Ground after a midweek Champions League trip to RB Leipzig, where Ruben Dias, Josko Gvardiol and Ayyoub Bouaddi were rested. Antoine Semenyo remains City's only major absentee. Forest hope Nico Dominguez is fit and expect Igor Jesus and Nicolo Savona to be available."
+  },
   "epl_401878758": {
    "at": "2026-11-04T17:07:43Z",
    "game": "Leeds v Tottenham",
@@ -3930,6 +3971,51 @@
    ],
    "summary": "Tennessee rules out rookie WR Carnell Tate, RB Tyjae Spears and P Tommy Townsend, two days after trading DT Jeffery Simmons to Chicago. Calvin Ridley was full Friday but is questionable. Cincinnati lost TEs Erick All and Tanner Hudson for the season; Ja'Marr Chase has no designation and S Kyle Dugger is out."
   },
+  "nfl_2026_09_ARI_SEA": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "ARI @ SEA",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://bvmsports.com/2026/11/04/sam-darnold-out-vs-cardinals-drew-lock-starts-for-seahawks-in-week-9/",
+     "team": "SEA",
+     "text": "Sam Darnold (quad) out; Drew Lock (elbow) expected to start, with Jalen Milroe the backup.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-02T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/cardinals-qb-gardner-minshew-starting-qb-carson-beck-backup",
+     "team": "ARI",
+     "text": "Gardner Minshew named the starter over Jacoby Brissett; rookie Carson Beck (back) is the backup.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.nfl.com/news/cardinals-qb-gardner-minshew-starting-qb-carson-beck-backup",
+     "team": "ARI",
+     "text": "Rookie RB Jeremiyah Love placed on IR with a high ankle sprain.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Sam Darnold Out vs. Cardinals; Drew Lock Starts for Seahawks in Week 9",
+     "u": "https://bvmsports.com/2026/11/04/sam-darnold-out-vs-cardinals-drew-lock-starts-for-seahawks-in-week-9/"
+    },
+    {
+     "t": "Cardinals name Gardner Minshew starting quarterback; rookie Carson Beck to be backup",
+     "u": "https://www.nfl.com/news/cardinals-qb-gardner-minshew-starting-qb-carson-beck-backup"
+    }
+   ],
+   "summary": "Both teams change quarterbacks. Arizona starts Gardner Minshew after benching Jacoby Brissett, who is being traded to Baltimore. Seattle loses Sam Darnold (quad) for the game and Drew Lock, managing an elbow injury, is expected to start ahead of Jalen Milroe. Arizona rookie RB Jeremiyah Love is on IR."
+  },
   "nfl_2026_09_CIN_ATL": {
    "at": "2026-11-04T17:07:43Z",
    "game": "CIN @ ATL",
@@ -3988,8 +4074,261 @@
    ],
    "summary": "Joe Burrow and Michael Penix Jr. meet in Madrid. Atlanta has already ruled out WR Zachariah Branch and DE Samson Ebukam, while edge rusher James Pearce Jr. is eligible to come back from his eight-game suspension. Cincinnati's top corner DJ Turner (heel) was projected not to practice to open the week."
   },
+  "nfl_2026_09_CLE_NO": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "CLE @ NO",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbssports.com/nfl/news/browns-deshaun-watson-concussion-protocol-shedeur-sanders-week-9-saints/",
+     "team": "CLE",
+     "text": "QB Deshaun Watson in the concussion protocol; Shedeur Sanders would start if he does not clear.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.neworleanssaints.com/news/injury-report-cleveland-browns-vs-new-orleans-saints-2026-nfl-week-9-wednesday",
+     "team": "CLE",
+     "text": "LB Quincy Williams, DT Maliek Collins and T Austin Barber did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.neworleanssaints.com/news/injury-report-cleveland-browns-vs-new-orleans-saints-2026-nfl-week-9-wednesday",
+     "team": "NO",
+     "text": "Alvin Kamara rested Wednesday; CB Martin Emerson Jr. and WR Jordyn Tyson limited.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Browns' Deshaun Watson in concussion protocol: Shedeur Sanders potentially in line to start Week 9 at Saints",
+     "u": "https://www.cbssports.com/nfl/news/browns-deshaun-watson-concussion-protocol-shedeur-sanders-week-9-saints/"
+    },
+    {
+     "t": "Saints Wednesday Injury Report: 2026 Week 9 vs. Cleveland Browns",
+     "u": "https://www.neworleanssaints.com/news/injury-report-cleveland-browns-vs-new-orleans-saints-2026-nfl-week-9-wednesday"
+    }
+   ],
+   "summary": "Cleveland's quarterback is uncertain: Deshaun Watson entered the concussion protocol after a hit against Pittsburgh, and Shedeur Sanders would start if he doesn't clear. LB Quincy Williams, DT Maliek Collins and T Austin Barber also missed Wednesday. New Orleans rested Alvin Kamara and claimed RB Audric Estime."
+  },
+  "nfl_2026_09_DAL_IND": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "DAL @ IND",
+   "items": [
+    {
+     "at": "2026-11-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.dallascowboys.com/news/big-picture-10-storylines-for-cowboys-colts",
+     "team": "IND",
+     "text": "Colts traded G Quenton Nelson and DT DeForest Buckner; RB Jonathan Taylor and WR Josh Downs are mentioned as trade candidates.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-11-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.dallascowboys.com/news/big-picture-10-storylines-for-cowboys-colts",
+     "team": "IND",
+     "text": "GM Chris Bullard removed as the Colts sell before the deadline; Shane Steichen keeps Daniel Jones as the starter.",
+     "total": 0,
+     "type": "drama"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://atozsports.com/nfl/dallas-cowboys-news/injury-situation-to-watch-at-secondary-vs-colts/",
+     "team": "DAL",
+     "text": "S Caleb Downs and S P.J. Locke in the concussion protocol; CB Joey Porter Jr. (ankle) could not finish last game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.dallascowboys.com/news/big-picture-10-storylines-for-cowboys-colts",
+     "team": "DAL",
+     "text": "TE Jake Ferguson (ankle), Dee Winters (Achilles) and KaVontae Turpin (ribs) hoped back this week.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Big Picture: 10 Storylines for Cowboys & Colts",
+     "u": "https://www.dallascowboys.com/news/big-picture-10-storylines-for-cowboys-colts"
+    },
+    {
+     "t": "Injury situation to watch at secondary vs. Colts",
+     "u": "https://atozsports.com/nfl/dallas-cowboys-news/injury-situation-to-watch-at-secondary-vs-colts/"
+    }
+   ],
+   "summary": "Indianapolis has turned seller: guard Quenton Nelson and DT DeForest Buckner have been traded, the GM was removed, and Jonathan Taylor and Josh Downs are in trade talk, with Daniel Jones staying the starter. Dallas's secondary is thin, with safeties Caleb Downs and P.J. Locke in the concussion protocol and CB Joey Porter Jr. nursing an ankle."
+  },
+  "nfl_2026_09_DEN_CAR": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "DEN @ CAR",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.denverbroncos.com/news/injury-report-wr-pat-bryant-listed-as-full-participant-4-broncos-do-not-practice-ahead-of-week-9-game-vs-panthers",
+     "team": "DEN",
+     "text": "WR Pat Bryant, on IR since a Week 4 ankle injury, designated to return and a full participant Wednesday.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.denverbroncos.com/news/injury-report-wr-pat-bryant-listed-as-full-participant-4-broncos-do-not-practice-ahead-of-week-9-game-vs-panthers",
+     "team": "DEN",
+     "text": "S Talanoa Hufanga, S Brandon Jones, DL Eyioma Uwazurike and CB Kris Abrams-Draine did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.panthers.com/news/week-9-wednesday-injury-report-missing-some-players-in-projected-report",
+     "team": "CAR",
+     "text": "Todd Wash takes over as interim defensive coordinator; he ran his first practice in the role Tuesday.",
+     "total": 0,
+     "type": "coach"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.panthers.com/news/week-9-wednesday-injury-report-missing-some-players-in-projected-report",
+     "team": "CAR",
+     "text": "OLB Jaelan Phillips, LB Bobby Okereke, LG Damien Lewis and CB Will Lee III did not practice; QB Bryce Young (ankle) full.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Injury Report: WR Pat Bryant listed as full participant, 4 Broncos do not practice ahead of Week 9 game vs. Panthers",
+     "u": "https://www.denverbroncos.com/news/injury-report-wr-pat-bryant-listed-as-full-participant-4-broncos-do-not-practice-ahead-of-week-9-game-vs-panthers"
+    },
+    {
+     "t": "Week 9 Wednesday Injury Report: Missing some players in projected report",
+     "u": "https://www.panthers.com/news/week-9-wednesday-injury-report-missing-some-players-in-projected-report"
+    }
+   ],
+   "summary": "Denver gets WR Pat Bryant back from injured reserve after an ankle injury in Week 4, but four defenders missed Wednesday's practice. Carolina's defense is shorthanded and under interim coordinator Todd Wash, with Jaelan Phillips, Bobby Okereke, Damien Lewis and rookie Will Lee III all sitting out. Bryce Young was a full participant."
+  },
+  "nfl_2026_09_DET_MIA": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "DET @ MIA",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thegreymanes.com/post/week-9-lions-dolphins-wednesday-injury-report",
+     "team": "DET",
+     "text": "Jack Campbell, C Cade Mays, CB D.J. Reed and DE D.J. Wonnum did not practice Wednesday; St. Brown and Branch limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thegreymanes.com/post/week-9-lions-dolphins-wednesday-injury-report",
+     "team": "MIA",
+     "text": "Only backup RB Jaylen Wright looks at risk of missing the game; everyone else practiced at least limited.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Week 9: Lions–Dolphins Wednesday Injury Report",
+     "u": "https://www.thegreymanes.com/post/week-9-lions-dolphins-wednesday-injury-report"
+    }
+   ],
+   "summary": "Detroit arrives banged up after the Vikings game: Jack Campbell, Cade Mays, D.J. Reed and D.J. Wonnum missed Wednesday's practice, and Amon-Ra St. Brown and Brian Branch were limited. Miami's report is light, with only backup RB Jaylen Wright in danger of missing the game."
+  },
+  "nfl_2026_09_GB_NE": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "GB @ NE",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/packers-first-injury-report-week-221940478.html",
+     "team": "GB",
+     "text": "EDGE Micah Parsons (knee) opened his PUP practice window and was limited; no word yet that he plays Sunday.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/packers-first-injury-report-week-221940478.html",
+     "team": "GB",
+     "text": "C Sean Rhyan (ankle) not expected to play; Zaire Franklin and Travis Glover in danger of missing again.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/patriots/onsi/patriots-week-9-injury-report-injured-vets-return-offensive-stars-sit",
+     "team": "NE",
+     "text": "WR A.J. Brown (ankle/knee), TE Hunter Henry (foot) and DT Christian Barmore did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Packers first injury report of Week 9: Micah Parsons returns",
+     "u": "https://sports.yahoo.com/articles/packers-first-injury-report-week-221940478.html"
+    },
+    {
+     "t": "Patriots Week 9 Injury Report: Injured Vets Return, Offensive Stars Sit",
+     "u": "https://www.si.com/nfl/patriots/onsi/patriots-week-9-injury-report-injured-vets-return-offensive-stars-sit"
+    }
+   ],
+   "summary": "Green Bay opened practice windows for Micah Parsons (PUP, knee) and RB Chris Brooks, though Parsons was limited and his return this week is uncertain; C Sean Rhyan is not expected to play. New England's A.J. Brown and Hunter Henry sat Wednesday, while Mack Hollins and Greg Van Roten began their IR return windows."
+  },
+  "nfl_2026_09_HOU_LAC": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "HOU @ LAC",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/texans-hc-announces-bad-news-205605244.html",
+     "team": "HOU",
+     "text": "RB David Montgomery (groin) ruled out, week to week; Woody Marks leads the backfield.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Texans' HC announces bad news on David Montgomery for Week 9 vs. Chargers",
+     "u": "https://sports.yahoo.com/articles/texans-hc-announces-bad-news-205605244.html"
+    }
+   ],
+   "summary": "Houston, 2-5 and coming off its bye, is again without RB David Montgomery (groin), so Woody Marks leads the backfield; DeMeco Ryans calls Montgomery week to week. The Chargers remain without Rashawn Slater and Derwin James."
+  },
   "nfl_2026_09_JAX_BAL": {
-   "at": "2026-11-04T17:07:43Z",
+   "at": "2026-11-05T00:08:23Z",
    "game": "JAX @ BAL",
    "items": [
     {
@@ -4013,27 +4352,88 @@
     {
      "at": "2026-11-03T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/ravens-injury-report-4-starters-215427353.html",
+     "src": "https://heavy.com/sports/nfl/jacksonville-jaguars/eric-murray-second-season-ending-injury-ravens/",
+     "team": "JAX",
+     "text": "Safety Eric Murray (elbow) and DT DaVon Hamilton (quad) placed on injured reserve.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/why-ravens-reported-trade-jacoby-195749854.html",
      "team": "BAL",
-     "text": "Kicker Tyler Loop (groin) expected out; Jake Moody to kick. S Jaylinn Hawkins (knee) did not practice Tuesday.",
+     "text": "Ravens finalizing a trade for QB Jacoby Brissett from Arizona; he will not play Thursday and is slated to start in Week 10.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-week-9-injury-report-2026-season",
+     "team": "BAL",
+     "text": "Final report: S Jaylinn Hawkins (knee) out; CB Nate Wiggins and RB Adam Randall questionable.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": "2026-11-04T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/jaguars-bhayshul-tuten-misses-second-015540475.html",
+     "src": "https://blackandteal.com/final-injury-report-antonio-johnson-gives-jaguars-a-spark-ravens-aren-t-ready-for-thursday-night",
      "team": "JAX",
-     "text": "RB Bhayshul Tuten missed a second straight practice; Chris Rodriguez Jr. would lead the backfield. Meyers, Cleveland and Walker limited.",
+     "text": "RB Bhayshul Tuten (ankle/foot) a game-time decision and DE Travon Walker (rib) questionable; S Antonio Johnson back after one missed game.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Ravens injury report: 4 starters return to full practice for Week 9",
+     "u": "https://sports.yahoo.com/articles/ravens-injury-report-4-starters-215427353.html"
+    },
+    {
+     "t": "Ravens Lose QB Tyler Huntley for the Season as Rookie Joe Fagnano Practices in an Ankle Brace",
+     "u": "https://athlonsports.com/nfl/baltimore-ravens/ravens-tyler-huntley-injured-reserve-joe-fagnano-jaguars"
+    },
+    {
+     "t": "Jaguars Confirm Second Season-Ending Injury Ahead of Week 9 Ravens Clash",
+     "u": "https://heavy.com/sports/nfl/jacksonville-jaguars/eric-murray-second-season-ending-injury-ravens/"
+    },
+    {
+     "t": "Why Ravens' reported trade for Jacoby Brissett won't help for Week 9 TNF vs. Jaguars",
+     "u": "https://sports.yahoo.com/articles/why-ravens-reported-trade-jacoby-195749854.html"
+    },
+    {
+     "t": "NFL Week 9 injury report: Player statuses for all 15 games",
+     "u": "https://www.nfl.com/news/nfl-week-9-injury-report-2026-season"
+    },
+    {
+     "t": "Final injury report: Antonio Johnson gives Jaguars a spark Ravens aren't ready for",
+     "u": "https://blackandteal.com/final-injury-report-antonio-johnson-gives-jaguars-a-spark-ravens-aren-t-ready-for-thursday-night"
+    }
+   ],
+   "summary": "Undrafted rookie Joe Fagnano starts for Baltimore with Lamar Jackson (thumb) and Tyler Huntley (toe) out; the Ravens are finalizing a trade for Jacoby Brissett, but he won't play Thursday. Safety Jaylinn Hawkins is out. Jacksonville gets safety Antonio Johnson back, while RB Bhayshul Tuten and DE Travon Walker are questionable."
+  },
+  "nfl_2026_09_LA_WAS": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "LA @ WAS",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.forbes.com/sites/mikebarner/2026/11/04/fantasy-football-week-9-injuries-matthew-stafford-aj-brown-and-more/",
+     "team": "LA",
+     "text": "QB Matthew Stafford (elbow soreness) expected to play; McVay is not concerned.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-03T12:00:00Z",
+     "at": null,
      "impact": 0,
-     "src": "https://heavy.com/sports/nfl/jacksonville-jaguars/eric-murray-second-season-ending-injury-ravens/",
-     "team": "JAX",
-     "text": "Safety Eric Murray (elbow) and DT DaVon Hamilton (quad) placed on injured reserve.",
+     "src": "https://turfshowtimes.com/los-angeles-rams-injuries/154156/rams-injury-jaylen-watson-on-season-ending-ir",
+     "team": "LA",
+     "text": "CB Jaylen Watson placed on season-ending injured reserve.",
      "total": 0,
      "type": "loss"
     }
@@ -4041,36 +4441,150 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Ravens Lose QB Tyler Huntley for the Season as Rookie Joe Fagnano Practices in an Ankle Brace",
-     "u": "https://athlonsports.com/nfl/baltimore-ravens/ravens-tyler-huntley-injured-reserve-joe-fagnano-jaguars"
+     "t": "Fantasy Football Week 9 Injuries: Matthew Stafford, A.J. Brown, And More",
+     "u": "https://www.forbes.com/sites/mikebarner/2026/11/04/fantasy-football-week-9-injuries-matthew-stafford-aj-brown-and-more/"
     },
     {
-     "t": "Ravens injury report: 4 starters return to full practice for Week 9",
-     "u": "https://sports.yahoo.com/articles/ravens-injury-report-4-starters-215427353.html"
-    },
-    {
-     "t": "Jaguars' Bhayshul Tuten misses second Week 9 practice",
-     "u": "https://sports.yahoo.com/articles/jaguars-bhayshul-tuten-misses-second-015540475.html"
-    },
-    {
-     "t": "Jaguars-Ravens Injury Report: Bhayshul Tuten's Injury Could Mean Larger Role For 1 Veteran",
-     "u": "https://sports.yahoo.com/articles/jaguars-ravens-injury-report-bhayshul-232541370.html"
-    },
-    {
-     "t": "Ravens QB Joe Fagnano (ankle) has chance to play Thursday",
-     "u": "https://www.espn.com/nfl/story/_/id/50362530/ravens-qb-joe-fagnano-ankle-chance-play-thursday"
-    },
-    {
-     "t": "Jaguars Confirm Second Season-Ending Injury Ahead of Week 9 Ravens Clash",
-     "u": "https://heavy.com/sports/nfl/jacksonville-jaguars/eric-murray-second-season-ending-injury-ravens/"
+     "t": "Rams place Jaylen Watson on season-ending IR",
+     "u": "https://turfshowtimes.com/los-angeles-rams-injuries/154156/rams-injury-jaylen-watson-on-season-ending-ir"
     }
    ],
-   "summary": "Baltimore turns to undrafted rookie Joe Fagnano on a short week: Lamar Jackson (thumb) is headed for surgery and injured reserve, and Tyler Huntley (turf toe) is out for the season. Fagnano is practicing in an ankle brace and kicker Tyler Loop is out. Jacksonville lost two defenders to IR, and RB Bhayshul Tuten missed a second straight practice."
+   "summary": "Matthew Stafford has a sore right elbow but carries no formal designation and is expected to play, per Sean McVay. The Rams lost CB Jaylen Watson for the season. Washington remains without WR Terry McLaurin and DTs Daron Payne and Javon Kinlaw on injured reserve."
+  },
+  "nfl_2026_09_LV_SF": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "LV @ SF",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nfl/san-francisco-49ers/49ers-announce-injury-update-on-wr-mike-evans",
+     "team": "SF",
+     "text": "WR Mike Evans (Achilles/ribs), RB Christian McCaffrey and WR Deebo Samuel did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/raiders/onsi/las-vegas-release-telling-injury-report-ahead-49ers-matchup",
+     "team": "LV",
+     "text": "Starting CB Darien Porter (groin) and OL Jackson Powers-Johnson did not practice Wednesday.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "49ers Announce Injury Update on WR Mike Evans Ahead of Raiders Game",
+     "u": "https://heavy.com/sports/nfl/san-francisco-49ers/49ers-announce-injury-update-on-wr-mike-evans"
+    },
+    {
+     "t": "Raiders Release Telling Injury Report Ahead of 49ers Matchup",
+     "u": "https://www.si.com/nfl/raiders/onsi/las-vegas-release-telling-injury-report-ahead-49ers-matchup"
+    }
+   ],
+   "summary": "San Francisco (6-1) comes off its bye hoping several players return, but Mike Evans (Achilles, ribs), Christian McCaffrey and Deebo Samuel did not practice Wednesday. Las Vegas starting CB Darien Porter (groin) missed practice; TE Carter Runyon returned from injured reserve."
+  },
+  "nfl_2026_09_NYG_PHI": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "NYG @ PHI",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/eagles-starting-qb-joe-milton-tanner-mckee-week-9-vs-giants",
+     "team": "PHI",
+     "text": "Joe Milton named starter over Tanner McKee for his first career start; Jalen Hurts is on IR with blood clots.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-injury-update-week-9-wednesday-saquon-barkley-devonta-smith-dontayvion-wicks/764362/",
+     "team": "PHI",
+     "text": "Saquon Barkley, DeVonta Smith, Dontayvion Wicks and Jihaad Campbell not practicing Wednesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.giants.com/news/giants-vs-eagles-week-9-injury-report-cam-skattebo-abdul-carter",
+     "team": "NYG",
+     "text": "RB Cam Skattebo (hamstring) and OLB Abdul Carter (illness) did not practice; T Andrew Thomas limited.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Eagles to start Joe Milton over Tanner McKee in Week 9 vs. Giants",
+     "u": "https://www.nfl.com/news/eagles-starting-qb-joe-milton-tanner-mckee-week-9-vs-giants"
+    },
+    {
+     "t": "Eagles injury update: Joe Milton might not get much extra help",
+     "u": "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-injury-update-week-9-wednesday-saquon-barkley-devonta-smith-dontayvion-wicks/764362/"
+    },
+    {
+     "t": "Giants vs. Eagles Week 9 Injury Report: Cam Skattebo, Abdul Carter DNP",
+     "u": "https://www.giants.com/news/giants-vs-eagles-week-9-injury-report-cam-skattebo-abdul-carter"
+    }
+   ],
+   "summary": "Philadelphia, on a six-game losing streak with Jalen Hurts on injured reserve, hands Joe Milton his first career start over Tanner McKee. Saquon Barkley, DeVonta Smith and Dontayvion Wicks were not practicing Wednesday. The Giants' Cam Skattebo (hamstring) and Abdul Carter (illness) missed practice."
+  },
+  "nfl_2026_09_NYJ_KC": {
+   "at": "2026-11-05T00:08:23Z",
+   "game": "NYJ @ KC",
+   "items": [
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-9-vs-chiefs-wednesday-11-04-2026",
+     "team": "NYJ",
+     "text": "WR Garrett Wilson (concussion) and DT Harrison Phillips (ankle) did not practice Wednesday; Breece Hall (quad) limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-9-jets/",
+     "team": "KC",
+     "text": "TE Travis Kelce (ankle) and WR Rashee Rice (hamstring/knee) limited; DT Peter Woods (neck) did not practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-04T12:00:00Z",
+     "impact": 0,
+     "src": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-9-jets/",
+     "team": "NYJ",
+     "text": "DB VJ Payne practiced fully after his IR window opened and should be activated.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Jets vs. Chiefs Week 9 Injury Report - Wednesday",
+     "u": "https://www.newyorkjets.com/news/jets-injury-report-week-9-vs-chiefs-wednesday-11-04-2026"
+    },
+    {
+     "t": "Chiefs' first injury report for Week 9 vs. New York Jets",
+     "u": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-9-jets/"
+    }
+   ],
+   "summary": "The Jets' top receiver Garrett Wilson is in the concussion protocol and missed Wednesday's practice, along with DT Harrison Phillips. Kansas City's Travis Kelce (ankle) and Rashee Rice (hamstring/knee) were limited, Patrick Mahomes was full, and rookie DT Peter Woods sat with a neck stinger."
   }
  },
  "meta": {
-  "at": "2026-11-04T17:08:30Z",
-  "games": 19,
-  "note": "2 NFL (JAX@BAL, CIN@ATL), 14 NBA (Nov 4 slate), 3 EPL (Leeds, Arsenal, Fulham); Fulham v Newcastle team news thin."
+  "at": "2026-11-05T00:09:00Z",
+  "games": 13,
+  "note": "Week 9 NFL Sunday slate added, JAX@BAL refreshed (Brissett trade), Forest v City added; no NBA due."
  }
 }
