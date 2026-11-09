@@ -27,7 +27,11 @@ from scipy.stats import norm
 import nfl_data as nd
 
 LAM, TAU, WINDOW = 6.0, 180.0, 800          # team ratings: ridge strength, recency scale (days), how far back (days)
-TAU_Q, K_Q, DELTA_Q = 1500.0, 500.0, 0.08   # quarterbacks: recency scale (days), shrinkage (plays), an unknown passer's deficit (EPA a play)
+TAU_Q, K_Q, DELTA_Q = 600.0, 800.0, 0.08    # quarterbacks: recency scale (days), shrinkage (plays), an unknown passer's deficit (EPA a play)
+# TAU_Q was 1500 and K_Q 500 until 2026-11-08: a four-year memory that still rated Baker Mayfield over Caleb Williams in
+# November 2026. Walk-forward 2017-2026 (2,628 games), every setting within noise of the others, but 600/800 was best or
+# level on every measure: log loss 0.6187 against 0.6191, 1,728 winners against 1,719; 2024 on, 0.6095 against 0.6117.
+# 900/500 and 600/500 were just behind; 250/500 was worse (0.6199). Shorter memory, a little more shrinkage.
 QB_PLAYS = 42.0                             # dropbacks and designed runs by a team's quarterbacks in a game
 MIN_SHARE = 0.40                            # a regular: averages this share of his unit's snaps in the games he plays
 NEW_MISS = 3                                # an absence counts while he has missed fewer than this many of the team's games in a row
@@ -454,6 +458,10 @@ def refit(force=False, now=None):
     old = json.load(open(mj)) if os.path.exists(mj) else None
     G = nd.games()
     st = data_state(G)
+    params = {"lam": LAM, "tau": TAU, "window": WINDOW, "tau_q": TAU_Q, "k_q": K_Q, "delta_q": DELTA_Q, "qb_plays": QB_PLAYS,
+              "min_share": MIN_SHARE, "new_miss": NEW_MISS}
+    if old and old.get("params") != params:
+        force = True   # the model's settings changed: fit again whatever the data says
     if old and not force:
         if old.get("state") == st:
             return False, f"model is current: fitted on {old['fit_games']} games through {st['last']}"
@@ -532,7 +540,7 @@ def fit(first_test=2017):
              "coef": {c: round(float(v), 4) for c, v in zip(M_FEATS, b)}, "sd": round(sd, 3),
              "total": {c: round(float(v), 4) for c, v in zip(T_FEATS, bt)}, "sd_total": round(sdt, 3),
              "params": {"lam": LAM, "tau": TAU, "window": WINDOW, "tau_q": TAU_Q, "k_q": K_Q, "delta_q": DELTA_Q, "qb_plays": QB_PLAYS,
-                        "min_share": MIN_SHARE, "new_miss": NEW_MISS},
+                        "min_share": MIN_SHARE, "new_miss": NEW_MISS},   # refit() fits again when these change
              "test": test}
     json.dump(model, open(os.path.join(nd.HERE, "model.json"), "w"), indent=1)
     # kept beside the model: every finished game's projected margin and total (the player projections learn their game

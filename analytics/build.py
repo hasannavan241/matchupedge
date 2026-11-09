@@ -377,6 +377,25 @@ def build_data():
     qvals = sorted(((teams[t]["qb"]["val"], t) for t in teams), reverse=True)
     for i, (_, t) in enumerate(qvals):
         teams[t]["qb"]["rank"] = i + 1
+    # this season alone, for the reader: EPA a play over the league (dropbacks and designed runs), success rate, completions
+    # over expected, sacks and interceptions a dropback, ranked among the quarterbacks with 100+ dropbacks
+    qs = Q[(Q.season == season) & Q.game_id.isin(set(done.game_id))]
+    if len(qs):
+        qs = qs.assign(cpoe_w=qs.cpoe.fillna(0) * qs.att)   # each game's completion rate over expected, weighted by its attempts
+        agg = qs.groupby("id").agg(db=("db", "sum"), ru=("ru", "sum"), epa=("qb_epa", "sum"), ru_epa=("ru_epa", "sum"), succ=("succ", "sum"),
+                                   cpoe_w=("cpoe_w", "sum"), att=("att", "sum"), sacks=("sacks", "sum"), ints=("ints", "sum"), g=("game_id", "nunique"))
+        agg["cpoe"] = agg.cpoe_w / agg.att.clip(lower=1)
+        lg_epa = float((agg.epa.sum() + agg.ru_epa.sum()) / max((agg.db.sum() + agg.ru.sum()), 1.0))
+        agg["epa_p"] = (agg.epa + agg.ru_epa) / (agg.db + agg.ru).clip(lower=1) - lg_epa
+        ranked = agg[agg.db >= 100].sort_values("epa_p", ascending=False)
+        rank = {q: i + 1 for i, q in enumerate(ranked.index)}
+        for t in teams:
+            q = teams[t]["qb"]["id"]
+            if q in agg.index:
+                r = agg.loc[q]
+                teams[t]["qb"]["season"] = {"g": int(r.g), "db": int(r.db), "epa": r_(float(r.epa_p), 3), "sr": r_(float(r.succ / max(r.db, 1)), 3),
+                                            "cpoe": r_(float(r.cpoe), 1) if r.cpoe == r.cpoe else None, "sack": r_(float(r.sacks / max(r.db, 1)), 3),
+                                            "int": int(r.ints), "rank": rank.get(q), "of": len(ranked)}
 
     # ------------------------------------------------------------------ players
     done_f = F[F.result.notna() & (F.season >= season - 1)]

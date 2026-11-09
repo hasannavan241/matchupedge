@@ -314,7 +314,7 @@ function lgamma(x){const c=[76.18009172947146,-86.50532032941677,24.014098240830
 /* ---------- the factors: what counts, and how much ---------- */
 const FACTORS=[
   {k:'strength',label:'Team strength',max:200,def:100,tag:'held',note:'Points scored and allowed, adjusted for opponents, recent games counting most. Without it the picks fall from '+M.test.all.win_pct+'% right to '+M.test.without.strength.win_pct+'%.'},
-  {k:'qb',label:'Quarterbacks',max:200,def:100,tag:'held',note:'The biggest piece of star power. How good each starter has been over his career, and whether today’s starter is the one who produced his team’s results.'},
+  {k:'qb',label:'Quarterbacks',max:200,def:100,tag:'held',note:'The biggest piece of star power. How good each starter has been over about the last two seasons (recent games count most), and whether today’s starter is the one who produced his team’s results.'},
   {k:'out',label:'Players out',max:200,def:100,tag:'held',note:'This season’s regulars who are not playing. Each is valued by how much he plays and produces, so a star costs more than a role player.'},
   {k:'home',label:'Home field',max:200,def:100,tag:'held',note:'Worth '+C.home_f.toFixed(1)+' points to the home team. Nothing at a neutral site.'},
   {k:'rest',label:'Bye week',max:200,def:100,tag:'weak',note:'A team off a bye did about '+C.bye.toFixed(1)+' points better. Small: the test scores the same with or without it.'},
@@ -348,12 +348,19 @@ const byT=(g,m)=>Math.abs(m)<.05?'dead even':`${m>0?g.home:g.away} by ${Math.abs
 
 /* ---------- games ---------- */
 const statusPill=(s,f)=>{if(!s)return'';const l=s.toLowerCase(),cls=l.startsWith('quest')?'p-q':l.startsWith('doubt')?'p-dbt':'p-out',ic=l.startsWith('quest')?'?':l.startsWith('doubt')?'!':'✕';return `<span class="pill ${cls}"><i aria-hidden="true">${ic}</i>${esc(s)}</span>`};
+/* this season alone: EPA a play over the league, with his rank among starters with 100+ dropbacks */
+function qbSeason(x,short){
+  const z=x&&x.season;if(!z||!z.g)return'';
+  const rk=z.rank?`${ord(z.rank)} of ${z.of}`:'under 100 dropbacks';
+  if(short)return `<span class="rk" title="This season: EPA a play over the league">${z.rank?ord(z.rank):'–'}</span>`;
+  return `This season (${z.g} game${z.g===1?'':'s'}): ${sg(z.epa,3)} EPA a play against the league, ${rk}; success rate ${pc(z.sr)}${z.cpoe!=null?`, completions ${sg(z.cpoe,1)}% over expected`:''}, sacked on ${pc(z.sack)} of dropbacks, ${z.int} interception${z.int===1?'':'s'}.`}
 function qbLine(g,i){
   const q=g.qb[i],t=i?g.home:g.away,rk=T[t]&&T[t].qb&&T[t].qb.id===q.id?T[t].qb.rank:null;
   const lvl=q.val>=.08?'among the best':q.val>=.03?'above average':q.val>-.03?'about average':q.val>-.07?'below average':'well below average';
   let s=`<b>${esc(q.name)}</b> (${esc(t)}): ${lvl}${rk?`, ${ord(rk)} of 32 starters`:''}, ${sg(q.val*M.qb_plays)} points a game against an average quarterback`;
   if(q.plays<200)s+=`. Little to go on: about ${f0(q.plays)} plays, so he is rated close to an unknown passer`;
   if(q.usual)s+=`. ${esc(nm(t))} results were mostly produced with ${esc(q.usual)}`;
+  const ss=T[t]&&T[t].qb&&T[t].qb.id===q.id?qbSeason(T[t].qb):'';if(ss)s+=`. ${ss}`;
   if(q.sit>0)s+=`. Listed ${esc((q.status||'questionable').toLowerCase())}${q.detail?` (${esc(q.detail.replace(/ Not Specified/g,''))})`:''}: counted as ${pc(q.sit)} likely to sit${q.backup?`, with ${esc(q.backup)} next up`:''}`;
   return s+'.';
 }
@@ -687,12 +694,12 @@ function renderTeams(){
   const th=(k,l)=>`<th class="sort" data-ts="${k}"${dirAttr(sk===k,dir)} tabindex="0">${l}</th>`;
   const pick=[['epa','EPA/play'],['sr','Success %'],['pass_epa','Pass EPA'],['rush_epa','Rush EPA'],['ppd','Pts/drive'],['to','Turnovers']];
   const rows=teams.map(t=>{const x=T[t];return `<tr data-team="${t}" class="${S.team===t?'tsel':''}" style="cursor:pointer"><td><b style="white-space:nowrap">${esc(x.city)}</b> <span class="muted" style="white-space:nowrap">${esc(x.rec)}</span></td>
-    <td class="num">${ord(x.power_rank)}</td><td class="num">${sg(x.power)} ${rbar(x.power)}</td><td class="num">${sg(x.strength)}</td><td class="num">${sg(x.qb_pts)}</td><td class="num">${x.out_pts>=.05?MINUS+x.out_pts.toFixed(1):'0'}</td>
+    <td class="num">${ord(x.power_rank)}</td><td class="num">${sg(x.power)} ${rbar(x.power)}</td><td class="num">${sg(x.strength)}</td><td class="num">${sg(x.qb_pts)}${qbSeason(x.qb,true)}</td><td class="num">${x.out_pts>=.05?MINUS+x.out_pts.toFixed(1):'0'}</td>
     ${pick.map(([k])=>{const a=x.adv&&x.adv[side][k];return `<td class="num">${a&&a[0]!=null?fx(a[0],DIG[k])+'<span class="rk">'+a[1]+'</span>':'–'}</td>`}).join('')}</tr>`}).join('');
   el.innerHTML=`<div class="card teams"><div class="gh"><h2>Power rankings</h2><span class="when">points better than an average team on a neutral field, with today’s lineup</span></div>
     <div class="controls" style="margin-bottom:10px"><span class="k" style="margin:0">Season stats shown for</span><div class="chips" role="group" aria-label="Side"><button type="button" data-side="o" aria-pressed="${side==='o'}">Offense</button><button type="button" data-side="d" aria-pressed="${side==='d'}">Defense</button></div></div>
     <div class="scroll"><table><thead><tr><th>Team</th>${th('power','Rank')}<th>Power</th>${th('strength','Results')}${th('qb_pts','QB')}${th('out_pts','Out')}${pick.map(([k,l])=>th(k,l)).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
-    <p class="fine" style="margin-top:10px">Power = results (points scored and allowed, adjusted for opponents) + quarterback (today’s starter against an average one, and against whoever produced the results) − regulars out. The small numbers are ranks among the 32 teams: 1 is best for that side. EPA is expected points added. Tap a column to sort, or a team for its players and every stat.</p></div>${S.team?teamDetail(S.team):''}`;
+    <p class="fine" style="margin-top:10px">Power = results (points scored and allowed, adjusted for opponents) + quarterback (today’s starter against an average one, and against whoever produced the results) − regulars out. The QB points weigh about the last two seasons, recent games most; the small number beside them is his rank this season alone (EPA a play, 100+ dropbacks). The other small numbers are ranks among the 32 teams: 1 is best for that side. EPA is expected points added. Tap a column to sort, or a team for its players and every stat.</p></div>${S.team?teamDetail(S.team):''}`;
 }
 function teamDetail(t){
   const x=T[t],a=x.adv,pick=D.stats;
@@ -703,7 +710,7 @@ function teamDetail(t){
   return `<div class="card" id="teamdetail"><div class="gh"><h2>${esc(x.city)} ${esc(x.name)}</h2><span class="when">${esc(x.rec)} · ${esc(x.home)} home, ${esc(x.away)} away · ${ord(x.power_rank)} in our rankings</span></div>
     <div class="pcgrid"><div class="sec"><p class="fine">${res||'No games yet.'}</p>
       <p>Scores ${f1(x.pf)} and allows ${f1(x.pa)} a game. Against an average opponent the ratings put the offense at ${sg(x.off)} points a game and the defense at ${sg(-x.def)}.</p>
-      <p>Quarterback: <b>${esc(x.qb.name)}</b>, ${ord(x.qb.rank)} of 32 starters (${sg(x.qb.val*M.qb_plays)} points a game against an average one).</p>
+      <p>Quarterback: <b>${esc(x.qb.name)}</b>, ${ord(x.qb.rank)} of 32 starters over about the last two seasons (${sg(x.qb.val*M.qb_plays)} points a game against an average one). ${qbSeason(x.qb)}</p>
       <h3 style="margin-top:6px">Key players</h3><p class="fine">The number is what the model takes off the team when he sits, in points.</p>
       <h4>Runners and receivers</h4><ul class="plist">${sk.map(li).join('')||'<li class="muted">None yet.</li>'}</ul>
       <h4>Defense</h4><ul class="plist">${df.map(li).join('')||'<li class="muted">None yet.</li>'}</ul>
