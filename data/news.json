@@ -2319,6 +2319,271 @@
    ],
    "summary": "Miami (3-6) is off to its worst start since 2016-17 and continues its road trip; Erik Spoelstra may shuffle the rotation. Sacramento (1-8) is without Ben Simmons (season) and Maxime Raynaud, Keegan Murray (ankle) is out or questionable by report, and De'Andre Hunter is day-to-day. Rookie Darius Acuff Jr. has started at point guard."
   },
+  "nba_401909952": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "LAL @ ATL",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "LAL",
+     "text": "Luka Doncic listed day-to-day; his status is the swing factor for the Lakers.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "LAL",
+     "text": "Quentin Grimes listed day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Atlanta hosts the Lakers with Austin Reaves and Walker Kessler healthy. Luka Doncic and Quentin Grimes are day-to-day for Los Angeles; Atlanta is missing only depth players."
+  },
+  "nba_401909953": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "CLE @ CHA",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "CHA",
+     "text": "Brandon Miller and Kon Knueppel both out, removing two of Charlotte's top wings.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "CHA",
+     "text": "Dennis Schroder and Grant Williams also out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "CLE",
+     "text": "Jarrett Allen day-to-day; Sam Merrill and Jaylon Tyson out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Cleveland brings Donovan Mitchell, James Harden and Evan Mobley to Charlotte, with Jarrett Allen day-to-day and Sam Merrill and Jaylon Tyson out. Charlotte is thin: Brandon Miller, Kon Knueppel, Dennis Schroder and Grant Williams are all out."
+  },
+  "nba_401909954": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "WSH @ DET",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "DET",
+     "text": "Center Jalen Duren out; Paul Reed and John Collins absorb his minutes.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "WSH",
+     "text": "Anthony Davis listed day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Detroit plays without center Jalen Duren, leaning on Cade Cunningham and Paul Reed inside. Washington's Anthony Davis is day-to-day alongside Trae Young."
+  },
+  "nba_401909955": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "MEM @ TOR",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "TOR",
+     "text": "Kawhi Leonard out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "TOR",
+     "text": "Scottie Barnes and Immanuel Quickley both listed day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Toronto is without Kawhi Leonard, and Scottie Barnes and Immanuel Quickley are both day-to-day. Memphis arrives with a young rotation led by Ty Jerome and rookie Cameron Boozer."
+  },
+  "nba_401909956": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "IND @ DAL",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "IND",
+     "text": "Tyrese Haliburton out; T.J. McConnell day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "DAL",
+     "text": "Dereck Lively II out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Indiana remains without Tyrese Haliburton, with T.J. McConnell day-to-day, leaving Pascal Siakam and Andrew Nembhard to carry the offense. Dallas is near full strength around Cooper Flagg and Kyrie Irving, missing Dereck Lively II."
+  },
+  "nba_401909957": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "DEN @ HOU",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "DEN",
+     "text": "Nikola Jokic and Jamal Murray both day-to-day, along with Braun, Johnson, Gordon and DeRozan.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "HOU",
+     "text": "Steven Adams and Clint Capela out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Denver lists most of its rotation as day-to-day, including Nikola Jokic and Jamal Murray, so late availability decides this one. Houston is healthy among its regulars, missing only reserve centers Steven Adams and Clint Capela."
+  },
+  "nba_401909958": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "SA @ PHX",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "SA",
+     "text": "Tobias Harris out; Devin Vassell day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "PHX",
+     "text": "Center Mark Williams and Jordan Goodwin out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Victor Wembanyama leads San Antonio into Phoenix without Tobias Harris, with Devin Vassell day-to-day. Phoenix is missing center Mark Williams and Jordan Goodwin."
+  },
+  "nba_401909959": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "NO @ GS",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "GS",
+     "text": "Jimmy Butler III and Kristaps Porzingis both out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "GS",
+     "text": "Moses Moody out; Gui Santos day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Golden State is short-handed: Jimmy Butler III, Kristaps Porzingis and Moses Moody are out, leaving Stephen Curry and Brandin Podziemski to lead. New Orleans comes in healthy around Zion Williamson and Trey Murphy III."
+  },
   "nfl_2026_08_CHI_SEA": {
    "at": "2026-11-03T00:03:35Z",
    "game": "CHI @ SEA",
@@ -2513,7 +2778,7 @@
    "summary": "Both teams change quarterbacks: Drew Lock starts for Seattle with Sam Darnold out, and Gardner Minshew starts for Arizona. Seattle has ruled out LT Charles Cross, WR Rashid Shaheed, DT Leonard Williams and LB Uchenna Nwosu, and newly acquired G Quenton Nelson will have a minor knee procedure. Arizona is without LT Jayden Williams and RG Jon Gaines II."
   },
   "nfl_2026_09_BUF_MIN": {
-   "at": "2026-11-09T00:03:56Z",
+   "at": "2026-11-09T17:20:00Z",
    "game": "BUF @ MIN",
    "items": [
     {
@@ -2570,6 +2835,14 @@
     {
      "t": "Buffalo Bills news (ProFootballTalk)",
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/buffalo-bills?chrcontext=KNSD"
+    },
+    {
+     "t": "Vikings-Bills injury updates: Who could miss Monday Night Football?",
+     "u": "https://www.startribune.com/minnesota-vikings-kyler-murray-injury-report-buffalo-bills-nfl-week-9-game-monday-night-football/601908198"
+    },
+    {
+     "t": "Vikings to start QB Carson Wentz against Bills with Kyler Murray ruled out (ESPN)",
+     "u": "https://www.espn.com/nfl/story/_/id/50390732/vikings-start-qb-wentz-bills-murray-injured"
     }
    ],
    "summary": "Two 6-1 teams meet on Monday night. Minnesota is without QB Kyler Murray (hamstring) and WR Jauan Jennings (calf), so Carson Wentz starts. Buffalo LT Dion Dawkins (rib) is questionable after missing all three practices, WR Joshua Palmer is out, and Damar Hamlin is set to start at safety after C.J. Gardner-Johnson's release."
@@ -3510,11 +3783,56 @@
     }
    ],
    "summary": "Chicago (6-2) hosts 3-5 Tampa Bay on Sunday night after a 34-17 win at Seattle in which new DT Jeffery Simmons starred. WR Emeka Egbuka is active for the Bucs after missing two games, but OLB YaYa Diaby is inactive. The Bears are without RB Kyle Monangai for a fifth straight game, and CB Malik Muhammad is a surprise inactive; Tyrique Stevenson starts."
+  },
+  "nfl_2026_10_WAS_NYG": {
+   "at": "2026-11-09T17:20:00Z",
+   "game": "WAS @ NYG",
+   "items": [
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-09/mccarthy-looks-like-hes-going-to-play-week-10",
+     "team": "NYG",
+     "text": "QB J.J. McCarthy (hip pointer) says he feels good and is expected to play Thursday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": null,
+     "team": "WAS",
+     "text": "WRs Terry McLaurin, Treylon Burks and Dyami Brown all sidelined; DTs Daron Payne and Javon Kinlaw on IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": null,
+     "team": "NYG",
+     "text": "RB Cam Skattebo (hamstring) out; LB Tremaine Edmunds on reserve list.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "J.J. McCarthy: Hip feels pretty good, will do my best to be ready for Thursday (PFT)",
+     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/j-j-mccarthy-hip-feels-pretty-good-will-do-my-best-to-be-ready-for-thursday"
+    },
+    {
+     "t": "McCarthy looks like 'he's going to play' Week 10 (NBC Sports)",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-09/mccarthy-looks-like-hes-going-to-play-week-10"
+    }
+   ],
+   "summary": "A short-week NFC East game on Thursday night. Giants QB J.J. McCarthy has a hip pointer from the Eagles win but expects to play. Washington is thin at receiver with Terry McLaurin, Treylon Burks and Dyami Brown sidelined, and the Giants are without RB Cam Skattebo."
   }
  },
  "meta": {
-  "at": "2026-11-09T00:03:56Z",
-  "games": 2,
-  "note": "NFL: TB@CHI inactives, BUF@MIN final injury report; NBA not due; no EPL within 72h"
+  "at": "2026-11-09T17:22:00Z",
+  "games": 10,
+  "note": "NFL: BUF@MIN refresh, WAS@NYG new (McCarthy hip); NBA: 8 Monday games, no confirmed outs beyond ESPN list; no EPL within 72h"
  }
 }
