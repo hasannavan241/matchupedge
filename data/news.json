@@ -2441,124 +2441,6 @@
    ],
    "summary": "Chicago (5-2) has won two straight since Caleb Williams returned and gets Montez Sweat back, but CB Malik Muhammad is inactive. Seattle is without LT Charles Cross and WR Rashid Shaheed, yet RBs Zach Charbonnet and Jadarian Price return and new guard Quenton Nelson bolsters the interior line."
   },
-  "nfl_2026_08_PHI_WAS": {
-   "at": "2026-11-02T00:04:20Z",
-   "game": "PHI @ WAS",
-   "items": [
-    {
-     "at": "2026-10-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots",
-     "team": "PHI",
-     "text": "Tanner McKee makes a third straight start; Jalen Hurts (blood clots) is expected to miss the season.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-11-01T23:55:00Z",
-     "impact": 0,
-     "src": "https://www.phillyvoice.com/eagles-commanders-week-8-inactives-analysis-devonta-smith-saquon-barkley-jihaad-campbell/",
-     "team": "PHI",
-     "text": "Inactive: WRs DeVonta Smith and Dontayvion Wicks, LB Jihaad Campbell (Jeremiah Trotter starts), Britain Covey, CB Jonathan Jones, OL Jake Majors.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.inquirer.com/eagles/week-8-predictions-commanders-jayden-daniels-tanner-mckee-20261030.html",
-     "team": "PHI",
-     "text": "Five straight losses, the longest skid since 2016.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.inquirer.com/eagles/week-8-predictions-commanders-jayden-daniels-tanner-mckee-20261030.html",
-     "team": "PHI",
-     "text": "Inquirer column questions Jalen Carter's effort and describes a locker room in disarray.",
-     "total": 0,
-     "type": "drama"
-    },
-    {
-     "at": "2026-10-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.phillyvoice.com/eagles-commanders-preview-5-things-watch-2026-week-8-jayden-daniels/",
-     "team": "WAS",
-     "text": "WR Terry McLaurin out for the season; LT Laremy Tunsil (triceps) has not played this year.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-30T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.phillyvoice.com/eagles-commanders-preview-5-things-watch-2026-week-8-jayden-daniels/",
-     "team": "WAS",
-     "text": "Jayden Daniels is 0-7-1 in his last eight starts.",
-     "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-10-22T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/commanders-coach-dan-quinn-crossroads-234827316.html",
-     "team": "WAS",
-     "text": "Steve Wilks hired as a defensive adviser during the bye.",
-     "total": 0,
-     "type": "coach"
-    },
-    {
-     "at": "2026-11-01T23:50:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/eagles-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-8-235000372.html",
-     "team": "WAS",
-     "text": "DT Daron Payne out (foot, reported season-ending); Kinlaw out; Jer'Zhan Newton on IR; Brandon Coleman starts at LT for Laremy Tunsil.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Eagles-Commanders Week 8 inactives, with analysis",
-     "u": "https://www.phillyvoice.com/eagles-commanders-week-8-inactives-analysis-devonta-smith-saquon-barkley-jihaad-campbell/"
-    },
-    {
-     "t": "Eagles vs. Commanders live updates, inactives",
-     "u": "https://sports.yahoo.com/nfl/live/eagles-commanders-score-live-updates-inactives-highlights-stats-where-to-watch-week-8-235000372.html"
-    },
-    {
-     "t": "Eagles at Commanders injury report",
-     "u": "https://www.philadelphiaeagles.com/news/eagles-at-commanders-injury-report-2026-nfl-week-8-sunday-night-football-saquon-barkley-devonta-smith"
-    },
-    {
-     "t": "Eagles-Commanders Week 8 injury report analysis",
-     "u": "https://www.phillyvoice.com/eagles-commanders-week-8-injury-report-analysis-2026/"
-    },
-    {
-     "t": "Eagles-Commanders preview: 5 things to watch",
-     "u": "https://www.phillyvoice.com/eagles-commanders-preview-5-things-watch-2026-week-8-jayden-daniels/"
-    },
-    {
-     "t": "Eagles Week 8 vs Commanders",
-     "u": "https://www.inquirer.com/eagles/week-8-predictions-commanders-jayden-daniels-tanner-mckee-20261030.html"
-    },
-    {
-     "t": "Jalen Hurts out for 2026 season",
-     "u": "https://www.nfl.com/news/eagles-qb-jalen-hurts-out-2026-season-blood-clots"
-    },
-    {
-     "t": "Commanders coach Dan Quinn at a crossroads",
-     "u": "https://sports.yahoo.com/articles/commanders-coach-dan-quinn-crossroads-234827316.html"
-    },
-    {
-     "t": "Game status: Commanders vs. Eagles, Week 8",
-     "u": "https://www.commanders.com/news/game-status-commanders-eagles-week-8"
-    }
-   ],
-   "summary": "Philadelphia (2-5) brings a five-game losing streak and backup Tanner McKee, and is without DeVonta Smith, Dontayvion Wicks and Jihaad Campbell. Washington (1-4-1), off its bye, has Jayden Daniels, winless in eight starts, but no Terry McLaurin, Laremy Tunsil or interior linemen Daron Payne and Javon Kinlaw."
-  },
   "nfl_2026_09_ARI_SEA": {
    "at": "2026-11-08T17:40:00Z",
    "game": "ARI @ SEA",
@@ -2631,7 +2513,7 @@
    "summary": "Both teams change quarterbacks: Drew Lock starts for Seattle with Sam Darnold out, and Gardner Minshew starts for Arizona. Seattle has ruled out LT Charles Cross, WR Rashid Shaheed, DT Leonard Williams and LB Uchenna Nwosu, and newly acquired G Quenton Nelson will have a minor knee procedure. Arizona is without LT Jayden Williams and RG Jon Gaines II."
   },
   "nfl_2026_09_BUF_MIN": {
-   "at": "2026-11-08T17:40:00Z",
+   "at": "2026-11-09T00:03:56Z",
    "game": "BUF @ MIN",
    "items": [
     {
@@ -2644,11 +2526,20 @@
      "type": "other"
     },
     {
-     "at": "2026-11-05T12:00:00Z",
+     "at": "2026-11-07T12:00:00Z",
      "impact": 0,
      "src": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season",
      "team": "MIN",
-     "text": "LT Christian Darrisaw, OLB Andrew Van Ginkel, WR Jauan Jennings and CB Isaiah Rodgers were all limited Thursday.",
+     "text": "Final report: WR Jauan Jennings (calf) and RB Demond Claiborne (knee) out; S Theo Jackson and S Jay Ward questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season",
+     "team": "BUF",
+     "text": "LT Dion Dawkins (rib) questionable after no practice all week; WR Joshua Palmer (hamstring) out.",
      "total": 0,
      "type": "injury"
     },
@@ -2660,50 +2551,28 @@
      "text": "S C.J. Gardner-Johnson released after a one-game suspension; Damar Hamlin expected to start at safety.",
      "total": 0,
      "type": "loss"
-    },
-    {
-     "at": "2026-11-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/reg9",
-     "team": "BUF",
-     "text": "LT Dion Dawkins (rib) did not practice Thursday; WRs DJ Moore and Keon Coleman, TE Dalton Kincaid and RT Spencer Brown were limited.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-06T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.profootballrumors.com/2026/11/vikings-remain-high-on-kyler-murray-open-to-trading-for-qb",
-     "team": "MIN",
-     "text": "Vikings remain high on Kyler Murray but are open to trading for a quarterback before Tuesday's deadline.",
-     "total": 0,
-     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
+     "t": "Final Vikings vs. Bills Injury Report for Week 9 of 2026",
+     "u": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season"
+    },
+    {
+     "t": "Final Vikings injury report: Jauan Jennings out, two safeties questionable",
+     "u": "https://sports.yahoo.com/articles/final-vikings-injury-report-jauan-192853388.html"
+    },
+    {
      "t": "Kyler Murray 'Week to Week'; Carson Wentz to Start Monday Against Bills (Vikings.com)",
      "u": "https://www.vikings.com/news/quarterback-carson-wentz-monday-night-bills"
     },
     {
-     "t": "Initial Vikings vs. Bills Injury Report, Week 9",
-     "u": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season"
-    },
-    {
      "t": "Buffalo Bills news (ProFootballTalk)",
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/buffalo-bills?chrcontext=KNSD"
-    },
-    {
-     "t": "NFL Week 9 injury report",
-     "u": "https://www.nfl.com/injuries/league/2026/reg9"
-    },
-    {
-     "t": "Vikings remain high on Kyler Murray, open to trading for QB",
-     "u": "https://www.profootballrumors.com/2026/11/vikings-remain-high-on-kyler-murray-open-to-trading-for-qb"
     }
    ],
-   "summary": "Two 6-1 teams meet on Monday night. Minnesota has ruled out Kyler Murray (hamstring strain, week to week), so Carson Wentz starts with Max Brosmer as backup. Buffalo released safety C.J. Gardner-Johnson, with Damar Hamlin expected to start, and LT Dion Dawkins (rib) did not practice Thursday."
+   "summary": "Two 6-1 teams meet on Monday night. Minnesota is without QB Kyler Murray (hamstring) and WR Jauan Jennings (calf), so Carson Wentz starts. Buffalo LT Dion Dawkins (rib) is questionable after missing all three practices, WR Joshua Palmer is out, and Damar Hamlin is set to start at safety after C.J. Gardner-Johnson's release."
   },
   "nfl_2026_09_CIN_ATL": {
    "at": "2026-11-08T00:04:51Z",
@@ -3564,17 +3433,26 @@
    "summary": "The 2-6 Jets will be without top receiver Garrett Wilson (concussion) and LB Trevin Wallace, but Breece Hall will play. Kansas City's Travis Kelce and Rashee Rice practiced fully Thursday and Friday and have no designation, while rookie CB Mansoor Delane, DT Omarr Norman-Lott and DL Peter Woods are out."
   },
   "nfl_2026_09_TB_CHI": {
-   "at": "2026-11-08T17:40:00Z",
+   "at": "2026-11-09T00:03:56Z",
    "game": "TB @ CHI",
    "items": [
     {
-     "at": "2026-11-05T12:00:00Z",
+     "at": "2026-11-08T23:51:00Z",
      "impact": 0,
-     "src": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-5-week-9-2026",
+     "src": "https://www.buccaneers.com/news/bucs-bears-inactives-emeka-egbuka-returns-action",
      "team": "TB",
-     "text": "QB Baker Mayfield (thumb) practiced fully and starts; WR Emeka Egbuka (foot) went from no practice to full on Thursday.",
+     "text": "Inactive: OLB YaYa Diaby (knee). WR Emeka Egbuka (foot) is active after missing two games.",
      "total": 0,
-     "type": "other"
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-08T23:57:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/bears/onsi/chicago-bears-tampa-bay-buccaneers-inactives-who-in-out-week-9",
+     "team": "CHI",
+     "text": "Inactive: RB Kyle Monangai (5th straight game, back Week 11) and CB Malik Muhammad; CB Tyrique Stevenson active and starts.",
+     "total": 0,
+     "type": "injury"
     },
     {
      "at": "2026-11-03T12:00:00Z",
@@ -3586,6 +3464,15 @@
      "type": "add"
     },
     {
+     "at": "2026-11-05T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-5-week-9-2026",
+     "team": "TB",
+     "text": "QB Baker Mayfield (thumb) practiced fully all week and starts for Tampa Bay.",
+     "total": 0,
+     "type": "other"
+    },
+    {
      "at": null,
      "impact": 0,
      "src": "https://www.espn.com/nfl/game/_/gameId/401873050/buccaneers-bears",
@@ -3593,28 +3480,18 @@
      "text": "LT Braxton Jones and DT Kentavius Street are on injured reserve; RB Zavier Scott (wrist) also on IR.",
      "total": 0,
      "type": "loss"
-    },
-    {
-     "at": "2026-11-08T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/week-9-injuries-sunday-pregame-2026-nfl-season",
-     "team": "TB",
-     "text": "OLB YaYa Diaby (knee) out; WR Emeka Egbuka (foot) expected to play; LT Tristan Wirfs (toe) has no designation.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-08T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/news/week-9-injuries-sunday-pregame-2026-nfl-season",
-     "team": "CHI",
-     "text": "RB Kyle Monangai (thumb/toe) won't play, expected back Week 11; CB Tyrique Stevenson (splint) and DB Malik Muhammad should play.",
-     "total": 0,
-     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Bucs-Bears Inactives | Emeka Egbuka Returns to Action",
+     "u": "https://www.buccaneers.com/news/bucs-bears-inactives-emeka-egbuka-returns-action"
+    },
+    {
+     "t": "Chicago Bears vs. Tampa Bay Buccaneers Inactives: Who's In, Who's Out For Week 9",
+     "u": "https://www.si.com/nfl/bears/onsi/chicago-bears-tampa-bay-buccaneers-inactives-who-in-out-week-9"
+    },
     {
      "t": "Buccaneers-Bears injury report, Nov. 5",
      "u": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-5-week-9-2026"
@@ -3628,20 +3505,16 @@
      "u": "https://www.nfl.com/news/jeffery-simmons-makes-profound-impact-in-first-game-with-bears"
     },
     {
-     "t": "Buccaneers-Bears Injury Report Nov. 6: YaYa Diaby Ruled Out",
-     "u": "https://www.buccaneers.com/news/buccaneers-bears-injury-report-nov-6-week-9-2026"
-    },
-    {
      "t": "Week 9 injuries to monitor - NFL.com",
      "u": "https://www.nfl.com/news/week-9-injuries-sunday-pregame-2026-nfl-season"
     }
    ],
-   "summary": "Chicago (6-2) comes off a 34-17 Monday win at Seattle in which newly acquired DT Jeffery Simmons starred; Tampa Bay is 3-5. Baker Mayfield (thumb) starts and WR Emeka Egbuka is expected to play, but OLB YaYa Diaby is out. The Bears will be without RB Kyle Monangai, while CB Tyrique Stevenson (splint) and DB Malik Muhammad should play."
+   "summary": "Chicago (6-2) hosts 3-5 Tampa Bay on Sunday night after a 34-17 win at Seattle in which new DT Jeffery Simmons starred. WR Emeka Egbuka is active for the Bucs after missing two games, but OLB YaYa Diaby is inactive. The Bears are without RB Kyle Monangai for a fifth straight game, and CB Malik Muhammad is a surprise inactive; Tyrique Stevenson starts."
   }
  },
  "meta": {
-  "at": "2026-11-08T17:42:00Z",
-  "games": 20,
-  "note": "Sunday NFL Week 9 refresh (13 games) plus 7 NBA games; no EPL matches in window."
+  "at": "2026-11-09T00:03:56Z",
+  "games": 2,
+  "note": "NFL: TB@CHI inactives, BUF@MIN final injury report; NBA not due; no EPL within 72h"
  }
 }
