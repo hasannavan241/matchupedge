@@ -236,95 +236,6 @@
    ],
    "summary": "League leaders Arsenal host Hull three days after a 2-1 Champions League win at Slavia Prague. Arteta says Ezri Konsa is fine and William Saliba is back in the squad, but Bukayo Saka is out for a while and Max Dowman is suspended. Hull are without the suspended Matt Crooks and six injured players, with goalkeeper Jack Butland a doubt."
   },
-  "epl_401878762": {
-   "at": "2026-11-02T17:48:04Z",
-   "game": "Newcastle v Everton",
-   "items": [
-    {
-     "at": "2026-11-01T20:00:00Z",
-     "impact": -0.05,
-     "src": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-everton-injury-suspension-list-predicted-xis_608138.html",
-     "team": "Newcastle",
-     "text": "Will Osula (ankle) still a doubt; Yoane Wissa expected to lead the line.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-31T09:33:00Z",
-     "impact": -0.03,
-     "src": "https://www.sportsmole.co.uk/football/newcastle-united/preview/newcastle-vs-everton-prediction-team-news-lineups_608131.html",
-     "team": "Newcastle",
-     "text": "Lewis Miley (muscle) and Matias Fernandez-Pardo (illness) uncertain.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-31T09:33:00Z",
-     "impact": -0.03,
-     "src": "https://www.sportsmole.co.uk/football/newcastle-united/preview/newcastle-vs-everton-prediction-team-news-lineups_608131.html",
-     "team": "Newcastle",
-     "text": "Tino Livramento (knee) and Ewen Jaouen (hamstring) will not be fit.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": -0.02,
-     "src": "https://www.espn.com/soccer/report/_/gameId/401921844",
-     "team": "Newcastle",
-     "text": "Lost 3-1 at Everton in the Carabao Cup fourth round on Thu 29 Oct.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-11-01T20:00:00Z",
-     "impact": -0.06,
-     "src": "https://readeverton.com/everton-news-branthwaite-grealish-barry-newcastle/",
-     "team": "Everton",
-     "text": "Jack Grealish, dropped for the cup tie for a breach of club discipline, remains a doubt.",
-     "total": 0,
-     "type": "drama"
-    },
-    {
-     "at": "2026-10-30T19:00:00Z",
-     "impact": 0,
-     "src": "https://readeverton.com/everton-news-branthwaite-grealish-barry-newcastle/",
-     "team": "Everton",
-     "text": "Jarrad Branthwaite has completed concussion return-to-play; Moyes expects him available.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-29T12:00:00Z",
-     "impact": -0.02,
-     "src": "https://www.espn.com/soccer/report/_/gameId/401921844",
-     "team": "Everton",
-     "text": "Beat Newcastle 3-1 in the Carabao Cup on Thu 29 Oct, four days before.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "epl",
-   "sources": [
-    {
-     "t": "Everton news: Branthwaite boost, Grealish doubts",
-     "u": "https://readeverton.com/everton-news-branthwaite-grealish-barry-newcastle/"
-    },
-    {
-     "t": "Team News: Newcastle vs. Everton injury, suspension list, predicted XIs",
-     "u": "https://www.sportsmole.co.uk/football/newcastle-united/injury-news/team-news/newcastle-vs-everton-injury-suspension-list-predicted-xis_608138.html"
-    },
-    {
-     "t": "ESPN: Everton 3-1 Newcastle",
-     "u": "https://www.espn.com/soccer/report/_/gameId/401921844"
-    },
-    {
-     "t": "Sports Mole: Newcastle vs Everton team news",
-     "u": "https://www.sportsmole.co.uk/football/newcastle-united/preview/newcastle-vs-everton-prediction-team-news-lineups_608131.html"
-    }
-   ],
-   "summary": "A rematch four days after Everton won 3-1 in the Carabao Cup. Newcastle are without Livramento and Jaouen, with Osula, Miley and Fernandez-Pardo doubts. Everton expect Jarrad Branthwaite back after concussion, but Jack Grealish, dropped for the cup tie for a breach of club discipline, remains uncertain."
-  },
   "epl_401879241": {
    "at": "2026-11-06T17:11:40Z",
    "game": "Fulham v Newcastle",
@@ -769,546 +680,6 @@
     }
    ],
    "summary": "San Antonio (6-2) brings a six-game winning streak to Sacramento (1-7) after Victor Wembanyama's 52-point, 24-rebound game against Dallas. Tobias Harris (calf) is out for the Spurs; the Kings miss Keegan Murray, Maxime Raynaud and Ben Simmons."
-  },
-  "nba_401909907": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "OKC @ CLE",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "OKC",
-     "text": "Chet Holmgren is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "OKC",
-     "text": "Jalen Williams is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "OKC",
-     "text": "Alex Caruso is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CLE",
-     "text": "Peyton Watson is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CLE",
-     "text": "Jaylon Tyson is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "OKC: without Chet Holmgren, Jalen Williams, Alex Caruso. CLE: without Jaylon Tyson; Peyton Watson is day-to-day. No other late news found before tip-off."
-  },
-  "nba_401909908": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "DET @ CHA",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "DET",
-     "text": "Jalen Duren is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CHA",
-     "text": "Kon Knueppel is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "DET: without Jalen Duren. CHA: without Kon Knueppel. No other late news found before tip-off."
-  },
-  "nba_401909909": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "ATL @ IND",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "ATL",
-     "text": "Jalen Johnson is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "IND",
-     "text": "Tyrese Haliburton is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "IND",
-     "text": "Ivica Zubac is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "ATL: no key regulars ruled out; Jalen Johnson is day-to-day. IND: without Tyrese Haliburton, Ivica Zubac. No other late news found before tip-off."
-  },
-  "nba_401909910": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "BKN @ NY",
-   "items": [],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "BKN: no key regulars ruled out. NY: no key regulars ruled out. No other late news found before tip-off."
-  },
-  "nba_401909911": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "WSH @ ORL",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "ORL",
-     "text": "Paolo Banchero is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "ORL",
-     "text": "Anthony Black is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "ORL",
-     "text": "Jalen Suggs is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "WSH: no key regulars ruled out. ORL: without Paolo Banchero, Anthony Black, Jalen Suggs. No other late news found before tip-off."
-  },
-  "nba_401909912": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "CHI @ PHI",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CHI",
-     "text": "Nic Claxton is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CHI",
-     "text": "Jalen Smith is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "PHI",
-     "text": "Joel Embiid is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "CHI: without Nic Claxton; Jalen Smith is day-to-day. PHI: no key regulars ruled out; Joel Embiid is day-to-day. No other late news found before tip-off."
-  },
-  "nba_401909913": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "SAC @ DAL",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "SAC",
-     "text": "Zach LaVine is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "SAC",
-     "text": "Maxime Raynaud is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "SAC",
-     "text": "Keegan Murray is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "DAL",
-     "text": "Kyrie Irving is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "DAL",
-     "text": "Santi Aldama is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "SAC: without Maxime Raynaud, Keegan Murray; Zach LaVine is day-to-day. DAL: without Santi Aldama; Kyrie Irving is day-to-day. No other late news found before tip-off."
-  },
-  "nba_401909914": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "NO @ MEM",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "NO",
-     "text": "Trey Murphy III is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "NO: no key regulars ruled out; Trey Murphy III is day-to-day. MEM: no key regulars ruled out. No other late news found before tip-off."
-  },
-  "nba_401909915": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "MIL @ MIN",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "MIN",
-     "text": "Anthony Edwards is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "MIN",
-     "text": "Donte DiVincenzo is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "MIL: no key regulars ruled out. MIN: without Anthony Edwards, Donte DiVincenzo. No other late news found before tip-off."
-  },
-  "nba_401909916": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "BOS @ HOU",
-   "items": [],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "BOS: no key regulars ruled out. HOU: no key regulars ruled out. No other late news found before tip-off."
-  },
-  "nba_401909917": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "UTAH @ SA",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "UTAH",
-     "text": "Jaren Jackson Jr. is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "UTAH",
-     "text": "Jusuf Nurkic is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "SA",
-     "text": "Tobias Harris is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "UTAH: without Jaren Jackson Jr., Jusuf Nurkic. SA: without Tobias Harris. No other late news found before tip-off."
-  },
-  "nba_401909918": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "POR @ DEN",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "POR",
-     "text": "Ja Morant is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "POR",
-     "text": "Shaedon Sharpe is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "POR: without Ja Morant, Shaedon Sharpe. DEN: no key regulars ruled out. No other late news found before tip-off."
-  },
-  "nba_401909919": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "PHX @ GS",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "PHX",
-     "text": "Mark Williams is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "GS",
-     "text": "Stephen Curry is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "GS",
-     "text": "Jimmy Butler III is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "GS",
-     "text": "Kristaps Porzingis is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "PHX: without Mark Williams. GS: without Jimmy Butler III, Kristaps Porzingis; Stephen Curry is day-to-day. No other late news found before tip-off."
-  },
-  "nba_401909920": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "TOR @ LAC",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "TOR",
-     "text": "Kawhi Leonard is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "TOR",
-     "text": "Jakob Poeltl is day-to-day on the injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "LAC",
-     "text": "Brandon Ingram is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "LAC",
-     "text": "Bradley Beal is out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "TOR: without Kawhi Leonard; Jakob Poeltl is day-to-day. LAC: without Brandon Ingram, Bradley Beal. No other late news found before tip-off."
-  },
-  "nba_401909921": {
-   "at": "2026-11-02T17:47:46Z",
-   "game": "MIA @ LAL",
-   "items": [],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "MIA: no key regulars ruled out. LAL: no key regulars ruled out. No other late news found before tip-off."
   },
   "nba_401909922": {
    "at": "2026-11-04T17:07:43Z",
@@ -2584,128 +1955,6 @@
    ],
    "summary": "Golden State is short-handed: Jimmy Butler III, Kristaps Porzingis and Moses Moody are out, leaving Stephen Curry and Brandin Podziemski to lead. New Orleans comes in healthy around Zion Williamson and Trey Murphy III."
   },
-  "nfl_2026_08_CHI_SEA": {
-   "at": "2026-11-03T00:03:35Z",
-   "game": "CHI @ SEA",
-   "items": [
-    {
-     "at": "2026-10-27T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/montez-sweat-returns-chicago-bears-211200093.html",
-     "team": "CHI",
-     "text": "Montez Sweat is back from a two-game suspension.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-27T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/montez-sweat-returns-chicago-bears-211200093.html",
-     "team": "CHI",
-     "text": "TE Cole Kmet is on injured reserve; Colston Loveland becomes the main tight end.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-11-02T23:45:00Z",
-     "impact": 0,
-     "src": "https://chicago.suntimes.com/bears/2026/11/02/bears-seahawks-inactives-malik-muhammad-out",
-     "team": "CHI",
-     "text": "CB Malik Muhammad (toe) is inactive; RB Kyle Monangai also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-31T22:10:00Z",
-     "impact": 0,
-     "src": "https://www.espn.com/nfl/story/_/id/50340383/seahawks-rbs-charbonnet-price-healthy-play-monday-night",
-     "team": "SEA",
-     "text": "LT Charles Cross (high ankle sprain) and WR Rashid Shaheed out, Josh Jones starts at LT; LB Uchenna Nwosu doubtful.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-31T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.seahawks.com/news/zach-charbonnet-is-back-other-seahawks-injury-updates-ahead-of-monday-night-s-game-vs-chicago",
-     "team": "SEA",
-     "text": "RB Zach Charbonnet (ACL) makes his season debut after missing all seven games, Mike Macdonald confirmed.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-11-02T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://sports.yahoo.com/articles/seahawks-activate-jadarian-price-injured-212152298.html",
-     "team": "SEA",
-     "text": "RB Jadarian Price activated from injured reserve after missing four games and will play.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-10-30T17:25:00Z",
-     "impact": 0,
-     "src": "https://clutchpoints.com/nfl/seattle-seahawks/seahawks-news-leonard-williams-jadarian-price-injury-report-bears",
-     "team": "SEA",
-     "text": "DL Leonard Williams (Achilles) was limited in practice this week.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-10-30T12:00:00Z",
-     "impact": 0.3,
-     "src": "https://www.nfl.com/news/quenton-nelson-bittersweet-trade-colts-next-chapter-seahawks",
-     "team": "SEA",
-     "text": "G Quenton Nelson, acquired from the Colts, practiced fully and can start with Christian Haynes out.",
-     "total": 0,
-     "type": "add"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Bears-Seahawks inactives: CB Malik Muhammad ruled out",
-     "u": "https://chicago.suntimes.com/bears/2026/11/02/bears-seahawks-inactives-malik-muhammad-out"
-    },
-    {
-     "t": "Seahawks activate Jadarian Price from injured reserve ahead of MNF vs. Bears",
-     "u": "https://sports.yahoo.com/articles/seahawks-activate-jadarian-price-injured-212152298.html"
-    },
-    {
-     "t": "Nelson opens up on 'bittersweet' trade from Colts",
-     "u": "https://www.nfl.com/news/quenton-nelson-bittersweet-trade-colts-next-chapter-seahawks"
-    },
-    {
-     "t": "Seahawks injury report: Leonard Williams, Jadarian Price",
-     "u": "https://clutchpoints.com/nfl/seattle-seahawks/seahawks-news-leonard-williams-jadarian-price-injury-report-bears"
-    },
-    {
-     "t": "Zach Charbonnet Is Back & Other Seahawks Injury Updates",
-     "u": "https://www.seahawks.com/news/zach-charbonnet-is-back-other-seahawks-injury-updates-ahead-of-monday-night-s-game-vs-chicago"
-    },
-    {
-     "t": "Charbonnet, Price have no game designations for Monday",
-     "u": "https://www.espn.com/nfl/story/_/id/50340383/seahawks-rbs-charbonnet-price-healthy-play-monday-night"
-    },
-    {
-     "t": "Week 8 Injury Report: Bears at Seahawks",
-     "u": "https://www.seahawks.com/news/week-8-injury-report-bears-at-seahawks"
-    },
-    {
-     "t": "Seahawks-Bears injury report: Cross and Shaheed",
-     "u": "https://sports.yahoo.com/articles/seahawks-bears-injury-report-cross-233242008.html"
-    },
-    {
-     "t": "Montez Sweat returns to Chicago Bears",
-     "u": "https://sports.yahoo.com/articles/montez-sweat-returns-chicago-bears-211200093.html"
-    },
-    {
-     "t": "Bears embrace stepping into national spotlight",
-     "u": "https://www.chicagobears.com/news/bears-embrace-stepping-into-national-spotlight"
-    }
-   ],
-   "summary": "Chicago (5-2) has won two straight since Caleb Williams returned and gets Montez Sweat back, but CB Malik Muhammad is inactive. Seattle is without LT Charles Cross and WR Rashid Shaheed, yet RBs Zach Charbonnet and Jadarian Price return and new guard Quenton Nelson bolsters the interior line."
-  },
   "nfl_2026_09_ARI_SEA": {
    "at": "2026-11-08T17:40:00Z",
    "game": "ARI @ SEA",
@@ -2778,33 +2027,42 @@
    "summary": "Both teams change quarterbacks: Drew Lock starts for Seattle with Sam Darnold out, and Gardner Minshew starts for Arizona. Seattle has ruled out LT Charles Cross, WR Rashid Shaheed, DT Leonard Williams and LB Uchenna Nwosu, and newly acquired G Quenton Nelson will have a minor knee procedure. Arizona is without LT Jayden Williams and RG Jon Gaines II."
   },
   "nfl_2026_09_BUF_MIN": {
-   "at": "2026-11-09T17:20:00Z",
+   "at": "2026-11-10T00:06:00Z",
    "game": "BUF @ MIN",
    "items": [
     {
-     "at": "2026-11-05T12:00:00Z",
+     "at": "2026-11-09T12:00:00Z",
      "impact": 0,
-     "src": "https://www.vikings.com/news/quarterback-carson-wentz-monday-night-bills",
+     "src": "https://www.vikings.com/news/inactives-buffalo-bills-week-9-2026",
      "team": "MIN",
-     "text": "QB Kyler Murray (hamstring strain) ruled out; Carson Wentz will start, with Max Brosmer the backup.",
+     "text": "QB Kyler Murray (hamstring) inactive; Carson Wentz starts, with Max Brosmer the backup.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-11-07T12:00:00Z",
+     "at": "2026-11-09T12:00:00Z",
      "impact": 0,
-     "src": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season",
-     "team": "MIN",
-     "text": "Final report: WR Jauan Jennings (calf) and RB Demond Claiborne (knee) out; S Theo Jackson and S Jay Ward questionable.",
+     "src": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-vikings-week-9-mnf",
+     "team": "BUF",
+     "text": "LT Dion Dawkins (rib) and LG Alec Anderson inactive, leaving two new starters on the left side of the line.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-07T12:00:00Z",
+     "at": "2026-11-09T12:00:00Z",
      "impact": 0,
-     "src": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season",
+     "src": "https://www.vikings.com/news/inactives-buffalo-bills-week-9-2026",
+     "team": "MIN",
+     "text": "Inactive: WR Jauan Jennings (calf), RB Demond Claiborne (knee), S Jakobe Thomas, CB Chuck Demmings, DL Caleb Banks.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-vikings-week-9-mnf",
      "team": "BUF",
-     "text": "LT Dion Dawkins (rib) questionable after no practice all week; WR Joshua Palmer (hamstring) out.",
+     "text": "Also inactive: OLB Mike Danna, DL Greg Gaines, S Jalon Kilgore, WR Skyler Bell; WR Joshua Palmer out.",
      "total": 0,
      "type": "injury"
     },
@@ -2821,6 +2079,18 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Buffalo Bills inactives vs. Vikings (Week 9 MNF)",
+     "u": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-vikings-week-9-mnf"
+    },
+    {
+     "t": "Vikings vs. Bills Inactives for Week 9 of 2026",
+     "u": "https://www.vikings.com/news/inactives-buffalo-bills-week-9-2026"
+    },
+    {
+     "t": "Bills list Dawkins, Anderson among six inactives vs. Vikings",
+     "u": "https://www.fingerlakes1.com/2026/11/09/bills-inactives-dawkins-anderson-vikings-november-9-2026/"
+    },
+    {
      "t": "Final Vikings vs. Bills Injury Report for Week 9 of 2026",
      "u": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season"
     },
@@ -2835,17 +2105,9 @@
     {
      "t": "Buffalo Bills news (ProFootballTalk)",
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/buffalo-bills?chrcontext=KNSD"
-    },
-    {
-     "t": "Vikings-Bills injury updates: Who could miss Monday Night Football?",
-     "u": "https://www.startribune.com/minnesota-vikings-kyler-murray-injury-report-buffalo-bills-nfl-week-9-game-monday-night-football/601908198"
-    },
-    {
-     "t": "Vikings to start QB Carson Wentz against Bills with Kyler Murray ruled out (ESPN)",
-     "u": "https://www.espn.com/nfl/story/_/id/50390732/vikings-start-qb-wentz-bills-murray-injured"
     }
    ],
-   "summary": "Two 6-1 teams meet on Monday night. Minnesota is without QB Kyler Murray (hamstring) and WR Jauan Jennings (calf), so Carson Wentz starts. Buffalo LT Dion Dawkins (rib) is questionable after missing all three practices, WR Joshua Palmer is out, and Damar Hamlin is set to start at safety after C.J. Gardner-Johnson's release."
+   "summary": "Two 6-1 teams meet on Monday night. Minnesota starts Carson Wentz with Kyler Murray (hamstring) and WR Jauan Jennings inactive. Buffalo is without LT Dion Dawkins and LG Alec Anderson, so Josh Allen plays behind a patched-up left side, and Damar Hamlin starts at safety after C.J. Gardner-Johnson's release."
   },
   "nfl_2026_09_CIN_ATL": {
    "at": "2026-11-08T00:04:51Z",
@@ -3831,8 +3093,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-09T17:22:00Z",
-  "games": 10,
-  "note": "NFL: BUF@MIN refresh, WAS@NYG new (McCarthy hip); NBA: 8 Monday games, no confirmed outs beyond ESPN list; no EPL within 72h"
+  "at": "2026-11-10T00:06:00Z",
+  "games": 1,
+  "note": "BUF @ MIN inactives added; no EPL round (international break); other games not yet due."
  }
 }
