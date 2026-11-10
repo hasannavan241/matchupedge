@@ -1955,6 +1955,254 @@
    ],
    "summary": "Golden State is short-handed: Jimmy Butler III, Kristaps Porzingis and Moses Moody are out, leaving Stephen Curry and Brandin Podziemski to lead. New Orleans comes in healthy around Zion Williamson and Trey Murphy III."
   },
+  "nba_401909960": {
+   "at": "2026-11-10T17:05:27Z",
+   "game": "MIL @ NY",
+   "items": [
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://heavy.com/sports/nba/milwaukee-bucks/tyler-herro-injury-knicks/",
+     "team": "MIL",
+     "text": "Tyler Herro (right knee contusion) is questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://nyknicksnews.com/knicks-injury-report-josh-hart-questionable-bucks/",
+     "team": "NY",
+     "text": "Josh Hart (right ankle soreness) is questionable, the only Knick on the report.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Tyler Herro Injury: Bucks Announce Status vs. Knicks",
+     "u": "https://heavy.com/sports/nba/milwaukee-bucks/tyler-herro-injury-knicks/"
+    },
+    {
+     "t": "Knicks Injury Report: Josh Hart Questionable Against Bucks",
+     "u": "https://nyknicksnews.com/knicks-injury-report-josh-hart-questionable-bucks/"
+    }
+   ],
+   "summary": "The 1-9 Bucks visit Madison Square Garden after two double-digit losses. Their leading scorer Tyler Herro is questionable with a right knee contusion. The 5-4 Knicks list only Josh Hart, questionable with right ankle soreness."
+  },
+  "nba_401909961": {
+   "at": "2026-11-10T17:05:27Z",
+   "game": "BOS @ PHI",
+   "items": [
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://thelibertyline.com/2026/11/10/preview-sixers-host-celtics/",
+     "team": "PHI",
+     "text": "Adem Bona (cervical spine sprain) and Dominick Barlow (back) are out; Joel Embiid is not listed.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/celtics-fortunate-injury-news-ahead-213503424.html",
+     "team": "BOS",
+     "text": "Celtics have a clean injury report.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://thelibertyline.com/2026/11/10/preview-sixers-host-celtics/",
+     "team": "",
+     "text": "Jaylen Brown faces the Celtics for the first time since being traded for Paul George in July.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Preview: Sixers host Celtics tonight as Jaylen Brown faces Boston for the first time",
+     "u": "https://thelibertyline.com/2026/11/10/preview-sixers-host-celtics/"
+    },
+    {
+     "t": "Celtics get fortunate injury news ahead of 76ers clash",
+     "u": "https://sports.yahoo.com/articles/celtics-fortunate-injury-news-ahead-213503424.html"
+    }
+   ],
+   "summary": "A meeting of the East's early leaders: the 9-2 Sixers host the 8-2 Celtics, who have won three straight. Jaylen Brown faces Boston for the first time since his July trade for Paul George. Joel Embiid is not on the injury report; Adem Bona and Dominick Barlow are out, and Boston reports no injuries."
+  },
+  "nba_401909962": {
+   "at": "2026-11-10T17:05:27Z",
+   "game": "LAC @ PHX",
+   "items": [
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://sportssd.iheart.com/content/2026-11-10-clippers-vs-suns-injury-report-nov-10/",
+     "team": "LAC",
+     "text": "Brandon Ingram (heel) and Bradley Beal (knee) are out; Cam Christie (ankle) is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://sportssd.iheart.com/content/2026-11-10-clippers-vs-suns-injury-report-nov-10/",
+     "team": "PHX",
+     "text": "Mark Williams (shoulder) and Jordan Goodwin (calf) are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Clippers vs. Suns Injury Report",
+     "u": "https://sportssd.iheart.com/content/2026-11-10-clippers-vs-suns-injury-report-nov-10/"
+    },
+    {
+     "t": "Los Angeles visits Phoenix, looks to end road skid (AP)",
+     "u": "https://mymotherlode.com/sports/basketball-general-news/11296823/los-angeles-visits-phoenix-looks-to-end-road-skid.html"
+    }
+   ],
+   "summary": "Two struggling teams: the 2-7 Clippers try to end a four-game road skid in Phoenix against the 3-6 Suns. LA is without Brandon Ingram and Bradley Beal, while Phoenix is missing center Mark Williams and Jordan Goodwin."
+  },
+  "nba_401909963": {
+   "at": "2026-11-10T17:05:27Z",
+   "game": "MIA @ UTAH",
+   "items": [
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://fansided.com/nba/is-giannis-antetokounmpo-playing-tonight-latest-injury-update-for-heat-vs-jazz",
+     "team": "MIA",
+     "text": "Giannis Antetokounmpo (right wrist sprain) is probable and has played through it in recent games.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/jazz/onsi/jazz-injury-report-vs-heat-latest-news-on-keyonte-george-markkanen",
+     "team": "UTAH",
+     "text": "Lauri Markkanen (right wrist sprain) is questionable; Josh Green would start if he sits.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/jazz/onsi/jazz-injury-report-vs-heat-latest-news-on-keyonte-george-markkanen",
+     "team": "UTAH",
+     "text": "Keyonte George (ankle), Jaren Jackson Jr. (MCL tear) and Jusuf Nurkic (foot) are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Jazz Injury Report vs. Heat: Latest News on Keyonte George, Markkanen",
+     "u": "https://www.si.com/nba/jazz/onsi/jazz-injury-report-vs-heat-latest-news-on-keyonte-george-markkanen"
+    },
+    {
+     "t": "Is Giannis Antetokounmpo playing tonight? Latest injury update for Heat vs. Jazz",
+     "u": "https://fansided.com/nba/is-giannis-antetokounmpo-playing-tonight-latest-injury-update-for-heat-vs-jazz"
+    }
+   ],
+   "summary": "The 4-6 Heat visit the 1-9 Jazz, who are on a long losing streak. Giannis Antetokounmpo is probable and has been playing through a right wrist sprain. Utah is without Keyonte George, Jaren Jackson Jr. and Jusuf Nurkic, and Lauri Markkanen is questionable with a wrist sprain."
+  },
+  "nba_401909964": {
+   "at": "2026-11-10T17:05:27Z",
+   "game": "ORL @ SAC",
+   "items": [
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/kings/onsi/kings-injury-report-domantas-sabonis-status-update-vs-magic",
+     "team": "ORL",
+     "text": "Paolo Banchero (high ankle sprain) and Jalen Suggs (knee contusion) remain out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://957wdae.iheart.com/content/2026-11-10-magic-vs-kings-injury-report-nov-10/",
+     "team": "ORL",
+     "text": "Desmond Bane is listed day-to-day with an illness.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-10T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/kings/onsi/kings-injury-report-domantas-sabonis-status-update-vs-magic",
+     "team": "SAC",
+     "text": "Domantas Sabonis (left knee soreness), who missed Sunday, and Keegan Murray (wrist) are questionable.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Kings Injury Report: Domantas Sabonis Status Update vs. Magic",
+     "u": "https://www.si.com/nba/kings/onsi/kings-injury-report-domantas-sabonis-status-update-vs-magic"
+    },
+    {
+     "t": "Magic vs. Kings Injury Report",
+     "u": "https://957wdae.iheart.com/content/2026-11-10-magic-vs-kings-injury-report-nov-10/"
+    }
+   ],
+   "summary": "Both teams arrive on losing streaks: the 2-7 Magic have lost four straight and the 1-9 Kings three. Orlando is without Paolo Banchero and Jalen Suggs, and Desmond Bane is listed day-to-day with an illness. Sacramento's Domantas Sabonis (knee) and Keegan Murray (wrist) are questionable; rookie Darius Acuff Jr. leads the Kings in scoring."
+  },
+  "nba_401909965": {
+   "at": "2026-11-10T17:05:27Z",
+   "game": "OKC @ POR",
+   "items": [
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html",
+     "team": "OKC",
+     "text": "Chet Holmgren (knee), Jalen Williams (ankle) and Cason Wallace (shoulder) are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html",
+     "team": "POR",
+     "text": "Ja Morant (hamstring) and Shaedon Sharpe (meniscus) are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html",
+     "team": "POR",
+     "text": "Robert Williams III is listed day-to-day for rest; not confirmed out.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Thunder face the Trail Blazers, seek 5th straight victory (AP)",
+     "u": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html"
+    }
+   ],
+   "summary": "The 8-2 Thunder go for a fifth straight win in Portland against the 6-3 Blazers. OKC is still without Chet Holmgren, Jalen Williams and Cason Wallace. Portland is missing Ja Morant and Shaedon Sharpe, and Robert Williams III is listed day-to-day for rest."
+  },
   "nfl_2026_09_ARI_SEA": {
    "at": "2026-11-08T17:40:00Z",
    "game": "ARI @ SEA",
@@ -3047,33 +3295,42 @@
    "summary": "Chicago (6-2) hosts 3-5 Tampa Bay on Sunday night after a 34-17 win at Seattle in which new DT Jeffery Simmons starred. WR Emeka Egbuka is active for the Bucs after missing two games, but OLB YaYa Diaby is inactive. The Bears are without RB Kyle Monangai for a fifth straight game, and CB Malik Muhammad is a surprise inactive; Tyrique Stevenson starts."
   },
   "nfl_2026_10_WAS_NYG": {
-   "at": "2026-11-09T17:20:00Z",
+   "at": "2026-11-10T17:05:27Z",
    "game": "WAS @ NYG",
    "items": [
     {
      "at": "2026-11-09T12:00:00Z",
      "impact": 0,
-     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-09/mccarthy-looks-like-hes-going-to-play-week-10",
+     "src": "https://www.si.com/nfl/giants/onsi/giants-mccarthy-skattebo-injury-updates-01m70t9z7273",
      "team": "NYG",
-     "text": "QB J.J. McCarthy (hip pointer) says he feels good and is expected to play Thursday.",
+     "text": "QB J.J. McCarthy (hip) was limited Monday; Harbaugh says he looks like he's going to play.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": null,
+     "at": "2026-11-09T12:00:00Z",
      "impact": 0,
-     "src": null,
+     "src": "https://www.giants.com/news/week-10-tracker-latest-news-notes-roster-moves-washington-commanders",
+     "team": "NYG",
+     "text": "RB Cam Skattebo (hamstring) missed Week 9 but Harbaugh says he should be a full go Thursday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.commanders.com/news/commanders-vs-giants-week-10-injury-report-2026",
      "team": "WAS",
-     "text": "WRs Terry McLaurin, Treylon Burks and Dyami Brown all sidelined; DTs Daron Payne and Javon Kinlaw on IR.",
+     "text": "WR Treylon Burks (foot) and C Lucas Patrick (concussion) did not practice; TE Chig Okonkwo (hip) limited.",
      "total": 0,
      "type": "injury"
     },
     {
      "at": null,
      "impact": 0,
-     "src": null,
-     "team": "NYG",
-     "text": "RB Cam Skattebo (hamstring) out; LB Tremaine Edmunds on reserve list.",
+     "src": "https://www.commanders.com/news",
+     "team": "WAS",
+     "text": "WRs Terry McLaurin and Dyami Brown are on IR; RB Jacory Croskey-Merritt out until at least Week 12.",
      "total": 0,
      "type": "injury"
     }
@@ -3081,20 +3338,28 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "J.J. McCarthy: Hip feels pretty good, will do my best to be ready for Thursday (PFT)",
-     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/j-j-mccarthy-hip-feels-pretty-good-will-do-my-best-to-be-ready-for-thursday"
+     "t": "Giants vs. Commanders Week 10 Injury Report: QB J.J. McCarthy, RB Cam Skattebo limited",
+     "u": "https://www.giants.com/news/giants-vs-commanders-week-10-injury-report-qb-j-j-mccarthy-rb-cam-skattebo-limited"
     },
     {
-     "t": "McCarthy looks like 'he's going to play' Week 10 (NBC Sports)",
-     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-09/mccarthy-looks-like-hes-going-to-play-week-10"
+     "t": "Week 10 Tracker: Latest news, notes & roster moves",
+     "u": "https://www.giants.com/news/week-10-tracker-latest-news-notes-roster-moves-washington-commanders"
+    },
+    {
+     "t": "Commanders vs. Giants Week 10 injury report",
+     "u": "https://www.commanders.com/news/commanders-vs-giants-week-10-injury-report-2026"
+    },
+    {
+     "t": "Giants Expect J.J. McCarthy and Cam Skattebo Back for Thursday Night vs. Commanders",
+     "u": "https://www.si.com/nfl/giants/onsi/giants-mccarthy-skattebo-injury-updates-01m70t9z7273"
     }
    ],
-   "summary": "A short-week NFC East game on Thursday night. Giants QB J.J. McCarthy has a hip pointer from the Eagles win but expects to play. Washington is thin at receiver with Terry McLaurin, Treylon Burks and Dyami Brown sidelined, and the Giants are without RB Cam Skattebo."
+   "summary": "A short-week NFC East game on Thursday night. The 5-2-1 Giants lead the division after winning in Philadelphia, and John Harbaugh expects QB J.J. McCarthy (hip) to play and RB Cam Skattebo (hamstring) to be a full go. The 2-5-1 Commanders are thin at receiver and tight end, with Terry McLaurin and Dyami Brown on IR and Treylon Burks not practicing."
   }
  },
  "meta": {
-  "at": "2026-11-10T00:06:00Z",
-  "games": 1,
-  "note": "BUF @ MIN inactives added; no EPL round (international break); other games not yet due."
+  "at": "2026-11-10T17:06:00Z",
+  "games": 7,
+  "note": "WAS @ NYG refreshed and tonight's 6 NBA games; no EPL round within 72h (international break)."
  }
 }
