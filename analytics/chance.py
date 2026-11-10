@@ -3,7 +3,10 @@
 
     python3 chance.py nfl "Puka Nacua" rec_yds 89.5
     python3 chance.py nba "Jalen Brunson" pts 27.5
-    python3 chance.py --lines lines.json        # [["nfl", "Puka Nacua", "rec_yds", 89.5], ["nba", ...], ...]
+    python3 chance.py --lines lines.json        # [["nfl", "Puka Nacua", "rec_yds", 89.5, "LA"], ["nba", ...], ...]
+
+Give the team whenever the name came from a board that prints initials ("M. Bridges, PHX"): with a team, only that
+team's players match, so "M. Bridges" on Phoenix is Miles and not the Knicks' Mikal.
 
 Add --json for the answer as JSON, and --site DIR to read index.html and nba.html from a folder instead of the
 published site (the gh-pages branch).
@@ -218,8 +221,10 @@ def find(players, name, team=None):
     if not hits and len(f.split()) > 1:   # "D.J. Moore" against "DJ Moore", a first name spelled another way
         last = f.split()[-1]
         hits = [p for p in players if fold(p["n"]).split()[-1:] == [last] and fold(p["n"])[:1] == f[:1]]
-    if team:
-        hits = [p for p in hits if p.get("t") == team] or hits
+    if team:   # a team given is a requirement, not a tie-break: "M. Bridges, PHX" must not become the Knicks' Mikal
+        t = team.upper()
+        t = {"WSH": "WAS", "GSW": "GS", "NOP": "NO", "NYK": "NY", "SAS": "SA", "UTA": "UTAH", "PHO": "PHX", "LAR": "LA", "JAC": "JAX"}.get(t, t)
+        hits = [p for p in hits if (p.get("t") or "").upper() in (t, team.upper())]
     return hits
 
 
@@ -293,27 +298,27 @@ def main():
     ap.add_argument("line", nargs="?", type=float)
     ap.add_argument("--team", help="the team code, when the name matches more than one player")
     ap.add_argument("--every-game", action="store_true", help="every game the page lists for him, not only the next")
-    ap.add_argument("--lines", help='a JSON file of [league, name, stat, line] lists (or objects with those keys)')
+    ap.add_argument("--lines", help='a JSON file of [league, name, stat, line, team] lists (team optional; or objects with those keys)')
     ap.add_argument("--site", help="read the pages from this folder instead of the published site")
     ap.add_argument("--json", action="store_true")
     a = ap.parse_args()
     if a.lines:
         asks = []
         for x in json.load(open(a.lines)):
-            asks.append([x.get(k) for k in ("lg", "name", "stat", "line")] if isinstance(x, dict) else list(x)[:4])
+            asks.append([x.get(k) for k in ("lg", "name", "stat", "line", "team")] if isinstance(x, dict) else (list(x) + [None])[:5])
     elif a.league and a.name and a.stat and a.line is not None:
-        asks = [[a.league, a.name, a.stat, a.line]]
+        asks = [[a.league, a.name, a.stat, a.line, a.team]]
     else:
         ap.error("give a league, a name, a stat and a line, or --lines")
     data, res = {}, []
-    for lg, name, stat, line in asks:
+    for lg, name, stat, line, team in asks:
         lg = str(lg).lower()
         if lg not in PAGES:
             res.append({"lg": lg, "name": name, "stat": stat, "line": line, "error": "league not on the site"})
             continue
         if lg not in data:
             data[lg] = page_data(site_file(PAGES[lg], a.site))
-        r = rate(lg, data[lg], name, stat, line, a.team, a.every_game)
+        r = rate(lg, data[lg], name, stat, line, team, a.every_game)
         res.extend(r or [{"lg": lg, "name": name, "stat": stat, "line": line,
                           "error": "no projection (not on the page, ruled out, or a stat the page doesn't have)"}])
     if a.json:
