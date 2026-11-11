@@ -681,457 +681,6 @@
    ],
    "summary": "San Antonio (6-2) brings a six-game winning streak to Sacramento (1-7) after Victor Wembanyama's 52-point, 24-rebound game against Dallas. Tobias Harris (calf) is out for the Spurs; the Kings miss Keegan Murray, Maxime Raynaud and Ben Simmons."
   },
-  "nba_401909922": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "PHI @ DET",
-   "items": [
-    {
-     "at": "2026-11-03T12:00:00Z",
-     "impact": -0.2,
-     "src": "https://www.phillyvoice.com/sixers-vs-pistons-injury-report-news-analysis-lebron-james-joel-embiid-dominick-barlow-jalen-duren-nba/",
-     "team": "PHI",
-     "text": "Joel Embiid (plantar fasciitis) played under 25 minutes on a restriction Monday; no word that the limit is lifted.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.essentiallysports.com/nba-active-basketball-news-pistons-vs-76ers-where-to-watch-injury-report-and-everything-you-need-to-know/",
-     "team": "DET",
-     "text": "Jalen Duren (hamstring, target about Nov 9) and Isaiah Joe (hip) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.essentiallysports.com/nba-active-basketball-news-pistons-vs-76ers-where-to-watch-injury-report-and-everything-you-need-to-know/",
-     "team": "PHI",
-     "text": "Dominick Barlow (low back) and Ariel Hukporti (Achilles, season) are out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Full injury reports for Sixers-Pistons on Wednesday",
-     "u": "https://www.phillyvoice.com/sixers-vs-pistons-injury-report-news-analysis-lebron-james-joel-embiid-dominick-barlow-jalen-duren-nba/"
-    },
-    {
-     "t": "76ers Reveal Joel Embiid's Playing Status vs Pistons On Wednesday",
-     "u": "https://heavy.com/sports/nba/philadelphia-76ers/reveal-joel-embiid-playing-status-pistons-wednesday/"
-    },
-    {
-     "t": "Pistons vs. 76ers: Where to Watch, Injury Report",
-     "u": "https://www.essentiallysports.com/nba-active-basketball-news-pistons-vs-76ers-where-to-watch-injury-report-and-everything-you-need-to-know/"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Philadelphia visits Detroit with Joel Embiid expected to play through right plantar fasciitis after a minutes restriction on Monday. Detroit is without center Jalen Duren (hamstring) and Isaiah Joe (hip)."
-  },
-  "nba_401909923": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "ATL @ WSH",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/atlanta-hawks/injury-report-vs-wizards-november-4/",
-     "team": "ATL",
-     "text": "Jalen Johnson (ankle) questionable; Jock Landale (hip), Henri Veesaar (knee) and Mouhamed Gueye (foot) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/atlanta-hawks/injury-report-vs-wizards-november-4/",
-     "team": "ATL",
-     "text": "Kingston Flemings returns from a one-game suspension.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "WSH",
-     "text": "Alex Sarr and Anthony Gill questionable; Reece Beekman and Tristan Vukcevic out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Atlanta Hawks Announce Injury Report vs. Washington Wizards (Nov. 4)",
-     "u": "https://heavy.com/sports/nba/atlanta-hawks/injury-report-vs-wizards-november-4/"
-    },
-    {
-     "t": "The NBA's November 4 Injury Report",
-     "u": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Atlanta's Jalen Johnson (left ankle sprain) is questionable, with a final call after shootaround, and Jock Landale is out. Kingston Flemings is back from a one-game suspension. Washington lists Alex Sarr and Anthony Gill as questionable."
-  },
-  "nba_401909924": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "MIL @ BOS",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "BOS",
-     "text": "Jayson Tatum questionable (rest) and Payton Pritchard questionable (shoulder); Devin Carter out (mono).",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "The NBA's November 4 Injury Report",
-     "u": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Boston lists Jayson Tatum as questionable for rest and Payton Pritchard (shoulder) as questionable; Devin Carter is out with mono. No late news on Milwaukee."
-  },
-  "nba_401909925": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "CHA @ BKN",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CHA",
-     "text": "Grant Williams (hamstring) out; Coby White probable; Kon Knueppel's listed status conflicts with a note calling him probable.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Charlotte lists Coby White as probable (calf) and Grant Williams out (hamstring); Kon Knueppel's status is unclear on the injury list. Brooklyn is without Egor Demin and Tyler Bilodeau."
-  },
-  "nba_401909926": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "CHI @ NY",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "NY",
-     "text": "Josh Hart questionable with right ankle soreness.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "CHI",
-     "text": "Nic Claxton (hamstring) listed out, with a note calling him questionable; Jalen Smith (finger) probable.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "New York's Josh Hart (ankle soreness) is questionable. Chicago lists Nic Claxton (hamstring) as out, with a note calling him questionable, and Jalen Smith probable."
-  },
-  "nba_401909927": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "IND @ MEM",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea",
-     "team": "IND",
-     "text": "Tyrese Haliburton ruled out again; Ivica Zubac and T.J. McConnell remain out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "The NBA's November 4 Injury Report",
-     "u": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Indiana remains shorthanded without Tyrese Haliburton, Ivica Zubac and T.J. McConnell. No new late news for either team."
-  },
-  "nba_401909928": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "UTAH @ NO",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "UTAH",
-     "text": "Jaren Jackson Jr. (torn MCL) and Jusuf Nurkic (foot) out; Mo Bamba questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "NO",
-     "text": "Trey Murphy III (knee) probable; Yves Missi (knee) out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Utah is without Jaren Jackson Jr. (MCL) and Jusuf Nurkic (foot), with Mo Bamba questionable. New Orleans lists Trey Murphy III as probable and Yves Missi out."
-  },
-  "nba_401909929": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "CLE @ OKC",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/cavs-thunder-watch-odds-injury-160000992.html",
-     "team": "OKC",
-     "text": "Chet Holmgren, Jalen Williams and Cason Wallace remain out; Jaylin Williams (back) questionable; Alex Caruso is back.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/cavs-thunder-watch-odds-injury-160000992.html",
-     "team": "CLE",
-     "text": "Jaylon Tyson (ankle), Peyton Watson (hamstring) and Nae'Qwan Tomlin (back) are out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Cavs at Thunder: How to watch and injury report",
-     "u": "https://sports.yahoo.com/articles/cavs-thunder-watch-odds-injury-160000992.html"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Oklahoma City is still without Chet Holmgren, Jalen Williams and Cason Wallace, but Alex Caruso is back. Cleveland is missing Jaylon Tyson and Peyton Watson, and also lists Nae'Qwan Tomlin out (back)."
-  },
-  "nba_401909930": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "MIN @ HOU",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.iheart.com/content/2026-11-04-timberwolves-vs-rockets-injury-report-nov-4/",
-     "team": "MIN",
-     "text": "Anthony Edwards (knee arthroscopy) out until about Dec 21; Donte DiVincenzo (Achilles) out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.iheart.com/content/2026-11-04-timberwolves-vs-rockets-injury-report-nov-4/",
-     "team": "HOU",
-     "text": "Steven Adams (calf) out until about Nov 9; Clint Capela (ankle) questionable.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Timberwolves vs. Rockets Injury Report",
-     "u": "https://sports.iheart.com/content/2026-11-04-timberwolves-vs-rockets-injury-report-nov-4/"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Minnesota plays without Anthony Edwards (knee arthroscopy, out until about Dec 21) and Donte DiVincenzo. Houston is missing Steven Adams (calf), with Clint Capela questionable."
-  },
-  "nba_401909931": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "TOR @ DEN",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea",
-     "team": "TOR",
-     "text": "Kawhi Leonard ruled out again.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "The NBA's November 4 Injury Report",
-     "u": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Toronto is again without Kawhi Leonard. Denver has its core available with Cameron Johnson listed day to day. No other late news found."
-  },
-  "nba_401909932": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "POR @ PHX",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea",
-     "team": "POR",
-     "text": "Ja Morant ruled out again; Shaedon Sharpe also out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "The NBA's November 4 Injury Report",
-     "u": "https://hottakes.com/articles/the-nbas-november-4-injury-report-looks-like-a-cvs-receipt-54acdf4f-3140-45e1-8fa4-71254496e4ea"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Portland is without Ja Morant and Shaedon Sharpe; Phoenix is missing Mark Williams. No other late news found."
-  },
-  "nba_401909933": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "DAL @ SA",
-   "items": [
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "DAL",
-     "text": "Max Christie (hip) and Sergio de Larrea (knee) out; Santi Aldama listed out, with a note calling him questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.espn.com/nba/injuries",
-     "team": "SA",
-     "text": "Tobias Harris (calf) out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Dallas is without Max Christie and Sergio de Larrea, and Santi Aldama is listed out with a note calling him questionable. San Antonio is missing Tobias Harris (calf)."
-  },
-  "nba_401909934": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "LAL @ SAC",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/los-angeles-lakers/injury-report-vs-kings-november-4/",
-     "team": "LAL",
-     "text": "Walker Kessler available while wearing a splint on his left finger; Adou Thiero (knee) out.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Los Angeles Lakers Announce Injury Report vs. Sacramento Kings (Nov. 4)",
-     "u": "https://heavy.com/sports/nba/los-angeles-lakers/injury-report-vs-kings-november-4/"
-    },
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Walker Kessler is available for the Lakers despite a splinted left finger; Adou Thiero is out. Sacramento is without Maxime Raynaud and Keegan Murray."
-  },
-  "nba_401909935": {
-   "at": "2026-11-04T17:07:43Z",
-   "game": "MIA @ LAC",
-   "items": [
-    {
-     "at": "2026-11-04T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.talkbasket.net/226111-nba-injury-report-tatum-antetokounmpo-listed-on-wednesday-november-4",
-     "team": "MIA",
-     "text": "Giannis Antetokounmpo is listed on Wednesday's injury report.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "ESPN NBA injuries",
-     "u": "https://www.espn.com/nba/injuries"
-    }
-   ],
-   "summary": "Miami's Giannis Antetokounmpo is on Wednesday's injury report. The Clippers remain without Brandon Ingram and Bradley Beal."
-  },
   "nba_401909936": {
    "at": "2026-11-05T17:06:53Z",
    "game": "ORL @ PHX",
@@ -2202,6 +1751,390 @@
     }
    ],
    "summary": "The 8-2 Thunder go for a fifth straight win in Portland against the 6-3 Blazers. OKC is still without Chet Holmgren, Jalen Williams and Cason Wallace. Portland is missing Ja Morant and Shaedon Sharpe, and Robert Williams III is listed day-to-day for rest."
+  },
+  "nba_401909966": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "WSH @ IND",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "IND",
+     "text": "Tyrese Haliburton is out; T.J. McConnell and Ben Sheppard are also on the injury list.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "WSH",
+     "text": "Jamir Watkins and Justin Champagnie are out; Trae Young and Anthony Davis are not listed.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Indiana is again without Tyrese Haliburton, leaning on Pascal Siakam and Andrew Nembhard, with T.J. McConnell day-to-day. Washington has Trae Young and Anthony Davis available; Jamir Watkins and Justin Champagnie are out."
+  },
+  "nba_401909967": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "CLE @ NY",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://clutchpoints.com/nba/new-york-knicks/knicks-news-josh-hart-ruled-out-cavs-game",
+     "team": "NY",
+     "text": "Josh Hart remains out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "CLE",
+     "text": "Sam Merrill and Jaylon Tyson are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    },
+    {
+     "t": "Knicks news: Josh Hart ruled out for Cavs game",
+     "u": "https://clutchpoints.com/nba/new-york-knicks/knicks-news-josh-hart-ruled-out-cavs-game"
+    }
+   ],
+   "summary": "A rematch of Saturday's Knicks-Cavaliers game. New York is again without Josh Hart, leaving Jalen Brunson, Karl-Anthony Towns and OG Anunoby to carry it. Cleveland has its core of Donovan Mitchell, James Harden, Evan Mobley and Jarrett Allen, with Sam Merrill and Jaylon Tyson out."
+  },
+  "nba_401909968": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "BOS @ TOR",
+   "items": [
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nba/toronto-raptors/scottie-barnes-playing-tonight-raptors-celtics-injury-report",
+     "team": "TOR",
+     "text": "Scottie Barnes is out for Wednesday's game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.rotoballer.com/?p=1987551",
+     "team": "TOR",
+     "text": "Kawhi Leonard (knee) is out; he is doing conditioning work in Toronto.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "TOR",
+     "text": "Immanuel Quickley and Collin Murray-Boyles are day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    },
+    {
+     "t": "Is Scottie Barnes playing tonight? Raptors vs. Celtics injury report",
+     "u": "https://clutchpoints.com/nba/toronto-raptors/scottie-barnes-playing-tonight-raptors-celtics-injury-report"
+    },
+    {
+     "t": "Kawhi Leonard Back in Toronto for Conditioning Work",
+     "u": "https://www.rotoballer.com/?p=1987551"
+    }
+   ],
+   "summary": "Toronto is short-handed: Scottie Barnes and Kawhi Leonard (knee) are out, and Immanuel Quickley and Collin Murray-Boyles are day-to-day, leaving RJ Barrett as the main option. Boston arrives with Jayson Tatum, Paul George and Derrick White and no listed injuries among its rotation."
+  },
+  "nba_401909969": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "SA @ CHI",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.rotoballer.com/?p=1988042",
+     "team": "SA",
+     "text": "Tobias Harris (left calf) is out; Devin Vassell (left adductor) is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "CHI",
+     "text": "Norman Powell is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    },
+    {
+     "t": "Devin Vassell questionable; Tobias Harris out",
+     "u": "https://www.rotoballer.com/?p=1988042"
+    }
+   ],
+   "summary": "Victor Wembanyama leads San Antonio into Chicago, but Tobias Harris (calf) is out and Devin Vassell (adductor) is day-to-day. Chicago has Josh Giddey and Matas Buzelis, with Norman Powell day-to-day."
+  },
+  "nba_401909970": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "DEN @ MEM",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "MEM",
+     "text": "Scotty Pippen Jr. is out; Isaiah Stewart is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "DEN",
+     "text": "Julian Strawther is out; the rest of the rotation is available.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Denver brings Nikola Jokic and Jamal Murray to Memphis with only Julian Strawther out. Memphis leans on a young group around Ty Jerome, Cameron Boozer and Cedric Coward, with Scotty Pippen Jr. out."
+  },
+  "nba_401909971": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "LAL @ MIL",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "MIL",
+     "text": "Tyler Herro is out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "LAL",
+     "text": "Quentin Grimes is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Milwaukee plays without Tyler Herro, leaning on Jaime Jaquez Jr., Kyle Kuzma and Myles Turner. The Lakers bring Luka Doncic and Austin Reaves, with Quentin Grimes day-to-day."
+  },
+  "nba_401909972": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "BKN @ NO",
+   "items": [
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0.1,
+     "src": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/mikel-brown-jr-illness-out-vs-new-orleans",
+     "team": "BKN",
+     "text": "Rookie guard Mikel Brown Jr. is out with an illness.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/bennedict-mathurin-thumb-ruled-out-vs-brooklyn",
+     "team": "NO",
+     "text": "Bennedict Mathurin (thumb) is ruled out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "NO",
+     "text": "Trey Murphy III is day-to-day; Yves Missi is out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "BKN",
+     "text": "Egor Demin is out; Nolan Traore is day-to-day.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    },
+    {
+     "t": "Mikel Brown Jr. (illness) out vs. New Orleans",
+     "u": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/mikel-brown-jr-illness-out-vs-new-orleans"
+    },
+    {
+     "t": "Bennedict Mathurin (thumb) ruled out vs. Brooklyn",
+     "u": "https://www.nbcsports.com/fantasy/basketball/player-news/2026-11-11/bennedict-mathurin-thumb-ruled-out-vs-brooklyn"
+    }
+   ],
+   "summary": "Zion Williamson leads New Orleans, with Trey Murphy III day-to-day and Bennedict Mathurin (thumb) and Yves Missi out. Brooklyn's Julius Randle and Michael Porter Jr. play without Egor Demin, and rookie Mikel Brown Jr. is out with an illness."
+  },
+  "nba_401909973": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "ORL @ UTAH",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "ORL",
+     "text": "Paolo Banchero, Jalen Suggs and Tristan da Silva are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "UTAH",
+     "text": "Lauri Markkanen, Keyonte George, Jaren Jackson Jr. and Jusuf Nurkic are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Both teams are depleted. Orlando is without Paolo Banchero, Jalen Suggs and Tristan da Silva, leaving Franz Wagner and Desmond Bane in charge. Utah is missing Lauri Markkanen, Keyonte George, Jaren Jackson Jr. and Jusuf Nurkic, so rookies Ace Bailey and Darryn Peterson carry big roles."
+  },
+  "nba_401909974": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "GS @ HOU",
+   "items": [
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/golden-state-warriors-announce-injury-083100488.html",
+     "team": "GS",
+     "text": "Jimmy Butler and Moses Moody (knee) are out, possibly until January; Kristaps Porzingis is away from the team.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/golden-state-warriors-announce-injury-083100488.html",
+     "team": "GS",
+     "text": "Gary Payton II (knee) and Brandon Williams (hamstring) are out; Will Richard (thumb) is questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "HOU",
+     "text": "Steven Adams and Clint Capela are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Golden State Warriors Announce Injury Report for Houston Rockets Game on Nov. 11",
+     "u": "https://sports.yahoo.com/articles/golden-state-warriors-announce-injury-083100488.html"
+    },
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Two 8-3 teams meet. Golden State has won eight straight and opens a five-game road trip without Jimmy Butler and Moses Moody (knees), Kristaps Porzingis (away from the team) and Gary Payton II. Houston has Kevin Durant, Alperen Sengun and Amen Thompson, with Steven Adams and Clint Capela out."
+  },
+  "nba_401909975": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "OKC @ POR",
+   "items": [
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "OKC",
+     "text": "Chet Holmgren, Jalen Williams and Cason Wallace are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.espn.com/nba/injuries",
+     "team": "POR",
+     "text": "Ja Morant and Shaedon Sharpe are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "NBA Injuries - ESPN",
+     "u": "https://www.espn.com/nba/injuries"
+    }
+   ],
+   "summary": "Oklahoma City visits Portland a day after the Blazers beat them, still without Chet Holmgren, Jalen Williams and Cason Wallace, so Shai Gilgeous-Alexander carries even more. Portland plays without Ja Morant and Shaedon Sharpe, with Deni Avdija and Damian Lillard leading."
   },
   "nfl_2026_09_ARI_SEA": {
    "at": "2026-11-08T17:40:00Z",
@@ -3294,6 +3227,68 @@
    ],
    "summary": "Chicago (6-2) hosts 3-5 Tampa Bay on Sunday night after a 34-17 win at Seattle in which new DT Jeffery Simmons starred. WR Emeka Egbuka is active for the Bucs after missing two games, but OLB YaYa Diaby is inactive. The Bears are without RB Kyle Monangai for a fifth straight game, and CB Malik Muhammad is a surprise inactive; Tyrique Stevenson starts."
   },
+  "nfl_2026_10_NE_DET": {
+   "at": "2026-11-11T17:05:31Z",
+   "game": "NE @ DET",
+   "items": [
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsportsboston.com/nfl/new-england-patriots/patriots-injury-updates-latest-info-aj-brown-rhamondre-stevenson/812631/",
+     "team": "NE",
+     "text": "RB Rhamondre Stevenson (knee, plantaris) is expected to miss the next few weeks; LG Ben Brown (knee) won't play.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.bostonglobe.com/2026/11/08/sports/patriots-arent-making-excuses-their-near-catastrophic-injury-run-has-only-gotten-worse/",
+     "team": "NE",
+     "text": "LT Will Campbell and CB Carlton Davis left the Green Bay game with knee injuries; WR A.J. Brown's status is undecided.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://sportsnaut.com/nfl/new-england-patriots/patriots-lose-another-offensive-lineman-as-rhamondre-stevenson-injury-raises-concerns-before-lions-game",
+     "team": "NE",
+     "text": "RB TreVeyon Henderson remains sidelined; G Greg Van Roten (hamstring) is back at practice and eligible to come off IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-03T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.clickondetroit.com/sports/2026/11/03/detroit-lions-dan-campbell-shares-injury-update-on-multitude-of-players-including-jack-campbell-branch/",
+     "team": "DET",
+     "text": "LB Jack Campbell is on injured reserve with a neck injury.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Patriots injury updates: Latest info on A.J. Brown, Rhamondre Stevenson and more",
+     "u": "https://www.nbcsportsboston.com/nfl/new-england-patriots/patriots-injury-updates-latest-info-aj-brown-rhamondre-stevenson/812631/"
+    },
+    {
+     "t": "Patriots Lose Another Offensive Lineman as Rhamondre Stevenson Injury Raises Concerns Before Lions Game",
+     "u": "https://sportsnaut.com/nfl/new-england-patriots/patriots-lose-another-offensive-lineman-as-rhamondre-stevenson-injury-raises-concerns-before-lions-game"
+    },
+    {
+     "t": "The Patriots aren't making excuses, but their injury woes have reached a new low",
+     "u": "https://www.bostonglobe.com/2026/11/08/sports/patriots-arent-making-excuses-their-near-catastrophic-injury-run-has-only-gotten-worse/"
+    },
+    {
+     "t": "7 Detroit Lions injury updates",
+     "u": "https://www.clickondetroit.com/sports/2026/11/03/detroit-lions-dan-campbell-shares-injury-update-on-multitude-of-players-including-jack-campbell-branch/"
+    }
+   ],
+   "summary": "The banged-up 5-4 Patriots meet Detroit in Munich after a 45-27 loss to Green Bay. RB Rhamondre Stevenson (knee) is expected to miss a few weeks and LG Ben Brown is out; LT Will Campbell and CB Carlton Davis also left that game hurt. Detroit is without LB Jack Campbell (neck)."
+  },
   "nfl_2026_10_WAS_NYG": {
    "at": "2026-11-11T00:06:00Z",
    "game": "WAS @ NYG",
@@ -3358,8 +3353,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-11T00:07:00Z",
-  "games": 1,
-  "note": "Refreshed WAS @ NYG: McCarthy and Skattebo full Tuesday; NBA tonight already current."
+  "at": "2026-11-11T17:10:00Z",
+  "games": 11,
+  "note": "Tonight's 10 NBA games plus NE @ DET (Munich); EPL on international break; WAS @ NYG still current."
  }
 }
