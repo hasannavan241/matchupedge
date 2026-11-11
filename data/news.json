@@ -3295,33 +3295,33 @@
    "summary": "Chicago (6-2) hosts 3-5 Tampa Bay on Sunday night after a 34-17 win at Seattle in which new DT Jeffery Simmons starred. WR Emeka Egbuka is active for the Bucs after missing two games, but OLB YaYa Diaby is inactive. The Bears are without RB Kyle Monangai for a fifth straight game, and CB Malik Muhammad is a surprise inactive; Tyrique Stevenson starts."
   },
   "nfl_2026_10_WAS_NYG": {
-   "at": "2026-11-10T17:05:27Z",
+   "at": "2026-11-11T00:06:00Z",
    "game": "WAS @ NYG",
    "items": [
     {
-     "at": "2026-11-09T12:00:00Z",
+     "at": "2026-11-10T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nfl/giants/onsi/giants-mccarthy-skattebo-injury-updates-01m70t9z7273",
+     "src": "https://www.giants.com/news/giants-vs-commanders-week-10-injury-report-qb-j-j-mccarthy-rb-cam-skattebo-limited",
      "team": "NYG",
-     "text": "QB J.J. McCarthy (hip) was limited Monday; Harbaugh says he looks like he's going to play.",
+     "text": "QB J.J. McCarthy (hip) was a full participant Tuesday after a limited Monday and is expected to start.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-09T12:00:00Z",
+     "at": "2026-11-10T12:00:00Z",
      "impact": 0,
-     "src": "https://www.giants.com/news/week-10-tracker-latest-news-notes-roster-moves-washington-commanders",
+     "src": "https://sports.yahoo.com/articles/j-j-mccarthy-cam-skattebo-212217546.html",
      "team": "NYG",
-     "text": "RB Cam Skattebo (hamstring) missed Week 9 but Harbaugh says he should be a full go Thursday.",
+     "text": "RB Cam Skattebo (hamstring) missed Week 9 but practiced fully Tuesday and should play Thursday.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-09T12:00:00Z",
+     "at": "2026-11-10T12:00:00Z",
      "impact": 0,
-     "src": "https://www.commanders.com/news/commanders-vs-giants-week-10-injury-report-2026",
+     "src": "https://www.hogshaven.com/washington-commanders-injuries/454582/commanders-giants-injury-report-treylon-burks-chig-okonkwo",
      "team": "WAS",
-     "text": "WR Treylon Burks (foot) and C Lucas Patrick (concussion) did not practice; TE Chig Okonkwo (hip) limited.",
+     "text": "WR Treylon Burks (foot) was limited Tuesday; C Lucas Patrick (concussion) did not practice on Monday's estimated report.",
      "total": 0,
      "type": "injury"
     },
@@ -3338,28 +3338,28 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Giants vs. Commanders Week 10 Injury Report: QB J.J. McCarthy, RB Cam Skattebo limited",
+     "t": "Giants vs. Commanders Week 10 Injury Report: QB J.J. McCarthy, RB Cam Skattebo full",
      "u": "https://www.giants.com/news/giants-vs-commanders-week-10-injury-report-qb-j-j-mccarthy-rb-cam-skattebo-limited"
     },
     {
-     "t": "Week 10 Tracker: Latest news, notes & roster moves",
-     "u": "https://www.giants.com/news/week-10-tracker-latest-news-notes-roster-moves-washington-commanders"
+     "t": "J.J. McCarthy, Cam Skattebo return to full participation Tuesday",
+     "u": "https://sports.yahoo.com/articles/j-j-mccarthy-cam-skattebo-212217546.html"
+    },
+    {
+     "t": "Commanders vs. Giants Tuesday injury report: Treylon Burks limited",
+     "u": "https://www.hogshaven.com/washington-commanders-injuries/454582/commanders-giants-injury-report-treylon-burks-chig-okonkwo"
     },
     {
      "t": "Commanders vs. Giants Week 10 injury report",
      "u": "https://www.commanders.com/news/commanders-vs-giants-week-10-injury-report-2026"
-    },
-    {
-     "t": "Giants Expect J.J. McCarthy and Cam Skattebo Back for Thursday Night vs. Commanders",
-     "u": "https://www.si.com/nfl/giants/onsi/giants-mccarthy-skattebo-injury-updates-01m70t9z7273"
     }
    ],
-   "summary": "A short-week NFC East game on Thursday night. The 5-2-1 Giants lead the division after winning in Philadelphia, and John Harbaugh expects QB J.J. McCarthy (hip) to play and RB Cam Skattebo (hamstring) to be a full go. The 2-5-1 Commanders are thin at receiver and tight end, with Terry McLaurin and Dyami Brown on IR and Treylon Burks not practicing."
+   "summary": "A short-week NFC East game on Thursday night. The 5-2-1 Giants lead the division, and QB J.J. McCarthy (hip) and RB Cam Skattebo (hamstring) both practiced fully on Tuesday, so both look set to play. The 2-5-1 Commanders are thin at receiver, with Terry McLaurin and Dyami Brown on IR and Treylon Burks (foot) limited."
   }
  },
  "meta": {
-  "at": "2026-11-10T17:06:00Z",
-  "games": 7,
-  "note": "WAS @ NYG refreshed and tonight's 6 NBA games; no EPL round within 72h (international break)."
+  "at": "2026-11-11T00:07:00Z",
+  "games": 1,
+  "note": "Refreshed WAS @ NYG: McCarthy and Skattebo full Tuesday; NBA tonight already current."
  }
 }
