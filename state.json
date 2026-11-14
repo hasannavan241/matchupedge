@@ -1,0 +1,236 @@
+{
+ "inputs": "97c81c426237",
+ "live": {
+  "inj_n": 220,
+  "inj_at": "2026-11-14T17:24:07Z",
+  "nba_inj_n": 100,
+  "nba_inj_at": "2026-11-14T17:24:07Z",
+  "qb_n": 32,
+  "qb_at": "2026-11-14T17:24:07Z",
+  "wx_n": 6,
+  "epl_dates": 32,
+  "epl_at": "2026-11-14T17:24:07Z",
+  "errors": []
+ },
+ "refit": false,
+ "season": 2026,
+ "week": 10,
+ "games": 13,
+ "players": 240,
+ "built": "2026-11-14T17:24:11Z",
+ "kickoffs": [
+  "2026-11-15T14:30:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T18:00:00Z",
+  "2026-11-15T21:05:00Z",
+  "2026-11-15T21:05:00Z",
+  "2026-11-15T21:25:00Z",
+  "2026-11-16T01:20:00Z",
+  "2026-11-17T01:15:00Z"
+ ],
+ "made": "2026-11-14 11:24 CT",
+ "ts": "2026-11-14T17:24:11Z",
+ "fingerprint": {
+  "games": "b221e7ee6b65",
+  "players": "4a198a59a840"
+ },
+ "record": {
+  "saved": 86,
+  "graded": 72,
+  "won": 51,
+  "lost": 21
+ },
+ "nba": {
+  "season": 2027,
+  "dates": [
+   "2026-11-14",
+   "2026-11-15"
+  ],
+  "games": 14,
+  "players": 269,
+  "tips": [
+   "2026-11-15T00:00:00Z",
+   "2026-11-15T00:30:00Z",
+   "2026-11-15T01:00:00Z",
+   "2026-11-15T01:00:00Z",
+   "2026-11-15T01:00:00Z",
+   "2026-11-15T18:00:00Z",
+   "2026-11-15T21:00:00Z",
+   "2026-11-15T21:30:00Z",
+   "2026-11-15T22:00:00Z",
+   "2026-11-15T23:00:00Z",
+   "2026-11-15T23:00:00Z",
+   "2026-11-16T00:00:00Z",
+   "2026-11-16T01:00:00Z",
+   "2026-11-16T02:00:00Z"
+  ],
+  "inj_n": 100,
+  "fingerprint": {
+   "games": "a78f01c5c35e",
+   "players": "18cbc0cf7bdc"
+  },
+  "record": {
+   "saved": 197,
+   "graded": 183,
+   "won": 125,
+   "lost": 58
+  }
+ },
+ "epl": {
+  "season": 2026,
+  "dates": [
+   "2026-11-21"
+  ],
+  "games": 7,
+  "src": "espn",
+  "kickoffs": [
+   "2026-11-21T12:30:00Z",
+   "2026-11-21T15:00:00Z",
+   "2026-11-21T15:00:00Z",
+   "2026-11-21T15:00:00Z",
+   "2026-11-21T15:00:00Z",
+   "2026-11-21T15:00:00Z",
+   "2026-11-21T17:30:00Z"
+  ],
+  "fingerprint": {
+   "games": "b035be9ed21d"
+  },
+  "record": {
+   "saved": 41,
+   "graded": 34,
+   "won": 16,
+   "lost": 18
+  }
+ },
+ "ok": true,
+ "at": "2026-11-14T17:24:01Z",
+ "took": 74,
+ "steps": [
+  [
+   "download",
+   4.0,
+   "season 2026",
+   true
+  ],
+  [
+   "nba download",
+   0.5,
+   "season 2027",
+   true
+  ],
+  [
+   "epl download",
+   1.2,
+   "season 2026-27",
+   true
+  ],
+  [
+   "live inputs",
+   3.1,
+   "220 NFL injury listings, 100 NBA, depth charts for 32 teams, 6 forecasts, EPL scoreboard for 32 dates",
+   true
+  ],
+  [
+   "epl players",
+   0.9,
+   "2025-26 complete (380 matches); 2026-27: 100 matches (0 new); no match starting within 150 minutes",
+   true
+  ],
+  [
+   "model",
+   0.1,
+   "model is current: fitted on 3699 games through 2026_10_WAS_NYG",
+   true
+  ],
+  [
+   "grade",
+   0.0,
+   "0 newly graded",
+   true
+  ],
+  [
+   "build",
+   30.1,
+   "season 2026 week 10: 13 games, 240 players (picks b221e7ee6b65, players 4a198a59a840)",
+   true
+  ],
+  [
+   "check",
+   13.2,
+   "page ok",
+   true
+  ],
+  [
+   "save picks",
+   0.0,
+   "1 picks saved or changed; 86 on record, 51-21 graded",
+   true
+  ],
+  [
+   "nba model",
+   0.1,
+   "model is current: fitted on 15662 games through 2026-11-13",
+   true
+  ],
+  [
+   "nba grade",
+   0.1,
+   "0 newly graded",
+   true
+  ],
+  [
+   "nba build",
+   6.1,
+   "14 games on 2026-11-14 and 2026-11-15, 269 players, 100 listed injured (picks a78f01c5c35e, players 18cbc0cf7bdc)",
+   true
+  ],
+  [
+   "nba check",
+   6.7,
+   "nba page ok",
+   true
+  ],
+  [
+   "nba save picks",
+   0.0,
+   "0 picks saved or changed; 197 on record, 125-58 graded",
+   true
+  ],
+  [
+   "epl model",
+   0.8,
+   "model is current: fitted on 24084 matches through 2026-11-07",
+   true
+  ],
+  [
+   "epl grade",
+   0.0,
+   "0 newly graded",
+   true
+  ],
+  [
+   "epl build",
+   2.3,
+   "7 matches on 2026-11-21 from the espn schedule (picks b035be9ed21d)",
+   true
+  ],
+  [
+   "epl check",
+   4.3,
+   "epl page ok",
+   true
+  ],
+  [
+   "epl save picks",
+   0.0,
+   "0 picks saved or changed; 41 on record, 16-18 graded",
+   true
+  ]
+ ],
+ "errors": []
+}
