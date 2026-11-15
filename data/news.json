@@ -1934,77 +1934,6 @@
    ],
    "summary": "Two 6-1 teams meet on Monday night. Minnesota starts Carson Wentz with Kyler Murray (hamstring) and WR Jauan Jennings inactive. Buffalo is without LT Dion Dawkins and LG Alec Anderson, so Josh Allen plays behind a patched-up left side, and Damar Hamlin starts at safety after C.J. Gardner-Johnson's release."
   },
-  "nfl_2026_09_CIN_ATL": {
-   "at": "2026-11-08T00:04:51Z",
-   "game": "CIN @ ATL",
-   "items": [
-    {
-     "at": "2026-11-02T12:00:00Z",
-     "impact": 0.4,
-     "src": "https://www.ajc.com/sports/2026/11/atlanta-falcons-branch-ebukam-injuries-bengals/",
-     "team": "ATL",
-     "text": "Edge James Pearce Jr. plays his first game of the season after an eight-game suspension; practiced fully, snap count not set.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-11-02T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.ajc.com/sports/2026/11/atlanta-falcons-branch-ebukam-injuries-bengals/",
-     "team": "ATL",
-     "text": "WR Zachariah Branch (hamstring) ruled out; DE Samson Ebukam (hamstring) now on injured reserve.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.atlantafalcons.com/team/injury-report/week/reg-9",
-     "team": "ATL",
-     "text": "LB Divine Deablo (forearm) and RB Brian Robinson Jr. (hamstring) limited all week after missing the Tampa Bay game.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/reg9",
-     "team": "CIN",
-     "text": "S Kyle Dugger (quad) did not practice and S Jordan Battle (hamstring) was limited; CB DJ Turner II (heel) was a full participant.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-05T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nfl.com/injuries/league/2026/reg9",
-     "team": "CIN",
-     "text": "Edge Cashius Howell (wrist surgery) is on injured reserve; DT Jonathan Allen did not practice.",
-     "total": 0,
-     "type": "loss"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Falcons' Branch, Ebukam injuries ahead of Bengals (AJC)",
-     "u": "https://www.ajc.com/sports/2026/11/atlanta-falcons-branch-ebukam-injuries-bengals/"
-    },
-    {
-     "t": "Falcons Week 9 injury report",
-     "u": "https://www.atlantafalcons.com/team/injury-report/week/reg-9"
-    },
-    {
-     "t": "NFL Week 9 injury report",
-     "u": "https://www.nfl.com/injuries/league/2026/reg9"
-    },
-    {
-     "t": "Bengals vs Falcons game page (ESPN)",
-     "u": "https://www.espn.com/nfl/game/_/gameId/401873038"
-    }
-   ],
-   "summary": "Cincinnati (5-2) meets Atlanta (3-5) in Madrid; the Falcons come off a 16-0 home loss to Tampa Bay. Edge James Pearce Jr. makes his season debut after an eight-game suspension, while WR Zachariah Branch is out and DE Samson Ebukam is on IR. The Bengals' safeties Kyle Dugger and Jordan Battle are questionable; CB DJ Turner practiced fully."
-  },
   "nfl_2026_09_CLE_NO": {
    "at": "2026-11-08T17:15:00Z",
    "game": "CLE @ NO",
@@ -2750,7 +2679,7 @@
    "summary": "Chicago (6-2) hosts 3-5 Tampa Bay on Sunday night after a 34-17 win at Seattle in which new DT Jeffery Simmons starred. WR Emeka Egbuka is active for the Bucs after missing two games, but OLB YaYa Diaby is inactive. The Bears are without RB Kyle Monangai for a fifth straight game, and CB Malik Muhammad is a surprise inactive; Tyrique Stevenson starts."
   },
   "nfl_2026_10_BUF_NYJ": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "BUF @ NYJ",
    "items": [
     {
@@ -2772,15 +2701,6 @@
      "type": "injury"
     },
     {
-     "at": "2026-11-13T12:00:00Z",
-     "impact": 0,
-     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13",
-     "team": "NYJ",
-     "text": "WR Garrett Wilson must still clear concussion protocol; Aaron Glenn is \"confident\" he plays.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
      "at": "2026-11-11T12:00:00Z",
      "impact": 0,
      "src": "https://www.amny.com/sports/jets-bills-w10-pre-11-11-26/",
@@ -2788,6 +2708,15 @@
      "text": "S Andre Cisco traded to Detroit.",
      "total": 0,
      "type": "loss"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbssports.com/fantasy/football/news/jets-garrett-wilson-slated-to-return-sunday/",
+     "team": "NYJ",
+     "text": "WR Garrett Wilson is questionable but expected to play once cleared from the concussion protocol.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
@@ -2799,12 +2728,16 @@
     {
      "t": "NFL news roundup, Friday Nov. 13",
      "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13"
+    },
+    {
+     "t": "Jets' Garrett Wilson: Slated to return Sunday",
+     "u": "https://www.cbssports.com/fantasy/football/news/jets-garrett-wilson-slated-to-return-sunday/"
     }
    ],
-   "summary": "The 7-1 Bills have won four straight and visit a 2-7 Jets team that has lost four in a row. Buffalo adds safety Amani Hooker, but RT Spencer Brown is doubtful and CB Christian Benford questionable. Garrett Wilson still has to clear concussion protocol, though Aaron Glenn is confident he plays."
+   "summary": "The 7-1 Bills have won four straight and visit a 2-7 Jets team that has lost four in a row. Buffalo adds safety Amani Hooker, but RT Spencer Brown is doubtful and CB Christian Benford questionable. Garrett Wilson is questionable while he finishes the concussion protocol, but is expected to play."
   },
   "nfl_2026_10_CAR_NO": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "CAR @ NO",
    "items": [
     {
@@ -2835,11 +2768,20 @@
      "type": "injury"
     },
     {
-     "at": "2026-11-13T12:00:00Z",
-     "impact": 0.1,
-     "src": "https://www.neworleanssaints.com/news/injury-report-carolina-panthers-vs-new-orleans-saints-2026-nfl-week-10-friday",
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "CAR",
+     "text": "WR Xavier Legette (knee) activated from injured reserve and is questionable.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.wdsu.com/article/saints-activate-rb-travis-etienne-for-sundays-game-vs-panthers/74431236",
      "team": "NO",
-     "text": "RB Travis Etienne (hamstring) returned to practice from IR and is questionable.",
+     "text": "RB Travis Etienne Jr. activated from IR and returns Sunday; he has been out since a Week 3 hamstring injury.",
      "total": 0,
      "type": "return"
     }
@@ -2849,12 +2791,20 @@
     {
      "t": "Saints Friday Injury Report: 2026 Week 10 vs. Carolina Panthers",
      "u": "https://www.neworleanssaints.com/news/injury-report-carolina-panthers-vs-new-orleans-saints-2026-nfl-week-10-friday"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
+    },
+    {
+     "t": "Saints activate RB Travis Etienne for Sunday's game vs. Panthers",
+     "u": "https://www.wdsu.com/article/saints-activate-rb-travis-etienne-for-sundays-game-vs-panthers/74431236"
     }
    ],
-   "summary": "Both teams are 3-5 and tied atop the NFC South, so the winner leads the division alone. Carolina has lost three straight; Jaelan Phillips practiced fully Friday and is questionable after missing three games, while Bobby Okereke is out. The Saints rule out C Erik McCoy and RT Taliese Fuaga; Tyler Shough plays through a broken left hand and Travis Etienne is questionable off IR."
+   "summary": "Both teams are 3-5 and tied atop the NFC South, so the winner leads the division alone. Carolina has lost three straight; Jaelan Phillips is questionable after missing three games and WR Xavier Legette was activated from IR, while Bobby Okereke is out. The Saints activated RB Travis Etienne, out since Week 3, but lose C Erik McCoy and RT Taliese Fuaga; Tyler Shough plays with a broken left hand."
   },
   "nfl_2026_10_HOU_CLE": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "HOU @ CLE",
    "items": [
     {
@@ -2892,6 +2842,24 @@
      "text": "WR Denzel Boston and S Ronnie Hickman did not practice Thursday; CB Denzel Ward and C Elgton Jenkins limited.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "HOU",
+     "text": "RB David Montgomery (groin) downgraded to out; CB Jaylin Smith out; OT Braden Smith (illness) added as questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "CLE",
+     "text": "Browns signed TE Carsen Ryan from the practice squad and placed FB Michael Burton (calf) on IR.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
@@ -2903,12 +2871,16 @@
     {
      "t": "Browns start Deshaun Watson over Shedeur Sanders vs. Texans",
      "u": "https://www.cbssports.com/nfl/news/browns-start-deshaun-watson-over-shedeur-sanders-texans/"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
     }
    ],
-   "summary": "Houston has won three of four after an 0-4 start, but will be without DE Danielle Hunter, LB Azeez Al-Shaair and WR Marvin Harrison Jr., with Will Anderson Jr. and David Montgomery questionable. Cleveland goes back to Deshaun Watson, cleared from concussion protocol, against his former team."
+   "summary": "Houston has won three of four after an 0-4 start, but is without DE Danielle Hunter, LB Azeez Al-Shaair and WR Marvin Harrison Jr., and RB David Montgomery was downgraded to out Saturday; Will Anderson Jr. is questionable. Cleveland goes back to Deshaun Watson, cleared from concussion protocol, against his former team."
   },
   "nfl_2026_10_JAX_TEN": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "JAX @ TEN",
    "items": [
     {
@@ -2946,6 +2918,15 @@
      "text": "S Amani Hooker traded to Buffalo for draft capital.",
      "total": 0,
      "type": "loss"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "JAX",
+     "text": "OL Robert Hainsey cleared concussion protocol and has no game designation.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
@@ -2957,12 +2938,16 @@
     {
      "t": "Quick hits on the Titans from Wednesday of Jaguars week",
      "u": "https://www.tennesseetitans.com/news/quick-hits-on-the-titans-from-wednesday-of-jaguars-week-x6270"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
     }
    ],
-   "summary": "The 6-2 Jaguars lead the AFC South, but deadline additions Jessie Bates and Jordan Davis won't play Sunday. RB Bhayshul Tuten returned to practice Friday. The 1-7 Titans come off their bye after trading Amani Hooker and rule out WR Carnell Tate, G Peter Skoronski and LBs Cody Barton and Anthony Hill Jr."
+   "summary": "The 6-2 Jaguars lead the AFC South, but deadline additions Jessie Bates and Jordan Davis won't play Sunday; OL Robert Hainsey cleared concussion protocol and RB Bhayshul Tuten is back at practice. The 1-7 Titans come off their bye after trading Amani Hooker and rule out WR Carnell Tate, G Peter Skoronski and LBs Cody Barton and Anthony Hill Jr."
   },
   "nfl_2026_10_KC_ATL": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "KC @ ATL",
    "items": [
     {
@@ -3004,9 +2989,18 @@
     {
      "at": "2026-11-14T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-10-172837798.html",
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
      "team": "KC",
-     "text": "RB Kenneth Walker III (groin) is out for Week 10, per reports.",
+     "text": "DT Chris Jones is traveling separately for personal reasons and carries no game designation.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "KC",
+     "text": "RB Kenneth Walker III (groin) officially downgraded to out; RB Nate Carter and WR Jacob De Jesus elevated.",
      "total": 0,
      "type": "injury"
     }
@@ -3024,9 +3018,13 @@
     {
      "t": "Week 10 team news",
      "u": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-10-172837798.html"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
     }
    ],
-   "summary": "The 6-2 Chiefs visit a 3-6 Falcons team that has lost four of five under Kevin Stefanski. Patrick Mahomes practiced fully and starts, but RT Jaylon Moore and DT Peter Woods sat all week and RB Kenneth Walker III is reported out. Atlanta, without traded safety Jessie Bates, has ruled out WR Zachariah Branch and lists LB Divine Deablo as doubtful."
+   "summary": "The 6-2 Chiefs visit a 3-6 Falcons team that has lost four of five under Kevin Stefanski. Patrick Mahomes starts, but RB Kenneth Walker III was downgraded to out and RT Jaylon Moore sat all week; DT Chris Jones is traveling separately for personal reasons but has no designation. Atlanta, without traded safety Jessie Bates, has ruled out WR Zachariah Branch."
   },
   "nfl_2026_10_LAC_BAL": {
    "at": "2026-11-14T17:05:28Z",
@@ -3083,7 +3081,7 @@
    "summary": "Monday night in Baltimore, with Jacoby Brissett, acquired from Arizona at the deadline, starting while Lamar Jackson is on injured reserve after thumb surgery. For the Chargers, Justin Herbert's finger showed no fracture and he should play; WR Ladd McConkey (back) is day to day."
   },
   "nfl_2026_10_LA_ARI": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "LA @ ARI",
    "items": [
     {
@@ -3137,7 +3135,7 @@
    "summary": "The 5-4 Rams lose Puka Nacua for at least a month and rule out G Steve Avila and TE Terrance Ferguson, with Trent McDuffie, Kam Curl and Myles Garrett questionable. Arizona hands rookie Carson Beck his first start after Gardner Minshew's elbow injury and the Jacoby Brissett trade, and is without OL Hjalte Froholdt and Jon Gaines II."
   },
   "nfl_2026_10_MIA_IND": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "MIA @ IND",
    "items": [
     {
@@ -3177,13 +3175,31 @@
      "type": "injury"
     },
     {
-     "at": "2026-11-12T12:00:00Z",
-     "impact": 0.2,
-     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-12",
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://sports.yahoo.com/articles/colts-activate-16-million-starter-231509198.html",
      "team": "IND",
-     "text": "DE Arden Key designated to return from IR and practiced in full Thursday.",
+     "text": "DE Arden Key (hamstring) activated from IR with no designation after missing six games; he started all four games before.",
      "total": 0,
      "type": "return"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "IND",
+     "text": "TE Will Mallory (hamstring) downgraded to out; LB Akeem Davis-Gaither and TE Mo Alie-Cox placed on IR.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "MIA",
+     "text": "QB Brady Cook elevated from the practice squad as the backup to Kyle McCord.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
@@ -3195,23 +3211,22 @@
     {
      "t": "NFL news roundup, Friday Nov. 13",
      "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13"
+    },
+    {
+     "t": "Colts Activate $16 Million Starter Off IR Before Week 10",
+     "u": "https://sports.yahoo.com/articles/colts-activate-16-million-starter-231509198.html"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
     }
    ],
-   "summary": "Two struggling teams. The 1-7 Dolphins start Kyle McCord, who has never thrown an NFL regular-season pass, with Malik Willis on IR; C Aaron Brewer is out and WR Chris Bell doubtful. The 2-7 Colts have lost five straight, traded Josh Downs and Keenan Allen, and ruled out six including RT Jalen Travis; Arden Key is back from IR."
+   "summary": "Two struggling teams. The 1-7 Dolphins start Kyle McCord, who has never thrown an NFL regular-season pass, with Malik Willis on IR; C Aaron Brewer is out and WR Chris Bell doubtful. The 2-7 Colts have lost five straight and traded Josh Downs and Keenan Allen, but edge rusher Arden Key is back from IR after six missed games with no designation."
   },
   "nfl_2026_10_MIN_GB": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "MIN @ GB",
    "items": [
-    {
-     "at": "2026-11-12T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/packers/onsi/packers-vikings-thursday-injury-report-three-promising-updates-for-green-bay",
-     "team": "MIN",
-     "text": "QB: Kirk Cousins, acquired from Las Vegas, is the presumed starter; Carson Wentz (ankle) limited.",
-     "total": 0,
-     "type": "other"
-    },
     {
      "at": "2026-11-12T12:00:00Z",
      "impact": 0,
@@ -3240,11 +3255,11 @@
      "type": "injury"
     },
     {
-     "at": "2026-11-11T12:00:00Z",
+     "at": "2026-11-14T12:00:00Z",
      "impact": 0,
-     "src": "https://www.thefantasyfootballers.com/news/647149/kirk-cousins-uncertain-to-start-sunday/",
+     "src": "https://www.nfl.com/news/kirk-cousins-to-start-for-vikings-vs-packers-week-10",
      "team": "MIN",
-     "text": "Kirk Cousins is expected to start at Green Bay, per NFL Network; Kyler Murray likely to miss the game.",
+     "text": "QB Kirk Cousins will start at Green Bay, Kevin O'Connell announced, five days after the trade from Las Vegas.",
      "total": 0,
      "type": "other"
     }
@@ -3262,32 +3277,18 @@
     {
      "t": "Week 10 team news",
      "u": "https://www.thefantasyfootballers.com/news/647149/kirk-cousins-uncertain-to-start-sunday/"
+    },
+    {
+     "t": "Kirk Cousins to start for Vikings vs. Packers on Sunday, five days after trade from Raiders",
+     "u": "https://www.nfl.com/news/kirk-cousins-to-start-for-vikings-vs-packers-week-10"
     }
    ],
-   "summary": "A pivotal NFC North game: the 6-3 Packers are 1-2 in the division. Minnesota traded for Kirk Cousins, the presumed starter, with Carson Wentz limited and Kyler Murray not practicing. Green Bay is without Josh Jacobs (broken finger), and Micah Parsons was ruled out Friday, so his season debut waits."
+   "summary": "A pivotal NFC North game: the 6-3 Packers are 1-2 in the division. Kevin O'Connell named Kirk Cousins the starter five days after his trade from Las Vegas, with Kyler Murray expected to miss the game. Green Bay is without Josh Jacobs (broken finger), and Micah Parsons was ruled out, so his season debut waits."
   },
   "nfl_2026_10_NE_DET": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "NE @ DET",
    "items": [
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.bostonglobe.com/2026/11/10/sports/rhamondre-stevenson-knee-injury/",
-     "team": "NE",
-     "text": "RB Rhamondre Stevenson (knee) is expected to miss the game; no surgery needed, and NE has a bye after Munich.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.bostonglobe.com/2026/11/10/sports/rhamondre-stevenson-knee-injury/",
-     "team": "NE",
-     "text": "RB TreVeyon Henderson is out with unexplained neurological symptoms; Corey Kiner and Lan Larison lead the backfield.",
-     "total": 0,
-     "type": "injury"
-    },
     {
      "at": "2026-11-09T12:00:00Z",
      "impact": 0,
@@ -3323,6 +3324,24 @@
      "text": "S Kerby Joseph, C Cade Mays and CB D.J. Reed are ruled out; LB Owen Pappoe elevated from the practice squad.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/patriots-rb-treveyon-henderson-officially-222100323.html",
+     "team": "NE",
+     "text": "RB TreVeyon Henderson placed on IR Saturday; Rhamondre Stevenson (knee) listed questionable after earlier reports he would miss.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/patriots-rb-treveyon-henderson-officially-222100323.html",
+     "team": "NE",
+     "text": "FB Reggie Gilliam and OL Greg Van Roten activated from injured reserve; OL Andrew Rupcich elevated.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "nfl",
@@ -3346,12 +3365,16 @@
     {
      "t": "Week 10 team news",
      "u": "https://detroitsportsnation.com/detroit-lions-roster-move-owen-pappoe-patriots/ddrysdale/detroit-lions/11/14/2026/507723/"
+    },
+    {
+     "t": "Patriots RB TreVeyon Henderson officially lands on IR before Lions game",
+     "u": "https://sports.yahoo.com/articles/patriots-rb-treveyon-henderson-officially-222100323.html"
     }
    ],
-   "summary": "The banged-up 5-4 Patriots face Detroit in Munich after a 45-27 loss to Green Bay, with a bye to follow. RB Rhamondre Stevenson is expected to miss the game and TreVeyon Henderson is out, leaving Corey Kiner and Lan Larison at running back. WR A.J. Brown practiced all week and is trending toward playing. Detroit is without LB Jack Campbell (IR)."
+   "summary": "The banged-up 5-4 Patriots face Detroit in Munich after a 45-27 loss to Green Bay, with a bye to follow. TreVeyon Henderson went on IR Saturday and Rhamondre Stevenson (knee) is questionable, thinning the backfield; WR A.J. Brown practiced all week. Detroit is without LB Jack Campbell (IR), S Kerby Joseph, C Cade Mays and CB D.J. Reed."
   },
   "nfl_2026_10_PIT_CIN": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "PIT @ CIN",
    "items": [
     {
@@ -3382,11 +3405,29 @@
      "type": "injury"
     },
     {
-     "at": "2026-11-13T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.espn.com/nfl/story/_/id/50464709/afc-north-steelers-bengals-rodgers-burrow-week-10",
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0.3,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
      "team": "PIT",
-     "text": "DT Derrick Harmon has returned to practice but remains on injured reserve.",
+     "text": "DT Derrick Harmon (foot) activated from injured reserve.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "PIT",
+     "text": "TE Pat Freiermuth (illness) added to the injury report as questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "CIN",
+     "text": "WR Andrei Iosivas (thumb), G Brian Parker II and CB Jalen Davis out, all on IR.",
      "total": 0,
      "type": "injury"
     }
@@ -3400,12 +3441,16 @@
     {
      "t": "Bengals, Steelers meet at Paycor for Sunday night clash with 1st place in the balance",
      "u": "https://www.wlwt.com/article/cincinnati-bengals-pittsburgh-steelers-week-10-storylines-snf/74411105"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
     }
    ],
-   "summary": "First place in the AFC North is at stake: both teams are 6-2 on four-game winning streaks, and Pittsburgh won the Week 3 meeting 30-27. Joe Burrow's red-hot Bengals offense meets a Steelers defense that ranks fourth in scoring; Aaron Rodgers comes off a bye. Neither team made a deadline trade."
+   "summary": "First place in the AFC North is at stake: both teams are 6-2 on four-game winning streaks, and Pittsburgh won the Week 3 meeting 30-27. Pittsburgh activated DT Derrick Harmon from IR, but TE Pat Freiermuth (illness) is questionable; Aaron Rodgers comes off a bye. Cincinnati is without WR Andrei Iosivas, with S Kyle Dugger questionable."
   },
   "nfl_2026_10_SEA_LV": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "SEA @ LV",
    "items": [
     {
@@ -3434,6 +3479,15 @@
      "text": "OLB Uchenna Nwosu, WR Rashid Shaheed and NT Brandon Pili practiced fully Friday and carry no designation.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/trevon-diggs-among-players-being-224034149.html",
+     "team": "SEA",
+     "text": "CB Trevon Diggs and OT Bobby Hart elevated from the practice squad for the game.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
@@ -3449,12 +3503,16 @@
     {
      "t": "Week 10 team news",
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/seattle-seahawks"
+    },
+    {
+     "t": "Trevon Diggs among players being activated from practice squad for Seahawks-Raiders game",
+     "u": "https://sports.yahoo.com/articles/trevon-diggs-among-players-being-224034149.html"
     }
    ],
-   "summary": "Seattle (5-4) starts Drew Lock, whose oblique tests came back good, and has ruled out Sam Darnold, LT Charles Cross, G Quenton Nelson and DT Leonard Williams. Las Vegas (4-5, four straight losses) traded Kirk Cousins to Minnesota and starts No. 1 overall pick Fernando Mendoza."
+   "summary": "Seattle (5-4) starts Drew Lock and has ruled out Sam Darnold, LT Charles Cross, G Quenton Nelson and DT Leonard Williams; CB Trevon Diggs and OT Bobby Hart were elevated. Las Vegas (4-5, four straight losses) traded Kirk Cousins to Minnesota and starts No. 1 overall pick Fernando Mendoza."
   },
   "nfl_2026_10_SF_DAL": {
-   "at": "2026-11-14T17:05:28Z",
+   "at": "2026-11-15T00:05:13Z",
    "game": "SF @ DAL",
    "items": [
     {
@@ -3501,6 +3559,15 @@
      "text": "WR Mike Evans (Achilles) is week to week with no return timeline.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-14T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14",
+     "team": "DAL",
+     "text": "DT Jonathan Bullard activated from IR; RB Tyler Goodson placed on IR and TE James Mitchell signed from the practice squad.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "nfl",
@@ -3512,9 +3579,13 @@
     {
      "t": "NFL news, live updates: Week 10",
      "u": "https://sports.yahoo.com/nfl/live/nfl-news-injury-updates-week-10-172837798.html"
+    },
+    {
+     "t": "NFL news roundup: latest league updates from Saturday, Nov. 14",
+     "u": "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-saturday-nov-14"
     }
    ],
-   "summary": "The NFC-leading 49ers get Deebo Samuel back after three missed games and add Keenan Allen, but Mike Evans is out and Trent Williams plus four cornerbacks, Deommodore Lenoir and Renardo Green among them, are questionable. The 4-5 Cowboys rule out Jake Ferguson, Tyler Goodson and PJ Locke, with Joey Porter Jr. and DaRon Bland questionable."
+   "summary": "The NFC-leading 49ers get Deebo Samuel back after three missed games and add Keenan Allen, but Mike Evans is out and Trent Williams plus four cornerbacks are questionable. The 4-5 Cowboys put RB Tyler Goodson on IR and rule out Jake Ferguson and PJ Locke, with Joey Porter Jr. and DaRon Bland questionable; DT Jonathan Bullard is back from IR."
   },
   "nfl_2026_10_WAS_NYG": {
    "at": "2026-11-13T00:04:11Z",
@@ -3585,8 +3656,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-14T17:20:00Z",
-  "games": 18,
-  "note": "Saturday refresh: 13 NFL Week 10 games (Walker out for KC, Cousins expected to start, Keenan Allen suspension risk) and tonight's 5 NBA games; no EPL in window."
+  "at": "2026-11-15T00:05:29Z",
+  "games": 12,
+  "note": "Saturday evening refresh of 12 NFL Week 10 games: Henderson to IR, Montgomery out, Cousins named starter, Key/Etienne/Legette/Harmon off IR; NBA docs current, no EPL in window."
  }
 }
