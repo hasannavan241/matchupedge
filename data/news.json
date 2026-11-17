@@ -1903,89 +1903,6 @@
    ],
    "summary": "Phoenix visits Denver without center Mark Williams (shoulder). The Nuggets are nearly whole, missing only Julian Strawther (knee)."
   },
-  "nfl_2026_09_BUF_MIN": {
-   "at": "2026-11-10T00:06:00Z",
-   "game": "BUF @ MIN",
-   "items": [
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vikings.com/news/inactives-buffalo-bills-week-9-2026",
-     "team": "MIN",
-     "text": "QB Kyler Murray (hamstring) inactive; Carson Wentz starts, with Max Brosmer the backup.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-vikings-week-9-mnf",
-     "team": "BUF",
-     "text": "LT Dion Dawkins (rib) and LG Alec Anderson inactive, leaving two new starters on the left side of the line.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.vikings.com/news/inactives-buffalo-bills-week-9-2026",
-     "team": "MIN",
-     "text": "Inactive: WR Jauan Jennings (calf), RB Demond Claiborne (knee), S Jakobe Thomas, CB Chuck Demmings, DL Caleb Banks.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-vikings-week-9-mnf",
-     "team": "BUF",
-     "text": "Also inactive: OLB Mike Danna, DL Greg Gaines, S Jalon Kilgore, WR Skyler Bell; WR Joshua Palmer out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-03T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/buffalo-bills?chrcontext=KNSD",
-     "team": "BUF",
-     "text": "S C.J. Gardner-Johnson released after a one-game suspension; Damar Hamlin expected to start at safety.",
-     "total": 0,
-     "type": "loss"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Buffalo Bills inactives vs. Vikings (Week 9 MNF)",
-     "u": "https://www.buffalobills.com/news/buffalo-bills-inactives-vs-vikings-week-9-mnf"
-    },
-    {
-     "t": "Vikings vs. Bills Inactives for Week 9 of 2026",
-     "u": "https://www.vikings.com/news/inactives-buffalo-bills-week-9-2026"
-    },
-    {
-     "t": "Bills list Dawkins, Anderson among six inactives vs. Vikings",
-     "u": "https://www.fingerlakes1.com/2026/11/09/bills-inactives-dawkins-anderson-vikings-november-9-2026/"
-    },
-    {
-     "t": "Final Vikings vs. Bills Injury Report for Week 9 of 2026",
-     "u": "https://www.vikings.com/news/bills-injury-report-week-9-2026-nfl-season"
-    },
-    {
-     "t": "Final Vikings injury report: Jauan Jennings out, two safeties questionable",
-     "u": "https://sports.yahoo.com/articles/final-vikings-injury-report-jauan-192853388.html"
-    },
-    {
-     "t": "Kyler Murray 'Week to Week'; Carson Wentz to Start Monday Against Bills (Vikings.com)",
-     "u": "https://www.vikings.com/news/quarterback-carson-wentz-monday-night-bills"
-    },
-    {
-     "t": "Buffalo Bills news (ProFootballTalk)",
-     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/buffalo-bills?chrcontext=KNSD"
-    }
-   ],
-   "summary": "Two 6-1 teams meet on Monday night. Minnesota starts Carson Wentz with Kyler Murray (hamstring) and WR Jauan Jennings inactive. Buffalo is without LT Dion Dawkins and LG Alec Anderson, so Josh Allen plays behind a patched-up left side, and Damar Hamlin starts at safety after C.J. Gardner-Johnson's release."
-  },
   "nfl_2026_10_BUF_NYJ": {
    "at": "2026-11-15T17:06:30Z",
    "game": "BUF @ NYJ",
@@ -2370,51 +2287,51 @@
    "summary": "The 6-2 Chiefs visit a 3-6 Falcons team that has lost four of five under Kevin Stefanski. Patrick Mahomes starts, but RB Kenneth Walker III was downgraded to out and RT Jaylon Moore sat all week; DT Chris Jones is traveling separately for personal reasons but has no designation. Atlanta, without traded safety Jessie Bates, has ruled out WR Zachariah Branch."
   },
   "nfl_2026_10_LAC_BAL": {
-   "at": "2026-11-16T17:06:55Z",
+   "at": "2026-11-17T00:04:00Z",
    "game": "LAC @ BAL",
    "items": [
     {
      "at": "2026-11-07T12:00:00Z",
      "impact": 0,
-     "src": "https://clutchpoints.com/nfl/baltimore-ravens/ravens-news-lamar-jackson-injury-return-still-a-possibility-but-comes-with-jacoby-brissett-caveat",
+     "src": "https://www.baltimoreravens.com/news/game-preview-jacoby-brissett-ravens-first-start-week-10-against-chargers-monday-night-football",
      "team": "BAL",
-     "text": "QB Lamar Jackson is on IR after thumb surgery; Jacoby Brissett, acquired from Arizona at the deadline, starts.",
+     "text": "QB Lamar Jackson is on IR after thumb surgery; Jacoby Brissett, acquired from Arizona at the deadline, makes his first Ravens start.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-15T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.chargers.com/news/chargers-vs-ravens-injury-report-ladd-mcconkey-daiyan-henley-2026",
-     "team": "LAC",
-     "text": "WR Ladd McConkey (back) was downgraded to out on the final injury report.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-14T12:00:00Z",
+     "at": "2026-11-16T12:00:00Z",
      "impact": 0.2,
-     "src": "https://boltbeat.com/chargers-could-get-reinforcements-back-from-ir-in-final-week-10-injury-report",
+     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/chargers-activate-te-david-njoku-lb-denzel-perryman-for-monday-night-vs-ravens",
      "team": "LAC",
-     "text": "TE David Njoku, on IR about two months with a fibula injury, is questionable after full practice; activation expected Monday.",
+     "text": "TE David Njoku, out since September with a fibula injury, was activated from injured reserve for the game.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-11-15T12:00:00Z",
+     "at": "2026-11-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.chargers.com/news/chargers-vs-ravens-injury-report-ladd-mcconkey-daiyan-henley-2026",
+     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/chargers-activate-te-david-njoku-lb-denzel-perryman-for-monday-night-vs-ravens",
      "team": "LAC",
-     "text": "LB Denzel Perryman (pectoral, no games this season) and G Trey Pipkins III are questionable as IR returns.",
+     "text": "LB Denzel Perryman (pectoral, hurt in August) was activated from IR and makes his 2026 debut.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-16/ravens-release-week-10-inactives-for-mnf",
+     "team": "LAC",
+     "text": "Inactive: WR Ladd McConkey (back), OLB Bud Dupree, DL Justin Eboigbe (ankle) and S Kendall Williamson.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-15T12:00:00Z",
+     "at": "2026-11-16T12:00:00Z",
      "impact": 0,
-     "src": "https://www.chargers.com/news/chargers-vs-ravens-injury-report-ladd-mcconkey-daiyan-henley-2026",
+     "src": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-16/ravens-release-week-10-inactives-for-mnf",
      "team": "BAL",
-     "text": "S Jaylinn Hawkins (knee) is out; Calais Campbell and Ronnie Stanley did not practice Saturday (rest).",
+     "text": "Inactive: S Jaylinn Hawkins (knee), WR Elijah Sarratt, G/T Emery Jones Jr. and CB Chandler Rivers; Campbell and Stanley are active.",
      "total": 0,
      "type": "injury"
     }
@@ -2422,19 +2339,19 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Chargers vs. Ravens Injury Report: McConkey Out, Njoku Among 5 Questionable in Week 10",
-     "u": "https://www.chargers.com/news/chargers-vs-ravens-injury-report-ladd-mcconkey-daiyan-henley-2026"
+     "t": "Ravens release Week 10 inactives for MNF",
+     "u": "https://www.nbcsports.com/fantasy/football/player-news/2026-11-16/ravens-release-week-10-inactives-for-mnf"
     },
     {
-     "t": "Chargers could get reinforcements back from IR in final Week 10 injury report vs. Ravens",
-     "u": "https://boltbeat.com/chargers-could-get-reinforcements-back-from-ir-in-final-week-10-injury-report"
+     "t": "Chargers activate TE David Njoku, LB Denzel Perryman for Monday night vs. Ravens",
+     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/chargers-activate-te-david-njoku-lb-denzel-perryman-for-monday-night-vs-ravens"
     },
     {
-     "t": "Ravens news: Lamar Jackson injury return still a possibility but comes with Jacoby Brissett caveat",
-     "u": "https://clutchpoints.com/nfl/baltimore-ravens/ravens-news-lamar-jackson-injury-return-still-a-possibility-but-comes-with-jacoby-brissett-caveat"
+     "t": "Everything You Need to Know: Ravens vs. Chargers",
+     "u": "https://www.baltimoreravens.com/news/game-preview-jacoby-brissett-ravens-first-start-week-10-against-chargers-monday-night-football"
     }
    ],
-   "summary": "Monday night in Baltimore, with Jacoby Brissett making his first Ravens start while Lamar Jackson is on injured reserve after thumb surgery. The Chargers ruled out WR Ladd McConkey (back), but TE David Njoku could be activated from IR after about two months out. Justin Herbert's hand X-rays were negative and he is set to play."
+   "summary": "Monday night in Baltimore, with Jacoby Brissett making his first Ravens start while Lamar Jackson is on injured reserve after thumb surgery. The Chargers activated TE David Njoku and LB Denzel Perryman from IR, but WR Ladd McConkey and OLB Bud Dupree are inactive. Ravens S Jaylinn Hawkins is out again."
   },
   "nfl_2026_10_LA_ARI": {
    "at": "2026-11-15T17:06:30Z",
@@ -3122,8 +3039,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-16T17:08:00Z",
-  "games": 10,
-  "note": "LAC @ BAL refresh, IND @ HOU new, 8 Monday NBA games; no EPL match due."
+  "at": "2026-11-17T00:05:00Z",
+  "games": 1,
+  "note": "MNF LAC @ BAL refreshed with inactives and IR activations; no other games due."
  }
 }
