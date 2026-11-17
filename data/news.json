@@ -320,254 +320,6 @@
    ],
    "summary": "Oklahoma City is without Chet Holmgren, Jalen Williams (lower leg, hurt against the Clippers on Oct. 25) and Cason Wallace, but has Shai Gilgeous-Alexander. The Clippers are missing Brandon Ingram and Bradley Beal, leaving Darius Garland to lead."
   },
-  "nba_401909960": {
-   "at": "2026-11-10T17:05:27Z",
-   "game": "MIL @ NY",
-   "items": [
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://heavy.com/sports/nba/milwaukee-bucks/tyler-herro-injury-knicks/",
-     "team": "MIL",
-     "text": "Tyler Herro (right knee contusion) is questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://nyknicksnews.com/knicks-injury-report-josh-hart-questionable-bucks/",
-     "team": "NY",
-     "text": "Josh Hart (right ankle soreness) is questionable, the only Knick on the report.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Tyler Herro Injury: Bucks Announce Status vs. Knicks",
-     "u": "https://heavy.com/sports/nba/milwaukee-bucks/tyler-herro-injury-knicks/"
-    },
-    {
-     "t": "Knicks Injury Report: Josh Hart Questionable Against Bucks",
-     "u": "https://nyknicksnews.com/knicks-injury-report-josh-hart-questionable-bucks/"
-    }
-   ],
-   "summary": "The 1-9 Bucks visit Madison Square Garden after two double-digit losses. Their leading scorer Tyler Herro is questionable with a right knee contusion. The 5-4 Knicks list only Josh Hart, questionable with right ankle soreness."
-  },
-  "nba_401909961": {
-   "at": "2026-11-10T17:05:27Z",
-   "game": "BOS @ PHI",
-   "items": [
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://thelibertyline.com/2026/11/10/preview-sixers-host-celtics/",
-     "team": "PHI",
-     "text": "Adem Bona (cervical spine sprain) and Dominick Barlow (back) are out; Joel Embiid is not listed.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/celtics-fortunate-injury-news-ahead-213503424.html",
-     "team": "BOS",
-     "text": "Celtics have a clean injury report.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://thelibertyline.com/2026/11/10/preview-sixers-host-celtics/",
-     "team": "",
-     "text": "Jaylen Brown faces the Celtics for the first time since being traded for Paul George in July.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Preview: Sixers host Celtics tonight as Jaylen Brown faces Boston for the first time",
-     "u": "https://thelibertyline.com/2026/11/10/preview-sixers-host-celtics/"
-    },
-    {
-     "t": "Celtics get fortunate injury news ahead of 76ers clash",
-     "u": "https://sports.yahoo.com/articles/celtics-fortunate-injury-news-ahead-213503424.html"
-    }
-   ],
-   "summary": "A meeting of the East's early leaders: the 9-2 Sixers host the 8-2 Celtics, who have won three straight. Jaylen Brown faces Boston for the first time since his July trade for Paul George. Joel Embiid is not on the injury report; Adem Bona and Dominick Barlow are out, and Boston reports no injuries."
-  },
-  "nba_401909962": {
-   "at": "2026-11-10T17:05:27Z",
-   "game": "LAC @ PHX",
-   "items": [
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://sportssd.iheart.com/content/2026-11-10-clippers-vs-suns-injury-report-nov-10/",
-     "team": "LAC",
-     "text": "Brandon Ingram (heel) and Bradley Beal (knee) are out; Cam Christie (ankle) is day-to-day.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://sportssd.iheart.com/content/2026-11-10-clippers-vs-suns-injury-report-nov-10/",
-     "team": "PHX",
-     "text": "Mark Williams (shoulder) and Jordan Goodwin (calf) are out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Clippers vs. Suns Injury Report",
-     "u": "https://sportssd.iheart.com/content/2026-11-10-clippers-vs-suns-injury-report-nov-10/"
-    },
-    {
-     "t": "Los Angeles visits Phoenix, looks to end road skid (AP)",
-     "u": "https://mymotherlode.com/sports/basketball-general-news/11296823/los-angeles-visits-phoenix-looks-to-end-road-skid.html"
-    }
-   ],
-   "summary": "Two struggling teams: the 2-7 Clippers try to end a four-game road skid in Phoenix against the 3-6 Suns. LA is without Brandon Ingram and Bradley Beal, while Phoenix is missing center Mark Williams and Jordan Goodwin."
-  },
-  "nba_401909963": {
-   "at": "2026-11-10T17:05:27Z",
-   "game": "MIA @ UTAH",
-   "items": [
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://fansided.com/nba/is-giannis-antetokounmpo-playing-tonight-latest-injury-update-for-heat-vs-jazz",
-     "team": "MIA",
-     "text": "Giannis Antetokounmpo (right wrist sprain) is probable and has played through it in recent games.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nba/jazz/onsi/jazz-injury-report-vs-heat-latest-news-on-keyonte-george-markkanen",
-     "team": "UTAH",
-     "text": "Lauri Markkanen (right wrist sprain) is questionable; Josh Green would start if he sits.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nba/jazz/onsi/jazz-injury-report-vs-heat-latest-news-on-keyonte-george-markkanen",
-     "team": "UTAH",
-     "text": "Keyonte George (ankle), Jaren Jackson Jr. (MCL tear) and Jusuf Nurkic (foot) are out.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Jazz Injury Report vs. Heat: Latest News on Keyonte George, Markkanen",
-     "u": "https://www.si.com/nba/jazz/onsi/jazz-injury-report-vs-heat-latest-news-on-keyonte-george-markkanen"
-    },
-    {
-     "t": "Is Giannis Antetokounmpo playing tonight? Latest injury update for Heat vs. Jazz",
-     "u": "https://fansided.com/nba/is-giannis-antetokounmpo-playing-tonight-latest-injury-update-for-heat-vs-jazz"
-    }
-   ],
-   "summary": "The 4-6 Heat visit the 1-9 Jazz, who are on a long losing streak. Giannis Antetokounmpo is probable and has been playing through a right wrist sprain. Utah is without Keyonte George, Jaren Jackson Jr. and Jusuf Nurkic, and Lauri Markkanen is questionable with a wrist sprain."
-  },
-  "nba_401909964": {
-   "at": "2026-11-10T17:05:27Z",
-   "game": "ORL @ SAC",
-   "items": [
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nba/kings/onsi/kings-injury-report-domantas-sabonis-status-update-vs-magic",
-     "team": "ORL",
-     "text": "Paolo Banchero (high ankle sprain) and Jalen Suggs (knee contusion) remain out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://957wdae.iheart.com/content/2026-11-10-magic-vs-kings-injury-report-nov-10/",
-     "team": "ORL",
-     "text": "Desmond Bane is listed day-to-day with an illness.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nba/kings/onsi/kings-injury-report-domantas-sabonis-status-update-vs-magic",
-     "team": "SAC",
-     "text": "Domantas Sabonis (left knee soreness), who missed Sunday, and Keegan Murray (wrist) are questionable.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Kings Injury Report: Domantas Sabonis Status Update vs. Magic",
-     "u": "https://www.si.com/nba/kings/onsi/kings-injury-report-domantas-sabonis-status-update-vs-magic"
-    },
-    {
-     "t": "Magic vs. Kings Injury Report",
-     "u": "https://957wdae.iheart.com/content/2026-11-10-magic-vs-kings-injury-report-nov-10/"
-    }
-   ],
-   "summary": "Both teams arrive on losing streaks: the 2-7 Magic have lost four straight and the 1-9 Kings three. Orlando is without Paolo Banchero and Jalen Suggs, and Desmond Bane is listed day-to-day with an illness. Sacramento's Domantas Sabonis (knee) and Keegan Murray (wrist) are questionable; rookie Darius Acuff Jr. leads the Kings in scoring."
-  },
-  "nba_401909965": {
-   "at": "2026-11-10T17:05:27Z",
-   "game": "OKC @ POR",
-   "items": [
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html",
-     "team": "OKC",
-     "text": "Chet Holmgren (knee), Jalen Williams (ankle) and Cason Wallace (shoulder) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html",
-     "team": "POR",
-     "text": "Ja Morant (hamstring) and Shaedon Sharpe (meniscus) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-09T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html",
-     "team": "POR",
-     "text": "Robert Williams III is listed day-to-day for rest; not confirmed out.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Thunder face the Trail Blazers, seek 5th straight victory (AP)",
-     "u": "https://sports.yahoo.com/articles/thunder-face-trail-blazers-seek-070405744.html"
-    }
-   ],
-   "summary": "The 8-2 Thunder go for a fifth straight win in Portland against the 6-3 Blazers. OKC is still without Chet Holmgren, Jalen Williams and Cason Wallace. Portland is missing Ja Morant and Shaedon Sharpe, and Robert Williams III is listed day-to-day for rest."
-  },
   "nba_401909966": {
    "at": "2026-11-11T17:05:31Z",
    "game": "WSH @ IND",
@@ -1903,6 +1655,224 @@
    ],
    "summary": "Phoenix visits Denver without center Mark Williams (shoulder). The Nuggets are nearly whole, missing only Julian Strawther (knee)."
   },
+  "nba_401910002": {
+   "at": "2026-11-17T17:05:00Z",
+   "game": "NY @ TOR",
+   "items": [
+    {
+     "at": "2026-11-15T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tsn.ca/nba/article/barnes-available-for-raptors-vs-knicks-after-missing-last-four-games/",
+     "team": "TOR",
+     "text": "Scottie Barnes returned Sunday from a four-game groin absence and scored 30 points.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": null,
+     "team": "TOR",
+     "text": "Kawhi Leonard is listed out again for Toronto.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-15T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tsn.ca/nba/article/barnes-available-for-raptors-vs-knicks-after-missing-last-four-games/",
+     "team": "TOR",
+     "text": "Toronto has lost four straight and 14 in a row to New York.",
+     "total": 0,
+     "type": "motivation"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Barnes available for Raptors vs. Knicks after missing last four games",
+     "u": "https://www.tsn.ca/nba/article/barnes-available-for-raptors-vs-knicks-after-missing-last-four-games/"
+    }
+   ],
+   "summary": "The second of two straight games in Toronto. The Knicks won Sunday's meeting 112-108 in overtime behind 28 points each from Jalen Brunson and Karl-Anthony Towns, their 14th straight win over the Raptors. Toronto (5-8) has lost four in a row but has Scottie Barnes back, while Kawhi Leonard remains out."
+  },
+  "nba_401910003": {
+   "at": "2026-11-17T17:05:00Z",
+   "game": "POR @ MIN",
+   "items": [
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbsnews.com/minnesota/news/timberwolves-portland-trail-blazers-shannon-gobert/",
+     "team": "MIN",
+     "text": "Anthony Edwards has missed 10 straight games recovering from arthroscopic knee surgery; Minnesota is 7-3 in that span.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.cbsnews.com/minnesota/news/timberwolves-portland-trail-blazers-shannon-gobert/",
+     "team": "MIN",
+     "text": "Terrence Shannon Jr. scored a career-high 34 in Monday's 106-98 win; LaMelo Ball shot 2 of 13.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": null,
+     "team": "POR",
+     "text": "Ja Morant and Shaedon Sharpe are listed out for Portland.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Terrence Shannon Jr. scores career-high 34 points as Timberwolves beat Trail Blazers 106-98",
+     "u": "https://www.cbsnews.com/minnesota/news/timberwolves-portland-trail-blazers-shannon-gobert/"
+    }
+   ],
+   "summary": "A quick rematch at Target Center after Minnesota beat Portland 106-98 on Monday behind a career-high 34 from Terrence Shannon Jr. Anthony Edwards is still out after knee surgery, though the Wolves are 7-3 without him. Deni Avdija scored 27 for the Blazers, who are without Ja Morant and Shaedon Sharpe."
+  },
+  "nba_401910004": {
+   "at": "2026-11-17T17:05:00Z",
+   "game": "DET @ SA",
+   "items": [
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://sports.yahoo.com/articles/detroit-pistons-release-brutal-news-151437058.html",
+     "team": "DET",
+     "text": "Jalen Duren (hamstring) and Duncan Robinson (quad) are out; Ron Holland II and Taurean Prince also out, Isaiah Joe doubtful.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons",
+     "team": "SA",
+     "text": "De'Aaron Fox is expected back after sitting out Sunday's win over Utah.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons",
+     "team": "SA",
+     "text": "Tobias Harris (calf) remains out and could debut as early as December.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons",
+     "team": "SA",
+     "text": "Dylan Harper scored a career-high 31 on Sunday as the Spurs extended their win streak to 12.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Detroit Pistons release brutal news in advance of matchup vs. Spurs",
+     "u": "https://sports.yahoo.com/articles/detroit-pistons-release-brutal-news-151437058.html"
+    },
+    {
+     "t": "The Slow March Continues: Preview, How to Watch Red-Hot Spurs Battle Pistons",
+     "u": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons"
+    }
+   ],
+   "summary": "San Antonio (12-2) puts an NBA-best 12-game win streak on the line against Detroit (8-4). Victor Wembanyama is averaging 28.6 points and De'Aaron Fox is expected back. The Pistons are short-handed: Jalen Duren and Duncan Robinson are out, leaving more on Cade Cunningham, Ausar Thompson and John Collins."
+  },
+  "nba_401910005": {
+   "at": "2026-11-17T17:05:00Z",
+   "game": "CHA @ LAL",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.espn.com/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets",
+     "team": "LAL",
+     "text": "Austin Reaves (left heel bruise) is out a second straight game; Redick says he is improving daily.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.espn.com/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets",
+     "team": "LAL",
+     "text": "Walker Kessler (lower leg soreness) is out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": null,
+     "team": "CHA",
+     "text": "Kon Knueppel and Dennis Schroder are listed out for Charlotte.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Lakers rule Reaves out again; Kessler also sidelined vs. Hornets",
+     "u": "https://www.espn.com/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets"
+    }
+   ],
+   "summary": "The Lakers host Charlotte in the first of a back-to-back, again without Austin Reaves (heel bruise) and Walker Kessler (lower leg soreness). JJ Redick says Reaves is improving day to day. Luka Doncic carries the load; the Hornets are missing Kon Knueppel and Dennis Schroder."
+  },
+  "nba_401910006": {
+   "at": "2026-11-17T17:05:00Z",
+   "game": "UTAH @ LAC",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/",
+     "team": "UTAH",
+     "text": "Lauri Markkanen and Jaren Jackson Jr. are out for Utah.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/",
+     "team": "UTAH",
+     "text": "Utah has lost 12 straight and is still looking for its first road win; Will Hardy cited fatigue among young players.",
+     "total": 0,
+     "type": "motivation"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/",
+     "team": "LAC",
+     "text": "After a 1-7 start, the Clippers have won three of four and are seeking their first winning streak.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Jazz bring 12-game skid into matchup with suddenly hot Clippers",
+     "u": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/"
+    }
+   ],
+   "summary": "Utah brings a 12-game losing streak, six straight on the road, into Inglewood without Lauri Markkanen and Jaren Jackson Jr. The Clippers started 1-7 but have won three of four, and Darius Garland had 27 in Sunday's comeback win over Charlotte. Los Angeles is still without Brandon Ingram and Bradley Beal."
+  },
   "nfl_2026_10_BUF_NYJ": {
    "at": "2026-11-15T17:06:30Z",
    "game": "BUF @ NYJ",
@@ -2993,15 +2963,33 @@
    "summary": "A short-week NFC East game in a Giants White Out. The 5-2-1 Giants are nearly whole: J.J. McCarthy (hip) starts and RB Cam Skattebo is active after a one-game absence, with LB Malik Harrison and CB Paulson Adebo inactive. The 2-5-1 Commanders start Nick Allegretti at center for the concussed Lucas Patrick and remain thin at receiver."
   },
   "nfl_2026_11_IND_HOU": {
-   "at": "2026-11-16T17:06:55Z",
+   "at": "2026-11-17T17:05:00Z",
    "game": "IND @ HOU",
    "items": [
     {
-     "at": "2026-11-15T12:00:00Z",
+     "at": "2026-11-16T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/houston-texans-without-danielle-hunter-221500523.html",
+     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
      "team": "HOU",
-     "text": "DE Danielle Hunter and LB Azeez Al-Shaair sat out the Week 10 loss at Cleveland; their status for Thursday is not yet known.",
+     "text": "DE Danielle Hunter (hamstring), LB Azeez Al-Shaair (groin) and WR Marvin Harrison Jr. (hamstring) did not practice Monday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
+     "team": "HOU",
+     "text": "RB Woody Marks (concussion) did not practice; David Montgomery (groin) was a full participant.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
+     "team": "IND",
+     "text": "Tackles Bernhard Raimann (concussion) and Jalen Travis (knee) and CBs Sauce Gardner and Charvarius Ward did not practice Monday.",
      "total": 0,
      "type": "injury"
     },
@@ -3027,20 +3015,24 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "2026 NFL season, Week 10: What We Learned from Sunday's games",
-     "u": "https://www.nfl.com/news/2026-nfl-season-week-10-what-we-learned-from-sunday-s-games"
+     "t": "Week 11 Injury Report: Texans vs. Colts",
+     "u": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts"
     },
     {
-     "t": "Houston Texans will be without Danielle Hunter and Azeez Al-Shaair against Cleveland Browns",
-     "u": "https://sports.yahoo.com/articles/houston-texans-without-danielle-hunter-221500523.html"
+     "t": "Latest on Texans' Azeez Al-Shaair, David Montgomery on Monday's injury report vs. Colts",
+     "u": "https://sports.yahoo.com/articles/latest-texans-azeez-al-shaair-015832724.html"
+    },
+    {
+     "t": "2026 NFL season, Week 10: What We Learned from Sunday's games",
+     "u": "https://www.nfl.com/news/2026-nfl-season-week-10-what-we-learned-from-sunday-s-games"
     }
    ],
-   "summary": "A short-week AFC South game on Thursday night. The Colts (3-7) snapped a long skid by edging Miami 24-22 despite a rough day from Daniel Jones. The Texans (3-6) blew a 17-point lead in a last-minute loss at Cleveland and played without Danielle Hunter and Azeez Al-Shaair."
+   "summary": "A short-week AFC South game on Thursday night. The Colts (3-7) edged Miami for their first win since Week 4 but are banged up at tackle and cornerback. The Texans (3-6), coming off a blown 17-point lead at Cleveland, had Danielle Hunter, Azeez Al-Shaair and Marvin Harrison Jr. miss Monday's practice."
   }
  },
  "meta": {
-  "at": "2026-11-17T00:05:00Z",
-  "games": 1,
-  "note": "MNF LAC @ BAL refreshed with inactives and IR activations; no other games due."
+  "at": "2026-11-17T17:12:00Z",
+  "games": 6,
+  "note": "TNF IND @ HOU refreshed with Monday practice report; five Tuesday NBA games researched; no EPL match due."
  }
 }
