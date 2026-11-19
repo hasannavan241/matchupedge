@@ -1,112 +1,117 @@
 {
  "docs": {
   "epl_401878754": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "Tottenham v Ipswich",
    "items": [
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-19T12:00:00Z",
      "impact": 0.05,
-     "src": "https://tothelaneandback.com/2026/11/17/tottenham-major-injury-boost-six-players-return-ipswich-town/",
+     "src": "https://tothelaneandback.com/2026/11/19/how-to-watch-tottenham-vs-ipswich-town-premier-league-tv-channel-prediction-2/",
      "team": "Tottenham",
-     "text": "James Maddison, Savio and Lucas Bergvall are in line to return after the international break.",
+     "text": "James Maddison, Lucas Bergvall, Destiny Udogie and Martin Dubravka are in line to return to the squad.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": null,
+     "at": "2026-11-19T12:00:00Z",
      "impact": 0.03,
-     "src": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+     "src": "https://tothelaneandback.com/2026/11/19/how-to-watch-tottenham-vs-ipswich-town-premier-league-tv-channel-prediction-2/",
      "team": "Tottenham",
-     "text": "Mykhaylo Mudryk, out with an ankle injury since early September, could return.",
+     "text": "Mykhailo Mudryk, out with an ankle injury since early September, is back in training and could return.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": null,
-     "impact": -0.04,
-     "src": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.03,
+     "src": "https://tothelaneandback.com/2026/11/19/how-to-watch-tottenham-vs-ipswich-town-premier-league-tv-channel-prediction-2/",
      "team": "Tottenham",
-     "text": "Mathys Tel is a major doubt with an ankle injury from the Leeds match.",
+     "text": "Mathys Tel hurt an ankle against Leeds; an insider says it is not as serious as first feared.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": null,
+     "at": "2026-11-19T12:00:00Z",
      "impact": 0,
-     "src": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html",
-     "team": "Tottenham",
-     "text": "Xavi Simons (knee, out since April) and Wilson Odobert (knee) remain out.",
+     "src": "https://tothelaneandback.com/2026/11/19/how-to-watch-tottenham-vs-ipswich-town-premier-league-tv-channel-prediction-2/",
+     "team": "Ipswich",
+     "text": "Ipswich have a clean bill of health, with Sasa Lukic back from a groin injury.",
      "total": 0,
-     "type": "injury"
+     "type": "other"
     }
    ],
    "lg": "epl",
    "sources": [
     {
-     "t": "Tottenham injury and suspension list vs. Ipswich Town",
-     "u": "https://www.sportsmole.co.uk/football/spurs/injury-news/injuries-and-suspensions/savio-tel-mudryk-updates-spurs-injury-suspension-list-vs-ipswich_609268.html"
-    },
-    {
-     "t": "Tottenham receive major injury boost with six players in line to return against Ipswich Town",
-     "u": "https://tothelaneandback.com/2026/11/17/tottenham-major-injury-boost-six-players-return-ipswich-town/"
+     "t": "How to watch Tottenham vs Ipswich Town: latest team news",
+     "u": "https://tothelaneandback.com/2026/11/19/how-to-watch-tottenham-vs-ipswich-town-premier-league-tv-channel-prediction-2/"
     }
    ],
-   "summary": "Spurs could welcome several players back after the break, with James Maddison, Savio, Lucas Bergvall and Mykhaylo Mudryk all in line to return. Mathys Tel is a major doubt with an ankle injury, and Xavi Simons and Wilson Odobert are long-term absentees. Ipswich, 14th, have no reported team news."
+   "summary": "Spurs expect several players back after the break: James Maddison, Lucas Bergvall, Destiny Udogie and Martin Dubravka are in line to return, and Mykhailo Mudryk could play for the first time since September. Mathys Tel's ankle is less serious than feared. Ipswich have a clean bill of health, with Sasa Lukic back."
   },
   "epl_401878756": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "Aston Villa v Sunderland",
    "items": [
     {
-     "at": "2026-11-18T12:00:00Z",
-     "impact": -0.05,
-     "src": "https://readastonvilla.com/2026/11/18/matty-cash-injury-aston-villa-sunderland/",
-     "team": "Aston Villa",
-     "text": "Matty Cash is a major doubt and must pass the return-to-play protocol after a concussion.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": -0.04,
-     "src": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
-     "team": "Aston Villa",
-     "text": "Johan Manzambi is a doubt with calf pain picked up on international duty.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
-     "team": "Aston Villa",
-     "text": "Amadou Onana is out for the season and Matteo Ruggeri until December.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
+     "at": "2026-11-19T12:00:00Z",
      "impact": -0.08,
-     "src": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
-     "team": "Sunderland",
-     "text": "Granit Xhaka is a doubt with a calf problem; no timeframe given.",
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+     "team": "Aston Villa",
+     "text": "Matty Cash is unlikely to play after a concussion with Poland; he cannot train until Sunday.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": null,
-     "impact": -0.06,
-     "src": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
-     "team": "Sunderland",
-     "text": "Brian Brobbey is a doubt with a hamstring problem.",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.04,
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+     "team": "Aston Villa",
+     "text": "Johan Manzambi is a doubt with a calf injury from Switzerland duty; Wan-Bissaka may return.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": null,
+     "at": "2026-11-19T12:00:00Z",
      "impact": 0,
-     "src": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/",
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+     "team": "Aston Villa",
+     "text": "Amadou Onana and Matteo Ruggeri are unlikely to be available.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+     "team": "Sunderland",
+     "text": "Defender Omar Alderete is suspended after his red card against Chelsea.",
+     "total": 0,
+     "type": "suspension"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+     "team": "Sunderland",
+     "text": "Captain Granit Xhaka is a doubt with a thigh problem.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
+     "team": "Sunderland",
+     "text": "Brian Brobbey is a doubt after a calf injury in training.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/",
      "team": "Sunderland",
      "text": "Dan Ballard (target mid-December), Habib Diarra and Romaine Mundle are out.",
      "total": 0,
@@ -116,15 +121,11 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Aston Villa vs Sunderland early injury news as 6 ruled out and 4 doubts",
-     "u": "https://www.livescore.com/en/news/football/premier-league/aston-villa-vs-sunderland-early-injury-news-as-6-ruled-out-and-4-doubts-claret-villans/"
-    },
-    {
-     "t": "Aston Villa face Matty Cash injury blow ahead of Sunderland clash",
-     "u": "https://readastonvilla.com/2026/11/18/matty-cash-injury-aston-villa-sunderland/"
+     "t": "Aston Villa vs Sunderland injury news and team news",
+     "u": "https://readastonvilla.com/2026/11/19/aston-villa-sunderland-injury-news-team-news/"
     }
    ],
-   "summary": "Villa face a doubt at right-back: Matty Cash must pass concussion protocols, while Aaron Wan-Bissaka is close to a return. Johan Manzambi also has calf pain. Sunderland could be without captain Granit Xhaka (calf) and Brian Brobbey (hamstring), and Dan Ballard is still out."
+   "summary": "Villa are unlikely to have Matty Cash, who is in concussion protocol, and Johan Manzambi is a doubt. Sunderland are short at the back: Omar Alderete is suspended and Dan Ballard is still out, while captain Granit Xhaka and Brian Brobbey are doubts."
   },
   "epl_401879232": {
    "at": "2026-11-19T00:06:27Z",
@@ -190,33 +191,33 @@
    "summary": "Arsenal travel to St James' Park without Bukayo Saka, out with a quad injury from the Champions League draw with Bayern, and with Martin Zubimendi a major doubt after a hamstring problem on Spain duty. Newcastle are without Joelinton (thigh), but Willock and Nico González should be over illness."
   },
   "epl_401879233": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "Man City v Fulham",
    "items": [
     {
-     "at": null,
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://premierleaguenewsnow.com/2026/11/19/man-city-injury-news-guehi-semenyo-fulham/",
+     "team": "Man City",
+     "text": "Marc Guehi is a major doubt with a hip problem; he withdrew from England's squad and his chances of playing are slim.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
      "impact": -0.05,
-     "src": "https://www.livescore.com/en/news/football/premier-league/man-city-face-worrying-injury-twists-with-fulham-clash-looming-man-city-square/",
+     "src": "https://premierleaguenewsnow.com/2026/11/19/man-city-injury-news-guehi-semenyo-fulham/",
      "team": "Man City",
-     "text": "Antoine Semenyo is out until some time in December.",
+     "text": "Abdukodir Khusanov is a major doubt after a knock on international duty and will be assessed.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": null,
-     "impact": -0.04,
-     "src": "https://www.livescore.com/en/news/football/premier-league/man-city-face-worrying-injury-twists-with-fulham-clash-looming-man-city-square/",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://premierleaguenewsnow.com/2026/11/19/man-city-injury-news-guehi-semenyo-fulham/",
      "team": "Man City",
-     "text": "Marc Guehi is a doubt with a groin problem that forced him off in the first half before the break.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": -0.02,
-     "src": "https://www.livescore.com/en/news/football/premier-league/man-city-face-worrying-injury-twists-with-fulham-clash-looming-man-city-square/",
-     "team": "Man City",
-     "text": "Abdukodir Khusanov picked up a knock and will be assessed.",
+     "text": "Antoine Semenyo (knee) has been out since Oct. 17 and is not expected back until mid-December.",
      "total": 0,
      "type": "injury"
     }
@@ -224,130 +225,143 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Man City face worrying injury twists with Fulham clash looming",
-     "u": "https://www.livescore.com/en/news/football/premier-league/man-city-face-worrying-injury-twists-with-fulham-clash-looming-man-city-square/"
+     "t": "Man City injury news vs Fulham, Marc Guehi a major doubt",
+     "u": "https://premierleaguenewsnow.com/2026/11/19/man-city-injury-news-guehi-semenyo-fulham/"
     }
    ],
-   "summary": "City return from the international break with defensive worries. Marc Guehi has a groin problem from before the break and is a doubt, Abdukodir Khusanov is being assessed after a knock, and Antoine Semenyo is out until December."
+   "summary": "City come back from the break with defensive worries: Marc Guehi has slim chances with a hip problem and Abdukodir Khusanov is a major doubt after a knock with Uzbekistan. Antoine Semenyo is out until December. Fulham, 15th, have no reported team news."
   },
   "epl_401879235": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "Coventry v Crystal Palace",
    "items": [
     {
-     "at": "2026-11-16T12:00:00Z",
+     "at": "2026-11-13T12:00:00Z",
      "impact": 0.05,
      "src": "https://www.expressandstar.com/uk-sports/crystal-palace-appoint-thomas-frank-as-pierre-sages-replacement-9354768",
      "team": "Crystal Palace",
-     "text": "Thomas Frank appointed until 2029 after Pierre Sage was sacked on Nov. 12; this is his first game.",
+     "text": "Thomas Frank was appointed after Pierre Sage was sacked on Nov. 12; this is his first game.",
      "total": 0,
      "type": "coach"
     },
     {
-     "at": "2026-11-18T12:00:00Z",
+     "at": "2026-11-19T12:00:00Z",
      "impact": -0.2,
-     "src": "https://dave.sport/news/coventry-vs-crystal-palace-preview/",
+     "src": "https://www.cpfc.co.uk/news/first-team/team-news-frank-gives-first-update-as-palace-manager/",
      "team": "Crystal Palace",
-     "text": "Striker Jean-Philippe Mateta is suspended for this match and the next.",
+     "text": "Striker Jean-Philippe Mateta is suspended.",
      "total": 0,
      "type": "suspension"
     },
     {
-     "at": "2026-11-18T12:00:00Z",
+     "at": "2026-11-19T12:00:00Z",
      "impact": -0.08,
-     "src": "https://dave.sport/news/coventry-vs-crystal-palace-preview/",
+     "src": "https://www.cpfc.co.uk/news/first-team/team-news-frank-gives-first-update-as-palace-manager/",
      "team": "Crystal Palace",
-     "text": "Ismaila Sarr (groin), Takehiro Tomiyasu (calf) and Chadi Riad (knee) are out.",
+     "text": "Ismaila Sarr (groin) and Takehiro Tomiyasu are unavailable, Frank confirmed; Chadi Riad (knee) is also out.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-18T12:00:00Z",
      "impact": -0.03,
      "src": "https://dave.sport/news/coventry-vs-crystal-palace-preview/",
      "team": "Crystal Palace",
-     "text": "Jorgen Strand Larsen returned to training Tuesday after an ankle problem; his availability is unclear.",
+     "text": "Jorgen Strand Larsen returned to training after an ankle problem; his availability is unclear.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-18T12:00:00Z",
-     "impact": -0.12,
-     "src": "https://dave.sport/news/coventry-vs-crystal-palace-preview/",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.05,
+     "src": "https://hayters.com/coventry-city-duo-closing-in-on-returns/",
      "team": "Coventry",
-     "text": "Haji Wright (thigh) and Aurele Amenda (calf) are out.",
+     "text": "Josh Eccles will miss the match after a complication with an ankle problem.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-18T12:00:00Z",
-     "impact": -0.06,
-     "src": "https://dave.sport/news/coventry-vs-crystal-palace-preview/",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://hayters.com/coventry-city-duo-closing-in-on-returns/",
      "team": "Coventry",
-     "text": "Josh Eccles, Bobby Thomas, Frank Onyeka and Luke Woolfenden are doubts.",
+     "text": "Haji Wright is progressing but needs match fitness; Aurele Amenda (calf) is also out.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://hayters.com/coventry-city-duo-closing-in-on-returns/",
+     "team": "Coventry",
+     "text": "Centre-back Bobby Thomas is back in training and could be involved.",
+     "total": 0,
+     "type": "return"
     }
    ],
    "lg": "epl",
    "sources": [
+    {
+     "t": "Team news: Frank gives first update as Palace Manager",
+     "u": "https://www.cpfc.co.uk/news/first-team/team-news-frank-gives-first-update-as-palace-manager/"
+    },
+    {
+     "t": "Coventry City duo closing in on returns",
+     "u": "https://hayters.com/coventry-city-duo-closing-in-on-returns/"
+    },
     {
      "t": "Coventry vs Crystal Palace: Thomas Frank's first test",
      "u": "https://dave.sport/news/coventry-vs-crystal-palace-preview/"
-    },
-    {
-     "t": "Crystal Palace appoint Thomas Frank as Pierre Sage's replacement",
-     "u": "https://www.expressandstar.com/uk-sports/crystal-palace-appoint-thomas-frank-as-pierre-sages-replacement-9354768"
     }
    ],
-   "summary": "Thomas Frank takes charge of bottom-placed Palace for the first time, after Pierre Sage was sacked on November 12. Palace are without suspended striker Jean-Philippe Mateta and the injured Ismaila Sarr. Coventry miss Haji Wright and Aurele Amenda and have four doubts."
+   "summary": "Thomas Frank takes charge of bottom-placed Palace for the first time, without suspended striker Jean-Philippe Mateta and the injured Ismaila Sarr and Takehiro Tomiyasu. Coventry lose Josh Eccles to an ankle setback and Haji Wright still needs match fitness, but Bobby Thomas is back in training."
   },
   "epl_401879236": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "Chelsea v Leeds",
    "items": [
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-18T12:00:00Z",
      "impact": 0,
-     "src": "https://motleedsnews.com/injuries/early-chelsea-vs-leeds-united-team-news-seven-players-could-miss-premier-league-clash",
+     "src": "https://theprideoflondon.com/chelsea-vs-leeds-united-early-injury-news-2-ruled-out",
      "team": "Chelsea",
-     "text": "Joao Pedro (thigh) is a doubt after missing the last four games.",
+     "text": "Joao Pedro has missed the last four games and is still to be reassessed.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-18T12:00:00Z",
      "impact": -0.05,
-     "src": "https://motleedsnews.com/injuries/early-chelsea-vs-leeds-united-team-news-seven-players-could-miss-premier-league-clash",
+     "src": "https://theprideoflondon.com/chelsea-vs-leeds-united-early-injury-news-2-ruled-out",
      "team": "Chelsea",
-     "text": "Jamie Gittens (ankle), Maxence Lacroix and Jorrel Hato are doubts, with updates expected.",
+     "text": "Maxence Lacroix, Jamie Gittens and Jorrel Hato are doubts awaiting fitness updates.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-18T12:00:00Z",
      "impact": 0,
-     "src": "https://motleedsnews.com/injuries/early-chelsea-vs-leeds-united-team-news-seven-players-could-miss-premier-league-clash",
+     "src": "https://theprideoflondon.com/chelsea-vs-leeds-united-early-injury-news-2-ruled-out",
      "team": "Chelsea",
-     "text": "Reece James (knee) is out until next year.",
+     "text": "Reece James (knee, until the new year) and Mateo Joseph (knee) are out.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-18T12:00:00Z",
      "impact": -0.06,
      "src": "https://motleedsnews.com/injuries/early-chelsea-vs-leeds-united-team-news-seven-players-could-miss-premier-league-clash",
      "team": "Leeds",
-     "text": "Key midfielder Anton Stach is being assessed and is rated about 50-50 to play.",
+     "text": "Key midfielder Anton Stach has a foot problem and is rated about 50-50.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-18T12:00:00Z",
      "impact": 0,
      "src": "https://motleedsnews.com/injuries/early-chelsea-vs-leeds-united-team-news-seven-players-could-miss-premier-league-clash",
      "team": "Leeds",
-     "text": "Gabriel Gudmundsson (hamstring, hurt on international duty) is expected back in training before the match.",
+     "text": "Gabriel Gudmundsson (hamstring) is expected to be fit.",
      "total": 0,
      "type": "injury"
     }
@@ -355,52 +369,56 @@
    "lg": "epl",
    "sources": [
     {
-     "t": "Early Chelsea vs Leeds United team news, seven players could miss Premier League clash",
+     "t": "Chelsea vs Leeds United early injury news",
+     "u": "https://theprideoflondon.com/chelsea-vs-leeds-united-early-injury-news-2-ruled-out"
+    },
+    {
+     "t": "Early Chelsea vs Leeds United team news",
      "u": "https://motleedsnews.com/injuries/early-chelsea-vs-leeds-united-team-news-seven-players-could-miss-premier-league-clash"
     }
    ],
-   "summary": "Chelsea have several doubts: Joao Pedro has missed four games with a thigh problem, and Jamie Gittens, Maxence Lacroix and Jorrel Hato all await updates. Reece James is out until next year. Leeds rate key midfielder Anton Stach about 50-50, and Gabriel Gudmundsson is expected to be fit."
+   "summary": "Chelsea have several doubts: Joao Pedro and Maxence Lacroix will be reassessed after the break, and Jamie Gittens and Jorrel Hato are not confirmed fit. Reece James and Mateo Joseph are out. Leeds rate key midfielder Anton Stach about 50-50 with a foot problem."
   },
   "epl_401879238": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "Bournemouth v Nottm Forest",
    "items": [
     {
-     "at": "2026-11-16T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://dave.sport/news/nottingham-forest-injury-update-schlager-ndoye-williams/",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://hayters.com/nottingham-forest-dealt-several-injury-worries-ahead-of-bournemouth-as-glasner-confirms-absences/",
      "team": "Nottm Forest",
-     "text": "Xaver Schlager left Austria duty for treatment on a thigh injury; his availability depends on an assessment.",
+     "text": "Callum Hudson-Odoi was injured during the international break and will miss the match.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-16T12:00:00Z",
-     "impact": -0.04,
-     "src": "https://dave.sport/news/nottingham-forest-injury-update-schlager-ndoye-williams/",
+     "at": "2026-11-19T12:00:00Z",
+     "impact": -0.08,
+     "src": "https://hayters.com/nottingham-forest-dealt-several-injury-worries-ahead-of-bournemouth-as-glasner-confirms-absences/",
      "team": "Nottm Forest",
-     "text": "Neco Williams went off in Wales' 3-1 defeat to Norway and is still being assessed.",
+     "text": "Xaver Schlager (hamstring) and Neco Williams (ankle) are doubts.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-16T12:00:00Z",
+     "at": "2026-11-19T12:00:00Z",
      "impact": 0,
-     "src": "https://dave.sport/news/nottingham-forest-injury-update-schlager-ndoye-williams/",
+     "src": "https://hayters.com/nottingham-forest-dealt-several-injury-worries-ahead-of-bournemouth-as-glasner-confirms-absences/",
      "team": "Nottm Forest",
-     "text": "Dan Ndoye left Switzerland's camp early, with Forest's agreement, to manage his workload; no injury reported.",
+     "text": "Dan Ndoye has trained fully all week after about three weeks out; Nicolas Dominguez remains out.",
      "total": 0,
-     "type": "other"
+     "type": "return"
     }
    ],
    "lg": "epl",
    "sources": [
     {
-     "t": "Nottingham Forest injury update: Schlager returns for treatment",
-     "u": "https://dave.sport/news/nottingham-forest-injury-update-schlager-ndoye-williams/"
+     "t": "Nottingham Forest dealt several injury worries ahead of Bournemouth as Glasner confirms absences",
+     "u": "https://hayters.com/nottingham-forest-dealt-several-injury-worries-ahead-of-bournemouth-as-glasner-confirms-absences/"
     }
    ],
-   "summary": "Forest come back from the break with injury worries. Xaver Schlager returned from Austria for treatment on a thigh injury, and Neco Williams went off while playing for Wales. Dan Ndoye left Switzerland's camp early to manage his workload. No new Bournemouth absences have been reported."
+   "summary": "Oliver Glasner confirmed Callum Hudson-Odoi will miss the trip after an injury on international duty, while Xaver Schlager and Neco Williams are doubts. Dan Ndoye has had a full week of training after about three weeks out. No Bournemouth absences have been reported."
   },
   "nba_401909296": {
    "at": "2026-11-13T17:05:33Z",
@@ -721,174 +739,6 @@
     }
    ],
    "summary": "Oklahoma City is without Chet Holmgren, Jalen Williams (lower leg, hurt against the Clippers on Oct. 25) and Cason Wallace, but has Shai Gilgeous-Alexander. The Clippers are missing Brandon Ingram and Bradley Beal, leaving Darius Garland to lead."
-  },
-  "nba_401909976": {
-   "at": "2026-11-12T17:05:37Z",
-   "game": "TOR @ PHI",
-   "items": [
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
-     "team": "PHI",
-     "text": "Joel Embiid (right foot plantar fascia management) and LeBron James (low back/sciatica) are both questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
-     "team": "PHI",
-     "text": "C Adem Bona (cervical sprain) has missed three games and is out; Dominick Barlow (back) remains out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-10T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/",
-     "team": "TOR",
-     "text": "Kawhi Leonard was ruled out on Tuesday for at least another week with ongoing knee trouble.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Full injury report for Sixers-Raptors on Thursday",
-     "u": "https://www.phillyvoice.com/sixers-vs-raptors-76ers-injury-report-news-analysis-lebron-james-updatepjoel-embiid-status-kawhi-leonard-nba/"
-    }
-   ],
-   "summary": "The Sixers host Toronto after a home loss to Boston in which Joel Embiid and LeBron James both struggled; each is questionable again (foot and back management). Adem Bona (neck) and Dominick Barlow (back) remain out. Toronto is without Kawhi Leonard (knee) for at least another week, and Scottie Barnes is listed out."
-  },
-  "nba_401909977": {
-   "at": "2026-11-12T17:05:37Z",
-   "game": "DET @ WSH",
-   "items": [
-    {
-     "at": "2026-11-12T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.foxsports.com/articles/nba/wizards-take-on-the-pistons-on-5game-skid",
-     "team": "DET",
-     "text": "C Jalen Duren (hamstring) and G Isaiah Joe (hip) are out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-12T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.foxsports.com/articles/nba/wizards-take-on-the-pistons-on-5game-skid",
-     "team": "WSH",
-     "text": "Jamir Watkins (ACL, season), Justin Champagnie (foot), Tristan Vukcevic (hip), Reece Beekman (shoulder) out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-12T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.foxsports.com/articles/nba/wizards-take-on-the-pistons-on-5game-skid",
-     "team": "WSH",
-     "text": "The Wizards have lost five in a row; Detroit beat them 122-111 on Tuesday.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Wizards take on the Pistons on 5-game skid",
-     "u": "https://www.foxsports.com/articles/nba/wizards-take-on-the-pistons-on-5game-skid"
-    }
-   ],
-   "summary": "A rematch two days after Detroit's 122-111 comeback win over Washington. The 7-3 Pistons are again without Jalen Duren (hamstring) and Isaiah Joe (hip). The 4-8 Wizards have lost five straight and are missing Justin Champagnie, Tristan Vukcevic, Reece Beekman and Jamir Watkins (ACL, out for the season)."
-  },
-  "nba_401909978": {
-   "at": "2026-11-12T17:05:37Z",
-   "game": "DAL @ MIN",
-   "items": [
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://dallassportsjournal.com/mavericks-timberwolves-injury-report-morez-johnson-anthony-edwards/",
-     "team": "MIN",
-     "text": "Anthony Edwards (right knee arthroscopy) is out for an eighth game; Donte DiVincenzo (Achilles) is also out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://dallassportsjournal.com/mavericks-timberwolves-injury-report-morez-johnson-anthony-edwards/",
-     "team": "DAL",
-     "text": "Dereck Lively II (foot), Tarik Biberovic (heel) and Sergio de Larrea (knee) are out; Morez Johnson Jr. is probable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://dallassportsjournal.com/mavericks-timberwolves-injury-report-morez-johnson-anthony-edwards/",
-     "team": "MIN",
-     "text": "C Joan Beringer is available, playing in a face mask after a broken nose on Nov. 6.",
-     "total": 0,
-     "type": "other"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Mavericks Injury Report: Morez Johnson Jr. Probable, Anthony Edwards Out Thursday",
-     "u": "https://dallassportsjournal.com/mavericks-timberwolves-injury-report-morez-johnson-anthony-edwards/"
-    },
-    {
-     "t": "Dallas plays Minnesota after Flagg's 43-point game",
-     "u": "https://www.nbcdfw.com/news/sports/dallas-mavericks/dallas-plays-minnesota-after-flaggs-43-point-game/4105000/"
-    }
-   ],
-   "summary": "Two hot teams: the 8-3 Timberwolves have won four straight and are 5-2 without Anthony Edwards, who remains out after right knee arthroscopy. The 7-4 Mavericks have won three in a row, behind Cooper Flagg's 43 points and Kyrie Irving's 35 against Indiana. Rookie Morez Johnson Jr. (shin) is probable; Dereck Lively II is still out."
-  },
-  "nba_401909979": {
-   "at": "2026-11-12T17:05:37Z",
-   "game": "CHA @ PHX",
-   "items": [
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.joxfm.com/2026/11/11/familiar-faces-clash-as-suns-face-short-handed-hornets/",
-     "team": "CHA",
-     "text": "Brandon Miller (groin) and Kon Knueppel (hamstring) are not expected to play.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.joxfm.com/2026/11/11/familiar-faces-clash-as-suns-face-short-handed-hornets/",
-     "team": "CHA",
-     "text": "Moussa Diabate (quadriceps) and Dennis Schroder (soreness) missed the Cleveland game and are uncertain.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-11T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.joxfm.com/2026/11/11/familiar-faces-clash-as-suns-face-short-handed-hornets/",
-     "team": "PHX",
-     "text": "Jordan Goodwin returned from a four-game calf absence with 18 points off the bench against the Clippers.",
-     "total": 0,
-     "type": "return"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Familiar faces clash as Suns face short-handed Hornets",
-     "u": "https://www.joxfm.com/2026/11/11/familiar-faces-clash-as-suns-face-short-handed-hornets/"
-    }
-   ],
-   "summary": "Grayson Allen and Royce O'Neale face Phoenix for the first time since their offseason trade to Charlotte. The short-handed Hornets expect to be without Brandon Miller (groin) and Kon Knueppel (hamstring), with Moussa Diabate and Dennis Schroder uncertain. The Suns, sixth game of a seven-game homestand, have Jordan Goodwin back from a calf injury."
   },
   "nba_401909980": {
    "at": "2026-11-14T17:05:28Z",
@@ -2436,6 +2286,161 @@
    ],
    "summary": "Sacramento gets Zach LaVine back: he has been removed from the injury report after an illness. De'Andre Hunter (hip) is questionable. Phoenix is without Mark Williams, who had shoulder surgery."
   },
+  "nba_401910019": {
+   "at": "2026-11-19T17:07:26Z",
+   "game": "GS @ MEM",
+   "items": [
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.sportscapitoldc.com/2026/11/19/slumping-warriors-facing-obstacles-ahead-of-clash-vs-grizzlies/",
+     "team": "GS",
+     "text": "Stephen Curry (right oblique tear), Jimmy Butler, Kristaps Porzingis and Moses Moody are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.sportscapitoldc.com/2026/11/19/slumping-warriors-facing-obstacles-ahead-of-clash-vs-grizzlies/",
+     "team": "GS",
+     "text": "Draymond Green is under load management; Al Horford, who sat the night before, is expected back.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.sportscapitoldc.com/2026/11/19/slumping-warriors-facing-obstacles-ahead-of-clash-vs-grizzlies/",
+     "team": "MEM",
+     "text": "Ty Jerome (hip, three games missed) and Isaiah Stewart (illness) are game-time decisions.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Slumping Warriors facing obstacles ahead of clash vs. Grizzlies",
+     "u": "https://www.sportscapitoldc.com/2026/11/19/slumping-warriors-facing-obstacles-ahead-of-clash-vs-grizzlies/"
+    }
+   ],
+   "summary": "Golden State has lost four straight and arrives without Stephen Curry (oblique tear), Jimmy Butler, Kristaps Porzingis and Moses Moody, with Draymond Green under load management. Memphis has won four in a row; Ty Jerome and Isaiah Stewart are game-time decisions."
+  },
+  "nba_401910020": {
+   "at": "2026-11-19T17:07:26Z",
+   "game": "POR @ MIL",
+   "items": [
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thesportsanimal.com/2026/11/19/damian-lillard-leads-blazers-against-woeful-bucks/",
+     "team": "POR",
+     "text": "Deni Avdija (left foot) and Toumani Camara (abdominal soreness) are questionable; Robert Williams III sits to rest his knees.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thesportsanimal.com/2026/11/19/damian-lillard-leads-blazers-against-woeful-bucks/",
+     "team": "MIL",
+     "text": "Milwaukee has lost 11 straight and is 1-14, its worst 15-game start in franchise history.",
+     "total": 0,
+     "type": "motivation"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thesportsanimal.com/2026/11/19/damian-lillard-leads-blazers-against-woeful-bucks/",
+     "team": "POR",
+     "text": "Damian Lillard plays in Milwaukee, where he tore his Achilles in April 2025.",
+     "total": 0,
+     "type": "drama"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Damian Lillard leads Blazers against woeful Bucks",
+     "u": "https://www.thesportsanimal.com/2026/11/19/damian-lillard-leads-blazers-against-woeful-bucks/"
+    }
+   ],
+   "summary": "Damian Lillard returns to Milwaukee, where he tore his Achilles in 2025, with Portland 1-2 on a six-game road trip. Deni Avdija and Toumani Camara are questionable and Robert Williams III rests. The Bucks have lost 11 straight and are 1-14, their worst start ever."
+  },
+  "nba_401910021": {
+   "at": "2026-11-19T17:07:26Z",
+   "game": "NY @ MIN",
+   "items": [
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nba/nba-stories/knicks-vs-timberwolves-injury-report-jonathan-kuminga-anticipated-showdown",
+     "team": "MIN",
+     "text": "Anthony Edwards (knee arthroscopy), Donte DiVincenzo (Achilles) and Jaylen Clark (hamstring) are out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nba/nba-stories/knicks-vs-timberwolves-injury-report-jonathan-kuminga-anticipated-showdown",
+     "team": "MIN",
+     "text": "Jonathan Kuminga (shoulder contusion) is questionable after sitting out the Portland game.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nba/nba-stories/knicks-vs-timberwolves-injury-report-jonathan-kuminga-anticipated-showdown",
+     "team": "NY",
+     "text": "The Knicks have no one on the injury report.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Knicks vs. Timberwolves injury report: Jonathan Kuminga pops up",
+     "u": "https://clutchpoints.com/nba/nba-stories/knicks-vs-timberwolves-injury-report-jonathan-kuminga-anticipated-showdown"
+    }
+   ],
+   "summary": "Minnesota is again without Anthony Edwards, recovering from knee arthroscopy, plus Donte DiVincenzo and Jaylen Clark. Jonathan Kuminga is questionable with a shoulder bruise. The Knicks report no injuries."
+  },
+  "nba_401910022": {
+   "at": "2026-11-19T17:07:26Z",
+   "game": "LAC @ SA",
+   "items": [
+    {
+     "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://airalamo.com/dylan-harper-s-hip-soreness-update-and-the-rotation-issues-spotlighted-in-spurs-clippers-injury-report",
+     "team": "SA",
+     "text": "Dylan Harper (left hip soreness) is out, with Julian Champagnie likely to start; Tobias Harris (calf) and Jayden Quaintance also out.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://airalamo.com/dylan-harper-s-hip-soreness-update-and-the-rotation-issues-spotlighted-in-spurs-clippers-injury-report",
+     "team": "LAC",
+     "text": "Brandon Ingram (heel surgery), Bradley Beal (knee) and Jordan Miller (shoulder surgery) are out.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nba",
+   "sources": [
+    {
+     "t": "Dylan Harper's hip soreness update and the Spurs-Clippers injury report",
+     "u": "https://airalamo.com/dylan-harper-s-hip-soreness-update-and-the-rotation-issues-spotlighted-in-spurs-clippers-injury-report"
+    }
+   ],
+   "summary": "San Antonio is without Dylan Harper (hip soreness), Tobias Harris (calf) and Jayden Quaintance; Julian Champagnie is expected to start for Harper. The Clippers remain without Brandon Ingram, Bradley Beal and Jordan Miller."
+  },
   "nfl_2026_10_BUF_NYJ": {
    "at": "2026-11-15T17:06:30Z",
    "game": "BUF @ NYJ",
@@ -3594,78 +3599,60 @@
    "summary": "Baltimore stays with Jacoby Brissett, acquired from Arizona before the deadline, while Lamar Jackson is on injured reserve after thumb surgery. A late-season return for Jackson is possible but depends on his recovery and on Brissett keeping the Ravens in the race."
   },
   "nfl_2026_11_IND_HOU": {
-   "at": "2026-11-19T00:06:27Z",
+   "at": "2026-11-19T17:07:26Z",
    "game": "IND @ HOU",
    "items": [
     {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0.4,
+     "src": "https://www.thebiglead.com/texans-injury-blow-week-11-tnf-3-players-out/",
+     "team": "HOU",
+     "text": "RB David Montgomery is expected back with no injury designation after missing four straight games with a groin injury.",
+     "total": 0,
+     "type": "return"
+    },
+    {
      "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.si.com/nfl/texans/onsi/texans-rule-out-4-players-on-final-injury-report-for-tnf-vs-colts",
+     "team": "HOU",
+     "text": "Ruled out: DE Danielle Hunter and WR Marvin Harrison Jr. (hamstrings), RB Woody Marks (concussion), TE Brevin Jordan. G Wyatt Teller questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
      "impact": 0,
      "src": "https://athlonsports.com/nfl/texans-azeez-al-shaair-injured-reserve-henry-tootoo-colts",
      "team": "HOU",
-     "text": "LB Azeez Al-Shaair placed on IR for groin surgery; Henry To'oTo'o takes over at middle linebacker and wears the green-dot helmet.",
+     "text": "LB Azeez Al-Shaair is on IR after groin surgery; Henry To'oTo'o takes over at middle linebacker.",
      "total": 0,
      "type": "loss"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
-     "team": "HOU",
-     "text": "DE Danielle Hunter and WR Marvin Harrison Jr. (hamstrings) did not practice Monday or Tuesday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
-     "team": "IND",
-     "text": "Colts TE Will Mallory (hamstring) and DT Jerry Tillery (calf) also missed Monday and Tuesday practice.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
-     "team": "HOU",
-     "text": "RB Woody Marks (concussion) missed both practices; David Montgomery (groin) was a full participant.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
-     "team": "IND",
-     "text": "Tackles Bernhard Raimann and Jalen Travis and CBs Sauce Gardner and Charvarius Ward did not practice Monday or Tuesday.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
-     "team": "IND",
-     "text": "T Charlie Heck missed Tuesday's practice for a personal reason.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
      "at": "2026-11-18T12:00:00Z",
      "impact": 0,
-     "src": "https://athlonsports.com/nfl/texans-azeez-al-shaair-injured-reserve-henry-tootoo-colts",
+     "src": "https://www.si.com/nfl/texans/onsi/texans-rule-out-4-players-on-final-injury-report-for-tnf-vs-colts",
+     "team": "IND",
+     "text": "Ruled out: tackles Bernhard Raimann and Jalen Travis, CB Charvarius Ward, DT Jerry Tillery, TE Will Mallory. CB Sauce Gardner questionable.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-19T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thebiglead.com/texans-injury-blow-week-11-tnf-3-players-out/",
      "team": "HOU",
-     "text": "Houston is the first team in 50 years to lose five games in the final two minutes while leading or tied.",
+     "text": "Houston calls it a must-win to keep playoff hopes alive after losing to Cleveland; five of its losses came in the final two minutes.",
      "total": 0,
      "type": "motivation"
     },
     {
-     "at": "2026-11-15T12:00:00Z",
+     "at": "2026-11-16T12:00:00Z",
      "impact": 0,
      "src": "https://www.nfl.com/news/2026-nfl-season-week-10-what-we-learned-from-sunday-s-games",
      "team": "IND",
-     "text": "Indianapolis beat Miami 24-22 for its first win since Week 4.",
+     "text": "Indianapolis beat Miami 24-22 last week for its first win since Week 4.",
      "total": 0,
      "type": "other"
     }
@@ -3673,19 +3660,19 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Week 11 Injury Report: Texans vs. Colts",
-     "u": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts"
+     "t": "Texans Rule Out 4 Players on Final Injury Report for TNF vs. Colts",
+     "u": "https://www.si.com/nfl/texans/onsi/texans-rule-out-4-players-on-final-injury-report-for-tnf-vs-colts"
     },
     {
-     "t": "Texans Suffer Another Loss After Azeez Al-Shaair News Before Colts Game",
+     "t": "Texans dealt devastating injury blow ahead of must-win Thursday Night Football game",
+     "u": "https://www.thebiglead.com/texans-injury-blow-week-11-tnf-3-players-out/"
+    },
+    {
+     "t": "Texans place Azeez Al-Shaair on injured reserve",
      "u": "https://athlonsports.com/nfl/texans-azeez-al-shaair-injured-reserve-henry-tootoo-colts"
-    },
-    {
-     "t": "2026 NFL season, Week 10: What We Learned from Sunday's games",
-     "u": "https://www.nfl.com/news/2026-nfl-season-week-10-what-we-learned-from-sunday-s-games"
     }
    ],
-   "summary": "A short-week AFC South game on Thursday night. The Texans (3-6) put Azeez Al-Shaair on injured reserve, and Danielle Hunter and Marvin Harrison Jr. missed both Monday and Tuesday practice. The Colts (3-7) are thin at tackle and cornerback: Raimann, Travis, Gardner and Ward all sat out both days."
+   "summary": "A must-win Thursday night for the 3-6 Texans, who rule out Danielle Hunter, Marvin Harrison Jr. and Woody Marks but expect David Montgomery back after four missed games. The 3-7 Colts are without both starting tackles, Raimann and Travis, and CB Charvarius Ward, with Sauce Gardner questionable."
   },
   "nfl_2026_11_JAX_NYG": {
    "at": "2026-11-19T00:06:27Z",
@@ -3768,6 +3755,51 @@
     }
    ],
    "summary": "Miami turns again to Kyle McCord, who moved into the starting job after Malik Willis went to injured reserve with a worsening groin injury and showed promise in his first NFL start. Buffalo hosts with a long list of questionable defensive backs, plus tight end Dalton Kincaid."
+  },
+  "nfl_2026_11_MIN_SF": {
+   "at": "2026-11-19T17:07:26Z",
+   "game": "MIN @ SF",
+   "items": [
+    {
+     "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.vikings.com/news/49ers-injury-report-week-11-2026-nfl-season",
+     "team": "MIN",
+     "text": "QB Kyler Murray (hamstring) did not practice Wednesday; Kirk Cousins is in line to start again.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.vikings.com/news/49ers-injury-report-week-11-2026-nfl-season",
+     "team": "MIN",
+     "text": "WR Jordan Addison is out after thumb surgery. LB Blake Cashman (concussion) practiced fully; Van Ginkel and Hockenson were limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thefantasyfootballers.com/news/648179/mike-evans-poised-to-practice-this-week/",
+     "team": "SF",
+     "text": "WR Mike Evans (Achilles tendinitis) has missed three games; Shanahan hoped he would practice this week, but he sat out Wednesday.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Initial Vikings at 49ers Injury Report for Week 11 of 2026",
+     "u": "https://www.vikings.com/news/49ers-injury-report-week-11-2026-nfl-season"
+    },
+    {
+     "t": "Mike Evans poised to practice this week",
+     "u": "https://www.thefantasyfootballers.com/news/648179/mike-evans-poised-to-practice-this-week/"
+    }
+   ],
+   "summary": "Kirk Cousins looks set to keep starting for Minnesota, with Kyler Murray (hamstring) missing Wednesday practice. The Vikings get healthier elsewhere: Blake Cashman practiced fully, while Jordan Addison is out after thumb surgery. San Francisco hopes Mike Evans returns from Achilles tendinitis after three missed games."
   },
   "nfl_2026_11_NO_CHI": {
    "at": "2026-11-19T00:06:27Z",
@@ -3943,8 +3975,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-19T00:08:00Z",
+  "at": "2026-11-19T17:08:00Z",
   "games": 12,
-  "note": "Week 11 NFL Sunday slate added, IND@HOU refreshed, Newcastle v Arsenal added; NBA and other EPL not due."
+  "note": "IND@HOU refreshed, MIN@SF added, tonight's 4 NBA games added, 6 Saturday EPL matches refreshed."
  }
 }
