@@ -126,6 +126,69 @@
    ],
    "summary": "Villa face a doubt at right-back: Matty Cash must pass concussion protocols, while Aaron Wan-Bissaka is close to a return. Johan Manzambi also has calf pain. Sunderland could be without captain Granit Xhaka (calf) and Brian Brobbey (hamstring), and Dan Ballard is still out."
   },
+  "epl_401879232": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "Newcastle v Arsenal",
+   "items": [
+    {
+     "at": null,
+     "impact": -0.15,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/injury-news/injuries-and-suspensions/saka-zubimendi-latest-arsenal-injury-suspension-list-vs-newcastle_609267.html",
+     "team": "Arsenal",
+     "text": "Bukayo Saka (quad) is out until early December.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": -0.05,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/injury-news/injuries-and-suspensions/saka-zubimendi-latest-arsenal-injury-suspension-list-vs-newcastle_609267.html",
+     "team": "Arsenal",
+     "text": "Martin Zubimendi is a major doubt with a hamstring injury picked up with Spain.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://www.sportsmole.co.uk/football/arsenal/injury-news/injuries-and-suspensions/saka-zubimendi-latest-arsenal-injury-suspension-list-vs-newcastle_609267.html",
+     "team": "Arsenal",
+     "text": "Max Dowman serves a domestic ban from his EFL Cup red card.",
+     "total": 0,
+     "type": "suspension"
+    },
+    {
+     "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://readarsenal.com/2026/11/18/arsenal-newcastle-team-news-joelinton-injury/",
+     "team": "Newcastle",
+     "text": "Joelinton (thigh) is out, awaiting a scan; he has played only three league games this season.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-18T12:00:00Z",
+     "impact": 0,
+     "src": "https://readarsenal.com/2026/11/18/arsenal-newcastle-team-news-joelinton-injury/",
+     "team": "Newcastle",
+     "text": "Willock and Nico González should be fit after illness; Jacob Ramsey is back from suspension.",
+     "total": 0,
+     "type": "return"
+    }
+   ],
+   "lg": "epl",
+   "sources": [
+    {
+     "t": "Arsenal injury, suspension list and return dates vs. Newcastle: Bukayo Saka, Martin Zubimendi latest",
+     "u": "https://www.sportsmole.co.uk/football/arsenal/injury-news/injuries-and-suspensions/saka-zubimendi-latest-arsenal-injury-suspension-list-vs-newcastle_609267.html"
+    },
+    {
+     "t": "Arsenal handed Newcastle boost",
+     "u": "https://readarsenal.com/2026/11/18/arsenal-newcastle-team-news-joelinton-injury/"
+    }
+   ],
+   "summary": "Arsenal travel to St James' Park without Bukayo Saka, out with a quad injury from the Champions League draw with Bayern, and with Martin Zubimendi a major doubt after a hamstring problem on Spain duty. Newcastle are without Joelinton (thigh), but Willock and Nico González should be over illness."
+  },
   "epl_401879233": {
    "at": "2026-11-18T17:08:05Z",
    "game": "Man City v Fulham",
@@ -3462,8 +3525,76 @@
    ],
    "summary": "A short-week NFC East game in a Giants White Out. The 5-2-1 Giants are nearly whole: J.J. McCarthy (hip) starts and RB Cam Skattebo is active after a one-game absence, with LB Malik Harrison and CB Paulson Adebo inactive. The 2-5-1 Commanders start Nick Allegretti at center for the concussed Lucas Patrick and remain thin at receiver."
   },
+  "nfl_2026_11_ARI_KC": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "ARI @ KC",
+   "items": [
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.azfamily.com/2026/11/12/third-string-qb-just-11-days-ago-cardinals-carson-beck-prepares-his-first-nfl-start/",
+     "team": "ARI",
+     "text": "Rookie Carson Beck starts again after Gardner Minshew's season-ending elbow injury and the Brissett trade.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-11T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.azfamily.com/2026/11/12/third-string-qb-just-11-days-ago-cardinals-carson-beck-prepares-his-first-nfl-start/",
+     "team": "ARI",
+     "text": "WRs Michael Wilson and Kendrick Bourne are out for the season; LT Paris Johnson Jr. remains out.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "A third-string QB just 11 days ago, Cardinals' Carson Beck prepares for his first NFL start",
+     "u": "https://www.azfamily.com/2026/11/12/third-string-qb-just-11-days-ago-cardinals-carson-beck-prepares-his-first-nfl-start/"
+    },
+    {
+     "t": "Carson Beck: Throws two picks in NFL debut",
+     "u": "https://www.thefantasyfootballers.com/news/648083/carson-beck-throws-two-picks-in-nfl-debut/"
+    }
+   ],
+   "summary": "Rookie Carson Beck makes his second start for Arizona after throwing two interceptions in his debut. The Cardinals lost Gardner Minshew for the season, traded Jacoby Brissett, and are thin at receiver with Michael Wilson and Kendrick Bourne out for the year."
+  },
+  "nfl_2026_11_BAL_CAR": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "BAL @ CAR",
+   "items": [
+    {
+     "at": "2026-11-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nfl/baltimore-ravens/ravens-news-lamar-jackson-injury-return-still-a-possibility-but-comes-with-jacoby-brissett-caveat",
+     "team": "BAL",
+     "text": "Lamar Jackson is on injured reserve after thumb surgery; a return later this season remains possible.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-07T12:00:00Z",
+     "impact": 0,
+     "src": "https://clutchpoints.com/nfl/baltimore-ravens/ravens-news-lamar-jackson-injury-return-still-a-possibility-but-comes-with-jacoby-brissett-caveat",
+     "team": "BAL",
+     "text": "Jacoby Brissett, acquired from Arizona on Nov. 6, remains the starting quarterback.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Ravens news: Lamar Jackson injury return still a possibility, but comes with Jacoby Brissett caveat",
+     "u": "https://clutchpoints.com/nfl/baltimore-ravens/ravens-news-lamar-jackson-injury-return-still-a-possibility-but-comes-with-jacoby-brissett-caveat"
+    }
+   ],
+   "summary": "Baltimore stays with Jacoby Brissett, acquired from Arizona before the deadline, while Lamar Jackson is on injured reserve after thumb surgery. A late-season return for Jackson is possible but depends on his recovery and on Brissett keeping the Ravens in the race."
+  },
   "nfl_2026_11_IND_HOU": {
-   "at": "2026-11-18T17:08:05Z",
+   "at": "2026-11-19T00:06:27Z",
    "game": "IND @ HOU",
    "items": [
     {
@@ -3481,6 +3612,15 @@
      "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
      "team": "HOU",
      "text": "DE Danielle Hunter and WR Marvin Harrison Jr. (hamstrings) did not practice Monday or Tuesday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.houstontexans.com/news/week-11-injury-report-texans-vs-colts",
+     "team": "IND",
+     "text": "Colts TE Will Mallory (hamstring) and DT Jerry Tillery (calf) also missed Monday and Tuesday practice.",
      "total": 0,
      "type": "injury"
     },
@@ -3546,11 +3686,265 @@
     }
    ],
    "summary": "A short-week AFC South game on Thursday night. The Texans (3-6) put Azeez Al-Shaair on injured reserve, and Danielle Hunter and Marvin Harrison Jr. missed both Monday and Tuesday practice. The Colts (3-7) are thin at tackle and cornerback: Raimann, Travis, Gardner and Ward all sat out both days."
+  },
+  "nfl_2026_11_JAX_NYG": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "JAX @ NYG",
+   "items": [
+    {
+     "at": "2026-11-02T12:00:00Z",
+     "impact": 0.2,
+     "src": "https://thescore.com/nfl/news/3650561",
+     "team": "JAX",
+     "text": "DT Jordan Davis, acquired from the Eagles for 1st- and 2nd-round picks, adds a run-stopping starter.",
+     "total": 0,
+     "type": "add"
+    },
+    {
+     "at": "2026-11-17T12:00:00Z",
+     "impact": 0,
+     "src": "https://northeasttimes.com/?p=166473",
+     "team": "NYG",
+     "text": "The Giants lead the NFC East.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Eagles trade Davis to Jags for 1st- and 2nd-round picks",
+     "u": "https://thescore.com/nfl/news/3650561"
+    }
+   ],
+   "summary": "The first-place Giants host Jacksonville. The Jaguars added defensive tackle Jordan Davis in a trade with Philadelphia for first- and second-round picks, adding a two-down run stuffer to their front."
+  },
+  "nfl_2026_11_LV_DEN": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "LV @ DEN",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://news3lv.com/sports/raiders-star-considered-day-to-day-after-leaving-game-with-injury-reports",
+     "team": "LV",
+     "text": "TE Brock Bowers (ankle) is day-to-day and expected to play.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Raiders star considered day-to-day after leaving game with injury: reports",
+     "u": "https://news3lv.com/sports/raiders-star-considered-day-to-day-after-leaving-game-with-injury-reports"
+    }
+   ],
+   "summary": "Rookie Fernando Mendoza leads Las Vegas into Denver. Tight end Brock Bowers left the loss to Seattle after 11 snaps with an ankle injury, but it isn't considered major and he is expected to play."
+  },
+  "nfl_2026_11_MIA_BUF": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "MIA @ BUF",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://cbs12.com/sports/dolphins-qb-malik-willis-to-ir-as-groin-injury-worsens-kyle-mccord-to-start-at-qb-miami-dolphins-malik-willis-malik-willis-injury-groin-injury-core-muscle-injury-injured-reserve-dolphins-quarterback-miami-dolphins-quarterback-nfl-nfl-news",
+     "team": "MIA",
+     "text": "Kyle McCord starts again at QB; Malik Willis is on injured reserve with a groin injury.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Dolphins QB Malik Willis to IR as groin injury worsens; Kyle McCord to start at QB",
+     "u": "https://cbs12.com/sports/dolphins-qb-malik-willis-to-ir-as-groin-injury-worsens-kyle-mccord-to-start-at-qb-miami-dolphins-malik-willis-malik-willis-injury-groin-injury-core-muscle-injury-injured-reserve-dolphins-quarterback-miami-dolphins-quarterback-nfl-nfl-news"
+    },
+    {
+     "t": "Dolphins backup Kyle McCord shows promise in first NFL start in place of the injured Malik Willis",
+     "u": "https://www.lanacion.com.ar/usa/dolphins-backup-kyle-mccord-shows-promise-in-first-nfl-start-in-place-of-the-injured-malik-willis-nid16112026/"
+    }
+   ],
+   "summary": "Miami turns again to Kyle McCord, who moved into the starting job after Malik Willis went to injured reserve with a worsening groin injury and showed promise in his first NFL start. Buffalo hosts with a long list of questionable defensive backs, plus tight end Dalton Kincaid."
+  },
+  "nfl_2026_11_NO_CHI": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "NO @ CHI",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://chicago.suntimes.com/bears/2026/11/16/bears-report-cb-kyler-gordon-out-for-monday-practice-wr-luther-burden-rb-kyle-monangai-active",
+     "team": "CHI",
+     "text": "CB Kyler Gordon (left arm) did not practice Monday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://chicago.suntimes.com/bears/2026/11/16/bears-report-cb-kyler-gordon-out-for-monday-practice-wr-luther-burden-rb-kyle-monangai-active",
+     "team": "CHI",
+     "text": "WR Luther Burden practiced after his concussion; RB Kyle Monangai, out since Oct. 4, practiced too.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": null,
+     "impact": 0,
+     "src": "https://chicago.suntimes.com/nfl/2026/11/15/bears-next-opponent-saints-fall-to-the-panthers-20-17",
+     "team": "NO",
+     "text": "C Erik McCoy and RT Taliese Fuaga are on the injury list as doubtful.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Bears report: CB Kyler Gordon out for Monday practice; WR Luther Burden, RB Kyle Monangai active",
+     "u": "https://chicago.suntimes.com/bears/2026/11/16/bears-report-cb-kyler-gordon-out-for-monday-practice-wr-luther-burden-rb-kyle-monangai-active"
+    },
+    {
+     "t": "Bears' next opponent: Saints fall to the Panthers 20-17",
+     "u": "https://chicago.suntimes.com/nfl/2026/11/15/bears-next-opponent-saints-fall-to-the-panthers-20-17"
+    }
+   ],
+   "summary": "The Saints arrive after a 20-17 loss to Carolina, with center Erik McCoy and tackle Taliese Fuaga doubtful. Chicago gets healthier: Luther Burden is back from a concussion and running back Kyle Monangai practiced, while cornerback Kyler Gordon sat out Monday with an arm injury."
+  },
+  "nfl_2026_11_NYJ_LAC": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "NYJ @ LAC",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tsn.ca/nfl/article/smith-remains-jets-qb1-despite-ankle-injury-coach-glenn-says-n1-50502082/",
+     "team": "NYJ",
+     "text": "QB Geno Smith (left ankle) is uncertain; rookie Cade Klubnik would start if he can't play.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Smith remains Jets QB1 despite ankle injury, coach Glenn says",
+     "u": "https://www.tsn.ca/nfl/article/smith-remains-jets-qb1-despite-ankle-injury-coach-glenn-says-n1-50502082/"
+    },
+    {
+     "t": "Geno Smith: Set for MRI on ankle",
+     "u": "https://www.thefantasyfootballers.com/news/648136/geno-smith-set-for-mri-on-ankle/"
+    }
+   ],
+   "summary": "Geno Smith hurt his left ankle in the 31-12 loss to Buffalo and his status is uncertain. Coach Aaron Glenn says Smith stays the starter if healthy; otherwise rookie Cade Klubnik, who struggled in relief, would make his first start."
+  },
+  "nfl_2026_11_PIT_PHI": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "PIT @ PHI",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://northeasttimes.com/?p=166473",
+     "team": "PHI",
+     "text": "No starting QB named as of Monday: Joe Milton, Tanner McKee or rookie Cole Payton.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://northeasttimes.com/?p=166473",
+     "team": "PHI",
+     "text": "Jalen Hurts (blood clots in lungs) is on IR and expected to miss the rest of the season.",
+     "total": 0,
+     "type": "loss"
+    },
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://northeasttimes.com/?p=166473",
+     "team": "PHI",
+     "text": "DT Jordan Davis was traded to Jacksonville; WR Hollywood Brown was waived.",
+     "total": 0,
+     "type": "loss"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Eagles Bye Is Over: Steelers Week Opens With Philadelphia 2-7 and 3.5 Games Back in the NFC East",
+     "u": "https://northeasttimes.com/?p=166473"
+    }
+   ],
+   "summary": "Philadelphia (2-7) has lost seven straight and has Jalen Hurts on injured reserve. The Eagles had not named a starter as of Monday: Joe Milton, Tanner McKee and rookie Cole Payton are the options. They also traded Jordan Davis and waived Hollywood Brown. Pittsburgh is 6-3."
+  },
+  "nfl_2026_11_TB_DET": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "TB @ DET",
+   "items": [
+    {
+     "at": "2026-11-15T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-injury-week-11",
+     "team": "TB",
+     "text": "QB Baker Mayfield (foot/ankle) is uncertain to play; injured reserve is off the table.",
+     "total": 0,
+     "type": "other"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "NFL Network: Buccaneers QB Baker Mayfield dealing with lower leg injury ahead of Week 11",
+     "u": "https://www.nfl.com/news/buccaneers-qb-baker-mayfield-injury-week-11"
+    }
+   ],
+   "summary": "Tampa Bay (3-6) comes off its bye unsure of Baker Mayfield, who hurt his foot and ankle against Chicago and spent the bye in a walking boot. If he can't go, the Bucs would lean even harder on a run game that already out-gains their passing."
+  },
+  "nfl_2026_11_TEN_DAL": {
+   "at": "2026-11-19T00:06:27Z",
+   "game": "TEN @ DAL",
+   "items": [
+    {
+     "at": "2026-11-16T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.thefantasyfootballers.com/news/648134/carnell-tate-expected-back-for-week-11/",
+     "team": "TEN",
+     "text": "Coach Robert Saleh is hopeful WR Carnell Tate (shoulder) returns after missing two games.",
+     "total": 0,
+     "type": "return"
+    },
+    {
+     "at": "2026-11-09T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.tsn.ca/nfl/article/schottenheimer-cowboys-will-be-without-te-ferguson-rb-goodson-for-multiple-weeks-n1-50436570/",
+     "team": "DAL",
+     "text": "TE Jake Ferguson (PCL/MCL sprain) is out for multiple weeks; Luke Schoonmaker fills in.",
+     "total": 0,
+     "type": "injury"
+    }
+   ],
+   "lg": "nfl",
+   "sources": [
+    {
+     "t": "Carnell Tate: Expected back for Week 11",
+     "u": "https://www.thefantasyfootballers.com/news/648134/carnell-tate-expected-back-for-week-11/"
+    },
+    {
+     "t": "Schottenheimer: Cowboys will be without TE Ferguson, RB Goodson for multiple weeks",
+     "u": "https://www.tsn.ca/nfl/article/schottenheimer-cowboys-will-be-without-te-ferguson-rb-goodson-for-multiple-weeks-n1-50436570/"
+    }
+   ],
+   "summary": "Tennessee hopes to get rookie receiver Carnell Tate back from a shoulder injury after two missed games. Dallas is without tight end Jake Ferguson, out for multiple weeks with a knee sprain, with Luke Schoonmaker filling in."
   }
  },
  "meta": {
-  "at": "2026-11-18T17:10:00Z",
-  "games": 19,
-  "note": "TNF IND @ HOU refreshed (Al-Shaair to IR); 12 Wednesday NBA games; 6 EPL matches after the international break."
+  "at": "2026-11-19T00:08:00Z",
+  "games": 12,
+  "note": "Week 11 NFL Sunday slate added, IND@HOU refreshed, Newcastle v Arsenal added; NBA and other EPL not due."
  }
 }
