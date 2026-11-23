@@ -120,12 +120,44 @@ def grade():
             ch, n = True, n + 1
         if ch:
             json.dump(rows, open(p, "w"), indent=0)
+    n += grade_nfl()
     print(f"graded {n} more legs")
 
 
+def grade_nfl():
+    """NFL legs, from the game logs the site's own page carries (season, week, then the stat columns)."""
+    paths = [p for p in sorted(glob.glob(os.path.join(LEDGER, "*.json"))) if any(r.get("lg") == "nfl" and "y" not in r for r in json.load(open(p)))]
+    if not paths:
+        return 0
+    D = chance.page_data(chance.site_file(chance.PAGES["nfl"]))
+    P, n = D["players"], 0
+    for p in paths:
+        rows, ch = json.load(open(p)), False
+        for r in rows:
+            if r.get("lg") != "nfl" or "y" in r:
+                continue
+            m = re.match(r"(\d{4})_(\d+)_", str(r.get("game") or ""))
+            hit = chance.find(P["players"], r["name"], r.get("team"))
+            if not m or not hit:
+                continue
+            g = [x for x in chance.nfl_log(hit[0]) if x[0] == int(m.group(1)) and x[1] == int(m.group(2))]
+            if g and g[0][chance.NFL_COL[r["stat"]]] is not None:
+                r["y"], ch, n = float(g[0][chance.NFL_COL[r["stat"]]]), True, n + 1
+        if ch:
+            json.dump(rows, open(p, "w"), indent=0)
+    return n
+
+
 def report():
-    rows = [r for p in sorted(glob.glob(os.path.join(LEDGER, "*.json"))) for r in json.load(open(p)) if "y" in r and r["y"] != r["line"]]
-    print(f"{len(rows)} graded legs on {len(glob.glob(os.path.join(LEDGER, '*.json')))} nights")
+    every = [r for p in sorted(glob.glob(os.path.join(LEDGER, "*.json"))) for r in json.load(open(p)) if "y" in r and r["y"] != r["line"]]
+    for lg in ("nba", "nfl"):
+        rows = [r for r in every if r.get("lg", "nba") == lg]
+        if rows:
+            print(f"\n=== {lg.upper()}: {len(rows)} graded legs")
+            _report(rows)
+
+
+def _report(rows):
     for label, pick in (("model", lambda r: (r["under"], r["over"])), ("fair", lambda r: (r.get("fair_under"), r.get("fair_over")))):
         print(f"\n{label}'s side, by the chance it stated:")
         for lo, hi in ((.5, .55), (.55, .6), (.6, .65), (.65, .7), (.7, .8), (.8, 1.01)):
