@@ -758,170 +758,66 @@
    ],
    "summary": "The Lakers remain without Austin Reaves, who is out again with a heel injury, so more falls on Luka Doncic. Sacramento has no new absences reported."
   },
-  "nba_401910002": {
-   "at": "2026-11-17T17:05:00Z",
-   "game": "NY @ TOR",
+  "nba_401909314": {
+   "at": "2026-11-24T17:05:07Z",
+   "game": "DET @ ORL",
    "items": [
     {
-     "at": "2026-11-15T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.tsn.ca/nba/article/barnes-available-for-raptors-vs-knicks-after-missing-last-four-games/",
-     "team": "TOR",
-     "text": "Scottie Barnes returned Sunday from a four-game groin absence and scored 30 points.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": null,
-     "team": "TOR",
-     "text": "Kawhi Leonard is listed out again for Toronto.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-15T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.tsn.ca/nba/article/barnes-available-for-raptors-vs-knicks-after-missing-last-four-games/",
-     "team": "TOR",
-     "text": "Toronto has lost four straight and 14 in a row to New York.",
-     "total": 0,
-     "type": "motivation"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Barnes available for Raptors vs. Knicks after missing last four games",
-     "u": "https://www.tsn.ca/nba/article/barnes-available-for-raptors-vs-knicks-after-missing-last-four-games/"
-    }
-   ],
-   "summary": "The second of two straight games in Toronto. The Knicks won Sunday's meeting 112-108 in overtime behind 28 points each from Jalen Brunson and Karl-Anthony Towns, their 14th straight win over the Raptors. Toronto (5-8) has lost four in a row but has Scottie Barnes back, while Kawhi Leonard remains out."
-  },
-  "nba_401910003": {
-   "at": "2026-11-17T17:05:00Z",
-   "game": "POR @ MIN",
-   "items": [
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.cbsnews.com/minnesota/news/timberwolves-portland-trail-blazers-shannon-gobert/",
-     "team": "MIN",
-     "text": "Anthony Edwards has missed 10 straight games recovering from arthroscopic knee surgery; Minnesota is 7-3 in that span.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.cbsnews.com/minnesota/news/timberwolves-portland-trail-blazers-shannon-gobert/",
-     "team": "MIN",
-     "text": "Terrence Shannon Jr. scored a career-high 34 in Monday's 106-98 win; LaMelo Ball shot 2 of 13.",
-     "total": 0,
-     "type": "other"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": null,
-     "team": "POR",
-     "text": "Ja Morant and Shaedon Sharpe are listed out for Portland.",
-     "total": 0,
-     "type": "injury"
-    }
-   ],
-   "lg": "nba",
-   "sources": [
-    {
-     "t": "Terrence Shannon Jr. scores career-high 34 points as Timberwolves beat Trail Blazers 106-98",
-     "u": "https://www.cbsnews.com/minnesota/news/timberwolves-portland-trail-blazers-shannon-gobert/"
-    }
-   ],
-   "summary": "A quick rematch at Target Center after Minnesota beat Portland 106-98 on Monday behind a career-high 34 from Terrence Shannon Jr. Anthony Edwards is still out after knee surgery, though the Wolves are 7-3 without him. Deni Avdija scored 27 for the Blazers, who are without Ja Morant and Shaedon Sharpe."
-  },
-  "nba_401910004": {
-   "at": "2026-11-17T17:05:00Z",
-   "game": "DET @ SA",
-   "items": [
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://sports.yahoo.com/articles/detroit-pistons-release-brutal-news-151437058.html",
+     "src": "https://fansided.com/nba/are-cade-cunningham-and-jalen-duren-playing-tonight-full-nba-injury-report-for-pistons-vs-magic",
      "team": "DET",
-     "text": "Jalen Duren (hamstring) and Duncan Robinson (quad) are out; Ron Holland II and Taurean Prince also out, Isaiah Joe doubtful.",
+     "text": "Cade Cunningham (knee) is listed probable and expected to play.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons",
-     "team": "SA",
-     "text": "De'Aaron Fox is expected back after sitting out Sunday's win over Utah.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons",
-     "team": "SA",
-     "text": "Tobias Harris (calf) remains out and could debut as early as December.",
+     "src": "https://fansided.com/nba/are-cade-cunningham-and-jalen-duren-playing-tonight-full-nba-injury-report-for-pistons-vs-magic",
+     "team": "DET",
+     "text": "C Jalen Duren (hamstring) remains out; he has played only two games this season. Duncan Robinson (quad) is also out.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-17T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons",
-     "team": "SA",
-     "text": "Dylan Harper scored a career-high 31 on Sunday as the Spurs extended their win streak to 12.",
+     "src": "https://fansided.com/nba/are-cade-cunningham-and-jalen-duren-playing-tonight-full-nba-injury-report-for-pistons-vs-magic",
+     "team": "ORL",
+     "text": "Paolo Banchero (ankle) is out.",
      "total": 0,
-     "type": "other"
+     "type": "injury"
     }
    ],
    "lg": "nba",
    "sources": [
     {
-     "t": "Detroit Pistons release brutal news in advance of matchup vs. Spurs",
-     "u": "https://sports.yahoo.com/articles/detroit-pistons-release-brutal-news-151437058.html"
-    },
-    {
-     "t": "The Slow March Continues: Preview, How to Watch Red-Hot Spurs Battle Pistons",
-     "u": "https://www.si.com/nba/spurs/onsi/the-slow-march-continues-preview-how-to-watch-red-hot-san-antonio-spurs-battle-pistons"
+     "t": "Are Cade Cunningham and Jalen Duren playing tonight? Full NBA injury report for Pistons vs. Magic (FanSided)",
+     "u": "https://fansided.com/nba/are-cade-cunningham-and-jalen-duren-playing-tonight-full-nba-injury-report-for-pistons-vs-magic"
     }
    ],
-   "summary": "San Antonio (12-2) puts an NBA-best 12-game win streak on the line against Detroit (8-4). Victor Wembanyama is averaging 28.6 points and De'Aaron Fox is expected back. The Pistons are short-handed: Jalen Duren and Duncan Robinson are out, leaving more on Cade Cunningham, Ausar Thompson and John Collins."
+   "summary": "An NBA Cup group game with both teams missing their big man or star: Detroit is again without C Jalen Duren (hamstring), who has played only two games, and Orlando without Paolo Banchero (ankle). Cade Cunningham is listed probable with a knee issue and expected to play."
   },
-  "nba_401910005": {
-   "at": "2026-11-17T17:05:00Z",
-   "game": "CHA @ LAL",
+  "nba_401909315": {
+   "at": "2026-11-24T17:05:07Z",
+   "game": "BOS @ WSH",
    "items": [
     {
-     "at": "2026-11-16T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.espn.com/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets",
-     "team": "LAL",
-     "text": "Austin Reaves (left heel bruise) is out a second straight game; Redick says he is improving daily.",
+     "src": "https://www.espn.com/nba/game/_/gameId/401909315/celtics-wizards",
+     "team": "BOS",
+     "text": "C Mitchell Robinson is out with an illness.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-16T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.espn.com/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets",
-     "team": "LAL",
-     "text": "Walker Kessler (lower leg soreness) is out.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": null,
-     "impact": 0,
-     "src": null,
-     "team": "CHA",
-     "text": "Kon Knueppel and Dennis Schroder are listed out for Charlotte.",
+     "src": "https://www.espn.com/nba/game/_/gameId/401909315/celtics-wizards",
+     "team": "WSH",
+     "text": "Justin Champagnie (foot) and Jamir Watkins (knee) are out long term; Reece Beekman (shoulder) and Tristan Vukcevic (hip) are also out.",
      "total": 0,
      "type": "injury"
     }
@@ -929,52 +825,52 @@
    "lg": "nba",
    "sources": [
     {
-     "t": "Lakers rule Reaves out again; Kessler also sidelined vs. Hornets",
-     "u": "https://www.espn.com/nba/story/_/id/50506501/lakers-rule-austin-reaves-walker-kessler-vs-hornets"
+     "t": "Celtics vs. Wizards (Nov 24, 2026) game page (ESPN)",
+     "u": "https://www.espn.com/nba/game/_/gameId/401909315/celtics-wizards"
     }
    ],
-   "summary": "The Lakers host Charlotte in the first of a back-to-back, again without Austin Reaves (heel bruise) and Walker Kessler (lower leg soreness). JJ Redick says Reaves is improving day to day. Luka Doncic carries the load; the Hornets are missing Kon Knueppel and Dennis Schroder."
+   "summary": "Boston (11-6) arrives on a four-game losing streak, while Washington (7-11) has won three in a row. The injury lists are light for the regulars: Boston is missing C Mitchell Robinson (illness), and Washington is without Justin Champagnie, Jamir Watkins, Reece Beekman and Tristan Vukcevic."
   },
-  "nba_401910006": {
-   "at": "2026-11-17T17:05:00Z",
-   "game": "UTAH @ LAC",
+  "nba_401909316": {
+   "at": "2026-11-24T17:05:07Z",
+   "game": "DAL @ DEN",
    "items": [
     {
-     "at": "2026-11-16T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
+     "impact": -0.1,
+     "src": "https://am1300thezone.iheart.com/content/2026-11-24-mavericks-vs-nuggets-injury-report-nov-24/",
+     "team": "DEN",
+     "text": "Julian Strawther is out with a knee injury.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/",
-     "team": "UTAH",
-     "text": "Lauri Markkanen and Jaren Jackson Jr. are out for Utah.",
+     "src": "https://am1300thezone.iheart.com/content/2026-11-24-mavericks-vs-nuggets-injury-report-nov-24/",
+     "team": "DAL",
+     "text": "P.J. Washington (shoulder) and Walter Clayton Jr. (knee) are day-to-day.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-16T12:00:00Z",
+     "at": "2026-11-24T12:00:00Z",
      "impact": 0,
-     "src": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/",
-     "team": "UTAH",
-     "text": "Utah has lost 12 straight and is still looking for its first road win; Will Hardy cited fatigue among young players.",
+     "src": "https://am1300thezone.iheart.com/content/2026-11-24-mavericks-vs-nuggets-injury-report-nov-24/",
+     "team": "DAL",
+     "text": "C Dereck Lively II (foot) remains out.",
      "total": 0,
-     "type": "motivation"
-    },
-    {
-     "at": "2026-11-16T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/",
-     "team": "LAC",
-     "text": "After a 1-7 start, the Clippers have won three of four and are seeking their first winning streak.",
-     "total": 0,
-     "type": "other"
+     "type": "injury"
     }
    ],
    "lg": "nba",
    "sources": [
     {
-     "t": "Jazz bring 12-game skid into matchup with suddenly hot Clippers",
-     "u": "https://www.921theticket.com/2026/11/16/jazz-bring-12-game-skid-into-matchup-with-suddenly-hot-clippers/"
+     "t": "Mavericks vs. Nuggets Injury Report (iHeart)",
+     "u": "https://am1300thezone.iheart.com/content/2026-11-24-mavericks-vs-nuggets-injury-report-nov-24/"
     }
    ],
-   "summary": "Utah brings a 12-game losing streak, six straight on the road, into Inglewood without Lauri Markkanen and Jaren Jackson Jr. The Clippers started 1-7 but have won three of four, and Darius Garland had 27 in Sunday's comeback win over Charlotte. Los Angeles is still without Brandon Ingram and Bradley Beal."
+   "summary": "Denver (10-5) hosts Dallas (10-7) in an NBA Cup group game. The Nuggets' only absence is Julian Strawther (knee), who is out. Dallas is without Dereck Lively II (foot), with P.J. Washington (shoulder) and Walter Clayton Jr. (knee) day-to-day."
   },
   "nba_401910007": {
    "at": "2026-11-18T17:08:05Z",
@@ -3567,42 +3463,42 @@
    "summary": "Micah Parsons has been medically cleared and is set for his season debut on a snap count, 347 days after tearing his ACL. LB Zaire Franklin and C Sean Rhyan, each out four games, are practicing on a limited basis, while Josh Jacobs (finger) is limited. The Rams are without Puka Nacua and Davante Adams, and linemen Steve Avila and Coleman Shelton are not practicing."
   },
   "nfl_2026_12_KC_BUF": {
-   "at": "2026-11-23T17:06:04Z",
+   "at": "2026-11-24T17:05:07Z",
    "game": "KC @ BUF",
    "items": [
     {
-     "at": "2026-11-22T12:00:00Z",
+     "at": "2026-11-23T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bills-vs-chiefs-injury-buffalo-121517497.html",
+     "src": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-12-bills/",
      "team": "KC",
-     "text": "RB Kenneth Walker III (groin) missed the last two games and every practice last week; his status for Thursday is uncertain.",
+     "text": "RB Kenneth Walker III (groin) missed Monday's practice after sitting the last two games; needs at least a limited session to have a chance to play.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-22T12:00:00Z",
+     "at": "2026-11-23T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bills-vs-chiefs-injury-buffalo-121517497.html",
+     "src": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-12-bills/",
      "team": "KC",
-     "text": "RG Trey Smith (concussion) missed the Arizona game and must clear the protocol; OL Jaylon Moore (ankle) and TE Noah Gray (ribs) also hurt.",
+     "text": "RG Trey Smith practiced fully after missing Week 11 with a concussion; OL Jaylon Moore (ankle) and TE Noah Gray (rib) did not practice.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-18T12:00:00Z",
+     "at": "2026-11-23T12:00:00Z",
      "impact": 0,
-     "src": "https://www.ky3.com/2026/11/18/groin-injury-keep-chiefs-kenneth-walker-practicing-wednesday/",
+     "src": "https://www.kmbc.com/article/chiefs-bills-thanksgiving-2026-nine-things-to-watch/74514572",
      "team": "KC",
-     "text": "Rookie RB Emmett Johnson has started with Walker out, with a 100-yard rushing game against Atlanta.",
+     "text": "Rookie RB Emmett Johnson has topped 100 rushing yards in consecutive starts with Walker out.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-11-22T12:00:00Z",
+     "at": "2026-11-23T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/bills-vs-chiefs-injury-buffalo-121517497.html",
+     "src": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-12-bills/",
      "team": "BUF",
-     "text": "TE Dalton Kincaid (thumb/ankle), CB Christian Benford (groin), LB Dorian Williams (calf) and DL T.J. Sanders (shoulder) all missed the Miami game.",
+     "text": "CB Christian Benford (groin) did not practice Monday; Dee Alford is next up. Kincaid, Rousseau, Torrence, D. Williams and Hamlin were limited.",
      "total": 0,
      "type": "injury"
     },
@@ -3614,20 +3510,33 @@
      "text": "WR Joshua Palmer is on injured reserve (hamstring) and cannot return before December 6.",
      "total": 0,
      "type": "injury"
+    },
+    {
+     "at": "2026-11-24T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.kmbc.com/article/chiefs-bills-thanksgiving-2026-nine-things-to-watch/74514572",
+     "team": "",
+     "text": "First place in the AFC is at stake: Buffalo (9-1, six straight wins) leads Kansas City (8-2, three straight wins by 22+) by one game.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
-     "t": "Bills vs. Chiefs injury update: Buffalo, Kansas City could get weapons back (Yahoo Sports)",
-     "u": "https://sports.yahoo.com/articles/bills-vs-chiefs-injury-buffalo-121517497.html"
+     "t": "Kansas City Chiefs' first injury report for Week 12 vs. Buffalo Bills (A to Z Sports)",
+     "u": "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-first-injury-report-week-12-bills/"
     },
     {
-     "t": "Groin injury to keep Chiefs' Kenneth Walker from practicing Wednesday (KY3)",
-     "u": "https://www.ky3.com/2026/11/18/groin-injury-keep-chiefs-kenneth-walker-practicing-wednesday/"
+     "t": "Chiefs vs. Bills: 9 things to watch in Thanksgiving night showdown (KMBC)",
+     "u": "https://www.kmbc.com/article/chiefs-bills-thanksgiving-2026-nine-things-to-watch/74514572"
+    },
+    {
+     "t": "Bills vs. Chiefs injury update (Yahoo Sports)",
+     "u": "https://sports.yahoo.com/articles/bills-vs-chiefs-injury-buffalo-121517497.html"
     }
    ],
-   "summary": "A banged-up Thanksgiving night meeting. Kansas City may again be without RB Kenneth Walker III (groin) and RG Trey Smith (concussion), with rookie Emmett Johnson filling in at running back. Buffalo is missing TE Dalton Kincaid, CB Christian Benford, LB Dorian Williams and DL T.J. Sanders, all of whom sat out against Miami."
+   "summary": "A Thanksgiving-night clash for AFC seeding: Buffalo (9-1) has won six straight and leads Kansas City (8-2) by a game. RB Kenneth Walker III (groin) sat out Monday's practice again, so rookie Emmett Johnson may start a third straight game; RG Trey Smith practiced fully after his concussion. Buffalo is without CB Christian Benford, with TE Dalton Kincaid and three other starters limited."
   },
   "nfl_2026_12_PHI_DAL": {
    "at": "2026-11-24T00:05:34Z",
@@ -3685,8 +3594,8 @@
   }
  },
  "meta": {
-  "at": "2026-11-24T00:06:00Z",
-  "games": 5,
-  "note": "Evening run: 5 NFL games (MNF inactives, Thanksgiving week, DEN @ PIT); NBA and EPL not due."
+  "at": "2026-11-24T17:08:00Z",
+  "games": 4,
+  "note": "Midday run: KC @ BUF refresh and three Tuesday NBA games; no EPL match within 72h."
  }
 }
