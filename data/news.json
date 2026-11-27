@@ -1,15 +1,15 @@
 {
  "docs": {
   "epl_401878752": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "Ipswich v Aston Villa",
    "items": [
     {
-     "at": "2026-11-23T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": -0.05,
-     "src": "https://thefalse9.com/2026/11/ipswich-news-today-23-november-2026.html",
+     "src": "https://www.livescore.com/en/news/football/premier-league/ipswich-town-vs-aston-villa-injury-news-as-2-ruled-out-and-2-doubts-claret-villans/",
      "team": "Ipswich",
-     "text": "Left-back Leif Davis rolled his ankle at Tottenham; Gary O'Neil is hopeful it is not serious.",
+     "text": "Left-back Leif Davis is a doubt with the ankle he hurt at Tottenham and needs assessing before the match.",
      "total": 0,
      "type": "injury"
     },
@@ -63,9 +63,13 @@
     {
      "t": "Aston Villa injury list for Ipswich clash",
      "u": "https://www.sportsmole.co.uk/football/aston-villa/injury-news/injuries-and-suspensions/onana-cash-ruggeri-latest-aston-villa-injury-list-for-ipswich-clash_609808.html"
+    },
+    {
+     "t": "Ipswich Town vs Aston Villa injury news",
+     "u": "https://www.livescore.com/en/news/football/premier-league/ipswich-town-vs-aston-villa-injury-news-as-2-ruled-out-and-2-doubts-claret-villans/"
     }
    ],
-   "summary": "Ipswich, winless in five and two points above the relegation zone, hope left-back Leif Davis shakes off an ankle knock from the 2-0 loss at Tottenham. Villa lost 1-0 at Galatasaray in the Champions League on Tuesday; Matty Cash is a minor doubt with concussion, Matteo Ruggeri is out and Amadou Onana is a long-term absentee."
+   "summary": "Ipswich, winless in five and two points above the drop zone, are waiting on left-back Leif Davis's ankle. Villa come off a 1-0 Champions League loss at Galatasaray on Tuesday; Matty Cash is going through concussion protocol, Matteo Ruggeri is out until December and Amadou Onana is out for the season."
   },
   "epl_401878754": {
    "at": "2026-11-20T17:10:00Z",
@@ -2442,73 +2446,6 @@
    ],
    "summary": "Cincinnati plays without RG Dalton Risner and S Kyle Dugger, both inactive; reserve Jalen Rivers starts at right guard. Joe Burrow starts after a midweek illness. Washington is expected to have RB Jacory Croskey-Merritt back from four games on IR, but CB Amik Robertson is inactive and Terry McLaurin remains on IR."
   },
-  "nfl_2026_11_IND_HOU": {
-   "at": "2026-11-20T00:05:55Z",
-   "game": "IND @ HOU",
-   "items": [
-    {
-     "at": "2026-11-19T12:00:00Z",
-     "impact": 0.4,
-     "src": "https://www.thebiglead.com/texans-injury-blow-week-11-tnf-3-players-out/",
-     "team": "HOU",
-     "text": "RB David Montgomery is expected back with no injury designation after missing four straight games with a groin injury.",
-     "total": 0,
-     "type": "return"
-    },
-    {
-     "at": "2026-11-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.colts.com/news/colts-announce-7-inactive-players-for-week-11-game-vs-houston-texans",
-     "team": "IND",
-     "text": "Inactive: CBs Sauce Gardner (calf) and Charvarius Ward, tackles Bernhard Raimann and Jalen Travis, TE Will Mallory, DT Jerry Tillery.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-18T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.si.com/nfl/texans/onsi/texans-rule-out-4-players-on-final-injury-report-for-tnf-vs-colts",
-     "team": "HOU",
-     "text": "Ruled out: DE Danielle Hunter and WR Marvin Harrison Jr. (hamstrings), RB Woody Marks (concussion), TE Brevin Jordan. G Wyatt Teller questionable.",
-     "total": 0,
-     "type": "injury"
-    },
-    {
-     "at": "2026-11-17T12:00:00Z",
-     "impact": 0,
-     "src": "https://athlonsports.com/nfl/texans-azeez-al-shaair-injured-reserve-henry-tootoo-colts",
-     "team": "HOU",
-     "text": "LB Azeez Al-Shaair is on IR after groin surgery; Henry To'oTo'o takes over at middle linebacker.",
-     "total": 0,
-     "type": "loss"
-    },
-    {
-     "at": "2026-11-19T12:00:00Z",
-     "impact": 0,
-     "src": "https://www.thebiglead.com/texans-injury-blow-week-11-tnf-3-players-out/",
-     "team": "HOU",
-     "text": "Houston calls it a must-win to keep playoff hopes alive after losing to Cleveland; five of its losses came in the final two minutes.",
-     "total": 0,
-     "type": "motivation"
-    }
-   ],
-   "lg": "nfl",
-   "sources": [
-    {
-     "t": "Colts announce 7 inactive players for Week 11 game vs. Houston Texans",
-     "u": "https://www.colts.com/news/colts-announce-7-inactive-players-for-week-11-game-vs-houston-texans"
-    },
-    {
-     "t": "Texans dealt devastating injury blow ahead of must-win Thursday Night Football game",
-     "u": "https://www.thebiglead.com/texans-injury-blow-week-11-tnf-3-players-out/"
-    },
-    {
-     "t": "Texans Rule Out 4 Players on Final Injury Report for TNF vs. Colts",
-     "u": "https://www.si.com/nfl/texans/onsi/texans-rule-out-4-players-on-final-injury-report-for-tnf-vs-colts"
-    }
-   ],
-   "summary": "A must-win Thursday night for the 3-6 Texans, who are without Danielle Hunter, Marvin Harrison Jr. and Woody Marks but expect David Montgomery back after four missed games. The 3-7 Colts are inactive at both starting tackles and both top corners, Sauce Gardner and Charvarius Ward."
-  },
   "nfl_2026_11_JAX_NYG": {
    "at": "2026-11-22T17:06:00Z",
    "game": "JAX @ NYG",
@@ -3114,15 +3051,24 @@
    "summary": "Tennessee expects rookie WR Carnell Tate back from a shoulder injury that cost him two games, but RB Tyjae Spears went to injured reserve. Dallas is badly hit: TE Jake Ferguson, G Tyler Booker, S P.J. Locke and WR Jonathan Mingo are inactive and CB DaRon Bland is on injured reserve."
   },
   "nfl_2026_12_ATL_MIN": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "ATL @ MIN",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.atlantafalcons.com/news/falcons-injury-report-matthew-bergeron-demarcco-hellams-vikings",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "ATL",
-     "text": "G Matthew Bergeron, WRs Jahan Dotson and Zachariah Branch, DB Billy Bowman Jr. and S DeMarcco Hellams did not practice.",
+     "text": "WRs Jahan Dotson and Zachariah Branch, G Matthew Bergeron, DB Billy Bowman Jr. and S DeMarcco Hellams missed Thursday's practice.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
+     "team": "MIN",
+     "text": "WR Jordan Addison (thumb), LT Christian Darrisaw (shoulder) and CB Isaiah Rodgers (thigh) missed Thursday's practice.",
      "total": 0,
      "type": "injury"
     },
@@ -3134,10 +3080,27 @@
      "text": "The Vikings traded for Kirk Cousins from the Raiders on Nov. 10.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-11-25T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/kyler-murray-listed-as-limited-in-vikings-practice",
+     "team": "MIN",
+     "text": "QB Kyler Murray (hamstring), out three weeks, was limited; Cousins remains the starter.",
+     "total": 0,
+     "type": "other"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
+    },
+    {
+     "t": "Kyler Murray listed as limited in Vikings practice",
+     "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/kyler-murray-listed-as-limited-in-vikings-practice"
+    },
     {
      "t": "Falcons injury report: Bergeron, Hellams miss first practice",
      "u": "https://www.atlantafalcons.com/news/falcons-injury-report-matthew-bergeron-demarcco-hellams-vikings"
@@ -3147,18 +3110,18 @@
      "u": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/vikings-announce-return-of-kirk-cousins"
     }
    ],
-   "summary": "Minnesota reacquired Kirk Cousins from the Raiders on Nov. 10, and he is the starter. Atlanta had G Matthew Bergeron, WRs Jahan Dotson and Zachariah Branch, DB Billy Bowman Jr. and S DeMarcco Hellams sit out Wednesday's practice."
+   "summary": "Kirk Cousins, reacquired Nov. 10, starts for Minnesota (7-3); Kyler Murray was limited in practice with a hamstring injury. The Vikings missed WR Jordan Addison, LT Christian Darrisaw and CB Isaiah Rodgers at practice. Atlanta (3-7) again held out WRs Jahan Dotson and Zachariah Branch, G Matthew Bergeron and DB Billy Bowman Jr."
   },
   "nfl_2026_12_BAL_HOU": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "BAL @ HOU",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://infonews.ca/news/7994322/ryans-says-texans-are-focused-on-winning-each-week-as-ravens-limp-in-on-6-game-skid-without-jackson/",
+     "src": "https://sports.yahoo.com/nfl/articles/ravens-encouraging-injury-news-derrick-213754874.html",
      "team": "BAL",
-     "text": "Lamar Jackson and Tyler Huntley are on IR; Derrick Henry is in the concussion protocol but expected to play.",
+     "text": "RB Derrick Henry (concussion) and WR Zay Flowers (ankle) were full Thursday; DT Nnamdi Madubuike (hamstring) missed a second practice.",
      "total": 0,
      "type": "injury"
     },
@@ -3172,23 +3135,31 @@
      "type": "motivation"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://infonews.ca/news/7994322/ryans-says-texans-are-focused-on-winning-each-week-as-ravens-limp-in-on-6-game-skid-without-jackson/",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "HOU",
-     "text": "RB David Montgomery returned last week from a groin injury that cost him four games.",
+     "text": "DE Danielle Hunter (hamstring), WR Kayshon Boutte, TE Brevin Jordan and C Keylan Rutledge missed Thursday's practice.",
      "total": 0,
-     "type": "other"
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
+     "t": "Ravens get encouraging injury news on Derrick Henry, Zay Flowers",
+     "u": "https://sports.yahoo.com/nfl/articles/ravens-encouraging-injury-news-derrick-213754874.html"
+    },
+    {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
+    },
+    {
      "t": "Ryans says Texans focused on winning as Ravens limp in on 6-game skid",
      "u": "https://infonews.ca/news/7994322/ryans-says-texans-are-focused-on-winning-each-week-as-ravens-limp-in-on-6-game-skid-without-jackson/"
     }
    ],
-   "summary": "Baltimore (4-7) has lost six straight without Lamar Jackson; Jacoby Brissett, acquired Nov. 6, has topped 275 passing yards in both starts but lost both narrowly. Derrick Henry is in the concussion protocol, though Jesse Minter expects him to play. Houston (4-6) beat Indianapolis 26-3 last week."
+   "summary": "Baltimore (4-7) has lost six straight without Lamar Jackson, with Jacoby Brissett at quarterback. Derrick Henry (concussion) and Zay Flowers (ankle) practiced fully Thursday, but DT Nnamdi Madubuike missed a second day. Houston (4-6) held out DE Danielle Hunter, WR Kayshon Boutte and C Keylan Rutledge."
   },
   "nfl_2026_12_CHI_DET": {
    "at": "2026-11-26T17:06:09Z",
@@ -3266,7 +3237,7 @@
    "summary": "A Thanksgiving meeting of 8-2 NFC North leaders: Chicago has won five straight and Detroit six. The Bears are without CB Kyler Gordon, S Elijah Hicks and RB Roschon Johnson, but CB Tyrique Stevenson plays. Detroit's inactives are all defenders, including DJ Wonnum and Chuck Clark, while S Kerby Joseph, CB D.J. Reed and TE Sam LaPorta are available."
   },
   "nfl_2026_12_DEN_PIT": {
-   "at": "2026-11-26T17:06:09Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "DEN @ PIT",
    "items": [
     {
@@ -3288,29 +3259,29 @@
      "type": "other"
     },
     {
-     "at": "2026-11-24T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0.4,
-     "src": "https://www.steelers.com/news/week-12-injury-report-broncos-x3630",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "PIT",
-     "text": "WR Michael Pittman Jr., out since Week 4 (foot), practiced fully; McCarthy is 'very confident' he plays.",
+     "text": "WR Michael Pittman Jr., out since Week 4 (foot), was activated off injured reserve with no game designation.",
      "total": 0,
      "type": "return"
     },
     {
-     "at": "2026-11-24T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.steelers.com/news/week-12-injury-report-broncos-x3630",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "PIT",
-     "text": "OLB Alex Highsmith (ankle) did not practice and is unlikely to play; OLB Nick Herbig (hip, ribs) was limited.",
+     "text": "Ruled out: OLB Alex Highsmith (ankle) and G Gennings Dunker (knee); LB Cole Holcomb (heel) is questionable. WR Ben Skowronek went on IR.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.denverbroncos.com/news/injuryreport/injury-report-s-brandon-jones-among-broncos-to-remain-full-practice-participants-ahead-of-week-12-game-vs-steelers-2-players-ruled-out",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "DEN",
-     "text": "S Taylor Rapp (quad) and DE Sai'vion Jones (hamstring) are out; S Brandon Jones (hamstring) practiced fully.",
+     "text": "Ruled out: S Taylor Rapp (quad); DE Sai'vion Jones went on IR. RB Tyler Badie (thumb) is questionable.",
      "total": 0,
      "type": "injury"
     }
@@ -3332,9 +3303,13 @@
     {
      "t": "Injury Report: Broncos remain full participants ahead of Week 12 game vs. Steelers, 2 players ruled out",
      "u": "https://www.denverbroncos.com/news/injuryreport/injury-report-s-brandon-jones-among-broncos-to-remain-full-practice-participants-ahead-of-week-12-game-vs-steelers-2-players-ruled-out"
+    },
+    {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
     }
    ],
-   "summary": "Pittsburgh (6-4) benched Aaron Rodgers for Mason Rudolph, then released Rodgers after he criticized Mike McCarthy on the Pat McAfee Show. WR Michael Pittman Jr. is expected back from a foot injury, but OLB Alex Highsmith is unlikely to play on the short week. Denver ruled out S Taylor Rapp and DE Sai'vion Jones; S Brandon Jones practiced fully."
+   "summary": "Pittsburgh (6-4) turns to Mason Rudolph after releasing Aaron Rodgers, who criticized Mike McCarthy a day after being benched. WR Michael Pittman Jr. was activated off injured reserve, but OLB Alex Highsmith and G Gennings Dunker are out. Denver (8-2) is without S Taylor Rapp and DE Sai'vion Jones, now on IR; RB Tyler Badie is questionable."
   },
   "nfl_2026_12_GB_LA": {
    "at": "2026-11-26T00:09:08Z",
@@ -3404,7 +3379,7 @@
    "summary": "Micah Parsons is active for his season debut after last December's torn ACL, and C Sean Rhyan is back after missing three games. Green Bay is without RB Josh Jacobs and LB Zaire Franklin. The Rams are missing WRs Puka Nacua and Davante Adams, and linemen Steve Avila and Coleman Shelton are ruled out."
   },
   "nfl_2026_12_KC_BUF": {
-   "at": "2026-11-26T17:06:09Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "KC @ BUF",
    "items": [
     {
@@ -3435,11 +3410,11 @@
      "type": "other"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T23:55:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/nfl/articles/bills-thanksgiving-injury-report-5-190026800.html",
+     "src": "https://sports.yahoo.com/nfl/live/chiefs-bills-score-live-updates-inactives-highlights-stats-where-to-watch-week-12-thanksgiving-235500403.html",
      "team": "BUF",
-     "text": "Questionable: CB Christian Benford, TE Dalton Kincaid, DT T.J. Sanders, G O'Cyrus Torrence, LB Dorian Williams; Kincaid, Sanders, Williams sat last week.",
+     "text": "Inactive: CB Christian Benford, OLB Mike Danna, DL Greg Gaines, T/G Jude Bowry, WR Skyler Bell, S Jalon Kilgore.",
      "total": 0,
      "type": "injury"
     },
@@ -3466,9 +3441,13 @@
     {
      "t": "Bills' Thanksgiving injury report: 5 players questionable vs. Chiefs",
      "u": "https://sports.yahoo.com/nfl/articles/bills-thanksgiving-injury-report-5-190026800.html"
+    },
+    {
+     "t": "Chiefs vs. Bills live updates, inactives",
+     "u": "https://sports.yahoo.com/nfl/live/chiefs-bills-score-live-updates-inactives-highlights-stats-where-to-watch-week-12-thanksgiving-235500403.html"
     }
    ],
-   "summary": "A Thanksgiving-night clash for first place in the AFC: Buffalo (9-1) leads Kansas City (8-2) by a game. The Chiefs ruled out RB Kenneth Walker III, RT Jaylon Moore and DT Omarr Norman-Lott, but RG Trey Smith is set to return from a concussion. Buffalo lists CB Christian Benford and four others as questionable."
+   "summary": "A Thanksgiving-night fight for first in the AFC: Buffalo (9-1) leads Kansas City (8-2) by a game. The Chiefs are without RB Kenneth Walker III, RT Jaylon Moore and DT Omarr Norman-Lott, while RG Trey Smith returns from a concussion. Buffalo made CB Christian Benford inactive; TE Dalton Kincaid, G O'Cyrus Torrence and LB Dorian Williams are not among the inactives."
   },
   "nfl_2026_12_LV_CLE": {
    "at": "2026-11-26T17:06:09Z",
@@ -3516,38 +3495,64 @@
    "summary": "Rookie Fernando Mendoza makes his second start for Las Vegas after throwing for 267 yards and three touchdowns in a loss at Denver, though he has been sacked 11 times in two starts. TE Brock Bowers (ankle) was limited and Klint Kubiak is optimistic he plays. Cleveland had WR Denzel Boston, RG Austin Barber and DEs Isaiah McGuire and Derek Barnett miss Wednesday's practice."
   },
   "nfl_2026_12_NE_LAC": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "NE @ LAC",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.boltsfromtheblue.com/los-angeles-chargers-injuries/67334/chargers-injury-report-justin-herbert-patriots",
+     "src": "https://www.chargers.com/news/justin-herbert-akheem-mesidor-patriots-injury-report-2026",
      "team": "LAC",
-     "text": "QB Justin Herbert is in the concussion protocol and did not practice Wednesday.",
+     "text": "QB Justin Herbert (concussion) missed practice Wednesday and Thursday; QB Jake Browning was promoted to the active roster.",
      "total": 0,
      "type": "other"
+    },
+    {
+     "at": "2026-11-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chargers.com/news/justin-herbert-akheem-mesidor-patriots-injury-report-2026",
+     "team": "LAC",
+     "text": "LBs Tuli Tuipulotu and Daiyan Henley, CB Tarheeb Still, DL Dalvin Tomlinson and TE David Njoku did not practice Thursday.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.chargers.com/news/justin-herbert-akheem-mesidor-patriots-injury-report-2026",
+     "team": "NE",
+     "text": "WR A.J. Brown (hamstring) and CB Carlton Davis III (knee) did not practice; QB Drake Maye (fibula) remains out.",
+     "total": 0,
+     "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
     {
+     "t": "Chargers vs. Patriots Injury Report: Herbert, Tuipulotu among 9 who don't practice Thursday",
+     "u": "https://www.chargers.com/news/justin-herbert-akheem-mesidor-patriots-injury-report-2026"
+    },
+    {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
+    },
+    {
      "t": "Chargers injury report: Justin Herbert does not practice, remains in protocol",
      "u": "https://www.boltsfromtheblue.com/los-angeles-chargers-injuries/67334/chargers-injury-report-justin-herbert-patriots"
     }
    ],
-   "summary": "Chargers QB Justin Herbert remains in the concussion protocol and did not practice Wednesday, so his status for Sunday is uncertain. New England starts Tommy DeVito at quarterback."
+   "summary": "Chargers QB Justin Herbert (concussion) missed practice for a second straight day, and the team promoted QB Jake Browning to the active roster. Los Angeles (1-9) also held out eight others, including Tuli Tuipulotu and Tarheeb Still. New England (5-5) starts Tommy DeVito with Drake Maye out; WR A.J. Brown and CB Carlton Davis III did not practice."
   },
   "nfl_2026_12_NO_CIN": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "NO @ CIN",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.neworleanssaints.com/news/injury-report-cincinnati-bengals-vs-new-orleans-saints-2026-nfl-week-12-wednesday",
+     "src": "https://www.neworleanssaints.com/news/injury-report-cincinnati-bengals-vs-new-orleans-saints-2026-nfl-week-12-thursday",
      "team": "NO",
-     "text": "T Taliese Fuaga, C Erik McCoy, G David Edwards and T Asim Richards were limited Wednesday; TE Juwan Johnson did not practice.",
+     "text": "T Taliese Fuaga, T Asim Richards, G David Edwards and LB Pete Werner limited Thursday; TE Juwan Johnson did not practice; C Erik McCoy full.",
      "total": 0,
      "type": "injury"
     },
@@ -3561,11 +3566,11 @@
      "type": "injury"
     },
     {
-     "at": null,
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://wire.report/article/tyler-shough-addresses-joe-burrow-during-wednesday-media-session-2026-11-25",
+     "src": "https://www.neworleanssaints.com/news/injury-report-cincinnati-bengals-vs-new-orleans-saints-2026-nfl-week-12-thursday",
      "team": "CIN",
-     "text": "WR Andrei Iosivas (thumb) and TE Erick All Jr. are on injured reserve.",
+     "text": "WR Andrei Iosivas (thumb, IR) practiced fully; his activation is not confirmed. G Dalton Risner (knee) did not practice.",
      "total": 0,
      "type": "injury"
     }
@@ -3573,44 +3578,44 @@
    "lg": "nfl",
    "sources": [
     {
-     "t": "Saints Wednesday Injury Report: Week 12 vs. Bengals",
-     "u": "https://www.neworleanssaints.com/news/injury-report-cincinnati-bengals-vs-new-orleans-saints-2026-nfl-week-12-wednesday"
+     "t": "Saints Thursday Injury Report: 2026 Week 12 vs. Cincinnati Bengals",
+     "u": "https://www.neworleanssaints.com/news/injury-report-cincinnati-bengals-vs-new-orleans-saints-2026-nfl-week-12-thursday"
     },
     {
      "t": "Saints at Bengals team report",
      "u": "https://wire.report/article/tyler-shough-addresses-joe-burrow-during-wednesday-media-session-2026-11-25"
     }
    ],
-   "summary": "The Saints' offensive line is banged up: tackles Taliese Fuaga and Asim Richards, C Erik McCoy and G David Edwards were all limited Wednesday, and TE Juwan Johnson did not practice. New Orleans also has DTs Bryan Bresee and Christen Miller on injured reserve. Cincinnati is without WR Andrei Iosivas."
+   "summary": "New Orleans (3-7) brings a banged-up offensive line to Cincinnati (7-3): tackles Taliese Fuaga and Asim Richards and G David Edwards were limited again Thursday, though C Erik McCoy practiced fully. TE Juwan Johnson has not practiced. For the Bengals, WR Andrei Iosivas practiced fully while on IR, and G Dalton Risner sat out."
   },
   "nfl_2026_12_NYG_IND": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "NYG @ IND",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.giants.com/news/injury-report-statuses-for-giants-vs-colts",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "NYG",
-     "text": "OLB Abdul Carter (ankle/calf), DL Shelby Harris and CB Dru Phillips (illness) did not practice Wednesday.",
+     "text": "OLB Abdul Carter (calf/illness), DL Shelby Harris and CB Dru Phillips (illness) missed practice again Thursday; TE Isaiah Likely limited.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.giants.com/news/injury-report-statuses-for-giants-vs-colts",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "IND",
-     "text": "OT Jalen Travis, CB Charvarius Ward, TEs Will Mallory and Andrew Ogletree and DT Jerry Tillery did not practice Wednesday.",
+     "text": "OT Jalen Travis, CB Charvarius Ward, DT Jerry Tillery and RB Seth McGowan missed Thursday's practice.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.giants.com/news/injury-report-statuses-for-giants-vs-colts",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "IND",
-     "text": "CB Cam Taylor-Britt (groin) was designated to return from injured reserve and practiced fully.",
+     "text": "CB Cam Taylor-Britt (groin) practiced fully in his window to return from injured reserve.",
      "total": 0,
      "type": "return"
     }
@@ -3618,14 +3623,18 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
+    },
+    {
      "t": "Injury Report: Statuses for Giants vs. Colts",
      "u": "https://www.giants.com/news/injury-report-statuses-for-giants-vs-colts"
     }
    ],
-   "summary": "The Giants (6-3-1) visit a depleted Colts team (3-8). Abdul Carter, Shelby Harris and Dru Phillips sat out Wednesday's practice. Indianapolis had seven players miss practice, including OT Jalen Travis and CB Charvarius Ward, while CB Cam Taylor-Britt practiced fully after being designated to return from injured reserve."
+   "summary": "The Giants (6-3-1) visit a depleted Colts team (3-8). Abdul Carter, Shelby Harris and Dru Phillips missed practice again Thursday with illness and calf issues. Indianapolis held out OT Jalen Travis, CB Charvarius Ward and DT Jerry Tillery, while CB Cam Taylor-Britt practiced fully in his return window from injured reserve."
   },
   "nfl_2026_12_NYJ_MIA": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "NYJ @ MIA",
    "items": [
     {
@@ -3638,11 +3647,29 @@
      "type": "other"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.newyorkjets.com/news/jets-head-to-miami-in-week-12-for-round-2-against-dolphins-11-25-2026",
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-12-vs-dolphins-thursday-11-26-2026",
      "team": "NYJ",
-     "text": "DL T'Vondre Sweat, out since Week 7 (knee), has opened a 21-day practice window.",
+     "text": "DL T'Vondre Sweat and David Onyemata practiced fully Wednesday and Thursday from IR; neither has been activated yet.",
+     "total": 0,
+     "type": "other"
+    },
+    {
+     "at": "2026-11-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://www.newyorkjets.com/news/jets-injury-report-week-12-vs-dolphins-thursday-11-26-2026",
+     "team": "NYJ",
+     "text": "WR Omar Cooper Jr. (ankle/groin) did not practice Thursday; DL Harrison Phillips was limited.",
+     "total": 0,
+     "type": "injury"
+    },
+    {
+     "at": "2026-11-26T12:00:00Z",
+     "impact": 0,
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
+     "team": "MIA",
+     "text": "CB Julius Brents and WR Jared Wayne missed practice; T Austin Jackson and S Dante Trader Jr. were limited.",
      "total": 0,
      "type": "injury"
     }
@@ -3650,11 +3677,19 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Jets vs. Dolphins Week 12 Injury Report - Thursday",
+     "u": "https://www.newyorkjets.com/news/jets-injury-report-week-12-vs-dolphins-thursday-11-26-2026"
+    },
+    {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
+    },
+    {
      "t": "Jets preparing for round 2 matchup with Dolphins",
      "u": "https://www.newyorkjets.com/news/jets-head-to-miami-in-week-12-for-round-2-against-dolphins-11-25-2026"
     }
    ],
-   "summary": "The Jets come in off a 27-24 win at the Chargers; Miami has not won since beating New York 28-25 in Week 7. Rookie Kyle McCord makes his third straight start with Malik Willis on injured reserve. Jets DL T'Vondre Sweat has opened his 21-day practice window."
+   "summary": "The Jets (3-8) come off a 27-24 win at the Chargers; Miami (1-9) has not won since beating New York in Week 7, and rookie Kyle McCord makes a third straight start. Jets DL T'Vondre Sweat and David Onyemata practiced fully in their IR return windows but have not been activated. WR Omar Cooper Jr. missed practice."
   },
   "nfl_2026_12_PHI_DAL": {
    "at": "2026-11-26T17:06:09Z",
@@ -3728,15 +3763,15 @@
    "summary": "Philadelphia (3-7) starts Joe Milton against his former team with Jalen Hurts out for the season. CB Quinyon Mitchell and Saquon Barkley have no designation; CB Jonathan Jones and OLB Arnold Ebiketie are out. Dallas gets S Jalen Thompson back from injured reserve and LBs Dee Winters and Jaishawn Barham are cleared, but TE Jake Ferguson and G Tyler Booker are out."
   },
   "nfl_2026_12_SEA_SF": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "SEA @ SF",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.espn.com/nfl/story/_/id/50596930/49ers-brock-purdy-ankle-injury-practice-wednesday",
+     "src": "https://sports.yahoo.com/nfl/articles/seahawks-49ers-thursday-injury-report-223329392.html",
      "team": "SF",
-     "text": "QB Brock Purdy (ankle) missed Wednesday's practice and is day-to-day; Mac Jones would start if he can't play.",
+     "text": "QB Brock Purdy (ankle) missed practice Wednesday and Thursday; Mac Jones would start if he can't play.",
      "total": 0,
      "type": "other"
     },
@@ -3759,26 +3794,30 @@
      "type": "injury"
     },
     {
-     "at": "2026-11-24T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://sports.yahoo.com/articles/seahawks-mike-macdonald-reveals-plan-013157109.html",
+     "src": "https://sports.yahoo.com/nfl/articles/seahawks-49ers-thursday-injury-report-223329392.html",
      "team": "SEA",
-     "text": "The plan is for QB Sam Darnold, out since Week 8 (quad, ribs), to start.",
+     "text": "QB Sam Darnold (quad, ribs), out since Week 8, practiced fully for a second straight day and is on track to start.",
      "total": 0,
      "type": "other"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://www.fieldgulls.com/seattle-seahawks-injury-report/180742/seahawks-injury-update-quenton-nelson-abe-lucas-ruled-out-49ers",
+     "src": "https://sports.yahoo.com/nfl/articles/seahawks-49ers-thursday-injury-report-223329392.html",
      "team": "SEA",
-     "text": "G Quenton Nelson and RT Abe Lucas are ruled out.",
+     "text": "G Quenton Nelson and RT Abe Lucas are ruled out; DL Jarran Reed (toe) missed practice again and is likely out.",
      "total": 0,
      "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "Seahawks-49ers Thursday injury report",
+     "u": "https://sports.yahoo.com/nfl/articles/seahawks-49ers-thursday-injury-report-223329392.html"
+    },
     {
      "t": "49ers' Brock Purdy has ankle injury, won't practice Wednesday",
      "u": "https://www.espn.com/nfl/story/_/id/50596930/49ers-brock-purdy-ankle-injury-practice-wednesday"
@@ -3792,10 +3831,10 @@
      "u": "https://www.fieldgulls.com/seattle-seahawks-injury-report/180742/seahawks-injury-update-quenton-nelson-abe-lucas-ruled-out-49ers"
     }
    ],
-   "summary": "Brock Purdy (ankle, not a high-ankle sprain) missed Wednesday's practice and is day-to-day; Mac Jones would start. Seattle plans to start Sam Darnold, back from quad and rib injuries, but has ruled out linemen Quenton Nelson and Abe Lucas. San Francisco (9-1) activated Nate Hobbs and lost RT Colton McKivitz to injured reserve."
+   "summary": "Brock Purdy (ankle) missed a second straight practice, so Mac Jones could start for San Francisco (9-1). Sam Darnold practiced fully again and is on track to start for Seattle (6-4), which has ruled out G Quenton Nelson and RT Abe Lucas; DL Jarran Reed is likely out. The 49ers activated Nate Hobbs and upgraded WR Mike Evans to limited."
   },
   "nfl_2026_12_TEN_JAX": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "TEN @ JAX",
    "items": [
     {
@@ -3808,26 +3847,30 @@
      "type": "return"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://bvmsports.com/2026/11/25/week-12-injury-report-titans-at-jaguars/",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "TEN",
-     "text": "T Dan Moore Jr. (knee) and CB Cor'Dale Flott (neck) did not practice; DL John Franklin-Myers was limited.",
+     "text": "CB Cor'Dale Flott (neck) and S Terrell Burgess (knee) missed Thursday's practice; T Dan Moore Jr. upgraded to limited.",
      "total": 0,
      "type": "injury"
     },
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://blackandteal.com/jaguars-injury-report-vs-titans-includes-bhayshul-tuten-but-it-s-not-bad-news-afc-south",
+     "src": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26",
      "team": "JAX",
-     "text": "RB Bhayshul Tuten is on the Jaguars' injury report.",
+     "text": "RB Bhayshul Tuten (ankle/foot) missed practice; WRs Jakobi Meyers and Parker Washington (shoulder) were limited.",
      "total": 0,
      "type": "injury"
     }
    ],
    "lg": "nfl",
    "sources": [
+    {
+     "t": "NFL news roundup: Latest league updates from Thursday, Nov. 26",
+     "u": "https://nfl.com/news/nfl-news-roundup-latest-league-updates-from-thursday-nov-26"
+    },
     {
      "t": "Week 12 Injury Report: Titans at Jaguars",
      "u": "https://bvmsports.com/2026/11/25/week-12-injury-report-titans-at-jaguars/"
@@ -3837,18 +3880,18 @@
      "u": "https://blackandteal.com/jaguars-injury-report-vs-titans-includes-bhayshul-tuten-but-it-s-not-bad-news-afc-south"
     }
    ],
-   "summary": "Tennessee G Fernando Carmona, on injured reserve since late September, was a full participant in practice, while T Dan Moore Jr. and CB Cor'Dale Flott did not practice. DL John Franklin-Myers was limited. Jacksonville listed RB Bhayshul Tuten on its report."
+   "summary": "Tennessee (1-9) visits Jacksonville (7-3). Titans CB Cor'Dale Flott and S Terrell Burgess missed practice Thursday, while T Dan Moore Jr. was upgraded to limited and G Fernando Carmona practiced fully in his IR return window. Jacksonville's RB Bhayshul Tuten sat out again and WR Jakobi Meyers was limited."
   },
   "nfl_2026_12_WAS_ARI": {
-   "at": "2026-11-26T00:09:08Z",
+   "at": "2026-11-27T00:06:34Z",
    "game": "WAS @ ARI",
    "items": [
     {
-     "at": "2026-11-25T12:00:00Z",
+     "at": "2026-11-26T12:00:00Z",
      "impact": 0,
-     "src": "https://arizonasports.com/nfl/arizona-cardinals/cardinals-carson-beck-not-practicing-wednesday-as-back-injury-remains-an-issue",
+     "src": "https://sports.yahoo.com/nfl/articles/cardinals-frustrating-carson-beck-commanders-215450396.html",
      "team": "ARI",
-     "text": "QB Carson Beck (back) did not practice and is day-to-day; Josh Johnson would start if he can't play.",
+     "text": "Josh Johnson is expected to start at QB; Carson Beck (back) missed practice again and is not expected to play.",
      "total": 0,
      "type": "other"
     },
@@ -3865,6 +3908,10 @@
    "lg": "nfl",
    "sources": [
     {
+     "t": "Cardinals have frustrating Carson Beck update before Commanders game",
+     "u": "https://sports.yahoo.com/nfl/articles/cardinals-frustrating-carson-beck-commanders-215450396.html"
+    },
+    {
      "t": "Cardinals' Carson Beck not practicing Wednesday",
      "u": "https://arizonasports.com/nfl/arizona-cardinals/cardinals-carson-beck-not-practicing-wednesday-as-back-injury-remains-an-issue"
     },
@@ -3873,12 +3920,12 @@
      "u": "https://sports.yahoo.com/nfl/articles/commanders-vs-cardinals-wednesday-injury-225319787.html"
     }
    ],
-   "summary": "Arizona's Carson Beck (back) did not practice Wednesday and is day-to-day; Josh Johnson, who started the 34-7 loss to the Chiefs, would start again. Gardner Minshew is on season-ending injured reserve. Washington's Stefon Diggs missed practice for personal reasons and CB Amik Robertson remains out."
+   "summary": "Arizona (3-8) is preparing Josh Johnson to start: rookie Carson Beck (back spasms) missed practice again Thursday and is not expected to play. Washington (4-5-1) held out CB Amik Robertson, and WR Stefon Diggs missed Wednesday for personal reasons."
   }
  },
  "meta": {
-  "at": "2026-11-26T17:30:00Z",
-  "games": 7,
-  "note": "Refreshed 4 Thu-Fri NFL games (CHI-DET inactives), added LV-CLE, 2 EPL matches (Awoniyi out, Thiago banned). No NBA games due."
+  "at": "2026-11-27T00:07:00Z",
+  "games": 12,
+  "note": "Refreshed 11 NFL games (Bills inactives, Pittman activated, Purdy/Herbert/Beck DNP) and Ipswich v Villa. No NBA games due."
  }
 }
